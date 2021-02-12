@@ -40,6 +40,15 @@ elapsedMillis display=0;
 uint16_t error_code=0;
 float preChargeAverage[ROLLING_AVERAGE_LEN];
 
+void loopMCHighVoltage(double voltage){
+    sending.id=MOTOR_MSG_1;
+    voltage=voltage*10;
+    memset(sending.buf,0,sizeof(sending.buf));
+    sending.buf[4]=voltage&0xFF;
+    sending.buf[5]=voltage>>8&0xFF;
+    CAN_loop.write(sending);
+}
+
 void setup() {
   //testing stuff for display
   tft.begin();
@@ -56,10 +65,10 @@ void setup() {
   //pre-charge begins
   pinMode(CONTACTOR, OUTPUT);
   pinMode(PRECHARGE_RELAY, OUTPUT);
-  int testVoltages[50]={0}; 
+  double testVoltages[50]={0}; 
   int precharge_voltage=72;
   for(int i=0;i<50;i++){
-    testVoltages=(i/50.0)*sqrt(precharge_voltage);
+    testVoltages[i]=(i/50.0)*sqrt(precharge_voltage);
   }
   bool testingCAN=true;
   //fills the rollingAverage array
@@ -89,7 +98,7 @@ void setup() {
      //Serial.println(average(preChargeAverage, ROLLING_AVERAGE_LEN));
      if(testingCAN){
       if(i<50){
-        loopMChighVoltage(testingVoltages[i]);
+        loopMCHighVoltage(testVoltages[i]);
       }
      }
      checkForUpdates();
@@ -176,7 +185,8 @@ bool digitalToggle(byte pin){
   return state;
 }
 
-void loopMCHighVoltage(int voltage){
+void loopMCHighVoltage(double volt){
+    int voltage =int(voltage);
     sending.id=MOTOR_MSG_1;
     voltage=voltage*10;
     memset(sending.buf,0,sizeof(sending.buf));
