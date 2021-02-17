@@ -1,207 +1,257 @@
+#include <circular_buffer.h>
+#include <FlexCAN_T4.h>
+#include <imxrt_flexcan.h>
+#include <kinetis_flexcan.h>
+
 #include <Adafruit_ILI9341.h>
 #include <Adafruit_GFX.h>
-#include <elapsedMillis.h>
-#include <FlexCAN_T4.h>
+#include <SPI.h>  
+#include <XPT2046_Touchscreen.h>
 
+#define TFT_CS 21 //The display chip select pin
+#define TFT_DC 19 // the display
+#define TFT_RST 20 //the display reset pin
 
-#define WHEEL_CIRCUMFERENCE 1 //for calculating speed
-#define GEAR_RATIO 1 //for calculating rpm
-#define MOTOR_MSG_1 0x0CF11E05 //motor controller message - CAN
-#define MOTOR_MSG_2 0x0CF11F05 // motor controller message - CAN
-#define LED_PIN 13 // pin for the teensy led (just for testing)
-#define STANDBY 20 // when true, turns off the connection to the can bus from the Teensy
-#define TFT_CS 10 //The display chip select pin
-#define TFT_DC 9 // the display
-#define TFT_RST 6 //the display reset pin
-#define UPDATE_FREQUENCY 10 //the update frequency for loops on the teensy in milliseconds
-#define ROLLING_AVERAGE_LEN 6 // the length of the array used for rolling average
-#define CONTACTOR 17 //digital pin for contactor control
-#define PRECHARGE_RELAY 18 //digital pin for pre-charge relay control
 
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 
-FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus; //access to can bus reading
-FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> CAN_loop;
+#define CS_PIN  15
+// MOSI=11, MISO=12, SCK=13
 
-CAN_message_t reading; // data is read into this from the can bus
-CAN_message_t sending; // for loopback
-//All of these represent the data returned to us from the CAN bus, we can remove these as fields later
-//and have them be directly passed to the display update/ error functions later
-float velocity=0;
-float current_used=0;
-float battery_voltage=0;
-float throttle=0;
-float controller_temperature=0;
-float motor_temperature=0;
-byte controller_status=0;
-byte switch_signals_status=0;
-//used for refreshing display
-elapsedMillis display=0;
-uint16_t error_code=0;
-float preChargeAverage[ROLLING_AVERAGE_LEN];
+// The TIRQ interrupt signal must be used for this example.
+#define TIRQ_PIN  2
+XPT2046_Touchscreen ts(CS_PIN, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
 
-void loopMCHighVoltage(double voltage){
-    sending.id=MOTOR_MSG_1;
-    voltage=voltage*10;
-    memset(sending.buf,0,sizeof(sending.buf));
-    sending.buf[4]=voltage&0xFF;
-    sending.buf[5]=voltage>>8&0xFF;
-    CAN_loop.write(sending);
-}
+
+// Just for testing*******
+int getMPH;
+int getVoltage;
+int getTemp;
+//************************
+bool ERROR_STATUS;
+int screen_Mode;
+int WIDTH;
+int HEIGHT;
+
+int TS_MINX = 327;
+int TS_MAXX = 3903;
+int TS_MINY = 243;
+int TS_MAXY = 3842;
 
 void setup() {
-  //testing stuff for display
-  tft.begin();
-  tft.fillScreen(ILI9341_BLACK);
-  //starts can bus
-   Serial.begin(9600);
-  CAN_bus.begin();
-  CAN_bus.setBaudRate(250000);
-  CAN_loop.begin();
-  CAN_loop.setBaudRate(250000);
-  pinMode(STANDBY,OUTPUT);
-  digitalWrite(STANDBY, LOW); // turns on the CAN bus transceivers
-  
-  //pre-charge begins
-  pinMode(CONTACTOR, OUTPUT);
-  pinMode(PRECHARGE_RELAY, OUTPUT);
-  double testVoltages[50]={0}; 
-  int precharge_voltage=72;
-  for(int i=0;i<50;i++){
-    testVoltages[i]=(i/50.0)*sqrt(precharge_voltage);
-  }
-  bool testingCAN=true;
-  //fills the rollingAverage array
-  float lastPrechargeVoltage=battery_voltage;
-  for(int i=0;i<ROLLING_AVERAGE_LEN;i++){
-    //fills the precharge average with voltages of 100 because it measures the difference in voltage from our battery so 100 is never possible
-    preChargeAverage[i]=100;
-  }
-  //start the pre-charge circuit
-  digitalWrite(CONTACTOR, LOW);
-  digitalWrite(PRECHARGE_RELAY, HIGH);
-  //the pre charge circuit continues to run until the change in battery voltage over time drops to below 2 volts
-  //and also if is positive, because turning on the bike while the motor controller capacitor still has charge causes it read negative average values
-  float rolAverage;
-  int i=0;
-  while((rolAverage=average(preChargeAverage, ROLLING_AVERAGE_LEN)>2) && rolAverage>0){
-     lastPrechargeVoltage=battery_voltage;
-     checkCAN();
-     if(lastPrechargeVoltage!=battery_voltage){ //if there is new data then shift the average by one data point
-      for(int i=0;i<ROLLING_AVERAGE_LEN-1;i++){
-          preChargeAverage[i]=preChargeAverage[i+1];
-          //will be changed to a percentage printed on the display
-          Serial.print(preChargeAverage[i]);Serial.print(":");Serial.println();
-     }
-        preChargeAverage[ROLLING_AVERAGE_LEN-1]=lastPrechargeVoltage-battery_voltage;
-     }
-     //Serial.println(average(preChargeAverage, ROLLING_AVERAGE_LEN));
-     if(testingCAN){
-      if(i<50){
-        loopMCHighVoltage(testVoltages[i]);
-      }
-     }
-     checkForUpdates();
-     delay(UPDATE_FREQUENCY);
-  }
-  //turn off pre-charging circuit
-  digitalWrite(CONTACTOR, HIGH);
-  digitalWrite(PRECHARGE_RELAY, LOW);
-  //this will be changed to a display message
-  Serial.println("DONE PRECHARGING");
-}
+    Serial.begin(9600);
 
-void checkForUpdates(){
-  if(display>=50){
-       updateDisplay();
-       display=0;
+    tft.begin();
+
+    // Just for testing*******
+    getMPH = 0;
+    getVoltage = 100;
+    getTemp = 90;
+    ERROR_STATUS = false; //*****Make True To Test Error Screen********
+    //************************
+
+    
+    tft.setRotation(1);
+
+    tft.fillScreen(ILI9341_WHITE);
+    
+    // eep touchscreen not found?
+    if (!ts.begin()) {
+      Serial.println("Couldn't start touchscreen controller");
+      while (1);
     }
+    ts.setRotation(1);
+    screen_Mode = 0;
+
+    HEIGHT = tft.height();
+    WIDTH = tft.width();
+  
+
+  
 }
 
 void loop() {
-    checkCAN();
-    //updates the display every 50 milliseconds
-    checkForUpdates();
-   delay(UPDATE_FREQUENCY);
-}
+  int h = HEIGHT;
+  int w = WIDTH;
+  
+  
+  
 
-//used for pre-charge
-float average(float arr[], int len){
-  float sum=0;
-  for(int i=0;i<len;i++){
-    sum+=arr[i];
+  errorScreen(ERROR_STATUS);
+
+  //Just for testing**********
+  if (getVoltage > 0) {
+    getMPH = getMPH + 10;
+    getVoltage = getVoltage - 10;
+    getTemp = getTemp + 10;
+  
+  } else {
+    getMPH = 0;
+    getVoltage = 100;
+    getTemp = 90;
   }
-  return sum/len;
-}
+  //**************************
 
-//checks the can bus for any new data (currenly only the motor controller messages)
-void checkCAN(){
-   if (CAN_bus.read(reading)!=0){ // if we read a message
-      if(reading.id==MOTOR_MSG_1){ //motor controller message
-        decipherMessageOne(reading); 
-      }else if(reading.id==MOTOR_MSG_2){ //motot controller message
-        decipherMessageTwo(reading);
-      }
+    if (ts.tirqTouched()) {
+    if (ts.touched()) {
+      TS_Point p = ts.getPoint();
+      touchButton(p);
     }
-}
-
-//haven't implemented display yet
-void updateDisplay(){
-  Serial.printf("vel: %.3f\n",velocity);
-  Serial.printf("current: %.3f\n",current_used);
-  Serial.printf("voltage: %.3f\n",battery_voltage);
-  Serial.printf("error: %x\n",error_code);
-  Serial.printf("throttle: %.3f\n", throttle);
-  Serial.printf("controller temp: %.3f 'C\n", controller_temperature);
-  Serial.printf("motor temp: %.3f 'C\n", motor_temperature);
-  Serial.printf("controller status: %x\n", controller_status);
-  Serial.printf("signals status: %x\n", switch_signals_status);
-}
-
-
-void decipherMessageOne(CAN_message_t msg){
-  velocity=RPMtoMPH((msg.buf[1]<<8)|msg.buf[0]);
-  current_used=((msg.buf[3]<<8)|msg.buf[2])/10.0;
-  battery_voltage=((msg.buf[5]<<8)|msg.buf[4])/10.0;
-  error_code=((msg.buf[7]<<8)|msg.buf[6]);
-}
-
-void decipherMessageTwo(CAN_message_t msg){
-  throttle=msg.buf[0]/255.0;
-  controller_temperature=msg.buf[1]-40;
-  motor_temperature=msg.buf[2]-30;
-  controller_status=msg.buf[4];
-  switch_signals_status=msg.buf[5];
-}
-
-float RPMtoMPH(int rpm){
-  //for getting the speed of the bike in miles/hour, a little unsure of calculations bc i did them fast and moved on
-  return rpm*WHEEL_CIRCUMFERENCE*GEAR_RATIO * 0.0372823; // proportional factor is meters/minute to miles per hour conversion, wheel circumference has to be in meters
-}
-
-bool digitalToggle(byte pin){
-  bool state = !digitalRead(pin);
-  digitalWrite(pin, state);
-  return state;
-}
-
-void loopMCHighVoltage(double volt){
-    int voltage =int(voltage);
-    sending.id=MOTOR_MSG_1;
-    voltage=voltage*10;
-    memset(sending.buf,0,sizeof(sending.buf));
-    sending.buf[4]=voltage&0xFF;
-    sending.buf[5]=voltage>>8&0xFF;
-    CAN_loop.write(sending);
-}
-
-/*
-void printMessage(const CAN_message_t &msg){
-  for(int i=0;i<msg.len;i++){
-      Serial.print(msg.buf[i]);
-      Serial.print(":");
-  }
-  Serial.println();
   }
 
-*/
+
+  
+  if(screen_Mode == 0) {
+     //makeBattery("name", voltage, maxVoltage, startX, startY, width, height);
+     makeBattery("Battery", getVoltage, 100, w/16, 0, 3*w/16, h/4);
+     makeBattery("Aux Battery", getVoltage, 100, w/2, 0, 3*w/16, h/4);
+     
+  
+     updateTemp(getTemp);
+  
+     updateMPH(getMPH, 6*w/8, 5*h/8);
+   }else if(screen_Mode == 1) {
+      updateMPH(getMPH, 0, 0);
+   }else {
+      errorDisplay();
+   }
+
+   delay(70);
+
+
+}
+
+void makeBattery(String battName, int getVolt, int maxVolt, int startX, int startY, int width, int height) {
+
+   int w = WIDTH;
+   int h = HEIGHT;
+
+   tft.setCursor(startX,startY);
+   tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
+   tft.print(battName + ":");
+    
+   tft.fillRect(startX + w/16, startY + h/8, width, height, ILI9341_WHITE); //new
+   if ((getVolt*100)/maxVolt > 60) {
+     tft.fillRect(startX + w/16, startY + height + h/8, width, -height*getVolt/maxVolt, ILI9341_GREEN);
+   } else {
+     tft.fillRect(startX + w/16 , startY + height + h/8, width, -height*getVolt/maxVolt, ILI9341_RED);
+   }
+   tft.drawRect(startX + w/16, startY + h/8, width, height, ILI9341_BLACK);
+   tft.setCursor(startX + width + w/16, startY + height/2);
+   tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
+
+   if (getVolt<100) {
+    tft.print('0');
+   }
+   if (getVolt<10) {
+    tft.print('0');
+   }
+   tft.print(getVolt);
+}
+
+void updateTemp(int getTemperature) {
+  
+   int w = WIDTH;
+   int h = HEIGHT;
+
+   tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+
+   
+   tft.setCursor(w/16, 5*h/8);
+   tft.println("Motor Temp:");
+   int currentH = tft.getCursorY();
+   tft.setCursor(w/8, currentH);
+   tft.setTextSize(4);
+
+   if (getTemp<100) {
+    tft.print('0');
+   }
+   if (getTemp<10) {
+    tft.print('0');
+   }
+   tft.print(getTemperature);
+   tft.print(" F");
+
+}
+
+void updateMPH(int getMilesPerHour, int x, int y) {
+
+   int w = WIDTH;
+   int h = HEIGHT;
+
+   tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+
+   
+   tft.setCursor(x, y);
+   tft.setTextSize(2);
+   tft.println("MPH:");
+   int currentH = tft.getCursorY();
+   tft.setCursor(x, currentH);
+   tft.setTextSize(4);
+
+   if (getMPH<100) {
+    tft.print('0');
+   }
+   if (getMPH<10) {
+    tft.print('0');
+   }
+   tft.print(getMilesPerHour);
+ 
+}
+
+void errorScreen(bool error) {
+
+   int w = WIDTH;
+   int h = HEIGHT;
+
+   if(error) {
+
+    while(error){
+      errorDisplay();
+  
+
+      //***FOR TESTING******
+      delay(500);
+      ERROR_STATUS=false;
+      error = false;
+      //********************
+    }
+
+    tft.fillScreen(ILI9341_WHITE);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
+   }
+
+}
+
+void errorDisplay() {
+      tft.fillScreen(ILI9341_RED);
+      tft.setTextSize(3);
+      tft.setTextColor(ILI9341_BLACK, ILI9341_RED);
+      tft.setCursor(0,0);
+      tft.println("SHIZ IS WRONG!!!");
+  
+      tft.println("");
+}
+
+
+String touchButton(TS_Point p) {
+
+    p.x = map(p.x, TS_MAXX, TS_MINX, 0, tft.width());
+    p.y = map(p.y, TS_MAXY, TS_MINY, 0, tft.height());
+
+    if(p.x >= 2*WIDTH/3) { //In right third of screen
+      while(ts.touched()){
+        //loop - only acts when it's released
+      }
+      tft.fillScreen(ILI9341_WHITE);
+      screen_Mode = (screen_Mode + 1)%3;
+    }else if(p.x <= WIDTH/3 && 0 <= p.x) { //In left third of screen
+      tft.fillScreen(ILI9341_WHITE);
+      while(ts.touched()){
+        //loop - only acts when it's released
+      }
+      tft.fillScreen(ILI9341_WHITE);
+      screen_Mode = (screen_Mode - 1)%3;
+    }
+  
+}
