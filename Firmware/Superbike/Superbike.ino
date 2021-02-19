@@ -1,8 +1,4 @@
-#include <circular_buffer.h>
-#include <FlexCAN_T4.h>
-#include <imxrt_flexcan.h>
-#include <kinetis_flexcan.h>
-
+/*
 #include <Adafruit_ILI9341.h>
 #include <Adafruit_GFX.h>
 #include <SPI.h>  
@@ -37,7 +33,7 @@ int TS_MINX = 327;
 int TS_MAXX = 3903;
 int TS_MINY = 243;
 int TS_MAXY = 3842;
-
+/*
 void setup() {
     Serial.begin(9600);
 
@@ -255,3 +251,4 @@ String touchButton(TS_Point p) {
     }
   
 }
+*/

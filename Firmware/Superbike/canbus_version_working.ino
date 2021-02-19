@@ -5,10 +5,6 @@
 //    DO I JUST ADD CELL VOLTAGES TO COMPARE TO BMS_DECLARED VOLTAGE? WHAT WILL CHANGE WHEN WE HAVE ALL CELLS?
 // 4. HOW DO WE WANT TO STORE THERMISTER DATA?
 // 5. HOW OFTEN DO WE WANT TO REQUEST VOLTAGE DATA? WHERE DO WE WANT TO CALL A FUNCTION THAT REQUESTS VOLTAGE DATA? -- need to test response time for LTC voltage data
-#include <Adafruit_ILI9341.h>
-#include <Adafruit_GFX.h>
-#include <elapsedMillis.h>
-#include <FlexCAN_T4.h>
 // WHAT DO THE NUMBERS AT THE END OF EACH LINE MEAN IN TERMS OF SYNTAX?
 #define WHEEL_CIRCUMFERENCE 1 //for calculating speed
 #define GEAR_RATIO 1 //for calculating rpm
@@ -32,6 +28,13 @@
 #define BMSC1_LTC2_CELLS_04  0x01df0901 // convention: BMSC, LTC, CELL RANGE
 #define BMSC1_LTC2_CELLS_58  0x01df0a01
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
+
+#include <Adafruit_ILI9341.h>
+#include <Adafruit_GFX.h>
+#include <elapsedMillis.h>
+
+#include <FlexCAN_T4.h>
+
 // The following are my temporary fields that can be removed later: Added winter 2021
 int bms_status_flag=0;
 int bms_c_id=0;
@@ -43,7 +46,7 @@ float thermistorTemp[36]; // assuming a message with 7 LTCs
 // THE FOLLOWING TWO DATATYPES NEED TO BE CHANGED
 int thermistorEnabled; // assuming only 2 LTCs
 int thermistorPresent; 
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
+//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus; //access to can bus reading
 // ELABORATE PLEASE
 CAN_message_t CAN_msg; // data is read into this from the can bus
@@ -69,6 +72,7 @@ void checkForUpdates(){
        display=0;
     }
 }
+
 // EXPLAIN THE FOLLOWING CODE
 void decipherMotorControllerStatusOne(CAN_message_t msg){
   velocity=((msg.buf[1]<<8)|msg.buf[0]);
@@ -76,6 +80,7 @@ void decipherMotorControllerStatusOne(CAN_message_t msg){
   battery_voltage=((msg.buf[5]<<8)|msg.buf[4])/10.0;
   error_code=((msg.buf[7]<<8)|msg.buf[6]);
 }
+
 void decipherMotorControllerStatusTwo(CAN_message_t msg){
   throttle=msg.buf[0]/255.0;
   controller_temperature=msg.buf[1]-40;
@@ -183,7 +188,7 @@ void checkCAN(){
 //      } else if(CAN_msg.id==DD_BMSC_TH_STATUS_IND) { 
 //        decipherThermistors(CAN_msg);
 //      }  
-      else{
+    }else{
         Serial.print("MSG: ");
         for(int i=0; i<CAN_msg.len;i++){
           Serial.print(CAN_msg.buf[i]);
@@ -191,7 +196,7 @@ void checkCAN(){
         Serial.printf("ID: %x", CAN_msg.id);
         Serial.println();
       }
-    }
+    
     delay(500);
 }
 //haven't implemented display yet
@@ -263,7 +268,7 @@ void printBMSStatus() {
     }
     Serial.printf("%d LTCs detected\n");
 }
-void printMessage(const CAN_message_t &msg){
+void printMessage(CAN_message_t msg){
   for(int i=0;i<msg.len;i++){
       Serial.print(msg.buf[i]);
       Serial.print(":");
@@ -394,7 +399,7 @@ void setup() {
       requestCellVoltages(-1); // LTC 1
       requestCellVoltages(1); // LTC 2
       noInterrupts();
-      requestCellVoltageFlag = 0;
+      requestBMSVoltageFlag = 0;
       interrupts();
     }
     if (updateDisplayFlag){
