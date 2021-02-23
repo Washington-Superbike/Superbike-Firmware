@@ -9,12 +9,21 @@ void setupCAN() {
   CAN_bus.setBaudRate(250000);
 }
 
-void decipherMotorControllerStatusOne(CAN_message_t msg) {
-  velocity = ((msg.buf[1] << 8) | msg.buf[0]);
-  current_used = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
-  battery_voltage = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
-  error_code = ((msg.buf[7] << 8) | msg.buf[6]);
+void canTask(MeasurementScreenData *measurementData){
+
+    
 }
+void decodeMotorStats(CAN_message_t msg, MeasurementScreenData *measurementData ){
+  measurementData->MPH = ((msg.buf[1] << 8) | msg.buf[0]);
+  measurementData->motorCurrent = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
+  measurementData->mainBatteryVoltage = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
+  measurementData->errorCode = ((msg.buf[7] << 8) | msg.buf[6]);
+}
+
+void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData){
+    
+}
+
 
 void decipherMotorControllerStatusTwo(CAN_message_t msg) {
   throttle = msg.buf[0] / 255.0;

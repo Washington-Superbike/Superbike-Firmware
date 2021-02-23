@@ -2,6 +2,7 @@
 #include "Display.h"
 #include "Main.h"
 
+MeasurementScreenData measurementData = {};
 
 int bms_status_flag = 0;
 int bms_c_id = 0;
@@ -31,5 +32,14 @@ void setup() {
   return;
 }
 void loop() {
-  return;
+  if(displayFlag){
+     displayTask(&measurementData);
+  }
+  if(preChargeFlag){
+    preChargeTask();
+  }
+  if(canFlag){
+    canTask(&measurementData);
+  }
+  
 }

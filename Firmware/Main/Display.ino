@@ -15,11 +15,18 @@ int screen_Mode;
 int WIDTH;
 int HEIGHT;
 
+
 IntervalTimer updateDisplayTimer;
 volatile signed char updateDisplayFlag;
 void updateDisplayISR() {
   updateDisplayFlag = 1;
 }
+
+void displayTask(MeasurementScreenData *measurementData){
+    
+}
+
+
 
 /*
   void setup() {
