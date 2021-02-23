@@ -3,6 +3,7 @@
 #include "Main.h"
 
 MeasurementScreenData measurementData = {};
+MotorStats motorStats = {};
 
 int bms_status_flag = 0;
 int bms_c_id = 0;
@@ -14,32 +15,34 @@ float thermistorTemp[36];       // assuming a message with 7 LTCs
 int thermistorEnabled;          // assuming only 2 LTCs
 int thermistorPresent;
 
+float auxiliaryBatteryVoltage = 0;
 
-float velocity = 0;
-float current_used = 0; // current coming from motor controller
-float battery_voltage = 0;
+float RPM = 0;
+float motorCurrent = 0; // current coming from motor controller
+float motorControllerBatteryVoltage = 0;
 float throttle = 0;
-float controller_temperature = 0;
-float motor_temperature = 0;
-uint16_t error_code = 0;
-byte controller_status = 0;
-byte switch_signals_status = 0;
-
-
+float motorControllerTemp = 0;
+float motorTemp = 0;
+int errorMessage = 0;
+byte controllerStatus = 0;
+byte switchSignalsStatus = 0;
 
 
 void setup() {
-  return;
+    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &errorMessage};
+    motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
 }
+
+
 void loop() {
-  if(displayFlag){
-     displayTask(&measurementData);
-  }
-  if(preChargeFlag){
-    preChargeTask();
-  }
-  if(canFlag){
-    canTask(&measurementData);
-  }
-  
+    if(displayFlag) {
+        displayTask(measurementData);
+    }
+    if(preChargeFlag) {
+        preChargeTask();
+    }
+    if(canFlag) {
+        canTask(motorStats, motorTemps);
+    }
+
 }

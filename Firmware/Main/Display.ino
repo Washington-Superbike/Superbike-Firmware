@@ -19,13 +19,16 @@ int HEIGHT;
 IntervalTimer updateDisplayTimer;
 volatile signed char updateDisplayFlag;
 void updateDisplayISR() {
-  updateDisplayFlag = 1;
+    updateDisplayFlag = 1;
 }
 
-void displayTask(MeasurementScreenData *measurementData){
+void displayTask(MeasurementScreenData msData) {
+    drawMeasurementScreen(msData);
+}
+
+void drawMeasurementScreen(MeasurementScreenData msData){
     
 }
-
 
 
 /*
@@ -118,135 +121,138 @@ void displayTask(MeasurementScreenData *measurementData){
 
 void makeBattery(String battName, int getVolt, int maxVolt, int startX, int startY, int width, int height) {
 
-  int w = WIDTH;
-  int h = HEIGHT;
+    int w = WIDTH;
+    int h = HEIGHT;
 
-  tft.setCursor(startX, startY);
-  tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
-  tft.print(battName + ":");
+    tft.setCursor(startX, startY);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+    tft.setTextSize(2);
+    tft.print(battName + ":");
 
-  tft.fillRect(startX + w / 16, startY + h / 8, width, height, ILI9341_WHITE); //new
-  if ((getVolt * 100) / maxVolt > 60) {
-    tft.fillRect(startX + w / 16, startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_GREEN);
-  } else {
-    tft.fillRect(startX + w / 16 , startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_RED);
-  }
-  tft.drawRect(startX + w / 16, startY + h / 8, width, height, ILI9341_BLACK);
-  tft.setCursor(startX + width + w / 16, startY + height / 2);
-  tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
+    tft.fillRect(startX + w / 16, startY + h / 8, width, height, ILI9341_WHITE); //new
+    if ((getVolt * 100) / maxVolt > 60) {
+        tft.fillRect(startX + w / 16, startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_GREEN);
+    } else {
+        tft.fillRect(startX + w / 16 , startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_RED);
+    }
+    tft.drawRect(startX + w / 16, startY + h / 8, width, height, ILI9341_BLACK);
+    tft.setCursor(startX + width + w / 16, startY + height / 2);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+    tft.setTextSize(2);
 
-  if (getVolt < 100) {
-    tft.print('0');
-  }
-  if (getVolt < 10) {
-    tft.print('0');
-  }
-  tft.print(getVolt);
+    if (getVolt < 100) {
+        tft.print('0');
+    }
+    if (getVolt < 10) {
+        tft.print('0');
+    }
+    tft.print(getVolt);
 }
 
 void updateTemp(int getTemperature) {
 
-  int w = WIDTH;
-  int h = HEIGHT;
+    int w = WIDTH;
+    int h = HEIGHT;
 
-  tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
 
 
-  tft.setCursor(w / 16, 5 * h / 8);
-  tft.println("Motor Temp:");
-  int currentH = tft.getCursorY();
-  tft.setCursor(w / 8, currentH);
-  tft.setTextSize(4);
+    tft.setCursor(w / 16, 5 * h / 8);
+    tft.println("Motor Temp:");
+    int currentH = tft.getCursorY();
+    tft.setCursor(w / 8, currentH);
+    tft.setTextSize(4);
 
-  if (getTemp < 100) {
-    tft.print('0');
-  }
-  if (getTemp < 10) {
-    tft.print('0');
-  }
-  tft.print(getTemperature);
-  tft.print(" F");
+    if (getTemp < 100) {
+        tft.print('0');
+    }
+    if (getTemp < 10) {
+        tft.print('0');
+    }
+    tft.print(getTemperature);
+    tft.print(" F");
 
 }
 
 void updateMPH(int getMilesPerHour, int x, int y) {
 
-  int w = WIDTH;
-  int h = HEIGHT;
+    int w = WIDTH;
+    int h = HEIGHT;
 
-  tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
 
 
-  tft.setCursor(x, y);
-  tft.setTextSize(2);
-  tft.println("MPH:");
-  int currentH = tft.getCursorY();
-  tft.setCursor(x, currentH);
-  tft.setTextSize(4);
+    tft.setCursor(x, y);
+    tft.setTextSize(2);
+    tft.println("MPH:");
+    int currentH = tft.getCursorY();
+    tft.setCursor(x, currentH);
+    tft.setTextSize(4);
 
-  if (getMPH < 100) {
-    tft.print('0');
-  }
-  if (getMPH < 10) {
-    tft.print('0');
-  }
-  tft.print(getMilesPerHour);
+    if (getMPH < 100) {
+        tft.print('0');
+    }
+    if (getMPH < 10) {
+        tft.print('0');
+    }
+    tft.print(getMilesPerHour);
 
 }
 
 void errorScreen(bool error) {
 
-  int w = WIDTH;
-  int h = HEIGHT;
+    int w = WIDTH;
+    int h = HEIGHT;
 
-  if (error) {
+    if (error) {
 
-    while (error) {
-      errorDisplay();
+        while (error) {
+            errorDisplay();
 
 
-      //***FOR TESTING******
-      delay(500);
-      ERROR_STATUS = false;
-      error = false;
-      //********************
+            //***FOR TESTING******
+            delay(500);
+            ERROR_STATUS = false;
+            error = false;
+            //********************
+        }
+
+        tft.fillScreen(ILI9341_WHITE);
+        tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+        tft.setTextSize(2);
     }
-
-    tft.fillScreen(ILI9341_WHITE);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
-  }
 
 }
 
 void errorDisplay() {
-  tft.fillScreen(ILI9341_RED);
-  tft.setTextSize(3);
-  tft.setTextColor(ILI9341_BLACK, ILI9341_RED);
-  tft.setCursor(0, 0);
-  tft.println("SHIZ IS WRONG!!!");
+    tft.fillScreen(ILI9341_RED);
+    tft.setTextSize(3);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_RED);
+    tft.setCursor(0, 0);
+    tft.println("SHIZ IS WRONG!!!");
 
-  tft.println("");
+    tft.println("");
 }
 
 
 String touchButton(TS_Point p) {
 
-  p.x = map(p.x, TS_MAXX, TS_MINX, 0, tft.width());
-  p.y = map(p.y, TS_MAXY, TS_MINY, 0, tft.height());
+    p.x = map(p.x, TS_MAXX, TS_MINX, 0, tft.width());
+    p.y = map(p.y, TS_MAXY, TS_MINY, 0, tft.height());
 
-  if (p.x >= 2 * WIDTH / 3) { //In right third of screen
-    while (ts.touched()) {
-      //loop - only acts when it's released
+    if (p.x >= 2 * WIDTH / 3) { //In right third of screen
+        while (ts.touched()) {
+            //loop - only acts when it's released
+        }
+        tft.fillScreen(ILI9341_WHITE);
+        screen_Mode = (screen_Mode + 1) % 3;
+    } else if (p.x <= WIDTH / 3 && 0 <= p.x) { //In left third of screen
+        tft.fillScreen(ILI9341_WHITE);
+        while (ts.touched()) {
+            //loop - only acts when it's released
+        }
+        tft.fillScreen(ILI9341_WHITE);
+        screen_Mode = (screen_Mode - 1) % 3;
     }
-    tft.fillScreen(ILI9341_WHITE);
-    screen_Mode = (screen_Mode + 1) % 3;
-  } else if (p.x <= WIDTH / 3 && 0 <= p.x) { //In left third of screen
-    tft.fillScreen(ILI9341_WHITE);
-    while (ts.touched()) {
-      //loop - only acts when it's released
-    }
-    tft.fillScreen(ILI9341_WHITE);
-    screen_Mode = (screen_Mode - 1) % 3;
-  }
 
 }

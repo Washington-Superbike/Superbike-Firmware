@@ -21,14 +21,16 @@
 #define TS_MINY  243
 #define TS_MAXY  3842
 
-typedef struct MeasurementScreenDataStruct{
-    float mainBatteryVoltage;
-    float auxiliaryBatteryVoltage;
-    int MPH;
-    float maxBatteryTemp;
-    float motorCurrent;
-    int errorMessage;
-}MeasurementScreenData;
+typedef struct MeasurementScreenDataStruct {
+    float* mainBatteryVoltage;
+    float* auxiliaryBatteryVoltage;
+    int* MPH;
+    float* motorTemp;
+    float* motorCurrent;
+    int* errorMessage;
+} MeasurementScreenData;
+
+
 
 void drawMeasurementScreen(MeasurementScreenData msData);
-void displayTask(MeasurementScreenData *measurementData);
+void displayTask(MeasurementScreenData msData);

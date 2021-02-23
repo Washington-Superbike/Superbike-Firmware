@@ -1,6 +1,6 @@
 
 #define MOTOR_STATS_MSG 0x0CF11E05                        //motor controller message - CAN
-#define MOTOR_TEMP_MSG 0x0CF11F05                        // motor controller message - CAN
+#define MOTOR_TEMPS_MSG 0x0CF11F05                        // motor controller message - CAN
 #define STANDBY 20                                    // standby for can transceiver, high=standby, low=normal
 #define DD_BMS_STATUS_IND 0x01dd0001                  // BMS cell data message
 #define DD_BMSC_TH_STATUS_IND 0x01df0e00              // themistor message for BMSC
@@ -14,6 +14,13 @@
 #include <FlexCAN_T4.h>
 
 
+typedef struct MotorStats{
+    float* RPM;
+    float* motorCurrent;
+    float* motorControllerBatteryVoltage;
+    int* errorMessage;
+}
+
 void canTask(MeasurementScreenData *measurementData);
-void decodeMotorStats(CAN_message_t msg, MeasurementScreenData *measurementData );
+void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
