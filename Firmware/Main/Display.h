@@ -12,6 +12,9 @@
 #define CS_PIN  15
 // MOSI=11, MISO=12, SCK=13
 
+#ifndef DISPLAY_H_
+#define DISPLAY_H_
+
 // The TIRQ interrupt signal must be used for this example.
 #define TIRQ_PIN  2
 
@@ -34,3 +37,5 @@ typedef struct MeasurementScreenDataStruct {
 
 void drawMeasurementScreen(MeasurementScreenData msData);
 void displayTask(MeasurementScreenData msData);
+
+#endif

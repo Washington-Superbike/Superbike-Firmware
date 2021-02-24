@@ -7,7 +7,7 @@ PC_STATE PC_State;
 
 //object for the  precharge IntervalTimer interrupt, and flag variables
 IntervalTimer preChargeFSMTimer;
-volatile signed char preChargeFlag;     // needs to be volatile to avoid interrupt-related memory issues
+volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
 // Interrupt service routine for the precharge circuit
 void tickPreChargeFSM() {
   preChargeFlag = 1;

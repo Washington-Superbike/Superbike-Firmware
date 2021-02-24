@@ -9,36 +9,27 @@ void setupCAN() {
     CAN_bus.setBaudRate(250000);
 }
 
-void canTask(MeasurementScreenData *measurementData) {
-        
+void canTask(MotorStats motorStats, MotorTemps motorTemps) {
+        checkCAN(motorStats, motorTemps);
 }
 
 
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
-    *(measurementData.MPH) = ((msg.buf[1] << 8) | msg.buf[0]);
+    *(measurementData.RPM) = ((msg.buf[1] << 8) | msg.buf[0]);
     *(measurementData.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
     *(measurementData.mainBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
-    measurementData->errorCode = ((msg.buf[7] << 8) | msg.buf[6]);
+    *(measurementData.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
 
     
 }
 
 void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
-    throttle = msg.buf[0] / 255.0;
-    controller_temperature = msg.buf[1] - 40;
-    motor_temperature = msg.buf[2] - 30;
-    controller_status = msg.buf[4];
-    switch_signals_status = msg.buf[5];
+    *(motorTemps).throttle = msg.buf[0] / 255.0;
+    *(motorTemps).motorControllerTemperature = msg.buf[1] - 40;
+    *(motorTemps).motorTemperature = msg.buf[2] - 30;
+    *(motorTemps).controllerStatus = msg.buf[4];
 }
 
-
-void decipherMotorControllerStatusTwo(CAN_message_t msg) {
-    throttle = msg.buf[0] / 255.0;
-    controller_temperature = msg.buf[1] - 40;
-    motor_temperature = msg.buf[2] - 30;
-    controller_status = msg.buf[4];
-    switch_signals_status = msg.buf[5];
-}
 
 void decipherBMSStatus(CAN_message_t msg) {
     bms_status_flag = msg.buf[0];
@@ -74,15 +65,15 @@ void decipherThermistors(CAN_message_t msg) {
 }
 
 // checks the can bus for any new data
-void checkCAN() {
+void checkCAN(MotorStats motorStats, MotorTemps motorTemps) {
     int readValue = CAN_bus.read(CAN_msg);
     if (readValue != 0) { // if we read a message
         switch (CAN_msg.id) {
-        case MOTOR_MSG_1:
-            decipherMotorControllerStatusOne(CAN_msg);
+        case MOTOR_STATS_MSG:
+            decodeMotorStats(CAN_msg, motorStats);
             break;
-        case MOTOR_MSG_2:
-            decipherMotorControllerStatusTwo(CAN_msg);
+        case MOTOR_TEMPS_MSG:
+            decodeMotorTemps(CAN_msg, motorTemps);
             break;
         case DD_BMS_STATUS_IND:
             decipherBMSStatus(CAN_msg);

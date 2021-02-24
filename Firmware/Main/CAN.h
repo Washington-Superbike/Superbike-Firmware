@@ -12,7 +12,10 @@
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
 
 #include <FlexCAN_T4.h>
+#include "Display.h"
 
+#ifndef CAN_H_
+#define CAN_H_
 
 typedef struct MotorStats{
     int* RPM;
@@ -22,13 +25,14 @@ typedef struct MotorStats{
 };
 
 typedef struct MotorTemps{
-    int* RPM;
-    float* motorCurrent;
-    float* motorControllerBatteryVoltage;
-    int* errorMessage;
+    float* throttle;
+    float* motorControllerTemperature;
+    float* motorTemperature;
+    int* controllerStatus;
 };
-
-
-void canTask(MotorStats motorStats. MotorTemps motorTemps);
+    
+void canTask(MotorStats motorStats, MotorTemps motorTemps);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
+
+#endif

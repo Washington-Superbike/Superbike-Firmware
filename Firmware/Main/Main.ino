@@ -1,9 +1,7 @@
 #include "CAN.h"
 #include "Display.h"
 #include "Main.h"
-
-MeasurementScreenData measurementData = {&motorControllerBatteryVoltage};
-MotorStats motorStats = {};
+#include "Precharge.h"
 
 int bms_status_flag = 0;
 int bms_c_id = 0;
@@ -28,8 +26,15 @@ byte controllerStatus = 0;
 byte switchSignalsStatus = 0;
 
 
+byte displayFlag = 0;
+byte canFlag = 0;
+
+MeasurementScreenData measurementData = {};
+MotorStats motorStats = {};
+MotorTemps motorTemps = {};
+
 void setup() {
-    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &errorMessage};
+    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
     motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
 }
 
@@ -39,7 +44,7 @@ void loop() {
         displayTask(measurementData);
     }
     if(preChargeFlag) {
-        preChargeTask();
+        //preChargeTask();
     }
     if(canFlag) {
         canTask(motorStats, motorTemps);
