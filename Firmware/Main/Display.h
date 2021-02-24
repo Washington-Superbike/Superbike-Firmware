@@ -24,7 +24,7 @@
 typedef struct MeasurementScreenDataStruct {
     float* mainBatteryVoltage;
     float* auxiliaryBatteryVoltage;
-    int* MPH;
+    int* RPM;
     float* motorTemp;
     float* motorCurrent;
     int* errorMessage;

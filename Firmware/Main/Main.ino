@@ -2,7 +2,7 @@
 #include "Display.h"
 #include "Main.h"
 
-MeasurementScreenData measurementData = {};
+MeasurementScreenData measurementData = {&motorControllerBatteryVoltage};
 MotorStats motorStats = {};
 
 int bms_status_flag = 0;
@@ -17,7 +17,7 @@ int thermistorPresent;
 
 float auxiliaryBatteryVoltage = 0;
 
-float RPM = 0;
+int RPM = 0;
 float motorCurrent = 0; // current coming from motor controller
 float motorControllerBatteryVoltage = 0;
 float throttle = 0;
@@ -44,5 +44,4 @@ void loop() {
     if(canFlag) {
         canTask(motorStats, motorTemps);
     }
-
 }

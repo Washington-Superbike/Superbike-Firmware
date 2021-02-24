@@ -15,12 +15,20 @@
 
 
 typedef struct MotorStats{
-    float* RPM;
+    int* RPM;
     float* motorCurrent;
     float* motorControllerBatteryVoltage;
     int* errorMessage;
-}
+};
 
-void canTask(MeasurementScreenData *measurementData);
+typedef struct MotorTemps{
+    int* RPM;
+    float* motorCurrent;
+    float* motorControllerBatteryVoltage;
+    int* errorMessage;
+};
+
+
+void canTask(MotorStats motorStats. MotorTemps motorTemps);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);

@@ -10,13 +10,17 @@ void setupCAN() {
 }
 
 void canTask(MeasurementScreenData *measurementData) {
-
+        
 }
+
+
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
-    measurementData->MPH = ((msg.buf[1] << 8) | msg.buf[0]);
-    measurementData->motorCurrent = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
-    measurementData->mainBatteryVoltage = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
+    *(measurementData.MPH) = ((msg.buf[1] << 8) | msg.buf[0]);
+    *(measurementData.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
+    *(measurementData.mainBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
     measurementData->errorCode = ((msg.buf[7] << 8) | msg.buf[6]);
+
+    
 }
 
 void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
