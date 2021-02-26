@@ -1,3 +1,4 @@
+
 const int SD_CS = 15;
 
 #include "DataLogging.h"
@@ -5,7 +6,7 @@ const int SD_CS = 15;
 SdFat sd;
 SdFile myFile;
 
-void testSD {
+void testSD() {
     
   // Initialize SdFat or print a detailed error message and halt
   // Use half speed like the native library.
