@@ -9,7 +9,7 @@
 //unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv)
 //or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)
 
-
+//Names for each of the log files
 #define MOTOR_TEMP_LOG "motor_temperature_log.csv"
 #define MOTOR_CONTROLLER_TEMP_LOG "motor_controller_temperature_log.csv"
 #define BMS_VOLTAGE_LOG "bms_voltage_log.csv"
@@ -20,12 +20,13 @@
 #define RPM_LOG "rpm_log.csv"
 
 
-
+//Represents a writer to a CSV log file on the sd card
 typedef struct CSVWriterStruct{
     const char *filename;
-    float* dataIn;
     bool open;
     SdFile file;
+    const int dataValuesLen;
+    float **dataValues;             //array of pointers to shared variables (the data values in the csv log)
 }CSVWriter;
 
 bool startSD();
