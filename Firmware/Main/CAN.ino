@@ -32,11 +32,11 @@ void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
 
 
 void decipherBMSStatus(CAN_message_t msg) {
-    bms_status_flag = msg.buf[0];
-    bms_c_id = msg.buf[1];
-    bms_c_fault = msg.buf[2];
-    ltc_fault = msg.buf[3];
-    ltc_count = msg.buf[4];
+    *(bmsStatus).bms_status_flag = msg.buf[0];
+    *(bmsStatus).bms_c_id = msg.buf[1];
+    *(bmsStatus).bms_c_fault = msg.buf[2];
+    *(bmsStatus).ltc_fault = msg.buf[3];
+    *(bmsStatus).ltc_count = msg.buf[4];
 }
 // A method for reading cell voltages that assumes a CAN message with only 4 cells.
 
@@ -49,7 +49,8 @@ void decipherCellsVoltage(CAN_message_t msg) {
     totalOffset = (cellOffset * 4) + (ltcOffset * 12);
     int cellIndex;
     for (cellIndex = 0; cellIndex < 8; cellIndex += 2) {
-        cellVoltages[cellIndex / 2 + totalOffset] = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;
+      // I'm questioning this new line
+        *((cellsVoltage).cellVoltages + (cellIndex / 2 + totalOffset)) = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;
     }
 }
 
