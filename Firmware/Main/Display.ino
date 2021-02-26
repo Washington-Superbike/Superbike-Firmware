@@ -254,5 +254,6 @@ String touchButton(TS_Point p) {
         tft.fillScreen(ILI9341_WHITE);
         screen_Mode = (screen_Mode - 1) % 3;
     }
-
+  // REMOVE THE FOLLOWING LINE
+  return "";
 }

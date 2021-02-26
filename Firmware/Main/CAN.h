@@ -30,7 +30,19 @@ typedef struct MotorTemps{
     float* motorTemperature;
     int* controllerStatus;
 };
-    
+
+typedef struct BMSStatus {
+    int* bms_status_flag;
+    int* bms_c_id;
+    int* bms_c_fault;
+    int* ltc_fault;
+    int* ltc_count;
+};
+
+typedef struct CellsVoltage{
+  float* cellVoltages;
+};
+  
 void canTask(MotorStats motorStats, MotorTemps motorTemps);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);

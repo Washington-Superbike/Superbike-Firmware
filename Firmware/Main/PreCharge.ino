@@ -2,12 +2,19 @@
 
 
 PC_STATE PC_State;
-
-
-
-//object for the  precharge IntervalTimer interrupt, and flag variables
-IntervalTimer preChargeFSMTimer;
+IntervalTimer preChargeFSMTimer; //object for the  precharge IntervalTimer interrupt, and flag variables
 volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
+
+// a funtion to sum the voltage of each cell in main accumulator
+void seriesVoltage() {
+  float partialSeriesVoltage = 0;
+  int currentCell;
+  for (currentCell = 0; currentCell < BMS_CELLS; currentCell++) {
+    partialSeriesVoltage += *(cellsVoltage.cellVoltages + currentCell);
+  }
+  *(prechargeValues).seriesVoltage = partialSeriesVoltage;
+}
+
 // Interrupt service routine for the precharge circuit
 void tickPreChargeFSM() {
   preChargeFlag = 1;
@@ -24,7 +31,7 @@ void preChargeCircuitFSM ()
       break;
     case PC_OPEN:
       // when the GPIO for the bike's start switch is known, use: digitalRead(pin)
-      if (0 == 1) {            //change 0 to the digital read
+      if ( 0 == 1 ) {            //change 0 to the digital read
         PC_State = PC_CLOSE;
         break;
       }
@@ -34,7 +41,7 @@ void preChargeCircuitFSM ()
     //            break;
     //         }
     case PC_CLOSE:
-      if ( 0 ) {    //change to condition: motor controller voltage = BMS declared voltage
+      if ( *(prechargeValues).seriesVoltage == BMS_DECLARED_VOLTAGE) {    //change to condition: motor controller voltage = BMS declared voltage
         PC_State = PC_CLOSE;
         break;
       }
@@ -70,18 +77,19 @@ void preChargeCircuitFSM ()
   } // state actions
 }
 
-
+// SETUP PRECHARGE ISR AND ALL THE OTHER ISRs
 void setupPreChargeISR() {
   PC_State = PC_START;
   // start the prechargeFSM Timer, call ISR every 1 ms
   preChargeFSMTimer.priority(0); // highest priority
   preChargeFSMTimer.begin(tickPreChargeFSM, 1000);
-  preChargeFSMTimer.priority(1); // highest priority
-  preChargeFSMTimer.begin(requestBMSVoltageISR, 1000);
-  preChargeFSMTimer.priority(0); // highest priority
-  preChargeFSMTimer.begin(updateDisplayISR, 1000);
-  preChargeFSMTimer.priority(0); // highest priority
-  preChargeFSMTimer.begin(checkCANisr, 1000);
+  // THE FOLLOWING DO NOT BELONG TO PRECHARGE
+  requestBMSVoltageTimer.priority(1); // highest priority
+  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 1000);
+  updateDisplayTimer.priority(0); // highest priority
+  updateDisplayTimer.begin(updateDisplayISR, 1000);
+  checkCANTimer.priority(0); // highest priority
+  checkCANTimer.begin(checkCANisr, 1000);
 }
 
 void preChargeCheck() {

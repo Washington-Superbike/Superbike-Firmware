@@ -8,7 +8,7 @@ int bms_c_id = 0;
 int bms_c_fault = 0;
 int ltc_fault = 0;
 int ltc_count = 0;
-float cellVoltages[24];         // voltages starting with the first LTC
+float cellVoltages[BMS_CELLS];         // voltages starting with the first LTC
 float thermistorTemp[36];       // assuming a message with 7 LTCs
 int thermistorEnabled;          // assuming only 2 LTCs
 int thermistorPresent;
@@ -32,11 +32,17 @@ byte canFlag = 0;
 MeasurementScreenData measurementData = {};
 MotorStats motorStats = {};
 MotorTemps motorTemps = {};
+CellsVoltage cellsVoltage = {};
+PrechargeValues prechargeValues = {};
+BMSStatus bmsStatus = {};
 
 void setup() {
     measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
     motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
+    cellsVoltage = {&cellVoltages[0]};
+    bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
 }
+
 
 
 void loop() {
