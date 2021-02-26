@@ -2,6 +2,7 @@
 #include "Display.h"
 #include "Main.h"
 #include "Precharge.h"
+#include "DataLogging.h"
 
 int bms_status_flag = 0;
 int bms_c_id = 0;

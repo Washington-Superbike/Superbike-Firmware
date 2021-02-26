@@ -1,10 +1,14 @@
 
-const int SD_CS = 15;
-
 #include "DataLogging.h"
+
+
+const int SD_CS = 15;
 
 SdFat sd;
 SdFile myFile;
+unsigned long epochTime;
+
+
 
 void testSD() {
     
@@ -12,7 +16,7 @@ void testSD() {
   // Use half speed like the native library.
   // change to SPI_FULL_SPEED for more performance.
   if (!sd.begin(SD_CS, SPI_HALF_SPEED)) sd.initErrorHalt();
-
+    
   // open the file for write at end like the Native SD library
   if (!myFile.open("test.txt", O_RDWR | O_CREAT | O_AT_END)) {
     sd.errorHalt("opening test.txt for write failed");
@@ -37,4 +41,30 @@ void testSD() {
   while ((data = myFile.read()) >= 0) Serial.write(data);
   // close the file:
   myFile.close();
+}
+
+void dataLoggingTask(){
+    int sTime = (millis()-epochTime)/1000;
+}
+
+void updateSaveStatus(CSVWriter writer){
+    if(writer.saveCount>SAVE_RATE){
+        //close and reopen
+        writer.saveCount=0;
+    }
+    writer.saveCount++;
+}
+
+void addRecordToCSV(CSVWriter writer, int sTime, float record){
+    updateSaveStatus(writer);
+    String sRecord = String(sTime).concat(",").concat(record);
+    writer.file.println(sRecord);
+}
+
+void addRecordToCSV(CSVWriter writer, int sTime, int record){
+    
+}
+
+void startRecording(){
+    epochTime = millis();
 }
