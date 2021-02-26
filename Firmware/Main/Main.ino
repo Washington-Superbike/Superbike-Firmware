@@ -45,6 +45,9 @@ void setup() {
     bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
 
     motor_current_log = {MOTOR_CURRENT_LOG, &motorCurrent, false};
+    if(openFile(motor_current_log)){
+        Serial.println("Couldn't open motor_current_log");
+    }
 }
 
 
