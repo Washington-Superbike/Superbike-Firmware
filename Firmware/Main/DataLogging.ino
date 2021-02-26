@@ -5,65 +5,36 @@
 const int SD_CS = 15;
 
 SdFat sd;
-SdFile myFile;
-unsigned long epochTime;
 
+//Attempts to start communication with the SD card
+//Returns true if no errors exist, returns false if an error exists
+bool startSD(){
+    return  sd.begin(SD_CS, SPI_HALF_SPEED);
+}
 
+//Attemps to open file on SD card
+//Returns true if no errors, returns false if any error exists
+bool openFile(CSVWriter writer){
+    return writer.file.open(writer.filename, O_WRITE|O_CREAT);
+}
 
-void testSD() {
-    
-  // Initialize SdFat or print a detailed error message and halt
-  // Use half speed like the native library.
-  // change to SPI_FULL_SPEED for more performance.
-  if (!sd.begin(SD_CS, SPI_HALF_SPEED)) sd.initErrorHalt();
-    
-  // open the file for write at end like the Native SD library
-  if (!myFile.open("test.txt", O_RDWR | O_CREAT | O_AT_END)) {
-    sd.errorHalt("opening test.txt for write failed");
-  }
-  
-  // if the file opened okay, write to it:
-  Serial.print("Writing to test.txt...");
-  myFile.println("testing 1, 2, 3.");
-
-  // close the file:
-  myFile.close();
-  Serial.println("done.");
-
-  // re-open the file for reading:
-  if (!myFile.open("test.txt", O_READ)) {
-    sd.errorHalt("opening test.txt for read failed");
-  }
-  Serial.println("test.txt:");
-
-  // read from the file until there's nothing else in it:
-  int data;
-  while ((data = myFile.read()) >= 0) Serial.write(data);
-  // close the file:
-  myFile.close();
+void closeFile(CSVWriter writer){
+    writer.file.close();
 }
 
 void dataLoggingTask(){
     int sTime = (millis()-epochTime)/1000;
 }
 
-void updateSaveStatus(CSVWriter writer){
-    if(writer.saveCount>SAVE_RATE){
-        //close and reopen
-        writer.saveCount=0;
-    }
-    writer.saveCount++;
-}
 
-void addRecordToCSV(CSVWriter writer, int sTime, float record){
-    updateSaveStatus(writer);
-    String sRecord = String(sTime).concat(",").concat(record);
+void addRecordToCSV(CSVWriter writer, int sTime){
+    if(!writer.open){
+        openFile(writer);
+    }
+    String sRecord = String(sTime).concat(",").concat(*(writer.dataIn));
     writer.file.println(sRecord);
 }
 
-void addRecordToCSV(CSVWriter writer, int sTime, int record){
-    
-}
 
 void startRecording(){
     epochTime = millis();
