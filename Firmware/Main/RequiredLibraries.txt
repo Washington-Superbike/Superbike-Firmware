@@ -1,0 +1,5 @@
+FlexCAN_T4 (from Github by tonton80)
+SdFat 
+Adafruit ILI9341 
+Adafruit GFX
+XPT2046_Touchscreen (from Git?)
