@@ -18,15 +18,15 @@
 #define THERMISTOR_FILE_BASE "thermistor_temp_"
 #define THERMISTOR_FILE_END "_log.csv"
 #define RPM_LOG "rpm_log.csv"
-
+#define MAX_DATA 16             //BUFFER SIZE FOR CSV DATA POINTER ARRAY
 
 //Represents a writer to a CSV log file on the sd card
 typedef struct CSVWriterStruct{
     const char *filename;
     bool open;
+    int dataValuesLen;
+    float *dataValues[MAX_DATA];             //array of pointers to shared variables (the data values in the csv log)
     SdFile file;
-    const int dataValuesLen;
-    float **dataValues;             //array of pointers to shared variables (the data values in the csv log)
 }CSVWriter;
 
 bool startSD();

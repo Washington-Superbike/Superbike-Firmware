@@ -45,7 +45,7 @@ void setup() {
     cellsVoltage = {&cellVoltages[0]};
     bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
 
-    motor_current_log = {MOTOR_CURRENT_LOG, false, myFile, 1, {&motorCurrent}};
+    motor_current_log = {MOTOR_CURRENT_LOG, false, 1, {&motorCurrent}};
     if(openFile(motor_current_log)){
         Serial.println("Couldn't open motor_current_log");
     }

@@ -40,7 +40,7 @@ void addRecordToCSV(CSVWriter writer, int sTime){
     }
     String sRecord = String(sTime);
     for(int i=0;i<writer.dataValuesLen;i++){
-        sRecord.concat(",").concat(*(writer.dataIn[i]));
+        sRecord.concat(",").concat(*(writer.dataValues[i]));
     }
     writer.file.println(sRecord);
 }
