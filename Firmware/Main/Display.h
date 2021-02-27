@@ -9,7 +9,7 @@
 #define TFT_RST 20 //the display reset pin
 
 
-#define CS_PIN  15
+#define TS_CS  15
 // MOSI=11, MISO=12, SCK=13
 
 #ifndef DISPLAY_H_
@@ -27,7 +27,7 @@
 typedef struct MeasurementScreenDataStruct {
     float* mainBatteryVoltage;
     float* auxiliaryBatteryVoltage;
-    int* RPM;
+    float* RPM;
     float* motorTemp;
     float* motorCurrent;
     int* errorMessage;

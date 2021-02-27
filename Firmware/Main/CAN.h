@@ -10,6 +10,7 @@
 #define BMSC1_LTC2_CELLS_04  0x01df0901               // convention: BMSC, LTC, CELL RANGE
 #define BMSC1_LTC2_CELLS_58  0x01df0a01
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
+#define BMS_CELLS 24 // the number of cells connected to the main accumulator BMS
 
 #include <FlexCAN_T4.h>
 #include "Display.h"
@@ -17,8 +18,9 @@
 #ifndef CAN_H_
 #define CAN_H_
 
+
 typedef struct MotorStats{
-    int* RPM;
+    float* RPM;
     float* motorCurrent;
     float* motorControllerBatteryVoltage;
     int* errorMessage;
@@ -39,11 +41,25 @@ typedef struct BMSStatus {
     int* ltc_count;
 };
 
-typedef struct CellsVoltage{
+typedef struct ThermistorTemps {
+    float *temps;
+};
+
+typedef struct CellVoltages{
   float* cellVoltages;
 };
-  
-void canTask(MotorStats motorStats, MotorTemps motorTemps);
+
+typedef struct CANTaskData{
+    MotorStats motorStats;
+    MotorTemps motorTemps;
+    BMSStatus bmsStatus;
+    ThermistorTemps thermistorTemps;
+    CellVoltages cellVoltages;
+    float *seriesVoltage;
+};
+
+void canTask(CANTaskData canData);
+void checkCAN(CANTaskData canData);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
 

@@ -3,7 +3,7 @@
 //change final
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 
-XPT2046_Touchscreen ts(CS_PIN, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
+XPT2046_Touchscreen ts(TS_CS, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
 
 // Just for testing*******
 int getMPH;

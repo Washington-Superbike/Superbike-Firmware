@@ -10,29 +10,33 @@
 //or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)
 
 //Names for each of the log files
-#define MOTOR_TEMP_LOG "motor_temperature_log.csv"
-#define MOTOR_CONTROLLER_TEMP_LOG "motor_controller_temperature_log.csv"
+#define MOTOR_TEMPERATURE_LOG "motor_temperature_log.csv"
+#define MOTOR_CONTROLLER_TEMPERATURE_LOG "motor_controller_temperature_log.csv"
 #define BMS_VOLTAGE_LOG "bms_voltage_log.csv"
 #define MOTOR_CONTROLLER_VOLTAGE_LOG "motor_controller_voltage_log.csv"
 #define MOTOR_CURRENT_LOG "current_log.csv"
-#define THERMISTOR_FILE_BASE "thermistor_temp_"
-#define THERMISTOR_FILE_END "_log.csv"
+#define THERMISTOR_LOG "thermistor_log.csv"
 #define RPM_LOG "rpm_log.csv"
-#define MAX_DATA 16             //BUFFER SIZE FOR CSV DATA POINTER ARRAY
+
 
 //Represents a writer to a CSV log file on the sd card
 typedef struct CSVWriterStruct{
     const char *filename;
-    bool open;
     int dataValuesLen;
-    float *dataValues[MAX_DATA];             //array of pointers to shared variables (the data values in the csv log)
+    float *dataValues;             //array of pointers to shared variables (the data values in the csv log)
+    bool open;
     SdFile file;
 }CSVWriter;
 
+typedef struct DataLoggingTaskData {
+    CSVWriter **writers;
+    int writersLen;
+};
+
 bool startSD();
-bool openFile(CSVWriter writer);
-void closeFile(CSVWriter writer);
-void dataLoggingTask();
-void addRecordToCSV(CSVWriter writer, int sTime, float record);
+bool openFile(CSVWriter *writer);
+void closeFile(CSVWriter *writer);
+void dataLoggingTask(DataLoggingTaskData dlData);
+void addRecordToCSV(CSVWriter *writer, int sTime, float record);
 
 #endif

@@ -5,25 +5,20 @@ PC_STATE PC_State;
 IntervalTimer preChargeFSMTimer; //object for the  precharge IntervalTimer interrupt, and flag variables
 volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
 
-// a funtion to sum the voltage of each cell in main accumulator
-void seriesVoltage() {
-  float partialSeriesVoltage = 0;
-  int currentCell;
-  for (currentCell = 0; currentCell < BMS_CELLS; currentCell++) {
-    partialSeriesVoltage += *(cellsVoltage.cellVoltages + currentCell);
-  }
-  *(prechargeValues).seriesVoltage = partialSeriesVoltage;
-}
 
 // Interrupt service routine for the precharge circuit
 void tickPreChargeFSM() {
   preChargeFlag = 1;
 }
 
+void preChargeTask(PreChargeTaskData pcData){
+    preChargeCheck(pcData);
+}
+
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
-void preChargeCircuitFSM ()
+void preChargeCircuitFSM (PreChargeTaskData pcData)
 {
   switch (PC_State) { // transitions
     case PC_START:
@@ -41,7 +36,7 @@ void preChargeCircuitFSM ()
     //            break;
     //         }
     case PC_CLOSE:
-      if ( *(prechargeValues).seriesVoltage == BMS_DECLARED_VOLTAGE) {    //change to condition: motor controller voltage = BMS declared voltage
+      if ( *(pcData.seriesVoltage) == BMS_DECLARED_VOLTAGE) {    //change to condition: motor controller voltage = BMS declared voltage
         PC_State = PC_CLOSE;
         break;
       }
@@ -92,9 +87,9 @@ void setupPreChargeISR() {
   checkCANTimer.begin(checkCANisr, 1000);
 }
 
-void preChargeCheck() {
+void preChargeCheck(PreChargeTaskData pcData) {
   if (preChargeFlag) {
-    preChargeCircuitFSM();
+    preChargeCircuitFSM(pcData);
     noInterrupts();
     preChargeFlag = 0;
     interrupts();
