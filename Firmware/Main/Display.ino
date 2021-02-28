@@ -22,6 +22,11 @@ void updateDisplayISR() {
     updateDisplayFlag = 1;
 }
 
+void setupDisplayISR() {
+  updateDisplayTimer.priority(0); // highest priority
+  updateDisplayTimer.begin(updateDisplayISR, 1000); // 1000 microseconds subject to change
+}
+
 void displayTask(MeasurementScreenData msData) {
     drawMeasurementScreen(msData);
 }

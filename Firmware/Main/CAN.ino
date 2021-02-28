@@ -7,6 +7,7 @@ CAN_message_t CAN_msg;                                // data is read into this 
 void setupCAN() {
     CAN_bus.begin();
     CAN_bus.setBaudRate(250000);
+    // setupCANISR(); // uncomment or delete?
 }
 
 void canTask(CANTaskData canData) {
@@ -169,6 +170,13 @@ IntervalTimer requestBMSVoltageTimer;
 volatile signed char requestBMSVoltageFlag;
 void requestBMSVoltageISR() {
     requestBMSVoltageFlag;
+}
+
+void setupCANISR() {
+  requestBMSVoltageTimer.priority(1); // highest priority
+  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 1000);
+  checkCANTimer.priority(0); // highest priority
+  checkCANTimer.begin(checkCANisr, 1000);
 }
 
 void requestCellVoltages(int LTC) {

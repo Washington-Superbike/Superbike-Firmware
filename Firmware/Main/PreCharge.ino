@@ -78,13 +78,6 @@ void setupPreChargeISR() {
   // start the prechargeFSM Timer, call ISR every 1 ms
   preChargeFSMTimer.priority(0); // highest priority
   preChargeFSMTimer.begin(tickPreChargeFSM, 1000);
-  // THE FOLLOWING DO NOT BELONG TO PRECHARGE
-  requestBMSVoltageTimer.priority(1); // highest priority
-  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 1000);
-  updateDisplayTimer.priority(0); // highest priority
-  updateDisplayTimer.begin(updateDisplayISR, 1000);
-  checkCANTimer.priority(0); // highest priority
-  checkCANTimer.begin(checkCANisr, 1000);
 }
 
 void preChargeCheck(PreChargeTaskData pcData) {
