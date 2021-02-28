@@ -15,8 +15,7 @@ void preChargeTask(PreChargeTaskData pcData){
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
-void preChargeCircuitFSM (PreChargeTaskData pcData)
-{
+void preChargeCircuitFSMTransitionActions (PreChargeTaskData pcData){
   switch (PC_State) { // transitions
     case PC_START:
       PC_State = PC_OPEN;
@@ -48,7 +47,10 @@ void preChargeCircuitFSM (PreChargeTaskData pcData)
       PC_State = PC_START;
       break;
   } // transitions
+}
 
+
+void preChargeCircuitFSMStateActions (PreChargeTaskData pcData){
   switch (PC_State) { // state actions
     case PC_OPEN:
       digitalWrite(CONTACTOR, LOW);
@@ -71,7 +73,8 @@ void preChargeCircuitFSM (PreChargeTaskData pcData)
 
 void preChargeCheck(PreChargeTaskData pcData) {
   if (preChargeFlag) {
-    preChargeCircuitFSM(pcData);
+    preChargeCircuitFSMTransitionActions(pcData);
+    preChargeCircuitFSMStateActions(pcData);
     noInterrupts();
     preChargeFlag = 0;
     interrupts();
