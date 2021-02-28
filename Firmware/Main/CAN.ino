@@ -24,19 +24,19 @@ void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
 }
 
 void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
-    *(motorTemps).throttle = msg.buf[0] / 255.0;
-    *(motorTemps).motorControllerTemperature = msg.buf[1] - 40;
-    *(motorTemps).motorTemperature = msg.buf[2] - 30;
-    *(motorTemps).controllerStatus = msg.buf[4];
+    *(motorTemps.throttle) = msg.buf[0] / 255.0;
+    *(motorTemps.motorControllerTemperature) = msg.buf[1] - 40;
+    *(motorTemps.motorTemperature) = msg.buf[2] - 30;
+    *(motorTemps.controllerStatus) = msg.buf[4];
 }
 
 
-void decipherBMSStatus(CAN_message_t msg) {
-    *(bmsStatus).bms_status_flag = msg.buf[0];
-    *(bmsStatus).bms_c_id = msg.buf[1];
-    *(bmsStatus).bms_c_fault = msg.buf[2];
-    *(bmsStatus).ltc_fault = msg.buf[3];
-    *(bmsStatus).ltc_count = msg.buf[4];
+void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus) {
+    *(bmsStatus.bms_status_flag) = msg.buf[0];
+    *(bmsStatus.bms_c_id) = msg.buf[1];
+    *(bmsStatus.bms_c_fault) = msg.buf[2];
+    *(bmsStatus.ltc_fault) = msg.buf[3];
+    *(bmsStatus.ltc_count) = msg.buf[4];
 }
 // A method for reading cell voltages that assumes a CAN message with only 4 cells.
 
