@@ -2,9 +2,6 @@
 
 
 PC_STATE PC_State;
-IntervalTimer preChargeFSMTimer; //object for the  precharge IntervalTimer interrupt, and flag variables
-volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
-
 
 // Interrupt service routine for the precharge circuit
 void tickPreChargeFSM() {
@@ -70,14 +67,6 @@ void preChargeCircuitFSM (PreChargeTaskData pcData)
     default:
       break;
   } // state actions
-}
-
-// SETUP PRECHARGE ISR AND ALL THE OTHER ISRs
-void setupPreChargeISR() {
-  PC_State = PC_START;
-  // start the prechargeFSM Timer, call ISR every 1 ms
-  preChargeFSMTimer.priority(0); // highest priority
-  preChargeFSMTimer.begin(tickPreChargeFSM, 1000);
 }
 
 void preChargeCheck(PreChargeTaskData pcData) {

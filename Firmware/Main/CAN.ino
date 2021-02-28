@@ -160,25 +160,6 @@ void printMessage(CAN_message_t msg) {
     Serial.println();
 }
 
-IntervalTimer checkCANTimer;
-volatile signed char checkCANFlag;
-void checkCANisr() {
-    checkCANFlag = 1;
-}
-
-IntervalTimer requestBMSVoltageTimer;
-volatile signed char requestBMSVoltageFlag;
-void requestBMSVoltageISR() {
-    requestBMSVoltageFlag;
-}
-
-void setupCANISR() {
-  requestBMSVoltageTimer.priority(1); // highest priority
-  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 1000);
-  checkCANTimer.priority(0); // highest priority
-  checkCANTimer.begin(checkCANisr, 1000);
-}
-
 void requestCellVoltages(int LTC) {
     if (LTC == -1) {
         CAN_msg.id = 0x01de0800;
