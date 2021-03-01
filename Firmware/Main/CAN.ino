@@ -74,12 +74,14 @@ void calculateSeriesVoltage(CellVoltages cellVs, float *seriesVoltage) {
     partialSeriesVoltage += *(cellVs.cellVoltages + currentCell);
   }
   *seriesVoltage = partialSeriesVoltage;
+  Serial.print("Series voltage: ");Serial.println(*seriesVoltage);
 }
 
 // checks the can bus for any new data
 void checkCAN(CANTaskData canData) {
     int readValue = CAN_bus.read(CAN_msg);
     if (readValue != 0) { // if we read a message
+      Serial.println(CAN_msg.id, HEX);
         switch (CAN_msg.id) {
         case MOTOR_STATS_MSG:
             decodeMotorStats(CAN_msg, canData.motorStats);
@@ -114,7 +116,6 @@ void checkCAN(CANTaskData canData) {
             break;
         }
     }
-    delay(500);
 }
 
 

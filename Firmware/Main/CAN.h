@@ -12,7 +12,13 @@
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
 #define BMS_CELLS 24 // the number of cells connected to the main accumulator BMS
 
+#include <circular_buffer.h>
 #include <FlexCAN_T4.h>
+#include <imxrt_flexcan.h>
+#include <isotp.h>
+#include <isotp_server.h>
+#include <kinetis_flexcan.h>
+
 #include "Display.h"
 
 #ifndef CAN_H_
