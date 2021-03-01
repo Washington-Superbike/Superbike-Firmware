@@ -1,3 +1,4 @@
+
 #include "CAN.h"
 #include "Display.h"
 #include "Main.h"
@@ -54,8 +55,10 @@ static CSVWriter bmsVoltageLog = {};
 static CSVWriter *logs[] = {&motorTemperatureLog, &motorControllerTemperatureLog, &motorControllerVoltageLog, &motorCurrentLog, &rpmLog, &thermistorLog, &bmsVoltageLog};
 
 unsigned long timer = millis();
-int dataLogCount =0;
+int cycleCount = 0;
 
+int lowerUpperCells = -1;
+unsigned long ms = millis();
 
 void initializeLogs() {
     motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
@@ -73,6 +76,7 @@ void setup() {
     pinMode(TS_CS, OUTPUT);
     digitalWrite(TS_CS, HIGH);
     pinMode(16, OUTPUT);
+    pinMode(16, HIGH);
     measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
     motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
     cellVoltages = {&cellVoltagesArr[0]};
@@ -84,32 +88,28 @@ void setup() {
     Serial.print("Opening motor temp log: ");
     Serial.println(!openFile(&motorTemperatureLog));
     Serial.println("starting program");
+    setupCAN();
 }
 
 void loop() {
-    if(millis()-timer >= 1000) {
-        dataLoggingFlag=1&&DATA_LOG_ENABLE;
+    if(millis()-timer >= 20) {
+        cycleCount++;
         timer=millis();
     }
-    if(dataLogCount%20==0 && dataLoggingFlag){
+    if(cycleCount % 1000 == 0){
         saveFlag=1;
     }
-    if(displayFlag) {
+    if(cycleCount % 500){
         displayTask(measurementData);
     }
-    if(preChargeFlag) {
-        //preChargeTask();
-    }
-    if(canFlag) {
+    if(true) {
         canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
     }
-    if(dataLoggingFlag) {
+    if(cycleCount % 100 == 0){
+        requestCellVoltages(lowerUpperCells);
+        lowerUpperCells*=-1;
+    }
+    if(cycleCount % 50 == 0 ) {
         dataLoggingTask({logs, 7});
-        dataLogCount++;
-        if(saveFlag){
-            saveFiles(logs, 7);
-            saveFlag=0;
-        }
-        dataLoggingFlag=0;
     }
 }

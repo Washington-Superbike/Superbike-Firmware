@@ -204,7 +204,6 @@ void errorScreen(bool error) {
 
 
             //***FOR TESTING******
-            delay(500);
             ERROR_STATUS = false;
             error = false;
             //********************
