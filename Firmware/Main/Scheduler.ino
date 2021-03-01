@@ -30,12 +30,12 @@ void checkCANisr() {
 IntervalTimer requestBMSVoltageTimer;
 volatile signed char requestBMSVoltageFlag;
 void requestBMSVoltageISR() {
-    requestBMSVoltageFlag;
+    requestBMSVoltageFlag  = 1;
 }
 
 void setupCANISR() {
   requestBMSVoltageTimer.priority(1); // highest priority
-  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 1000);
+  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 2000000);
   checkCANTimer.priority(0); // highest priority
-  checkCANTimer.begin(checkCANisr, 1000);
+  checkCANTimer.begin(checkCANisr, 20000);
 }

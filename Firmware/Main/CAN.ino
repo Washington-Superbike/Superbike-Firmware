@@ -82,7 +82,6 @@ void calculateSeriesVoltage(CellVoltages cellVs, float *seriesVoltage) {
 void checkCAN(CANTaskData canData) {
     int readValue = CAN_bus.read(CAN_msg);
     if (readValue != 0) { // if we read a message
-      Serial.println(CAN_msg.id, HEX);
         switch (CAN_msg.id) {
         case MOTOR_STATS_MSG:
             decodeMotorStats(CAN_msg, canData.motorStats);
@@ -92,7 +91,7 @@ void checkCAN(CANTaskData canData) {
             break;
         case DD_BMS_STATUS_IND:
             decipherBMSStatus(CAN_msg, bmsStatus);
-            printBMSStatus();
+            //printBMSStatus();
             break;
         case BMSC1_LTC1_CELLS_04:
             decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);

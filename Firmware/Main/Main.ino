@@ -1,10 +1,9 @@
-
 #include "CAN.h"
 #include "Display.h"
 #include "Main.h"
 #include "Precharge.h"
 #include "DataLogging.h"
-
+#include "Scheduler.h"
 
 #define DATA_LOG_ENABLE 0
 
@@ -59,57 +58,66 @@ int cycleCount = 0;
 
 int lowerUpperCells = -1;
 unsigned long ms = millis();
+byte ranFlag = 0;
 
 void initializeLogs() {
-    motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
-    motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp};
-    motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage};
-    motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent};
-    rpmLog = {RPM_LOG, 1, &RPM};
-    thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0]};
-    bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
+  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
+  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp};
+  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage};
+  motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent};
+  rpmLog = {RPM_LOG, 1, &RPM};
+  thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0]};
+  bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
 }
 
 void setup() {
-    pinMode(TFT_CS, OUTPUT);
-    digitalWrite(TFT_CS, HIGH);
-    pinMode(TS_CS, OUTPUT);
-    digitalWrite(TS_CS, HIGH);
-    pinMode(16, OUTPUT);
-    pinMode(16, HIGH);
-    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
-    motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
-    cellVoltages = {&cellVoltagesArr[0]};
-    bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
-    thermistorTemps = {thTemps};
-    initializeLogs();
-    Serial.print("Starting SD: ");
-    Serial.println(!startSD());
-    Serial.print("Opening motor temp log: ");
-    Serial.println(!openFile(&motorTemperatureLog));
-    Serial.println("starting program");
-    setupCAN();
+  pinMode(TFT_CS, OUTPUT);
+  digitalWrite(TFT_CS, HIGH);
+  pinMode(TS_CS, OUTPUT);
+  digitalWrite(TS_CS, HIGH);
+  pinMode(16, OUTPUT);
+  pinMode(16, LOW);
+  measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
+  motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
+  cellVoltages = {&cellVoltagesArr[0]};
+  bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
+  thermistorTemps = {thTemps};
+  initializeLogs();
+  Serial.print("Starting SD: ");
+  Serial.println(!startSD());
+  Serial.print("Opening motor temp log: ");
+  Serial.println(!openFile(&motorTemperatureLog));
+  Serial.println("starting program");
+  setupCAN();
+  setupCANISR();
 }
 
 void loop() {
-    if(millis()-timer >= 20) {
-        cycleCount++;
-        timer=millis();
+  if (millis() - timer >= 20) {
+    cycleCount++;
+    ranFlag = 0;
+    timer = millis();
+  }
+  if (!ranFlag) {
+    if (cycleCount % 1000 == 0 ) {
+      Serial.println("SAVING LOGS");
+      saveFiles(logs, 7);
     }
-    if(cycleCount % 1000 == 0){
-        saveFlag=1;
+    if (cycleCount % 500 ) {
+      //displayTask(measurementData);
     }
-    if(cycleCount % 500){
-        displayTask(measurementData);
+    if (checkCANFlag) {
+      canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+      checkCANFlag = 0;
     }
-    if(true) {
-        canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+    if (requestBMSVoltageFlag) {
+      requestCellVoltages(lowerUpperCells);
+      lowerUpperCells *= -1;
+      requestBMSVoltageFlag = 0;
     }
-    if(cycleCount % 100 == 0){
-        requestCellVoltages(lowerUpperCells);
-        lowerUpperCells*=-1;
+    if (cycleCount % 50 == 0 ) {
+      dataLoggingTask({logs, 7});
+      ranFlag = 1;
     }
-    if(cycleCount % 50 == 0 ) {
-        dataLoggingTask({logs, 7});
-    }
+  }
 }
