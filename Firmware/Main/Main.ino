@@ -82,6 +82,7 @@ void setup() {
   cellVoltages = {&cellVoltagesArr[0]};
   bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
   thermistorTemps = {thTemps};
+  // initial
   initializeLogs();
   Serial.print("Starting SD: ");
   Serial.println(!startSD());

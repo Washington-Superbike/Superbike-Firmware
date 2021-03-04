@@ -8,15 +8,15 @@ void tickPreChargeFSM() {
   preChargeFlag = 1;
 }
 
-void preChargeTask(PreChargeTaskData pcData){
-    preChargeCheck(pcData);
+void preChargeTask(PreChargeTaskData preChargeData, MotorStats motorStats){
+    preChargeCheck(preChargeData, motorStats);
 }
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
-void preChargeCircuitFSMTransitionActions (PreChargeTaskData pcData){
-  switch (PC_State) { // transitions
+void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, MotorStats motorStats){
+  switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
       PC_State = PC_OPEN;
       break;
@@ -27,12 +27,8 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData pcData){
         break;
       }
       break;
-    //         else {
-    //            PC_State = PC_OPEN;
-    //            break;
-    //         }
     case PC_CLOSE:
-      if ( *(pcData.seriesVoltage) == BMS_DECLARED_VOLTAGE) {    //change to condition: motor controller voltage = BMS declared voltage
+      if ( (*(preChargeData.seriesVoltage) - *(motorStats.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) {    
         PC_State = PC_CLOSE;
         break;
       }
@@ -50,11 +46,11 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData pcData){
 }
 
 
-void preChargeCircuitFSMStateActions (PreChargeTaskData pcData){
-  switch (PC_State) { // state actions
+void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
+  switch (*(preChargeData.PC_State)) { // state actions
     case PC_OPEN:
       digitalWrite(CONTACTOR, LOW);
-      digitalWrite(PRECHARGE, LOW); // SANITY CHECK: DOES THIS OPEN THE PRECHARGE RELAY?
+      digitalWrite(PRECHARGE, LOW); 
       break;
     case PC_CLOSE:
       // requestBMSVoltageISR.update( a faster time);
@@ -63,7 +59,7 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData pcData){
       break;
     case PC_JUST_CLOSED:
       // requestBMSVoltageISR.update( a slower time);
-      digitalWrite(CONTACTOR, HIGH); // WHAT DOES THIS LINE DO??? -- THIS MAY NEED CHANGING
+      digitalWrite(CONTACTOR, HIGH); 
       digitalWrite(PRECHARGE, LOW);
       break;
     default:
@@ -71,10 +67,10 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData pcData){
   } // state actions
 }
 
-void preChargeCheck(PreChargeTaskData pcData) {
+void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats) {
   if (preChargeFlag) {
-    preChargeCircuitFSMTransitionActions(pcData);
-    preChargeCircuitFSMStateActions(pcData);
+    preChargeCircuitFSMTransitionActions(preChargeData, motorStats);
+    preChargeCircuitFSMStateActions(preChargeData);
     noInterrupts();
     preChargeFlag = 0;
     interrupts();
