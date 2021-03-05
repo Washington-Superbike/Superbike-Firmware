@@ -8,14 +8,14 @@ void tickPreChargeFSM() {
   preChargeFlag = 1;
 }
 
-void preChargeTask(PreChargeTaskData preChargeData, MotorStats motorStats){
-    preChargeCheck(preChargeData, motorStats);
+void preChargeTask(PreChargeTaskData preChargeData){
+    preChargeCheck(preChargeData);
 }
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
-void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, MotorStats motorStats){
+void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData){
   switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
       PC_State = PC_OPEN;
@@ -28,7 +28,7 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, Moto
       }
       break;
     case PC_CLOSE:
-      if ( (*(preChargeData.seriesVoltage) - *(motorStats.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) ) {    
+      if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) ) {    
         PC_State = PC_CLOSE;
         break;
       }
@@ -67,9 +67,9 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
   } // state actions
 }
 
-void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats) {
+void preChargeCheck(PreChargeTaskData preChargeData) {
   if (preChargeFlag) {
-    preChargeCircuitFSMTransitionActions(preChargeData, motorStats);
+    preChargeCircuitFSMTransitionActions(preChargeData);
     preChargeCircuitFSMStateActions(preChargeData);
     noInterrupts();
     preChargeFlag = 0;
