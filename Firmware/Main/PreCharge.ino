@@ -28,7 +28,7 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, Moto
       }
       break;
     case PC_CLOSE:
-      if ( (*(preChargeData.seriesVoltage) - *(motorStats.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) {    
+      if ( (*(preChargeData.seriesVoltage) - *(motorStats.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) ) {    
         PC_State = PC_CLOSE;
         break;
       }

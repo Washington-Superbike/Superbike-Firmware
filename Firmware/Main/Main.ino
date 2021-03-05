@@ -90,7 +90,6 @@ void setup() {
   Serial.println(!openFile(&motorTemperatureLog));
   Serial.println("starting program");
   setupCAN();
-  setupCANISR();
 }
 
 void loop() {

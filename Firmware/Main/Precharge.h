@@ -12,7 +12,7 @@ enum PC_STATE { PC_START, PC_OPEN , PC_CLOSE, PC_JUST_CLOSED };
 
 typedef struct PreChargeTaskData {
   float* seriesVoltage; // from the main accumulator
-  PCSTATE* PC_State;
+  PC_STATE* PC_State;
 };
 
 #endif
