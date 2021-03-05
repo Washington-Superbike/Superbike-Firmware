@@ -90,7 +90,7 @@ void checkCAN(CANTaskData canData) {
             decodeMotorTemps(CAN_msg, canData.motorTemps);
             break;
         case DD_BMS_STATUS_IND:
-            decipherBMSStatus(CAN_msg, bmsStatus);
+            decipherBMSStatus(CAN_msg, canData.bmsStatus);
             //printBMSStatus();
             break;
         case BMSC1_LTC1_CELLS_04:
