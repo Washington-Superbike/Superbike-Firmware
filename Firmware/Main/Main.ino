@@ -70,6 +70,13 @@ void initializeLogs() {
   bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
 }
 
+void initializeCANStructs() {
+  motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
+  cellVoltages = {&cellVoltagesArr[0]};
+  bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
+  thermistorTemps = {thTemps};
+}
+
 void setup() {
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
@@ -78,10 +85,7 @@ void setup() {
   pinMode(16, OUTPUT);
   pinMode(16, LOW);
   measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
-  motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
-  cellVoltages = {&cellVoltagesArr[0]};
-  bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
-  thermistorTemps = {thTemps};
+  initializeCANStructs();
   // initial
   initializeLogs();
   Serial.print("Starting SD: ");
