@@ -33,9 +33,14 @@ typedef struct MeasurementScreenDataStruct {
     int* errorMessage;
 } MeasurementScreenData;
 
-
+typedef struct ScreenInfo {
+    int px;
+    int py;
+    int pz;
+    bool recentlyChanged;
+}Screen;
 
 void drawMeasurementScreen(MeasurementScreenData msData);
-void displayTask(MeasurementScreenData msData);
+void displayTask(MeasurementScreenData msData, ScreenInfo screen);
 
 #endif

@@ -1,4 +1,4 @@
-#include "CAN.H"
+#include "CAN.h"
 
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;    // access to can bus reading
 CAN_message_t CAN_msg;                                // data is read into this from the can bus

@@ -32,6 +32,7 @@ byte canFlag = 0;
 MeasurementScreenData measurementData = {};
 MotorStats motorStats = {};
 MotorTemps motorTemps = {};
+ScreenInfo screen = {};
 
 void setup() {
     measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
@@ -41,7 +42,7 @@ void setup() {
 
 void loop() {
     if(displayFlag) {
-        displayTask(measurementData);
+        displayTask(measurementData, screen);
     }
     if(preChargeFlag) {
         //preChargeTask();
