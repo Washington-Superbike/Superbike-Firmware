@@ -16,4 +16,10 @@ typedef struct PreChargeTaskData {
   float* motorControllerBatteryVoltage;
 };
 
+void tickPreChargeFSM();
+void preChargeTask(PreChargeTaskData preChargeData, MotorStats motorStats);
+void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, MotorStats motorStats);
+void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData);
+void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats);
+
 #endif
