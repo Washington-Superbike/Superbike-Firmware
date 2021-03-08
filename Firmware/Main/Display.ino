@@ -14,6 +14,7 @@ bool ERROR_STATUS;
 int screenMode;
 int w;
 int h;
+//font width is fontsize*6 pixels
 
 
 
@@ -29,8 +30,8 @@ void displayTask(MeasurementScreenData msData, Screen screen) {
 
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     //makeBattery("name", voltage, maxVoltage, startX, startY, width, height);
-    makeBattery("Battery", *msData.mainBatteryVoltage, 100, w / 16, 0, 0, 0, screen);
-    makeBattery("Aux Battery", *msData.auxiliaryBatteryVoltage, 100, w / 2, 0, 0, 0, screen);
+    makeBattery("Battery", *msData.mainBatteryVoltage, msData.prevMainBattVoltage, 100, w / 16, 0, 0, 0, screen);
+    makeBattery("Aux Battery", *msData.auxiliaryBatteryVoltage, msData.prevAuxBattVoltage, 100, w / 2, 0, 0, 0, screen);
 
     updateTemp(getTemp, screen);
 
@@ -58,7 +59,7 @@ void setupDisplay(Screen screen) {
     screen.recentlyChanged = true;
 }
 
-void makeBattery(String battName, float getVolt, float maxVolt, int startX, int startY, int width, int height, Screen screen) {
+void makeBattery(String battName, float getVolt, float prevVolt, float maxVolt, int startX, int startY, int width, int height, Screen screen) {
 
     tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
 
@@ -183,4 +184,37 @@ void touchButton(Screen screen) {
         tft.fillScreen(ILI9341_WHITE);
         screenMode = (screenMode - 1) % 3;
     }
+}
+
+
+//Won't work with decimals
+//mostSigDigit be the power of 10 for greatest digit of the max value\
+// ex: 401 -> 4.01 * 10^2 -> mostSigDigit = 2
+void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, int digits) {
+    int space = 6 * fontsize; //pixels
+    tft.setTextSize(fontsize);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+
+    double avg = (num + oldNum) / 2;
+
+    if (abs(num - oldNum) / avg > 0.05) { //percent diff of 5% or more
+
+        for (int i =  mostSigDigit; i > mostSigDigit - digits; i--) {
+
+            int oldDigit = (int) oldNum / pow(10, i);
+            oldDigit = oldDigit % 10;
+            int newDigit = (int) num / pow(10, i);
+            newDigit = newDigit % 10;
+
+
+            if (oldDigit != newDigit) {
+                tft.print(newDigit);
+            } else {
+                tft.setCursor(tft.getCursorX() + space, tft.getCursorY());
+            }
+        }
+
+
+    }
+
 }

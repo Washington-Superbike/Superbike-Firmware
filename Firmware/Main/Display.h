@@ -31,6 +31,11 @@ typedef struct MeasurementScreenDataStruct {
     float* motorTemp;
     float* motorCurrent;
     int* errorMessage;
+    float prevMainBattVoltage;
+    float prevAuxBattVoltage;
+    int prevRPM;
+    float prevMotorTemp;
+    float prevMotorCurrent;
 } MeasurementScreenData;
 
 typedef struct ScreenInfo {
