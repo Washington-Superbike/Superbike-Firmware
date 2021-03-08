@@ -1,0 +1,16 @@
+
+#ifndef SCHED_H_
+#define SCHED_H_
+
+extern volatile signed char checkCANFlag;
+extern volatile signed char requestBMSVoltageFlag;
+
+void setupPreChargeISR(PreChargeTaskData pcData);
+void updateDisplayISR();
+void setupDisplayISR();
+void checkCANisr();
+void requestBMSVoltageISR();
+void setupCANISR();
+
+
+#endif

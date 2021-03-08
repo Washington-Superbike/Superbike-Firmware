@@ -3,7 +3,7 @@
 //change final
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 
-XPT2046_Touchscreen ts(CS_PIN, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
+XPT2046_Touchscreen ts(TS_CS, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
 
 // Just for testing*******
 int getMPH;
@@ -16,13 +16,6 @@ int w;
 int h;
 //font width is fontsize*6 pixels
 
-
-
-IntervalTimer updateDisplayTimer;
-volatile signed char updateDisplayFlag;
-void updateDisplayISR() {
-    updateDisplayFlag = 1;
-}
 
 void displayTask(MeasurementScreenData msData, Screen screen) {
     drawMeasurementScreen(msData, screen);
@@ -152,7 +145,6 @@ void errorScreen(bool error) {
 
 
             //***FOR TESTING******
-            delay(500);
             ERROR_STATUS = false;
             error = false;
             //********************
@@ -216,5 +208,6 @@ void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, in
 
 
     }
-
+  // REMOVE THE FOLLOWING LINE
+  return "";
 }
