@@ -18,7 +18,7 @@ void updateDisplayISR() {
 
 void setupDisplayISR() {
   updateDisplayTimer.priority(0); // highest priority
-  updateDisplayTimer.begin(updateDisplayISR, 1000); // 1000 microseconds subject to change
+  updateDisplayTimer.begin(updateDisplayISR, 1000000); // 1000 microseconds subject to change
 }
 
 IntervalTimer checkCANTimer;

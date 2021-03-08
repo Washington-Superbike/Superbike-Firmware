@@ -16,7 +16,7 @@
 #define DISPLAY_H_
 
 // The TIRQ interrupt signal must be used for this example.
-#define TIRQ_PIN  2
+#define TIRQ_PIN  8
 
 
 #define TS_MINX  327

@@ -95,11 +95,12 @@ void setup() {
   Serial.println(!openFile(&motorTemperatureLog));
   Serial.println("starting program");
   setupCAN();
+  setupDisplay(screen); 
 }
 
 void loop() {
-  if (millis() - timer >= 20) {
-    cycleCount++;
+  if (millis() - timer >= 20) { //sets a flag every 20ms
+    cycleCount++;               //increases the number of cycles executed
     ranFlag = 0;
     timer = millis();
   }
@@ -108,8 +109,9 @@ void loop() {
       Serial.println("SAVING LOGS");
       saveFiles(logs, 7);
     }
-    if (cycleCount % 500 ) {
-      displayTask(measurementData, screen );
+    if (cycleCount % 20 == 0) {
+        Serial.println("DISPLAY TASK");
+      displayTask(measurementData, screen);
     }
     if (checkCANFlag) {
       canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
