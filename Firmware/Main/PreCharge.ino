@@ -18,29 +18,42 @@ void preChargeTask(PreChargeTaskData preChargeData){
 void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData){
   switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
-      PC_State = PC_OPEN;
+      *preChargeData.PC_State = PC_OPEN;
       break;
     case PC_OPEN:
       // when the GPIO for the bike's start switch is known, use: digitalRead(pin)
-      if ( 0 == 1 ) {            //change 0 to the digital read
-        PC_State = PC_CLOSE;
+      if ( digitalRead(HIGH_VOLTAGE_TOGGLE) == 1 ) {            //change 0 to the digital read
+        *preChargeData.PC_State = PC_CLOSE;
         break;
       }
       break;
     case PC_CLOSE:
-      if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) ) {    
-        PC_State = PC_CLOSE;
+      if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0) { // kill-switch activated
+        *preChargeData.PC_State = PC_OPEN;
+      }
+      else if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) > (*(preChargeData.seriesVoltage) * 0.1) ) { // precharge not finished 
+        *preChargeData.PC_State = PC_CLOSE;
         break;
       }
-      else {
-        PC_State = PC_JUST_CLOSED;
+      else if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) 
+          && digitalRead(CLOSE_CONTACTOR_BUTTON) == 1) { // precharge finished, CLOSE_CONTACTOR_BUTTON pushed
+        *preChargeData.PC_State = PC_JUST_CLOSED;
+        break;
+      }
+      else { // precharge finished, but CLOSE_CONTACTOR_BUTTON not pushed
+        *preChargeData.PC_State = PC_CLOSE;
         break;
       }
     case PC_JUST_CLOSED:
-      PC_State = PC_JUST_CLOSED;
-      break;
+      if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0) { // kill-switch activated
+        *preChargeData.PC_State = PC_OPEN;
+      }
+      else {
+        *preChargeData.PC_State = PC_JUST_CLOSED;
+        break;
+      }
     default:
-      PC_State = PC_START;
+      *preChargeData.PC_State = PC_START;
       break;
   } // transitions
 }
