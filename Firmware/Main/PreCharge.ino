@@ -9,7 +9,7 @@ void tickPreChargeFSM() {
 }
 
 void preChargeTask(PreChargeTaskData preChargeData){
-    preChargeCheck(preChargeData);
+    preChargeFSMCheck(preChargeData);
 }
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
@@ -88,7 +88,7 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
   }
 }
 
-void preChargeCheck(PreChargeTaskData preChargeData) { // consider renaming this function
+void preChargeFSMCheck(PreChargeTaskData preChargeData) { 
   if (preChargeFlag) {
     preChargeCircuitFSMTransitionActions(preChargeData);
     preChargeCircuitFSMStateActions(preChargeData);
