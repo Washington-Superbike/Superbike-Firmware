@@ -64,40 +64,28 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, LOW); 
       digitalWrite(CONTACTOR_CLOSED_LED, LOW);
-      if (checkIfPrecharged(preChargeData) == 1) {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
-      }
-      else {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
-      }
       break;
     case PC_CLOSE:
       // requestBMSVoltageISR.update( a faster time);
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, HIGH);
       digitalWrite(CONTACTOR_CLOSED_LED, LOW);
-      if (checkIfPrecharged(preChargeData) == 1) {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
-      }
-      else {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
-      }
       break;
     case PC_JUST_CLOSED:
       // requestBMSVoltageISR.update( a slower time);
       digitalWrite(CONTACTOR, HIGH); 
       digitalWrite(PRECHARGE, LOW);
       digitalWrite(CONTACTOR_CLOSED_LED, HIGH);
-      if (checkIfPrecharged(preChargeData) == 1) {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
-      }
-      else {
-        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not precharged confirmed
-      }
       break;
     default:
       break;
   } // state actions
+  if (checkIfPrecharged(preChargeData) == 1) {
+    digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
+  }
+  else {
+    digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
+  }
 }
 
 void preChargeCheck(PreChargeTaskData preChargeData) { // consider renaming this function
@@ -110,9 +98,9 @@ void preChargeCheck(PreChargeTaskData preChargeData) { // consider renaming this
   }
 }
 
+// This function returns 1 if the difference between the main-accumulator-series-voltage and the 
+// motorcontroller-voltage is less than 10% of the main-accumulator-series-voltage. This function 
+// returns 0 otherwise. 
 int checkIfPrecharged(PreChargeTaskData preChargeData) {
-  if ((*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1)) { // consider adding absolute value
-    return 1;
-  }
-  return 0;
+  return ((*preChargeData.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.seriesVoltage * 0.1)); // consider adding absolute value
 }
