@@ -31,12 +31,11 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData){
       if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0) { // kill-switch activated
         *preChargeData.PC_State = PC_OPEN;
       }
-      else if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) > (*(preChargeData.seriesVoltage) * 0.1) ) { // precharge not finished 
+      else if ( checkIfPrecharged(preChargeData) == 0 ) { // precharge not finished 
         *preChargeData.PC_State = PC_CLOSE;
         break;
       }
-      else if ( (*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1) 
-          && digitalRead(CLOSE_CONTACTOR_BUTTON) == 1) { // precharge finished, CLOSE_CONTACTOR_BUTTON pushed
+      else if ( checkIfPrecharged(preChargeData) == 1 && digitalRead(CLOSE_CONTACTOR_BUTTON) == 1) { // precharge finished, CLOSE_CONTACTOR_BUTTON pushed
         *preChargeData.PC_State = PC_JUST_CLOSED;
         break;
       }
@@ -64,23 +63,44 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
     case PC_OPEN:
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, LOW); 
+      digitalWrite(CONTACTOR_CLOSED_LED, LOW);
+      if (checkIfPrecharged(preChargeData) == 1) {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
+      }
+      else {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
+      }
       break;
     case PC_CLOSE:
       // requestBMSVoltageISR.update( a faster time);
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, HIGH);
+      digitalWrite(CONTACTOR_CLOSED_LED, LOW);
+      if (checkIfPrecharged(preChargeData) == 1) {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
+      }
+      else {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
+      }
       break;
     case PC_JUST_CLOSED:
       // requestBMSVoltageISR.update( a slower time);
       digitalWrite(CONTACTOR, HIGH); 
       digitalWrite(PRECHARGE, LOW);
+      digitalWrite(CONTACTOR_CLOSED_LED, HIGH);
+      if (checkIfPrecharged(preChargeData) == 1) {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
+      }
+      else {
+        digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not precharged confirmed
+      }
       break;
     default:
       break;
   } // state actions
 }
 
-void preChargeCheck(PreChargeTaskData preChargeData) {
+void preChargeCheck(PreChargeTaskData preChargeData) { // consider renaming this function
   if (preChargeFlag) {
     preChargeCircuitFSMTransitionActions(preChargeData);
     preChargeCircuitFSMStateActions(preChargeData);
@@ -88,4 +108,11 @@ void preChargeCheck(PreChargeTaskData preChargeData) {
     preChargeFlag = 0;
     interrupts();
   }
+}
+
+int checkIfPrecharged(PreChargeTaskData preChargeData) {
+  if ((*(preChargeData.seriesVoltage) - *(preChargeData.motorControllerBatteryVoltage)) <= (*(preChargeData.seriesVoltage) * 0.1)) { // consider adding absolute value
+    return 1;
+  }
+  return 0;
 }
