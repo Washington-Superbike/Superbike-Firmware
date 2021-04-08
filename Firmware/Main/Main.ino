@@ -30,6 +30,7 @@ static int errorMessage = 0;
 static byte controllerStatus = 0;
 static byte switchSignalsStatus = 0;
 
+static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
 static byte displayFlag = 0;
 static byte canFlag = 0;
@@ -77,6 +78,10 @@ void initializeCANStructs() {
   thermistorTemps = {thTemps};
 }
 
+void initializePreChargeStruct() {
+  preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+}
+
 void setup() {
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
@@ -94,6 +99,8 @@ void setup() {
   Serial.println(!openFile(&motorTemperatureLog));
   Serial.println("starting program");
   setupCAN();
+  initializePreChargeStruct();
+  setupPreChargeISR(preChargeData);
 }
 
 void loop() {

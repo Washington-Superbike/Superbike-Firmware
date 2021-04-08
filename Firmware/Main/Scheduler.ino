@@ -3,8 +3,8 @@
 IntervalTimer preChargeFSMTimer; //object for the  precharge IntervalTimer interrupt, and flag variables
 volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
 
-void setupPreChargeISR(PreChargeTaskData pcData) {
-  PC_State = PC_START;
+void setupPreChargeISR(PreChargeTaskData preChargeTaskData) {
+  *preChargeTaskData.PC_State = PC_START;
   // start the prechargeFSM Timer, call ISR every 1 ms
   preChargeFSMTimer.priority(0); // highest priority
   preChargeFSMTimer.begin(tickPreChargeFSM, 1000);

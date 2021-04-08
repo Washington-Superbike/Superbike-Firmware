@@ -1,7 +1,7 @@
 #include "Precharge.h"
 
 
-PC_STATE PC_State;
+// PC_STATE PC_State;
 
 // Interrupt service routine for the precharge circuit
 void tickPreChargeFSM() {
