@@ -88,6 +88,7 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
   }
 }
 
+// delete this
 void preChargeFSMCheck(PreChargeTaskData preChargeData) { 
   if (preChargeFlag) {
     preChargeCircuitFSMTransitionActions(preChargeData);
@@ -100,7 +101,8 @@ void preChargeFSMCheck(PreChargeTaskData preChargeData) {
 
 // This function returns 1 if the difference between the main-accumulator-series-voltage and the 
 // motorcontroller-voltage is less than 10% of the main-accumulator-series-voltage. This function 
-// returns 0 otherwise. 
+// returns 0 otherwise.
+// THIS MAY WORK -- CONDSIDER ADDING A WAY TO CHECK IF WE HAVE VOLTAGE DATA FOR ALL CELLLS
 int checkIfPrecharged(PreChargeTaskData preChargeData) {
-  return ((*preChargeData.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.seriesVoltage * 0.1)); // consider adding absolute value
+  return ((*preChargeData.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.seriesVoltage * 0.1)); 
 }

@@ -100,7 +100,8 @@ void setup() {
   Serial.println("starting program");
   setupCAN();
   initializePreChargeStruct();
-  setupPreChargeISR(preChargeData);
+  setupFastTimerISR();
+  setupSlowTimerISR(preChargeData);  
 }
 
 void loop() {
@@ -110,25 +111,25 @@ void loop() {
     timer = millis();
   }
   if (!ranFlag) {
-    if (cycleCount % 1000 == 0 ) {
-      Serial.println("SAVING LOGS");
-      saveFiles(logs, 7);
-    }
-    if (cycleCount % 500 ) {
-      //displayTask(measurementData);
-    }
-    if (checkCANFlag) {
+    if (fastTimerFlag == 1) { // 20 ms interval
+      fastTimerFlag == 0;
       canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
-      checkCANFlag = 0;
+      if (fastTimerIncrement % 2 == 0) { // 40 ms interval
+        preChargeCircuitFSMTransitionActions(preChargeData);
+        preChargeCircuitFSMStateActions(preChargeData);
+      }
     }
-    if (requestBMSVoltageFlag) {
-      requestCellVoltages(lowerUpperCells);
-      lowerUpperCells *= -1;
-      requestBMSVoltageFlag = 0;
-    }
-    if (cycleCount % 50 == 0 ) {
-      dataLoggingTask({logs, 7});
-      ranFlag = 1;
+    if (slowTimerFlag == 1) { // 500 ms interval
+      slowTimerFlag == 0;
+      if (slowTimerIncrement % 4 == 0) { // 2 second interval
+        requestCellVoltages(lowerUpperCells);
+        lowerUpperCells *= -1;
+      }
+      if (slowTimerIncrement % 2 == 0) {// 1 second interval
+          dataLoggingTask({logs, 7});
+          ranFlag = 1;
+      }
+      //displayTask(measurementData);  
     }
   }
 }

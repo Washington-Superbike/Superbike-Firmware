@@ -6,8 +6,7 @@ CAN_message_t CAN_msg;                                // data is read into this 
 
 void setupCAN() {
     CAN_bus.begin();
-    CAN_bus.setBaudRate(250000);
-    setupCANISR(); 
+    CAN_bus.setBaudRate(250000); 
 }
 
 void canTask(CANTaskData canData) {

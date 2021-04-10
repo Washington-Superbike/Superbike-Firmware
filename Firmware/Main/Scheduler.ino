@@ -1,41 +1,31 @@
 #include "Scheduler.h"
 
-IntervalTimer preChargeFSMTimer; //object for the  precharge IntervalTimer interrupt, and flag variables
-volatile signed char preChargeFlag ;     // needs to be volatile to avoid interrupt-related memory issues
+IntervalTimer fastTimer;
+IntervalTimer slowTimer;
+volatile signed char fastTimerFlag;
+volatile signed char slowTimerFlag;
+volatile unsigned char fastTimerIncrement;
+volatile unsigned char slowTimerIncrement;
 
-void setupPreChargeISR(PreChargeTaskData preChargeTaskData) {
+void setupFastTimerISR() {
+  fastTimerIncrement = 0;
+  fastTimer.priority(0);
+  fastTimer.begin(raiseFastTimerFlag, 20000); // currently 20 ms
+}
+
+void setupSlowTimerISR(PreChargeTaskData preChargeTaskData) {
+  slowTimerIncrement = 0;
   *preChargeTaskData.PC_State = PC_START;
-  // start the prechargeFSM Timer, call ISR every 1 ms
-  preChargeFSMTimer.priority(0); // highest priority
-  preChargeFSMTimer.begin(tickPreChargeFSM, 1000);
+  slowTimer.priority(0);
+  slowTimer.begin(raiseSlowTimerFlag, 500000); // currently 500 ms
 }
 
-IntervalTimer updateDisplayTimer;
-volatile signed char updateDisplayFlag;
-void updateDisplayISR() {
-    updateDisplayFlag = 1;
+void raiseFastTimerFlag() {
+  fastTimerFlag = 1;
+  fastTimerIncrement += 1;
 }
 
-void setupDisplayISR() {
-  updateDisplayTimer.priority(0); // highest priority
-  updateDisplayTimer.begin(updateDisplayISR, 1000); // 1000 microseconds subject to change
-}
-
-IntervalTimer checkCANTimer;
-volatile signed char checkCANFlag;
-void checkCANisr() {
-    checkCANFlag = 1;
-}
-
-IntervalTimer requestBMSVoltageTimer;
-volatile signed char requestBMSVoltageFlag;
-void requestBMSVoltageISR() {
-    requestBMSVoltageFlag  = 1;
-}
-
-void setupCANISR() {
-  requestBMSVoltageTimer.priority(1); // highest priority
-  requestBMSVoltageTimer.begin(requestBMSVoltageISR, 2000000);
-  checkCANTimer.priority(0); // highest priority
-  checkCANTimer.begin(checkCANisr, 20000);
+void raiseSlowTimerFlag() {
+  slowTimerFlag = 1;
+  slowTimerIncrement += 1;
 }
