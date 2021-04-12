@@ -105,12 +105,6 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - timer >= 20) {
-    cycleCount++;
-    ranFlag = 0;
-    timer = millis();
-  }
-  if (!ranFlag) {
     if (fastTimerFlag == 1) { // 20 ms interval
       fastTimerFlag == 0;
       canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
@@ -128,8 +122,10 @@ void loop() {
       if (slowTimerIncrement % 2 == 0) {// 1 second interval
           dataLoggingTask({logs, 7});
           ranFlag = 1;
+          Serial.println("logged");
       }
-      //displayTask(measurementData);  
+      if(slowTimerIncrement % 20 ==0){
+        saveFiles(logs, 7);
+      }
     }
-  }
 }
