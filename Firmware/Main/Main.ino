@@ -32,10 +32,7 @@ static byte switchSignalsStatus = 0;
 
 static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
-static byte displayFlag = 0;
-static byte canFlag = 0;
-static byte dataLoggingFlag = 0;
-static byte saveFlag = 0;
+static Screen screen = {};
 
 static MeasurementScreenData measurementData = {};
 static MotorStats motorStats = {};
@@ -62,69 +59,70 @@ unsigned long ms = millis();
 byte ranFlag = 0;
 
 void initializeLogs() {
-  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
-  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp};
-  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage};
-  motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent};
-  rpmLog = {RPM_LOG, 1, &RPM};
-  thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0]};
-  bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
+    motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
+    motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp};
+    motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage};
+    motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent};
+    rpmLog = {RPM_LOG, 1, &RPM};
+    thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0]};
+    bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
 }
 
 void initializeCANStructs() {
-  motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
-  cellVoltages = {&cellVoltagesArr[0]};
-  bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
-  thermistorTemps = {thTemps};
+    motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
+    cellVoltages = {&cellVoltagesArr[0]};
+    bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
+    thermistorTemps = {thTemps};
 }
 
 void initializePreChargeStruct() {
-  preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+    preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
 }
 
 void setup() {
-  pinMode(TFT_CS, OUTPUT);
-  digitalWrite(TFT_CS, HIGH);
-  pinMode(TS_CS, OUTPUT);
-  digitalWrite(TS_CS, HIGH);
-  pinMode(16, OUTPUT);
-  pinMode(16, LOW);
-  measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
-  initializeCANStructs();
-  // initial
-  initializeLogs();
-  Serial.print("Starting SD: ");
-  Serial.println(!startSD());
-  Serial.print("Opening motor temp log: ");
-  Serial.println(!openFile(&motorTemperatureLog));
-  Serial.println("starting program");
-  setupCAN();
-  initializePreChargeStruct();
-  setupFastTimerISR();
-  setupSlowTimerISR(preChargeData);  
+    pinMode(TFT_CS, OUTPUT);
+    digitalWrite(TFT_CS, HIGH);
+    pinMode(TS_CS, OUTPUT);
+    digitalWrite(TS_CS, HIGH);
+    pinMode(16, OUTPUT);
+    pinMode(16, LOW);
+    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
+    initializeCANStructs();
+    // initial
+    initializeLogs();
+    Serial.print("Starting SD: ");
+    Serial.println(!startSD());
+    Serial.print("Opening motor temp log: ");
+    Serial.println(!openFile(&motorTemperatureLog));
+    Serial.println("starting program");
+    setupDisplay(screen);
+    setupCAN();
+    initializePreChargeStruct();
+    setupFastTimerISR();
+    setupSlowTimerISR(preChargeData);
 }
 
 void loop() {
     if (fastTimerFlag == 1) { // 20 ms interval
-      fastTimerFlag == 0;
-      canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
-      if (fastTimerIncrement % 2 == 0) { // 40 ms interval
-        preChargeCircuitFSMTransitionActions(preChargeData);
-        preChargeCircuitFSMStateActions(preChargeData);
-      }
+        fastTimerFlag == 0;
+        canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+        if (fastTimerIncrement % 2 == 0) { // 40 ms interval
+            preChargeCircuitFSMTransitionActions(preChargeData);
+            preChargeCircuitFSMStateActions(preChargeData);
+        }
     }
     if (slowTimerFlag == 1) { // 500 ms interval
-      slowTimerFlag = 0;
-      if (slowTimerIncrement % 4 == 0) { // 2 second interval
-        requestCellVoltages(lowerUpperCells);
-        lowerUpperCells *= -1;
-      }
-      if (slowTimerIncrement % 2 == 0) {// 1 second interval
-          dataLoggingTask({logs, 7});
-          Serial.println("logged");
-      }
-      if(slowTimerIncrement % 20 ==0){
-        saveFiles(logs, 7);
-      }
+        slowTimerFlag = 0;
+        if (slowTimerIncrement % 4 == 0) { // 2 second interval
+            requestCellVoltages(lowerUpperCells);
+            lowerUpperCells *= -1;
+        }
+        if (slowTimerIncrement % 2 == 0) {// 1 second interval
+            dataLoggingTask({logs, 7});
+            Serial.println("logged");
+        }
+        if(slowTimerIncrement % 20 ==0) {
+            saveFiles(logs, 7);
+        }
     }
 }

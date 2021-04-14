@@ -20,6 +20,7 @@ void setupSlowTimerISR(PreChargeTaskData preChargeTaskData) {
   slowTimer.begin(raiseSlowTimerFlag, 500000); // currently 500 ms
 }
 
+
 void raiseFastTimerFlag() {
   fastTimerFlag = 1;
   fastTimerIncrement += 1;

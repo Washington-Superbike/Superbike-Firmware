@@ -16,7 +16,7 @@
 #define DISPLAY_H_
 
 // The TIRQ interrupt signal must be used for this example.
-#define TIRQ_PIN  2
+#define TIRQ_PIN  8
 
 
 #define TS_MINX  327
@@ -31,11 +31,21 @@ typedef struct MeasurementScreenDataStruct {
     float* motorTemp;
     float* motorCurrent;
     int* errorMessage;
+    float prevMainBattVoltage;
+    float prevAuxBattVoltage;
+    int prevRPM;
+    float prevMotorTemp;
+    float prevMotorCurrent;
 } MeasurementScreenData;
 
-
+typedef struct ScreenInfo {
+    int px;
+    int py;
+    int pz;
+    bool recentlyChanged;
+}Screen;
 
 void drawMeasurementScreen(MeasurementScreenData msData);
-void displayTask(MeasurementScreenData msData);
+void displayTask(MeasurementScreenData msData, Screen screen);
 
 #endif

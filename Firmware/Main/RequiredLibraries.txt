@@ -1,5 +1,5 @@
 FlexCAN_T4 (from Github by tonton80)
-SdFat 
+SdFat (Bill Greiman, NOT THE FORK)
 Adafruit ILI9341 
 Adafruit GFX
 XPT2046_Touchscreen (from Git?)

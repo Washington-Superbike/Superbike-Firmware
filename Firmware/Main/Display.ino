@@ -11,32 +11,29 @@ int getVoltage;
 int getTemp;
 //************************
 bool ERROR_STATUS;
-int screen_Mode;
-int WIDTH;
-int HEIGHT;
+int screenMode;
+int w;
+int h;
+//font width is fontsize*6 pixels
 
-void displayTask(MeasurementScreenData msData) {
-    drawMeasurementScreen(msData);
+
+void displayTask(MeasurementScreenData msData, Screen screen) {
+    drawMeasurementScreen(msData, screen);
 }
 
-void drawMeasurementScreen(MeasurementScreenData msData){
-    
+void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
+    //makeBattery("name", voltage, maxVoltage, startX, startY, width, height);
+    makeBattery("Battery", *msData.mainBatteryVoltage, msData.prevMainBattVoltage, 100, w / 16, 0, 0, 0, screen);
+    makeBattery("Aux Battery", *msData.auxiliaryBatteryVoltage, msData.prevAuxBattVoltage, 100, w / 2, 0, 0, 0, screen);
+
+    updateTemp(getTemp, screen);
+
+    updateMPH(getMPH, 6 * w / 8, 5 * h / 8, 2, screen);
 }
 
 
-/*
-  void setup() {
-    Serial.begin(9600);
-
+void setupDisplay(Screen screen) {
     tft.begin();
-
-    // Just for testing*******
-    getMPH = 0;
-    getVoltage = 100;
-    getTemp = 90;
-    ERROR_STATUS = false; //*****Make True To Test Error Screen********
-    //************************
-
 
     tft.setRotation(1);
 
@@ -44,94 +41,38 @@ void drawMeasurementScreen(MeasurementScreenData msData){
 
     // eep touchscreen not found?
     if (!ts.begin()) {
-      Serial.println("Couldn't start touchscreen controller");
-      while (1);
+        Serial.println("Couldn't start touchscreen controller");
+        while (1);
     }
     ts.setRotation(1);
-    screen_Mode = 0;
+    screenMode = 0;
 
-    HEIGHT = tft.height();
-    WIDTH = tft.width();
+    h = tft.height();
+    w = tft.width();
+    screen.recentlyChanged = true;
+}
 
+void makeBattery(String battName, float getVolt, float prevVolt, float maxVolt, int startX, int startY, int width, int height, Screen screen) {
 
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
 
-  }
-
-
-  void loop() {
-  int h = HEIGHT;
-  int w = WIDTH;
-
-
-
-
-  errorScreen(ERROR_STATUS);
-
-  //Just for testing**********
-  if (getVoltage > 0) {
-    getMPH = getMPH + 10;
-    getVoltage = getVoltage - 10;
-    getTemp = getTemp + 10;
-
-  } else {
-    getMPH = 0;
-    getVoltage = 100;
-    getTemp = 90;
-  }
-  //**************************
-
-    if (ts.tirqTouched()) {
-    if (ts.touched()) {
-      TS_Point p = ts.getPoint();
-      touchButton(p);
+    if (screen.recentlyChanged) {
+        tft.setCursor(startX, startY);
+        tft.print(battName + ":");
     }
-  }
 
-
-
-  if(screen_Mode == 0) {
-     //makeBattery("name", voltage, maxVoltage, startX, startY, width, height);
-     makeBattery("Battery", getVoltage, 100, w/16, 0, 3*w/16, h/4);
-     makeBattery("Aux Battery", getVoltage, 100, w/2, 0, 3*w/16, h/4);
-
-
-     updateTemp(getTemp);
-
-     updateMPH(getMPH, 6*w/8, 5*h/8);
-   }else if(screen_Mode == 1) {
-      updateMPH(getMPH, 0, 0);
-   }else {
-      errorDisplay();
-   }
-
-   delay(70);
-
-
-  }
-
-*/
-
-
-void makeBattery(String battName, int getVolt, int maxVolt, int startX, int startY, int width, int height) {
-
-    int w = WIDTH;
-    int h = HEIGHT;
-
-    tft.setCursor(startX, startY);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-    tft.setTextSize(2);
-    tft.print(battName + ":");
-
-    tft.fillRect(startX + w / 16, startY + h / 8, width, height, ILI9341_WHITE); //new
-    if ((getVolt * 100) / maxVolt > 60) {
-        tft.fillRect(startX + w / 16, startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_GREEN);
-    } else {
-        tft.fillRect(startX + w / 16 , startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_RED);
+    if (abs(width) > 0 && abs(height) > 0) {
+        tft.fillRect(startX + w / 16, startY + h / 8, width, height, ILI9341_WHITE); //new
+        if ((getVolt * 100) / maxVolt > 60) {
+            tft.fillRect(startX + w / 16, startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_GREEN);
+        } else {
+            tft.fillRect(startX + w / 16 , startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_RED);
+        }
+        tft.drawRect(startX + w / 16, startY + h / 8, width, height, ILI9341_BLACK);
     }
-    tft.drawRect(startX + w / 16, startY + h / 8, width, height, ILI9341_BLACK);
-    tft.setCursor(startX + width + w / 16, startY + height / 2);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-    tft.setTextSize(2);
+
+    tft.setCursor(startX + width + w / 16, startY + height / 2 + h / 8);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
 
     if (getVolt < 100) {
         tft.print('0');
@@ -142,16 +83,16 @@ void makeBattery(String battName, int getVolt, int maxVolt, int startX, int star
     tft.print(getVolt);
 }
 
-void updateTemp(int getTemperature) {
+void updateTemp(int getTemperature, Screen screen) {
 
-    int w = WIDTH;
-    int h = HEIGHT;
 
     tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
 
 
     tft.setCursor(w / 16, 5 * h / 8);
-    tft.println("Motor Temp:");
+    if (screen.recentlyChanged) {
+        tft.println("Motor Temp:");
+    }
     int currentH = tft.getCursorY();
     tft.setCursor(w / 8, currentH);
     tft.setTextSize(4);
@@ -167,20 +108,23 @@ void updateTemp(int getTemperature) {
 
 }
 
-void updateMPH(int getMilesPerHour, int x, int y) {
-
-    int w = WIDTH;
-    int h = HEIGHT;
+//2 is default
+void updateMPH(int getMilesPerHour, int x, int y, int setSize, Screen screen) {
 
     tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
 
 
     tft.setCursor(x, y);
-    tft.setTextSize(2);
-    tft.println("MPH:");
+    tft.setTextSize(setSize);
+    if (screen.recentlyChanged) {
+        tft.println("MPH:");
+    }
+    if (setSize > 2) {
+        tft.println();
+    }
     int currentH = tft.getCursorY();
     tft.setCursor(x, currentH);
-    tft.setTextSize(4);
+    tft.setTextSize(setSize + 3);
 
     if (getMPH < 100) {
         tft.print('0');
@@ -193,9 +137,6 @@ void updateMPH(int getMilesPerHour, int x, int y) {
 }
 
 void errorScreen(bool error) {
-
-    int w = WIDTH;
-    int h = HEIGHT;
 
     if (error) {
 
@@ -227,24 +168,45 @@ void errorDisplay() {
 }
 
 
-String touchButton(TS_Point p) {
+void touchButton(Screen screen) {
+    if (screen.px >= 2 * w / 3) { //In right third of screen
+        tft.fillScreen(ILI9341_WHITE);
+        screenMode = (screenMode + 1) % 3;
+    } else if (screen.px <= w / 3 && 0 <= screen.px) { //In left third of screen
+        tft.fillScreen(ILI9341_WHITE);
+        screenMode = (screenMode - 1) % 3;
+    }
+}
 
-    p.x = map(p.x, TS_MAXX, TS_MINX, 0, tft.width());
-    p.y = map(p.y, TS_MAXY, TS_MINY, 0, tft.height());
 
-    if (p.x >= 2 * WIDTH / 3) { //In right third of screen
-        while (ts.touched()) {
-            //loop - only acts when it's released
+//Won't work with decimals
+//mostSigDigit be the power of 10 for greatest digit of the max value\
+// ex: 401 -> 4.01 * 10^2 -> mostSigDigit = 2
+void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, int digits) {
+    int space = 6 * fontsize; //pixels
+    tft.setTextSize(fontsize);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+
+    double avg = (num + oldNum) / 2;
+
+    if (abs(num - oldNum) / avg > 0.05) { //percent diff of 5% or more
+
+        for (int i =  mostSigDigit; i > mostSigDigit - digits; i--) {
+
+            int oldDigit = (int) oldNum / pow(10, i);
+            oldDigit = oldDigit % 10;
+            int newDigit = (int) num / pow(10, i);
+            newDigit = newDigit % 10;
+
+
+            if (oldDigit != newDigit) {
+                tft.print(newDigit);
+            } else {
+                tft.setCursor(tft.getCursorX() + space, tft.getCursorY());
+            }
         }
-        tft.fillScreen(ILI9341_WHITE);
-        screen_Mode = (screen_Mode + 1) % 3;
-    } else if (p.x <= WIDTH / 3 && 0 <= p.x) { //In left third of screen
-        tft.fillScreen(ILI9341_WHITE);
-        while (ts.touched()) {
-            //loop - only acts when it's released
-        }
-        tft.fillScreen(ILI9341_WHITE);
-        screen_Mode = (screen_Mode - 1) % 3;
+
+
     }
   // REMOVE THE FOLLOWING LINE
   return "";
