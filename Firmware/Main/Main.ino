@@ -114,14 +114,13 @@ void loop() {
       }
     }
     if (slowTimerFlag == 1) { // 500 ms interval
-      slowTimerFlag == 0;
+      slowTimerFlag = 0;
       if (slowTimerIncrement % 4 == 0) { // 2 second interval
         requestCellVoltages(lowerUpperCells);
         lowerUpperCells *= -1;
       }
       if (slowTimerIncrement % 2 == 0) {// 1 second interval
           dataLoggingTask({logs, 7});
-          ranFlag = 1;
           Serial.println("logged");
       }
       if(slowTimerIncrement % 20 ==0){
