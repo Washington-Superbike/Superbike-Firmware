@@ -8,14 +8,11 @@ void tickPreChargeFSM() {
   preChargeFlag = 1;
 }
 
-void preChargeTask(PreChargeTaskData preChargeData){
-    preChargeFSMCheck(preChargeData);
-}
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
-void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData){
+void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps){
   switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
       *preChargeData.PC_State = PC_OPEN;
@@ -31,20 +28,20 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData){
       if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0) { // kill-switch activated
         *preChargeData.PC_State = PC_OPEN;
       }
-      else if ( checkIfPrecharged(preChargeData) == 0 ) { // precharge not finished 
+      else if (checkIfPrecharged(preChargeData) == 0) { // precharge not finished 
         *preChargeData.PC_State = PC_CLOSE;
         break;
       }
-      else if ( checkIfPrecharged(preChargeData) == 1 && digitalRead(CLOSE_CONTACTOR_BUTTON) == 1) { // precharge finished, CLOSE_CONTACTOR_BUTTON pushed
+      else if (closeContactor(preChargeData, bmsStatus, motorTemps) == 1 && digitalRead(CLOSE_CONTACTOR_BUTTON) == 1) { 
         *preChargeData.PC_State = PC_JUST_CLOSED;
         break;
-      }
+      } // precharge finished, CLOSE_CONTACTOR_BUTTON pushed, no errors
       else { // precharge finished, but CLOSE_CONTACTOR_BUTTON not pushed
         *preChargeData.PC_State = PC_CLOSE;
         break;
       }
     case PC_JUST_CLOSED:
-      if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0) { // kill-switch activated
+      if (digitalRead(HIGH_VOLTAGE_TOGGLE) == 0 || closeContactor(preChargeData, bmsStatus, motorTemps) == 0) { // kill-switch activated or error detected
         *preChargeData.PC_State = PC_OPEN;
       }
       else {
@@ -88,16 +85,6 @@ void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData){
   }
 }
 
-// delete this
-void preChargeFSMCheck(PreChargeTaskData preChargeData) { 
-  if (preChargeFlag) {
-    preChargeCircuitFSMTransitionActions(preChargeData);
-    preChargeCircuitFSMStateActions(preChargeData);
-    noInterrupts();
-    preChargeFlag = 0;
-    interrupts();
-  }
-}
 
 // This function returns 1 if the difference between the main-accumulator-series-voltage and the 
 // motorcontroller-voltage is less than 10% of the main-accumulator-series-voltage. This function 
@@ -105,4 +92,18 @@ void preChargeFSMCheck(PreChargeTaskData preChargeData) {
 // THIS MAY WORK -- CONDSIDER ADDING A WAY TO CHECK IF WE HAVE VOLTAGE DATA FOR ALL CELLLS
 int checkIfPrecharged(PreChargeTaskData preChargeData) {
   return ((*preChargeData.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.seriesVoltage * 0.1)); 
+}
+
+// this function returns 1 if the contactor may be closed. This function returns 0 if the 
+// contactor must be opened.
+int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps) {
+  if (!checkIfPrecharged(preChargeData)) return 0;
+  if (*bmsStatus.ltc_fault == 1) return 0;
+  if (*bmsStatus.ltc_count != NUMBER_OF_LTCS) return 0;
+  if (*bmsStatus.bms_c_fault == 1 || *bmsStatus.bms_c_fault == 2 || *bmsStatus.bms_c_fault == 4 ||
+      *bmsStatus.bms_c_fault == 8) return 0;
+  if (*bmsStatus.bms_status_flag == 1 || *bmsStatus.bms_status_flag == 2) return 0;
+  if (*motorTemps.throttle >= THROTTLE_TEMP_MAX || *motorTemps.motorControllerTemperature >= MOTORCONTROLLER_TEMP_MAX
+      || *motorTemps.motorTemperature >= MOTOR_TEMP_MAX)       return 0;
+  return 1;
 }

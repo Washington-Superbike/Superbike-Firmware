@@ -107,7 +107,7 @@ void loop() {
         fastTimerFlag == 0;
         canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
         if (fastTimerIncrement % 2 == 0) { // 40 ms interval
-            preChargeCircuitFSMTransitionActions(preChargeData);
+            preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
             preChargeCircuitFSMStateActions(preChargeData);
         }
     }
