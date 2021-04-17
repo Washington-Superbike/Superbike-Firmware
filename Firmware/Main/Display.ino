@@ -22,13 +22,23 @@ void displayTask(MeasurementScreenData msData, Screen screen) {
 }
 
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
-    //makeBattery("name", voltage, maxVoltage, startX, startY, width, height);
-    makeBattery("Battery", *msData.mainBatteryVoltage, msData.prevMainBattVoltage, 100, w / 16, 0, 0, 0, screen);
-    makeBattery("Aux Battery", *msData.auxiliaryBatteryVoltage, msData.prevAuxBattVoltage, 100, w / 2, 0, 0, 0, screen);
-
-    updateTemp(getTemp, screen);
-
-    updateMPH(getMPH, 6 * w / 8, 5 * h / 8, 2, screen);
+    tft.setTextSize(1);
+    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
+    int fromTop = 10;
+    tft.setCursor(85, fromTop);
+    tft.println(*msData.mainBatteryVoltage);
+    tft.setCursor(85, fromTop + 8*2);
+    tft.println(*msData.auxiliaryBatteryVoltage);
+    tft.setCursor(40, fromTop + 8*4);
+    tft.println(*msData.RPM);
+    tft.setCursor(85, fromTop + 8*6);
+    tft.println(*msData.motorTemp);
+    tft.setCursor(100, fromTop + 8*8);
+    tft.println(*msData.motorCurrent);
+    tft.setCursor(100, fromTop + 8*10);
+    tft.println(*msData.errorMessage);
+    tft.setCursor(135, fromTop + 8*12);
+    tft.println(*msData.maxThermostatTemp);
 }
 
 
@@ -50,63 +60,19 @@ void setupDisplay(Screen screen) {
     h = tft.height();
     w = tft.width();
     screen.recentlyChanged = true;
+
+    setupMeasurementScreen(measurementData);
 }
 
-void makeBattery(String battName, float getVolt, float prevVolt, float maxVolt, int startX, int startY, int width, int height, Screen screen) {
-
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
-
-    if (screen.recentlyChanged) {
-        tft.setCursor(startX, startY);
-        tft.print(battName + ":");
-    }
-
-    if (abs(width) > 0 && abs(height) > 0) {
-        tft.fillRect(startX + w / 16, startY + h / 8, width, height, ILI9341_WHITE); //new
-        if ((getVolt * 100) / maxVolt > 60) {
-            tft.fillRect(startX + w / 16, startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_GREEN);
-        } else {
-            tft.fillRect(startX + w / 16 , startY + height + h / 8, width, -height * getVolt / maxVolt, ILI9341_RED);
-        }
-        tft.drawRect(startX + w / 16, startY + h / 8, width, height, ILI9341_BLACK);
-    }
-
-    tft.setCursor(startX + width + w / 16, startY + height / 2 + h / 8);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);  tft.setTextSize(2);
-
-    if (getVolt < 100) {
-        tft.print('0');
-    }
-    if (getVolt < 10) {
-        tft.print('0');
-    }
-    tft.print(getVolt);
+void setupMeasurementScreen(MeasurementScreenData msData) {
+    tft.setCursor(0, 10);
+    tft.setTextSize(1);
+    tft.setTextColor(ILI9341_BLACK);
+    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Max Thermostat Temp:";
+    tft.print(measurementNames);
 }
 
-void updateTemp(int getTemperature, Screen screen) {
 
-
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-
-
-    tft.setCursor(w / 16, 5 * h / 8);
-    if (screen.recentlyChanged) {
-        tft.println("Motor Temp:");
-    }
-    int currentH = tft.getCursorY();
-    tft.setCursor(w / 8, currentH);
-    tft.setTextSize(4);
-
-    if (getTemp < 100) {
-        tft.print('0');
-    }
-    if (getTemp < 10) {
-        tft.print('0');
-    }
-    tft.print(getTemperature);
-    tft.print(" F");
-
-}
 
 //2 is default
 void updateMPH(int getMilesPerHour, int x, int y, int setSize, Screen screen) {
@@ -170,12 +136,18 @@ void errorDisplay() {
 
 void touchButton(Screen screen) {
     if (screen.px >= 2 * w / 3) { //In right third of screen
-        tft.fillScreen(ILI9341_WHITE);
-        screenMode = (screenMode + 1) % 3;
+        //tft.fillScreen(ILI9341_WHITE);
+        screenMode = mod(screenMode + 1, 3);
+        Serial.println(screenMode);
     } else if (screen.px <= w / 3 && 0 <= screen.px) { //In left third of screen
-        tft.fillScreen(ILI9341_WHITE);
-        screenMode = (screenMode - 1) % 3;
+        //tft.fillScreen(ILI9341_WHITE);
+        screenMode = mod(screenMode - 1, 3);
+        Serial.println(screenMode);
     }
+}
+
+int mod(int x, int m) {
+    return (x % m + m) % m;
 }
 
 
@@ -208,6 +180,4 @@ void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, in
 
 
     }
-  // REMOVE THE FOLLOWING LINE
-  return "";
 }
