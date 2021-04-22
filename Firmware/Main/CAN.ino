@@ -32,11 +32,11 @@ void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
 
 
 void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus) {
-    *(bmsStatus.bms_status_flag) = msg.buf[0];
-    *(bmsStatus.bms_c_id) = msg.buf[1];
-    *(bmsStatus.bms_c_fault) = msg.buf[2];
-    *(bmsStatus.ltc_fault) = msg.buf[3];
-    *(bmsStatus.ltc_count) = msg.buf[4];
+    *(bmsStatus.bms_status_flag) = &msg.buf[0];
+    *(bmsStatus.bms_c_id) = &msg.buf[1];
+    *(bmsStatus.bms_c_fault) = &msg.buf[2];
+    *(bmsStatus.ltc_fault) = &msg.buf[3];
+    *(bmsStatus.ltc_count) = &msg.buf[4];
 }
 // A method for reading cell voltages that assumes a CAN message with only 4 cells.
 
@@ -59,7 +59,7 @@ void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps) {
     int ltcID = msg.buf[0];
     thermistorEnabled = msg.buf[1];
     thermistorPresent = msg.buf[2];
-    int *currentThermistor = msg.buf[3];
+    int *currentThermistor = &msg.buf[3];
     int thermistor;
     for (thermistor = 0; thermistor < 4; thermistor++) {
         thermistorTemps.temps[thermistor + 5 * ltcID] = currentThermistor[thermistor];
