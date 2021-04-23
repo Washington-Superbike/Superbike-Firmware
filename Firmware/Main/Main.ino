@@ -56,73 +56,78 @@ int cycleCount = 0;
 
 int lowerUpperCells = -1;
 unsigned long ms = millis();
-byte ranFlag = 0;
+byte sdStarted = 0;
 
 void initializeLogs() {
-    motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp};
-    motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp};
-    motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage};
-    motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent};
-    rpmLog = {RPM_LOG, 1, &RPM};
-    thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0]};
-    bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage};
+  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
+  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp, FLOAT};
+  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage, FLOAT};
+  motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent, FLOAT};
+  rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
+  thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
+  bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
 }
 
 void initializeCANStructs() {
-    motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
-    cellVoltages = {&cellVoltagesArr[0]};
-    bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
-    thermistorTemps = {thTemps};
+  motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
+  motorTemps = {&throttle, &motorControllerTemp, &motorTemp, &controllerStatus};
+  cellVoltages = {&cellVoltagesArr[0]};
+  bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
+  thermistorTemps = {thTemps};
 }
 
 void initializePreChargeStruct() {
-    preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+  preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
 }
 
 void setup() {
-    pinMode(TFT_CS, OUTPUT);
-    digitalWrite(TFT_CS, HIGH);
-    pinMode(TS_CS, OUTPUT);
-    digitalWrite(TS_CS, HIGH);
-    pinMode(16, OUTPUT);
-    pinMode(16, LOW);
-    measurementData = {&motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage};
-    initializeCANStructs();
-    // initial
-    initializeLogs();
-    Serial.print("Starting SD: ");
-    Serial.println(!startSD());
-    Serial.print("Opening motor temp log: ");
-    Serial.println(!openFile(&motorTemperatureLog));
-    Serial.println("starting program");
-    setupDisplay(screen);
-    setupCAN();
-    initializePreChargeStruct();
-    setupFastTimerISR();
-    setupSlowTimerISR(preChargeData);
+  pinMode(TFT_CS, OUTPUT);
+  digitalWrite(TFT_CS, HIGH);
+  pinMode(TS_CS, OUTPUT);
+  digitalWrite(TS_CS, HIGH);
+  pinMode(16, OUTPUT);
+  pinMode(16, LOW);
+  measurementData = {&seriesVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage, thTemps};
+  initializeCANStructs();
+  // initial
+  initializeLogs();
+  Serial.print("Starting SD: ");
+  if (startSD()) {
+    Serial.println("SD successfully started");
+    sdStarted = 1;
+  } else {
+    sdStarted = 0;
+    Serial.println("Error starting SD card");
+  }
+  setupDisplay(screen);
+  setupCAN();
+  initializePreChargeStruct();
+  setupFastTimerISR();
+  setupSlowTimerISR(preChargeData);
 }
 
 void loop() {
-    if (fastTimerFlag == 1) { // 20 ms interval
-        fastTimerFlag == 0;
-        canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
-        if (fastTimerIncrement % 2 == 0) { // 40 ms interval
-            preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
-            preChargeCircuitFSMStateActions(preChargeData);
-        }
+  if (fastTimerFlag == 1) { // 20 ms interval
+    fastTimerFlag == 0;
+    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+    if (fastTimerIncrement % 2 == 0) { // 40 ms interval
+      preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
+      preChargeCircuitFSMStateActions(preChargeData);
     }
-    if (slowTimerFlag == 1) { // 500 ms interval
-        slowTimerFlag = 0;
-        if (slowTimerIncrement % 4 == 0) { // 2 second interval
-            requestCellVoltages(lowerUpperCells);
-            lowerUpperCells *= -1;
-        }
-        if (slowTimerIncrement % 2 == 0) {// 1 second interval
-            dataLoggingTask({logs, 7});
-            Serial.println("logged");
-        }
-        if(slowTimerIncrement % 20 ==0) {
-            saveFiles(logs, 7);
-        }
+  }
+  if (fastTimerIncrement % 5 == 0 && sdStarted) {// 1 second interval
+    dataLoggingTask({logs, 7});
+  }
+  if (slowTimerFlag == 1) { // 500 ms interval
+    slowTimerFlag = 0;
+    displayTask(measurementData, screen);
+    if (slowTimerIncrement % 4 == 0) { // 2 second interval
+      requestCellVoltages(lowerUpperCells);
+      lowerUpperCells *= -1;
     }
+    if (slowTimerIncrement % 20 == 0 && sdStarted) {
+      saveFiles(logs, 7);
+      Serial.println("saved logging files");
+    }
+  }
 }

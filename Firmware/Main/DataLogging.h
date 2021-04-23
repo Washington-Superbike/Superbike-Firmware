@@ -18,19 +18,26 @@
 #define THERMISTOR_LOG "thermistor_log.csv"
 #define RPM_LOG "rpm_log.csv"
 
+enum data_type {
+  INT,
+  FLOAT
+};
+
 
 //Represents a writer to a CSV log file on the sd card
-typedef struct CSVWriterStruct{
-    const char *filename;
-    int dataValuesLen;
-    float *dataValues;             //array of pointers to shared variables (the data values in the csv log)
-    bool open;
-    SdFile file;
-}CSVWriter;
+typedef struct CSVWriterStruct {
+  const char *filename;
+  int dataValuesLen;
+  float *dataValues;             //array of pointers to shared variables (the data values in the csv log)
+  data_type D_TYPE;
+  bool open;
+  SdFile file;
+
+} CSVWriter;
 
 typedef struct DataLoggingTaskData {
-    CSVWriter **writers;
-    int writersLen;
+  CSVWriter **writers;
+  int writersLen;
 };
 
 bool startSD();

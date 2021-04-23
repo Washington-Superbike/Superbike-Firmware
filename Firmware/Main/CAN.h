@@ -36,7 +36,7 @@ typedef struct MotorTemps{
     float* throttle;
     float* motorControllerTemperature;
     float* motorTemperature;
-    int* controllerStatus;
+    byte* controllerStatus;
 };
 
 typedef struct BMSStatus {

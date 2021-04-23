@@ -38,7 +38,14 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     tft.setCursor(100, fromTop + 8*10);
     tft.println(*msData.errorMessage);
     tft.setCursor(135, fromTop + 8*12);
-    tft.println(*msData.maxThermostatTemp);
+    String thermistors;
+    for(int i=0;i<10;i++){
+      thermistors.append((byte)msData.thermistorTemps[i]);
+      if(i!=9){
+        thermistors.append(", ");
+      }
+    }
+    tft.println(thermistors);
 }
 
 
@@ -68,7 +75,7 @@ void setupMeasurementScreen(MeasurementScreenData msData) {
     tft.setCursor(0, 10);
     tft.setTextSize(1);
     tft.setTextColor(ILI9341_BLACK);
-    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Max Thermostat Temp:";
+    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:";
     tft.print(measurementNames);
 }
 
