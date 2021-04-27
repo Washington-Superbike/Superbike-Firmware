@@ -81,13 +81,18 @@ void initializePreChargeStruct() {
 }
 
 void setup() {
+  pinMode(3, OUTPUT);
+  digitalWrite(3, LOW);
+  pinMode(4, OUTPUT);
+  digitalWrite(3, LOW);
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
   pinMode(TS_CS, OUTPUT);
   digitalWrite(TS_CS, HIGH);
   pinMode(16, OUTPUT);
   pinMode(16, LOW);
-  measurementData = {&seriesVoltage, &auxiliaryBatteryVoltage, &RPM, &motorTemp, &motorCurrent, &errorMessage, thTemps};
+  //motor temp points to motor controller temp for now
+  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, thTemps};
   initializeCANStructs();
   // initial
   initializeLogs();

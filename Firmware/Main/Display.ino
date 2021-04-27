@@ -26,7 +26,8 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
     int fromTop = 10;
     tft.setCursor(85, fromTop);
-    tft.println(*msData.mainBatteryVoltage);
+    tft.print(*msData.mainBatteryVoltage);
+    tft.print(", "); tft.print(*msData.motorControllerVoltage);
     tft.setCursor(85, fromTop + 8*2);
     tft.println(*msData.auxiliaryBatteryVoltage);
     tft.setCursor(40, fromTop + 8*4);

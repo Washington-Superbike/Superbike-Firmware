@@ -98,12 +98,12 @@ int checkIfPrecharged(PreChargeTaskData preChargeData) {
 // contactor must be opened.
 int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps) {
   if (!checkIfPrecharged(preChargeData)) return 0;
-  if (*bmsStatus.ltc_fault == 1) return 0;
-  if (*bmsStatus.ltc_count != NUMBER_OF_LTCS) return 0;
-  if (*bmsStatus.bms_c_fault == 1 || *bmsStatus.bms_c_fault == 2 || *bmsStatus.bms_c_fault == 4 ||
-      *bmsStatus.bms_c_fault == 8) return 0;
-  if (*bmsStatus.bms_status_flag == 1 || *bmsStatus.bms_status_flag == 2) return 0;
-  if (*motorTemps.throttle >= THROTTLE_TEMP_MAX || *motorTemps.motorControllerTemperature >= MOTORCONTROLLER_TEMP_MAX
+  //if (*bmsStatus.ltc_fault == 1) return 0;
+  //if (*bmsStatus.ltc_count != NUMBER_OF_LTCS) return 0;
+  //if (*bmsStatus.bms_c_fault == 1 || *bmsStatus.bms_c_fault == 2 || *bmsStatus.bms_c_fault == 4 ||    //checks BMS fault error codes 
+    //  *bmsStatus.bms_c_fault == 8) return 0;
+  //if (*bmsStatus.bms_status_flag == 1 || *bmsStatus.bms_status_flag == 2) return 0;  //check if cells are above or below the voltage cutoffs
+  if (*motorTemps.motorControllerTemperature >= MOTORCONTROLLER_TEMP_MAX
       || *motorTemps.motorTemperature >= MOTOR_TEMP_MAX)       return 0;
   return 1;
 }

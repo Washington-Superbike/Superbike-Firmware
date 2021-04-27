@@ -18,6 +18,7 @@ void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
     *(motorStats.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);
     *(motorStats.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
     *(motorStats.motorControllerBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
+    Serial.println(*motorStats.motorControllerBatteryVoltage);
     *(motorStats.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
 
     
