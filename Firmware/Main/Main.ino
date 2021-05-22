@@ -30,11 +30,16 @@ static int errorMessage = 0;
 static byte controllerStatus = 0;
 static byte switchSignalsStatus = 0;
 
+static byte ccEnable = 0;
+static float ccVoltage = 0;
+static float ccCurrent = 0;
+
 static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
 static Screen screen = {};
 
 static MeasurementScreenData measurementData = {};
+static ChargeControllerStats ccStats = {};
 static MotorStats motorStats = {};
 static MotorTemps motorTemps = {};
 static CellVoltages cellVoltages = {};
@@ -81,21 +86,28 @@ void initializePreChargeStruct() {
 }
 
 void setup() {
-  pinMode(3, OUTPUT);
-  digitalWrite(3, LOW);
-  pinMode(4, OUTPUT);
-  digitalWrite(3, LOW);
+  pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
+  pinMode(CLOSE_CONTACTOR_BUTTON, INPUT_PULLUP);
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
   pinMode(TS_CS, OUTPUT);
   digitalWrite(TS_CS, HIGH);
-  pinMode(16, OUTPUT);
-  pinMode(16, LOW);
+  pinMode(PRECHARGE, OUTPUT);
+  digitalWrite(PRECHARGE, LOW);
+  pinMode(CONTACTOR, OUTPUT);
+  digitalWrite(CONTACTOR, LOW);
+  pinMode(CONTACTOR_PRECHARGED_LED, OUTPUT);
+  digitalWrite(CONTACTOR_PRECHARGED_LED, LOW);
+  pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
+  digitalWrite(CONTACTOR_CLOSED_LED, LOW);
+  pinMode(SD_CS, OUTPUT);
+  digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
   measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, thTemps};
   initializeCANStructs();
   // initial
   initializeLogs();
+
   Serial.print("Starting SD: ");
   if (startSD()) {
     Serial.println("SD successfully started");
@@ -124,11 +136,13 @@ void loop() {
     dataLoggingTask({logs, 7});
   }
   if (slowTimerFlag == 1) { // 500 ms interval
+    //    Serial.println("slow timer flag");
     slowTimerFlag = 0;
     displayTask(measurementData, screen);
     if (slowTimerIncrement % 4 == 0) { // 2 second interval
       requestCellVoltages(lowerUpperCells);
       lowerUpperCells *= -1;
+      Serial.println("Requesting cell voltages");
     }
     if (slowTimerIncrement % 20 == 0 && sdStarted) {
       saveFiles(logs, 7);

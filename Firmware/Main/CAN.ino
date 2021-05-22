@@ -13,23 +13,20 @@ void canTask(CANTaskData canData) {
         checkCAN(canData);
 }
 
+void decodeChargeControllerStats(CAN_message_t msg, ChargeControllerStats ccStats){
+      *(ccStats.en) = (msg.buf[0]) | (msg.buf[1]);
+      
+}
+
 
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
     *(motorStats.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);
     *(motorStats.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
     *(motorStats.motorControllerBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
-    Serial.println(*motorStats.motorControllerBatteryVoltage);
     *(motorStats.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
-
-    
 }
 
 void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
-    Serial.println("motor temps: ");
-    for(int i=0;i<5;i++){
-      Serial.print(msg.buf[i]);
-      Serial.print(", ");
-    }Serial.println();
     *(motorTemps.throttle) = msg.buf[0] / 255.0;
     *(motorTemps.motorControllerTemperature) = msg.buf[1] - 40;
     *(motorTemps.motorTemperature) = msg.buf[2] - 30;

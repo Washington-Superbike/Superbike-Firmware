@@ -3,7 +3,7 @@
 #define DATALOG_H_
 
 #include "SdFat.h"
-
+const int SD_CS = 5;
 //Clarification on how SD card stores data: each block is generally about 512 or 1024 bytes. SdFat stores an internal buffer of 512 and when the limit is reached
 //only then does it save the data onto the sd card. This is an important trade off. if we are less than that value and the bike suddenly turns off, those <512 bytes aren't stored
 //unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv)

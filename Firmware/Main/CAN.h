@@ -39,6 +39,20 @@ typedef struct MotorTemps{
     byte* controllerStatus;
 };
 
+typedef struct ChargeControllerStats{
+  byte* en; 
+  float* chargeVoltage;
+  float* chargeCurrent;
+};
+
+typedef struct ChargerStats{
+  int* statusFlag;
+  int* chargeFlag;
+  float* outputVoltage;
+  float* outputCurrent;
+  int* chargerTemp;
+};
+
 typedef struct BMSStatus {
     int* bms_status_flag;
     int* bms_c_id;

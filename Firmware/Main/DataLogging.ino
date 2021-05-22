@@ -2,7 +2,6 @@
 #include "DataLogging.h"
 
 //chip select pin for the SD card
-const int SD_CS = 16;
 
 //Represents the serial connection to the sd card and any internal buffers
 SdFat sd;
