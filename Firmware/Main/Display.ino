@@ -3,7 +3,7 @@
 //change final
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 
-XPT2046_Touchscreen ts(TS_CS, TIRQ_PIN);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
+XPT2046_Touchscreen ts(TS_CS);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
 
 // Just for testing*******
 int getMPH;
@@ -60,7 +60,7 @@ void setupDisplay(Screen screen) {
     // eep touchscreen not found?
     if (!ts.begin()) {
         Serial.println("Couldn't start touchscreen controller");
-        while (1);
+        //while (1);
     }
     ts.setRotation(1);
     screenMode = 0;
@@ -111,7 +111,7 @@ void updateMPH(int getMilesPerHour, int x, int y, int setSize, Screen screen) {
 }
 
 void errorScreen(bool error) {
-
+/*
     if (error) {
 
         while (error) {
@@ -128,7 +128,7 @@ void errorScreen(bool error) {
         tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
         tft.setTextSize(2);
     }
-
+*/
 }
 
 void errorDisplay() {

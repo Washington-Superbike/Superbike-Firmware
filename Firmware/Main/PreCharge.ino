@@ -13,12 +13,16 @@ void tickPreChargeFSM() {
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states
 // can be passed to the preChargeCircuitFSM function
 void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps) {
+  
+  Serial.print("contactor toggle: ");
+  Serial.println(check_CONTACTOR_CLOSE());
   switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
       *preChargeData.PC_State = PC_OPEN;
       break;
     case PC_OPEN:
       // when the GPIO for the bike's start switch is known, use: digitalRead(pin)
+      
       if ( check_HV_TOGGLE() == 1 ) {            //change 0 to the digital read
         *preChargeData.PC_State = PC_CLOSE;
         break;
@@ -41,7 +45,7 @@ void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, BMSS
         break;
       }
     case PC_JUST_CLOSED:
-      if (check_HV_TOGGLE == 0 || closeContactor(preChargeData, bmsStatus, motorTemps) == 0) { // kill-switch activated or error detected
+      if (check_HV_TOGGLE() == 0 || closeContactor(preChargeData, bmsStatus, motorTemps) == 0) { // kill-switch activated or error detected
         *preChargeData.PC_State = PC_OPEN;
       }
       else {
@@ -116,9 +120,9 @@ int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTe
 }
 
 bool check_HV_TOGGLE() {
-  !digitalRead(HIGH_VOLTAGE_TOGGLE);
+  return !digitalRead(HIGH_VOLTAGE_TOGGLE);
 }
 
 bool check_CONTACTOR_CLOSE() {
-  !digitalRead(CLOSE_CONTACTOR_BUTTON);
+  return !digitalRead(CLOSE_CONTACTOR_BUTTON);
 }
