@@ -15,21 +15,26 @@ void canTask(CANTaskData canData) {
 
 
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
-    *(measurementData.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);
-    *(measurementData.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
-    *(measurementData.mainBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
-    *(measurementData.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
+    *(motorStats.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);
+    *(motorStats.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
+    *(motorStats.motorControllerBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
+    Serial.println(*motorStats.motorControllerBatteryVoltage);
+    *(motorStats.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
 
     
 }
 
 void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
+    Serial.println("motor temps: ");
+    for(int i=0;i<5;i++){
+      Serial.print(msg.buf[i]);
+      Serial.print(", ");
+    }Serial.println();
     *(motorTemps.throttle) = msg.buf[0] / 255.0;
     *(motorTemps.motorControllerTemperature) = msg.buf[1] - 40;
     *(motorTemps.motorTemperature) = msg.buf[2] - 30;
     *(motorTemps.controllerStatus) = msg.buf[4];
 }
-
 
 void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus) {
     *(bmsStatus.bms_status_flag) = &msg.buf[0];
@@ -56,12 +61,12 @@ void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages, float *s
 }
 
 void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps) {
-    int ltcID = msg.buf[0];
-    thermistorEnabled = msg.buf[1];
-    thermistorPresent = msg.buf[2];
-    int *currentThermistor = &msg.buf[3];
+    byte ltcID = msg.buf[0]; 
+    thermistorEnabled = msg.buf[1]; 
+    thermistorPresent = msg.buf[2]; 
+    byte *currentThermistor = &msg.buf[3];
     int thermistor;
-    for (thermistor = 0; thermistor < 4; thermistor++) {
+    for (thermistor = 0; thermistor < 5; thermistor++) {
         thermistorTemps.temps[thermistor + 5 * ltcID] = currentThermistor[thermistor];
     }
 }
@@ -74,7 +79,6 @@ void calculateSeriesVoltage(CellVoltages cellVs, float *seriesVoltage) {
     partialSeriesVoltage += *(cellVs.cellVoltages + currentCell);
   }
   *seriesVoltage = partialSeriesVoltage;
-  Serial.print("Series voltage: ");Serial.println(*seriesVoltage);
 }
 
 // checks the can bus for any new data
