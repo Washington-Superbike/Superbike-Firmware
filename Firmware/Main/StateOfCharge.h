@@ -7,8 +7,10 @@ typedef struct SOCTaskData {
   SOC_STATE* SOC_State;
   float* stateOfCharge;
   int* stateOfChargeMemoryAddress;
-  float* dischargingCurrent;
-  float* chargingCurrent;
+  float* oldDischargingCurrent;
+  float* newDischargingCurrent;
+  float* oldChargingCurrent;
+  float* newChargingCurrent;
   float* batteryCapacity;
 };
 

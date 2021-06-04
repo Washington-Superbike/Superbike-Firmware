@@ -30,7 +30,16 @@ static int errorMessage = 0;
 static byte controllerStatus = 0;
 static byte switchSignalsStatus = 0;
 
-static PC_STATE PC_State; // NEED TO DOUBLE CHECK
+static float stateOfCharge;
+static int stateOfChargeMemoryAddress;
+static float oldDischargingCurrent;
+static float newDischargingCurrent; // used motorCurrent instead
+static float oldChargingCurrent;
+static float newChargingCurrent;
+static float batteryCapacity;
+
+static PC_STATE PC_State; 
+static SOC_STATE SOC_State; 
 
 static Screen screen = {};
 
@@ -41,6 +50,7 @@ static CellVoltages cellVoltages = {};
 static PreChargeTaskData preChargeData = {};
 static BMSStatus bmsStatus = {};
 static ThermistorTemps thermistorTemps = {};
+static SOCTaskData socData = {};
 
 static CSVWriter motorTemperatureLog = {};
 static CSVWriter motorControllerTemperatureLog = {};
@@ -50,6 +60,7 @@ static CSVWriter rpmLog = {};
 static CSVWriter thermistorLog = {};
 static CSVWriter bmsVoltageLog = {};
 static CSVWriter *logs[] = {&motorTemperatureLog, &motorControllerTemperatureLog, &motorControllerVoltageLog, &motorCurrentLog, &rpmLog, &thermistorLog, &bmsVoltageLog};
+
 
 unsigned long timer = millis();
 int cycleCount = 0;
@@ -73,11 +84,41 @@ void initializeCANStructs() {
   motorTemps = {&throttle, &motorControllerTemp, &motorTemp, &controllerStatus};
   cellVoltages = {&cellVoltagesArr[0]};
   bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
-  thermistorTemps = {thTemps};
+  thermistorTemps = {thTemps}; // IS THIS MISSING AN &??
 }
 
 void initializePreChargeStruct() {
   preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+}
+
+void initializeSOCStruct() {
+  socData = {&SOC_State, &stateOfCharge, &stateOfChargeMemoryAddress, &oldDischargingCurrent, 
+    &motorCurrent, &oldChargingCurrent, &newChargingCurrent, &batteryCapacity}; // 
+  *socData.newDischargingCurrent = -1.0; // DUMMY VALUE, SHOULD BE DISREGARDABLE
+  *socData.newChargingCurrent = -1.0;
+  *socData.SOC_State = SOC_START;
+// A CHECK IS NECESSARY HERE TO DETERMINE IF THE EEPROM actually contains the SoC and Capacity
+  *socData.stateOfCharge = readDoubleFromEEPROM(0); // see function below
+  *socData.batteryCapacity = readDoubleFromEEPROM(8);
+}
+
+// This is a function that will read all 8 bytes of a double from the EEPROM and return it. 
+// function needs checking
+double readDoubleFromEEPROM(int startAddress) {
+  double readDouble = 0;
+  for (int currentByte = startAddress; currentByte < startAddress + 7; currentByte++) {
+    readDouble &= EEPROM.read() << currentByte;
+  }
+  return readDouble;
+}
+
+/ needs checking
+void writeDoubleToEEPROM(int startAddress, double data) {
+  byte currentByte;
+  for (int currentAddress = startAddress; currentAddress < startAddress + 7; currentAddress++) {
+    currentByte = data >> (startAddress + 7 - currentAddress);
+    EEPROM.write(currentAddress, currentBtye);
+  }
 }
 
 void setup() {
@@ -114,8 +155,10 @@ void setup() {
 void loop() {
   if (fastTimerFlag == 1) { // 20 ms interval
     fastTimerFlag == 0;
-    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+    // UPDATE NEW OLD CURRENT TO NEW CURRENT HERE for socData (charging and discharging current)
+    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage}); // how many messages does this process at a time? It may be necessary to track the increment between the old and new currents
     if (fastTimerIncrement % 2 == 0) { // 40 ms interval
+      // ADD FUNCTION HERE TO TICK THE PRECHARGE FSM
       preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
       preChargeCircuitFSMStateActions(preChargeData);
     }
@@ -130,9 +173,12 @@ void loop() {
       requestCellVoltages(lowerUpperCells);
       lowerUpperCells *= -1;
     }
-    if (slowTimerIncrement % 20 == 0 && sdStarted) {
+    if (slowTimerIncrement % 20 == 0 && sdStarted) { // 10 s interval
       saveFiles(logs, 7);
       Serial.println("saved logging files");
+      writeDoubleToEEPROM(0, socData.stateOfCharge);
+      writeDoubleToEEPROM(8, socData.batteryCapacity);
     }
+
   }
 }
