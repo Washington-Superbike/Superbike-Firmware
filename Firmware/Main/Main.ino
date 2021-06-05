@@ -30,9 +30,15 @@ static int errorMessage = 0;
 static byte controllerStatus = 0;
 static byte switchSignalsStatus = 0;
 
-static byte ccEnable = 0;
-static float ccVoltage = 0;
-static float ccCurrent = 0;
+static byte evccEnable = 0;
+static float evccVoltage = 0;
+static float evccCurrent = 0;
+
+static byte chargeFlag = 0;
+static byte chargerStatusFlag = 0;
+static float chargerVoltage = 0;
+static float chargerCurrent = 0;
+static byte chargerTemp = 0;
 
 static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
@@ -46,6 +52,9 @@ static CellVoltages cellVoltages = {};
 static PreChargeTaskData preChargeData = {};
 static BMSStatus bmsStatus = {};
 static ThermistorTemps thermistorTemps = {};
+static ChargerStats chargerStats = {};
+static ChargeControllerStats chargeControllerStats = {};
+
 
 static CSVWriter motorTemperatureLog = {};
 static CSVWriter motorControllerTemperatureLog = {};
@@ -79,6 +88,8 @@ void initializeCANStructs() {
   cellVoltages = {&cellVoltagesArr[0]};
   bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
   thermistorTemps = {thTemps};
+  chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
+  chargeControllerStats = {&evccEnable, &evccVoltage, &evccCurrent};
 }
 
 void initializePreChargeStruct() {
@@ -103,7 +114,7 @@ void setup() {
   pinMode(SD_CS, OUTPUT);
   digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
-  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, thTemps};
+  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, &chargerVoltage, &chargerCurrent, thTemps};
   initializeCANStructs();
   // initial
   initializeLogs();
@@ -126,7 +137,7 @@ void setup() {
 void loop() {
   if (fastTimerFlag == 1) { // 20 ms interval
     fastTimerFlag == 0;
-    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages,  &seriesVoltage});
+    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage});
     if (fastTimerIncrement % 2 == 0) { // 40 ms interval
       preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
       preChargeCircuitFSMStateActions(preChargeData);

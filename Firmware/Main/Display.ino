@@ -46,7 +46,12 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
         thermistors.append(", ");
       }
     }
+
     tft.println(thermistors);
+    tft.setCursor(135, fromTop + 8*14);
+    tft.println(*msData.chargerCurrent);
+    tft.setCursor(135, fromTop + 8*16);
+    tft.println(*msData.chargerVoltage);
 }
 
 
@@ -76,7 +81,7 @@ void setupMeasurementScreen(MeasurementScreenData msData) {
     tft.setCursor(0, 10);
     tft.setTextSize(1);
     tft.setTextColor(ILI9341_BLACK);
-    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:";
+    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:\n\n Charger Voltage:\n\n Charger Current";
     tft.print(measurementNames);
 }
 

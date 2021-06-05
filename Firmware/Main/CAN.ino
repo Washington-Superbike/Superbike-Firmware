@@ -13,9 +13,18 @@ void canTask(CANTaskData canData) {
         checkCAN(canData);
 }
 
-void decodeChargeControllerStats(CAN_message_t msg, ChargeControllerStats ccStats){
-      *(ccStats.en) = (msg.buf[0]) | (msg.buf[1]);
-      
+void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats){
+      *(evccStats.en) = (msg.buf[0]);
+      *(evccStats.chargeVoltage) = msg.buf[2]<<8 | msg.buf[1];
+      *(evccStats.chargeCurrent) = 3200 - (msg.buf[4] <<8 | msg.buf[3]);
+}
+
+void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats){
+      *(chargerStats.statusFlag) = (msg.buf[0]);
+      *(chargerStats.chargeFlag) = msg.buf[1];
+      *(chargerStats.outputVoltage) = (msg.buf[3] <<8 | msg.buf[2]);
+      *(chargerStats.outputCurrent) = 3200 - (msg.buf[5] <<8 | msg.buf[4]);
+      *(chargerStats.chargerTemp) = msg.buf[6]-40;
 }
 
 
@@ -93,6 +102,11 @@ void checkCAN(CANTaskData canData) {
             decipherBMSStatus(CAN_msg, canData.bmsStatus);
             //printBMSStatus();
             break;
+        case EVCC_STATS: 
+            decipherEVCCStats(CAN_msg, canData.chargeControllerStats);
+            break;
+        case CHARGER_STATS:
+            decipherChargerStats(CAN_msg, canData.chargerStats);
         case BMSC1_LTC1_CELLS_04:
             decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
             break;
