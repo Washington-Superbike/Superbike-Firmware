@@ -20,7 +20,8 @@ void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
     *(motorStats.motorControllerBatteryVoltage) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
     Serial.println(*motorStats.motorControllerBatteryVoltage);
     *(motorStats.errorMessage) = ((msg.buf[7] << 8) | msg.buf[6]);
-
+    *motorsStats.newCurrentFlag = 1;
+    *motorStats.chargingCurrentFlag = 1;
     
 }
 

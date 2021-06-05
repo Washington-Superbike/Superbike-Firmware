@@ -30,6 +30,8 @@ typedef struct MotorStats{
     float* motorCurrent;
     float* motorControllerBatteryVoltage;
     int* errorMessage;
+    int* newCurrentFlag;
+    int* ChargingCurrentFlag;
 };
 
 typedef struct MotorTemps{
@@ -64,9 +66,11 @@ typedef struct CANTaskData{
     float *seriesVoltage;
 };
 
+void setupCAN();
 void canTask(CANTaskData canData);
 void checkCAN(CANTaskData canData);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
+void requestCellVoltages(int LTC);
 
 #endif
