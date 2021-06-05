@@ -38,7 +38,7 @@ static byte chargeFlag = 0;
 static byte chargerStatusFlag = 0;
 static float chargerVoltage = 0;
 static float chargerCurrent = 0;
-static byte chargerTemp = 0;
+static int8_t chargerTemp = 0;
 
 static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
@@ -114,7 +114,8 @@ void setup() {
   pinMode(SD_CS, OUTPUT);
   digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
-  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, &chargerVoltage, &chargerCurrent, thTemps};
+  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
+    &chargerVoltage, &chargerCurrent,&bms_status_flag, &evccVoltage,thTemps};
   initializeCANStructs();
   // initial
   initializeLogs();

@@ -12,7 +12,7 @@
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
 #define BMS_CELLS 24 // the number of cells connected to the main accumulator BMS
 #define EVCC_STATS 0x18e54024
-#define CHARGER_STATS 0x18eb2440
+#define CHARGER_STATS 0x18eb2440 
 
 #include <circular_buffer.h>
 #include <FlexCAN_T4.h>
@@ -52,7 +52,7 @@ typedef struct ChargerStats{
   byte* chargeFlag;
   float* outputVoltage;
   float* outputCurrent;
-  byte* chargerTemp;
+  int8_t* chargerTemp;
 };
 
 typedef struct BMSStatus {

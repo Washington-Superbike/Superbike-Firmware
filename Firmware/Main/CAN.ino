@@ -15,15 +15,15 @@ void canTask(CANTaskData canData) {
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats){
       *(evccStats.en) = (msg.buf[0]);
-      *(evccStats.chargeVoltage) = msg.buf[2]<<8 | msg.buf[1];
-      *(evccStats.chargeCurrent) = 3200 - (msg.buf[4] <<8 | msg.buf[3]);
+      *(evccStats.chargeVoltage) = ((msg.buf[2]<<8) | msg.buf[1])/10.0;
+      *(evccStats.chargeCurrent) = (3200 - ((msg.buf[4] <<8) | msg.buf[3]))/10.0;
 }
 
 void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats){
-      *(chargerStats.statusFlag) = (msg.buf[0]);
+      *(chargerStats.statusFlag) = msg.buf[0];
       *(chargerStats.chargeFlag) = msg.buf[1];
-      *(chargerStats.outputVoltage) = (msg.buf[3] <<8 | msg.buf[2]);
-      *(chargerStats.outputCurrent) = 3200 - (msg.buf[5] <<8 | msg.buf[4]);
+      *(chargerStats.outputVoltage) = ((msg.buf[3] <<8) | msg.buf[2])/10.0;
+      *(chargerStats.outputCurrent) = (3200 - ((msg.buf[5] <<8) | msg.buf[4]))/10.0;
       *(chargerStats.chargerTemp) = msg.buf[6]-40;
 }
 

@@ -25,29 +25,31 @@
 #define TS_MAXY  3842
 
 typedef struct MeasurementScreenDataStruct {
-    float* mainBatteryVoltage;
-    float* motorControllerVoltage;
-    float* auxiliaryBatteryVoltage;
-    float* RPM;
-    float* motorTemp;
-    float* motorCurrent;
-    int* errorMessage;
-    float *thermistorTemps;
-    float *chargerCurrent;
-    float *chargerVoltage;
-    float prevMainBattVoltage;
-    float prevAuxBattVoltage;
-    int prevRPM;
-    float prevMotorTemp;
-    float prevMotorCurrent;
+  float* mainBatteryVoltage;
+  float* motorControllerVoltage;
+  float* auxiliaryBatteryVoltage;
+  float* RPM;
+  float* motorTemp;
+  float* motorCurrent;
+  int* errorMessage;
+  float* chargerCurrent;
+  float* chargerVoltage;
+  int* bmsStatusFlag;
+  float* evccVoltage;
+  float* thermistorTemps;
+  float prevMainBattVoltage;
+  float prevAuxBattVoltage;
+  int prevRPM;
+  float prevMotorTemp;
+  float prevMotorCurrent;
 } MeasurementScreenData;
 
 typedef struct ScreenInfo {
-    int px;
-    int py;
-    int pz;
-    bool recentlyChanged;
-}Screen;
+  int px;
+  int py;
+  int pz;
+  bool recentlyChanged;
+} Screen;
 
 void drawMeasurementScreen(MeasurementScreenData msData);
 void displayTask(MeasurementScreenData msData, Screen screen);
