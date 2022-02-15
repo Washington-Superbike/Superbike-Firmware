@@ -112,6 +112,7 @@ void setup() {
   pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
   digitalWrite(CONTACTOR_CLOSED_LED, LOW);
   pinMode(SD_CS, OUTPUT);
+  delay(500);
   digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
   measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
@@ -144,7 +145,7 @@ void loop() {
       preChargeCircuitFSMStateActions(preChargeData);
     }
   }
-  if (fastTimerIncrement % 5 == 0 && sdStarted) {// 1 second interval
+  if (fastTimerIncrement % 5 == 0 && sdStarted) {  // 100
     dataLoggingTask({logs, 7});
   }
   if (slowTimerFlag == 1) { // 500 ms interval
@@ -156,7 +157,8 @@ void loop() {
       lowerUpperCells *= -1;
       Serial.println("Requesting cell voltages");
     }
-    if (slowTimerIncrement % 20 == 0 && sdStarted) {
+    if (slowTimerIncrement % 20 == 0 && sdStarted) {  // 5 sec interval
+      Serial.println("attempting to save files");
       saveFiles(logs, 7);
       Serial.println("saved logging files");
     }

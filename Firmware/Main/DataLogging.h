@@ -44,6 +44,6 @@ bool startSD();
 bool openFile(CSVWriter *writer);
 void closeFile(CSVWriter *writer);
 void dataLoggingTask(DataLoggingTaskData dlData);
-void addRecordToCSV(CSVWriter *writer, int sTime, float record);
+void addRecordToCSV(CSVWriter *writer, int msTime, float record);
 
 #endif

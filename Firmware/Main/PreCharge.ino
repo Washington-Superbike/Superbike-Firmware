@@ -14,8 +14,6 @@ void tickPreChargeFSM() {
 // can be passed to the preChargeCircuitFSM function
 void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps) {
   
-  Serial.print("contactor toggle: ");
-  Serial.println(check_CONTACTOR_CLOSE());
   switch (*(preChargeData.PC_State)) { // transitions
     case PC_START:
       *preChargeData.PC_State = PC_OPEN;

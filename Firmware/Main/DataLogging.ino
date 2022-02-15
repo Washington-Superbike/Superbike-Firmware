@@ -46,27 +46,27 @@ void printFile(CSVWriter *writer) {
 
 //dataLoggingTask processes all of the data logs and formats each CSV file output
 void dataLoggingTask(DataLoggingTaskData dlData) {
-  int sTime = (millis() - epochTime) / 1000;
+  int msTime = (millis() - epochTime);  // Changed this to 100ms instead of every second
   for (int i = 0; i < dlData.writersLen; i++) {
-    addRecord(dlData.writers[i], sTime);
+    addRecord(dlData.writers[i], msTime);
   }
 }
 
 //addRecordToCSV adds a record to the data log with the included time in seconds since the recording has started
 //the data comes from the dataIn member (shared variable to other tasks)
-void addRecord(CSVWriter *writer, int sTime) {
+void addRecord(CSVWriter *writer, int msTime) {
   if (!writer->open) {
     openFile(writer);
   }
-  String sRecord = String(sTime);
+  String msRecord = String(msTime);
   for (int i = 0; i < writer->dataValuesLen; i++) {
     if (writer->D_TYPE == FLOAT) {
-      sRecord.concat(",").concat(writer->dataValues[i]);
+      msRecord.concat(",").concat(writer->dataValues[i]);
     } else if (writer->D_TYPE = INT) {
-      sRecord.concat(",").concat(int(writer->dataValues[i]));
+      msRecord.concat(",").concat(int(writer->dataValues[i]));
     }
   }
-  writer->file.println(sRecord);
+  writer->file.println(msRecord);
 }
 
 //startRecording sets the "epoch" or beginning time so that each data log is synced up
