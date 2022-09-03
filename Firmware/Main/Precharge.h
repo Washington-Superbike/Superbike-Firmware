@@ -1,5 +1,5 @@
-#ifndef PRECHARGE_H_
-#define PRECHARGE_H_
+#ifndef _PRECHARGE_H_
+#define _PRECHARGE_H_
 
 #define CONTACTOR 16 //digital pin for contactor control (closing or opening)
 #define PRECHARGE 17 //digital pin for relay in series with precharge resistor
@@ -14,11 +14,11 @@
 extern volatile signed char preChargeFlag; 
 enum PC_STATE { PC_START, PC_OPEN , PC_CLOSE, PC_JUST_CLOSED };
 
-typedef struct PreChargeTaskData {
+typedef struct {
   float* seriesVoltage; // from the main accumulator
   PC_STATE* PC_State;
   float* motorControllerBatteryVoltage;
-};
+} PreChargeTaskData;
 
 
 void tickPreChargeFSM();
@@ -29,4 +29,4 @@ void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats);
 int checkIfPrecharged(PreChargeTaskData preChargeData);
 int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps);
 
-#endif
+#endif // _PRECHARGE_H

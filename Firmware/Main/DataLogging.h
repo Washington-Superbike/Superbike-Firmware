@@ -25,7 +25,7 @@ enum data_type {
 
 
 //Represents a writer to a CSV log file on the sd card
-typedef struct CSVWriterStruct {
+typedef struct {
   const char *filename;
   int dataValuesLen;
   float *dataValues;             //array of pointers to shared variables (the data values in the csv log)
@@ -35,10 +35,10 @@ typedef struct CSVWriterStruct {
 
 } CSVWriter;
 
-typedef struct DataLoggingTaskData {
+typedef struct {
   CSVWriter **writers;
   int writersLen;
-};
+} DataLoggingTaskData;
 
 bool startSD();
 bool openFile(CSVWriter *writer);
