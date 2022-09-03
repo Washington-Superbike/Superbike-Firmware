@@ -1,4 +1,5 @@
 #include "CAN.h"
+#include "FreeRTOS_TEENSY4.h"
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> CAN_bus;    // access to can bus reading
 CAN_message_t CAN_msg;                                // data is read into this from the can bus
@@ -9,8 +10,9 @@ void setupCAN() {
     CAN_bus.setBaudRate(250000); 
 }
 
-void canTask(CANTaskData canData) {
-        checkCAN(canData);
+void canTask(void *canData) {
+        checkCAN(*(CANTaskData *)canData);
+        vTaskDelay((50 * configTICK_RATE_HZ) / 1000 );
 }
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats){

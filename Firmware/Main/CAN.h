@@ -77,7 +77,7 @@ typedef struct {
     float *seriesVoltage;
 } CANTaskData;
 
-void canTask(CANTaskData canData);
+void canTask(void *canData);
 void checkCAN(CANTaskData canData);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);

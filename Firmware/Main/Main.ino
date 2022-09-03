@@ -1,9 +1,9 @@
+#include "Main.h"
 #include "CAN.h"
 #include "Display.h"
-#include "Main.h"
 #include "Precharge.h"
 #include "DataLogging.h"
-#include "Scheduler.h"
+#include "FreeRTOS_TEENSY4.h"
 
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
@@ -51,6 +51,9 @@ static ThermistorTemps thermistorTemps = {};
 static ChargerStats chargerStats = {};
 static ChargeControllerStats chargeControllerStats = {};
 
+static CANTaskData canTaskData;
+static DataLoggingTaskData dataLoggingTaskData;
+
 
 static CSVWriter motorTemperatureLog = {};
 static CSVWriter motorControllerTemperatureLog = {};
@@ -76,6 +79,7 @@ void initializeLogs() {
   rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
   thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
   bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
+  dataLoggingTaskData = {logs, 7};
 }
 
 void initializeCANStructs() {
@@ -86,6 +90,7 @@ void initializeCANStructs() {
   thermistorTemps = {thTemps};
   chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
   chargeControllerStats = {&evccEnable, &evccVoltage, &evccCurrent};
+  canTaskData = {motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage};
 }
 
 void initializePreChargeStruct() {
@@ -127,26 +132,18 @@ void setup() {
   setupDisplay(screen);
   setupCAN();
   initializePreChargeStruct();
-  setupFastTimerISR();
-  setupSlowTimerISR(preChargeData);
+
+  xTaskCreate(prechargeTask, "PRECHARGE TASK", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
+  xTaskCreate(canTask, "CAN TASK", configMINIMAL_STACK_SIZE, (void *)&canTaskData, 2, NULL);
+  xTaskCreate(displayTask, "DISPLAY TASK", configMINIMAL_STACK_SIZE, (void*)&measurementData, 1, NULL);
+  xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", configMINIMAL_STACK_SIZE, (void*)&dataLoggingTaskData, 1, NULL);
 }
 
 void loop() {
-  if (fastTimerFlag == 1) { // 20 ms interval
-    fastTimerFlag = 0;
-    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage});
-    if (fastTimerIncrement % 2 == 0) { // 40 ms interval
-      preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
-      preChargeCircuitFSMStateActions(preChargeData);
-    }
-  }
-  if (fastTimerIncrement % 5 == 0 && sdStarted) {// 1 second interval
-    dataLoggingTask({logs, 7});
-  }
+  /*
   if (slowTimerFlag == 1) { // 500 ms interval
     //    Serial.println("slow timer flag");
     slowTimerFlag = 0;
-    displayTask(measurementData, screen);
     if (slowTimerIncrement % 4 == 0) { // 2 second interval
       requestCellVoltages(lowerUpperCells);
       lowerUpperCells *= -1;
@@ -157,4 +154,5 @@ void loop() {
       Serial.println("saved logging files");
     }
   }
+  */
 }

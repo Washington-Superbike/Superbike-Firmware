@@ -45,10 +45,11 @@ void printFile(CSVWriter *writer) {
 }
 
 //dataLoggingTask processes all of the data logs and formats each CSV file output
-void dataLoggingTask(DataLoggingTaskData dlData) {
+void dataLoggingTask(void *dlData) {
+  DataLoggingTaskData dl = *(DataLoggingTaskData *)dlData; 
   int sTime = (millis() - epochTime) / 1000;
-  for (int i = 0; i < dlData.writersLen; i++) {
-    addRecord(dlData.writers[i], sTime);
+  for (int i = 0; i < dl.writersLen; i++) {
+    addRecord(dl.writers[i], sTime);
   }
 }
 

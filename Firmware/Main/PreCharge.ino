@@ -1,13 +1,9 @@
 #include "Precharge.h"
 
 
-// PC_STATE PC_State;
-
-// Interrupt service routine for the precharge circuit
-void tickPreChargeFSM() {
-  preChargeFlag = 1;
+void prechargeTask(void *arg) {
+  
 }
-
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 // NOTE: FL mentioned using local variables for the states, consider where to initialize so that the states

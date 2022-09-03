@@ -43,7 +43,7 @@ typedef struct {
 bool startSD();
 bool openFile(CSVWriter *writer);
 void closeFile(CSVWriter *writer);
-void dataLoggingTask(DataLoggingTaskData dlData);
+void dataLoggingTask(void *dlData);
 void addRecordToCSV(CSVWriter *writer, int sTime, float record);
 
 #endif

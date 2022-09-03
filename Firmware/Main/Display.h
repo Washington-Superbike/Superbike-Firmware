@@ -25,6 +25,13 @@
 #define TS_MAXY  3842
 
 typedef struct {
+  int px;
+  int py;
+  int pz;
+  bool recentlyChanged;
+} Screen;
+
+typedef struct {
   float* mainBatteryVoltage;
   float* motorControllerVoltage;
   float* auxiliaryBatteryVoltage;
@@ -42,16 +49,10 @@ typedef struct {
   int prevRPM;
   float prevMotorTemp;
   float prevMotorCurrent;
+  Screen screen;
 } MeasurementScreenData;
 
-typedef struct {
-  int px;
-  int py;
-  int pz;
-  bool recentlyChanged;
-} Screen;
-
 void drawMeasurementScreen(MeasurementScreenData msData);
-void displayTask(MeasurementScreenData msData, Screen screen);
+void displayTask(MeasurementScreenData msData);
 
 #endif //_DISPLAY_H
