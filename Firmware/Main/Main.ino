@@ -28,7 +28,6 @@ static float motorControllerTemp = 0;
 static float motorTemp = 0;
 static int errorMessage = 0;
 static byte controllerStatus = 0;
-static byte switchSignalsStatus = 0;
 
 static byte evccEnable = 0;
 static float evccVoltage = 0;
@@ -45,7 +44,6 @@ static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 static Screen screen = {};
 
 static MeasurementScreenData measurementData = {};
-static ChargeControllerStats ccStats = {};
 static MotorStats motorStats = {};
 static MotorTemps motorTemps = {};
 static CellVoltages cellVoltages = {};
@@ -137,7 +135,7 @@ void setup() {
 
 void loop() {
   if (fastTimerFlag == 1) { // 20 ms interval
-    fastTimerFlag == 0;
+    fastTimerFlag = 0;
     canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage});
     if (fastTimerIncrement % 2 == 0) { // 40 ms interval
       preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);

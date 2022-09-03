@@ -12,8 +12,8 @@
 #define TS_CS  9
 // MOSI=11, MISO=12, SCK=13
 
-#ifndef DISPLAY_H_
-#define DISPLAY_H_
+#ifndef _DISPLAY_H_
+#define _DISPLAY_H_
 
 // The TIRQ interrupt signal must be used for this example.
 #define TIRQ_PIN  -1
@@ -24,7 +24,7 @@
 #define TS_MINY  243
 #define TS_MAXY  3842
 
-typedef struct MeasurementScreenDataStruct {
+typedef struct {
   float* mainBatteryVoltage;
   float* motorControllerVoltage;
   float* auxiliaryBatteryVoltage;
@@ -44,7 +44,7 @@ typedef struct MeasurementScreenDataStruct {
   float prevMotorCurrent;
 } MeasurementScreenData;
 
-typedef struct ScreenInfo {
+typedef struct {
   int px;
   int py;
   int pz;
@@ -54,4 +54,4 @@ typedef struct ScreenInfo {
 void drawMeasurementScreen(MeasurementScreenData msData);
 void displayTask(MeasurementScreenData msData, Screen screen);
 
-#endif
+#endif //_DISPLAY_H

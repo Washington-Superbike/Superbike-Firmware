@@ -14,11 +14,11 @@
 extern volatile signed char preChargeFlag; 
 enum PC_STATE { PC_START, PC_OPEN , PC_CLOSE, PC_JUST_CLOSED };
 
-typedef struct PreChargeTaskData {
+typedef struct {
   float* seriesVoltage; // from the main accumulator
   PC_STATE* PC_State;
   float* motorControllerBatteryVoltage;
-};
+} PreChargeTaskData;
 
 
 void tickPreChargeFSM();

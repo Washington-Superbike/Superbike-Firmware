@@ -43,11 +43,11 @@ void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps) {
 }
 
 void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus) {
-    *(bmsStatus.bms_status_flag) = &msg.buf[0];
-    *(bmsStatus.bms_c_id) = &msg.buf[1];
-    *(bmsStatus.bms_c_fault) = &msg.buf[2];
-    *(bmsStatus.ltc_fault) = &msg.buf[3];
-    *(bmsStatus.ltc_count) = &msg.buf[4];
+    *(bmsStatus.bms_status_flag) = msg.buf[0];
+    *(bmsStatus.bms_c_id) = msg.buf[1];
+    *(bmsStatus.bms_c_fault) = msg.buf[2];
+    *(bmsStatus.ltc_fault) = msg.buf[3];
+    *(bmsStatus.ltc_count) = msg.buf[4];
 }
 // A method for reading cell voltages that assumes a CAN message with only 4 cells.
 

@@ -127,10 +127,9 @@ void errorScreen(bool error) {
             errorDisplay();
 
 
-            //***FOR TESTING******
+            //FOR TESTING
             ERROR_STATUS = false;
             error = false;
-            //********************
         }
 
         tft.fillScreen(ILI9341_WHITE);
@@ -168,9 +167,10 @@ int mod(int x, int m) {
 }
 
 
-//Won't work with decimals
-//mostSigDigit be the power of 10 for greatest digit of the max value\
-// ex: 401 -> 4.01 * 10^2 -> mostSigDigit = 2
+/* Won't work with decimals
+** mostSigDigit be the power of 10 for greatest digit of the max value
+** ex: 401 -> 4.01 * 10^2 -> mostSigDigit = 2
+*/
 void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, int digits) {
     int space = 6 * fontsize; //pixels
     tft.setTextSize(fontsize);

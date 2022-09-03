@@ -62,7 +62,7 @@ void addRecord(CSVWriter *writer, int sTime) {
   for (int i = 0; i < writer->dataValuesLen; i++) {
     if (writer->D_TYPE == FLOAT) {
       sRecord.concat(",").concat(writer->dataValues[i]);
-    } else if (writer->D_TYPE = INT) {
+    } else if (writer->D_TYPE == INT) {
       sRecord.concat(",").concat(int(writer->dataValues[i]));
     }
   }

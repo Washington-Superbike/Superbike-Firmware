@@ -23,55 +23,55 @@
 
 #include "Display.h"
 
-#ifndef CAN_H_
-#define CAN_H_
+#ifndef _CAN_H_
+#define _CAN_H_
 
 
-typedef struct MotorStats{
+typedef struct {
     float* RPM;
     float* motorCurrent;
     float* motorControllerBatteryVoltage;
     int* errorMessage;
-};
+} MotorStats;
 
-typedef struct MotorTemps{
+typedef struct{
     float* throttle;
     float* motorControllerTemperature;
     float* motorTemperature;
     byte* controllerStatus;
-};
+} MotorTemps;
 
-typedef struct ChargeControllerStats{
+typedef struct {
   byte* en; 
   float* chargeVoltage;
   float* chargeCurrent;
-};
+} ChargeControllerStats;
 
-typedef struct ChargerStats{
+typedef struct {
   byte* statusFlag;
   byte* chargeFlag;
   float* outputVoltage;
   float* outputCurrent;
   int8_t* chargerTemp;
-};
+} ChargerStats;
 
-typedef struct BMSStatus {
+typedef struct {
     int* bms_status_flag;
     int* bms_c_id;
     int* bms_c_fault;
     int* ltc_fault;
     int* ltc_count;
-};
+} BMSStatus;
 
-typedef struct ThermistorTemps {
+typedef struct {
     float *temps;
-};
+} ThermistorTemps;
 
-typedef struct CellVoltages{
+typedef struct {
   float* cellVoltages;
-};
+} CellVoltages;
 
-typedef struct CANTaskData{
+typedef struct {
     MotorStats motorStats;
     MotorTemps motorTemps;
     BMSStatus bmsStatus;
@@ -80,11 +80,11 @@ typedef struct CANTaskData{
     ChargerStats chargerStats;
     ChargeControllerStats chargeControllerStats;
     float *seriesVoltage;
-};
+} CANTaskData;
 
 void canTask(CANTaskData canData);
 void checkCAN(CANTaskData canData);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
 
-#endif
+#endif // _CAN_H
