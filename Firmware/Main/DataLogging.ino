@@ -1,7 +1,6 @@
 
 #include "DataLogging.h"
-
-//chip select pin for the SD card
+#include "FreeRTOS_TEENSY4.h"
 
 //Represents the serial connection to the sd card and any internal buffers
 SdFat sd;
@@ -46,10 +45,22 @@ void printFile(CSVWriter *writer) {
 
 //dataLoggingTask processes all of the data logs and formats each CSV file output
 void dataLoggingTask(void *dlData) {
-  DataLoggingTaskData dl = *(DataLoggingTaskData *)dlData; 
-  int sTime = (millis() - epochTime) / 1000;
-  for (int i = 0; i < dl.writersLen; i++) {
-    addRecord(dl.writers[i], sTime);
+  DataLoggingTaskData dl = *(DataLoggingTaskData *)dlData;
+  int sTime;
+  int iter = 0;
+  while (1) {
+    sTime = (millis() - epochTime) / 1000;
+    for (int i = 0; i < dl.writersLen; i++) {
+      addRecord(dl.writers[i], sTime);
+    }
+    iter++;
+    if (iter == 20) {
+        Serial.print("Saving files...");
+        saveFiles(dl.writers, dl.writersLen);
+        Serial.println("saved");
+        iter = 0;
+    }
+    vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
 }
 

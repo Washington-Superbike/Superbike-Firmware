@@ -12,6 +12,7 @@ static int ltc_fault = 0;
 static int ltc_count = 0;
 static float cellVoltagesArr[BMS_CELLS];  // voltages starting with the first LTC
 static float seriesVoltage;
+static bool cellsReady;
 static float thTemps[10];       // assuming only 10 thermistors
 static int thermistorEnabled;
 static int thermistorPresent;
@@ -37,7 +38,6 @@ static float chargerVoltage = 0;
 static float chargerCurrent = 0;
 static int8_t chargerTemp = 0;
 
-static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
 static Screen screen = {};
 
@@ -85,7 +85,7 @@ void initializeLogs() {
 void initializeCANStructs() {
   motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
   motorTemps = {&throttle, &motorControllerTemp, &motorTemp, &controllerStatus};
-  cellVoltages = {&cellVoltagesArr[0]};
+  cellVoltages = {&cellVoltagesArr[0], &seriesVoltage, &cellsReady};
   bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
   thermistorTemps = {thTemps};
   chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
@@ -94,7 +94,7 @@ void initializeCANStructs() {
 }
 
 void initializePreChargeStruct() {
-  preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+  preChargeData = {bmsStatus, motorTemps, cellVoltages, &motorControllerBatteryVoltage};
 }
 
 void setup() {
@@ -133,26 +133,11 @@ void setup() {
   setupCAN();
   initializePreChargeStruct();
 
-  xTaskCreate(prechargeTask, "PRECHARGE TASK", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
+  xTaskCreate(prechargeTask, "PRECHARGE TASK", configMINIMAL_STACK_SIZE, (void *)&preChargeData, 4, NULL);
   xTaskCreate(canTask, "CAN TASK", configMINIMAL_STACK_SIZE, (void *)&canTaskData, 2, NULL);
   xTaskCreate(displayTask, "DISPLAY TASK", configMINIMAL_STACK_SIZE, (void*)&measurementData, 1, NULL);
   xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", configMINIMAL_STACK_SIZE, (void*)&dataLoggingTaskData, 1, NULL);
 }
 
 void loop() {
-  /*
-  if (slowTimerFlag == 1) { // 500 ms interval
-    //    Serial.println("slow timer flag");
-    slowTimerFlag = 0;
-    if (slowTimerIncrement % 4 == 0) { // 2 second interval
-      requestCellVoltages(lowerUpperCells);
-      lowerUpperCells *= -1;
-      Serial.println("Requesting cell voltages");
-    }
-    if (slowTimerIncrement % 20 == 0 && sdStarted) {
-      saveFiles(logs, 7);
-      Serial.println("saved logging files");
-    }
-  }
-  */
 }

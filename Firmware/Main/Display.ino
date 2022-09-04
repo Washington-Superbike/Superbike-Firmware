@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "FreeRTOS_TEENSY4.h"
 
 //change final
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
@@ -18,8 +19,12 @@ int h;
 
 
 void displayTask(void *msData) {
-    MeasurementScreenData ms = *(MeasurementScreenData *)msData;
-    drawMeasurementScreen(ms);
+    while (1) {
+        MeasurementScreenData ms = *(MeasurementScreenData *)msData;
+        drawMeasurementScreen(ms);
+        // need to find out how fast our max refresh rate is... yasir display code should be a lot faster
+        vTaskDelay((30 * configTICK_RATE_HZ) / 1000);
+    }
 }
 
 void drawMeasurementScreen(MeasurementScreenData msData) {

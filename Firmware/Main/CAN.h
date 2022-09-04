@@ -64,6 +64,8 @@ typedef struct {
 
 typedef struct {
   float* cellVoltages;
+  float* seriesVoltage;
+  bool* ready;
 } CellVoltages;
 
 typedef struct {
