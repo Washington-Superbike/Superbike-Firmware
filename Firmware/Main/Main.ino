@@ -54,7 +54,6 @@ static ChargeControllerStats chargeControllerStats = {};
 static CANTaskData canTaskData;
 static DataLoggingTaskData dataLoggingTaskData;
 
-
 static CSVWriter motorTemperatureLog = {};
 static CSVWriter motorControllerTemperatureLog = {};
 static CSVWriter motorControllerVoltageLog = {};
@@ -70,6 +69,8 @@ int cycleCount = 0;
 int lowerUpperCells = -1;
 unsigned long ms = millis();
 byte sdStarted = 0;
+
+SemaphoreHandle_t spi_mutex;
 
 void initializeLogs() {
   motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
@@ -133,6 +134,8 @@ void setup() {
   setupCAN();
   initializePreChargeStruct();
 
+  spi_mutex = xSemaphoreCreateMutex();
+  
   portBASE_TYPE s1, s2, s3, s4, s5;
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
   s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
@@ -157,6 +160,15 @@ void idleTask(void *taskData) {
       vTaskDelay((50*configTICK_RATE_HZ) / 1000);
   }
 }
+
+bool get_SPI_control(unsigned int ms) {
+  return xSemaphoreTake(spi_mutex, ms);
+}
+
+void release_SPI_control(void) {
+  xSemaphoreGive(spi_mutex);
+}
+
 
 void loop() {
 }

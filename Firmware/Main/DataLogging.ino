@@ -1,5 +1,7 @@
 
 #include "DataLogging.h"
+#include "Display.h"
+#include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
 //Represents the serial connection to the sd card and any internal buffers
@@ -49,16 +51,21 @@ void dataLoggingTask(void *dlData) {
   int sTime;
   int iter = 0;
   while (1) {
-    sTime = (millis() - epochTime) / 1000;
-    for (int i = 0; i < dl.writersLen; i++) {
-      addRecord(dl.writers[i], sTime);
-    }
-    iter++;
-    if (iter == 20) {
-        Serial.print("Saving files...");
-        saveFiles(dl.writers, dl.writersLen);
-        Serial.println("saved");
-        iter = 0;
+    if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
+      sTime = (millis() - epochTime) / 1000;
+      for (int i = 0; i < dl.writersLen; i++) {
+        addRecord(dl.writers[i], sTime);
+      }
+      iter++;
+      if (iter == 20) {
+          Serial.print("Saving files...");
+          saveFiles(dl.writers, dl.writersLen);
+          Serial.println("saved");
+          iter = 0;
+      }
+      release_SPI_control();
+    } else {
+      Serial.println("Datalog task failed to get SPI control");
     }
     vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }

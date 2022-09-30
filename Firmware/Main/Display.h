@@ -10,6 +10,9 @@
 
 #define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 8096
 
+// maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
+#define DISPLAY_UPDATE_TIME_MAX 50
+
 #define TFT_CS 1 //The display chip select pin
 #define TFT_DC 3 // the display
 #define TFT_RST 2 //the display reset pin

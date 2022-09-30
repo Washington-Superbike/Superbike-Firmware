@@ -1,4 +1,5 @@
 #include "Display.h"
+#include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
 //change final
@@ -21,7 +22,10 @@ int h;
 void displayTask(void *msData) {
     while (1) {
         MeasurementScreenData ms = *(MeasurementScreenData *)msData;
-        drawMeasurementScreen(ms);
+        if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
+          drawMeasurementScreen(ms);
+          release_SPI_control();
+        }
         // no delay task for display as it is the lowest priority task except for idle (which just delays)
         // this will allow us to update the display as fast as possible
     }
