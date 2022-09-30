@@ -22,8 +22,8 @@ void displayTask(void *msData) {
     while (1) {
         MeasurementScreenData ms = *(MeasurementScreenData *)msData;
         drawMeasurementScreen(ms);
-        // need to find out how fast our max refresh rate is... yasir display code should be a lot faster
-        vTaskDelay((30 * configTICK_RATE_HZ) / 1000);
+        // no delay task for display as it is the lowest priority task except for idle (which just delays)
+        // this will allow us to update the display as fast as possible
     }
 }
 

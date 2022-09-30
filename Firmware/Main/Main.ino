@@ -133,10 +133,29 @@ void setup() {
   setupCAN();
   initializePreChargeStruct();
 
-  xTaskCreate(prechargeTask, "PRECHARGE TASK", configMINIMAL_STACK_SIZE, (void *)&preChargeData, 4, NULL);
-  xTaskCreate(canTask, "CAN TASK", configMINIMAL_STACK_SIZE, (void *)&canTaskData, 2, NULL);
-  xTaskCreate(displayTask, "DISPLAY TASK", configMINIMAL_STACK_SIZE, (void*)&measurementData, 1, NULL);
-  xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", configMINIMAL_STACK_SIZE, (void*)&dataLoggingTaskData, 1, NULL);
+  portBASE_TYPE s1, s2, s3, s4, s5;
+  s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
+  s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
+  s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
+  s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
+
+  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
+    Serial.println("Error creating tasks");
+    while(1);
+  }
+
+  Serial.println("Starting the scheduler !");
+  // start scheduler
+  vTaskStartScheduler();
+  // should never hit this point unless the scheduler fails
+  Serial.println("Insufficient RAM");
+}
+
+void idleTask(void *taskData) {
+  while (1) {
+      vTaskDelay((50*configTICK_RATE_HZ) / 1000);
+  }
 }
 
 void loop() {

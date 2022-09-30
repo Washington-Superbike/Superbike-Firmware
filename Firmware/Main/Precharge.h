@@ -1,6 +1,10 @@
 #ifndef _PRECHARGE_H_
 #define _PRECHARGE_H_
 
+#include "FreeRTOS_TEENSY4.h"
+
+#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
+
 #define CONTACTOR 16 //digital pin for contactor control (closing or opening)
 #define PRECHARGE 17 //digital pin for relay in series with precharge resistor
 #define HIGH_VOLTAGE_TOGGLE 15   // digital pin for starting precharge, exit precharging, exit done-precharging

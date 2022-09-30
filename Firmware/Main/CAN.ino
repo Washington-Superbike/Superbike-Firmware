@@ -16,14 +16,14 @@ void canTask(void *canData) {
   int requestCells = 1;
   while (1) {
       checkCAN(*(CANTaskData *)canData);
-      // delay 50ms
-      vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
+      // delay 20ms
       // ask for other half of cell voltages every 2 seconds
       if (iter == (1000/50) * 2) {
           requestCellVoltages(requestCells);
           requestCells *= -1;
           iter = 0;
       }
+      vTaskDelay((20 * configTICK_RATE_HZ) / 1000); 
       iter++;
   }
 }
