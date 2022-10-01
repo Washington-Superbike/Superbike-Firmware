@@ -49,19 +49,19 @@ void printFile(CSVWriter *writer) {
 void dataLoggingTask(void *dlData) {
   DataLoggingTaskData dl = *(DataLoggingTaskData *)dlData;
   int sTime;
-  int iter = 0;
+  unsigned int lastSave = millis();
   while (1) {
+    int mTime = millis();
     if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
       sTime = (millis() - epochTime) / 1000;
       for (int i = 0; i < dl.writersLen; i++) {
         addRecord(dl.writers[i], sTime);
       }
-      iter++;
-      if (iter == 20) {
+      if ((millis() -lastSave) > 1000) {
           Serial.print("Saving files...");
           saveFiles(dl.writers, dl.writersLen);
           Serial.println("saved");
-          iter = 0;
+          lastSave = millis();
       }
       release_SPI_control();
     } else {
@@ -71,7 +71,7 @@ void dataLoggingTask(void *dlData) {
   }
 }
 
-//addRecordToCSV adds a record to the data log with the included time in seconds since the recording has started
+//addRecord adds a record to the data log with the included time in seconds since the recording has started
 //the data comes from the dataIn member (shared variable to other tasks)
 void addRecord(CSVWriter *writer, int sTime) {
   if (!writer->open) {
