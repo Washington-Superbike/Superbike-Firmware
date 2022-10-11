@@ -1,4 +1,13 @@
 
+#ifndef _CAN_H_
+#define _CAN_H_
+
+#include <FlexCAN_T4.h>
+#include "Display.h"
+#include "FreeRTOS_TEENSY4.h"
+
+#define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
+
 #define MOTOR_STATS_MSG 0x0CF11E05                    //motor controller message - CAN
 #define MOTOR_TEMPS_MSG 0x0CF11F05                    // motor controller message - CAN
 #define EVCC_STATS 0x18e54024                         // Charge controller status (current,volt...)
@@ -14,13 +23,6 @@
 
 #define STANDBY 20                                    // standby GPIO pin for the can transceiver, high=standby, low=normal
 #define BMS_CELLS 20                                  // the number of cells connected to the main accumulator BMS
-
-#include <FlexCAN_T4.h>
-#include "Display.h"
-
-#ifndef _CAN_H_
-#define _CAN_H_
-
 
 typedef struct {
     float* RPM;
@@ -64,6 +66,8 @@ typedef struct {
 
 typedef struct {
   float* cellVoltages;
+  float* seriesVoltage;
+  bool* ready;
 } CellVoltages;
 
 typedef struct {
@@ -77,7 +81,7 @@ typedef struct {
     float *seriesVoltage;
 } CANTaskData;
 
-void canTask(CANTaskData canData);
+void canTask(void *canData);
 void checkCAN(CANTaskData canData);
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
 void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
