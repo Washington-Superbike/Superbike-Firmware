@@ -1,26 +1,21 @@
 
-#define MOTOR_STATS_MSG 0x0CF11E05                        //motor controller message - CAN
-#define MOTOR_TEMPS_MSG 0x0CF11F05                        // motor controller message - CAN
-#define STANDBY 20                                    // standby for can transceiver, high=standby, low=normal
-#define DD_BMS_STATUS_IND 0x01dd0001                  // BMS cell data message
-#define DD_BMSC_TH_STATUS_IND 0x01df0e00              // themistor message for BMSC
+#define MOTOR_STATS_MSG 0x0CF11E05                    //motor controller message - CAN
+#define MOTOR_TEMPS_MSG 0x0CF11F05                    // motor controller message - CAN
+#define EVCC_STATS 0x18e54024                         // Charge controller status (current,volt...)
+#define CHARGER_STATS 0x18eb2440                      // Thunderstruck Charger status (current,volt...)
+#define DD_BMS_STATUS_IND 0x01dd0001                  // BMS cell data message (overvolt,undervolt...)
+#define DD_BMSC_TH_STATUS_IND 0x01df0e00              // themistor values message
 #define BMSC1_LTC1_CELLS_04  0x01df0900               // convention: BMSC, LTC, CELL RANGE
 #define BMSC1_LTC1_CELLS_58  0x01df0a00
 #define BMSC1_LTC1_CELLS_912 0x01df0b00
 #define BMSC1_LTC2_CELLS_04  0x01df0901               // convention: BMSC, LTC, CELL RANGE
 #define BMSC1_LTC2_CELLS_58  0x01df0a01
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
-#define BMS_CELLS 24 // the number of cells connected to the main accumulator BMS
-#define EVCC_STATS 0x18e54024
-#define CHARGER_STATS 0x18eb2440 
 
-#include <circular_buffer.h>
+#define STANDBY 20                                    // standby GPIO pin for the can transceiver, high=standby, low=normal
+#define BMS_CELLS 20                                  // the number of cells connected to the main accumulator BMS
+
 #include <FlexCAN_T4.h>
-#include <imxrt_flexcan.h>
-//#include <isotp.h>
-//#include <isotp_server.h>
-#include <kinetis_flexcan.h>
-
 #include "Display.h"
 
 #ifndef _CAN_H_

@@ -1,6 +1,6 @@
 
-#ifndef SCHED_H_
-#define SCHED_H_
+#ifndef _SCHED_H_
+#define _SCHED_H_
 
 extern volatile signed char fastTimerFlag;
 extern volatile signed char slowTimerFlag;
@@ -12,4 +12,4 @@ void setupSlowTimerISR(PreChargeTaskData preChargeTaskData);
 void raiseFastTimerFlag();
 void raiseSlowTimerFlag();
 
-#endif
+#endif //_SCHED_H_

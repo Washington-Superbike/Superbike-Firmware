@@ -61,6 +61,9 @@ void addRecord(CSVWriter *writer, int sTime) {
   String sRecord = String(sTime);
   uint8_t *dataMem = writer->data;
   for (int i = 0; i < writer->dataLen; i++) {
+    String sRecord = String(sTime);
+  uint8_t *dataMem = writer->data;
+  for (int i = 0; i < writer->dataLen; i++) {
     if (writer->D_TYPE == FLOAT) {
       sRecord.concat(",").concat(*(float *)dataMem);
       dataMem += sizeof(float);

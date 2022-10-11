@@ -1,5 +1,5 @@
-#ifndef PRECHARGE_H_
-#define PRECHARGE_H_
+#ifndef _PRECHARGE_H_
+#define _PRECHARGE_H_
 
 #define CONTACTOR 16 //digital pin for contactor control (closing or opening)
 #define PRECHARGE 17 //digital pin for relay in series with precharge resistor
@@ -29,4 +29,4 @@ void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats);
 int checkIfPrecharged(PreChargeTaskData preChargeData);
 int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps);
 
-#endif
+#endif // _PRECHARGE_H

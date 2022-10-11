@@ -5,8 +5,6 @@
 #include "DataLogging.h"
 #include "Scheduler.h"
 
-#define DATA_LOG_ENABLE 0
-
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
 static int bms_c_fault = 0;
@@ -14,8 +12,8 @@ static int ltc_fault = 0;
 static int ltc_count = 0;
 static float cellVoltagesArr[BMS_CELLS];  // voltages starting with the first LTC
 static float seriesVoltage;
-static float thTemps[10];       // assuming a message with 7 LTCs
-static int thermistorEnabled;          // assuming only 2 LTCs
+static float thTemps[10];       // assuming only 10 thermistors
+static int thermistorEnabled;
 static int thermistorPresent;
 
 static float auxiliaryBatteryVoltage = 0;
