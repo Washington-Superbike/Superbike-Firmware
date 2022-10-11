@@ -1,16 +1,31 @@
 #include "CAN.h"
+#include "FreeRTOS_TEENSY4.h"
 
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> CAN_bus;    // access to can bus reading
 CAN_message_t CAN_msg;                                // data is read into this from the can bus
 
+static bool cellVoltagesReady[BMS_CELLS] = {false};
 
 void setupCAN() {
     CAN_bus.begin();
     CAN_bus.setBaudRate(250000); 
 }
 
-void canTask(CANTaskData canData) {
-        checkCAN(canData);
+void canTask(void *canData) {
+  int iter = 0;
+  int requestCells = 1;
+  while (1) {
+      checkCAN(*(CANTaskData *)canData);
+      // delay 20ms
+      // ask for other half of cell voltages every 2 seconds
+      if (iter == (1000/50) * 2) {
+          requestCellVoltages(requestCells);
+          requestCells *= -1;
+          iter = 0;
+      }
+      vTaskDelay((20 * configTICK_RATE_HZ) / 1000); 
+      iter++;
+  }
 }
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats){
@@ -49,9 +64,8 @@ void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus) {
     *(bmsStatus.ltc_fault) = msg.buf[3];
     *(bmsStatus.ltc_count) = msg.buf[4];
 }
-// A method for reading cell voltages that assumes a CAN message with only 4 cells.
 
-void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages, float *seriesVoltage) {
+void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages) {
     // THE FOLLOWING DATATYPE NEEDS TO BE CHANGED
     uint32_t msgID = msg.id;
     int totalOffset = 0; // totalOffset equals the index of array cellVoltages
@@ -59,11 +73,23 @@ void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages, float *s
     int ltcOffset = (msgID & 0x1);
     totalOffset = (cellOffset * 4) + (ltcOffset * 12);
     int cellIndex;
+    
     for (cellIndex = 0; cellIndex < 8; cellIndex += 2) {
-      // I'm questioning this new line
+      // TODO: analyze this line and find a better way to do it
         *(cellVoltages.cellVoltages + (cellIndex / 2 + totalOffset)) = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;
+        cellVoltagesReady[cellIndex/2 + totalOffset] = true;
     }
-    calculateSeriesVoltage(cellVoltages, seriesVoltage);
+    
+    calculateSeriesVoltage(cellVoltages);
+    
+    if (!*cellVoltages.ready) {
+        for (int i = 0; i < BMS_CELLS; i++ ) {
+            if (!cellVoltagesReady[i]) {
+                return;
+            }
+        }
+        *cellVoltages.ready = true;
+    }
 }
 
 void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps) {
@@ -78,13 +104,13 @@ void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps) {
 }
 
 // a funtion to sum the voltage of each cell in main accumulator
-void calculateSeriesVoltage(CellVoltages cellVs, float *seriesVoltage) {
+void calculateSeriesVoltage(CellVoltages cellVs) {
   float partialSeriesVoltage = 0;
   int currentCell;
   for (currentCell = 0; currentCell < BMS_CELLS; currentCell++) {
     partialSeriesVoltage += *(cellVs.cellVoltages + currentCell);
   }
-  *seriesVoltage = partialSeriesVoltage;
+  *cellVs.seriesVoltage = partialSeriesVoltage;
 }
 
 // checks the can bus for any new data
@@ -108,22 +134,22 @@ void checkCAN(CANTaskData canData) {
         case CHARGER_STATS:
             decipherChargerStats(CAN_msg, canData.chargerStats);
         case BMSC1_LTC1_CELLS_04:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case BMSC1_LTC1_CELLS_58:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case BMSC1_LTC1_CELLS_912:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case BMSC1_LTC2_CELLS_04:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case BMSC1_LTC2_CELLS_58:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case BMSC1_LTC2_CELLS_912:
-            decipherCellsVoltage(CAN_msg,  canData.cellVoltages, canData.seriesVoltage);
+            decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
             break;
         case DD_BMSC_TH_STATUS_IND:
             decipherThermistors(CAN_msg, canData.thermistorTemps);

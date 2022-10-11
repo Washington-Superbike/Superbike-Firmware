@@ -1,9 +1,9 @@
+#include "Main.h"
 #include "CAN.h"
 #include "Display.h"
-#include "Main.h"
 #include "Precharge.h"
 #include "DataLogging.h"
-#include "Scheduler.h"
+#include "FreeRTOS_TEENSY4.h"
 
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
@@ -12,6 +12,7 @@ static int ltc_fault = 0;
 static int ltc_count = 0;
 static float cellVoltagesArr[BMS_CELLS];  // voltages starting with the first LTC
 static float seriesVoltage;
+static bool cellsReady;
 static float thTemps[10];       // assuming only 10 thermistors
 static int thermistorEnabled;
 static int thermistorPresent;
@@ -37,7 +38,6 @@ static float chargerVoltage = 0;
 static float chargerCurrent = 0;
 static int8_t chargerTemp = 0;
 
-static PC_STATE PC_State; // NEED TO DOUBLE CHECK
 
 static Screen screen = {};
 
@@ -51,6 +51,8 @@ static ThermistorTemps thermistorTemps = {};
 static ChargerStats chargerStats = {};
 static ChargeControllerStats chargeControllerStats = {};
 
+static CANTaskData canTaskData;
+static DataLoggingTaskData dataLoggingTaskData;
 
 static CSVWriter motorTemperatureLog = {};
 static CSVWriter motorControllerTemperatureLog = {};
@@ -68,6 +70,8 @@ int lowerUpperCells = -1;
 unsigned long ms = millis();
 byte sdStarted = 0;
 
+SemaphoreHandle_t spi_mutex;
+
 void initializeLogs() {
   motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
   motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp, FLOAT};
@@ -76,20 +80,22 @@ void initializeLogs() {
   rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
   thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
   bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
+  dataLoggingTaskData = {logs, 7};
 }
 
 void initializeCANStructs() {
   motorStats = {&RPM, &motorCurrent, &motorControllerBatteryVoltage, &errorMessage};
   motorTemps = {&throttle, &motorControllerTemp, &motorTemp, &controllerStatus};
-  cellVoltages = {&cellVoltagesArr[0]};
+  cellVoltages = {&cellVoltagesArr[0], &seriesVoltage, &cellsReady};
   bmsStatus = { &bms_status_flag, &bms_c_id, &bms_c_fault, &ltc_fault, &ltc_count};
   thermistorTemps = {thTemps};
   chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
   chargeControllerStats = {&evccEnable, &evccVoltage, &evccCurrent};
+  canTaskData = {motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage};
 }
 
 void initializePreChargeStruct() {
-  preChargeData = {&seriesVoltage, &PC_State, &motorControllerBatteryVoltage};
+  preChargeData = {bmsStatus, motorTemps, cellVoltages, &motorControllerBatteryVoltage};
 }
 
 void setup() {
@@ -127,34 +133,42 @@ void setup() {
   setupDisplay(screen);
   setupCAN();
   initializePreChargeStruct();
-  setupFastTimerISR();
-  setupSlowTimerISR(preChargeData);
+
+  spi_mutex = xSemaphoreCreateMutex();
+  
+  portBASE_TYPE s1, s2, s3, s4, s5;
+  s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
+  s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
+  s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
+  s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
+
+  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
+    Serial.println("Error creating tasks");
+    while(1);
+  }
+
+  Serial.println("Starting the scheduler !");
+  // start scheduler
+  vTaskStartScheduler();
+  // should never hit this point unless the scheduler fails
+  Serial.println("Insufficient RAM");
 }
 
+void idleTask(void *taskData) {
+  while (1) {
+      vTaskDelay((50*configTICK_RATE_HZ) / 1000);
+  }
+}
+
+bool get_SPI_control(unsigned int ms) {
+  return xSemaphoreTake(spi_mutex, ms);
+}
+
+void release_SPI_control(void) {
+  xSemaphoreGive(spi_mutex);
+}
+
+
 void loop() {
-  if (fastTimerFlag == 1) { // 20 ms interval
-    fastTimerFlag = 0;
-    canTask({motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage});
-    if (fastTimerIncrement % 2 == 0) { // 40 ms interval
-      preChargeCircuitFSMTransitionActions(preChargeData, bmsStatus, motorTemps);
-      preChargeCircuitFSMStateActions(preChargeData);
-    }
-  }
-  if (fastTimerIncrement % 5 == 0 && sdStarted) {// 1 second interval
-    dataLoggingTask({logs, 7});
-  }
-  if (slowTimerFlag == 1) { // 500 ms interval
-    //    Serial.println("slow timer flag");
-    slowTimerFlag = 0;
-    displayTask(measurementData, screen);
-    if (slowTimerIncrement % 4 == 0) { // 2 second interval
-      requestCellVoltages(lowerUpperCells);
-      lowerUpperCells *= -1;
-      Serial.println("Requesting cell voltages");
-    }
-    if (slowTimerIncrement % 20 == 0 && sdStarted) {
-      saveFiles(logs, 7);
-      Serial.println("saved logging files");
-    }
-  }
 }
