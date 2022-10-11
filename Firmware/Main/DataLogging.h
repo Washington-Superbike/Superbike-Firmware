@@ -31,12 +31,11 @@ enum data_type {
 //Represents a writer to a CSV log file on the sd card
 typedef struct {
   const char *filename;
-  int dataValuesLen;
-  float *dataValues;             //array of pointers to shared variables (the data values in the csv log)
+  uint8_t *data;
+  int dataLen;
   data_type D_TYPE;
   bool open;
   SdFile file;
-
 } CSVWriter;
 
 typedef struct {

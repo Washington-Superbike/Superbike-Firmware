@@ -78,11 +78,17 @@ void addRecord(CSVWriter *writer, int sTime) {
     openFile(writer);
   }
   String sRecord = String(sTime);
-  for (int i = 0; i < writer->dataValuesLen; i++) {
+  uint8_t *dataMem = writer->data;
+  for (int i = 0; i < writer->dataLen; i++) {
+    String sRecord = String(sTime);
+  uint8_t *dataMem = writer->data;
+  for (int i = 0; i < writer->dataLen; i++) {
     if (writer->D_TYPE == FLOAT) {
-      sRecord.concat(",").concat(writer->dataValues[i]);
+      sRecord.concat(",").concat(*(float *)dataMem);
+      dataMem += sizeof(float);
     } else if (writer->D_TYPE == INT) {
-      sRecord.concat(",").concat(int(writer->dataValues[i]));
+      sRecord.concat(",").concat(*(int *)dataMem);
+      dataMem += sizeof(int);
     }
   }
   writer->file.println(sRecord);

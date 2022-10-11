@@ -73,13 +73,13 @@ byte sdStarted = 0;
 SemaphoreHandle_t spi_mutex;
 
 void initializeLogs() {
-  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
-  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp, FLOAT};
-  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage, FLOAT};
-  motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent, FLOAT};
-  rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
-  thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
-  bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
+  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, (uint8_t *)&motorTemp, 1, FLOAT};
+  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, (uint8_t *)&motorControllerTemp, 1, FLOAT};
+  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, (uint8_t *)&motorControllerBatteryVoltage, 1, FLOAT};
+  motorCurrentLog = {MOTOR_CURRENT_LOG, (uint8_t *)&motorCurrent, 1, FLOAT};
+  rpmLog = {RPM_LOG, (uint8_t *)&RPM, 1, FLOAT};
+  thermistorLog = {THERMISTOR_LOG, (uint8_t *)&thTemps[0], 10, FLOAT};
+  bmsVoltageLog = {BMS_VOLTAGE_LOG, (uint8_t *)&seriesVoltage, 1, FLOAT};
   dataLoggingTaskData = {logs, 7};
 }
 
