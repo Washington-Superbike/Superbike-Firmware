@@ -1,0 +1,3 @@
+C:/Users/Athar/OneDrive/Documents/Pico Projects/Blink/build/pioasm/CMakeFiles/pioasm.dir
+C:/Users/Athar/OneDrive/Documents/Pico Projects/Blink/build/pioasm/CMakeFiles/edit_cache.dir
+C:/Users/Athar/OneDrive/Documents/Pico Projects/Blink/build/pioasm/CMakeFiles/rebuild_cache.dir
