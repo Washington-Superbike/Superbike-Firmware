@@ -1,7 +1,8 @@
 
 #include "DataLogging.h"
-
-//chip select pin for the SD card
+#include "Display.h"
+#include "Main.h"
+#include "FreeRTOS_TEENSY4.h"
 
 //Represents the serial connection to the sd card and any internal buffers
 SdFat sd;
@@ -45,25 +46,49 @@ void printFile(CSVWriter *writer) {
 }
 
 //dataLoggingTask processes all of the data logs and formats each CSV file output
-void dataLoggingTask(DataLoggingTaskData dlData) {
-  int sTime = (millis() - epochTime) / 1000;
-  for (int i = 0; i < dlData.writersLen; i++) {
-    addRecord(dlData.writers[i], sTime);
+void dataLoggingTask(void *dlData) {
+  DataLoggingTaskData dl = *(DataLoggingTaskData *)dlData;
+  int sTime;
+  unsigned int lastSave = millis();
+  while (1) {
+    int mTime = millis();
+    if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
+      sTime = (millis() - epochTime) / 1000;
+      for (int i = 0; i < dl.writersLen; i++) {
+        addRecord(dl.writers[i], sTime);
+      }
+      if ((millis() -lastSave) > 1000) {
+          Serial.print("Saving files...");
+          saveFiles(dl.writers, dl.writersLen);
+          Serial.println("saved");
+          lastSave = millis();
+      }
+      release_SPI_control();
+    } else {
+      Serial.println("Datalog task failed to get SPI control");
+    }
+    vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
 }
 
-//addRecordToCSV adds a record to the data log with the included time in seconds since the recording has started
+//addRecord adds a record to the data log with the included time in seconds since the recording has started
 //the data comes from the dataIn member (shared variable to other tasks)
 void addRecord(CSVWriter *writer, int sTime) {
   if (!writer->open) {
     openFile(writer);
   }
   String sRecord = String(sTime);
-  for (int i = 0; i < writer->dataValuesLen; i++) {
+  uint8_t *dataMem = writer->data;
+  for (int i = 0; i < writer->dataLen; i++) {
+    String sRecord = String(sTime);
+  uint8_t *dataMem = writer->data;
+  for (int i = 0; i < writer->dataLen; i++) {
     if (writer->D_TYPE == FLOAT) {
-      sRecord.concat(",").concat(writer->dataValues[i]);
-    } else if (writer->D_TYPE = INT) {
-      sRecord.concat(",").concat(int(writer->dataValues[i]));
+      sRecord.concat(",").concat(*(float *)dataMem);
+      dataMem += sizeof(float);
+    } else if (writer->D_TYPE == INT) {
+      sRecord.concat(",").concat(*(int *)dataMem);
+      dataMem += sizeof(int);
     }
   }
   writer->file.println(sRecord);

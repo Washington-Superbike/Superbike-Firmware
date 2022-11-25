@@ -1,5 +1,9 @@
-#ifndef PRECHARGE_H_
-#define PRECHARGE_H_
+#ifndef _PRECHARGE_H_
+#define _PRECHARGE_H_
+
+#include "FreeRTOS_TEENSY4.h"
+
+#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
 
 #define CONTACTOR 16 //digital pin for contactor control (closing or opening)
 #define PRECHARGE 17 //digital pin for relay in series with precharge resistor
@@ -11,22 +15,19 @@
 #define MOTORCONTROLLER_TEMP_MAX 65 // THIS ALSO MAY NEED TO BE CHANGED
 #define MOTOR_TEMP_MAX 80 
 
-extern volatile signed char preChargeFlag; 
 enum PC_STATE { PC_START, PC_OPEN , PC_CLOSE, PC_JUST_CLOSED };
 
-typedef struct PreChargeTaskData {
-  float* seriesVoltage; // from the main accumulator
-  PC_STATE* PC_State;
+typedef struct {
+  BMSStatus bmsStatus;
+  MotorTemps motorTemps;
+  CellVoltages cellVoltages; // from the main accumulator
   float* motorControllerBatteryVoltage;
-};
+} PreChargeTaskData;
 
-
-void tickPreChargeFSM();
-void preChargeTask(PreChargeTaskData preChargeData, MotorStats motorStats);
-void preChargeCircuitFSMTransitionActions (PreChargeTaskData preChargeData, MotorStats motorStats);
+void preChargeTask(void *taskData);
+void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData);
 void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData);
-void preChargeCheck(PreChargeTaskData preChargeData, MotorStats motorStats);
-int checkIfPrecharged(PreChargeTaskData preChargeData);
-int closeContactor(PreChargeTaskData preChargeData, BMSStatus bmsStatus, MotorTemps motorTemps);
+bool isPrecharged(PreChargeTaskData preChargeData);
+int closeContactor(PreChargeTaskData preChargeData);
 
-#endif
+#endif // _PRECHARGE_H

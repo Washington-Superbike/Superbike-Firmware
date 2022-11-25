@@ -1,4 +1,6 @@
 #include "Display.h"
+#include "Main.h"
+#include "FreeRTOS_TEENSY4.h"
 
 //change final
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
@@ -17,11 +19,19 @@ int h;
 //font width is fontsize*6 pixels
 
 
-void displayTask(MeasurementScreenData msData, Screen screen) {
-    drawMeasurementScreen(msData, screen);
+void displayTask(void *msData) {
+    while (1) {
+        MeasurementScreenData ms = *(MeasurementScreenData *)msData;
+        if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
+          drawMeasurementScreen(ms);
+          release_SPI_control();
+        }
+        // no delay task for display as it is the lowest priority task except for idle (which just delays)
+        // this will allow us to update the display as fast as possible
+    }
 }
 
-void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
+void drawMeasurementScreen(MeasurementScreenData msData) {
     tft.setTextSize(1);
     tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
     int fromTop = 10;
@@ -87,114 +97,4 @@ void setupMeasurementScreen(MeasurementScreenData msData) {
     tft.setTextColor(ILI9341_BLACK);
     String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:\n\n Charger Voltage:\n\n Charger Current\n\nBMS Status Flag: \n\n EVCC Voltage:";
     tft.print(measurementNames);
-}
-
-
-
-//2 is default
-void updateMPH(int getMilesPerHour, int x, int y, int setSize, Screen screen) {
-
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-
-
-    tft.setCursor(x, y);
-    tft.setTextSize(setSize);
-    if (screen.recentlyChanged) {
-        tft.println("MPH:");
-    }
-    if (setSize > 2) {
-        tft.println();
-    }
-    int currentH = tft.getCursorY();
-    tft.setCursor(x, currentH);
-    tft.setTextSize(setSize + 3);
-
-    if (getMPH < 100) {
-        tft.print('0');
-    }
-    if (getMPH < 10) {
-        tft.print('0');
-    }
-    tft.print(getMilesPerHour);
-
-}
-
-void errorScreen(bool error) {
-/*
-    if (error) {
-
-        while (error) {
-            errorDisplay();
-
-
-            //***FOR TESTING******
-            ERROR_STATUS = false;
-            error = false;
-            //********************
-        }
-
-        tft.fillScreen(ILI9341_WHITE);
-        tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-        tft.setTextSize(2);
-    }
-*/
-}
-
-void errorDisplay() {
-    tft.fillScreen(ILI9341_RED);
-    tft.setTextSize(3);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_RED);
-    tft.setCursor(0, 0);
-    tft.println("SHIZ IS WRONG!!!");
-
-    tft.println("");
-}
-
-
-void touchButton(Screen screen) {
-    if (screen.px >= 2 * w / 3) { //In right third of screen
-        //tft.fillScreen(ILI9341_WHITE);
-        screenMode = mod(screenMode + 1, 3);
-        Serial.println(screenMode);
-    } else if (screen.px <= w / 3 && 0 <= screen.px) { //In left third of screen
-        //tft.fillScreen(ILI9341_WHITE);
-        screenMode = mod(screenMode - 1, 3);
-        Serial.println(screenMode);
-    }
-}
-
-int mod(int x, int m) {
-    return (x % m + m) % m;
-}
-
-
-//Won't work with decimals
-//mostSigDigit be the power of 10 for greatest digit of the max value\
-// ex: 401 -> 4.01 * 10^2 -> mostSigDigit = 2
-void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, int digits) {
-    int space = 6 * fontsize; //pixels
-    tft.setTextSize(fontsize);
-    tft.setTextColor(ILI9341_BLACK, ILI9341_WHITE);
-
-    double avg = (num + oldNum) / 2;
-
-    if (abs(num - oldNum) / avg > 0.05) { //percent diff of 5% or more
-
-        for (int i =  mostSigDigit; i > mostSigDigit - digits; i--) {
-
-            int oldDigit = (int) oldNum / pow(10, i);
-            oldDigit = oldDigit % 10;
-            int newDigit = (int) num / pow(10, i);
-            newDigit = newDigit % 10;
-
-
-            if (oldDigit != newDigit) {
-                tft.print(newDigit);
-            } else {
-                tft.setCursor(tft.getCursorX() + space, tft.getCursorY());
-            }
-        }
-
-
-    }
 }
