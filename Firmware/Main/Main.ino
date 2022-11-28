@@ -4,6 +4,7 @@
 #include "Precharge.h"
 #include "DataLogging.h"
 #include "FreeRTOS_TEENSY4.h"
+#include <TimeLib.h>
 
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
@@ -101,6 +102,8 @@ void initializePreChargeStruct() {
 void setup() {
   pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
   pinMode(CLOSE_CONTACTOR_BUTTON, INPUT_PULLUP);
+  pinMode(TFT_RST, OUTPUT);
+  digitalWrite(TFT_RST, HIGH);
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
   pinMode(TS_CS, OUTPUT);
@@ -113,14 +116,21 @@ void setup() {
   digitalWrite(CONTACTOR_PRECHARGED_LED, LOW);
   pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
   digitalWrite(CONTACTOR_CLOSED_LED, LOW);
-  pinMode(SD_CS, OUTPUT);
-  digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
   measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
     &chargerVoltage, &chargerCurrent,&bms_status_flag, &evccVoltage,thTemps};
   initializeCANStructs();
   // initial
   initializeLogs();
+  setSyncProvider(getTeensy3Time);
+  Serial.begin(115200);
+  while(!Serial);
+  delay(100);
+  if (timeStatus()!= timeSet) {
+    Serial.println("Unable to sync with the RTC");
+  } else {
+    Serial.println("RTC has set the system time");
+  }
 
   Serial.print("Starting SD: ");
   if (startSD()) {
@@ -142,17 +152,22 @@ void setup() {
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
   s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
-
+  
   if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
     Serial.println("Error creating tasks");
     while(1);
   }
-
-  Serial.println("Starting the scheduler !");
+  
+  Serial.println("Starting the scheduler");
   // start scheduler
   vTaskStartScheduler();
   // should never hit this point unless the scheduler fails
   Serial.println("Insufficient RAM");
+}
+
+time_t getTeensy3Time()
+{
+  return Teensy3Clock.get();
 }
 
 void idleTask(void *taskData) {
@@ -168,7 +183,6 @@ bool get_SPI_control(unsigned int ms) {
 void release_SPI_control(void) {
   xSemaphoreGive(spi_mutex);
 }
-
 
 void loop() {
 }

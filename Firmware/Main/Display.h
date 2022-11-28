@@ -13,12 +13,12 @@
 // maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
 #define DISPLAY_UPDATE_TIME_MAX 50
 
-#define TFT_CS 1 //The display chip select pin
-#define TFT_DC 3 // the display
-#define TFT_RST 2 //the display reset pin
+#define TFT_CS 10 //The display chip select pin
+#define TFT_DC 9 // the display
+#define TFT_RST 8 //the display reset pin
 
 
-#define TS_CS  9
+#define TS_CS  10
 // MOSI=11, MISO=12, SCK=13
 
 // The TIRQ interrupt signal must be used for this example.

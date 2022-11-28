@@ -12,7 +12,7 @@ unsigned long epochTime; //represents the time that recording started
 //startSD attempts to begin communication with the SD card on SPI (single bit bus)
 //Returns true if no errors exist, returns false if an error exists
 bool startSD() {
-  return  sd.begin(SD_CS, SPI_HALF_SPEED);
+  return  sd.begin(SdioConfig(FIFO_SDIO));
 }
 
 //openFile attemps to open the file designated at the filename inside CSVWriter

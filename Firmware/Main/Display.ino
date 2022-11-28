@@ -66,6 +66,15 @@ void drawMeasurementScreen(MeasurementScreenData msData) {
     tft.println(*msData.bmsStatusFlag, HEX);
     tft.setCursor(135, fromTop+8*20);
     tft.println(*msData.evccVoltage);
+    tft.setCursor(135, fromTop+8*22);
+    tft.print(month()); tft.print('/');
+    tft.print(day()); tft.print('/');
+    tft.print(year()); tft.print("  ");
+    tft.print(hour()); tft.print(":");
+    if(minute() < 10) tft.print('0');
+    tft.print(minute()); tft.print(":");
+    if(second() < 10) tft.print('0');
+    tft.println(second());
 }
 
 
@@ -95,6 +104,6 @@ void setupMeasurementScreen(MeasurementScreenData msData) {
     tft.setCursor(0, 10);
     tft.setTextSize(1);
     tft.setTextColor(ILI9341_BLACK);
-    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:\n\n Charger Voltage:\n\n Charger Current\n\nBMS Status Flag: \n\n EVCC Voltage:";
+    String measurementNames = " Main Batt V: \n\n Aux Batt V: \n\n RPM: \n\n Motor Temp: \n\n Motor Current: \n\n Error Message: \n\n Thermistor Temps:\n\n Charger Voltage:\n\n Charger Current\n\nBMS Status Flag: \n\n EVCC Voltage:\n\n Time: ";
     tft.print(measurementNames);
 }
