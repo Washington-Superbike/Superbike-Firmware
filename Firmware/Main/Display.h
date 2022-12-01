@@ -18,11 +18,12 @@
 // maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
 #define DISPLAY_UPDATE_TIME_MAX 50
 
-#define TFT_CS 8 //The display chip select pin
+#define TFT_CS 10 //The display chip select pin
 #define TFT_DC 9 // the display
-#define TFT_RST 7 //the display reset pin
+#define TFT_RST 8 //the display reset pin
 
-#define TS_CS  0
+
+#define TS_CS  10
 // MOSI=11, MISO=12, SCK=13
 
 // The TIRQ interrupt signal must be used for this example.
@@ -54,7 +55,7 @@ typedef struct PrintedDataStruct {
     volatile float* currData;           // volatile for some printed data, not all
     int dataLen;
     char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
-    // (maybe add later) char* unitsPtr; 
+    // (maybe add later) char* unitsPtr;
 } PrintedData;
 
 typedef struct ScreenInfo {
