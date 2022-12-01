@@ -92,14 +92,5 @@ void displayTask(MeasurementScreenData msData, Screen screen);
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen);
 void setupMeasurementScreen();
 void screenEraser(int scaler, int i);
-// TODO: remove?
-//void updateNumbers(double num, double oldNum, int fontsize, int mostSigDigit, int digits);
-
-// TODO: Unused Methods. Remove?
-// void updateMPH(int getMilesPerHour, int x, int y, int setSize, Screen screen);
-//void errorScreen(bool error);
-//void errorDisplay();
-//void touchButton(Screen screen);
-//int mod(int x, int m);
 
 #endif
