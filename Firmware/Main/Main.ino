@@ -127,6 +127,13 @@ void setup() {
   initializeLogs();
   setSyncProvider(getTeensy3Time);
   Serial.begin(115200);
+  while(!Serial);
+  delay(100);
+  if (timeStatus()!= timeSet) {
+    Serial.println("Unable to sync with the RTC");
+  } else {
+    Serial.println("RTC has set the system time");
+  }
 
   Serial.print("Starting SD: ");
   if (startSD()) {
