@@ -22,7 +22,7 @@
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
 
 #define STANDBY 20                                    // standby GPIO pin for the can transceiver, high=standby, low=normal
-#define BMS_CELLS 20                                  // the number of cells connected to the main accumulator BMS
+#define BMS_CELLS 24                                  // the number of cells connected to the main accumulator BMS
 
 typedef struct {
     float* RPM;

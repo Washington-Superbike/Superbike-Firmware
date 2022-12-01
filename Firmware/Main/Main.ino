@@ -41,6 +41,7 @@ static int8_t chargerTemp = 0;
 
 
 static Screen screen = {};
+static displayPointer displayTaskWrap = {}; 
 
 static MeasurementScreenData measurementData = {};
 static MotorStats motorStats = {};
@@ -118,19 +119,14 @@ void setup() {
   digitalWrite(CONTACTOR_CLOSED_LED, LOW);
   //motor temp points to motor controller temp for now
   measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
-    &chargerVoltage, &chargerCurrent,&bms_status_flag, &evccVoltage,thTemps};
+    &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage,thTemps};
+  
+  displayTaskWrap = {&measurementData, &screen};
   initializeCANStructs();
   // initial
   initializeLogs();
   setSyncProvider(getTeensy3Time);
   Serial.begin(115200);
-  while(!Serial);
-  delay(100);
-  if (timeStatus()!= timeSet) {
-    Serial.println("Unable to sync with the RTC");
-  } else {
-    Serial.println("RTC has set the system time");
-  }
 
   Serial.print("Starting SD: ");
   if (startSD()) {
@@ -140,7 +136,7 @@ void setup() {
     sdStarted = 0;
     Serial.println("Error starting SD card");
   }
-  setupDisplay(screen);
+  setupDisplay(measurementData,screen);
   setupCAN();
   initializePreChargeStruct();
 
@@ -150,7 +146,7 @@ void setup() {
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
   s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&displayTaskWrap, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
   
   if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
