@@ -4,6 +4,7 @@
 #include "Precharge.h"
 #include "DataLogging.h"
 #include "FreeRTOS_TEENSY4.h"
+//#include <TimeLib.h>
 
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
@@ -40,6 +41,7 @@ static int8_t chargerTemp = 0;
 
 
 static Screen screen = {};
+static displayPointer displayTaskWrap = {}; 
 
 static MeasurementScreenData measurementData = {};
 static MotorStats motorStats = {};
@@ -73,13 +75,13 @@ byte sdStarted = 0;
 SemaphoreHandle_t spi_mutex;
 
 void initializeLogs() {
-  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, (uint8_t *)&motorTemp, 1, FLOAT};
-  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, (uint8_t *)&motorControllerTemp, 1, FLOAT};
-  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, (uint8_t *)&motorControllerBatteryVoltage, 1, FLOAT};
-  motorCurrentLog = {MOTOR_CURRENT_LOG, (uint8_t *)&motorCurrent, 1, FLOAT};
-  rpmLog = {RPM_LOG, (uint8_t *)&RPM, 1, FLOAT};
-  thermistorLog = {THERMISTOR_LOG, (uint8_t *)&thTemps[0], 10, FLOAT};
-  bmsVoltageLog = {BMS_VOLTAGE_LOG, (uint8_t *)&seriesVoltage, 1, FLOAT};
+  motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
+  motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp, FLOAT};
+  motorControllerVoltageLog = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &motorControllerBatteryVoltage, FLOAT};
+  motorCurrentLog = {MOTOR_CURRENT_LOG, 1, &motorCurrent, FLOAT};
+  rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
+  thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
+  bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
   dataLoggingTaskData = {logs, 7};
 }
 
@@ -101,6 +103,8 @@ void initializePreChargeStruct() {
 void setup() {
   pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
   pinMode(CLOSE_CONTACTOR_BUTTON, INPUT_PULLUP);
+  pinMode(TFT_RST, OUTPUT);
+  digitalWrite(TFT_RST, HIGH);
   pinMode(TFT_CS, OUTPUT);
   digitalWrite(TFT_CS, HIGH);
   pinMode(TS_CS, OUTPUT);
@@ -113,14 +117,23 @@ void setup() {
   digitalWrite(CONTACTOR_PRECHARGED_LED, LOW);
   pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
   digitalWrite(CONTACTOR_CLOSED_LED, LOW);
-  pinMode(SD_CS, OUTPUT);
-  digitalWrite(SD_CS, LOW);
   //motor temp points to motor controller temp for now
   measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
-    &chargerVoltage, &chargerCurrent,&bms_status_flag, &evccVoltage,thTemps};
+    &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage,thTemps};
+  
+  displayTaskWrap = {&measurementData, &screen};
   initializeCANStructs();
   // initial
   initializeLogs();
+//  setSyncProvider(getTeensy3Time);
+  Serial.begin(115200);
+  while(!Serial);
+  delay(100);
+//  if (timeStatus()!= timeSet) {
+//    Serial.println("Unable to sync with the RTC");
+//  } else {
+//    Serial.println("RTC has set the system time");
+//  }
 
   Serial.print("Starting SD: ");
   if (startSD()) {
@@ -130,7 +143,7 @@ void setup() {
     sdStarted = 0;
     Serial.println("Error starting SD card");
   }
-  setupDisplay(screen);
+  setupDisplay(measurementData,screen);
   setupCAN();
   initializePreChargeStruct();
 
@@ -140,19 +153,24 @@ void setup() {
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
   s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&displayTaskWrap, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
-
+  
   if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
     Serial.println("Error creating tasks");
     while(1);
   }
-
-  Serial.println("Starting the scheduler !");
+  
+  Serial.println("Starting the scheduler");
   // start scheduler
   vTaskStartScheduler();
   // should never hit this point unless the scheduler fails
   Serial.println("Insufficient RAM");
+}
+
+time_t getTeensy3Time()
+{
+  return Teensy3Clock.get();
 }
 
 void idleTask(void *taskData) {
@@ -168,7 +186,6 @@ bool get_SPI_control(unsigned int ms) {
 void release_SPI_control(void) {
   xSemaphoreGive(spi_mutex);
 }
-
 
 void loop() {
 }

@@ -12,7 +12,7 @@ unsigned long epochTime; //represents the time that recording started
 //startSD attempts to begin communication with the SD card on SPI (single bit bus)
 //Returns true if no errors exist, returns false if an error exists
 bool startSD() {
-  return  sd.begin(SD_CS, SPI_HALF_SPEED);
+  return  sd.begin(SdioConfig(FIFO_SDIO));
 }
 
 //openFile attemps to open the file designated at the filename inside CSVWriter
@@ -78,17 +78,11 @@ void addRecord(CSVWriter *writer, int sTime) {
     openFile(writer);
   }
   String sRecord = String(sTime);
-  uint8_t *dataMem = writer->data;
-  for (int i = 0; i < writer->dataLen; i++) {
-    String sRecord = String(sTime);
-  uint8_t *dataMem = writer->data;
-  for (int i = 0; i < writer->dataLen; i++) {
+  for (int i = 0; i < writer->dataValuesLen; i++) {
     if (writer->D_TYPE == FLOAT) {
-      sRecord.concat(",").concat(*(float *)dataMem);
-      dataMem += sizeof(float);
+      sRecord.concat(",").concat(writer->dataValues[i]);
     } else if (writer->D_TYPE == INT) {
-      sRecord.concat(",").concat(*(int *)dataMem);
-      dataMem += sizeof(int);
+      sRecord.concat(",").concat(int(writer->dataValues[i]));
     }
   }
   writer->file.println(sRecord);
