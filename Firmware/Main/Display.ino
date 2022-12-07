@@ -42,7 +42,7 @@ PrintedData *chargerVolt = &printedVals[8];
 PrintedData *chargerCurr = &printedVals[9];
 PrintedData *bmsStatusFlag = &printedVals[10];
 PrintedData *evccVolt = &printedVals[11];
-PrintedData *auxiliaryBatteryVoltage = &printedVals[12];
+PrintedData *timeData = &printedVals[12];
 
 void displayTask(void *displayTaskWrap) {
     while (1) {
@@ -51,6 +51,7 @@ void displayTask(void *displayTaskWrap) {
           MeasurementScreenData test = *(displayWrapper.msDataWrap);
           drawMeasurementScreen(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
           *(test.mainBatteryVoltage)++;
+          Serial.println("Display Task End");
           release_SPI_control();
         }
         // no delay task for display as it is the lowest priority task except for idle (which just delays)
@@ -78,7 +79,8 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
 
     *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.mainBatteryVoltage, 1, "Main Batt Voltage: "};
     *motorControllerVoltage = {1, 10+VERTICAL_SCALER*1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorControllerVoltage, 1, "Main Batt Voltage (Motor Controller): "};
-    *auxBatteryVoltage = {1, 10 + 16*2, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.auxiliaryBatteryVoltage, 1, "Aux Batt Voltage: "};
+    float auxVolt = aux_voltage_read();
+    *auxBatteryVoltage = {1, 10 + 16*2, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &auxVolt, 1, "Aux Batt Voltage: "};
     *rpm = {1, 10 + VERTICAL_SCALER*3, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER,msData.RPM, 1, "RPM: "};
     *motorTemperature = {1, 10 + VERTICAL_SCALER*4, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "Motor Temp: "};
     *motorCurr = {1, 10 + VERTICAL_SCALER*5, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorCurrent, 1, "Motor Current: "};
@@ -88,15 +90,13 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
     *chargerCurr = {1, 10 + VERTICAL_SCALER*9, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerCurrent, 1, "Charger Current: "};
     *bmsStatusFlag = {1, 10 + VERTICAL_SCALER*10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "BMS Status Flag: "};
     *evccVolt = {1, 10 + VERTICAL_SCALER*11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "EVCC Voltage: "};
-    float auxVolt = aux_voltage_read();
-    *auxiliaryBatteryVoltage = {1, 10 + VERTICAL_SCALER*12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &auxVolt, 1, "AUX Battery Voltage: "};
+    *timeData = {1, 10 + VERTICAL_SCALER*12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &auxVolt, 1, "Time & Date: "};
 //    Unsure if this messes with the code, or reduces the potentialLost value beyond being usable
 
     setupMeasurementScreen();
 }
 
 // Update function for display.
-// TODO: Is there a point to the whole 
 
 // TODO: DISCUSS screen function:
 // Again, what point does the Screen serve?
@@ -112,7 +112,6 @@ void displayTask(MeasurementScreenData msData, Screen screen) {
 
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     tft.setTextSize(1);
-    Serial.println("TEST");
     tft.setTextColor(ILI9341_BLACK);
 
     for (int i = 0; i < NUM_DATA; i++) {
@@ -129,20 +128,25 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
         }
         tft.print(thermistors);
       }
+
+      if (i == (NUM_DATA - 1)) {
+        tft.fillRect((printedVals[i].dataX / 2) + 28, printedVals[i].y, 100, 8, ILI9341_WHITE);
+        tft.setCursor((printedVals[i].dataX / 2) + 28, printedVals[i].y);
+        tft.print(month()); tft.print('/');
+        tft.print(day()); tft.print('/');
+        tft.print(year()); tft.print("  ");
+        tft.print(hour()); tft.print(":");
+        if(minute() < 10) tft.print('0');
+        tft.print(minute()); tft.print(":");
+        if(second() < 10) tft.print('0');
+        tft.println(second());
+      }
+      
       else {
         screenEraser(23, i);
         tft.print(*printedVals[i].currData);
       }
     }
-    tft.setCursor(DEFAULT_X_POS, VERTICAL_SCALER*NUM_DATA);
-    tft.print(month()); tft.print('/');
-    tft.print(day()); tft.print('/');
-    tft.print(year()); tft.print("  ");
-    tft.print(hour()); tft.print(":");
-    if(minute() < 10) tft.print('0');
-    tft.print(minute()); tft.print(":");
-    if(second() < 10) tft.print('0');
-    tft.println(second());
 }
 
 void setupMeasurementScreen() {
@@ -156,7 +160,6 @@ void setupMeasurementScreen() {
 }
 
 void screenEraser(int scaler, int i){
-  // TODO: get rid of this comment
   // floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.
   // Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.
   tft.fillRect(printedVals[i].dataX, printedVals[i].y, scaler * (floor(log10(abs(*printedVals[i].currData))) + 1), 8, ILI9341_WHITE);
