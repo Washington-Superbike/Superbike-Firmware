@@ -2,6 +2,7 @@
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
+float x = 0;
 // TODO:
 // 1. Make internal methods private (really annoying to do, requires messing with overall structure of code to use classes, etc. Not worth)
 // 2. Remove all vars that are completley unused
@@ -12,20 +13,6 @@
 // 6. Write out comments for all merhods explaining them.
 
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
-
-XPT2046_Touchscreen ts(TS_CS);  // Param 2 - Touch IRQ Pin - interrupt enabled polling
-
-// TODO: Below = unused, remove?
-// Just for testing*******
-int getMPH;
-int getVoltage;
-int getTemp;
-//************************
-bool ERROR_STATUS;
-int screenMode;
-int w;
-int h;
-//font width is fontsize*6 pixels
 
 // All PrintedValue objects/structs
 PrintedData printedVals[NUM_DATA];
@@ -47,15 +34,10 @@ PrintedData *timeData = &printedVals[12];
 void displayTask(void *displayTaskWrap) {
     while (1) {
         displayPointer displayWrapper = *(displayPointer *)displayTaskWrap;
-        if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
-          MeasurementScreenData test = *(displayWrapper.msDataWrap);
-          drawMeasurementScreen(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
-          *(test.mainBatteryVoltage)++;
-          Serial.println("Display Task End");
-          release_SPI_control();
-        }
-        // no delay task for display as it is the lowest priority task except for idle (which just delays)
-        // this will allow us to update the display as fast as possible
+        MeasurementScreenData test = *(displayWrapper.msDataWrap);
+        drawMeasurementScreen(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
+        *(test.mainBatteryVoltage)++;
+        vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
     }
 }
 
@@ -63,19 +45,6 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
     tft.begin();
     tft.setRotation(1);
     tft.fillScreen(ILI9341_WHITE);
-
-    // eep touchscreen not found?
-    if (!ts.begin()) {
-        Serial.println("Couldn't start touchscreen controller");
-        //while (1);
-    }
-    ts.setRotation(1);
-    screenMode = 0;
-
-// TODO: Currently unused. Remove?
-    h = tft.height();
-    w = tft.width();
-    screen.recentlyChanged = true;
 
     *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.mainBatteryVoltage, 1, "Main Batt Voltage: "};
     *motorControllerVoltage = {1, 10+VERTICAL_SCALER*1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorControllerVoltage, 1, "Main Batt Voltage (Motor Controller): "};
@@ -85,14 +54,13 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
     *motorTemperature = {1, 10 + VERTICAL_SCALER*4, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "Motor Temp: "};
     *motorCurr = {1, 10 + VERTICAL_SCALER*5, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorCurrent, 1, "Motor Current: "};
     *errMessage = {1, 10 + VERTICAL_SCALER*6, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, (float*) msData.errorMessage, 1, "Error Message: "};
-    *thermTemps = {1, 10 + VERTICAL_SCALER*7, 90, DEFAULT_FLOAT, ARRAY, (float*) msData.thermistorTemps, 1, "Thermist Temp: "};
+    *thermTemps = {1, 10 + VERTICAL_SCALER*7, 90, DEFAULT_FLOAT, ARRAY, (float*) msData.thermistorTemps, 10, "Thermist Temp: "};
     *chargerVolt = {1, 10 + VERTICAL_SCALER*8, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerVoltage, 1, "Charger Voltage: "};
     *chargerCurr = {1, 10 + VERTICAL_SCALER*9, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerCurrent, 1, "Charger Current: "};
     *bmsStatusFlag = {1, 10 + VERTICAL_SCALER*10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "BMS Status Flag: "};
     *evccVolt = {1, 10 + VERTICAL_SCALER*11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "EVCC Voltage: "};
-    *timeData = {1, 10 + VERTICAL_SCALER*12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &auxVolt, 1, "Time & Date: "};
 //    Unsure if this messes with the code, or reduces the potentialLost value beyond being usable
-
+    
     setupMeasurementScreen();
 }
 
@@ -112,39 +80,42 @@ void displayTask(MeasurementScreenData msData, Screen screen) {
 
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     tft.setTextSize(1);
-    tft.setTextColor(ILI9341_BLACK);
 
+    int bufSize = 255;
+    // date and time, update by erasing previous text then writing new
+    static char previousTime[bufSize] = "01/01/1970 00:00:00";
+    char buf[bufSize];
+    sprintf(buf, "%02u/%02u/%02u  %02u:%02u:%02u", month(), day(), year(), hour(), minute(), second());
+    tft.setCursor(140, 10+VERTICAL_SCALER*12);
+    tft.setTextColor(ILI9341_WHITE);
+    tft.print(previousTime);
+    tft.setCursor(140, 10+VERTICAL_SCALER*12);
+    tft.setTextColor(ILI9341_BLACK);
+    tft.println(buf);
+    memcpy(previousTime,buf, bufSize);
+    
     for (int i = 0; i < NUM_DATA; i++) {
       tft.setCursor(printedVals[i].dataX, printedVals[i].y);
-      
+
+      // array does not have the "don't print if data hasn't been updated" quality yet
       if (printedVals[i].type == ARRAY) {
         screenEraser(17*10, i);
-        String thermistors;
-        for (int j = 0; j < 10; j++) {
-          thermistors.append((byte)printedVals[i].currData[j]);
+        String s;
+        for (int j = 0; j < printedVals[i].dataLen; j++) {
+          s.append((byte)printedVals[i].currData[j]);
           if(j!=9){
-            thermistors.append(", ");
+            s.append(", ");
           }
         }
-        tft.print(thermistors);
-      }
-
-      if (i == (NUM_DATA - 1)) {
-        tft.fillRect((printedVals[i].dataX / 2) + 28, printedVals[i].y, 100, 8, ILI9341_WHITE);
-        tft.setCursor((printedVals[i].dataX / 2) + 28, printedVals[i].y);
-        tft.print(month()); tft.print('/');
-        tft.print(day()); tft.print('/');
-        tft.print(year()); tft.print("  ");
-        tft.print(hour()); tft.print(":");
-        if(minute() < 10) tft.print('0');
-        tft.print(minute()); tft.print(":");
-        if(second() < 10) tft.print('0');
-        tft.println(second());
-      }
-      
-      else {
-        screenEraser(23, i);
-        tft.print(*printedVals[i].currData);
+        tft.print(s);
+      } else if(printedVals[i].type == NUMBER) {
+        if((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
+          tft.setCursor(printedVals[i].dataX, printedVals[i].y);
+          screenEraser(23, i);
+          tft.setTextColor(ILI9341_BLACK);
+          tft.print(*printedVals[i].currData);
+          printedVals[i].oldData = *printedVals[i].currData;
+        }
       }
     }
 }
@@ -166,7 +137,7 @@ void screenEraser(int scaler, int i){
 }
 
 float aux_voltage_read(){
-  float aux_voltage = 3.3*analogRead(13)/4095.0;
+  float aux_voltage = 3.3*analogRead(13)/1024.0;
   aux_voltage *= 42.0/10.0;
   return  aux_voltage;
 }

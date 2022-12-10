@@ -13,7 +13,7 @@
 #include <XPT2046_Touchscreen.h>
 #include "FreeRTOS_TEENSY4.h"
 
-#define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 8096
+#define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 32368
 
 // maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
 #define DISPLAY_UPDATE_TIME_MAX 50
@@ -30,7 +30,7 @@
 #define TIRQ_PIN  -1
 
 // Number of PrintedData values (length of the array that contains all the printedData)
-#define NUM_DATA 13
+#define NUM_DATA 12
 
 // Default Values
 #define DEFAULT_FLOAT -1

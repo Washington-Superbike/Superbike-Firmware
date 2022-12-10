@@ -52,21 +52,16 @@ void dataLoggingTask(void *dlData) {
   unsigned int lastSave = millis();
   while (1) {
     int mTime = millis();
-    if (get_SPI_control(DISPLAY_UPDATE_TIME_MAX)) {
       sTime = (millis() - epochTime) / 1000;
       for (int i = 0; i < dl.writersLen; i++) {
         addRecord(dl.writers[i], sTime);
       }
-      if ((millis() -lastSave) > 1000) {
+      if ((millis() -lastSave) > 10000) {
           Serial.print("Saving files...");
           saveFiles(dl.writers, dl.writersLen);
           Serial.println("saved");
           lastSave = millis();
       }
-      release_SPI_control();
-    } else {
-      Serial.println("Datalog task failed to get SPI control");
-    }
     vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
 }

@@ -32,11 +32,11 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
       if (check_HV_TOGGLE() == 0) { // kill-switch activated
         pc_state = PC_OPEN;
       }
-      else if (isPrecharged(preChargeData) == 0) { // precharge not finished
+      else if (!isPrecharged(preChargeData)) { // precharge not finished
         pc_state = PC_CLOSE;
         break;
       }
-      else if (closeContactor(preChargeData) == 1 && check_CONTACTOR_CLOSE()==1) {
+      else if (closeContactor(preChargeData) && check_CONTACTOR_CLOSE()) {
         pc_state = PC_JUST_CLOSED;
         break;
       } // precharge finished, CLOSE_CONTACTOR_BUTTON pushed, no errors
@@ -45,7 +45,7 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
         break;
       }
     case PC_JUST_CLOSED:
-      if (check_HV_TOGGLE() == 0 || closeContactor(preChargeData) == 0) { // kill-switch activated or error detected
+      if (check_HV_TOGGLE() == 0 || !closeContactor(preChargeData)) { // kill-switch activated or error detected
         pc_state = PC_OPEN;
       }
       else {

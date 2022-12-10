@@ -4,7 +4,7 @@
 
 #include "SdFat.h"
 
-#define DATALOGGING_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 8096
+#define DATALOGGING_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 32368
 
 //Names for each of the log files
 #define MOTOR_TEMPERATURE_LOG "motor_temperature_log.csv"

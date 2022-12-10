@@ -6,6 +6,8 @@
 #include "FreeRTOS_TEENSY4.h"
 #include <TimeLib.h>
 
+
+
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
 static int bms_c_fault = 0;
@@ -125,16 +127,16 @@ void setup() {
   initializeCANStructs();
   // initial
   initializeLogs();
-  setSyncProvider(getTeensy3Time);
-  Serial.begin(115200);
-  while(!Serial);
-  delay(100);
-  if (timeStatus()!= timeSet) {
-    Serial.println("Unable to sync with the RTC");
-  } else {
-    Serial.println("RTC has set the system time");
-  }
 
+  Serial.begin(115200);
+  
+
+  setTime(Teensy3Clock.get());
+  if (CrashReport) {
+    Serial.print(CrashReport);
+    delay(5000);
+  }
+  
   Serial.print("Starting SD: ");
   if (startSD()) {
     Serial.println("SD successfully started");
@@ -179,6 +181,9 @@ void idleTask(void *taskData) {
   }
 }
 
+
+// the SPI mutex is still here even though it is unnecessary. it is leftover as a marker of
+// how you could use a mutex in the future if two devices are using the same communication bus
 bool get_SPI_control(unsigned int ms) {
   return xSemaphoreTake(spi_mutex, ms);
 }
