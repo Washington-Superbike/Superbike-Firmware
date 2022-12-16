@@ -45,17 +45,17 @@
 #define TS_MAXY  3842
 
 typedef enum {
-    NUMBER, ARRAY, BOOL
+  NUMBER, ARRAY, BOOL
 } PRINT_TYPE;
 
 typedef struct PrintedDataStruct {
-    int labelX, y, dataX;          // y is the same for data and label, but X isnt
-    volatile float oldData;               // volatile for some printed data, not all
-    PRINT_TYPE type;
-    volatile float* currData;           // volatile for some printed data, not all
-    int dataLen;
-    char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
-    // (maybe add later) char* unitsPtr;
+  int labelX, y, dataX;          // y is the same for data and label, but X isnt
+  volatile float oldData;               // volatile for some printed data, not all
+  PRINT_TYPE type;
+  volatile float* currData;           // volatile for some printed data, not all
+  int dataLen;
+  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+  // (maybe add later) char* unitsPtr;
 } PrintedData;
 
 typedef struct ScreenInfo {
@@ -80,7 +80,7 @@ typedef struct MeasurementScreenDataStruct {
   float* thermistorTemps;
 } MeasurementScreenData;
 
-typedef struct displayTaskWrapper{
+typedef struct displayTaskWrapper {
   MeasurementScreenData* msDataWrap;
   Screen* screenDataWrap;
 } displayPointer;

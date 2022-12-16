@@ -1,6 +1,10 @@
 #include "Precharge.h"
 
-PC_STATE pc_state = PC_START;
+
+// The state HV_PRECHARGING, HV_ON are badly named.
+// The enum should be renamed to HV_STATE
+// and instead we should have HV_OFF, HV_ON, HV_ON states
+HV_STATE hv_state = HV_OFF;
 
 void prechargeTask(void *taskData) {
   PreChargeTaskData prechargeData = *(PreChargeTaskData *)taskData;
@@ -15,108 +19,120 @@ void prechargeTask(void *taskData) {
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
-  
-  switch (pc_state) { // transitions
-    case PC_START:
-      pc_state = PC_OPEN;
-      break;
-    case PC_OPEN:
-      // when the GPIO for the bike's start switch is known, use: digitalRead(pin)
-      
-      if ( check_HV_TOGGLE() == 1 ) {            //change 0 to the digital read
-        pc_state = PC_CLOSE;
-        break;
+  HV_STATE old_state = hv_state;
+  switch (hv_state) { // transitions
+    case HV_OFF:
+      if (check_HV_TOGGLE()) {
+        hv_state = HV_PRECHARGING;
       }
       break;
-    case PC_CLOSE:
-      if (check_HV_TOGGLE() == 0) { // kill-switch activated
-        pc_state = PC_OPEN;
+    case HV_PRECHARGING:
+      if (!check_HV_TOGGLE()) {
+        // kill-switch activated or HV switch turned off
+        hv_state = HV_OFF;
       }
-      else if (!isPrecharged(preChargeData)) { // precharge not finished
-        pc_state = PC_CLOSE;
-        break;
+      else if (!isHVSafe(preChargeData)) {
+        // HV error detected
+        hv_state = HV_ERROR;
       }
-      else if (closeContactor(preChargeData) && check_CONTACTOR_CLOSE()) {
-        pc_state = PC_JUST_CLOSED;
-        break;
-      } // precharge finished, CLOSE_CONTACTOR_BUTTON pushed, no errors
-      else { // precharge finished, but CLOSE_CONTACTOR_BUTTON not pushed
-        pc_state = PC_CLOSE;
-        break;
-      }
-    case PC_JUST_CLOSED:
-      if (check_HV_TOGGLE() == 0 || !closeContactor(preChargeData)) { // kill-switch activated or error detected
-        pc_state = PC_OPEN;
+      else if (isPrecharged(preChargeData)) {
+        // finished precharging
+        hv_state = HV_ON;
       }
       else {
-        pc_state = PC_JUST_CLOSED;
-        break;
+        // no updates, keep precharging
+        hv_state = HV_PRECHARGING;
       }
+      break;
+    case HV_ON:
+      if (!check_HV_TOGGLE()) {
+        // kill-switch activated or HV switch turned off
+        hv_state = HV_OFF;
+      }
+      else if (!isHVSafe(preChargeData)) {
+        // HV error detected
+        hv_state = HV_ERROR;
+      }
+      else {
+        // no updates, keep HV on
+        hv_state = HV_ON;
+      }
+      break;
+    case HV_ERROR:
+      if (isHVSafe(preChargeData)) {
+        // if the error has been cleared
+        hv_state = HV_OFF;
+      } else {
+        // otherwise stay here
+        hv_state = HV_ERROR;
+      }
+      break;
     default:
-      pc_state = PC_START;
+      hv_state = HV_OFF;
       break;
   } // transitions
+
+  if (hv_state != old_state) {
+    Serial.printf("HV transitioned from %s to %s state\n", state_name(old_state), state_name(hv_state));
+  }
 }
 
 
 void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData) {
-  switch (pc_state) { // state actions
-    case PC_OPEN:
+  switch (hv_state) { // state actions
+    case HV_OFF:
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, LOW);
-//      Serial.println("Contactor closed led: low");
-      digitalWrite(CONTACTOR_CLOSED_LED, LOW);
       break;
-    case PC_CLOSE:
-      // requestBMSVoltageISR.update( a faster time);
+    case HV_PRECHARGING:
       digitalWrite(CONTACTOR, LOW);
       digitalWrite(PRECHARGE, HIGH);
-//      Serial.println("Contactor closed led: low");
-      digitalWrite(CONTACTOR_CLOSED_LED, LOW);
       break;
-    case PC_JUST_CLOSED:
-      // requestBMSVoltageISR.update( a slower time);
+    case HV_ON:
       digitalWrite(CONTACTOR, HIGH);
       digitalWrite(PRECHARGE, LOW);
-//      Serial.println("Contactor closed led: high");
-      digitalWrite(CONTACTOR_CLOSED_LED, HIGH);
       break;
+    case HV_ERROR:
+      digitalWrite(CONTACTOR, LOW);
+      digitalWrite(PRECHARGE, LOW);
     default:
       break;
   } // state actions
-  if (isPrecharged(preChargeData) == 1) {
-//    Serial.println("Contactor precharged led: high");
-    digitalWrite(CONTACTOR_PRECHARGED_LED, HIGH); // precharged confirmed
-  }
-  else {
-//    Serial.println("Contactor precharged led: low");
-    digitalWrite(CONTACTOR_PRECHARGED_LED, LOW); // not-precharged confirmed
-  }
-//  Serial.println(pc_state);
 }
 
-// This function returns 1 if the difference between the main-accumulator-series-voltage and the
-// motorcontroller-voltage is less than 10% of the main-accumulator-series-voltage 
-// (and greater than 80V right now but this should be removed later).
-// This function returns 0 otherwise.
+// Returns true if the motor controller is done precharging.
+// Returns false otherwise.
 bool isPrecharged(PreChargeTaskData preChargeData) {
+
+  // Ret false if we haven't received all BMS cell voltages yet
   if (*preChargeData.cellVoltages.ready) {
-      return false;
+    return false;
   }
-  return ((*preChargeData.cellVoltages.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.cellVoltages.seriesVoltage * 0.1) && 
-      *preChargeData.cellVoltages.seriesVoltage > 80);
+
+  // Ret true if the difference between the main-accumulator-series-voltage and the
+  // motorcontroller-voltage is less than 10% of the main-accumulator-series-voltage
+  return ((*preChargeData.cellVoltages.seriesVoltage - *preChargeData.motorControllerBatteryVoltage) <= (*preChargeData.cellVoltages.seriesVoltage * 0.1) &&
+          //and main-accumulator-voltage is greater than 80V (but this should be changed later as the bike voltage may be as low as ~60V).
+          *preChargeData.cellVoltages.seriesVoltage > 80);
 }
 
-// this function returns 1 if the contactor is in a good state to be closed
-int closeContactor(PreChargeTaskData preChargeData) {
+// this function returns true if there are no HV errors detected on the bike
+
+bool isHVSafe(PreChargeTaskData preChargeData) {
   //BMSStatus bmsStatus = preChargeData.bmsStatus;
   MotorTemps motorTemps = preChargeData.motorTemps;
-  
-  if (!isPrecharged(preChargeData)) return 0;
+
+  /* !!!! these are commented out now but all of this should be checked when using the real bike !!!!
+    though you will have to determine which of these are emergency HV states. i.e. Which ones should turn off the contactor instantly
+    and which ones should you simply alert the rider?
+    As of now, they all immediately turn off the contactor which may be dangerous for the rider
+  */
+
   //if (*bmsStatus.ltc_fault == 1) return 0;
   //if (*bmsStatus.ltc_count != NUMBER_OF_LTCS) return 0;
+  //    the below if can be reduced to if (*bmsStatus.bms_c_fault) which returns true for any non-zero bms_c_fault value
   //if (*bmsStatus.bms_c_fault == 1 || *bmsStatus.bms_c_fault == 2 || *bmsStatus.bms_c_fault == 4 ||    //checks BMS fault error codes
-  //  *bmsStatus.bms_c_fault == 8) return 0;
+  //    *bmsStatus.bms_c_fault == 8) return 0;
   //if (*bmsStatus.bms_status_flag == 1 || *bmsStatus.bms_status_flag == 2) return 0;  //check if cells are above or below the voltage cutoffs
   if (*motorTemps.motorControllerTemperature >= MOTORCONTROLLER_TEMP_MAX
       || *motorTemps.motorTemperature >= MOTOR_TEMP_MAX)       return 0;
@@ -127,6 +143,11 @@ bool check_HV_TOGGLE() {
   return !digitalRead(HIGH_VOLTAGE_TOGGLE);
 }
 
-bool check_CONTACTOR_CLOSE() {
-  return !digitalRead(CLOSE_CONTACTOR_BUTTON);
+char* state_name(HV_STATE state) {
+  switch (state) {
+    case HV_OFF: return "HV_OFF";
+    case HV_PRECHARGING: return "HV_PRECHARGING";
+    case HV_ON: return "HV_ON";
+    case HV_ERROR: return "HV_ERROR";
+  }
 }
