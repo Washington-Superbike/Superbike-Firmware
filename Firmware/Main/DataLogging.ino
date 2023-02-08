@@ -52,16 +52,20 @@ void dataLoggingTask(void *dlData) {
   unsigned int lastSave = millis();
   while (1) {
     int mTime = millis();
-      sTime = (millis() - epochTime) / 1000;
-      for (int i = 0; i < dl.writersLen; i++) {
-        addRecord(dl.writers[i], sTime);
-      }
-      if ((millis() -lastSave) > 10000) {
-          Serial.print("Saving files...");
-          saveFiles(dl.writers, dl.writersLen);
-          Serial.println("saved");
-          lastSave = millis();
-      }
+    sTime = (millis() - epochTime) / 1000;
+    for (int i = 0; i < dl.writersLen; i++) {
+      addRecord(dl.writers[i], sTime);
+    }
+    if ((millis() - lastSave) > 10000) {
+      Serial.print("Saving files...");
+      saveFiles(dl.writers, dl.writersLen);
+      Serial.println("saved");
+      lastSave = millis();
+    }
+    // delay 50ms (change to modify how fast records are saved
+    // in the future, this 'writeRate' could be specific to each data log
+    // ex: motor current should write every 5ms but battery voltage only every 1 second
+    // as battery voltage doesn't change very fast but current can
     vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
 }
@@ -72,6 +76,31 @@ void addRecord(CSVWriter *writer, int sTime) {
   if (!writer->open) {
     openFile(writer);
   }
+
+  // the function kinda works but should be redone later to use (void *) datatype instead of (float *).
+  // then cast the (void *) to whatever datatype is given by D_TYPE
+  // example: to print an int you would do
+
+  /*
+    void *point = writer->dataValues;
+    for(int i = 0; i < writer->dataValuesLen) {
+      switch(writer->D_TYPE) {
+        case FLOAT:
+           sRecord.concat(",").concat(writer->dataValues[i]);
+           point += sizeof(float); // how much space the float took in memory
+           break;
+        case INT:
+           sRecord.concat(",").concat(writer->dataValues[i]);
+           point += sizeof(int); // how much space the int took in memory
+        case ... (can be any other D_TYPE we define)
+           ... (similar to previous two cases)
+           break;
+        default: Serial.printf("Unknown D_TYPE: %u\n", D_TYPE); break;
+      }
+    }
+  */
+  // I want to add it in now but it should be tested before being merged obviously... - Chase
+
   String sRecord = String(sTime);
   for (int i = 0; i < writer->dataValuesLen; i++) {
     if (writer->D_TYPE == FLOAT) {

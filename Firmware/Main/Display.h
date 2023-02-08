@@ -30,7 +30,7 @@
 #define TIRQ_PIN  -1
 
 // Number of PrintedData values (length of the array that contains all the printedData)
-#define NUM_DATA 12
+#define NUM_DATA 11
 
 // Default Values
 #define DEFAULT_FLOAT -1
@@ -45,24 +45,40 @@
 #define TS_MAXY  3842
 
 typedef enum {
-    NUMBER, ARRAY, BOOL
+  NUMBER, ARRAY, BOOL
 } PRINT_TYPE;
 
+typedef enum {
+  DEBUG, SPEEDOMETER
+} SCREEN_TYPE;
+
 typedef struct PrintedDataStruct {
-    int labelX, y, dataX;          // y is the same for data and label, but X isnt
-    volatile float oldData;               // volatile for some printed data, not all
-    PRINT_TYPE type;
-    volatile float* currData;           // volatile for some printed data, not all
-    int dataLen;
-    char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
-    // (maybe add later) char* unitsPtr;
+  int labelX, y, dataX;          // y is the same for data and label, but X isnt
+  volatile float oldData;               // volatile for some printed data, not all
+  PRINT_TYPE type;
+  volatile float* currData;           // volatile for some printed data, not all
+  int dataLen;
+  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+  // (maybe add later) char* unitsPtr;
 } PrintedData;
 
+typedef struct PrintedDataThermStruct {
+  int labelX, y, dataX;          // y is the same for data and label, but X isnt
+  volatile float oldData[10];               // volatile for some printed data, not all
+  volatile float* currData;           // volatile for some printed data, not all
+  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+} PrintedDataTherm;
+
+typedef struct PrintedDataTimeStuct {
+  int labelX, y, dataX;          // y is the same for data and label, but X isnt
+  volatile float oldData[10];               // volatile for some printed data, not all
+  volatile float* currData;           // volatile for some printed data, not all
+  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+} PrintedDataTimeStuct;
+
+
 typedef struct ScreenInfo {
-  int px;
-  int py;
-  int pz;
-  bool recentlyChanged;
+  SCREEN_TYPE screenType;
 } Screen;
 
 typedef struct MeasurementScreenDataStruct {
@@ -80,7 +96,7 @@ typedef struct MeasurementScreenDataStruct {
   float* thermistorTemps;
 } MeasurementScreenData;
 
-typedef struct displayTaskWrapper{
+typedef struct displayTaskWrapper {
   MeasurementScreenData* msDataWrap;
   Screen* screenDataWrap;
 } displayPointer;
@@ -91,7 +107,11 @@ void displayTask(MeasurementScreenData msData, Screen screen);
 
 // supporting methods for Display.ino
 void drawMeasurementScreen(MeasurementScreenData msData, Screen screen);
-void setupMeasurementScreen();
+void setupMeasurementScreen(Screen screen);
+void eraseThenPrint(int xPos, int yPos, String oldData, String newData);
+void thermiDataPrint(bool thermiDataPrint);
+void timePrint();
+void manualScreenUpdater();
 void screenEraser(int scaler, int i);
 
 /// Checks for Auxiliary voltage reading from pin 13

@@ -21,25 +21,26 @@
 #define BMSC1_LTC2_CELLS_58  0x01df0a01
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
 
-#define STANDBY 20                                    // standby GPIO pin for the can transceiver, high=standby, low=normal
+// this is set to 24 instead of 20 because the BMS sends cells in packs of 12
+// so it makes the decipher function simpler
 #define BMS_CELLS 24                                  // the number of cells connected to the main accumulator BMS
 
 typedef struct {
-    float* RPM;
-    float* motorCurrent;
-    float* motorControllerBatteryVoltage;
-    int* errorMessage;
+  float* RPM;
+  float* motorCurrent;
+  float* motorControllerBatteryVoltage;
+  int* errorMessage;
 } MotorStats;
 
-typedef struct{
-    float* throttle;
-    float* motorControllerTemperature;
-    float* motorTemperature;
-    byte* controllerStatus;
+typedef struct {
+  float* throttle;
+  float* motorControllerTemperature;
+  float* motorTemperature;
+  byte* controllerStatus;
 } MotorTemps;
 
 typedef struct {
-  byte* en; 
+  byte* en;
   float* chargeVoltage;
   float* chargeCurrent;
 } ChargeControllerStats;
@@ -53,15 +54,15 @@ typedef struct {
 } ChargerStats;
 
 typedef struct {
-    int* bms_status_flag;
-    int* bms_c_id;
-    int* bms_c_fault;
-    int* ltc_fault;
-    int* ltc_count;
+  int* bms_status_flag;
+  int* bms_c_id;
+  int* bms_c_fault;
+  int* ltc_fault;
+  int* ltc_count;
 } BMSStatus;
 
 typedef struct {
-    float *temps;
+  float *temps;
 } ThermistorTemps;
 
 typedef struct {
@@ -71,14 +72,14 @@ typedef struct {
 } CellVoltages;
 
 typedef struct {
-    MotorStats motorStats;
-    MotorTemps motorTemps;
-    BMSStatus bmsStatus;
-    ThermistorTemps thermistorTemps;
-    CellVoltages cellVoltages;
-    ChargerStats chargerStats;
-    ChargeControllerStats chargeControllerStats;
-    float *seriesVoltage;
+  MotorStats motorStats;
+  MotorTemps motorTemps;
+  BMSStatus bmsStatus;
+  ThermistorTemps thermistorTemps;
+  CellVoltages cellVoltages;
+  ChargerStats chargerStats;
+  ChargeControllerStats chargeControllerStats;
+  float *seriesVoltage;
 } CANTaskData;
 
 void canTask(void *canData);

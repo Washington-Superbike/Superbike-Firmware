@@ -41,9 +41,9 @@ static float chargerVoltage = 0;
 static float chargerCurrent = 0;
 static int8_t chargerTemp = 0;
 
-
-static Screen screen = {};
-static displayPointer displayTaskWrap = {}; 
+//CHANGE THIS LINE TO SET THE DISPLAY TYPE. TYPE is determine from the display.h SCREENTYPE enum.
+static Screen screen = {DEBUG};
+static displayPointer displayTaskWrap = {};
 
 static MeasurementScreenData measurementData = {};
 static MotorStats motorStats = {};
@@ -103,6 +103,7 @@ void initializePreChargeStruct() {
 }
 
 void setup() {
+  // some of these pins may need to be removed now (contactor/precharge leds and close_contactor button)
   pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
   pinMode(CLOSE_CONTACTOR_BUTTON, INPUT_PULLUP);
   pinMode(TFT_RST, OUTPUT);
@@ -119,24 +120,30 @@ void setup() {
   digitalWrite(CONTACTOR_PRECHARGED_LED, LOW);
   pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
   digitalWrite(CONTACTOR_CLOSED_LED, LOW);
-  //motor temp points to motor controller temp for now
-  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage, 
-    &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage,thTemps};
-  
+  //motor temp points to motor controller temp for now but they are separate on the bike
+  measurementData = {&seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage, &RPM, &motorControllerTemp, &motorCurrent, &errorMessage,
+                     &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage, thTemps
+                    };
+
   displayTaskWrap = {&measurementData, &screen};
   initializeCANStructs();
   // initial
   initializeLogs();
 
   Serial.begin(115200);
-  
 
+  // NOTE: to set the Teensy RTC to the real world clock, you need to upload the sketch:
+  // File->Examples->Time->TimeTeensy3 and open the serial port. That will set the internal RTC.
+  // This function sets the Teensy time from the internal RTC (powered by the coin cell) but
+  // does not sync it to the real world clock
   setTime(Teensy3Clock.get());
-  if (CrashReport) {
-    Serial.print(CrashReport);
-    delay(5000);
-  }
-  
+
+  // check to see if there is a crash report to print (doesn't work for all crashes)
+  //  if (CrashReport) {
+  //    Serial.print(CrashReport);
+  //    delay(5000);
+  //  }
+
   Serial.print("Starting SD: ");
   if (startSD()) {
     Serial.println("SD successfully started");
@@ -145,24 +152,27 @@ void setup() {
     sdStarted = 0;
     Serial.println("Error starting SD card");
   }
-  setupDisplay(measurementData,screen);
+
+  setupDisplay(measurementData, screen);
   setupCAN();
   initializePreChargeStruct();
 
+  // unused but left as a reminder for how you can use it
   spi_mutex = xSemaphoreCreateMutex();
-  
+
   portBASE_TYPE s1, s2, s3, s4, s5;
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
+  // make sure to set CAN_NODES in config.h
   s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
   s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&displayTaskWrap, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
-  
+
   if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
     Serial.println("Error creating tasks");
-    while(1);
+    while (1);
   }
-  
+
   Serial.println("Starting the scheduler");
   // start scheduler
   vTaskStartScheduler();
@@ -177,7 +187,7 @@ time_t getTeensy3Time()
 
 void idleTask(void *taskData) {
   while (1) {
-      vTaskDelay((50*configTICK_RATE_HZ) / 1000);
+    vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
 }
 
