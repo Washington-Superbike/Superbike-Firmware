@@ -1,6 +1,5 @@
 #include "Precharge.h"
 
-
 // The state HV_PRECHARGING, HV_ON are badly named.
 // The enum should be renamed to HV_STATE
 // and instead we should have HV_OFF, HV_ON, HV_ON states
@@ -45,6 +44,7 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
       }
       break;
     case HV_ON:
+    //  TODO: add another && next to the !check_HV_TOGGLE, that essentially checks the measured angle > 45 degrees on left or right side (+- 45 degrees?)
       if (!check_HV_TOGGLE()) {
         // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
@@ -142,6 +142,8 @@ bool isHVSafe(PreChargeTaskData preChargeData) {
 bool check_HV_TOGGLE() {
   return !digitalRead(HIGH_VOLTAGE_TOGGLE);
 }
+
+// TODO: add a method that reads in gyro angle data again, which is then compared to initial angle, to determine leaning.
 
 char* state_name(HV_STATE state) {
   switch (state) {

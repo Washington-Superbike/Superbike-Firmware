@@ -42,8 +42,14 @@ void displayTask(void *displayTaskWrap) {
 void setupDisplay(MeasurementScreenData msData, Screen screen) {
   tft.begin();
   tft.setRotation(1);
-  tft.fillScreen(ILI9341_WHITE);
+  if (screen.screenType == DEBUG){
+    tft.fillScreen(ILI9341_WHITE);
+  }
 
+  if (screen.screenType == SPEEDOMETER){
+    tft.fillScreen(ILI9341_BLACK);
+  }
+  
   //PrintedData *thermTemps = &printedVals[7];
   //PrintedData *timeData = &printedVals[11];
 
@@ -99,10 +105,24 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
   }
 
   if (screen.screenType == SPEEDOMETER){
-    tft.setTextColor(ILI9341_BLACK);
-    tft.setTextSize(14);
-    tft.setCursor(0,0);
-    tft.print("PP");
+    tft.setTextColor(ILI9341_WHITE);
+    tft.setTextSize(8);
+    String newString = "";
+    String oldString = "";
+    if ((*printedVals[3].currData) != (printedVals[3].oldData) || (printedVals[3].oldData) == DEFAULT_FLOAT) {
+//      TODO: REPLACE THESE WITH A PROPER EQUATION THAT FINDS SPEED USING RPM (Gear ratios, circumference, etc.)
+      int newSpeed = (int) *printedVals[3].currData;
+      int oldSpeed = (int) printedVals[3].oldData;
+      newString = (String)newSpeed;
+      oldString = (String)oldSpeed;
+//      Serial.println(newString);
+//      Serial.println(oldString);
+      eraseThenPrintSPEEDO(175, 0, oldString, newString);
+      newString = (String) (int) *printedVals[3].currData;
+      oldString = (String) (int) printedVals[3].oldData;
+      eraseThenPrintSPEEDO(175, 180, oldString, newString);
+      printedVals[3].oldData = *printedVals[3].currData;
+    }
   }  
 }
 
@@ -186,10 +206,17 @@ void setupMeasurementScreen(Screen screen) {
     tft.print(thermiData.labelPtr);
   }
   if (screen.screenType == SPEEDOMETER){
-    tft.setTextColor(ILI9341_BLACK);
-    tft.setTextSize(6);
-    tft.setCursor(100,100);
-    tft.print("PP");
+    tft.setTextColor(ILI9341_WHITE);
+    tft.setTextSize(5);
+    
+    tft.setCursor(0,0);
+    tft.print("SPEED");
+
+    tft.setCursor(220, 62);
+    tft.print("mph");
+    
+    tft.setCursor(0, 205);
+    tft.print("RPM");
   }  
 }
 
@@ -199,6 +226,15 @@ void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
   tft.print(oldData);
   tft.setCursor(xPos, yPos);
   tft.setTextColor(ILI9341_BLACK);
+  tft.print(newData);
+}
+
+void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData) {
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(ILI9341_BLACK);
+  tft.print(oldData);
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(ILI9341_WHITE);
   tft.print(newData);
 }
 
@@ -212,7 +248,7 @@ void manualScreenUpdater() {
   for (int i = 0; i < NUM_DATA; i++) {
     if (printedVals[i].type == NUMBER) {
       *printedVals[i].currData = *printedVals[i].currData + 1;
-      Serial.println(*printedVals[i].currData);
+//      Serial.println(*printedVals[i].currData);
     }
   }
   for (int j = 0; j < 10; j++) {

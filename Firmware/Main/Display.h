@@ -113,6 +113,7 @@ void thermiDataPrint(bool thermiDataPrint);
 void timePrint();
 void manualScreenUpdater();
 void screenEraser(int scaler, int i);
+void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData);
 
 /// Checks for Auxiliary voltage reading from pin 13
 float aux_voltage_read();

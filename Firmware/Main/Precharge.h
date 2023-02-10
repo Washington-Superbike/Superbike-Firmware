@@ -17,6 +17,7 @@
 
 enum HV_STATE {HV_OFF , HV_PRECHARGING, HV_ON, HV_ERROR};
 
+// TODO: add a pointer that points to "initialAngle"
 typedef struct {
   BMSStatus bmsStatus;
   MotorTemps motorTemps;

@@ -7,7 +7,6 @@
 #include <TimeLib.h>
 
 
-
 static int bms_status_flag = 0;
 static int bms_c_id = 0;
 static int bms_c_fault = 0;
@@ -21,6 +20,8 @@ static int thermistorEnabled;
 static int thermistorPresent;
 
 static float auxiliaryBatteryVoltage = 0;
+
+static float initialAngle = 0.0;
 
 static float RPM = 0;
 static float motorCurrent = 0;
@@ -42,7 +43,7 @@ static float chargerCurrent = 0;
 static int8_t chargerTemp = 0;
 
 //CHANGE THIS LINE TO SET THE DISPLAY TYPE. TYPE is determine from the display.h SCREENTYPE enum.
-static Screen screen = {DEBUG};
+static Screen screen = {SPEEDOMETER};
 static displayPointer displayTaskWrap = {};
 
 static MeasurementScreenData measurementData = {};
@@ -157,9 +158,13 @@ void setup() {
   setupCAN();
   initializePreChargeStruct();
 
+//  TODO: add a call to the gyroscope angle measuring method in Precharge.ino, to get the initial angle (straight bike)
+//  that will be measured against. This should use the "initialAngle" variable that was initialized at the top of this file.
+
   // unused but left as a reminder for how you can use it
   spi_mutex = xSemaphoreCreateMutex();
 
+// TODO: change the precharge task's struct to take in the initialAngle variable as well. Ask Yasir what that means if it's confusing.
   portBASE_TYPE s1, s2, s3, s4, s5;
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
   // make sure to set CAN_NODES in config.h
