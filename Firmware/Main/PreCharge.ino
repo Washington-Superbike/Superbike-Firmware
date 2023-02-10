@@ -45,7 +45,7 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
       break;
     case HV_ON:
     //  TODO: add another && next to the !check_HV_TOGGLE, that essentially checks the measured angle > 45 degrees on left or right side (+- 45 degrees?)
-      if (!check_HV_TOGGLE()) {
+      if (!check_HV_TOGGLE() || (initialAngle_Y > 45) || (initialAngle_Y < -45)) {
         // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
       }
@@ -143,8 +143,6 @@ bool check_HV_TOGGLE() {
   return !digitalRead(HIGH_VOLTAGE_TOGGLE);
 }
 
-// TODO: add a method that reads in gyro angle data again, which is then compared to initial angle, to determine leaning.
-
 char* state_name(HV_STATE state) {
   switch (state) {
     case HV_OFF: return "HV_OFF";
@@ -152,4 +150,126 @@ char* state_name(HV_STATE state) {
     case HV_ON: return "HV_ON";
     case HV_ERROR: return "HV_ERROR";
   }
+}
+
+// TODO: add a method that reads in gyro angle data again, which is then compared to initial angle, to determine leaning.
+
+// 2 main variables are updated to determine angles of bike: initialAngle_X and initialAngle_Y
+void getGyroAngles() {
+  //Extract data
+  gyro_signals();
+  //Calculate rotation rates
+  RateRoll-=RateCalibrationRoll;
+  RatePitch-=RateCalibrationPitch;
+  RateYaw-=RateCalibrationYaw;
+  // Calculate Roll angle (around x axis)
+  kalman_1d(initialAngle_X, KalmanUncertaintyAngleRoll, RateRoll, AngleRoll);
+  // Update Kalman output to angle roll and uncertaintity
+  initialAngle_X=Kalman1DOutput[0]; 
+  KalmanUncertaintyAngleRoll=Kalman1DOutput[1];
+  // Calculate Pitch angle (around y-axis)
+  kalman_1d(initialAngle_Y, KalmanUncertaintyAnglePitch, RatePitch, AnglePitch);
+  // Update Kalman output to angle pitch and uncertaintity
+  initialAngle_Y=Kalman1DOutput[0]; 
+  KalmanUncertaintyAnglePitch=Kalman1DOutput[1];
+}
+
+// Method 1 of 2 for gyroscope
+
+// Method to gather/extract data from MPU6050 (gyroscope)
+void gyro_signals(void) {
+  // Start I2C communication with MPU6050
+  Wire.beginTransmission(0x68);
+  
+  // Switch on low pass filter
+  Wire.write(0x1A);
+  Wire.write(0x05);
+  Wire.endTransmission();
+
+  // Configure accelerometer output
+  Wire.beginTransmission(0x68);
+  Wire.write(0x1C);
+  Wire.write(0x10);
+  Wire.endTransmission();
+
+  // Take accelerometer measurements from sensor
+  Wire.beginTransmission(0x68);
+  Wire.write(0x3B);
+  Wire.endTransmission(); 
+  Wire.requestFrom(0x68,6);
+  int16_t AccXLSB = Wire.read() << 8 | Wire.read();
+  int16_t AccYLSB = Wire.read() << 8 | Wire.read();
+  int16_t AccZLSB = Wire.read() << 8 | Wire.read();
+
+  // Configure gyroscope output and pull rotation rate measurements from sensor
+  Wire.beginTransmission(0x68);
+  Wire.write(0x1B); 
+  Wire.write(0x8);
+  Wire.endTransmission();     
+  Wire.beginTransmission(0x68);
+  Wire.write(0x43);
+  Wire.endTransmission();
+  Wire.requestFrom(0x68,6);
+  int16_t GyroX=Wire.read()<<8 | Wire.read();
+  int16_t GyroY=Wire.read()<<8 | Wire.read();
+  int16_t GyroZ=Wire.read()<<8 | Wire.read();
+  RateRoll=(float)GyroX/65.5;
+  RatePitch=(float)GyroY/65.5;
+  RateYaw=(float)GyroZ/65.5;
+
+  // Convert measurements ro physical values
+  AccX=(float)AccXLSB/4096;
+  AccY=(float)AccYLSB/4096;
+  AccZ=(float)AccZLSB/4096;
+
+  // Calculate absolute angles
+  // IMPORTANT LINE OF CODE:
+  //    - WE CAN ADD OR SUBTRACT FROM THE ANGLE DEPENDING ON THE PLACEMENT OF GYROSCOPE
+  //    - EX: If MPU6050 is laid on port side, add 90 to AnglePitch
+  AngleRoll= atan(AccY/sqrt(AccX*AccX+AccZ*AccZ))*1/(3.142/180);
+  AnglePitch= -atan(AccX/sqrt(AccY*AccY+AccZ*AccZ))*1/(3.142/180);
+}
+
+// Method 2 of 2 for gyroscope
+
+// Function calculating angle and uncertainty implementing Kalman filter
+// KalmanInput = rotation rate (Use RateRoll or RatePitch as parameter)
+// KalmanMeasurement = accelerometer angle (Use AngleRoll or AnglePitch as parameter)
+// KalmanState = angle with Kalman filter (Use initialAngle_X or initialAngle_Y as parameter)
+void kalman_1d(float KalmanState, float KalmanUncertainty, float KalmanInput, float KalmanMeasurement) {
+  KalmanState=KalmanState+0.004*KalmanInput;
+  KalmanUncertainty=KalmanUncertainty + 0.004 * 0.004 * 4 * 4;
+  float KalmanGain=KalmanUncertainty * 1/(1*KalmanUncertainty + 3 * 3);
+  KalmanState=KalmanState+KalmanGain * (KalmanMeasurement-KalmanState);
+  KalmanUncertainty=(1-KalmanGain) * KalmanUncertainty;
+  // Output of filter
+  Kalman1DOutput[0]=KalmanState; 
+  Kalman1DOutput[1]=KalmanUncertainty;
+}
+
+// Communication with gyroscope and calibration
+void setupGyroscope() {
+  Serial.begin(57600);
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
+  Wire.setClock(400000);
+  Wire.begin();
+  delay(250);
+  Wire.beginTransmission(0x68); 
+  Wire.write(0x6B);
+  Wire.write(0x00);
+  Wire.endTransmission();
+
+  // gyroscope calibration
+  for (RateCalibrationNumber=0; RateCalibrationNumber<2000; RateCalibrationNumber ++) {
+    gyro_signals();
+    RateCalibrationRoll+=RateRoll;
+    RateCalibrationPitch+=RatePitch;
+    RateCalibrationYaw+=RateYaw;
+    delay(1);
+  }
+  RateCalibrationRoll/=2000;
+  RateCalibrationPitch/=2000;
+  RateCalibrationYaw/=2000;
+  LoopTimer=micros();
 }

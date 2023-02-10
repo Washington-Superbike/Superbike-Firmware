@@ -5,6 +5,7 @@
 #include "DataLogging.h"
 #include "FreeRTOS_TEENSY4.h"
 #include <TimeLib.h>
+#include <Wire.h>
 
 
 static int bms_status_flag = 0;
@@ -21,7 +22,25 @@ static int thermistorPresent;
 
 static float auxiliaryBatteryVoltage = 0;
 
-static float initialAngle = 0.0;
+// Define gyroscope and accelerometer variables
+
+// Final Roll Angle (wheelie up angle)
+static float initialAngle_X = 0.0;
+// Final Pitch Angle (Leaning left/right angle)
+static float initialAngle_Y = 0.0;
+// Uncertainty associated with angle
+static float KalmanUncertaintyAngleRoll=2*2, KalmanUncertaintyAnglePitch=2*2;
+// Output of filter
+static float Kalman1DOutput[]={0,0};
+// Roll = around x-axis
+// Pitch = around y-axis
+// Yaw = around z axis
+static float RateRoll, RatePitch, RateYaw;
+static float RateCalibrationRoll, RateCalibrationPitch, RateCalibrationYaw;
+static int RateCalibrationNumber;
+static float AccX, AccY, AccZ;
+static float AngleRoll, AnglePitch;
+static uint32_t LoopTimer;
 
 static float RPM = 0;
 static float motorCurrent = 0;
@@ -160,7 +179,8 @@ void setup() {
 
 //  TODO: add a call to the gyroscope angle measuring method in Precharge.ino, to get the initial angle (straight bike)
 //  that will be measured against. This should use the "initialAngle" variable that was initialized at the top of this file.
-
+  getGyroAngles();
+  
   // unused but left as a reminder for how you can use it
   spi_mutex = xSemaphoreCreateMutex();
 
