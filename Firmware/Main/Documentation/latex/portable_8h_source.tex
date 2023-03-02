@@ -1,0 +1,187 @@
+\hypertarget{portable_8h_source}{}\doxysection{portable.\+h}
+\label{portable_8h_source}\index{FreeRTOS/portable.h@{FreeRTOS/portable.h}}
+\mbox{\hyperlink{portable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{23 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{24 \textcolor{comment}{ *}}
+\DoxyCodeLine{25 \textcolor{comment}{ * 1 tab == 4 spaces!}}
+\DoxyCodeLine{26 \textcolor{comment}{ */}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{29 \textcolor{comment}{ * Portable layer API.  Each function must be defined for each port.}}
+\DoxyCodeLine{30 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef PORTABLE\_H}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define PORTABLE\_H}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{/* Each FreeRTOS port has a unique portmacro.h header file.  Originally a}}
+\DoxyCodeLine{36 \textcolor{comment}{pre-\/processor definition was used to ensure the pre-\/processor found the correct}}
+\DoxyCodeLine{37 \textcolor{comment}{portmacro.h file for the port being used.  That scheme was deprecated in favour}}
+\DoxyCodeLine{38 \textcolor{comment}{of setting the compiler's include path such that it found the correct}}
+\DoxyCodeLine{39 \textcolor{comment}{portmacro.h file -\/ removing the need for the constant and allowing the}}
+\DoxyCodeLine{40 \textcolor{comment}{portmacro.h file to be located anywhere in relation to the port being used.}}
+\DoxyCodeLine{41 \textcolor{comment}{Purely for reasons of backward compatibility the old method is still valid, but}}
+\DoxyCodeLine{42 \textcolor{comment}{to make it clear that new projects should not use it, support for the port}}
+\DoxyCodeLine{43 \textcolor{comment}{specific constants has been moved into the deprecated\_definitions.h header}}
+\DoxyCodeLine{44 \textcolor{comment}{file. */}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{deprecated__definitions_8h}{deprecated\_definitions.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* If portENTER\_CRITICAL is not defined then including deprecated\_definitions.h}}
+\DoxyCodeLine{48 \textcolor{comment}{did not result in a portmacro.h header file being included -\/ and it should be}}
+\DoxyCodeLine{49 \textcolor{comment}{included here.  In this case the path to the correct portmacro.h header file}}
+\DoxyCodeLine{50 \textcolor{comment}{must be set in the compiler's include path. */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifndef portENTER\_CRITICAL}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{    \#include "{}\mbox{\hyperlink{portmacro_8h}{portmacro.h}}"{}}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 32}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x001f )}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 16}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x000f )}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 8}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x0007 )}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 4}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x0003 )}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 2}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x0001 )}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#if portBYTE\_ALIGNMENT == 1}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    \#define portBYTE\_ALIGNMENT\_MASK ( 0x0000 )}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#ifndef portBYTE\_ALIGNMENT\_MASK}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{    \#error "{}Invalid portBYTE\_ALIGNMENT definition"{}}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#ifndef portNUM\_CONFIGURABLE\_REGIONS}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{    \#define portNUM\_CONFIGURABLE\_REGIONS 1}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#ifndef portHAS\_STACK\_OVERFLOW\_CHECKING}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{    \#define portHAS\_STACK\_OVERFLOW\_CHECKING 0}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#ifndef portARCH\_NAME}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{    \#define portARCH\_NAME NULL}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{96 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mpu__wrappers_8h}{mpu\_wrappers.h}}"{}}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{/*}}
+\DoxyCodeLine{102 \textcolor{comment}{ * Setup the stack of a new task so it is ready to be placed under the}}
+\DoxyCodeLine{103 \textcolor{comment}{ * scheduler control.  The registers have to be placed on the stack in}}
+\DoxyCodeLine{104 \textcolor{comment}{ * the order that the port expects to find them.}}
+\DoxyCodeLine{105 \textcolor{comment}{ *}}
+\DoxyCodeLine{106 \textcolor{comment}{ */}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#if( portUSING\_MPU\_WRAPPERS == 1 )}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    \#if( portHAS\_STACK\_OVERFLOW\_CHECKING == 1 )}}
+\DoxyCodeLine{109         \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}( \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxTopOfStack, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxEndOfStack, \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}} pxCode, \textcolor{keywordtype}{void} *pvParameters, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xRunPrivileged ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{110 \textcolor{preprocessor}{    \#else}}
+\DoxyCodeLine{111         \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}( \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxTopOfStack, \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}} pxCode, \textcolor{keywordtype}{void} *pvParameters, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xRunPrivileged ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{112 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{    \#if( portHAS\_STACK\_OVERFLOW\_CHECKING == 1 )}}
+\DoxyCodeLine{115         \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}( \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxTopOfStack, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxEndOfStack, \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}} pxCode, \textcolor{keywordtype}{void} *pvParameters ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{116 \textcolor{preprocessor}{    \#else}}
+\DoxyCodeLine{117         \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *\mbox{\hyperlink{portable_8h_ac176989ae73455502063fd6cbe01a1ca}{pxPortInitialiseStack}}( \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxTopOfStack, \mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{TaskFunction\_t}} pxCode, \textcolor{keywordtype}{void} *pvParameters ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{118 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{comment}{/* Used by heap\_5.c. */}}
+\DoxyCodeLine{122 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_heap_region}{HeapRegion}}}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124     uint8\_t *\mbox{\hyperlink{struct_heap_region_aab323508c34642ebfb884a68441d97fc}{pucStartAddress}};}
+\DoxyCodeLine{125     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_heap_region_a5933b0fd422e70a92ceef839b89a757f}{xSizeInBytes}};}
+\DoxyCodeLine{126 \} \mbox{\hyperlink{portable_8h_acce46e1bf21496c11f2b1e49ded2882b}{HeapRegion\_t}};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{comment}{/*}}
+\DoxyCodeLine{129 \textcolor{comment}{ * Used to define multiple heap regions for use by heap\_5.c.  This function}}
+\DoxyCodeLine{130 \textcolor{comment}{ * must be called before any calls to pvPortMalloc() -\/ not creating a task,}}
+\DoxyCodeLine{131 \textcolor{comment}{ * queue, semaphore, mutex, software timer, event group, etc. will result in}}
+\DoxyCodeLine{132 \textcolor{comment}{ * pvPortMalloc being called.}}
+\DoxyCodeLine{133 \textcolor{comment}{ *}}
+\DoxyCodeLine{134 \textcolor{comment}{ * pxHeapRegions passes in an array of HeapRegion\_t structures -\/ each of which}}
+\DoxyCodeLine{135 \textcolor{comment}{ * defines a region of memory that can be used as the heap.  The array is}}
+\DoxyCodeLine{136 \textcolor{comment}{ * terminated by a HeapRegions\_t structure that has a size of 0.  The region}}
+\DoxyCodeLine{137 \textcolor{comment}{ * with the lowest start address must appear first in the array.}}
+\DoxyCodeLine{138 \textcolor{comment}{ */}}
+\DoxyCodeLine{139 \textcolor{keywordtype}{void} \mbox{\hyperlink{portable_8h_a4f3a75726f448c4170d9d6565bdef636}{vPortDefineHeapRegions}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_heap_region}{HeapRegion\_t}} * \textcolor{keyword}{const} pxHeapRegions ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{comment}{/*}}
+\DoxyCodeLine{143 \textcolor{comment}{ * Map to the memory management routines required for the port.}}
+\DoxyCodeLine{144 \textcolor{comment}{ */}}
+\DoxyCodeLine{145 \textcolor{keywordtype}{void} *\mbox{\hyperlink{portable_8h_a7aaf584d8f548d7f03d6a46280c9e877}{pvPortMalloc}}( \textcolor{keywordtype}{size\_t} xSize ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{146 \textcolor{keywordtype}{void} \mbox{\hyperlink{portable_8h_a735cd3085bb7ba06ff8e47565bfd7016}{vPortFree}}( \textcolor{keywordtype}{void} *pv ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{147 \textcolor{keywordtype}{void} \mbox{\hyperlink{portable_8h_a846b5ebdaf2b51fe707efb4a0974f676}{vPortInitialiseBlocks}}( \textcolor{keywordtype}{void} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{148 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{portable_8h_a8f72fbee5c25c956bda528299ce6dd02}{xPortGetFreeHeapSize}}( \textcolor{keywordtype}{void} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{149 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{portable_8h_a6195704430323f2e97ea4deab7a4eece}{xPortGetMinimumEverFreeHeapSize}}( \textcolor{keywordtype}{void} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{comment}{/*}}
+\DoxyCodeLine{152 \textcolor{comment}{ * Setup the hardware ready for the scheduler to take control.  This generally}}
+\DoxyCodeLine{153 \textcolor{comment}{ * sets up a tick interrupt and sets timers for the correct tick frequency.}}
+\DoxyCodeLine{154 \textcolor{comment}{ */}}
+\DoxyCodeLine{155 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{portable_8h_a4f3b1bb7590996f2fa1e0456dda961ff}{xPortStartScheduler}}( \textcolor{keywordtype}{void} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{comment}{/*}}
+\DoxyCodeLine{158 \textcolor{comment}{ * Undo any hardware/ISR setup that was performed by xPortStartScheduler() so}}
+\DoxyCodeLine{159 \textcolor{comment}{ * the hardware is left in its original condition after the scheduler stops}}
+\DoxyCodeLine{160 \textcolor{comment}{ * executing.}}
+\DoxyCodeLine{161 \textcolor{comment}{ */}}
+\DoxyCodeLine{162 \textcolor{keywordtype}{void} \mbox{\hyperlink{portable_8h_aa356b7baaa9089490321aa919542dd6c}{vPortEndScheduler}}( \textcolor{keywordtype}{void} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{comment}{/*}}
+\DoxyCodeLine{165 \textcolor{comment}{ * The structures and methods of manipulating the MPU are contained within the}}
+\DoxyCodeLine{166 \textcolor{comment}{ * port layer.}}
+\DoxyCodeLine{167 \textcolor{comment}{ *}}
+\DoxyCodeLine{168 \textcolor{comment}{ * Fills the xMPUSettings structure with the memory region information}}
+\DoxyCodeLine{169 \textcolor{comment}{ * contained in xRegions.}}
+\DoxyCodeLine{170 \textcolor{comment}{ */}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#if( portUSING\_MPU\_WRAPPERS == 1 )}}
+\DoxyCodeLine{172     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_m_e_m_o_r_y___r_e_g_i_o_n}{xMEMORY\_REGION}};}
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} vPortStoreTaskMPUSettings( xMPU\_SETTINGS *xMPUSettings, \textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structx_m_e_m_o_r_y___r_e_g_i_o_n}{xMEMORY\_REGION}} * \textcolor{keyword}{const} xRegions, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}} *pxBottomOfStack, uint32\_t ulStackDepth ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{177 \}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PORTABLE\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{181 }
+
+\end{DoxyCode}

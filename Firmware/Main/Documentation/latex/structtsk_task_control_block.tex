@@ -1,0 +1,117 @@
+\hypertarget{structtsk_task_control_block}{}\doxysection{tsk\+Task\+Control\+Block Struct Reference}
+\label{structtsk_task_control_block}\index{tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$ \mbox{\hyperlink{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}{px\+Top\+Of\+Stack}}
+\item 
+\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}{x\+State\+List\+Item}}
+\item 
+\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}{x\+Event\+List\+Item}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}{ux\+Priority}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$ \mbox{\hyperlink{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}{px\+Stack}}
+\item 
+char \mbox{\hyperlink{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}{pc\+Task\+Name}} \mbox{[}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac388dc4041aab6997348828eb27fc1a8}{config\+MAX\+\_\+\+TASK\+\_\+\+NAME\+\_\+\+LEN}}\mbox{]}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a3f3169fa5667af8ee542304f8dd48553}{ux\+TCBNumber}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a46894d7d546d614cc881212dc8039f41}{ux\+Task\+Number}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a3ce2f9306ee315873114616fb49a0ed2}{ux\+Base\+Priority}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{structtsk_task_control_block_a405a8451e393290ef92337cd77a3bf1f}{ux\+Mutexes\+Held}}
+\item 
+void $\ast$ \mbox{\hyperlink{structtsk_task_control_block_a8803006ed43d058a5e6ba65cf91c18e1}{pv\+Thread\+Local\+Storage\+Pointers}} \mbox{[}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a8d32b5f74e55dfd12c5aa3415e16d75e}{config\+NUM\+\_\+\+THREAD\+\_\+\+LOCAL\+\_\+\+STORAGE\+\_\+\+POINTERS}}\mbox{]}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{structtsk_task_control_block_a7c571b992f90bfe77414cab060ca2af8}{ul\+Notified\+Value}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{structtsk_task_control_block_adab5291f06b774ed8f5bb6f76a77496f}{uc\+Notify\+State}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}\label{structtsk_task_control_block_a67d61291794f38afb5be5132078bc24f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pcTaskName@{pcTaskName}}
+\index{pcTaskName@{pcTaskName}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pcTaskName}{pcTaskName}}
+{\footnotesize\ttfamily char tsk\+Task\+Control\+Block\+::pc\+Task\+Name\mbox{[}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac388dc4041aab6997348828eb27fc1a8}{config\+MAX\+\_\+\+TASK\+\_\+\+NAME\+\_\+\+LEN}}\mbox{]}}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a8803006ed43d058a5e6ba65cf91c18e1}\label{structtsk_task_control_block_a8803006ed43d058a5e6ba65cf91c18e1}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pvThreadLocalStoragePointers@{pvThreadLocalStoragePointers}}
+\index{pvThreadLocalStoragePointers@{pvThreadLocalStoragePointers}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pvThreadLocalStoragePointers}{pvThreadLocalStoragePointers}}
+{\footnotesize\ttfamily void$\ast$ tsk\+Task\+Control\+Block\+::pv\+Thread\+Local\+Storage\+Pointers\mbox{[}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a8d32b5f74e55dfd12c5aa3415e16d75e}{config\+NUM\+\_\+\+THREAD\+\_\+\+LOCAL\+\_\+\+STORAGE\+\_\+\+POINTERS}}\mbox{]}}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}\label{structtsk_task_control_block_a9a0d71a9f95dd0609f9911d9efd79134}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pxStack@{pxStack}}
+\index{pxStack@{pxStack}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pxStack}{pxStack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}}$\ast$ tsk\+Task\+Control\+Block\+::px\+Stack}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}\label{structtsk_task_control_block_a429a186c7f8e34aba1eef5e12d215b90}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!pxTopOfStack@{pxTopOfStack}}
+\index{pxTopOfStack@{pxTopOfStack}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{pxTopOfStack}{pxTopOfStack}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}}$\ast$ tsk\+Task\+Control\+Block\+::px\+Top\+Of\+Stack}
+
+\mbox{\Hypertarget{structtsk_task_control_block_adab5291f06b774ed8f5bb6f76a77496f}\label{structtsk_task_control_block_adab5291f06b774ed8f5bb6f76a77496f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!ucNotifyState@{ucNotifyState}}
+\index{ucNotifyState@{ucNotifyState}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{ucNotifyState}{ucNotifyState}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t tsk\+Task\+Control\+Block\+::uc\+Notify\+State}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a7c571b992f90bfe77414cab060ca2af8}\label{structtsk_task_control_block_a7c571b992f90bfe77414cab060ca2af8}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!ulNotifiedValue@{ulNotifiedValue}}
+\index{ulNotifiedValue@{ulNotifiedValue}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{ulNotifiedValue}{ulNotifiedValue}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t tsk\+Task\+Control\+Block\+::ul\+Notified\+Value}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a3ce2f9306ee315873114616fb49a0ed2}\label{structtsk_task_control_block_a3ce2f9306ee315873114616fb49a0ed2}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxBasePriority@{uxBasePriority}}
+\index{uxBasePriority@{uxBasePriority}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxBasePriority}{uxBasePriority}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+Base\+Priority}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a405a8451e393290ef92337cd77a3bf1f}\label{structtsk_task_control_block_a405a8451e393290ef92337cd77a3bf1f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxMutexesHeld@{uxMutexesHeld}}
+\index{uxMutexesHeld@{uxMutexesHeld}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxMutexesHeld}{uxMutexesHeld}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+Mutexes\+Held}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}\label{structtsk_task_control_block_a79187811e3d2a15595942e3b44237d85}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxPriority@{uxPriority}}
+\index{uxPriority@{uxPriority}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxPriority}{uxPriority}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+Priority}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a46894d7d546d614cc881212dc8039f41}\label{structtsk_task_control_block_a46894d7d546d614cc881212dc8039f41}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxTaskNumber@{uxTaskNumber}}
+\index{uxTaskNumber@{uxTaskNumber}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxTaskNumber}{uxTaskNumber}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+Task\+Number}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a3f3169fa5667af8ee542304f8dd48553}\label{structtsk_task_control_block_a3f3169fa5667af8ee542304f8dd48553}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!uxTCBNumber@{uxTCBNumber}}
+\index{uxTCBNumber@{uxTCBNumber}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{uxTCBNumber}{uxTCBNumber}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} tsk\+Task\+Control\+Block\+::ux\+TCBNumber}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}\label{structtsk_task_control_block_a1a1612b6081a13683808284d93a9b28f}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!xEventListItem@{xEventListItem}}
+\index{xEventListItem@{xEventListItem}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{xEventListItem}{xEventListItem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} tsk\+Task\+Control\+Block\+::x\+Event\+List\+Item}
+
+\mbox{\Hypertarget{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}\label{structtsk_task_control_block_a16e0d20425d53ac78537e1fdb8834cf6}} 
+\index{tskTaskControlBlock@{tskTaskControlBlock}!xStateListItem@{xStateListItem}}
+\index{xStateListItem@{xStateListItem}!tskTaskControlBlock@{tskTaskControlBlock}}
+\doxysubsubsection{\texorpdfstring{xStateListItem}{xStateListItem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}} tsk\+Task\+Control\+Block\+::x\+State\+List\+Item}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Free\+RTOS/\mbox{\hyperlink{tasks_8c}{tasks.\+c}}\end{DoxyCompactItemize}

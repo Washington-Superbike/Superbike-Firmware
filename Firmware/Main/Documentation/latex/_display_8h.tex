@@ -1,0 +1,351 @@
+\hypertarget{_display_8h}{}\doxysection{Display.\+h File Reference}
+\label{_display_8h}\index{Display.h@{Display.h}}
+{\ttfamily \#include $<$Adafruit\+\_\+\+ILI9341.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+GFX.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$XPT2046\+\_\+\+Touchscreen.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS\+\_\+\+TEENSY4.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}}
+\item 
+struct \mbox{\hyperlink{struct_printed_data_therm_struct}{Printed\+Data\+Therm\+Struct}}
+\item 
+struct \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}}
+\item 
+struct \mbox{\hyperlink{struct_screen_info}{Screen\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_measurement_screen_data_struct}{Measurement\+Screen\+Data\+Struct}}
+\item 
+struct \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}{DISPLAY\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE}}~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 32368
+\item 
+\#define \mbox{\hyperlink{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}{DISPLAY\+\_\+\+UPDATE\+\_\+\+TIME\+\_\+\+MAX}}~50
+\item 
+\#define \mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\+\_\+\+CS}}~10
+\item 
+\#define \mbox{\hyperlink{_display_8h_a51529307207622c113ff0d584536be13}{TFT\+\_\+\+DC}}~9
+\item 
+\#define \mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\+\_\+\+RST}}~8
+\item 
+\#define \mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\+\_\+\+CS}}~10
+\item 
+\#define \mbox{\hyperlink{_display_8h_a5d966444a95d140572e8f999fa00f8e0}{TIRQ\+\_\+\+PIN}}~-\/1
+\item 
+\#define \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\+\_\+\+DATA}}~11
+\item 
+\#define \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\+\_\+\+FLOAT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\+\_\+\+X\+\_\+\+POS}}~235
+\item 
+\#define \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\+\_\+\+SCALER}}~16
+\item 
+\#define \mbox{\hyperlink{_display_8h_a33c25be9eca2247ac244fc928183eb55}{TS\+\_\+\+MINX}}~327
+\item 
+\#define \mbox{\hyperlink{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}{TS\+\_\+\+MAXX}}~3903
+\item 
+\#define \mbox{\hyperlink{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}{TS\+\_\+\+MINY}}~243
+\item 
+\#define \mbox{\hyperlink{_display_8h_a8037be4206d706c1077d0153db12690a}{TS\+\_\+\+MAXY}}~3842
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}
+\item 
+typedef struct \mbox{\hyperlink{struct_printed_data_therm_struct}{Printed\+Data\+Therm\+Struct}} \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}}
+\item 
+typedef struct \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}{Printed\+Data\+Time\+Stuct}}
+\item 
+typedef struct \mbox{\hyperlink{struct_screen_info}{Screen\+Info}} \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}
+\item 
+typedef struct \mbox{\hyperlink{struct_measurement_screen_data_struct}{Measurement\+Screen\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}
+\item 
+typedef struct \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper}} \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}{PRINT\+\_\+\+TYPE}} \{ \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}
+, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688}{ARRAY}}
+, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1}{BOOL}}
+ \}
+\item 
+enum \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\+\_\+\+TYPE}} \{ \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}
+, \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_display_8h_a444674a8acd174d60aaf8a750aae944b}{draw\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data)
+\item 
+void \mbox{\hyperlink{_display_8h_a55356673fc2f1fb26932f57c55156598}{display\+Task}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+\item 
+void \mbox{\hyperlink{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}{draw\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+\item 
+void \mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+\item 
+void \mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
+\item 
+void \mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermi\+Data\+Print}} (bool thermi\+Data\+Print)
+\item 
+void \mbox{\hyperlink{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}{time\+Print}} ()
+\item 
+void \mbox{\hyperlink{_display_8h_ac4a830d3a5355acabc259beb381b66c5}{manual\+Screen\+Updater}} ()
+\item 
+void \mbox{\hyperlink{_display_8h_ad5cca009eb616ac4145f788c39b84157}{screen\+Eraser}} (int scaler, int i)
+\item 
+void \mbox{\hyperlink{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}{erase\+Then\+Print\+SPEEDO}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
+\item 
+float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+voltage\+\_\+read}} ()
+\begin{DoxyCompactList}\small\item\em Checks for Auxiliary voltage reading from pin 13. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}\label{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}} 
+\index{Display.h@{Display.h}!DEFAULT\_FLOAT@{DEFAULT\_FLOAT}}
+\index{DEFAULT\_FLOAT@{DEFAULT\_FLOAT}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_FLOAT}{DEFAULT\_FLOAT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+FLOAT~-\/1}
+
+\mbox{\Hypertarget{_display_8h_accd27f9824631fc37bcb677947f1f63a}\label{_display_8h_accd27f9824631fc37bcb677947f1f63a}} 
+\index{Display.h@{Display.h}!DEFAULT\_X\_POS@{DEFAULT\_X\_POS}}
+\index{DEFAULT\_X\_POS@{DEFAULT\_X\_POS}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_X\_POS}{DEFAULT\_X\_POS}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+X\+\_\+\+POS~235}
+
+\mbox{\Hypertarget{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}\label{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}} 
+\index{Display.h@{Display.h}!DISPLAY\_TASK\_STACK\_SIZE@{DISPLAY\_TASK\_STACK\_SIZE}}
+\index{DISPLAY\_TASK\_STACK\_SIZE@{DISPLAY\_TASK\_STACK\_SIZE}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_TASK\_STACK\_SIZE}{DISPLAY\_TASK\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 32368}
+
+\mbox{\Hypertarget{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}\label{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}} 
+\index{Display.h@{Display.h}!DISPLAY\_UPDATE\_TIME\_MAX@{DISPLAY\_UPDATE\_TIME\_MAX}}
+\index{DISPLAY\_UPDATE\_TIME\_MAX@{DISPLAY\_UPDATE\_TIME\_MAX}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAY\_UPDATE\_TIME\_MAX}{DISPLAY\_UPDATE\_TIME\_MAX}}
+{\footnotesize\ttfamily \#define DISPLAY\+\_\+\+UPDATE\+\_\+\+TIME\+\_\+\+MAX~50}
+
+\mbox{\Hypertarget{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}\label{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}} 
+\index{Display.h@{Display.h}!NUM\_DATA@{NUM\_DATA}}
+\index{NUM\_DATA@{NUM\_DATA}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_DATA}{NUM\_DATA}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+DATA~11}
+
+\mbox{\Hypertarget{_display_8h_a5f4d46ae101b77df78010c506601c87c}\label{_display_8h_a5f4d46ae101b77df78010c506601c87c}} 
+\index{Display.h@{Display.h}!TFT\_CS@{TFT\_CS}}
+\index{TFT\_CS@{TFT\_CS}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TFT\_CS}{TFT\_CS}}
+{\footnotesize\ttfamily \#define TFT\+\_\+\+CS~10}
+
+\mbox{\Hypertarget{_display_8h_a51529307207622c113ff0d584536be13}\label{_display_8h_a51529307207622c113ff0d584536be13}} 
+\index{Display.h@{Display.h}!TFT\_DC@{TFT\_DC}}
+\index{TFT\_DC@{TFT\_DC}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TFT\_DC}{TFT\_DC}}
+{\footnotesize\ttfamily \#define TFT\+\_\+\+DC~9}
+
+\mbox{\Hypertarget{_display_8h_ab40e9918d9141415a47e2a979292309c}\label{_display_8h_ab40e9918d9141415a47e2a979292309c}} 
+\index{Display.h@{Display.h}!TFT\_RST@{TFT\_RST}}
+\index{TFT\_RST@{TFT\_RST}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TFT\_RST}{TFT\_RST}}
+{\footnotesize\ttfamily \#define TFT\+\_\+\+RST~8}
+
+\mbox{\Hypertarget{_display_8h_a5d966444a95d140572e8f999fa00f8e0}\label{_display_8h_a5d966444a95d140572e8f999fa00f8e0}} 
+\index{Display.h@{Display.h}!TIRQ\_PIN@{TIRQ\_PIN}}
+\index{TIRQ\_PIN@{TIRQ\_PIN}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TIRQ\_PIN}{TIRQ\_PIN}}
+{\footnotesize\ttfamily \#define TIRQ\+\_\+\+PIN~-\/1}
+
+\mbox{\Hypertarget{_display_8h_aebc2813ad338ac596f3108382916b482}\label{_display_8h_aebc2813ad338ac596f3108382916b482}} 
+\index{Display.h@{Display.h}!TS\_CS@{TS\_CS}}
+\index{TS\_CS@{TS\_CS}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TS\_CS}{TS\_CS}}
+{\footnotesize\ttfamily \#define TS\+\_\+\+CS~10}
+
+\mbox{\Hypertarget{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}\label{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}} 
+\index{Display.h@{Display.h}!TS\_MAXX@{TS\_MAXX}}
+\index{TS\_MAXX@{TS\_MAXX}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TS\_MAXX}{TS\_MAXX}}
+{\footnotesize\ttfamily \#define TS\+\_\+\+MAXX~3903}
+
+\mbox{\Hypertarget{_display_8h_a8037be4206d706c1077d0153db12690a}\label{_display_8h_a8037be4206d706c1077d0153db12690a}} 
+\index{Display.h@{Display.h}!TS\_MAXY@{TS\_MAXY}}
+\index{TS\_MAXY@{TS\_MAXY}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TS\_MAXY}{TS\_MAXY}}
+{\footnotesize\ttfamily \#define TS\+\_\+\+MAXY~3842}
+
+\mbox{\Hypertarget{_display_8h_a33c25be9eca2247ac244fc928183eb55}\label{_display_8h_a33c25be9eca2247ac244fc928183eb55}} 
+\index{Display.h@{Display.h}!TS\_MINX@{TS\_MINX}}
+\index{TS\_MINX@{TS\_MINX}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TS\_MINX}{TS\_MINX}}
+{\footnotesize\ttfamily \#define TS\+\_\+\+MINX~327}
+
+\mbox{\Hypertarget{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}\label{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}} 
+\index{Display.h@{Display.h}!TS\_MINY@{TS\_MINY}}
+\index{TS\_MINY@{TS\_MINY}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{TS\_MINY}{TS\_MINY}}
+{\footnotesize\ttfamily \#define TS\+\_\+\+MINY~243}
+
+\mbox{\Hypertarget{_display_8h_a9705c15b04a1787116a4fbdf987e0328}\label{_display_8h_a9705c15b04a1787116a4fbdf987e0328}} 
+\index{Display.h@{Display.h}!VERTICAL\_SCALER@{VERTICAL\_SCALER}}
+\index{VERTICAL\_SCALER@{VERTICAL\_SCALER}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{VERTICAL\_SCALER}{VERTICAL\_SCALER}}
+{\footnotesize\ttfamily \#define VERTICAL\+\_\+\+SCALER~16}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}\label{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}} 
+\index{Display.h@{Display.h}!displayPointer@{displayPointer}}
+\index{displayPointer@{displayPointer}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{displayPointer}{displayPointer}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper}} \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}}}
+
+\mbox{\Hypertarget{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}\label{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}} 
+\index{Display.h@{Display.h}!MeasurementScreenData@{MeasurementScreenData}}
+\index{MeasurementScreenData@{MeasurementScreenData}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{MeasurementScreenData}{MeasurementScreenData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_measurement_screen_data_struct}{Measurement\+Screen\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}
+
+\mbox{\Hypertarget{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}\label{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}} 
+\index{Display.h@{Display.h}!PrintedData@{PrintedData}}
+\index{PrintedData@{PrintedData}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{PrintedData}{PrintedData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}}
+
+\mbox{\Hypertarget{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}\label{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}} 
+\index{Display.h@{Display.h}!PrintedDataTherm@{PrintedDataTherm}}
+\index{PrintedDataTherm@{PrintedDataTherm}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{PrintedDataTherm}{PrintedDataTherm}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_therm_struct}{Printed\+Data\+Therm\+Struct}} \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}}}
+
+\mbox{\Hypertarget{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}\label{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}} 
+\index{Display.h@{Display.h}!PrintedDataTimeStuct@{PrintedDataTimeStuct}}
+\index{PrintedDataTimeStuct@{PrintedDataTimeStuct}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{PrintedDataTimeStuct}{PrintedDataTimeStuct}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}}}
+
+\mbox{\Hypertarget{_display_8h_a412053d6576f296892a8ccc0d8510e46}\label{_display_8h_a412053d6576f296892a8ccc0d8510e46}} 
+\index{Display.h@{Display.h}!Screen@{Screen}}
+\index{Screen@{Screen}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{Screen}{Screen}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_screen_info}{Screen\+Info}} \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}} 
+\index{Display.h@{Display.h}!PRINT\_TYPE@{PRINT\_TYPE}}
+\index{PRINT\_TYPE@{PRINT\_TYPE}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{PRINT\_TYPE}{PRINT\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}{PRINT\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMBER@{NUMBER}!Display.h@{Display.h}}\index{Display.h@{Display.h}!NUMBER@{NUMBER}}}\mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}} 
+NUMBER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARRAY@{ARRAY}!Display.h@{Display.h}}\index{Display.h@{Display.h}!ARRAY@{ARRAY}}}\mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688}} 
+ARRAY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOOL@{BOOL}!Display.h@{Display.h}}\index{Display.h@{Display.h}!BOOL@{BOOL}}}\mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1}} 
+BOOL&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173f}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173f}} 
+\index{Display.h@{Display.h}!SCREEN\_TYPE@{SCREEN\_TYPE}}
+\index{SCREEN\_TYPE@{SCREEN\_TYPE}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{SCREEN\_TYPE}{SCREEN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!Display.h@{Display.h}}\index{Display.h@{Display.h}!DEBUG@{DEBUG}}}\mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}} 
+DEBUG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPEEDOMETER@{SPEEDOMETER}!Display.h@{Display.h}}\index{Display.h@{Display.h}!SPEEDOMETER@{SPEEDOMETER}}}\mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}} 
+SPEEDOMETER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_display_8h_ad609934bdce8f8169cc609cb7913f507}\label{_display_8h_ad609934bdce8f8169cc609cb7913f507}} 
+\index{Display.h@{Display.h}!aux\_voltage\_read@{aux\_voltage\_read}}
+\index{aux\_voltage\_read@{aux\_voltage\_read}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{aux\_voltage\_read()}{aux\_voltage\_read()}}
+{\footnotesize\ttfamily float aux\+\_\+voltage\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks for Auxiliary voltage reading from pin 13. 
+
+\mbox{\Hypertarget{_display_8h_a55356673fc2f1fb26932f57c55156598}\label{_display_8h_a55356673fc2f1fb26932f57c55156598}} 
+\index{Display.h@{Display.h}!displayTask@{displayTask}}
+\index{displayTask@{displayTask}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}}
+{\footnotesize\ttfamily void display\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a444674a8acd174d60aaf8a750aae944b}\label{_display_8h_a444674a8acd174d60aaf8a750aae944b}} 
+\index{Display.h@{Display.h}!drawMeasurementScreen@{drawMeasurementScreen}}
+\index{drawMeasurementScreen@{drawMeasurementScreen}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{drawMeasurementScreen()}{drawMeasurementScreen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void draw\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}\label{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}} 
+\index{Display.h@{Display.h}!drawMeasurementScreen@{drawMeasurementScreen}}
+\index{drawMeasurementScreen@{drawMeasurementScreen}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{drawMeasurementScreen()}{drawMeasurementScreen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void draw\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}\label{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}} 
+\index{Display.h@{Display.h}!eraseThenPrint@{eraseThenPrint}}
+\index{eraseThenPrint@{eraseThenPrint}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{eraseThenPrint()}{eraseThenPrint()}}
+{\footnotesize\ttfamily void erase\+Then\+Print (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}\label{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}} 
+\index{Display.h@{Display.h}!eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}}
+\index{eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{eraseThenPrintSPEEDO()}{eraseThenPrintSPEEDO()}}
+{\footnotesize\ttfamily void erase\+Then\+Print\+SPEEDO (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_ac4a830d3a5355acabc259beb381b66c5}\label{_display_8h_ac4a830d3a5355acabc259beb381b66c5}} 
+\index{Display.h@{Display.h}!manualScreenUpdater@{manualScreenUpdater}}
+\index{manualScreenUpdater@{manualScreenUpdater}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{manualScreenUpdater()}{manualScreenUpdater()}}
+{\footnotesize\ttfamily void manual\+Screen\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_ad5cca009eb616ac4145f788c39b84157}\label{_display_8h_ad5cca009eb616ac4145f788c39b84157}} 
+\index{Display.h@{Display.h}!screenEraser@{screenEraser}}
+\index{screenEraser@{screenEraser}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{screenEraser()}{screenEraser()}}
+{\footnotesize\ttfamily void screen\+Eraser (\begin{DoxyParamCaption}\item[{int}]{scaler,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}\label{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}} 
+\index{Display.h@{Display.h}!setupMeasurementScreen@{setupMeasurementScreen}}
+\index{setupMeasurementScreen@{setupMeasurementScreen}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{setupMeasurementScreen()}{setupMeasurementScreen()}}
+{\footnotesize\ttfamily void setup\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}\label{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}} 
+\index{Display.h@{Display.h}!thermiDataPrint@{thermiDataPrint}}
+\index{thermiDataPrint@{thermiDataPrint}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{thermiDataPrint()}{thermiDataPrint()}}
+{\footnotesize\ttfamily void thermi\+Data\+Print (\begin{DoxyParamCaption}\item[{bool}]{thermi\+Data\+Print }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}\label{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}} 
+\index{Display.h@{Display.h}!timePrint@{timePrint}}
+\index{timePrint@{timePrint}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{timePrint()}{timePrint()}}
+{\footnotesize\ttfamily void time\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

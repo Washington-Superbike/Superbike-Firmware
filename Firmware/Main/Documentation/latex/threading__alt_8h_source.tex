@@ -1,0 +1,26 @@
+\hypertarget{threading__alt_8h_source}{}\doxysection{threading\+\_\+alt.\+h}
+\label{threading__alt_8h_source}\index{FreeRTOS/threading\_alt.h@{FreeRTOS/threading\_alt.h}}
+\mbox{\hyperlink{threading__alt_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_THREADING\_ALT\_H\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_THREADING\_ALT\_H\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{semphr_8h}{semphr.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{struct_queue_definition}{SemaphoreHandle\_t}} \mbox{\hyperlink{structmbedtls__threading__mutex__t_a65e31070213d56dca105a6727dce9ada}{mutex}};}
+\DoxyCodeLine{11     \textcolor{keywordtype}{char} \mbox{\hyperlink{structmbedtls__threading__mutex__t_abcb41b414dc71a45e5150ddeb3452b86}{is\_valid}};}
+\DoxyCodeLine{12 \} \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{threading__alt_8h_a827c7ec5b9ed1dfa35c77c0d3664de49}{mbedtls\_threading\_set\_alt}}( \textcolor{keywordtype}{void} ( * mutex\_init )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{15                                        \textcolor{keywordtype}{void} ( * mutex\_free )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{16                                        \textcolor{keywordtype}{int} ( * mutex\_lock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{17                                        \textcolor{keywordtype}{int} ( * mutex\_unlock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ) );}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ifndef \_\_THREADING\_ALT\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

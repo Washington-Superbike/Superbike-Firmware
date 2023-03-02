@@ -1,81 +1,48 @@
-#include "Main.h"
-#include "CAN.h"
-#include "Display.h"
-#include "Precharge.h"
-#include "DataLogging.h"
-#include "FreeRTOS_TEENSY4.h"
-#include <TimeLib.h>
+/**
+ * @file Main.ino
+ *   @author    Washington Superbike
+ *   @date      1-March-2023
+ *   @brief
+ *        The main file for bike firmware. This initializes
+ *        all variables that are passed along to all other files as
+ *        pointers. Then it runs the setup methods for all those
+ *        files and then it sets up RTOS to run all the different files
+ *        as individual tasks. These tasks are: datalogging,
+ *        display, precharge, CAN, idle. These tasks will be further
+ *        described in the documentation for their individual files.
+ *
+ *  Main. The source for the entire firmware. Utilizes Arduino's framework 
+ *  with void setup() and void loop() methods, but only void setup() is used.
+ *  Before the void setup, we initialize all the variables used throughout
+ *  all the files as a set of static variables. The keyword static is used
+ *  because in C++ it means that this variable is going to exist "for the
+ *  lifetime of the code". These variables are initialized to 0 and then
+ *  the void setup will execute everything and also act as the loop.
+ *  That is because the setup calls on the xTaskCreate() method from the
+ *  RTOS library and then the vTaskStartScheduler() method which in turn
+ *  abstracts everything from us and rotates between all the tasks
+ *  updating them and transferring resources as required. As of now,
+ *  tasks operate on different resources than each other, thus there is no
+ *  need for semaphores, however, if that is changed in the future, there
+ *  is an example line of creating a semaphore above the calls to the
+ *  xTaskCreate() method. The breakdown of how these methods and variables
+ *  work in detail are explained further in the documentation closer for
+ *  those methods and variables specifically. Please make sure to read
+ *  and understand everything before you make any changes to this firmware.
+ */
 
 
-static int bms_status_flag = 0;
-static int bms_c_id = 0;
-static int bms_c_fault = 0;
-static int ltc_fault = 0;
-static int ltc_count = 0;
-static float cellVoltagesArr[BMS_CELLS];  // voltages starting with the first LTC
-static float seriesVoltage;
-static bool cellsReady;
-static float thTemps[10];       // assuming only 10 thermistors
-static int thermistorEnabled;
-static int thermistorPresent;
+#include "Main.h" /// Includes the Main.h file which in turn interconnects all separate files together.
 
-static float auxiliaryBatteryVoltage = 0;
 
-static float initialAngle = 0.0;
+/// TODO: As of 3/1/2023, I think this firmware is fully race-ready and meeting
+/// all requirements to race. Ideally, I would use HIL and their CAN interface
+/// to further test the requirements and ensure proper performance under race-communication
+/// circumstances, but alas that project is not done yet.
+/// As of now, my goal is to create full documentation for this codebase and train
+/// up all members to be able to use it without any trouble.
 
-static float RPM = 0;
-static float motorCurrent = 0;
-static float motorControllerBatteryVoltage = 0;
-static float throttle = 0;
-static float motorControllerTemp = 0;
-static float motorTemp = 0;
-static int errorMessage = 0;
-static byte controllerStatus = 0;
 
-static byte evccEnable = 0;
-static float evccVoltage = 0;
-static float evccCurrent = 0;
-
-static byte chargeFlag = 0;
-static byte chargerStatusFlag = 0;
-static float chargerVoltage = 0;
-static float chargerCurrent = 0;
-static int8_t chargerTemp = 0;
-
-//CHANGE THIS LINE TO SET THE DISPLAY TYPE. TYPE is determine from the display.h SCREENTYPE enum.
-static Screen screen = {SPEEDOMETER};
-static displayPointer displayTaskWrap = {};
-
-static MeasurementScreenData measurementData = {};
-static MotorStats motorStats = {};
-static MotorTemps motorTemps = {};
-static CellVoltages cellVoltages = {};
-static PreChargeTaskData preChargeData = {};
-static BMSStatus bmsStatus = {};
-static ThermistorTemps thermistorTemps = {};
-static ChargerStats chargerStats = {};
-static ChargeControllerStats chargeControllerStats = {};
-
-static CANTaskData canTaskData;
-static DataLoggingTaskData dataLoggingTaskData;
-
-static CSVWriter motorTemperatureLog = {};
-static CSVWriter motorControllerTemperatureLog = {};
-static CSVWriter motorControllerVoltageLog = {};
-static CSVWriter motorCurrentLog = {};
-static CSVWriter rpmLog = {};
-static CSVWriter thermistorLog = {};
-static CSVWriter bmsVoltageLog = {};
-static CSVWriter *logs[] = {&motorTemperatureLog, &motorControllerTemperatureLog, &motorControllerVoltageLog, &motorCurrentLog, &rpmLog, &thermistorLog, &bmsVoltageLog};
-
-unsigned long timer = millis();
-int cycleCount = 0;
-
-int lowerUpperCells = -1;
-unsigned long ms = millis();
-byte sdStarted = 0;
-
-SemaphoreHandle_t spi_mutex;
 
 void initializeLogs() {
   motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
@@ -100,7 +67,10 @@ void initializeCANStructs() {
 }
 
 void initializePreChargeStruct() {
-  preChargeData = {bmsStatus, motorTemps, cellVoltages, &motorControllerBatteryVoltage};
+  preChargeData = {bmsStatus, motorTemps, cellVoltages, &motorControllerBatteryVoltage, &angle_X, &angle_Y,
+                   &Rate_Roll, &Rate_Pitch, &Rate_Yaw, &Rate_CalibrationRoll, &Rate_CalibrationPitch, &Rate_CalibrationYaw,
+                   &Rate_CalibrationNumber, &Acc_X, &Acc_Y, &Acc_Z, &Angle_Roll, &Angle_Pitch, &Kalman_AngleRoll, 
+                   &Kalman_UncertaintyAngleRoll, &Kalman_AnglePitch, &Kalman_UncertaintyAnglePitch, Kalman_1DOutput};
 }
 
 void setup() {
@@ -137,7 +107,7 @@ void setup() {
   // File->Examples->Time->TimeTeensy3 and open the serial port. That will set the internal RTC.
   // This function sets the Teensy time from the internal RTC (powered by the coin cell) but
   // does not sync it to the real world clock
-  setTime(Teensy3Clock.get());
+//  setTime(Teensy3Clock.get());
 
   // check to see if there is a crash report to print (doesn't work for all crashes)
   //  if (CrashReport) {
@@ -160,11 +130,11 @@ void setup() {
 
 //  TODO: add a call to the gyroscope angle measuring method in Precharge.ino, to get the initial angle (straight bike)
 //  that will be measured against. This should use the "initialAngle" variable that was initialized at the top of this file.
-
+  setupI2C(preChargeData);
+  
   // unused but left as a reminder for how you can use it
   spi_mutex = xSemaphoreCreateMutex();
 
-// TODO: change the precharge task's struct to take in the initialAngle variable as well. Ask Yasir what that means if it's confusing.
   portBASE_TYPE s1, s2, s3, s4, s5;
   s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
   // make sure to set CAN_NODES in config.h

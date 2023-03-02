@@ -1,0 +1,30 @@
+\hypertarget{_free_r_t_o_s_config_8h_source}{}\doxysection{Free\+RTOSConfig.\+h}
+\label{_free_r_t_o_s_config_8h_source}\index{FreeRTOS/FreeRTOSConfig.h@{FreeRTOS/FreeRTOSConfig.h}}
+\mbox{\hyperlink{_free_r_t_o_s_config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SELECT\_FREERTOS\_CONFIG\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SELECT\_FREERTOS\_CONFIG\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#if \_\_has\_include("{}Teensy4FreeRTOSConfig.h"{}})}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Teensy4FreeRTOSConfig.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#if \_\_has\_include("{}Teensy4FreeRTOSConfig\_addition.h"{}})}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Teensy4FreeRTOSConfig\_addition.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h}{FreeRTOSConfig\_default.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#if ( ( configGENERATE\_RUN\_TIME\_STATS == 1 ) \&\& ( configUSE\_STATS\_FORMATTING\_FUNCTIONS == 0 ) )}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{    \#error If configGENERATE\_RUN\_TIME\_STATS is 1, then configUSE\_STATS\_FORMATTING\_FUNCTIONS should not be zero}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#if configGENERATE\_RUN\_TIME\_STATS == 1}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{keyword}{volatile} uint64\_t ulTimerCounter;}
+\DoxyCodeLine{19 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} vPortSetupRuntimeTimer();}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS() vPortSetupRuntimeTimer()}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define portGET\_RUN\_TIME\_COUNTER\_VALUE() ulTimerCounter }}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SELECT\_FREERTOS\_CONFIG\_H}}
+
+\end{DoxyCode}

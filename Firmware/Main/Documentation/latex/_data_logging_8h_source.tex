@@ -1,0 +1,69 @@
+\hypertarget{_data_logging_8h_source}{}\doxysection{Data\+Logging.\+h}
+\mbox{\hyperlink{_data_logging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef DATALOG\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define DATALOG\_H\_}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SdFat.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define DATALOGGING\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 32368}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{//Names for each of the log files}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define MOTOR\_TEMPERATURE\_LOG "{}motor\_temperature\_log.csv"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_TEMPERATURE\_LOG "{}motor\_controller\_temperature\_log.csv"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define BMS\_VOLTAGE\_LOG "{}bms\_voltage\_log.csv"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_VOLTAGE\_LOG "{}motor\_controller\_voltage\_log.csv"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define MOTOR\_CURRENT\_LOG "{}current\_log.csv"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define THERMISTOR\_LOG "{}thermistor\_log.csv"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define RPM\_LOG "{}rpm\_log.csv"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{// Use built-\/in SD for SPI modes on Teensy 3.5/3.6.}}
+\DoxyCodeLine{19 \textcolor{comment}{// Teensy 4.0 use first SPI port.}}
+\DoxyCodeLine{20 \textcolor{comment}{// SDCARD\_SS\_PIN is defined for the built-\/in SD on some boards.}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef SDCARD\_SS\_PIN}}
+\DoxyCodeLine{22 \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SS;}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
+\DoxyCodeLine{24 \textcolor{comment}{// Assume built-\/in SD is used.}}
+\DoxyCodeLine{25 \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SDCARD\_SS\_PIN;}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{_data_logging_8h_a888ed23a146630d5e36a08aed19ff638}{BUF\_DIM}} = 4096;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{//Clarification on how SD card stores data: each block is generally about 512 or 1024 bytes. SdFat stores an internal buffer of 512 and when the limit is reached}}
+\DoxyCodeLine{31 \textcolor{comment}{//only then does it save the data onto the sd card. This is an important trade off. if we are less than that value and the bike suddenly turns off, those <512 bytes aren't stored}}
+\DoxyCodeLine{32 \textcolor{comment}{//unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv)}}
+\DoxyCodeLine{33 \textcolor{comment}{//or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{enum} \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \{}
+\DoxyCodeLine{37   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a}{INT}},}
+\DoxyCodeLine{38   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{//Represents a writer to a CSV log file on the sd card}}
+\DoxyCodeLine{43 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{44   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_c_s_v_writer_a683c9f4868ac2665b4eb34773d1445cf}{filename}};}
+\DoxyCodeLine{45   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_c_s_v_writer_a9bdd5e92c6749ab1c1d9a0ea7531315e}{dataValuesLen}};}
+\DoxyCodeLine{46   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_s_v_writer_ad91f08cce2e394992128d934f3e881a9}{dataValues}};             \textcolor{comment}{//array of pointers to shared variables (the data values in the csv log)}}
+\DoxyCodeLine{47   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \mbox{\hyperlink{struct_c_s_v_writer_aa48db34eda8a982f97f2d7812fec0e27}{D\_TYPE}};}
+\DoxyCodeLine{48   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_c_s_v_writer_a84e1fe8c16267fb15806b9024353b962}{open}};}
+\DoxyCodeLine{49   SdFile \mbox{\hyperlink{struct_c_s_v_writer_a134410cbaf84e674a0f3eb1465c37eaa}{file}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \} \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{54   \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} **\mbox{\hyperlink{struct_data_logging_task_data_a8749861675b46b70c4cb68262d220e2a}{writers}};}
+\DoxyCodeLine{55   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_data_logging_task_data_a7ae4a326c6a1c95c14fb7a3d64fbb36e}{writersLen}};}
+\DoxyCodeLine{56 \} \mbox{\hyperlink{struct_data_logging_task_data}{DataLoggingTaskData}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_a0d2a3a213399ec010b89dede4ba4de77}{startSD}}();}
+\DoxyCodeLine{59 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_ac579da51eca1f113da5d315ab23b8b1e}{openFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a10c88f7cc0c34cd0a584f78997f13827}{closeFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{dataLoggingTask}}(\textcolor{keywordtype}{void} *dlData);}
+\DoxyCodeLine{62 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a714cf59e5bb8adc7e798d68a5d874049}{addRecordToCSV}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer, \textcolor{keywordtype}{int} sTime, \textcolor{keywordtype}{float} record);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -17,12 +17,33 @@
 
 enum HV_STATE {HV_OFF , HV_PRECHARGING, HV_ON, HV_ERROR};
 
-// TODO: add a pointer that points to "initialAngle"
 typedef struct {
   BMSStatus bmsStatus;
   MotorTemps motorTemps;
   CellVoltages cellVoltages; // from the main accumulator
   float* motorControllerBatteryVoltage;
+  float* angle_X;
+  float* angle_Y;
+  float* RateRoll;
+  float* RatePitch;
+  float* RateYaw;
+
+  float* RateCalibrationRoll;
+  float* RateCalibrationPitch;
+  float* RateCalibrationYaw;
+  
+  int* RateCalibrationNumber;
+  float* AccX;
+  float* AccY;
+  float* AccZ;
+  float* AngleRoll;
+  float* AnglePitch;
+  
+  float* KalmanAngleRoll;
+  float* KalmanUncertaintyAngleRoll;
+  float* KalmanAnglePitch;
+  float* KalmanUncertaintyAnglePitch;
+  float* Kalman1DOutput;
 } PreChargeTaskData;
 
 void preChargeTask(void *taskData);
@@ -30,5 +51,11 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData);
 void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData);
 bool isPrecharged(PreChargeTaskData preChargeData);
 int closeContactor(PreChargeTaskData preChargeData);
+
+// I2C Accelerometer/Gyroscope access methods
+void setupI2C(PreChargeTaskData preChargeData);
+void gyro_signals(PreChargeTaskData preChargeData);
+void updateGyroData(PreChargeTaskData preChargeData);
+void kalman_1d(float KalmanState, float KalmanUncertainty, float KalmanInput, float KalmanMeasurement, PreChargeTaskData preChargeData);
 
 #endif // _PRECHARGE_H

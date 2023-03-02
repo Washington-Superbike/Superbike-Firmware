@@ -1,0 +1,95 @@
+\hypertarget{_c_a_n_8h_source}{}\doxysection{CAN.\+h}
+\mbox{\hyperlink{_c_a_n_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_CAN\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_CAN\_H\_}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <FlexCAN\_T4.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_display_8h}{Display.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define CAN\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 4096}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define MOTOR\_STATS\_MSG 0x0CF11E05                    }\textcolor{comment}{//motor controller message -\/ CAN}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define MOTOR\_TEMPS\_MSG 0x0CF11F05                    }\textcolor{comment}{// motor controller message -\/ CAN}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define EVCC\_STATS 0x18e54024                         }\textcolor{comment}{// Charge controller status (current,volt...)}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define CHARGER\_STATS 0x18eb2440                      }\textcolor{comment}{// Thunderstruck Charger status (current,volt...)}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define DD\_BMS\_STATUS\_IND 0x01dd0001                  }\textcolor{comment}{// BMS cell data message (overvolt,undervolt...)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define DD\_BMSC\_TH\_STATUS\_IND 0x01df0e00              }\textcolor{comment}{// themistor values message}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_04  0x01df0900               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_58  0x01df0a00}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_912 0x01df0b00}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_04  0x01df0901               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_58  0x01df0a01}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_912 0x01df0b01}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// this is set to 24 instead of 20 because the BMS sends cells in packs of 12}}
+\DoxyCodeLine{25 \textcolor{comment}{// so it makes the decipher function simpler}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define BMS\_CELLS 24                                  }\textcolor{comment}{// the number of cells connected to the main accumulator BMS}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{29   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{RPM}};}
+\DoxyCodeLine{30   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{motorCurrent}};}
+\DoxyCodeLine{31   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{motorControllerBatteryVoltage}};}
+\DoxyCodeLine{32   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{errorMessage}};}
+\DoxyCodeLine{33 \} \mbox{\hyperlink{struct_motor_stats}{MotorStats}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{36   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{throttle}};}
+\DoxyCodeLine{37   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{motorControllerTemperature}};}
+\DoxyCodeLine{38   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{motorTemperature}};}
+\DoxyCodeLine{39   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{controllerStatus}};}
+\DoxyCodeLine{40 \} \mbox{\hyperlink{struct_motor_temps}{MotorTemps}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{43   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{en}};}
+\DoxyCodeLine{44   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{chargeVoltage}};}
+\DoxyCodeLine{45   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{chargeCurrent}};}
+\DoxyCodeLine{46 \} \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{49   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{statusFlag}};}
+\DoxyCodeLine{50   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{chargeFlag}};}
+\DoxyCodeLine{51   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{outputVoltage}};}
+\DoxyCodeLine{52   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{outputCurrent}};}
+\DoxyCodeLine{53   int8\_t* \mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{chargerTemp}};}
+\DoxyCodeLine{54 \} \mbox{\hyperlink{struct_charger_stats}{ChargerStats}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{57   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{bms\_status\_flag}};}
+\DoxyCodeLine{58   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{bms\_c\_id}};}
+\DoxyCodeLine{59   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{bms\_c\_fault}};}
+\DoxyCodeLine{60   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{ltc\_fault}};}
+\DoxyCodeLine{61   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{ltc\_count}};}
+\DoxyCodeLine{62 \} \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{65   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{temps}};}
+\DoxyCodeLine{66 \} \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{69   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}};}
+\DoxyCodeLine{70   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{seriesVoltage}};}
+\DoxyCodeLine{71   \textcolor{keywordtype}{bool}* \mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}};}
+\DoxyCodeLine{72 \} \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{75   \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{motorStats}};}
+\DoxyCodeLine{76   \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{motorTemps}};}
+\DoxyCodeLine{77   \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{bmsStatus}};}
+\DoxyCodeLine{78   \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{thermistorTemps}};}
+\DoxyCodeLine{79   \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}};}
+\DoxyCodeLine{80   \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{chargerStats}};}
+\DoxyCodeLine{81   \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{chargeControllerStats}};}
+\DoxyCodeLine{82   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_a_n_task_data_a3bcffb9987e3444b4e55f523b32ef119}{seriesVoltage}};}
+\DoxyCodeLine{83 \} \mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{canTask}}(\textcolor{keywordtype}{void} *canData);}
+\DoxyCodeLine{86 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} canData);}
+\DoxyCodeLine{87 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{_main_8ino_a9eeb128a9907154869e9ffa78e065039}{motorStats}});}
+\DoxyCodeLine{88 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a7a43e572b7fe622da2ea850374d5d623}{decodeMotorTemp}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} *\mbox{\hyperlink{_main_8ino_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}});}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_CAN\_H}}
+
+\end{DoxyCode}

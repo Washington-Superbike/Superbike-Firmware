@@ -1,0 +1,249 @@
+\hypertarget{portmacro_8h_source}{}\doxysection{portmacro.\+h}
+\label{portmacro_8h_source}\index{FreeRTOS/portmacro.h@{FreeRTOS/portmacro.h}}
+\mbox{\hyperlink{portmacro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{23 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{24 \textcolor{comment}{ *}}
+\DoxyCodeLine{25 \textcolor{comment}{ * 1 tab == 4 spaces!}}
+\DoxyCodeLine{26 \textcolor{comment}{ */}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifndef PORTMACRO\_H}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define PORTMACRO\_H}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{33 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Port specific definitions.}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ * The settings in this file configure FreeRTOS correctly for the}}
+\DoxyCodeLine{40 \textcolor{comment}{ * given hardware and compiler.}}
+\DoxyCodeLine{41 \textcolor{comment}{ *}}
+\DoxyCodeLine{42 \textcolor{comment}{ * These settings should not be altered.}}
+\DoxyCodeLine{43 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{44 \textcolor{comment}{ */}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{/* Type definitions. */}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define portCHAR        char}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define portFLOAT       float}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define portDOUBLE      double}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define portLONG        long}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define portSHORT       short}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define portSTACK\_TYPE  uint32\_t}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define portBASE\_TYPE   long}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} \mbox{\hyperlink{portmacro_8h_ab0a294066ac7369b8f59a52d9491a92c}{portSTACK\_TYPE}} \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}};}
+\DoxyCodeLine{56 \textcolor{keyword}{typedef} \textcolor{keywordtype}{long} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}};}
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#if( configUSE\_16\_BIT\_TICKS == 1 )}}
+\DoxyCodeLine{60     \textcolor{keyword}{typedef} uint16\_t \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}};}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    \#define portMAX\_DELAY ( TickType\_t ) 0xffff}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{63     \textcolor{keyword}{typedef} uint32\_t \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}};}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    \#define portMAX\_DELAY ( TickType\_t ) 0xffffffffUL}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{/* 32-\/bit tick type on a 32-\/bit architecture, so reads of the tick count do}}
+\DoxyCodeLine{67 \textcolor{comment}{    not need to be guarded with a critical section. */}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{    \#define portTICK\_TYPE\_IS\_ATOMIC 1}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{comment}{/* Architecture specifics. */}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define portSTACK\_GROWTH            ( -\/1 )}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define portTICK\_PERIOD\_MS          ( ( TickType\_t ) 1000 / configTICK\_RATE\_HZ )}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define portBYTE\_ALIGNMENT          4}}
+\DoxyCodeLine{76 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{comment}{/* Scheduler utilities. */}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define portYIELD()                                                             \(\backslash\)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\{                                                                               \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{    }\textcolor{comment}{/* Set a PendSV to request a context switch. */}\textcolor{preprocessor}{                             \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    portNVIC\_INT\_CTRL\_REG = portNVIC\_PENDSVSET\_BIT;                             \(\backslash\)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{                                                                                \(\backslash\)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{    }\textcolor{comment}{/* Barriers are normally not required but do ensure the code is completely  \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{comment}{    within the specified behaviour for the architecture. */}\textcolor{preprocessor}{                     \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{    \_\_asm volatile( "{}dsb"{}} ::: "{}memory"{} );                                       \(\backslash\)}
+\DoxyCodeLine{87     \_\_asm volatile( "{}isb"{} );                                                    \(\backslash\)}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define portNVIC\_INT\_CTRL\_REG       ( * ( ( volatile uint32\_t * ) 0xe000ed04 ) )}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define portNVIC\_PENDSVSET\_BIT      ( 1UL << 28UL )}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define portEND\_SWITCHING\_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define portYIELD\_FROM\_ISR( x ) portEND\_SWITCHING\_ISR( x )}}
+\DoxyCodeLine{94 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/* Critical section management. */}}
+\DoxyCodeLine{97 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{portmacro_8h_a2ed3554a3de09a3bd09d396ee081ab69}{vPortEnterCritical}}( \textcolor{keywordtype}{void} );}
+\DoxyCodeLine{98 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{portmacro_8h_aed20ada05b957181a0de042802a82a5b}{vPortExitCritical}}( \textcolor{keywordtype}{void} );}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define portSET\_INTERRUPT\_MASK\_FROM\_ISR()       ulPortRaiseBASEPRI()}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define portCLEAR\_INTERRUPT\_MASK\_FROM\_ISR(x)    vPortSetBASEPRI(x)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define portDISABLE\_INTERRUPTS()                vPortRaiseBASEPRI()}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define portENABLE\_INTERRUPTS()                 vPortSetBASEPRI(0)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define portENTER\_CRITICAL()                    vPortEnterCritical()}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define portEXIT\_CRITICAL()                     vPortExitCritical()}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{/* Task function macros as described on the FreeRTOS.org WEB site.  These are}}
+\DoxyCodeLine{110 \textcolor{comment}{not necessary for to use this port.  They are defined so the common demo files}}
+\DoxyCodeLine{111 \textcolor{comment}{(which build with all the ports) will build. */}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define portTASK\_FUNCTION\_PROTO( vFunction, pvParameters ) void vFunction( void *pvParameters )}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define portTASK\_FUNCTION( vFunction, pvParameters ) void vFunction( void *pvParameters )}}
+\DoxyCodeLine{114 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{comment}{/* Tickless idle/low power functionality. */}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#ifndef portSUPPRESS\_TICKS\_AND\_SLEEP}}
+\DoxyCodeLine{118     \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{portmacro_8h_aefd025907402b0b863d5012673d5036e}{vPortSuppressTicksAndSleep}}( \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xExpectedIdleTime );}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    \#define portSUPPRESS\_TICKS\_AND\_SLEEP( xExpectedIdleTime ) vPortSuppressTicksAndSleep( xExpectedIdleTime )}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{121 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{comment}{/* Architecture specific optimisations. */}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#ifndef configUSE\_PORT\_OPTIMISED\_TASK\_SELECTION}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{    \#define configUSE\_PORT\_OPTIMISED\_TASK\_SELECTION 1}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#if configUSE\_PORT\_OPTIMISED\_TASK\_SELECTION == 1}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{comment}{/* Generic helper function. */}}
+\DoxyCodeLine{131     \mbox{\hyperlink{portmacro_8h_ac864e333c11a6614eab8e8542ba01ed0}{\_\_attribute\_\_}}( ( always\_inline ) ) \textcolor{keyword}{static} \textcolor{keyword}{inline} uint8\_t ucPortCountLeadingZeros( uint32\_t ulBitmap )}
+\DoxyCodeLine{132     \{}
+\DoxyCodeLine{133     uint8\_t ucReturn;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \_\_asm \textcolor{keyword}{volatile} ( \textcolor{stringliteral}{"{}clz \%0, \%1"{}} : \textcolor{stringliteral}{"{}=r"{}} ( ucReturn ) : \textcolor{stringliteral}{"{}r"{}} ( ulBitmap ) : \textcolor{stringliteral}{"{}memory"{}} );}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} ucReturn;}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{comment}{/* Check the configuration. */}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{    \#if( configMAX\_PRIORITIES > 32 )}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{        \#error configUSE\_PORT\_OPTIMISED\_TASK\_SELECTION can only be set to 1 when configMAX\_PRIORITIES is less than or equal to 32.  It is very rare that a system requires more than 10 to 15 difference priorities as tasks that share a priority will time slice.}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \textcolor{comment}{/* Store/clear the ready priorities in a bit map. */}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{    \#define portRECORD\_READY\_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) |= ( 1UL << ( uxPriority ) )}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{    \#define portRESET\_READY\_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) \&= \string~( 1UL << ( uxPriority ) )}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{    \#define portGET\_HIGHEST\_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31UL -\/ ( uint32\_t ) ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configUSE\_PORT\_OPTIMISED\_TASK\_SELECTION */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#ifdef configASSERT}}
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} vPortValidateInterruptPriority( \textcolor{keywordtype}{void} );}
+\DoxyCodeLine{158 \textcolor{preprocessor}{    \#define portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID()  vPortValidateInterruptPriority()}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{/* portNOP() is not required by this port. */}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define portNOP()}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define portINLINE  \_\_inline}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#ifndef portFORCE\_INLINE}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{    \#define portFORCE\_INLINE inline \_\_attribute\_\_(( always\_inline))}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{portFORCE\_INLINE}} \textcolor{keyword}{static} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{portmacro_8h_a6a9be2aa97aac4e7f03fe386f9281b9a}{xPortIsInsideInterrupt}}( \textcolor{keywordtype}{void} )}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172 uint32\_t ulCurrentInterrupt;}
+\DoxyCodeLine{173 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xReturn;}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{comment}{/* Obtain the number of the currently executing interrupt. */}}
+\DoxyCodeLine{176     \_\_asm \textcolor{keyword}{volatile}( \textcolor{stringliteral}{"{}mrs \%0, ipsr"{}} : \textcolor{stringliteral}{"{}=r"{}}( ulCurrentInterrupt ) :: \textcolor{stringliteral}{"{}memory"{}} );}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178     \textcolor{keywordflow}{if}( ulCurrentInterrupt == 0 )}
+\DoxyCodeLine{179     \{}
+\DoxyCodeLine{180         xReturn = \mbox{\hyperlink{projdefs_8h_aa56260e937e7e203026707e5ba944273}{pdFALSE}};}
+\DoxyCodeLine{181     \}}
+\DoxyCodeLine{182     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         xReturn = \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pdTRUE}};}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{keywordflow}{return} xReturn;}
+\DoxyCodeLine{188 \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{portFORCE\_INLINE}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{portmacro_8h_a9021d55b208c59fc725af4e7c330a417}{vPortRaiseBASEPRI}}( \textcolor{keywordtype}{void} )}
+\DoxyCodeLine{193 \{}
+\DoxyCodeLine{194     uint32\_t ulNewBASEPRI;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \_\_asm \textcolor{keyword}{volatile}}
+\DoxyCodeLine{197     (}
+\DoxyCodeLine{198         \textcolor{stringliteral}{"{}   mov \%0, \%1                                              \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{199         \textcolor{stringliteral}{"{}   msr basepri, \%0                                         \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{200         \textcolor{stringliteral}{"{}   isb                                                     \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{201         \textcolor{stringliteral}{"{}   dsb                                                     \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{202         :\textcolor{stringliteral}{"{}=r"{}} (ulNewBASEPRI) : \textcolor{stringliteral}{"{}i"{}} ( \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a54bfc31c410ee452577a25a4552c3704}{configMAX\_SYSCALL\_INTERRUPT\_PRIORITY}} ) : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{203     );}
+\DoxyCodeLine{204 \}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{portFORCE\_INLINE}} \textcolor{keyword}{static} uint32\_t \mbox{\hyperlink{portmacro_8h_a1ae9e6953da44984c5595ad82b3c0af3}{ulPortRaiseBASEPRI}}( \textcolor{keywordtype}{void} )}
+\DoxyCodeLine{209 \{}
+\DoxyCodeLine{210     uint32\_t ulOriginalBASEPRI, ulNewBASEPRI;}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \_\_asm \textcolor{keyword}{volatile}}
+\DoxyCodeLine{213     (}
+\DoxyCodeLine{214         \textcolor{stringliteral}{"{}   mrs \%0, basepri                                         \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{215         \textcolor{stringliteral}{"{}   mov \%1, \%2                                              \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{216         \textcolor{stringliteral}{"{}   msr basepri, \%1                                         \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{217         \textcolor{stringliteral}{"{}   isb                                                     \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{218         \textcolor{stringliteral}{"{}   dsb                                                     \(\backslash\)n"{}} \(\backslash\)}
+\DoxyCodeLine{219         :\textcolor{stringliteral}{"{}=r"{}} (ulOriginalBASEPRI), \textcolor{stringliteral}{"{}=r"{}} (ulNewBASEPRI) : \textcolor{stringliteral}{"{}i"{}} ( \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a54bfc31c410ee452577a25a4552c3704}{configMAX\_SYSCALL\_INTERRUPT\_PRIORITY}} ) : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{220     );}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     \textcolor{comment}{/* This return will not be reached but is necessary to prevent compiler}}
+\DoxyCodeLine{223 \textcolor{comment}{    warnings. */}}
+\DoxyCodeLine{224     \textcolor{keywordflow}{return} ulOriginalBASEPRI;}
+\DoxyCodeLine{225 \}}
+\DoxyCodeLine{226 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{portFORCE\_INLINE}} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{portmacro_8h_ae7a42595148b6b21ed0569c4e8ca11b0}{vPortSetBASEPRI}}( uint32\_t ulNewMaskValue )}
+\DoxyCodeLine{229 \{}
+\DoxyCodeLine{230     \_\_asm \textcolor{keyword}{volatile}}
+\DoxyCodeLine{231     (}
+\DoxyCodeLine{232         \textcolor{stringliteral}{"{}   msr basepri, \%0 "{}} :: \textcolor{stringliteral}{"{}r"{}} ( ulNewMaskValue ) : \textcolor{stringliteral}{"{}memory"{}}}
+\DoxyCodeLine{233     );}
+\DoxyCodeLine{234 \}}
+\DoxyCodeLine{235 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{239 \}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PORTMACRO\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{243 }
+
+\end{DoxyCode}

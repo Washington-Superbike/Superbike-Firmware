@@ -1,0 +1,180 @@
+\hypertarget{_c_a_n_8h}{}\doxysection{CAN.\+h File Reference}
+\label{_c_a_n_8h}\index{CAN.h@{CAN.h}}
+{\ttfamily \#include $<$Flex\+CAN\+\_\+\+T4.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Display.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOS\+\_\+\+TEENSY4.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}}
+\item 
+struct \mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}}
+\item 
+struct \mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stats}}
+\item 
+struct \mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}}
+\item 
+struct \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}}
+\item 
+struct \mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}}
+\item 
+struct \mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}}
+\item 
+struct \mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{CAN\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE}}~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 4096
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{MOTOR\+\_\+\+STATS\+\_\+\+MSG}}~0x0\+CF11\+E05
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{MOTOR\+\_\+\+TEMPS\+\_\+\+MSG}}~0x0\+CF11\+F05
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{EVCC\+\_\+\+STATS}}~0x18e54024
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{CHARGER\+\_\+\+STATS}}~0x18eb2440
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{DD\+\_\+\+BMS\+\_\+\+STATUS\+\_\+\+IND}}~0x01dd0001
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{DD\+\_\+\+BMSC\+\_\+\+TH\+\_\+\+STATUS\+\_\+\+IND}}~0x01df0e00
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+04}}~0x01df0900
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+58}}~0x01df0a00
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+912}}~0x01df0b00
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+04}}~0x01df0901
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+58}}~0x01df0a01
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+912}}~0x01df0b01
+\item 
+\#define \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}~24
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task}} (void $\ast$can\+Data)
+\item 
+void \mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{check\+CAN}} (\mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}} can\+Data)
+\item 
+void \mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{decode\+Motor\+Stats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}} \mbox{\hyperlink{_main_8ino_a9eeb128a9907154869e9ffa78e065039}{motor\+Stats}})
+\item 
+void \mbox{\hyperlink{_c_a_n_8h_a7a43e572b7fe622da2ea850374d5d623}{decode\+Motor\+Temp}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} $\ast$\mbox{\hyperlink{_main_8ino_a962a20f8dc1ba6934fdc04e44bde53a8}{measurement\+Data}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}\label{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}} 
+\index{CAN.h@{CAN.h}!BMS\_CELLS@{BMS\_CELLS}}
+\index{BMS\_CELLS@{BMS\_CELLS}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMS\_CELLS}{BMS\_CELLS}}
+{\footnotesize\ttfamily \#define BMS\+\_\+\+CELLS~24}
+
+\mbox{\Hypertarget{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}\label{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_04@{BMSC1\_LTC1\_CELLS\_04}}
+\index{BMSC1\_LTC1\_CELLS\_04@{BMSC1\_LTC1\_CELLS\_04}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC1\_CELLS\_04}{BMSC1\_LTC1\_CELLS\_04}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+04~0x01df0900}
+
+\mbox{\Hypertarget{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}\label{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_58@{BMSC1\_LTC1\_CELLS\_58}}
+\index{BMSC1\_LTC1\_CELLS\_58@{BMSC1\_LTC1\_CELLS\_58}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC1\_CELLS\_58}{BMSC1\_LTC1\_CELLS\_58}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+58~0x01df0a00}
+
+\mbox{\Hypertarget{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}\label{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_912@{BMSC1\_LTC1\_CELLS\_912}}
+\index{BMSC1\_LTC1\_CELLS\_912@{BMSC1\_LTC1\_CELLS\_912}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC1\_CELLS\_912}{BMSC1\_LTC1\_CELLS\_912}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+912~0x01df0b00}
+
+\mbox{\Hypertarget{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}\label{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_04@{BMSC1\_LTC2\_CELLS\_04}}
+\index{BMSC1\_LTC2\_CELLS\_04@{BMSC1\_LTC2\_CELLS\_04}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC2\_CELLS\_04}{BMSC1\_LTC2\_CELLS\_04}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+04~0x01df0901}
+
+\mbox{\Hypertarget{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}\label{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_58@{BMSC1\_LTC2\_CELLS\_58}}
+\index{BMSC1\_LTC2\_CELLS\_58@{BMSC1\_LTC2\_CELLS\_58}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC2\_CELLS\_58}{BMSC1\_LTC2\_CELLS\_58}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+58~0x01df0a01}
+
+\mbox{\Hypertarget{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}\label{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}} 
+\index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_912@{BMSC1\_LTC2\_CELLS\_912}}
+\index{BMSC1\_LTC2\_CELLS\_912@{BMSC1\_LTC2\_CELLS\_912}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{BMSC1\_LTC2\_CELLS\_912}{BMSC1\_LTC2\_CELLS\_912}}
+{\footnotesize\ttfamily \#define BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+912~0x01df0b01}
+
+\mbox{\Hypertarget{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}\label{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}} 
+\index{CAN.h@{CAN.h}!CAN\_TASK\_STACK\_SIZE@{CAN\_TASK\_STACK\_SIZE}}
+\index{CAN\_TASK\_STACK\_SIZE@{CAN\_TASK\_STACK\_SIZE}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_TASK\_STACK\_SIZE}{CAN\_TASK\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 4096}
+
+\mbox{\Hypertarget{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}\label{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}} 
+\index{CAN.h@{CAN.h}!CHARGER\_STATS@{CHARGER\_STATS}}
+\index{CHARGER\_STATS@{CHARGER\_STATS}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{CHARGER\_STATS}{CHARGER\_STATS}}
+{\footnotesize\ttfamily \#define CHARGER\+\_\+\+STATS~0x18eb2440}
+
+\mbox{\Hypertarget{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}\label{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}} 
+\index{CAN.h@{CAN.h}!DD\_BMS\_STATUS\_IND@{DD\_BMS\_STATUS\_IND}}
+\index{DD\_BMS\_STATUS\_IND@{DD\_BMS\_STATUS\_IND}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{DD\_BMS\_STATUS\_IND}{DD\_BMS\_STATUS\_IND}}
+{\footnotesize\ttfamily \#define DD\+\_\+\+BMS\+\_\+\+STATUS\+\_\+\+IND~0x01dd0001}
+
+\mbox{\Hypertarget{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}\label{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}} 
+\index{CAN.h@{CAN.h}!DD\_BMSC\_TH\_STATUS\_IND@{DD\_BMSC\_TH\_STATUS\_IND}}
+\index{DD\_BMSC\_TH\_STATUS\_IND@{DD\_BMSC\_TH\_STATUS\_IND}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{DD\_BMSC\_TH\_STATUS\_IND}{DD\_BMSC\_TH\_STATUS\_IND}}
+{\footnotesize\ttfamily \#define DD\+\_\+\+BMSC\+\_\+\+TH\+\_\+\+STATUS\+\_\+\+IND~0x01df0e00}
+
+\mbox{\Hypertarget{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}\label{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}} 
+\index{CAN.h@{CAN.h}!EVCC\_STATS@{EVCC\_STATS}}
+\index{EVCC\_STATS@{EVCC\_STATS}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{EVCC\_STATS}{EVCC\_STATS}}
+{\footnotesize\ttfamily \#define EVCC\+\_\+\+STATS~0x18e54024}
+
+\mbox{\Hypertarget{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}\label{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}} 
+\index{CAN.h@{CAN.h}!MOTOR\_STATS\_MSG@{MOTOR\_STATS\_MSG}}
+\index{MOTOR\_STATS\_MSG@{MOTOR\_STATS\_MSG}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_STATS\_MSG}{MOTOR\_STATS\_MSG}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+STATS\+\_\+\+MSG~0x0\+CF11\+E05}
+
+\mbox{\Hypertarget{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}\label{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}} 
+\index{CAN.h@{CAN.h}!MOTOR\_TEMPS\_MSG@{MOTOR\_TEMPS\_MSG}}
+\index{MOTOR\_TEMPS\_MSG@{MOTOR\_TEMPS\_MSG}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_TEMPS\_MSG}{MOTOR\_TEMPS\_MSG}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+TEMPS\+\_\+\+MSG~0x0\+CF11\+F05}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}\label{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}} 
+\index{CAN.h@{CAN.h}!canTask@{canTask}}
+\index{canTask@{canTask}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{canTask()}{canTask()}}
+{\footnotesize\ttfamily void can\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{can\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}\label{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}} 
+\index{CAN.h@{CAN.h}!checkCAN@{checkCAN}}
+\index{checkCAN@{checkCAN}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{checkCAN()}{checkCAN()}}
+{\footnotesize\ttfamily void check\+CAN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}}}]{can\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}\label{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}} 
+\index{CAN.h@{CAN.h}!decodeMotorStats@{decodeMotorStats}}
+\index{decodeMotorStats@{decodeMotorStats}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{decodeMotorStats()}{decodeMotorStats()}}
+{\footnotesize\ttfamily void decode\+Motor\+Stats (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}}}]{motor\+Stats }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_c_a_n_8h_a7a43e572b7fe622da2ea850374d5d623}\label{_c_a_n_8h_a7a43e572b7fe622da2ea850374d5d623}} 
+\index{CAN.h@{CAN.h}!decodeMotorTemp@{decodeMotorTemp}}
+\index{decodeMotorTemp@{decodeMotorTemp}!CAN.h@{CAN.h}}
+\doxysubsubsection{\texorpdfstring{decodeMotorTemp()}{decodeMotorTemp()}}
+{\footnotesize\ttfamily void decode\+Motor\+Temp (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} $\ast$}]{measurement\+Data }\end{DoxyParamCaption})}
+

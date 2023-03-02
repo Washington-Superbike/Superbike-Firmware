@@ -110,17 +110,24 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
     String newString = "";
     String oldString = "";
     if ((*printedVals[3].currData) != (printedVals[3].oldData) || (printedVals[3].oldData) == DEFAULT_FLOAT) {
-//      TODO: REPLACE THESE WITH A PROPER EQUATION THAT FINDS SPEED USING RPM (Gear ratios, circumference, etc.)
-      int newSpeed = (int) *printedVals[3].currData;
-      int oldSpeed = (int) printedVals[3].oldData;
-      newString = (String)newSpeed;
-      oldString = (String)oldSpeed;
+//    Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
+//    Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
+//    Speed of m/s
+      float gearRatio = 48/16;
+      float diameterPerSecond = 0.522/60;
+      float pi = 3.14159;
+      float mphConvert = 2.2369362920544;
+      
+      float newSpeed = *printedVals[3].currData / gearRatio * pi * diameterPerSecond * mphConvert;
+      float oldSpeed = printedVals[3].oldData / gearRatio * pi * diameterPerSecond * mphConvert;
+      newString = (String) (int) newSpeed;
+      oldString = (String) (int) oldSpeed;
 //      Serial.println(newString);
 //      Serial.println(oldString);
       eraseThenPrintSPEEDO(175, 0, oldString, newString);
       newString = (String) (int) *printedVals[3].currData;
       oldString = (String) (int) printedVals[3].oldData;
-      eraseThenPrintSPEEDO(175, 180, oldString, newString);
+      eraseThenPrintSPEEDO(120, 180, oldString, newString);
       printedVals[3].oldData = *printedVals[3].currData;
     }
   }  

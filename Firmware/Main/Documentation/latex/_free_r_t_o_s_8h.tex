@@ -1,0 +1,1294 @@
+\hypertarget{_free_r_t_o_s_8h}{}\doxysection{Free\+RTOS/\+Free\+RTOS.h File Reference}
+\label{_free_r_t_o_s_8h}\index{FreeRTOS/FreeRTOS.h@{FreeRTOS/FreeRTOS.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Free\+RTOSConfig.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}projdefs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+LIST\+\_\+\+ITEM}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+MINI\+\_\+\+LIST\+\_\+\+ITEM}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t}{x\+STATIC\+\_\+\+LIST}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_c_b}{x\+STATIC\+\_\+\+TCB}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{x\+STATIC\+\_\+\+QUEUE}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p}{x\+STATIC\+\_\+\+EVENT\+\_\+\+GROUP}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_i_m_e_r}{x\+STATIC\+\_\+\+TIMER}}
+\item 
+struct \mbox{\hyperlink{structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r}{x\+STATIC\+\_\+\+STREAM\+\_\+\+BUFFER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4e2902143b6abf777065c15940321911}{INCLUDE\+\_\+x\+Queue\+Get\+Mutex\+Holder}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad221128595137414579be33cf8e446d8}{INCLUDE\+\_\+x\+Semaphore\+Get\+Mutex\+Holder}}~\mbox{\hyperlink{_free_r_t_o_s_8h_a4e2902143b6abf777065c15940321911}{INCLUDE\+\_\+x\+Queue\+Get\+Mutex\+Holder}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4088d4f41bae06c9e871b918888ce7e6}{port\+CRITICAL\+\_\+\+NESTING\+\_\+\+IN\+\_\+\+TCB}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{config\+ASSERT}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a7c1502a6fbffa00b3e2350e86e8bff06}{config\+ASSERT\+\_\+\+DEFINED}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3c506bf351102047fb5a75491287fe69}{port\+CLEAN\+\_\+\+UP\+\_\+\+TCB}}(px\+TCB)~( void ) px\+TCB
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a712f8cbd5ce7b049ef6a92dbb0da0215}{port\+PRE\+\_\+\+TASK\+\_\+\+DELETE\+\_\+\+HOOK}}(pv\+Task\+To\+Delete,  px\+Yield\+Pending)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aca0e7403a160318f5c216fc40c95e294}{port\+SETUP\+\_\+\+TCB}}(px\+TCB)~( void ) px\+TCB
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a53bae25f223b7156dce0fc6e6b1b2295}{port\+POINTER\+\_\+\+SIZE\+\_\+\+TYPE}}~uint32\+\_\+t
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac0d88fb803a85b6afd2a2c20de0ddcd0}{trace\+START}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aeb2fb62c3f25ec4d8e7a02f267f7e508}{trace\+END}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2f813fe80d3519a396a9f2bb7cc7e820}{trace\+TASK\+\_\+\+SWITCHED\+\_\+\+IN}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a74e013fe2bad2c2d7db71f4b17bad698}{trace\+INCREASE\+\_\+\+TICK\+\_\+\+COUNT}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_acc1364ea0a06d6395232d57708e4987c}{trace\+LOW\+\_\+\+POWER\+\_\+\+IDLE\+\_\+\+BEGIN}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aa5471ee0f56cb504d9aaba9cb3b7750e}{trace\+LOW\+\_\+\+POWER\+\_\+\+IDLE\+\_\+\+END}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4b94b0d35e9a4ad783af7be32cabbdaa}{trace\+TASK\+\_\+\+SWITCHED\+\_\+\+OUT}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4149bb2def17cb85a356c17fa6331c79}{trace\+TASK\+\_\+\+PRIORITY\+\_\+\+INHERIT}}(px\+TCBOf\+Mutex\+Holder,  ux\+Inherited\+Priority)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aeef741f693914ccacb456313d613c810}{trace\+TASK\+\_\+\+PRIORITY\+\_\+\+DISINHERIT}}(px\+TCBOf\+Mutex\+Holder,  ux\+Original\+Priority)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a657997eddb8c89bef7157e74bac003e2}{trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+RECEIVE}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a186c66f73c470500e556ec0f2fd3994f}{trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+PEEK}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a9484f4523e4bec2ab2dc233f2556c3c5}{trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+SEND}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8299719d9fd640db65e6e59a4e5b0204}{config\+RECORD\+\_\+\+STACK\+\_\+\+HIGH\+\_\+\+ADDRESS}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a90fad7fe3febe486b110f10635404469}{config\+INCLUDE\+\_\+\+FREERTOS\+\_\+\+TASK\+\_\+\+C\+\_\+\+ADDITIONS\+\_\+H}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8c5050de556ff7e7cdbc7de55f46709d}{trace\+MOVED\+\_\+\+TASK\+\_\+\+TO\+\_\+\+READY\+\_\+\+STATE}}(px\+TCB)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8d70c64cfe141df1bbe25b624405ec37}{trace\+POST\+\_\+\+MOVED\+\_\+\+TASK\+\_\+\+TO\+\_\+\+READY\+\_\+\+STATE}}(px\+TCB)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a62dcc27e040063ec72e174c985740f96}{trace\+QUEUE\+\_\+\+CREATE}}(px\+New\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3a0d6a2e556a9bb303cbcb2a23700118}{trace\+QUEUE\+\_\+\+CREATE\+\_\+\+FAILED}}(uc\+Queue\+Type)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2eff67edaee170b33b549966d8b99b47}{trace\+CREATE\+\_\+\+MUTEX}}(px\+New\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aa01e89d6df9ac9c4506f8918cc809ddf}{trace\+CREATE\+\_\+\+MUTEX\+\_\+\+FAILED}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aa42efc6b6938c6f2a5f04c7367f59b22}{trace\+GIVE\+\_\+\+MUTEX\+\_\+\+RECURSIVE}}(px\+Mutex)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a6b41ab1bbdaa0eb7f8e790602ed21077}{trace\+GIVE\+\_\+\+MUTEX\+\_\+\+RECURSIVE\+\_\+\+FAILED}}(px\+Mutex)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a088b831fdffacf61abf9c7312a2386ad}{trace\+TAKE\+\_\+\+MUTEX\+\_\+\+RECURSIVE}}(px\+Mutex)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad2d983d63b7d1c3d9208b14d3b76df53}{trace\+TAKE\+\_\+\+MUTEX\+\_\+\+RECURSIVE\+\_\+\+FAILED}}(px\+Mutex)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3803714a43519a6bfc93dadfa255bf14}{trace\+CREATE\+\_\+\+COUNTING\+\_\+\+SEMAPHORE}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a656fccb9717146cc4036ff8701eeb67e}{trace\+CREATE\+\_\+\+COUNTING\+\_\+\+SEMAPHORE\+\_\+\+FAILED}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a5cfc9dd899c89966172cb329740f551a}{trace\+QUEUE\+\_\+\+SEND}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ab4896b8d7e443200918a6e4a7f64585d}{trace\+QUEUE\+\_\+\+SEND\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a82b39aa722910a5e43793e882ded0faf}{trace\+QUEUE\+\_\+\+RECEIVE}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_acd24b909ecdd18ed844cdede3027e534}{trace\+QUEUE\+\_\+\+PEEK}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_afa4b34739a92eb44f09947a669c98fb7}{trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3e2a14b61c26f9690deb26d76cc801ee}{trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FROM\+\_\+\+ISR}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a0dbf5969c9d984920177a19d5b402e4e}{trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a590bfae4dcb6be8a4b3daadf09a1b587}{trace\+QUEUE\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a71fa002ce8a199d38e697d94c613649f}{trace\+QUEUE\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ace59eac86a08f533c19edf91594961c6}{trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a1f1f4a1fea93a33050fa6c27c30752d5}{trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a72ea0f09cc6a38363f2b5217aab27fd3}{trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aae8ebd9c82ecd564953a37bb26a5a1e5}{trace\+QUEUE\+\_\+\+DELETE}}(px\+Queue)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a453dc678632734505187c453da598172}{trace\+TASK\+\_\+\+CREATE}}(px\+New\+TCB)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a82a6a366facc1fb8b0209bfe2e5ce546}{trace\+TASK\+\_\+\+CREATE\+\_\+\+FAILED}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af3f9bb780241cc663247908a22defa65}{trace\+TASK\+\_\+\+DELETE}}(px\+Task\+To\+Delete)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac7bba9e806376061522f5cb2eef261c4}{trace\+TASK\+\_\+\+DELAY\+\_\+\+UNTIL}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_adb0c71969f4eed7a92f0f398dffb443d}{trace\+TASK\+\_\+\+DELAY}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_acec813ac5f0628aa108bede0cd8c329d}{trace\+TASK\+\_\+\+PRIORITY\+\_\+\+SET}}(px\+Task,  ux\+New\+Priority)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac48891d4d553ea9acbc660d2ebd2ffd7}{trace\+TASK\+\_\+\+SUSPEND}}(px\+Task\+To\+Suspend)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4f21b0c170fa8675ee2dbf70141695a2}{trace\+TASK\+\_\+\+RESUME}}(px\+Task\+To\+Resume)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a7b4afafa82e9c80d0dc43cc22108d248}{trace\+TASK\+\_\+\+RESUME\+\_\+\+FROM\+\_\+\+ISR}}(px\+Task\+To\+Resume)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aeea8ada76999a73fd5ffcacd267d336d}{trace\+TASK\+\_\+\+INCREMENT\+\_\+\+TICK}}(\mbox{\hyperlink{tasks_8c_a98b55fbbd701ac74b2b6ab1ffc8d5a65}{x\+Tick\+Count}})
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a21b54dae77c227db92f56131cae6de81}{trace\+TIMER\+\_\+\+CREATE}}(px\+New\+Timer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a9b508233fb4bebee72529af4f4413cf6}{trace\+TIMER\+\_\+\+CREATE\+\_\+\+FAILED}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aa5e8cd9587c262fdf914b56c286c47b8}{trace\+TIMER\+\_\+\+COMMAND\+\_\+\+SEND}}(x\+Timer,  x\+Message\+ID,  x\+Message\+Value\+Value,  x\+Return)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a71329ddad88950ea45b32d5adcb1b2f3}{trace\+TIMER\+\_\+\+EXPIRED}}(px\+Timer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a6c6d5767fb1746077b62e5da5a28db63}{trace\+TIMER\+\_\+\+COMMAND\+\_\+\+RECEIVED}}(px\+Timer,  x\+Message\+ID,  x\+Message\+Value)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af326afe922ffa6da245c98dc227a3293}{trace\+MALLOC}}(pv\+Address,  ui\+Size)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a941bb09090b5788f0c27d9690118eed2}{trace\+FREE}}(pv\+Address,  ui\+Size)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a0100fcbcc03e3c2f0cd7bc7071f9ab70}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+CREATE}}(x\+Event\+Group)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac6f6ea04ddbf43f62f1b0285622d4474}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+CREATE\+\_\+\+FAILED}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a898ead658f344a0475a9f2ed3bf8f407}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+SYNC\+\_\+\+BLOCK}}(x\+Event\+Group,  ux\+Bits\+To\+Set,  ux\+Bits\+To\+Wait\+For)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af0cb50e5a1402163cd29e638c6140a2e}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+SYNC\+\_\+\+END}}(x\+Event\+Group,  ux\+Bits\+To\+Set,  ux\+Bits\+To\+Wait\+For,  x\+Timeout\+Occurred)~( void ) x\+Timeout\+Occurred
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aeb8953a9be153986d0e830acdf60445a}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+WAIT\+\_\+\+BITS\+\_\+\+BLOCK}}(x\+Event\+Group,  ux\+Bits\+To\+Wait\+For)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad7a6b7684053a41690cac487ccf4d927}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+WAIT\+\_\+\+BITS\+\_\+\+END}}(x\+Event\+Group,  ux\+Bits\+To\+Wait\+For,  x\+Timeout\+Occurred)~( void ) x\+Timeout\+Occurred
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad929200fa50e5a1ae2c5894ffeea2ef6}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+CLEAR\+\_\+\+BITS}}(x\+Event\+Group,  ux\+Bits\+To\+Clear)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a9facfdc883aa503d2891c27c5c136d84}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+CLEAR\+\_\+\+BITS\+\_\+\+FROM\+\_\+\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Clear)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a56eb08eb12a36c99a32729a518d5b3fd}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+SET\+\_\+\+BITS}}(x\+Event\+Group,  ux\+Bits\+To\+Set)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ae11a37557005c2660326e9874d5d3155}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+SET\+\_\+\+BITS\+\_\+\+FROM\+\_\+\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Set)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_abf48364a72dd38af47bf7203c06ee832}{trace\+EVENT\+\_\+\+GROUP\+\_\+\+DELETE}}(x\+Event\+Group)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ab9c72706acbdbcec75ffb2cdaca45b24}{trace\+PEND\+\_\+\+FUNC\+\_\+\+CALL}}(x\+Function\+To\+Pend,  pv\+Parameter1,  ul\+Parameter2,  ret)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a9b864660c6d826e802d9e3f94548cd7f}{trace\+PEND\+\_\+\+FUNC\+\_\+\+CALL\+\_\+\+FROM\+\_\+\+ISR}}(x\+Function\+To\+Pend,  pv\+Parameter1,  ul\+Parameter2,  ret)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2f326b01ad82a3ab14cc9fc4b3abd6b8}{trace\+QUEUE\+\_\+\+REGISTRY\+\_\+\+ADD}}(x\+Queue,  pc\+Queue\+Name)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af6c636f9baf2eb594ffb0b6689d1b729}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+TAKE\+\_\+\+BLOCK}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ab60d0210392d54bc0539de67c8bb3bf6}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+TAKE}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a42d4b4f2c5bac89d617c27902606019c}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+WAIT\+\_\+\+BLOCK}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a32ea7a3f22b7ef8b2ddc7b98848b8446}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+WAIT}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a0047b9beb807b3c8b31d485532f7b077}{trace\+TASK\+\_\+\+NOTIFY}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aad4d3ae692f3500f4644070fe971b646}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+FROM\+\_\+\+ISR}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a99d95526db9937c96ba110f46bb59ee5}{trace\+TASK\+\_\+\+NOTIFY\+\_\+\+GIVE\+\_\+\+FROM\+\_\+\+ISR}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2bc57023bb903e717940ac8aa13a3016}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE\+\_\+\+FAILED}}(x\+Is\+Message\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8437a62aa94288842b56a2d63786c118}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE\+\_\+\+STATIC\+\_\+\+FAILED}}(x\+Return,  x\+Is\+Message\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3666750a606dd4323b011db1b146e7b9}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE}}(px\+Stream\+Buffer,  x\+Is\+Message\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ae919bd00b51b396ff237bc8ec3b6b439}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+DELETE}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2ef92acbaa66efdb85be7f8256fe91ba}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RESET}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a5788bf0db92eda90675aa5f3caa42eeb}{trace\+BLOCKING\+\_\+\+ON\+\_\+\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a4f4fc6954ae7c5b8a4819f70afd37c1f}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND}}(x\+Stream\+Buffer,  x\+Bytes\+Sent)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a527e8f19c9b9b339985c2b8e47bff02a}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND\+\_\+\+FAILED}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ab79a8d87f1c865b1a76af02932b3dda6}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR}}(x\+Stream\+Buffer,  x\+Bytes\+Sent)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a80419264672cb0ddd2b865048483b537}{trace\+BLOCKING\+\_\+\+ON\+\_\+\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a6ecefd3df93cb11986cca1b41f215138}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE}}(x\+Stream\+Buffer,  x\+Received\+Length)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a57e5d8ccc74dd8e04bd3a8534de79bb4}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE\+\_\+\+FAILED}}(x\+Stream\+Buffer)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a30fe3a49605cf2c232d190e4f6565a0d}{trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR}}(x\+Stream\+Buffer,  x\+Received\+Length)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a727939bcdb98501e0eba0ec8a1841e1b}{port\+CONFIGURE\+\_\+\+TIMER\+\_\+\+FOR\+\_\+\+RUN\+\_\+\+TIME\+\_\+\+STATS}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a27b7e11718b2ec5b5217e60f3b9e8aec}{port\+PRIVILEGE\+\_\+\+BIT}}~( ( \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ) 0x00 )
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af4484fc07631a16e45ac5f29a3f0556e}{port\+YIELD\+\_\+\+WITHIN\+\_\+\+API}}~\mbox{\hyperlink{portmacro_8h_ae1ff06193615f5130b5a97dc9e708fc7}{port\+YIELD}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aff3d7f6e5b38283f5214880d8086bb57}{config\+EXPECTED\+\_\+\+IDLE\+\_\+\+TIME\+\_\+\+BEFORE\+\_\+\+SLEEP}}~2
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a506860f45e7b8f14ee85c09db15eed7a}{config\+PRE\+\_\+\+SUPPRESS\+\_\+\+TICKS\+\_\+\+AND\+\_\+\+SLEEP\+\_\+\+PROCESSING}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a986fc0c49fdf4945edd7fb6701e04978}{config\+PRE\+\_\+\+SLEEP\+\_\+\+PROCESSING}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a55f848c10319c953bfcc456fc724cee1}{config\+POST\+\_\+\+SLEEP\+\_\+\+PROCESSING}}(x)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad39396f0acc31310827fbbaf28623d58}{port\+TASK\+\_\+\+USES\+\_\+\+FLOATING\+\_\+\+POINT}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a401e0f8194560d5f27f5844ba82009b5}{port\+TASK\+\_\+\+CALLS\+\_\+\+SECURE\+\_\+\+FUNCTIONS}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a7990cb1664418797a8aad3917b665116}{config\+INCLUDE\+\_\+\+APPLICATION\+\_\+\+DEFINED\+\_\+\+PRIVILEGED\+\_\+\+FUNCTIONS}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a10f75d20c71c4289f96d1b89cb6c62e2}{port\+ASSERT\+\_\+\+IF\+\_\+\+INTERRUPT\+\_\+\+PRIORITY\+\_\+\+INVALID}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac77e2af1a6b0d38fbab36cf2aa96f1a8}{mt\+COVERAGE\+\_\+\+TEST\+\_\+\+MARKER}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2ddaee9013b02cfbfe2773ec4257375c}{mt\+COVERAGE\+\_\+\+TEST\+\_\+\+DELAY}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a24a48f166f347e5201a72efcc73d0202}{port\+ASSERT\+\_\+\+IF\+\_\+\+IN\+\_\+\+ISR}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ae4e85bffd36d76cf2796092f0ccd784a}{config\+STACK\+\_\+\+DEPTH\+\_\+\+TYPE}}~uint16\+\_\+t
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a019c8bfcdd8eca676c7b9993bda95967}{config\+MESSAGE\+\_\+\+BUFFER\+\_\+\+LENGTH\+\_\+\+TYPE}}~size\+\_\+t
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ae52c1acd13b26e8758dc66b60b0e3417}{config\+INITIAL\+\_\+\+TICK\+\_\+\+COUNT}}~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a5ada85b405891061cad280c1e35213ee}{port\+TICK\+\_\+\+TYPE\+\_\+\+ENTER\+\_\+\+CRITICAL}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a3a24fff82b123ddc7cf8195a466733dd}{port\+TICK\+\_\+\+TYPE\+\_\+\+EXIT\+\_\+\+CRITICAL}}()
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a7b53d0f5d4ae09f599f92fb5cd546e6b}{port\+TICK\+\_\+\+TYPE\+\_\+\+SET\+\_\+\+INTERRUPT\+\_\+\+MASK\+\_\+\+FROM\+\_\+\+ISR}}()~0
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a506f401396abd44a8dbe31edac713f8b}{port\+TICK\+\_\+\+TYPE\+\_\+\+CLEAR\+\_\+\+INTERRUPT\+\_\+\+MASK\+\_\+\+FROM\+\_\+\+ISR}}(x)~( void ) x
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a560d79b61f78ade80659b321586ab7b4}{config\+PRINTF}}(X)
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_adaad2ada6c5242c3b68ae936d60a66b9}{config\+MAX}}(a,  b)~( ( ( a ) $>$ ( b ) ) ? ( a ) \+: ( b ) )
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a101a57cef3f76ec13110cec59ce49edf}{config\+MIN}}(a,  b)~( ( ( a ) $<$ ( b ) ) ? ( a ) \+: ( b ) )
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ad1bc0e8a3c68c90d6711ec4a9ac1a516}{e\+Task\+State\+Get}}~\mbox{\hyperlink{tasks_8c_aab948efa7e3b657465cd06196b259ed7}{e\+Task\+Get\+State}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a324d7087026e1e9dfe6b7567d5bf63c8}{port\+Tick\+Type}}~\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af7cd8f53b62f0c497b442b504c30f2ec}{x\+Task\+Handle}}~\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a2b4ea2af4cc24db3cbd458722e96fa2f}{x\+Queue\+Handle}}~\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a520d8cf032327581ece00e5bd8e03a75}{x\+Semaphore\+Handle}}~\mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ab8d6acee206b02a6a4cf4e63d035b3fd}{x\+Queue\+Set\+Handle}}~\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a009d2d6ce8ab8635eaf9f3e507866f6c}{x\+Queue\+Set\+Member\+Handle}}~\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a819785230f5d9368aec050ac661d12e0}{x\+Time\+Out\+Type}}~\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a5971b85d409766aa17def6cc275c15cd}{x\+Memory\+Region}}~\mbox{\hyperlink{task_8h_abc1e4d1b3f52e2a9101487e1831b992a}{Memory\+Region\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aba476594b7c76708495313b143d7edde}{x\+Task\+Parameters}}~\mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a86ae1e476b7df91b0b58f7cc0f1ce7ea}{x\+Task\+Status\+Type}}~\mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a9fa57c444af781c3b6286f5cc9e4982d}{x\+Timer\+Handle}}~\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac6d7ef270d5c85eb91906683157ffc13}{x\+Co\+Routine\+Handle}}~\mbox{\hyperlink{croutine_8h_a33b9d058688c92258155b5756d9936dd}{Co\+Routine\+Handle\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_ac53ab0d2f78148433574898386aeb5f4}{pd\+TASK\+\_\+\+HOOK\+\_\+\+CODE}}~\mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8689cad2afb0c5f65d866e2c356378bf}{port\+TICK\+\_\+\+RATE\+\_\+\+MS}}~\mbox{\hyperlink{portmacro_8h_a554d9322ce7f698a86a22b21234bd8cd}{port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a626c65afa49005d067495a6cdaace885}{pc\+Task\+Get\+Task\+Name}}~\mbox{\hyperlink{tasks_8c_acb1be57d03f6f1a3161b69e98df6ccb9}{pc\+Task\+Get\+Name}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a870358d5faa01a5290705b073de220ca}{pc\+Timer\+Get\+Timer\+Name}}~\mbox{\hyperlink{timers_8h_a5007aef53e4cc6aea1aadcdcc72aa9da}{pc\+Timer\+Get\+Name}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a8363e9859059888726caa268e1816e54}{pc\+Queue\+Get\+Queue\+Name}}~\mbox{\hyperlink{queue_8c_a6cd1431e6d0f46927d6260d49f0d6df3}{pc\+Queue\+Get\+Name}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_af91a84ee7fcd1c03bba33c0c86c9a493}{v\+Task\+Get\+Task\+Info}}~\mbox{\hyperlink{tasks_8c_a24b033eee266bdc8c3de63171a543f65}{v\+Task\+Get\+Info}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a0da0e4db75906783854965b3cb9db214}{tmr\+TIMER\+\_\+\+CALLBACK}}~\mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a74cee96c96792dab96bdc57ba9007b24}{pd\+TASK\+\_\+\+CODE}}~\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a62b284ca8496de2faf0157e6c8be94b6}{x\+List\+Item}}~\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_a990e46a268202dae9f09ca56c35cc17c}{x\+List}}~\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}}
+\item 
+\#define \mbox{\hyperlink{_free_r_t_o_s_8h_aec0ba4af7bdd0e0acba26902a496de6c}{config\+USE\+\_\+\+TASK\+\_\+\+FPU\+\_\+\+SUPPORT}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+LIST\+\_\+\+ITEM}} \mbox{\hyperlink{_free_r_t_o_s_8h_a1d31bc0472385a87424518da484d9e09}{Static\+List\+Item\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+MINI\+\_\+\+LIST\+\_\+\+ITEM}} \mbox{\hyperlink{_free_r_t_o_s_8h_a9097f48f4dfa56e8e01d9179462c7994}{Static\+Mini\+List\+Item\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t}{x\+STATIC\+\_\+\+LIST}} \mbox{\hyperlink{_free_r_t_o_s_8h_aabf8e8548f4ffaef73c3470172c4c8de}{Static\+List\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_c_b}{x\+STATIC\+\_\+\+TCB}} \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{Static\+Task\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{x\+STATIC\+\_\+\+QUEUE}} \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}}
+\item 
+typedef \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} \mbox{\hyperlink{_free_r_t_o_s_8h_a5899eefbfd03bc6eb83c9accffc8975e}{Static\+Semaphore\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p}{x\+STATIC\+\_\+\+EVENT\+\_\+\+GROUP}} \mbox{\hyperlink{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}{Static\+Event\+Group\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_i_m_e_r}{x\+STATIC\+\_\+\+TIMER}} \mbox{\hyperlink{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}{Static\+Timer\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r}{x\+STATIC\+\_\+\+STREAM\+\_\+\+BUFFER}} \mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}}
+\item 
+typedef \mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}} \mbox{\hyperlink{_free_r_t_o_s_8h_aebe27a051714571e9051a8e33fe40bd9}{Static\+Message\+Buffer\+\_\+t}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a228c70cd48927d6ab730ed1a6dfbe35f}\label{_free_r_t_o_s_8h_a228c70cd48927d6ab730ed1a6dfbe35f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configASSERT@{configASSERT}}
+\index{configASSERT@{configASSERT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configASSERT}{configASSERT}}
+{\footnotesize\ttfamily \#define config\+ASSERT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a7c1502a6fbffa00b3e2350e86e8bff06}\label{_free_r_t_o_s_8h_a7c1502a6fbffa00b3e2350e86e8bff06}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configASSERT\_DEFINED@{configASSERT\_DEFINED}}
+\index{configASSERT\_DEFINED@{configASSERT\_DEFINED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configASSERT\_DEFINED}{configASSERT\_DEFINED}}
+{\footnotesize\ttfamily \#define config\+ASSERT\+\_\+\+DEFINED~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aff3d7f6e5b38283f5214880d8086bb57}\label{_free_r_t_o_s_8h_aff3d7f6e5b38283f5214880d8086bb57}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP@{configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP}}
+\index{configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP@{configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP}{configEXPECTED\_IDLE\_TIME\_BEFORE\_SLEEP}}
+{\footnotesize\ttfamily \#define config\+EXPECTED\+\_\+\+IDLE\+\_\+\+TIME\+\_\+\+BEFORE\+\_\+\+SLEEP~2}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a7990cb1664418797a8aad3917b665116}\label{_free_r_t_o_s_8h_a7990cb1664418797a8aad3917b665116}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS@{configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS}}
+\index{configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS@{configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS}{configINCLUDE\_APPLICATION\_DEFINED\_PRIVILEGED\_FUNCTIONS}}
+{\footnotesize\ttfamily \#define config\+INCLUDE\+\_\+\+APPLICATION\+\_\+\+DEFINED\+\_\+\+PRIVILEGED\+\_\+\+FUNCTIONS~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a90fad7fe3febe486b110f10635404469}\label{_free_r_t_o_s_8h_a90fad7fe3febe486b110f10635404469}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H@{configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H}}
+\index{configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H@{configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H}{configINCLUDE\_FREERTOS\_TASK\_C\_ADDITIONS\_H}}
+{\footnotesize\ttfamily \#define config\+INCLUDE\+\_\+\+FREERTOS\+\_\+\+TASK\+\_\+\+C\+\_\+\+ADDITIONS\+\_\+H~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ae52c1acd13b26e8758dc66b60b0e3417}\label{_free_r_t_o_s_8h_ae52c1acd13b26e8758dc66b60b0e3417}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configINITIAL\_TICK\_COUNT@{configINITIAL\_TICK\_COUNT}}
+\index{configINITIAL\_TICK\_COUNT@{configINITIAL\_TICK\_COUNT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configINITIAL\_TICK\_COUNT}{configINITIAL\_TICK\_COUNT}}
+{\footnotesize\ttfamily \#define config\+INITIAL\+\_\+\+TICK\+\_\+\+COUNT~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_adaad2ada6c5242c3b68ae936d60a66b9}\label{_free_r_t_o_s_8h_adaad2ada6c5242c3b68ae936d60a66b9}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configMAX@{configMAX}}
+\index{configMAX@{configMAX}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configMAX}{configMAX}}
+{\footnotesize\ttfamily \#define config\+MAX(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~( ( ( a ) $>$ ( b ) ) ? ( a ) \+: ( b ) )}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a019c8bfcdd8eca676c7b9993bda95967}\label{_free_r_t_o_s_8h_a019c8bfcdd8eca676c7b9993bda95967}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configMESSAGE\_BUFFER\_LENGTH\_TYPE@{configMESSAGE\_BUFFER\_LENGTH\_TYPE}}
+\index{configMESSAGE\_BUFFER\_LENGTH\_TYPE@{configMESSAGE\_BUFFER\_LENGTH\_TYPE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configMESSAGE\_BUFFER\_LENGTH\_TYPE}{configMESSAGE\_BUFFER\_LENGTH\_TYPE}}
+{\footnotesize\ttfamily \#define config\+MESSAGE\+\_\+\+BUFFER\+\_\+\+LENGTH\+\_\+\+TYPE~size\+\_\+t}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a101a57cef3f76ec13110cec59ce49edf}\label{_free_r_t_o_s_8h_a101a57cef3f76ec13110cec59ce49edf}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configMIN@{configMIN}}
+\index{configMIN@{configMIN}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configMIN}{configMIN}}
+{\footnotesize\ttfamily \#define config\+MIN(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~( ( ( a ) $<$ ( b ) ) ? ( a ) \+: ( b ) )}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a55f848c10319c953bfcc456fc724cee1}\label{_free_r_t_o_s_8h_a55f848c10319c953bfcc456fc724cee1}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configPOST\_SLEEP\_PROCESSING@{configPOST\_SLEEP\_PROCESSING}}
+\index{configPOST\_SLEEP\_PROCESSING@{configPOST\_SLEEP\_PROCESSING}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configPOST\_SLEEP\_PROCESSING}{configPOST\_SLEEP\_PROCESSING}}
+{\footnotesize\ttfamily \#define config\+POST\+\_\+\+SLEEP\+\_\+\+PROCESSING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a986fc0c49fdf4945edd7fb6701e04978}\label{_free_r_t_o_s_8h_a986fc0c49fdf4945edd7fb6701e04978}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configPRE\_SLEEP\_PROCESSING@{configPRE\_SLEEP\_PROCESSING}}
+\index{configPRE\_SLEEP\_PROCESSING@{configPRE\_SLEEP\_PROCESSING}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configPRE\_SLEEP\_PROCESSING}{configPRE\_SLEEP\_PROCESSING}}
+{\footnotesize\ttfamily \#define config\+PRE\+\_\+\+SLEEP\+\_\+\+PROCESSING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a506860f45e7b8f14ee85c09db15eed7a}\label{_free_r_t_o_s_8h_a506860f45e7b8f14ee85c09db15eed7a}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING@{configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING}}
+\index{configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING@{configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING}{configPRE\_SUPPRESS\_TICKS\_AND\_SLEEP\_PROCESSING}}
+{\footnotesize\ttfamily \#define config\+PRE\+\_\+\+SUPPRESS\+\_\+\+TICKS\+\_\+\+AND\+\_\+\+SLEEP\+\_\+\+PROCESSING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a560d79b61f78ade80659b321586ab7b4}\label{_free_r_t_o_s_8h_a560d79b61f78ade80659b321586ab7b4}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configPRINTF@{configPRINTF}}
+\index{configPRINTF@{configPRINTF}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configPRINTF}{configPRINTF}}
+{\footnotesize\ttfamily \#define config\+PRINTF(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8299719d9fd640db65e6e59a4e5b0204}\label{_free_r_t_o_s_8h_a8299719d9fd640db65e6e59a4e5b0204}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configRECORD\_STACK\_HIGH\_ADDRESS@{configRECORD\_STACK\_HIGH\_ADDRESS}}
+\index{configRECORD\_STACK\_HIGH\_ADDRESS@{configRECORD\_STACK\_HIGH\_ADDRESS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configRECORD\_STACK\_HIGH\_ADDRESS}{configRECORD\_STACK\_HIGH\_ADDRESS}}
+{\footnotesize\ttfamily \#define config\+RECORD\+\_\+\+STACK\+\_\+\+HIGH\+\_\+\+ADDRESS~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ae4e85bffd36d76cf2796092f0ccd784a}\label{_free_r_t_o_s_8h_ae4e85bffd36d76cf2796092f0ccd784a}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configSTACK\_DEPTH\_TYPE@{configSTACK\_DEPTH\_TYPE}}
+\index{configSTACK\_DEPTH\_TYPE@{configSTACK\_DEPTH\_TYPE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configSTACK\_DEPTH\_TYPE}{configSTACK\_DEPTH\_TYPE}}
+{\footnotesize\ttfamily \#define config\+STACK\+\_\+\+DEPTH\+\_\+\+TYPE~uint16\+\_\+t}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aec0ba4af7bdd0e0acba26902a496de6c}\label{_free_r_t_o_s_8h_aec0ba4af7bdd0e0acba26902a496de6c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!configUSE\_TASK\_FPU\_SUPPORT@{configUSE\_TASK\_FPU\_SUPPORT}}
+\index{configUSE\_TASK\_FPU\_SUPPORT@{configUSE\_TASK\_FPU\_SUPPORT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{configUSE\_TASK\_FPU\_SUPPORT}{configUSE\_TASK\_FPU\_SUPPORT}}
+{\footnotesize\ttfamily \#define config\+USE\+\_\+\+TASK\+\_\+\+FPU\+\_\+\+SUPPORT~1}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad1bc0e8a3c68c90d6711ec4a9ac1a516}\label{_free_r_t_o_s_8h_ad1bc0e8a3c68c90d6711ec4a9ac1a516}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!eTaskStateGet@{eTaskStateGet}}
+\index{eTaskStateGet@{eTaskStateGet}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{eTaskStateGet}{eTaskStateGet}}
+{\footnotesize\ttfamily \#define e\+Task\+State\+Get~\mbox{\hyperlink{tasks_8c_aab948efa7e3b657465cd06196b259ed7}{e\+Task\+Get\+State}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4e2902143b6abf777065c15940321911}\label{_free_r_t_o_s_8h_a4e2902143b6abf777065c15940321911}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!INCLUDE\_xQueueGetMutexHolder@{INCLUDE\_xQueueGetMutexHolder}}
+\index{INCLUDE\_xQueueGetMutexHolder@{INCLUDE\_xQueueGetMutexHolder}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{INCLUDE\_xQueueGetMutexHolder}{INCLUDE\_xQueueGetMutexHolder}}
+{\footnotesize\ttfamily \#define INCLUDE\+\_\+x\+Queue\+Get\+Mutex\+Holder~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad221128595137414579be33cf8e446d8}\label{_free_r_t_o_s_8h_ad221128595137414579be33cf8e446d8}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!INCLUDE\_xSemaphoreGetMutexHolder@{INCLUDE\_xSemaphoreGetMutexHolder}}
+\index{INCLUDE\_xSemaphoreGetMutexHolder@{INCLUDE\_xSemaphoreGetMutexHolder}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{INCLUDE\_xSemaphoreGetMutexHolder}{INCLUDE\_xSemaphoreGetMutexHolder}}
+{\footnotesize\ttfamily \#define INCLUDE\+\_\+x\+Semaphore\+Get\+Mutex\+Holder~\mbox{\hyperlink{_free_r_t_o_s_8h_a4e2902143b6abf777065c15940321911}{INCLUDE\+\_\+x\+Queue\+Get\+Mutex\+Holder}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2ddaee9013b02cfbfe2773ec4257375c}\label{_free_r_t_o_s_8h_a2ddaee9013b02cfbfe2773ec4257375c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!mtCOVERAGE\_TEST\_DELAY@{mtCOVERAGE\_TEST\_DELAY}}
+\index{mtCOVERAGE\_TEST\_DELAY@{mtCOVERAGE\_TEST\_DELAY}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{mtCOVERAGE\_TEST\_DELAY}{mtCOVERAGE\_TEST\_DELAY}}
+{\footnotesize\ttfamily \#define mt\+COVERAGE\+\_\+\+TEST\+\_\+\+DELAY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac77e2af1a6b0d38fbab36cf2aa96f1a8}\label{_free_r_t_o_s_8h_ac77e2af1a6b0d38fbab36cf2aa96f1a8}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!mtCOVERAGE\_TEST\_MARKER@{mtCOVERAGE\_TEST\_MARKER}}
+\index{mtCOVERAGE\_TEST\_MARKER@{mtCOVERAGE\_TEST\_MARKER}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{mtCOVERAGE\_TEST\_MARKER}{mtCOVERAGE\_TEST\_MARKER}}
+{\footnotesize\ttfamily \#define mt\+COVERAGE\+\_\+\+TEST\+\_\+\+MARKER(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8363e9859059888726caa268e1816e54}\label{_free_r_t_o_s_8h_a8363e9859059888726caa268e1816e54}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!pcQueueGetQueueName@{pcQueueGetQueueName}}
+\index{pcQueueGetQueueName@{pcQueueGetQueueName}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{pcQueueGetQueueName}{pcQueueGetQueueName}}
+{\footnotesize\ttfamily \#define pc\+Queue\+Get\+Queue\+Name~\mbox{\hyperlink{queue_8c_a6cd1431e6d0f46927d6260d49f0d6df3}{pc\+Queue\+Get\+Name}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a626c65afa49005d067495a6cdaace885}\label{_free_r_t_o_s_8h_a626c65afa49005d067495a6cdaace885}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!pcTaskGetTaskName@{pcTaskGetTaskName}}
+\index{pcTaskGetTaskName@{pcTaskGetTaskName}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{pcTaskGetTaskName}{pcTaskGetTaskName}}
+{\footnotesize\ttfamily \#define pc\+Task\+Get\+Task\+Name~\mbox{\hyperlink{tasks_8c_acb1be57d03f6f1a3161b69e98df6ccb9}{pc\+Task\+Get\+Name}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a870358d5faa01a5290705b073de220ca}\label{_free_r_t_o_s_8h_a870358d5faa01a5290705b073de220ca}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!pcTimerGetTimerName@{pcTimerGetTimerName}}
+\index{pcTimerGetTimerName@{pcTimerGetTimerName}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{pcTimerGetTimerName}{pcTimerGetTimerName}}
+{\footnotesize\ttfamily \#define pc\+Timer\+Get\+Timer\+Name~\mbox{\hyperlink{timers_8h_a5007aef53e4cc6aea1aadcdcc72aa9da}{pc\+Timer\+Get\+Name}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a74cee96c96792dab96bdc57ba9007b24}\label{_free_r_t_o_s_8h_a74cee96c96792dab96bdc57ba9007b24}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!pdTASK\_CODE@{pdTASK\_CODE}}
+\index{pdTASK\_CODE@{pdTASK\_CODE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{pdTASK\_CODE}{pdTASK\_CODE}}
+{\footnotesize\ttfamily \#define pd\+TASK\+\_\+\+CODE~\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac53ab0d2f78148433574898386aeb5f4}\label{_free_r_t_o_s_8h_ac53ab0d2f78148433574898386aeb5f4}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!pdTASK\_HOOK\_CODE@{pdTASK\_HOOK\_CODE}}
+\index{pdTASK\_HOOK\_CODE@{pdTASK\_HOOK\_CODE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{pdTASK\_HOOK\_CODE}{pdTASK\_HOOK\_CODE}}
+{\footnotesize\ttfamily \#define pd\+TASK\+\_\+\+HOOK\+\_\+\+CODE~\mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a24a48f166f347e5201a72efcc73d0202}\label{_free_r_t_o_s_8h_a24a48f166f347e5201a72efcc73d0202}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portASSERT\_IF\_IN\_ISR@{portASSERT\_IF\_IN\_ISR}}
+\index{portASSERT\_IF\_IN\_ISR@{portASSERT\_IF\_IN\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portASSERT\_IF\_IN\_ISR}{portASSERT\_IF\_IN\_ISR}}
+{\footnotesize\ttfamily \#define port\+ASSERT\+\_\+\+IF\+\_\+\+IN\+\_\+\+ISR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a10f75d20c71c4289f96d1b89cb6c62e2}\label{_free_r_t_o_s_8h_a10f75d20c71c4289f96d1b89cb6c62e2}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID@{portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID}}
+\index{portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID@{portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID}{portASSERT\_IF\_INTERRUPT\_PRIORITY\_INVALID}}
+{\footnotesize\ttfamily \#define port\+ASSERT\+\_\+\+IF\+\_\+\+INTERRUPT\+\_\+\+PRIORITY\+\_\+\+INVALID(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3c506bf351102047fb5a75491287fe69}\label{_free_r_t_o_s_8h_a3c506bf351102047fb5a75491287fe69}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portCLEAN\_UP\_TCB@{portCLEAN\_UP\_TCB}}
+\index{portCLEAN\_UP\_TCB@{portCLEAN\_UP\_TCB}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portCLEAN\_UP\_TCB}{portCLEAN\_UP\_TCB}}
+{\footnotesize\ttfamily \#define port\+CLEAN\+\_\+\+UP\+\_\+\+TCB(\begin{DoxyParamCaption}\item[{}]{px\+TCB }\end{DoxyParamCaption})~( void ) px\+TCB}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a727939bcdb98501e0eba0ec8a1841e1b}\label{_free_r_t_o_s_8h_a727939bcdb98501e0eba0ec8a1841e1b}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS@{portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS}}
+\index{portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS@{portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS}{portCONFIGURE\_TIMER\_FOR\_RUN\_TIME\_STATS}}
+{\footnotesize\ttfamily \#define port\+CONFIGURE\+\_\+\+TIMER\+\_\+\+FOR\+\_\+\+RUN\+\_\+\+TIME\+\_\+\+STATS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4088d4f41bae06c9e871b918888ce7e6}\label{_free_r_t_o_s_8h_a4088d4f41bae06c9e871b918888ce7e6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portCRITICAL\_NESTING\_IN\_TCB@{portCRITICAL\_NESTING\_IN\_TCB}}
+\index{portCRITICAL\_NESTING\_IN\_TCB@{portCRITICAL\_NESTING\_IN\_TCB}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portCRITICAL\_NESTING\_IN\_TCB}{portCRITICAL\_NESTING\_IN\_TCB}}
+{\footnotesize\ttfamily \#define port\+CRITICAL\+\_\+\+NESTING\+\_\+\+IN\+\_\+\+TCB~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a53bae25f223b7156dce0fc6e6b1b2295}\label{_free_r_t_o_s_8h_a53bae25f223b7156dce0fc6e6b1b2295}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portPOINTER\_SIZE\_TYPE@{portPOINTER\_SIZE\_TYPE}}
+\index{portPOINTER\_SIZE\_TYPE@{portPOINTER\_SIZE\_TYPE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portPOINTER\_SIZE\_TYPE}{portPOINTER\_SIZE\_TYPE}}
+{\footnotesize\ttfamily \#define port\+POINTER\+\_\+\+SIZE\+\_\+\+TYPE~uint32\+\_\+t}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a712f8cbd5ce7b049ef6a92dbb0da0215}\label{_free_r_t_o_s_8h_a712f8cbd5ce7b049ef6a92dbb0da0215}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portPRE\_TASK\_DELETE\_HOOK@{portPRE\_TASK\_DELETE\_HOOK}}
+\index{portPRE\_TASK\_DELETE\_HOOK@{portPRE\_TASK\_DELETE\_HOOK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portPRE\_TASK\_DELETE\_HOOK}{portPRE\_TASK\_DELETE\_HOOK}}
+{\footnotesize\ttfamily \#define port\+PRE\+\_\+\+TASK\+\_\+\+DELETE\+\_\+\+HOOK(\begin{DoxyParamCaption}\item[{}]{pv\+Task\+To\+Delete,  }\item[{}]{px\+Yield\+Pending }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a27b7e11718b2ec5b5217e60f3b9e8aec}\label{_free_r_t_o_s_8h_a27b7e11718b2ec5b5217e60f3b9e8aec}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portPRIVILEGE\_BIT@{portPRIVILEGE\_BIT}}
+\index{portPRIVILEGE\_BIT@{portPRIVILEGE\_BIT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portPRIVILEGE\_BIT}{portPRIVILEGE\_BIT}}
+{\footnotesize\ttfamily \#define port\+PRIVILEGE\+\_\+\+BIT~( ( \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ) 0x00 )}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aca0e7403a160318f5c216fc40c95e294}\label{_free_r_t_o_s_8h_aca0e7403a160318f5c216fc40c95e294}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portSETUP\_TCB@{portSETUP\_TCB}}
+\index{portSETUP\_TCB@{portSETUP\_TCB}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portSETUP\_TCB}{portSETUP\_TCB}}
+{\footnotesize\ttfamily \#define port\+SETUP\+\_\+\+TCB(\begin{DoxyParamCaption}\item[{}]{px\+TCB }\end{DoxyParamCaption})~( void ) px\+TCB}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a401e0f8194560d5f27f5844ba82009b5}\label{_free_r_t_o_s_8h_a401e0f8194560d5f27f5844ba82009b5}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTASK\_CALLS\_SECURE\_FUNCTIONS@{portTASK\_CALLS\_SECURE\_FUNCTIONS}}
+\index{portTASK\_CALLS\_SECURE\_FUNCTIONS@{portTASK\_CALLS\_SECURE\_FUNCTIONS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTASK\_CALLS\_SECURE\_FUNCTIONS}{portTASK\_CALLS\_SECURE\_FUNCTIONS}}
+{\footnotesize\ttfamily \#define port\+TASK\+\_\+\+CALLS\+\_\+\+SECURE\+\_\+\+FUNCTIONS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad39396f0acc31310827fbbaf28623d58}\label{_free_r_t_o_s_8h_ad39396f0acc31310827fbbaf28623d58}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTASK\_USES\_FLOATING\_POINT@{portTASK\_USES\_FLOATING\_POINT}}
+\index{portTASK\_USES\_FLOATING\_POINT@{portTASK\_USES\_FLOATING\_POINT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTASK\_USES\_FLOATING\_POINT}{portTASK\_USES\_FLOATING\_POINT}}
+{\footnotesize\ttfamily \#define port\+TASK\+\_\+\+USES\+\_\+\+FLOATING\+\_\+\+POINT(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8689cad2afb0c5f65d866e2c356378bf}\label{_free_r_t_o_s_8h_a8689cad2afb0c5f65d866e2c356378bf}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTICK\_RATE\_MS@{portTICK\_RATE\_MS}}
+\index{portTICK\_RATE\_MS@{portTICK\_RATE\_MS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTICK\_RATE\_MS}{portTICK\_RATE\_MS}}
+{\footnotesize\ttfamily \#define port\+TICK\+\_\+\+RATE\+\_\+\+MS~\mbox{\hyperlink{portmacro_8h_a554d9322ce7f698a86a22b21234bd8cd}{port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a506f401396abd44a8dbe31edac713f8b}\label{_free_r_t_o_s_8h_a506f401396abd44a8dbe31edac713f8b}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR@{portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR}}
+\index{portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR@{portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR}{portTICK\_TYPE\_CLEAR\_INTERRUPT\_MASK\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define port\+TICK\+\_\+\+TYPE\+\_\+\+CLEAR\+\_\+\+INTERRUPT\+\_\+\+MASK\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~( void ) x}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a5ada85b405891061cad280c1e35213ee}\label{_free_r_t_o_s_8h_a5ada85b405891061cad280c1e35213ee}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTICK\_TYPE\_ENTER\_CRITICAL@{portTICK\_TYPE\_ENTER\_CRITICAL}}
+\index{portTICK\_TYPE\_ENTER\_CRITICAL@{portTICK\_TYPE\_ENTER\_CRITICAL}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTICK\_TYPE\_ENTER\_CRITICAL}{portTICK\_TYPE\_ENTER\_CRITICAL}}
+{\footnotesize\ttfamily \#define port\+TICK\+\_\+\+TYPE\+\_\+\+ENTER\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3a24fff82b123ddc7cf8195a466733dd}\label{_free_r_t_o_s_8h_a3a24fff82b123ddc7cf8195a466733dd}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTICK\_TYPE\_EXIT\_CRITICAL@{portTICK\_TYPE\_EXIT\_CRITICAL}}
+\index{portTICK\_TYPE\_EXIT\_CRITICAL@{portTICK\_TYPE\_EXIT\_CRITICAL}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTICK\_TYPE\_EXIT\_CRITICAL}{portTICK\_TYPE\_EXIT\_CRITICAL}}
+{\footnotesize\ttfamily \#define port\+TICK\+\_\+\+TYPE\+\_\+\+EXIT\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a7b53d0f5d4ae09f599f92fb5cd546e6b}\label{_free_r_t_o_s_8h_a7b53d0f5d4ae09f599f92fb5cd546e6b}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR@{portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR}}
+\index{portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR@{portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR}{portTICK\_TYPE\_SET\_INTERRUPT\_MASK\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define port\+TICK\+\_\+\+TYPE\+\_\+\+SET\+\_\+\+INTERRUPT\+\_\+\+MASK\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~0}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a324d7087026e1e9dfe6b7567d5bf63c8}\label{_free_r_t_o_s_8h_a324d7087026e1e9dfe6b7567d5bf63c8}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portTickType@{portTickType}}
+\index{portTickType@{portTickType}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portTickType}{portTickType}}
+{\footnotesize\ttfamily \#define port\+Tick\+Type~\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af4484fc07631a16e45ac5f29a3f0556e}\label{_free_r_t_o_s_8h_af4484fc07631a16e45ac5f29a3f0556e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!portYIELD\_WITHIN\_API@{portYIELD\_WITHIN\_API}}
+\index{portYIELD\_WITHIN\_API@{portYIELD\_WITHIN\_API}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{portYIELD\_WITHIN\_API}{portYIELD\_WITHIN\_API}}
+{\footnotesize\ttfamily \#define port\+YIELD\+\_\+\+WITHIN\+\_\+\+API~\mbox{\hyperlink{portmacro_8h_ae1ff06193615f5130b5a97dc9e708fc7}{port\+YIELD}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a0da0e4db75906783854965b3cb9db214}\label{_free_r_t_o_s_8h_a0da0e4db75906783854965b3cb9db214}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!tmrTIMER\_CALLBACK@{tmrTIMER\_CALLBACK}}
+\index{tmrTIMER\_CALLBACK@{tmrTIMER\_CALLBACK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{tmrTIMER\_CALLBACK}{tmrTIMER\_CALLBACK}}
+{\footnotesize\ttfamily \#define tmr\+TIMER\+\_\+\+CALLBACK~\mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a186c66f73c470500e556ec0f2fd3994f}\label{_free_r_t_o_s_8h_a186c66f73c470500e556ec0f2fd3994f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceBLOCKING\_ON\_QUEUE\_PEEK@{traceBLOCKING\_ON\_QUEUE\_PEEK}}
+\index{traceBLOCKING\_ON\_QUEUE\_PEEK@{traceBLOCKING\_ON\_QUEUE\_PEEK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceBLOCKING\_ON\_QUEUE\_PEEK}{traceBLOCKING\_ON\_QUEUE\_PEEK}}
+{\footnotesize\ttfamily \#define trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+PEEK(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a657997eddb8c89bef7157e74bac003e2}\label{_free_r_t_o_s_8h_a657997eddb8c89bef7157e74bac003e2}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceBLOCKING\_ON\_QUEUE\_RECEIVE@{traceBLOCKING\_ON\_QUEUE\_RECEIVE}}
+\index{traceBLOCKING\_ON\_QUEUE\_RECEIVE@{traceBLOCKING\_ON\_QUEUE\_RECEIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceBLOCKING\_ON\_QUEUE\_RECEIVE}{traceBLOCKING\_ON\_QUEUE\_RECEIVE}}
+{\footnotesize\ttfamily \#define trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+RECEIVE(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9484f4523e4bec2ab2dc233f2556c3c5}\label{_free_r_t_o_s_8h_a9484f4523e4bec2ab2dc233f2556c3c5}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceBLOCKING\_ON\_QUEUE\_SEND@{traceBLOCKING\_ON\_QUEUE\_SEND}}
+\index{traceBLOCKING\_ON\_QUEUE\_SEND@{traceBLOCKING\_ON\_QUEUE\_SEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceBLOCKING\_ON\_QUEUE\_SEND}{traceBLOCKING\_ON\_QUEUE\_SEND}}
+{\footnotesize\ttfamily \#define trace\+BLOCKING\+\_\+\+ON\+\_\+\+QUEUE\+\_\+\+SEND(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a80419264672cb0ddd2b865048483b537}\label{_free_r_t_o_s_8h_a80419264672cb0ddd2b865048483b537}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE@{traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE}}
+\index{traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE@{traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE}{traceBLOCKING\_ON\_STREAM\_BUFFER\_RECEIVE}}
+{\footnotesize\ttfamily \#define trace\+BLOCKING\+\_\+\+ON\+\_\+\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a5788bf0db92eda90675aa5f3caa42eeb}\label{_free_r_t_o_s_8h_a5788bf0db92eda90675aa5f3caa42eeb}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND@{traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND}}
+\index{traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND@{traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND}{traceBLOCKING\_ON\_STREAM\_BUFFER\_SEND}}
+{\footnotesize\ttfamily \#define trace\+BLOCKING\+\_\+\+ON\+\_\+\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3803714a43519a6bfc93dadfa255bf14}\label{_free_r_t_o_s_8h_a3803714a43519a6bfc93dadfa255bf14}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceCREATE\_COUNTING\_SEMAPHORE@{traceCREATE\_COUNTING\_SEMAPHORE}}
+\index{traceCREATE\_COUNTING\_SEMAPHORE@{traceCREATE\_COUNTING\_SEMAPHORE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceCREATE\_COUNTING\_SEMAPHORE}{traceCREATE\_COUNTING\_SEMAPHORE}}
+{\footnotesize\ttfamily \#define trace\+CREATE\+\_\+\+COUNTING\+\_\+\+SEMAPHORE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a656fccb9717146cc4036ff8701eeb67e}\label{_free_r_t_o_s_8h_a656fccb9717146cc4036ff8701eeb67e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceCREATE\_COUNTING\_SEMAPHORE\_FAILED@{traceCREATE\_COUNTING\_SEMAPHORE\_FAILED}}
+\index{traceCREATE\_COUNTING\_SEMAPHORE\_FAILED@{traceCREATE\_COUNTING\_SEMAPHORE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceCREATE\_COUNTING\_SEMAPHORE\_FAILED}{traceCREATE\_COUNTING\_SEMAPHORE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+CREATE\+\_\+\+COUNTING\+\_\+\+SEMAPHORE\+\_\+\+FAILED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2eff67edaee170b33b549966d8b99b47}\label{_free_r_t_o_s_8h_a2eff67edaee170b33b549966d8b99b47}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceCREATE\_MUTEX@{traceCREATE\_MUTEX}}
+\index{traceCREATE\_MUTEX@{traceCREATE\_MUTEX}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceCREATE\_MUTEX}{traceCREATE\_MUTEX}}
+{\footnotesize\ttfamily \#define trace\+CREATE\+\_\+\+MUTEX(\begin{DoxyParamCaption}\item[{}]{px\+New\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aa01e89d6df9ac9c4506f8918cc809ddf}\label{_free_r_t_o_s_8h_aa01e89d6df9ac9c4506f8918cc809ddf}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceCREATE\_MUTEX\_FAILED@{traceCREATE\_MUTEX\_FAILED}}
+\index{traceCREATE\_MUTEX\_FAILED@{traceCREATE\_MUTEX\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceCREATE\_MUTEX\_FAILED}{traceCREATE\_MUTEX\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+CREATE\+\_\+\+MUTEX\+\_\+\+FAILED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aeb2fb62c3f25ec4d8e7a02f267f7e508}\label{_free_r_t_o_s_8h_aeb2fb62c3f25ec4d8e7a02f267f7e508}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEND@{traceEND}}
+\index{traceEND@{traceEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEND}{traceEND}}
+{\footnotesize\ttfamily \#define trace\+END(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad929200fa50e5a1ae2c5894ffeea2ef6}\label{_free_r_t_o_s_8h_ad929200fa50e5a1ae2c5894ffeea2ef6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_CLEAR\_BITS@{traceEVENT\_GROUP\_CLEAR\_BITS}}
+\index{traceEVENT\_GROUP\_CLEAR\_BITS@{traceEVENT\_GROUP\_CLEAR\_BITS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_CLEAR\_BITS}{traceEVENT\_GROUP\_CLEAR\_BITS}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+CLEAR\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Clear }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9facfdc883aa503d2891c27c5c136d84}\label{_free_r_t_o_s_8h_a9facfdc883aa503d2891c27c5c136d84}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR@{traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR}}
+\index{traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR@{traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR}{traceEVENT\_GROUP\_CLEAR\_BITS\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+CLEAR\+\_\+\+BITS\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Clear }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a0100fcbcc03e3c2f0cd7bc7071f9ab70}\label{_free_r_t_o_s_8h_a0100fcbcc03e3c2f0cd7bc7071f9ab70}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_CREATE@{traceEVENT\_GROUP\_CREATE}}
+\index{traceEVENT\_GROUP\_CREATE@{traceEVENT\_GROUP\_CREATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_CREATE}{traceEVENT\_GROUP\_CREATE}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+CREATE(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac6f6ea04ddbf43f62f1b0285622d4474}\label{_free_r_t_o_s_8h_ac6f6ea04ddbf43f62f1b0285622d4474}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_CREATE\_FAILED@{traceEVENT\_GROUP\_CREATE\_FAILED}}
+\index{traceEVENT\_GROUP\_CREATE\_FAILED@{traceEVENT\_GROUP\_CREATE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_CREATE\_FAILED}{traceEVENT\_GROUP\_CREATE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+CREATE\+\_\+\+FAILED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_abf48364a72dd38af47bf7203c06ee832}\label{_free_r_t_o_s_8h_abf48364a72dd38af47bf7203c06ee832}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_DELETE@{traceEVENT\_GROUP\_DELETE}}
+\index{traceEVENT\_GROUP\_DELETE@{traceEVENT\_GROUP\_DELETE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_DELETE}{traceEVENT\_GROUP\_DELETE}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+DELETE(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a56eb08eb12a36c99a32729a518d5b3fd}\label{_free_r_t_o_s_8h_a56eb08eb12a36c99a32729a518d5b3fd}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_SET\_BITS@{traceEVENT\_GROUP\_SET\_BITS}}
+\index{traceEVENT\_GROUP\_SET\_BITS@{traceEVENT\_GROUP\_SET\_BITS}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_SET\_BITS}{traceEVENT\_GROUP\_SET\_BITS}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+SET\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ae11a37557005c2660326e9874d5d3155}\label{_free_r_t_o_s_8h_ae11a37557005c2660326e9874d5d3155}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR@{traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR}}
+\index{traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR@{traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR}{traceEVENT\_GROUP\_SET\_BITS\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+SET\+\_\+\+BITS\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a898ead658f344a0475a9f2ed3bf8f407}\label{_free_r_t_o_s_8h_a898ead658f344a0475a9f2ed3bf8f407}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_SYNC\_BLOCK@{traceEVENT\_GROUP\_SYNC\_BLOCK}}
+\index{traceEVENT\_GROUP\_SYNC\_BLOCK@{traceEVENT\_GROUP\_SYNC\_BLOCK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_SYNC\_BLOCK}{traceEVENT\_GROUP\_SYNC\_BLOCK}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+SYNC\+\_\+\+BLOCK(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set,  }\item[{}]{ux\+Bits\+To\+Wait\+For }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af0cb50e5a1402163cd29e638c6140a2e}\label{_free_r_t_o_s_8h_af0cb50e5a1402163cd29e638c6140a2e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_SYNC\_END@{traceEVENT\_GROUP\_SYNC\_END}}
+\index{traceEVENT\_GROUP\_SYNC\_END@{traceEVENT\_GROUP\_SYNC\_END}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_SYNC\_END}{traceEVENT\_GROUP\_SYNC\_END}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+SYNC\+\_\+\+END(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set,  }\item[{}]{ux\+Bits\+To\+Wait\+For,  }\item[{}]{x\+Timeout\+Occurred }\end{DoxyParamCaption})~( void ) x\+Timeout\+Occurred}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aeb8953a9be153986d0e830acdf60445a}\label{_free_r_t_o_s_8h_aeb8953a9be153986d0e830acdf60445a}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK@{traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK}}
+\index{traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK@{traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK}{traceEVENT\_GROUP\_WAIT\_BITS\_BLOCK}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+WAIT\+\_\+\+BITS\+\_\+\+BLOCK(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Wait\+For }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad7a6b7684053a41690cac487ccf4d927}\label{_free_r_t_o_s_8h_ad7a6b7684053a41690cac487ccf4d927}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceEVENT\_GROUP\_WAIT\_BITS\_END@{traceEVENT\_GROUP\_WAIT\_BITS\_END}}
+\index{traceEVENT\_GROUP\_WAIT\_BITS\_END@{traceEVENT\_GROUP\_WAIT\_BITS\_END}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceEVENT\_GROUP\_WAIT\_BITS\_END}{traceEVENT\_GROUP\_WAIT\_BITS\_END}}
+{\footnotesize\ttfamily \#define trace\+EVENT\+\_\+\+GROUP\+\_\+\+WAIT\+\_\+\+BITS\+\_\+\+END(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Wait\+For,  }\item[{}]{x\+Timeout\+Occurred }\end{DoxyParamCaption})~( void ) x\+Timeout\+Occurred}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a941bb09090b5788f0c27d9690118eed2}\label{_free_r_t_o_s_8h_a941bb09090b5788f0c27d9690118eed2}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceFREE@{traceFREE}}
+\index{traceFREE@{traceFREE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceFREE}{traceFREE}}
+{\footnotesize\ttfamily \#define trace\+FREE(\begin{DoxyParamCaption}\item[{}]{pv\+Address,  }\item[{}]{ui\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aa42efc6b6938c6f2a5f04c7367f59b22}\label{_free_r_t_o_s_8h_aa42efc6b6938c6f2a5f04c7367f59b22}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceGIVE\_MUTEX\_RECURSIVE@{traceGIVE\_MUTEX\_RECURSIVE}}
+\index{traceGIVE\_MUTEX\_RECURSIVE@{traceGIVE\_MUTEX\_RECURSIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceGIVE\_MUTEX\_RECURSIVE}{traceGIVE\_MUTEX\_RECURSIVE}}
+{\footnotesize\ttfamily \#define trace\+GIVE\+\_\+\+MUTEX\+\_\+\+RECURSIVE(\begin{DoxyParamCaption}\item[{}]{px\+Mutex }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a6b41ab1bbdaa0eb7f8e790602ed21077}\label{_free_r_t_o_s_8h_a6b41ab1bbdaa0eb7f8e790602ed21077}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceGIVE\_MUTEX\_RECURSIVE\_FAILED@{traceGIVE\_MUTEX\_RECURSIVE\_FAILED}}
+\index{traceGIVE\_MUTEX\_RECURSIVE\_FAILED@{traceGIVE\_MUTEX\_RECURSIVE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceGIVE\_MUTEX\_RECURSIVE\_FAILED}{traceGIVE\_MUTEX\_RECURSIVE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+GIVE\+\_\+\+MUTEX\+\_\+\+RECURSIVE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Mutex }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a74e013fe2bad2c2d7db71f4b17bad698}\label{_free_r_t_o_s_8h_a74e013fe2bad2c2d7db71f4b17bad698}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceINCREASE\_TICK\_COUNT@{traceINCREASE\_TICK\_COUNT}}
+\index{traceINCREASE\_TICK\_COUNT@{traceINCREASE\_TICK\_COUNT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceINCREASE\_TICK\_COUNT}{traceINCREASE\_TICK\_COUNT}}
+{\footnotesize\ttfamily \#define trace\+INCREASE\+\_\+\+TICK\+\_\+\+COUNT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_acc1364ea0a06d6395232d57708e4987c}\label{_free_r_t_o_s_8h_acc1364ea0a06d6395232d57708e4987c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceLOW\_POWER\_IDLE\_BEGIN@{traceLOW\_POWER\_IDLE\_BEGIN}}
+\index{traceLOW\_POWER\_IDLE\_BEGIN@{traceLOW\_POWER\_IDLE\_BEGIN}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceLOW\_POWER\_IDLE\_BEGIN}{traceLOW\_POWER\_IDLE\_BEGIN}}
+{\footnotesize\ttfamily \#define trace\+LOW\+\_\+\+POWER\+\_\+\+IDLE\+\_\+\+BEGIN(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aa5471ee0f56cb504d9aaba9cb3b7750e}\label{_free_r_t_o_s_8h_aa5471ee0f56cb504d9aaba9cb3b7750e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceLOW\_POWER\_IDLE\_END@{traceLOW\_POWER\_IDLE\_END}}
+\index{traceLOW\_POWER\_IDLE\_END@{traceLOW\_POWER\_IDLE\_END}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceLOW\_POWER\_IDLE\_END}{traceLOW\_POWER\_IDLE\_END}}
+{\footnotesize\ttfamily \#define trace\+LOW\+\_\+\+POWER\+\_\+\+IDLE\+\_\+\+END(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af326afe922ffa6da245c98dc227a3293}\label{_free_r_t_o_s_8h_af326afe922ffa6da245c98dc227a3293}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceMALLOC@{traceMALLOC}}
+\index{traceMALLOC@{traceMALLOC}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceMALLOC}{traceMALLOC}}
+{\footnotesize\ttfamily \#define trace\+MALLOC(\begin{DoxyParamCaption}\item[{}]{pv\+Address,  }\item[{}]{ui\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8c5050de556ff7e7cdbc7de55f46709d}\label{_free_r_t_o_s_8h_a8c5050de556ff7e7cdbc7de55f46709d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceMOVED\_TASK\_TO\_READY\_STATE@{traceMOVED\_TASK\_TO\_READY\_STATE}}
+\index{traceMOVED\_TASK\_TO\_READY\_STATE@{traceMOVED\_TASK\_TO\_READY\_STATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceMOVED\_TASK\_TO\_READY\_STATE}{traceMOVED\_TASK\_TO\_READY\_STATE}}
+{\footnotesize\ttfamily \#define trace\+MOVED\+\_\+\+TASK\+\_\+\+TO\+\_\+\+READY\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{px\+TCB }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ab9c72706acbdbcec75ffb2cdaca45b24}\label{_free_r_t_o_s_8h_ab9c72706acbdbcec75ffb2cdaca45b24}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!tracePEND\_FUNC\_CALL@{tracePEND\_FUNC\_CALL}}
+\index{tracePEND\_FUNC\_CALL@{tracePEND\_FUNC\_CALL}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{tracePEND\_FUNC\_CALL}{tracePEND\_FUNC\_CALL}}
+{\footnotesize\ttfamily \#define trace\+PEND\+\_\+\+FUNC\+\_\+\+CALL(\begin{DoxyParamCaption}\item[{}]{x\+Function\+To\+Pend,  }\item[{}]{pv\+Parameter1,  }\item[{}]{ul\+Parameter2,  }\item[{}]{ret }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9b864660c6d826e802d9e3f94548cd7f}\label{_free_r_t_o_s_8h_a9b864660c6d826e802d9e3f94548cd7f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!tracePEND\_FUNC\_CALL\_FROM\_ISR@{tracePEND\_FUNC\_CALL\_FROM\_ISR}}
+\index{tracePEND\_FUNC\_CALL\_FROM\_ISR@{tracePEND\_FUNC\_CALL\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{tracePEND\_FUNC\_CALL\_FROM\_ISR}{tracePEND\_FUNC\_CALL\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+PEND\+\_\+\+FUNC\+\_\+\+CALL\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Function\+To\+Pend,  }\item[{}]{pv\+Parameter1,  }\item[{}]{ul\+Parameter2,  }\item[{}]{ret }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8d70c64cfe141df1bbe25b624405ec37}\label{_free_r_t_o_s_8h_a8d70c64cfe141df1bbe25b624405ec37}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!tracePOST\_MOVED\_TASK\_TO\_READY\_STATE@{tracePOST\_MOVED\_TASK\_TO\_READY\_STATE}}
+\index{tracePOST\_MOVED\_TASK\_TO\_READY\_STATE@{tracePOST\_MOVED\_TASK\_TO\_READY\_STATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{tracePOST\_MOVED\_TASK\_TO\_READY\_STATE}{tracePOST\_MOVED\_TASK\_TO\_READY\_STATE}}
+{\footnotesize\ttfamily \#define trace\+POST\+\_\+\+MOVED\+\_\+\+TASK\+\_\+\+TO\+\_\+\+READY\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{px\+TCB }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a62dcc27e040063ec72e174c985740f96}\label{_free_r_t_o_s_8h_a62dcc27e040063ec72e174c985740f96}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_CREATE@{traceQUEUE\_CREATE}}
+\index{traceQUEUE\_CREATE@{traceQUEUE\_CREATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_CREATE}{traceQUEUE\_CREATE}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+CREATE(\begin{DoxyParamCaption}\item[{}]{px\+New\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3a0d6a2e556a9bb303cbcb2a23700118}\label{_free_r_t_o_s_8h_a3a0d6a2e556a9bb303cbcb2a23700118}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_CREATE\_FAILED@{traceQUEUE\_CREATE\_FAILED}}
+\index{traceQUEUE\_CREATE\_FAILED@{traceQUEUE\_CREATE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_CREATE\_FAILED}{traceQUEUE\_CREATE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+CREATE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{uc\+Queue\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aae8ebd9c82ecd564953a37bb26a5a1e5}\label{_free_r_t_o_s_8h_aae8ebd9c82ecd564953a37bb26a5a1e5}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_DELETE@{traceQUEUE\_DELETE}}
+\index{traceQUEUE\_DELETE@{traceQUEUE\_DELETE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_DELETE}{traceQUEUE\_DELETE}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+DELETE(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_acd24b909ecdd18ed844cdede3027e534}\label{_free_r_t_o_s_8h_acd24b909ecdd18ed844cdede3027e534}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_PEEK@{traceQUEUE\_PEEK}}
+\index{traceQUEUE\_PEEK@{traceQUEUE\_PEEK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_PEEK}{traceQUEUE\_PEEK}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+PEEK(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_afa4b34739a92eb44f09947a669c98fb7}\label{_free_r_t_o_s_8h_afa4b34739a92eb44f09947a669c98fb7}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_PEEK\_FAILED@{traceQUEUE\_PEEK\_FAILED}}
+\index{traceQUEUE\_PEEK\_FAILED@{traceQUEUE\_PEEK\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_PEEK\_FAILED}{traceQUEUE\_PEEK\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3e2a14b61c26f9690deb26d76cc801ee}\label{_free_r_t_o_s_8h_a3e2a14b61c26f9690deb26d76cc801ee}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_PEEK\_FROM\_ISR@{traceQUEUE\_PEEK\_FROM\_ISR}}
+\index{traceQUEUE\_PEEK\_FROM\_ISR@{traceQUEUE\_PEEK\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_PEEK\_FROM\_ISR}{traceQUEUE\_PEEK\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a72ea0f09cc6a38363f2b5217aab27fd3}\label{_free_r_t_o_s_8h_a72ea0f09cc6a38363f2b5217aab27fd3}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_PEEK\_FROM\_ISR\_FAILED@{traceQUEUE\_PEEK\_FROM\_ISR\_FAILED}}
+\index{traceQUEUE\_PEEK\_FROM\_ISR\_FAILED@{traceQUEUE\_PEEK\_FROM\_ISR\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_PEEK\_FROM\_ISR\_FAILED}{traceQUEUE\_PEEK\_FROM\_ISR\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+PEEK\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a82b39aa722910a5e43793e882ded0faf}\label{_free_r_t_o_s_8h_a82b39aa722910a5e43793e882ded0faf}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_RECEIVE@{traceQUEUE\_RECEIVE}}
+\index{traceQUEUE\_RECEIVE@{traceQUEUE\_RECEIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_RECEIVE}{traceQUEUE\_RECEIVE}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+RECEIVE(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a0dbf5969c9d984920177a19d5b402e4e}\label{_free_r_t_o_s_8h_a0dbf5969c9d984920177a19d5b402e4e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_RECEIVE\_FAILED@{traceQUEUE\_RECEIVE\_FAILED}}
+\index{traceQUEUE\_RECEIVE\_FAILED@{traceQUEUE\_RECEIVE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_RECEIVE\_FAILED}{traceQUEUE\_RECEIVE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ace59eac86a08f533c19edf91594961c6}\label{_free_r_t_o_s_8h_ace59eac86a08f533c19edf91594961c6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_RECEIVE\_FROM\_ISR@{traceQUEUE\_RECEIVE\_FROM\_ISR}}
+\index{traceQUEUE\_RECEIVE\_FROM\_ISR@{traceQUEUE\_RECEIVE\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_RECEIVE\_FROM\_ISR}{traceQUEUE\_RECEIVE\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a1f1f4a1fea93a33050fa6c27c30752d5}\label{_free_r_t_o_s_8h_a1f1f4a1fea93a33050fa6c27c30752d5}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED@{traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED}}
+\index{traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED@{traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED}{traceQUEUE\_RECEIVE\_FROM\_ISR\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2f326b01ad82a3ab14cc9fc4b3abd6b8}\label{_free_r_t_o_s_8h_a2f326b01ad82a3ab14cc9fc4b3abd6b8}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_REGISTRY\_ADD@{traceQUEUE\_REGISTRY\_ADD}}
+\index{traceQUEUE\_REGISTRY\_ADD@{traceQUEUE\_REGISTRY\_ADD}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_REGISTRY\_ADD}{traceQUEUE\_REGISTRY\_ADD}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+REGISTRY\+\_\+\+ADD(\begin{DoxyParamCaption}\item[{}]{x\+Queue,  }\item[{}]{pc\+Queue\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a5cfc9dd899c89966172cb329740f551a}\label{_free_r_t_o_s_8h_a5cfc9dd899c89966172cb329740f551a}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_SEND@{traceQUEUE\_SEND}}
+\index{traceQUEUE\_SEND@{traceQUEUE\_SEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_SEND}{traceQUEUE\_SEND}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+SEND(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ab4896b8d7e443200918a6e4a7f64585d}\label{_free_r_t_o_s_8h_ab4896b8d7e443200918a6e4a7f64585d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_SEND\_FAILED@{traceQUEUE\_SEND\_FAILED}}
+\index{traceQUEUE\_SEND\_FAILED@{traceQUEUE\_SEND\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_SEND\_FAILED}{traceQUEUE\_SEND\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+SEND\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a590bfae4dcb6be8a4b3daadf09a1b587}\label{_free_r_t_o_s_8h_a590bfae4dcb6be8a4b3daadf09a1b587}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_SEND\_FROM\_ISR@{traceQUEUE\_SEND\_FROM\_ISR}}
+\index{traceQUEUE\_SEND\_FROM\_ISR@{traceQUEUE\_SEND\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_SEND\_FROM\_ISR}{traceQUEUE\_SEND\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a71fa002ce8a199d38e697d94c613649f}\label{_free_r_t_o_s_8h_a71fa002ce8a199d38e697d94c613649f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceQUEUE\_SEND\_FROM\_ISR\_FAILED@{traceQUEUE\_SEND\_FROM\_ISR\_FAILED}}
+\index{traceQUEUE\_SEND\_FROM\_ISR\_FAILED@{traceQUEUE\_SEND\_FROM\_ISR\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceQUEUE\_SEND\_FROM\_ISR\_FAILED}{traceQUEUE\_SEND\_FROM\_ISR\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+QUEUE\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac0d88fb803a85b6afd2a2c20de0ddcd0}\label{_free_r_t_o_s_8h_ac0d88fb803a85b6afd2a2c20de0ddcd0}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTART@{traceSTART}}
+\index{traceSTART@{traceSTART}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTART}{traceSTART}}
+{\footnotesize\ttfamily \#define trace\+START(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3666750a606dd4323b011db1b146e7b9}\label{_free_r_t_o_s_8h_a3666750a606dd4323b011db1b146e7b9}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_CREATE@{traceSTREAM\_BUFFER\_CREATE}}
+\index{traceSTREAM\_BUFFER\_CREATE@{traceSTREAM\_BUFFER\_CREATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_CREATE}{traceSTREAM\_BUFFER\_CREATE}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE(\begin{DoxyParamCaption}\item[{}]{px\+Stream\+Buffer,  }\item[{}]{x\+Is\+Message\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2bc57023bb903e717940ac8aa13a3016}\label{_free_r_t_o_s_8h_a2bc57023bb903e717940ac8aa13a3016}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_CREATE\_FAILED@{traceSTREAM\_BUFFER\_CREATE\_FAILED}}
+\index{traceSTREAM\_BUFFER\_CREATE\_FAILED@{traceSTREAM\_BUFFER\_CREATE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_CREATE\_FAILED}{traceSTREAM\_BUFFER\_CREATE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{x\+Is\+Message\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a8437a62aa94288842b56a2d63786c118}\label{_free_r_t_o_s_8h_a8437a62aa94288842b56a2d63786c118}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED@{traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED}}
+\index{traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED@{traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED}{traceSTREAM\_BUFFER\_CREATE\_STATIC\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+CREATE\+\_\+\+STATIC\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{x\+Return,  }\item[{}]{x\+Is\+Message\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ae919bd00b51b396ff237bc8ec3b6b439}\label{_free_r_t_o_s_8h_ae919bd00b51b396ff237bc8ec3b6b439}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_DELETE@{traceSTREAM\_BUFFER\_DELETE}}
+\index{traceSTREAM\_BUFFER\_DELETE@{traceSTREAM\_BUFFER\_DELETE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_DELETE}{traceSTREAM\_BUFFER\_DELETE}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+DELETE(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a6ecefd3df93cb11986cca1b41f215138}\label{_free_r_t_o_s_8h_a6ecefd3df93cb11986cca1b41f215138}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_RECEIVE@{traceSTREAM\_BUFFER\_RECEIVE}}
+\index{traceSTREAM\_BUFFER\_RECEIVE@{traceSTREAM\_BUFFER\_RECEIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_RECEIVE}{traceSTREAM\_BUFFER\_RECEIVE}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer,  }\item[{}]{x\+Received\+Length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a57e5d8ccc74dd8e04bd3a8534de79bb4}\label{_free_r_t_o_s_8h_a57e5d8ccc74dd8e04bd3a8534de79bb4}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_RECEIVE\_FAILED@{traceSTREAM\_BUFFER\_RECEIVE\_FAILED}}
+\index{traceSTREAM\_BUFFER\_RECEIVE\_FAILED@{traceSTREAM\_BUFFER\_RECEIVE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_RECEIVE\_FAILED}{traceSTREAM\_BUFFER\_RECEIVE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a30fe3a49605cf2c232d190e4f6565a0d}\label{_free_r_t_o_s_8h_a30fe3a49605cf2c232d190e4f6565a0d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR@{traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR}}
+\index{traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR@{traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR}{traceSTREAM\_BUFFER\_RECEIVE\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RECEIVE\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer,  }\item[{}]{x\+Received\+Length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2ef92acbaa66efdb85be7f8256fe91ba}\label{_free_r_t_o_s_8h_a2ef92acbaa66efdb85be7f8256fe91ba}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_RESET@{traceSTREAM\_BUFFER\_RESET}}
+\index{traceSTREAM\_BUFFER\_RESET@{traceSTREAM\_BUFFER\_RESET}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_RESET}{traceSTREAM\_BUFFER\_RESET}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+RESET(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4f4fc6954ae7c5b8a4819f70afd37c1f}\label{_free_r_t_o_s_8h_a4f4fc6954ae7c5b8a4819f70afd37c1f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_SEND@{traceSTREAM\_BUFFER\_SEND}}
+\index{traceSTREAM\_BUFFER\_SEND@{traceSTREAM\_BUFFER\_SEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_SEND}{traceSTREAM\_BUFFER\_SEND}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer,  }\item[{}]{x\+Bytes\+Sent }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a527e8f19c9b9b339985c2b8e47bff02a}\label{_free_r_t_o_s_8h_a527e8f19c9b9b339985c2b8e47bff02a}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_SEND\_FAILED@{traceSTREAM\_BUFFER\_SEND\_FAILED}}
+\index{traceSTREAM\_BUFFER\_SEND\_FAILED@{traceSTREAM\_BUFFER\_SEND\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_SEND\_FAILED}{traceSTREAM\_BUFFER\_SEND\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ab79a8d87f1c865b1a76af02932b3dda6}\label{_free_r_t_o_s_8h_ab79a8d87f1c865b1a76af02932b3dda6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceSTREAM\_BUFFER\_SEND\_FROM\_ISR@{traceSTREAM\_BUFFER\_SEND\_FROM\_ISR}}
+\index{traceSTREAM\_BUFFER\_SEND\_FROM\_ISR@{traceSTREAM\_BUFFER\_SEND\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceSTREAM\_BUFFER\_SEND\_FROM\_ISR}{traceSTREAM\_BUFFER\_SEND\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+STREAM\+\_\+\+BUFFER\+\_\+\+SEND\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Stream\+Buffer,  }\item[{}]{x\+Bytes\+Sent }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a088b831fdffacf61abf9c7312a2386ad}\label{_free_r_t_o_s_8h_a088b831fdffacf61abf9c7312a2386ad}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTAKE\_MUTEX\_RECURSIVE@{traceTAKE\_MUTEX\_RECURSIVE}}
+\index{traceTAKE\_MUTEX\_RECURSIVE@{traceTAKE\_MUTEX\_RECURSIVE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTAKE\_MUTEX\_RECURSIVE}{traceTAKE\_MUTEX\_RECURSIVE}}
+{\footnotesize\ttfamily \#define trace\+TAKE\+\_\+\+MUTEX\+\_\+\+RECURSIVE(\begin{DoxyParamCaption}\item[{}]{px\+Mutex }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ad2d983d63b7d1c3d9208b14d3b76df53}\label{_free_r_t_o_s_8h_ad2d983d63b7d1c3d9208b14d3b76df53}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTAKE\_MUTEX\_RECURSIVE\_FAILED@{traceTAKE\_MUTEX\_RECURSIVE\_FAILED}}
+\index{traceTAKE\_MUTEX\_RECURSIVE\_FAILED@{traceTAKE\_MUTEX\_RECURSIVE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTAKE\_MUTEX\_RECURSIVE\_FAILED}{traceTAKE\_MUTEX\_RECURSIVE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+TAKE\+\_\+\+MUTEX\+\_\+\+RECURSIVE\+\_\+\+FAILED(\begin{DoxyParamCaption}\item[{}]{px\+Mutex }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a453dc678632734505187c453da598172}\label{_free_r_t_o_s_8h_a453dc678632734505187c453da598172}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_CREATE@{traceTASK\_CREATE}}
+\index{traceTASK\_CREATE@{traceTASK\_CREATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_CREATE}{traceTASK\_CREATE}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+CREATE(\begin{DoxyParamCaption}\item[{}]{px\+New\+TCB }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a82a6a366facc1fb8b0209bfe2e5ce546}\label{_free_r_t_o_s_8h_a82a6a366facc1fb8b0209bfe2e5ce546}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_CREATE\_FAILED@{traceTASK\_CREATE\_FAILED}}
+\index{traceTASK\_CREATE\_FAILED@{traceTASK\_CREATE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_CREATE\_FAILED}{traceTASK\_CREATE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+CREATE\+\_\+\+FAILED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_adb0c71969f4eed7a92f0f398dffb443d}\label{_free_r_t_o_s_8h_adb0c71969f4eed7a92f0f398dffb443d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_DELAY@{traceTASK\_DELAY}}
+\index{traceTASK\_DELAY@{traceTASK\_DELAY}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_DELAY}{traceTASK\_DELAY}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+DELAY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac7bba9e806376061522f5cb2eef261c4}\label{_free_r_t_o_s_8h_ac7bba9e806376061522f5cb2eef261c4}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_DELAY\_UNTIL@{traceTASK\_DELAY\_UNTIL}}
+\index{traceTASK\_DELAY\_UNTIL@{traceTASK\_DELAY\_UNTIL}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_DELAY\_UNTIL}{traceTASK\_DELAY\_UNTIL}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+DELAY\+\_\+\+UNTIL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af3f9bb780241cc663247908a22defa65}\label{_free_r_t_o_s_8h_af3f9bb780241cc663247908a22defa65}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_DELETE@{traceTASK\_DELETE}}
+\index{traceTASK\_DELETE@{traceTASK\_DELETE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_DELETE}{traceTASK\_DELETE}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+DELETE(\begin{DoxyParamCaption}\item[{}]{px\+Task\+To\+Delete }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aeea8ada76999a73fd5ffcacd267d336d}\label{_free_r_t_o_s_8h_aeea8ada76999a73fd5ffcacd267d336d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_INCREMENT\_TICK@{traceTASK\_INCREMENT\_TICK}}
+\index{traceTASK\_INCREMENT\_TICK@{traceTASK\_INCREMENT\_TICK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_INCREMENT\_TICK}{traceTASK\_INCREMENT\_TICK}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+INCREMENT\+\_\+\+TICK(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{tasks_8c_a98b55fbbd701ac74b2b6ab1ffc8d5a65}{x\+Tick\+Count}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a0047b9beb807b3c8b31d485532f7b077}\label{_free_r_t_o_s_8h_a0047b9beb807b3c8b31d485532f7b077}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY@{traceTASK\_NOTIFY}}
+\index{traceTASK\_NOTIFY@{traceTASK\_NOTIFY}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY}{traceTASK\_NOTIFY}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aad4d3ae692f3500f4644070fe971b646}\label{_free_r_t_o_s_8h_aad4d3ae692f3500f4644070fe971b646}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_FROM\_ISR@{traceTASK\_NOTIFY\_FROM\_ISR}}
+\index{traceTASK\_NOTIFY\_FROM\_ISR@{traceTASK\_NOTIFY\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_FROM\_ISR}{traceTASK\_NOTIFY\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a99d95526db9937c96ba110f46bb59ee5}\label{_free_r_t_o_s_8h_a99d95526db9937c96ba110f46bb59ee5}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_GIVE\_FROM\_ISR@{traceTASK\_NOTIFY\_GIVE\_FROM\_ISR}}
+\index{traceTASK\_NOTIFY\_GIVE\_FROM\_ISR@{traceTASK\_NOTIFY\_GIVE\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_GIVE\_FROM\_ISR}{traceTASK\_NOTIFY\_GIVE\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+GIVE\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ab60d0210392d54bc0539de67c8bb3bf6}\label{_free_r_t_o_s_8h_ab60d0210392d54bc0539de67c8bb3bf6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_TAKE@{traceTASK\_NOTIFY\_TAKE}}
+\index{traceTASK\_NOTIFY\_TAKE@{traceTASK\_NOTIFY\_TAKE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_TAKE}{traceTASK\_NOTIFY\_TAKE}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+TAKE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af6c636f9baf2eb594ffb0b6689d1b729}\label{_free_r_t_o_s_8h_af6c636f9baf2eb594ffb0b6689d1b729}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_TAKE\_BLOCK@{traceTASK\_NOTIFY\_TAKE\_BLOCK}}
+\index{traceTASK\_NOTIFY\_TAKE\_BLOCK@{traceTASK\_NOTIFY\_TAKE\_BLOCK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_TAKE\_BLOCK}{traceTASK\_NOTIFY\_TAKE\_BLOCK}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+TAKE\+\_\+\+BLOCK(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a32ea7a3f22b7ef8b2ddc7b98848b8446}\label{_free_r_t_o_s_8h_a32ea7a3f22b7ef8b2ddc7b98848b8446}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_WAIT@{traceTASK\_NOTIFY\_WAIT}}
+\index{traceTASK\_NOTIFY\_WAIT@{traceTASK\_NOTIFY\_WAIT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_WAIT}{traceTASK\_NOTIFY\_WAIT}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+WAIT(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a42d4b4f2c5bac89d617c27902606019c}\label{_free_r_t_o_s_8h_a42d4b4f2c5bac89d617c27902606019c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_NOTIFY\_WAIT\_BLOCK@{traceTASK\_NOTIFY\_WAIT\_BLOCK}}
+\index{traceTASK\_NOTIFY\_WAIT\_BLOCK@{traceTASK\_NOTIFY\_WAIT\_BLOCK}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_NOTIFY\_WAIT\_BLOCK}{traceTASK\_NOTIFY\_WAIT\_BLOCK}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+NOTIFY\+\_\+\+WAIT\+\_\+\+BLOCK(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aeef741f693914ccacb456313d613c810}\label{_free_r_t_o_s_8h_aeef741f693914ccacb456313d613c810}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_PRIORITY\_DISINHERIT@{traceTASK\_PRIORITY\_DISINHERIT}}
+\index{traceTASK\_PRIORITY\_DISINHERIT@{traceTASK\_PRIORITY\_DISINHERIT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_PRIORITY\_DISINHERIT}{traceTASK\_PRIORITY\_DISINHERIT}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+PRIORITY\+\_\+\+DISINHERIT(\begin{DoxyParamCaption}\item[{}]{px\+TCBOf\+Mutex\+Holder,  }\item[{}]{ux\+Original\+Priority }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4149bb2def17cb85a356c17fa6331c79}\label{_free_r_t_o_s_8h_a4149bb2def17cb85a356c17fa6331c79}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_PRIORITY\_INHERIT@{traceTASK\_PRIORITY\_INHERIT}}
+\index{traceTASK\_PRIORITY\_INHERIT@{traceTASK\_PRIORITY\_INHERIT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_PRIORITY\_INHERIT}{traceTASK\_PRIORITY\_INHERIT}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+PRIORITY\+\_\+\+INHERIT(\begin{DoxyParamCaption}\item[{}]{px\+TCBOf\+Mutex\+Holder,  }\item[{}]{ux\+Inherited\+Priority }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_acec813ac5f0628aa108bede0cd8c329d}\label{_free_r_t_o_s_8h_acec813ac5f0628aa108bede0cd8c329d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_PRIORITY\_SET@{traceTASK\_PRIORITY\_SET}}
+\index{traceTASK\_PRIORITY\_SET@{traceTASK\_PRIORITY\_SET}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_PRIORITY\_SET}{traceTASK\_PRIORITY\_SET}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+PRIORITY\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{px\+Task,  }\item[{}]{ux\+New\+Priority }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4f21b0c170fa8675ee2dbf70141695a2}\label{_free_r_t_o_s_8h_a4f21b0c170fa8675ee2dbf70141695a2}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_RESUME@{traceTASK\_RESUME}}
+\index{traceTASK\_RESUME@{traceTASK\_RESUME}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_RESUME}{traceTASK\_RESUME}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+RESUME(\begin{DoxyParamCaption}\item[{}]{px\+Task\+To\+Resume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a7b4afafa82e9c80d0dc43cc22108d248}\label{_free_r_t_o_s_8h_a7b4afafa82e9c80d0dc43cc22108d248}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_RESUME\_FROM\_ISR@{traceTASK\_RESUME\_FROM\_ISR}}
+\index{traceTASK\_RESUME\_FROM\_ISR@{traceTASK\_RESUME\_FROM\_ISR}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_RESUME\_FROM\_ISR}{traceTASK\_RESUME\_FROM\_ISR}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+RESUME\+\_\+\+FROM\+\_\+\+ISR(\begin{DoxyParamCaption}\item[{}]{px\+Task\+To\+Resume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac48891d4d553ea9acbc660d2ebd2ffd7}\label{_free_r_t_o_s_8h_ac48891d4d553ea9acbc660d2ebd2ffd7}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_SUSPEND@{traceTASK\_SUSPEND}}
+\index{traceTASK\_SUSPEND@{traceTASK\_SUSPEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_SUSPEND}{traceTASK\_SUSPEND}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+SUSPEND(\begin{DoxyParamCaption}\item[{}]{px\+Task\+To\+Suspend }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2f813fe80d3519a396a9f2bb7cc7e820}\label{_free_r_t_o_s_8h_a2f813fe80d3519a396a9f2bb7cc7e820}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_SWITCHED\_IN@{traceTASK\_SWITCHED\_IN}}
+\index{traceTASK\_SWITCHED\_IN@{traceTASK\_SWITCHED\_IN}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_SWITCHED\_IN}{traceTASK\_SWITCHED\_IN}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+SWITCHED\+\_\+\+IN(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a4b94b0d35e9a4ad783af7be32cabbdaa}\label{_free_r_t_o_s_8h_a4b94b0d35e9a4ad783af7be32cabbdaa}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTASK\_SWITCHED\_OUT@{traceTASK\_SWITCHED\_OUT}}
+\index{traceTASK\_SWITCHED\_OUT@{traceTASK\_SWITCHED\_OUT}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTASK\_SWITCHED\_OUT}{traceTASK\_SWITCHED\_OUT}}
+{\footnotesize\ttfamily \#define trace\+TASK\+\_\+\+SWITCHED\+\_\+\+OUT(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a6c6d5767fb1746077b62e5da5a28db63}\label{_free_r_t_o_s_8h_a6c6d5767fb1746077b62e5da5a28db63}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTIMER\_COMMAND\_RECEIVED@{traceTIMER\_COMMAND\_RECEIVED}}
+\index{traceTIMER\_COMMAND\_RECEIVED@{traceTIMER\_COMMAND\_RECEIVED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTIMER\_COMMAND\_RECEIVED}{traceTIMER\_COMMAND\_RECEIVED}}
+{\footnotesize\ttfamily \#define trace\+TIMER\+\_\+\+COMMAND\+\_\+\+RECEIVED(\begin{DoxyParamCaption}\item[{}]{px\+Timer,  }\item[{}]{x\+Message\+ID,  }\item[{}]{x\+Message\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aa5e8cd9587c262fdf914b56c286c47b8}\label{_free_r_t_o_s_8h_aa5e8cd9587c262fdf914b56c286c47b8}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTIMER\_COMMAND\_SEND@{traceTIMER\_COMMAND\_SEND}}
+\index{traceTIMER\_COMMAND\_SEND@{traceTIMER\_COMMAND\_SEND}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTIMER\_COMMAND\_SEND}{traceTIMER\_COMMAND\_SEND}}
+{\footnotesize\ttfamily \#define trace\+TIMER\+\_\+\+COMMAND\+\_\+\+SEND(\begin{DoxyParamCaption}\item[{}]{x\+Timer,  }\item[{}]{x\+Message\+ID,  }\item[{}]{x\+Message\+Value\+Value,  }\item[{}]{x\+Return }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a21b54dae77c227db92f56131cae6de81}\label{_free_r_t_o_s_8h_a21b54dae77c227db92f56131cae6de81}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTIMER\_CREATE@{traceTIMER\_CREATE}}
+\index{traceTIMER\_CREATE@{traceTIMER\_CREATE}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTIMER\_CREATE}{traceTIMER\_CREATE}}
+{\footnotesize\ttfamily \#define trace\+TIMER\+\_\+\+CREATE(\begin{DoxyParamCaption}\item[{}]{px\+New\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9b508233fb4bebee72529af4f4413cf6}\label{_free_r_t_o_s_8h_a9b508233fb4bebee72529af4f4413cf6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTIMER\_CREATE\_FAILED@{traceTIMER\_CREATE\_FAILED}}
+\index{traceTIMER\_CREATE\_FAILED@{traceTIMER\_CREATE\_FAILED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTIMER\_CREATE\_FAILED}{traceTIMER\_CREATE\_FAILED}}
+{\footnotesize\ttfamily \#define trace\+TIMER\+\_\+\+CREATE\+\_\+\+FAILED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a71329ddad88950ea45b32d5adcb1b2f3}\label{_free_r_t_o_s_8h_a71329ddad88950ea45b32d5adcb1b2f3}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!traceTIMER\_EXPIRED@{traceTIMER\_EXPIRED}}
+\index{traceTIMER\_EXPIRED@{traceTIMER\_EXPIRED}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{traceTIMER\_EXPIRED}{traceTIMER\_EXPIRED}}
+{\footnotesize\ttfamily \#define trace\+TIMER\+\_\+\+EXPIRED(\begin{DoxyParamCaption}\item[{}]{px\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af91a84ee7fcd1c03bba33c0c86c9a493}\label{_free_r_t_o_s_8h_af91a84ee7fcd1c03bba33c0c86c9a493}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!vTaskGetTaskInfo@{vTaskGetTaskInfo}}
+\index{vTaskGetTaskInfo@{vTaskGetTaskInfo}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{vTaskGetTaskInfo}{vTaskGetTaskInfo}}
+{\footnotesize\ttfamily \#define v\+Task\+Get\+Task\+Info~\mbox{\hyperlink{tasks_8c_a24b033eee266bdc8c3de63171a543f65}{v\+Task\+Get\+Info}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ac6d7ef270d5c85eb91906683157ffc13}\label{_free_r_t_o_s_8h_ac6d7ef270d5c85eb91906683157ffc13}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xCoRoutineHandle@{xCoRoutineHandle}}
+\index{xCoRoutineHandle@{xCoRoutineHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xCoRoutineHandle}{xCoRoutineHandle}}
+{\footnotesize\ttfamily \#define x\+Co\+Routine\+Handle~\mbox{\hyperlink{croutine_8h_a33b9d058688c92258155b5756d9936dd}{Co\+Routine\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a990e46a268202dae9f09ca56c35cc17c}\label{_free_r_t_o_s_8h_a990e46a268202dae9f09ca56c35cc17c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xList@{xList}}
+\index{xList@{xList}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xList}{xList}}
+{\footnotesize\ttfamily \#define x\+List~\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a62b284ca8496de2faf0157e6c8be94b6}\label{_free_r_t_o_s_8h_a62b284ca8496de2faf0157e6c8be94b6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xListItem@{xListItem}}
+\index{xListItem@{xListItem}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xListItem}{xListItem}}
+{\footnotesize\ttfamily \#define x\+List\+Item~\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a5971b85d409766aa17def6cc275c15cd}\label{_free_r_t_o_s_8h_a5971b85d409766aa17def6cc275c15cd}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xMemoryRegion@{xMemoryRegion}}
+\index{xMemoryRegion@{xMemoryRegion}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xMemoryRegion}{xMemoryRegion}}
+{\footnotesize\ttfamily \#define x\+Memory\+Region~\mbox{\hyperlink{task_8h_abc1e4d1b3f52e2a9101487e1831b992a}{Memory\+Region\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a2b4ea2af4cc24db3cbd458722e96fa2f}\label{_free_r_t_o_s_8h_a2b4ea2af4cc24db3cbd458722e96fa2f}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xQueueHandle@{xQueueHandle}}
+\index{xQueueHandle@{xQueueHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xQueueHandle}{xQueueHandle}}
+{\footnotesize\ttfamily \#define x\+Queue\+Handle~\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_ab8d6acee206b02a6a4cf4e63d035b3fd}\label{_free_r_t_o_s_8h_ab8d6acee206b02a6a4cf4e63d035b3fd}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xQueueSetHandle@{xQueueSetHandle}}
+\index{xQueueSetHandle@{xQueueSetHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xQueueSetHandle}{xQueueSetHandle}}
+{\footnotesize\ttfamily \#define x\+Queue\+Set\+Handle~\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a009d2d6ce8ab8635eaf9f3e507866f6c}\label{_free_r_t_o_s_8h_a009d2d6ce8ab8635eaf9f3e507866f6c}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xQueueSetMemberHandle@{xQueueSetMemberHandle}}
+\index{xQueueSetMemberHandle@{xQueueSetMemberHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xQueueSetMemberHandle}{xQueueSetMemberHandle}}
+{\footnotesize\ttfamily \#define x\+Queue\+Set\+Member\+Handle~\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a520d8cf032327581ece00e5bd8e03a75}\label{_free_r_t_o_s_8h_a520d8cf032327581ece00e5bd8e03a75}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xSemaphoreHandle@{xSemaphoreHandle}}
+\index{xSemaphoreHandle@{xSemaphoreHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xSemaphoreHandle}{xSemaphoreHandle}}
+{\footnotesize\ttfamily \#define x\+Semaphore\+Handle~\mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af7cd8f53b62f0c497b442b504c30f2ec}\label{_free_r_t_o_s_8h_af7cd8f53b62f0c497b442b504c30f2ec}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xTaskHandle@{xTaskHandle}}
+\index{xTaskHandle@{xTaskHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xTaskHandle}{xTaskHandle}}
+{\footnotesize\ttfamily \#define x\+Task\+Handle~\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aba476594b7c76708495313b143d7edde}\label{_free_r_t_o_s_8h_aba476594b7c76708495313b143d7edde}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xTaskParameters@{xTaskParameters}}
+\index{xTaskParameters@{xTaskParameters}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xTaskParameters}{xTaskParameters}}
+{\footnotesize\ttfamily \#define x\+Task\+Parameters~\mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a86ae1e476b7df91b0b58f7cc0f1ce7ea}\label{_free_r_t_o_s_8h_a86ae1e476b7df91b0b58f7cc0f1ce7ea}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xTaskStatusType@{xTaskStatusType}}
+\index{xTaskStatusType@{xTaskStatusType}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xTaskStatusType}{xTaskStatusType}}
+{\footnotesize\ttfamily \#define x\+Task\+Status\+Type~\mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a819785230f5d9368aec050ac661d12e0}\label{_free_r_t_o_s_8h_a819785230f5d9368aec050ac661d12e0}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xTimeOutType@{xTimeOutType}}
+\index{xTimeOutType@{xTimeOutType}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xTimeOutType}{xTimeOutType}}
+{\footnotesize\ttfamily \#define x\+Time\+Out\+Type~\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9fa57c444af781c3b6286f5cc9e4982d}\label{_free_r_t_o_s_8h_a9fa57c444af781c3b6286f5cc9e4982d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!xTimerHandle@{xTimerHandle}}
+\index{xTimerHandle@{xTimerHandle}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{xTimerHandle}{xTimerHandle}}
+{\footnotesize\ttfamily \#define x\+Timer\+Handle~\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}\label{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticEventGroup\_t@{StaticEventGroup\_t}}
+\index{StaticEventGroup\_t@{StaticEventGroup\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticEventGroup\_t}{StaticEventGroup\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p}{x\+STATIC\+\_\+\+EVENT\+\_\+\+GROUP}} \mbox{\hyperlink{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}{Static\+Event\+Group\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aabf8e8548f4ffaef73c3470172c4c8de}\label{_free_r_t_o_s_8h_aabf8e8548f4ffaef73c3470172c4c8de}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticList\_t@{StaticList\_t}}
+\index{StaticList\_t@{StaticList\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticList\_t}{StaticList\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t}{x\+STATIC\+\_\+\+LIST}} \mbox{\hyperlink{_free_r_t_o_s_8h_aabf8e8548f4ffaef73c3470172c4c8de}{Static\+List\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a1d31bc0472385a87424518da484d9e09}\label{_free_r_t_o_s_8h_a1d31bc0472385a87424518da484d9e09}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticListItem\_t@{StaticListItem\_t}}
+\index{StaticListItem\_t@{StaticListItem\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticListItem\_t}{StaticListItem\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+LIST\+\_\+\+ITEM}} \mbox{\hyperlink{_free_r_t_o_s_8h_a1d31bc0472385a87424518da484d9e09}{Static\+List\+Item\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_aebe27a051714571e9051a8e33fe40bd9}\label{_free_r_t_o_s_8h_aebe27a051714571e9051a8e33fe40bd9}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticMessageBuffer\_t@{StaticMessageBuffer\_t}}
+\index{StaticMessageBuffer\_t@{StaticMessageBuffer\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticMessageBuffer\_t}{StaticMessageBuffer\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}} \mbox{\hyperlink{_free_r_t_o_s_8h_aebe27a051714571e9051a8e33fe40bd9}{Static\+Message\+Buffer\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a9097f48f4dfa56e8e01d9179462c7994}\label{_free_r_t_o_s_8h_a9097f48f4dfa56e8e01d9179462c7994}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticMiniListItem\_t@{StaticMiniListItem\_t}}
+\index{StaticMiniListItem\_t@{StaticMiniListItem\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticMiniListItem\_t}{StaticMiniListItem\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m}{x\+STATIC\+\_\+\+MINI\+\_\+\+LIST\+\_\+\+ITEM}} \mbox{\hyperlink{_free_r_t_o_s_8h_a9097f48f4dfa56e8e01d9179462c7994}{Static\+Mini\+List\+Item\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}\label{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticQueue\_t@{StaticQueue\_t}}
+\index{StaticQueue\_t@{StaticQueue\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticQueue\_t}{StaticQueue\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{x\+STATIC\+\_\+\+QUEUE}} \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a5899eefbfd03bc6eb83c9accffc8975e}\label{_free_r_t_o_s_8h_a5899eefbfd03bc6eb83c9accffc8975e}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticSemaphore\_t@{StaticSemaphore\_t}}
+\index{StaticSemaphore\_t@{StaticSemaphore\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticSemaphore\_t}{StaticSemaphore\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} \mbox{\hyperlink{_free_r_t_o_s_8h_a5899eefbfd03bc6eb83c9accffc8975e}{Static\+Semaphore\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}\label{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticStreamBuffer\_t@{StaticStreamBuffer\_t}}
+\index{StaticStreamBuffer\_t@{StaticStreamBuffer\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticStreamBuffer\_t}{StaticStreamBuffer\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r}{x\+STATIC\+\_\+\+STREAM\+\_\+\+BUFFER}} \mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}\label{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticTask\_t@{StaticTask\_t}}
+\index{StaticTask\_t@{StaticTask\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticTask\_t}{StaticTask\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_c_b}{x\+STATIC\+\_\+\+TCB}} \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{Static\+Task\+\_\+t}}}
+
+\mbox{\Hypertarget{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}\label{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}} 
+\index{FreeRTOS.h@{FreeRTOS.h}!StaticTimer\_t@{StaticTimer\_t}}
+\index{StaticTimer\_t@{StaticTimer\_t}!FreeRTOS.h@{FreeRTOS.h}}
+\doxysubsubsection{\texorpdfstring{StaticTimer\_t}{StaticTimer\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structx_s_t_a_t_i_c___t_i_m_e_r}{x\+STATIC\+\_\+\+TIMER}} \mbox{\hyperlink{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}{Static\+Timer\+\_\+t}}}
+

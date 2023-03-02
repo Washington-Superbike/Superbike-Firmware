@@ -5,6 +5,8 @@
 #include <FlexCAN_T4.h>
 #include "Display.h"
 #include "FreeRTOS_TEENSY4.h"
+#include "config.h"
+
 
 #define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
 

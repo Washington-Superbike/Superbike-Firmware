@@ -1,6 +1,5 @@
 #include "CAN.h"
 #include "FreeRTOS_TEENSY4.h"
-#include "config.h"
 
 // CAN bus handle
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;

@@ -1,0 +1,125 @@
+\hypertarget{_display_8h_source}{}\doxysection{Display.\+h}
+\mbox{\hyperlink{_display_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// TODO:}}
+\DoxyCodeLine{2 \textcolor{comment}{// 1. Remove oldData field from the printedData struct.}}
+\DoxyCodeLine{3 \textcolor{comment}{// 2. Add more macros for default vals that are repeated in Display.ino}}
+\DoxyCodeLine{4 \textcolor{comment}{// 3. Remove all the extra macros and predefined methods}}
+\DoxyCodeLine{5 \textcolor{comment}{// 4. Remove everything that corresponds to things removed from Display.ino}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef \_DISPLAY\_H\_}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define \_DISPLAY\_H\_}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <Adafruit\_ILI9341.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <Adafruit\_GFX.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <SPI.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <XPT2046\_Touchscreen.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define DISPLAY\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 32368}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{// maximum time in ms it takes for the display task to run, used for spi mutex elsewhere}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define DISPLAY\_UPDATE\_TIME\_MAX 50}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TFT\_CS 10 }\textcolor{comment}{//The display chip select pin}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define TFT\_DC 9 }\textcolor{comment}{// the display}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define TFT\_RST 8 }\textcolor{comment}{//the display reset pin}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define TS\_CS  10}}
+\DoxyCodeLine{27 \textcolor{comment}{// MOSI=11, MISO=12, SCK=13}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{// The TIRQ interrupt signal must be used for this example.}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TIRQ\_PIN  -\/1}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// Number of PrintedData values (length of the array that contains all the printedData)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define NUM\_DATA 11}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{// Default Values}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define DEFAULT\_FLOAT -\/1}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define DEFAULT\_X\_POS 235}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{// Multipliers and Formula Constants:}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define VERTICAL\_SCALER 16}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TS\_MINX  327}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define TS\_MAXX  3903}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define TS\_MINY  243}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define TS\_MAXY  3842}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{48   \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688}{ARRAY}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1}{BOOL}}}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}{PRINT\_TYPE}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{52   \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}, \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}}
+\DoxyCodeLine{53 \} \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\_TYPE}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_printed_data_struct}{PrintedDataStruct}} \{}
+\DoxyCodeLine{56   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_printed_data_struct_a51a548c1d85da64d917d3309648d3158}{labelX}}, \mbox{\hyperlink{struct_printed_data_struct_ab2aee1187f70e33083ccb3cb27b5fb5f}{y}}, \mbox{\hyperlink{struct_printed_data_struct_a18a14775ee2b7c82f96868e0c838775f}{dataX}};          \textcolor{comment}{// y is the same for data and label, but X isnt}}
+\DoxyCodeLine{57   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}};               \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{58   \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}{PRINT\_TYPE}} \mbox{\hyperlink{struct_printed_data_struct_aa2cdf10f001ae09777a3120515d6249d}{type}};}
+\DoxyCodeLine{59   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};           \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{60   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_printed_data_struct_a0a4fa823c9a9a2eebbe501e7ec855570}{dataLen}};}
+\DoxyCodeLine{61   \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_printed_data_struct_a9b3617ce18ad2a5b3bb27eefffd0940c}{labelPtr}};                        \textcolor{comment}{// "{}labelPtr"{} is just the label itself. No String in C/.ino, so this is our best option.}}
+\DoxyCodeLine{62   \textcolor{comment}{// (maybe add later) char* unitsPtr;}}
+\DoxyCodeLine{63 \} \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{PrintedData}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_printed_data_therm_struct}{PrintedDataThermStruct}} \{}
+\DoxyCodeLine{66   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_printed_data_therm_struct_ab6d40c87b9c92abc235f3ca8d2e68f6c}{labelX}}, \mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}}, \mbox{\hyperlink{struct_printed_data_therm_struct_a5f4a978790b000578684d99f8e42e747}{dataX}};          \textcolor{comment}{// y is the same for data and label, but X isnt}}
+\DoxyCodeLine{67   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[10];               \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{68   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}};           \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{69   \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_printed_data_therm_struct_acc2d2cee759f3cc546922b2a34dae206}{labelPtr}};                        \textcolor{comment}{// "{}labelPtr"{} is just the label itself. No String in C/.ino, so this is our best option.}}
+\DoxyCodeLine{70 \} \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{PrintedDataTherm}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_printed_data_time_stuct}{PrintedDataTimeStuct}} \{}
+\DoxyCodeLine{73   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_printed_data_time_stuct_ad8464ec581e32ab683228f1603ae3027}{labelX}}, \mbox{\hyperlink{struct_printed_data_time_stuct_abe6d041698953e871d3938f6e0de03ed}{y}}, \mbox{\hyperlink{struct_printed_data_time_stuct_a332fbb876a0fa9e6221b08d74a6611a2}{dataX}};          \textcolor{comment}{// y is the same for data and label, but X isnt}}
+\DoxyCodeLine{74   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_printed_data_time_stuct_ad8c128cfd2d2717ce60876fd9206fe90}{oldData}}[10];               \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{75   \textcolor{keyword}{volatile} \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_printed_data_time_stuct_a26d7c4491749d3553721107fa95b5767}{currData}};           \textcolor{comment}{// volatile for some printed data, not all}}
+\DoxyCodeLine{76   \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_printed_data_time_stuct_a43ac024892cb2a1ec4233431f47d850c}{labelPtr}};                        \textcolor{comment}{// "{}labelPtr"{} is just the label itself. No String in C/.ino, so this is our best option.}}
+\DoxyCodeLine{77 \} \mbox{\hyperlink{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}{PrintedDataTimeStuct}};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_screen_info}{ScreenInfo}} \{}
+\DoxyCodeLine{81   \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\_TYPE}} \mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}};}
+\DoxyCodeLine{82 \} \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenDataStruct}} \{}
+\DoxyCodeLine{85   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_aed564048111fa898cf8de61099391863}{mainBatteryVoltage}};}
+\DoxyCodeLine{86   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a1e2df8e919bbae0941ccecfa5eb62cbe}{motorControllerVoltage}};}
+\DoxyCodeLine{87   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a0e86959ed67c6c891e1890ef530d3596}{auxiliaryBatteryVoltage}};}
+\DoxyCodeLine{88   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a032fdb5cea2670a02f48dae82cb6c5f7}{RPM}};}
+\DoxyCodeLine{89   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}};}
+\DoxyCodeLine{90   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a9685a96c491e4d8276fea2e35bc538cd}{motorCurrent}};}
+\DoxyCodeLine{91   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_measurement_screen_data_struct_aa63c57e04a22b9ff0feba3172fb46e7c}{errorMessage}};}
+\DoxyCodeLine{92   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_ab325b90179563b0cbd69138e4faca679}{chargerCurrent}};}
+\DoxyCodeLine{93   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a8c456547b18cc7388d407a3fa01f770f}{chargerVoltage}};}
+\DoxyCodeLine{94   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_measurement_screen_data_struct_abe94dff3f4030a2fc46a67d0949fd996}{bmsStatusFlag}};}
+\DoxyCodeLine{95   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_ac394f8f84cc46925da59ab710da90503}{evccVoltage}};}
+\DoxyCodeLine{96   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_measurement_screen_data_struct_a246a330e1d725800363777a3a373f740}{thermistorTemps}};}
+\DoxyCodeLine{97 \} \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{MeasurementScreenData}};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structdisplay_task_wrapper}{displayTaskWrapper}} \{}
+\DoxyCodeLine{100   \mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}}* \mbox{\hyperlink{structdisplay_task_wrapper_a51bf468020bb98383d49a9e0e39422cc}{msDataWrap}};}
+\DoxyCodeLine{101   \mbox{\hyperlink{struct_screen_info}{Screen}}* \mbox{\hyperlink{structdisplay_task_wrapper_acaa31854e77a95332b545bc6da5c1c22}{screenDataWrap}};}
+\DoxyCodeLine{102 \} \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{displayPointer}};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{comment}{// setup and update methods}}
+\DoxyCodeLine{105 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a444674a8acd174d60aaf8a750aae944b}{drawMeasurementScreen}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData);}
+\DoxyCodeLine{106 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a55356673fc2f1fb26932f57c55156598}{displayTask}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{comment}{// supporting methods for Display.ino}}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a444674a8acd174d60aaf8a750aae944b}{drawMeasurementScreen}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
+\DoxyCodeLine{110 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{setupMeasurementScreen}}(\mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
+\DoxyCodeLine{111 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData);}
+\DoxyCodeLine{112 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}});}
+\DoxyCodeLine{113 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}{timePrint}}();}
+\DoxyCodeLine{114 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_ac4a830d3a5355acabc259beb381b66c5}{manualScreenUpdater}}();}
+\DoxyCodeLine{115 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_ad5cca009eb616ac4145f788c39b84157}{screenEraser}}(\textcolor{keywordtype}{int} scaler, \textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{119 \textcolor{keywordtype}{float} \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\_voltage\_read}}();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

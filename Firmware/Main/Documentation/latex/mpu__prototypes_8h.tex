@@ -1,0 +1,840 @@
+\hypertarget{mpu__prototypes_8h}{}\doxysection{Free\+RTOS/mpu\+\_\+prototypes.h File Reference}
+\label{mpu__prototypes_8h}\index{FreeRTOS/mpu\_prototypes.h@{FreeRTOS/mpu\_prototypes.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a53ce0915f0062120137efcc89b415715}{MPU\+\_\+x\+Task\+Create}} (\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}} px\+Task\+Code, const char $\ast$const pc\+Name, const uint16\+\_\+t us\+Stack\+Depth, void $\ast$const pv\+Parameters, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Priority, \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$const px\+Created\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a3265dccf6178f6b886cf0743886b7662}{MPU\+\_\+x\+Task\+Create\+Static}} (\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}} px\+Task\+Code, const char $\ast$const pc\+Name, const uint32\+\_\+t ul\+Stack\+Depth, void $\ast$const pv\+Parameters, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Priority, \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$const pux\+Stack\+Buffer, \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{Static\+Task\+\_\+t}} $\ast$const px\+Task\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_aaf2329942140771305220948bc69b1b0}{MPU\+\_\+x\+Task\+Create\+Restricted}} (const \mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}} $\ast$const px\+Task\+Definition, \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$px\+Created\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a0a1c9271074f19d7d3ec5de2cfd4971f}{MPU\+\_\+x\+Task\+Create\+Restricted\+Static}} (const \mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}} $\ast$const px\+Task\+Definition, \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$px\+Created\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a9960d84fdd937f613a2a1255db733263}{MPU\+\_\+v\+Task\+Allocate\+MPURegions}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, const \mbox{\hyperlink{task_8h_abc1e4d1b3f52e2a9101487e1831b992a}{Memory\+Region\+\_\+t}} $\ast$const px\+Regions) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_accbd3a6ed5d7bf2f8689a04b6b3f72d3}{MPU\+\_\+v\+Task\+Delete}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Delete) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a66ead786f745d188bbd3d0bf30c51069}{MPU\+\_\+v\+Task\+Delay}} (const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Delay) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_ad50c8ffb6798f50f7b0cc901f35c603f}{MPU\+\_\+v\+Task\+Delay\+Until}} (\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} $\ast$const px\+Previous\+Wake\+Time, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Time\+Increment) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a5789e4f7340c707c713afa6165ca3363}{MPU\+\_\+x\+Task\+Abort\+Delay}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a27c701344d8bab83d9cb1d1cd5aca487}{MPU\+\_\+ux\+Task\+Priority\+Get}} (const \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a1749369458e2282a22e862a619a3892c}{e\+Task\+State}} \mbox{\hyperlink{mpu__prototypes_8h_a2fa518228b2b8cf0d56868d26744a9b5}{MPU\+\_\+e\+Task\+Get\+State}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a9232f18c3a1657f0b2aa3c6c011a341e}{MPU\+\_\+v\+Task\+Get\+Info}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, \mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}} $\ast$px\+Task\+Status, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Get\+Free\+Stack\+Space, \mbox{\hyperlink{task_8h_a1749369458e2282a22e862a619a3892c}{e\+Task\+State}} e\+State) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a8665769af5e4e4dd56ba3b72ba9e933b}{MPU\+\_\+v\+Task\+Priority\+Set}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+New\+Priority) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a2456fbe3861db2f8e5df961a2fc0ad25}{MPU\+\_\+v\+Task\+Suspend}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Suspend) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a5116e0f1df45bba9e351e54fff6e8d14}{MPU\+\_\+v\+Task\+Resume}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Resume) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a67bc097861923c6eee50b87b8655c412}{MPU\+\_\+v\+Task\+Start\+Scheduler}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a383cc2047ccf2b6bcbca1ec65229ab70}{MPU\+\_\+v\+Task\+Suspend\+All}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ac0ae320f4e0d00e2f642b7677268a5fc}{MPU\+\_\+x\+Task\+Resume\+All}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a3f40c6063f43373dc4208989db24eb7d}{MPU\+\_\+x\+Task\+Get\+Tick\+Count}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a034d9f2f59ea4aa37bd67a4c9d4b3cd5}{MPU\+\_\+ux\+Task\+Get\+Number\+Of\+Tasks}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+char $\ast$ \mbox{\hyperlink{mpu__prototypes_8h_a1b5d2f4bc4dde0a435298cebcf68073d}{MPU\+\_\+pc\+Task\+Get\+Name}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Query) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a64a8ffb45977a187281e0316226f7a9c}{MPU\+\_\+x\+Task\+Get\+Handle}} (const char $\ast$pc\+Name\+To\+Query) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ade37d3f7d9b904e7b0a427b8562f6c9d}{MPU\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{_free_r_t_o_s_8h_ae4e85bffd36d76cf2796092f0ccd784a}{config\+STACK\+\_\+\+DEPTH\+\_\+\+TYPE}} \mbox{\hyperlink{mpu__prototypes_8h_a99dd993526c3d8b4ebb4e39007faa9ad}{MPU\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark2}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a9db7ba4634b70ce01c3c80b94930ac57}{MPU\+\_\+v\+Task\+Set\+Application\+Task\+Tag}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, \mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}} px\+Hook\+Function) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ab96febf9ce3574ebbc73f07d798156f6}{MPU\+\_\+x\+Task\+Get\+Application\+Task\+Tag}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a1c57bdf4ed6db4253d3e7a4968e3770d}{MPU\+\_\+v\+Task\+Set\+Thread\+Local\+Storage\+Pointer}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Set, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Index, void $\ast$pv\+Value) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void $\ast$ \mbox{\hyperlink{mpu__prototypes_8h_a2acc94cad7d66a2c51018c2d8e0de2a7}{MPU\+\_\+pv\+Task\+Get\+Thread\+Local\+Storage\+Pointer}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Query, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Index) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a49c1dbec95aef701cb84a1bd3b5e21b6}{MPU\+\_\+x\+Task\+Call\+Application\+Task\+Hook}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task, void $\ast$pv\+Parameter) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_adea5fb61044c3b5538d958680b1edd85}{MPU\+\_\+x\+Task\+Get\+Idle\+Task\+Handle}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_af76f3597175bac3f84ca4f7494433068}{MPU\+\_\+ux\+Task\+Get\+System\+State}} (\mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}} $\ast$const px\+Task\+Status\+Array, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Array\+Size, uint32\+\_\+t $\ast$const pul\+Total\+Run\+Time) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a4d85671d7c5ff17b56acacc6a21905f8}{MPU\+\_\+x\+Task\+Get\+Idle\+Run\+Time\+Counter}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a21b44bd0c658199fe3b0ffb0266811e7}{MPU\+\_\+v\+Task\+List}} (char $\ast$pc\+Write\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_ae8018fcf78cd91a7c3c256aa6fee1f7a}{MPU\+\_\+v\+Task\+Get\+Run\+Time\+Stats}} (char $\ast$pc\+Write\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a3e782699de49b0bf8382df0b05c1a967}{MPU\+\_\+x\+Task\+Generic\+Notify}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task\+To\+Notify, uint32\+\_\+t ul\+Value, \mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233}{e\+Notify\+Action}} e\+Action, uint32\+\_\+t $\ast$pul\+Previous\+Notification\+Value) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ac160d248a7ac595a078301610aeea5eb}{MPU\+\_\+x\+Task\+Notify\+Wait}} (uint32\+\_\+t ul\+Bits\+To\+Clear\+On\+Entry, uint32\+\_\+t ul\+Bits\+To\+Clear\+On\+Exit, uint32\+\_\+t $\ast$pul\+Notification\+Value, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_aaf2f2946284b2684ffb04dc8b5461dd7}{MPU\+\_\+ul\+Task\+Notify\+Take}} (\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Clear\+Count\+On\+Exit, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a5c5655bc7656778174b357ea86540993}{MPU\+\_\+x\+Task\+Notify\+State\+Clear}} (\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} x\+Task) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a7546d90ed3ddac32550096dc6b37c35e}{MPU\+\_\+x\+Task\+Increment\+Tick}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ae3a1c8aeb60aa75841a2d224bb0765ec}{MPU\+\_\+x\+Task\+Get\+Current\+Task\+Handle}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_ace70e5eeb78a37b7d151400cf84ac11c}{MPU\+\_\+v\+Task\+Set\+Time\+Out\+State}} (\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}} $\ast$const px\+Time\+Out) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a6a32c460aa7ea2dd09aaec9df8c1cf13}{MPU\+\_\+x\+Task\+Check\+For\+Time\+Out}} (\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}} $\ast$const px\+Time\+Out, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} $\ast$const px\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a37c11080d93ec1bec5819ef3f527259f}{MPU\+\_\+v\+Task\+Missed\+Yield}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ae67d37ffe2e61cfc3ffc8bae3b46af83}{MPU\+\_\+x\+Task\+Get\+Scheduler\+State}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a8bdf259f59261ca4aa1e558754b4aea1}{MPU\+\_\+x\+Queue\+Generic\+Send}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, const void $\ast$const pv\+Item\+To\+Queue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait, const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Copy\+Position) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ad4f20d999158d27585199f957650ceda}{MPU\+\_\+x\+Queue\+Receive}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, void $\ast$const pv\+Buffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ab43f2a1eabbc923c4f7cea113c29c2a8}{MPU\+\_\+x\+Queue\+Peek}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, void $\ast$const pv\+Buffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a4109a6df9e1ff8f7469cfe94b4258fe0}{MPU\+\_\+x\+Queue\+Semaphore\+Take}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a7db460ed658e169261ecca82fabf277e}{MPU\+\_\+ux\+Queue\+Messages\+Waiting}} (const \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a67aec1ebd939c5f98116a8ff03b2ed58}{MPU\+\_\+ux\+Queue\+Spaces\+Available}} (const \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a08116a96ea4b07eda68f3e4aa6897b51}{MPU\+\_\+v\+Queue\+Delete}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a16739521de6a7034e0d4181e65d8ed93}{MPU\+\_\+x\+Queue\+Create\+Mutex}} (const uint8\+\_\+t uc\+Queue\+Type) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ab081f53ca41be95c6a47f89b4790ef23}{MPU\+\_\+x\+Queue\+Create\+Mutex\+Static}} (const uint8\+\_\+t uc\+Queue\+Type, \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$px\+Static\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a013ee62a2ce409e0104bcff21dfd5475}{MPU\+\_\+x\+Queue\+Create\+Counting\+Semaphore}} (const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Max\+Count, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Initial\+Count) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ad31f76df40e5fb782fe73c9e8bd0aee0}{MPU\+\_\+x\+Queue\+Create\+Counting\+Semaphore\+Static}} (const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Max\+Count, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Initial\+Count, \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$px\+Static\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_af26242a4ac286d585bac42296cfb77f3}{MPU\+\_\+x\+Queue\+Get\+Mutex\+Holder}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Semaphore) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a70f3b09df93e0432b3b35fe6165cda92}{MPU\+\_\+x\+Queue\+Take\+Mutex\+Recursive}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Mutex, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_aeaa5eb80b801575e6174a5fc1f6ce5e9}{MPU\+\_\+x\+Queue\+Give\+Mutex\+Recursive}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} px\+Mutex) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a6fdce2c19119af65e8d212a9f667ec10}{MPU\+\_\+v\+Queue\+Add\+To\+Registry}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, const char $\ast$pc\+Name) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a867c601d5d2b5786ada881721e14bdd7}{MPU\+\_\+v\+Queue\+Unregister\+Queue}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+const char $\ast$ \mbox{\hyperlink{mpu__prototypes_8h_ab9a042a08bd0c113b7cd9eb4fd9a3ed7}{MPU\+\_\+pc\+Queue\+Get\+Name}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a38b0af82b18009ebbb51c18e9f8c4c34}{MPU\+\_\+x\+Queue\+Generic\+Create}} (const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Queue\+Length, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Item\+Size, const uint8\+\_\+t uc\+Queue\+Type) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a50251e0cdfe07ba2ac3317425f1c7d8c}{MPU\+\_\+x\+Queue\+Generic\+Create\+Static}} (const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Queue\+Length, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Item\+Size, uint8\+\_\+t $\ast$puc\+Queue\+Storage, \mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$px\+Static\+Queue, const uint8\+\_\+t uc\+Queue\+Type) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_af593d33910a905d35e2d37cde64f059d}{MPU\+\_\+x\+Queue\+Create\+Set}} (const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Event\+Queue\+Length) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_aec6e3a8dd0c477fd6ef7de0b09871b9d}{MPU\+\_\+x\+Queue\+Add\+To\+Set}} (\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}} x\+Queue\+Or\+Semaphore, \mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}} x\+Queue\+Set) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a3fed9edbb48b7328e15d2073526b0e00}{MPU\+\_\+x\+Queue\+Remove\+From\+Set}} (\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}} x\+Queue\+Or\+Semaphore, \mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}} x\+Queue\+Set) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_adcaae3a3754d63ab4bc0eb0f1c84c261}{MPU\+\_\+x\+Queue\+Select\+From\+Set}} (\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}} x\+Queue\+Set, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a7d10ee03f3b7ef49895d74aea86a5627}{MPU\+\_\+x\+Queue\+Generic\+Reset}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+New\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a9c3be1dd3202967efaa54c084a38d0b0}{MPU\+\_\+v\+Queue\+Set\+Queue\+Number}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Queue\+Number) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a86304b09daa9009424fce09e01fdc261}{MPU\+\_\+ux\+Queue\+Get\+Queue\+Number}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_ad6f448261df0ec3f071435664916ca88}{MPU\+\_\+uc\+Queue\+Get\+Queue\+Type}} (\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Queue) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a7bdcebee972b0961a644e9fcd5ebb841}{MPU\+\_\+x\+Timer\+Create}} (const char $\ast$const pc\+Timer\+Name, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Timer\+Period\+In\+Ticks, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Auto\+Reload, void $\ast$const pv\+Timer\+ID, \mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}} px\+Callback\+Function) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ae33d477de9b2dd90e9563e06199034b0}{MPU\+\_\+x\+Timer\+Create\+Static}} (const char $\ast$const pc\+Timer\+Name, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Timer\+Period\+In\+Ticks, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Auto\+Reload, void $\ast$const pv\+Timer\+ID, \mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}} px\+Callback\+Function, \mbox{\hyperlink{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}{Static\+Timer\+\_\+t}} $\ast$px\+Timer\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void $\ast$ \mbox{\hyperlink{mpu__prototypes_8h_ac2d59e15a2cd5f67e17171d56e0caa1e}{MPU\+\_\+pv\+Timer\+Get\+Timer\+ID}} (const \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_adf37969b9e6496069f779ce5b095cc6c}{MPU\+\_\+v\+Timer\+Set\+Timer\+ID}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer, void $\ast$pv\+New\+ID) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_adde8656afd37de6481ee64c7f7915748}{MPU\+\_\+x\+Timer\+Is\+Timer\+Active}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a7c25c579e997e4da978f1429786aaab3}{MPU\+\_\+x\+Timer\+Get\+Timer\+Daemon\+Task\+Handle}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a5c6a5a9e79aede72337f2cf46f519e6f}{MPU\+\_\+x\+Timer\+Pend\+Function\+Call}} (\mbox{\hyperlink{timers_8h_af6e8e2be58df2be9f9bb808fcdc51622}{Pended\+Function\+\_\+t}} x\+Function\+To\+Pend, void $\ast$pv\+Parameter1, uint32\+\_\+t ul\+Parameter2, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+const char $\ast$ \mbox{\hyperlink{mpu__prototypes_8h_a0b38b36f328cd390d9a7c8b08fcfa252}{MPU\+\_\+pc\+Timer\+Get\+Name}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a5ee11a468b7646ce12c6f9b66f5b8e8b}{MPU\+\_\+v\+Timer\+Set\+Reload\+Mode}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer, const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} ux\+Auto\+Reload) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a2830e439084d1da4cf6ce92ba59ee916}{MPU\+\_\+x\+Timer\+Get\+Period}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a41b59bbb282e99aca3fc57e568d5f29c}{MPU\+\_\+x\+Timer\+Get\+Expiry\+Time}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a9d1f63646824f4a2cf015def907d9681}{MPU\+\_\+x\+Timer\+Create\+Timer\+Task}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_aff117583cd279a1afd30d1cebb198d38}{MPU\+\_\+x\+Timer\+Generic\+Command}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} x\+Timer, const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Command\+ID, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Optional\+Value, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} $\ast$const px\+Higher\+Priority\+Task\+Woken, const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ab7648c05a9be0e8fd5f81645ca45f475}{MPU\+\_\+x\+Event\+Group\+Create}} (void) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a53f543ead37e3ee8b947e3e78a622a2a}{MPU\+\_\+x\+Event\+Group\+Create\+Static}} (\mbox{\hyperlink{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}{Static\+Event\+Group\+\_\+t}} $\ast$px\+Event\+Group\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_afb424c1d20e00b23d597d63acb06fabb}{MPU\+\_\+x\+Event\+Group\+Wait\+Bits}} (\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} x\+Event\+Group, const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} ux\+Bits\+To\+Wait\+For, const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Clear\+On\+Exit, const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Wait\+For\+All\+Bits, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_adf34d4972866b0605d7a09d544555ccc}{MPU\+\_\+x\+Event\+Group\+Clear\+Bits}} (\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} x\+Event\+Group, const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} ux\+Bits\+To\+Clear) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a2c5b9a954c46a85f29cf0340aaee108a}{MPU\+\_\+x\+Event\+Group\+Set\+Bits}} (\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} x\+Event\+Group, const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} ux\+Bits\+To\+Set) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a6e8e545c245c8e1edfa21fa2dcc312ce}{MPU\+\_\+x\+Event\+Group\+Sync}} (\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} x\+Event\+Group, const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} ux\+Bits\+To\+Set, const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} ux\+Bits\+To\+Wait\+For, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a7ea31095d7d8ec2a662cf3666085d720}{MPU\+\_\+v\+Event\+Group\+Delete}} (\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} x\+Event\+Group) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ac29852a476fa4ed087cbe356023e8015}{MPU\+\_\+ux\+Event\+Group\+Get\+Number}} (void $\ast$x\+Event\+Group) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+size\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_a52e63f26c50a655b89e236008512bffa}{MPU\+\_\+x\+Stream\+Buffer\+Send}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer, const void $\ast$pv\+Tx\+Data, size\+\_\+t x\+Data\+Length\+Bytes, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+size\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_a3e0fbebc55f824c250b7eff4b1f7d765}{MPU\+\_\+x\+Stream\+Buffer\+Receive}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer, void $\ast$pv\+Rx\+Data, size\+\_\+t x\+Buffer\+Length\+Bytes, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} x\+Ticks\+To\+Wait) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+size\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_a2aa538546170875bce7263e959646635}{MPU\+\_\+x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+void \mbox{\hyperlink{mpu__prototypes_8h_a1644bcafaedcc89ff26c3d066ae45bb2}{MPU\+\_\+v\+Stream\+Buffer\+Delete}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a40bb70472e5399a601a95eecbf6314fa}{MPU\+\_\+x\+Stream\+Buffer\+Is\+Full}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a62da4dc560bc0181279b9571c835e8e6}{MPU\+\_\+x\+Stream\+Buffer\+Is\+Empty}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a6264274cc7d35c512555302523c92f8a}{MPU\+\_\+x\+Stream\+Buffer\+Reset}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+size\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_aa66eeea4312467f943cf179b2a8061ef}{MPU\+\_\+x\+Stream\+Buffer\+Spaces\+Available}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+size\+\_\+t \mbox{\hyperlink{mpu__prototypes_8h_a976371f94aceef5da18188c63bf974f7}{MPU\+\_\+x\+Stream\+Buffer\+Bytes\+Available}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_ac869cab40fbc949e37b98eac6e10cb0a}{MPU\+\_\+x\+Stream\+Buffer\+Set\+Trigger\+Level}} (\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} x\+Stream\+Buffer, size\+\_\+t x\+Trigger\+Level) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a573ef004bbddcbb9ba99e914a481b900}{MPU\+\_\+x\+Stream\+Buffer\+Generic\+Create}} (size\+\_\+t x\+Buffer\+Size\+Bytes, size\+\_\+t x\+Trigger\+Level\+Bytes, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Is\+Message\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\item 
+\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} \mbox{\hyperlink{mpu__prototypes_8h_a30c184d8209f81a8e0d105b4cb0cd620}{MPU\+\_\+x\+Stream\+Buffer\+Generic\+Create\+Static}} (size\+\_\+t x\+Buffer\+Size\+Bytes, size\+\_\+t x\+Trigger\+Level\+Bytes, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} x\+Is\+Message\+Buffer, uint8\+\_\+t $\ast$const puc\+Stream\+Buffer\+Storage\+Area, \mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}} $\ast$const px\+Static\+Stream\+Buffer) \mbox{\hyperlink{mpu__wrappers_8h_a89028881b88837beb0733993c8ce5f2b}{FREERTOS\+\_\+\+SYSTEM\+\_\+\+CALL}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpu__prototypes_8h_a2fa518228b2b8cf0d56868d26744a9b5}\label{mpu__prototypes_8h_a2fa518228b2b8cf0d56868d26744a9b5}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_eTaskGetState@{MPU\_eTaskGetState}}
+\index{MPU\_eTaskGetState@{MPU\_eTaskGetState}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_eTaskGetState()}{MPU\_eTaskGetState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a1749369458e2282a22e862a619a3892c}{e\+Task\+State}} MPU\+\_\+e\+Task\+Get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ab9a042a08bd0c113b7cd9eb4fd9a3ed7}\label{mpu__prototypes_8h_ab9a042a08bd0c113b7cd9eb4fd9a3ed7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_pcQueueGetName@{MPU\_pcQueueGetName}}
+\index{MPU\_pcQueueGetName@{MPU\_pcQueueGetName}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_pcQueueGetName()}{MPU\_pcQueueGetName()}}
+{\footnotesize\ttfamily const char $\ast$ MPU\+\_\+pc\+Queue\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a1b5d2f4bc4dde0a435298cebcf68073d}\label{mpu__prototypes_8h_a1b5d2f4bc4dde0a435298cebcf68073d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_pcTaskGetName@{MPU\_pcTaskGetName}}
+\index{MPU\_pcTaskGetName@{MPU\_pcTaskGetName}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_pcTaskGetName()}{MPU\_pcTaskGetName()}}
+{\footnotesize\ttfamily char $\ast$ MPU\+\_\+pc\+Task\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Query }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a0b38b36f328cd390d9a7c8b08fcfa252}\label{mpu__prototypes_8h_a0b38b36f328cd390d9a7c8b08fcfa252}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_pcTimerGetName@{MPU\_pcTimerGetName}}
+\index{MPU\_pcTimerGetName@{MPU\_pcTimerGetName}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_pcTimerGetName()}{MPU\_pcTimerGetName()}}
+{\footnotesize\ttfamily const char $\ast$ MPU\+\_\+pc\+Timer\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a2acc94cad7d66a2c51018c2d8e0de2a7}\label{mpu__prototypes_8h_a2acc94cad7d66a2c51018c2d8e0de2a7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_pvTaskGetThreadLocalStoragePointer@{MPU\_pvTaskGetThreadLocalStoragePointer}}
+\index{MPU\_pvTaskGetThreadLocalStoragePointer@{MPU\_pvTaskGetThreadLocalStoragePointer}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_pvTaskGetThreadLocalStoragePointer()}{MPU\_pvTaskGetThreadLocalStoragePointer()}}
+{\footnotesize\ttfamily void $\ast$ MPU\+\_\+pv\+Task\+Get\+Thread\+Local\+Storage\+Pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Query,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ac2d59e15a2cd5f67e17171d56e0caa1e}\label{mpu__prototypes_8h_ac2d59e15a2cd5f67e17171d56e0caa1e}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_pvTimerGetTimerID@{MPU\_pvTimerGetTimerID}}
+\index{MPU\_pvTimerGetTimerID@{MPU\_pvTimerGetTimerID}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_pvTimerGetTimerID()}{MPU\_pvTimerGetTimerID()}}
+{\footnotesize\ttfamily void $\ast$ MPU\+\_\+pv\+Timer\+Get\+Timer\+ID (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ad6f448261df0ec3f071435664916ca88}\label{mpu__prototypes_8h_ad6f448261df0ec3f071435664916ca88}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_ucQueueGetQueueType@{MPU\_ucQueueGetQueueType}}
+\index{MPU\_ucQueueGetQueueType@{MPU\_ucQueueGetQueueType}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_ucQueueGetQueueType()}{MPU\_ucQueueGetQueueType()}}
+{\footnotesize\ttfamily uint8\+\_\+t MPU\+\_\+uc\+Queue\+Get\+Queue\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aaf2f2946284b2684ffb04dc8b5461dd7}\label{mpu__prototypes_8h_aaf2f2946284b2684ffb04dc8b5461dd7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_ulTaskNotifyTake@{MPU\_ulTaskNotifyTake}}
+\index{MPU\_ulTaskNotifyTake@{MPU\_ulTaskNotifyTake}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_ulTaskNotifyTake()}{MPU\_ulTaskNotifyTake()}}
+{\footnotesize\ttfamily uint32\+\_\+t MPU\+\_\+ul\+Task\+Notify\+Take (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Clear\+Count\+On\+Exit,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ac29852a476fa4ed087cbe356023e8015}\label{mpu__prototypes_8h_ac29852a476fa4ed087cbe356023e8015}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxEventGroupGetNumber@{MPU\_uxEventGroupGetNumber}}
+\index{MPU\_uxEventGroupGetNumber@{MPU\_uxEventGroupGetNumber}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxEventGroupGetNumber()}{MPU\_uxEventGroupGetNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Event\+Group\+Get\+Number (\begin{DoxyParamCaption}\item[{void $\ast$}]{x\+Event\+Group }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a86304b09daa9009424fce09e01fdc261}\label{mpu__prototypes_8h_a86304b09daa9009424fce09e01fdc261}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxQueueGetQueueNumber@{MPU\_uxQueueGetQueueNumber}}
+\index{MPU\_uxQueueGetQueueNumber@{MPU\_uxQueueGetQueueNumber}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxQueueGetQueueNumber()}{MPU\_uxQueueGetQueueNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Queue\+Get\+Queue\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7db460ed658e169261ecca82fabf277e}\label{mpu__prototypes_8h_a7db460ed658e169261ecca82fabf277e}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxQueueMessagesWaiting@{MPU\_uxQueueMessagesWaiting}}
+\index{MPU\_uxQueueMessagesWaiting@{MPU\_uxQueueMessagesWaiting}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxQueueMessagesWaiting()}{MPU\_uxQueueMessagesWaiting()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Queue\+Messages\+Waiting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a67aec1ebd939c5f98116a8ff03b2ed58}\label{mpu__prototypes_8h_a67aec1ebd939c5f98116a8ff03b2ed58}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxQueueSpacesAvailable@{MPU\_uxQueueSpacesAvailable}}
+\index{MPU\_uxQueueSpacesAvailable@{MPU\_uxQueueSpacesAvailable}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxQueueSpacesAvailable()}{MPU\_uxQueueSpacesAvailable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Queue\+Spaces\+Available (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a034d9f2f59ea4aa37bd67a4c9d4b3cd5}\label{mpu__prototypes_8h_a034d9f2f59ea4aa37bd67a4c9d4b3cd5}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxTaskGetNumberOfTasks@{MPU\_uxTaskGetNumberOfTasks}}
+\index{MPU\_uxTaskGetNumberOfTasks@{MPU\_uxTaskGetNumberOfTasks}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxTaskGetNumberOfTasks()}{MPU\_uxTaskGetNumberOfTasks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Task\+Get\+Number\+Of\+Tasks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ade37d3f7d9b904e7b0a427b8562f6c9d}\label{mpu__prototypes_8h_ade37d3f7d9b904e7b0a427b8562f6c9d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxTaskGetStackHighWaterMark@{MPU\_uxTaskGetStackHighWaterMark}}
+\index{MPU\_uxTaskGetStackHighWaterMark@{MPU\_uxTaskGetStackHighWaterMark}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxTaskGetStackHighWaterMark()}{MPU\_uxTaskGetStackHighWaterMark()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a99dd993526c3d8b4ebb4e39007faa9ad}\label{mpu__prototypes_8h_a99dd993526c3d8b4ebb4e39007faa9ad}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxTaskGetStackHighWaterMark2@{MPU\_uxTaskGetStackHighWaterMark2}}
+\index{MPU\_uxTaskGetStackHighWaterMark2@{MPU\_uxTaskGetStackHighWaterMark2}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxTaskGetStackHighWaterMark2()}{MPU\_uxTaskGetStackHighWaterMark2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_free_r_t_o_s_8h_ae4e85bffd36d76cf2796092f0ccd784a}{config\+STACK\+\_\+\+DEPTH\+\_\+\+TYPE}} MPU\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_af76f3597175bac3f84ca4f7494433068}\label{mpu__prototypes_8h_af76f3597175bac3f84ca4f7494433068}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxTaskGetSystemState@{MPU\_uxTaskGetSystemState}}
+\index{MPU\_uxTaskGetSystemState@{MPU\_uxTaskGetSystemState}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxTaskGetSystemState()}{MPU\_uxTaskGetSystemState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Task\+Get\+System\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}} $\ast$const}]{px\+Task\+Status\+Array,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Array\+Size,  }\item[{uint32\+\_\+t $\ast$const}]{pul\+Total\+Run\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a27c701344d8bab83d9cb1d1cd5aca487}\label{mpu__prototypes_8h_a27c701344d8bab83d9cb1d1cd5aca487}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_uxTaskPriorityGet@{MPU\_uxTaskPriorityGet}}
+\index{MPU\_uxTaskPriorityGet@{MPU\_uxTaskPriorityGet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_uxTaskPriorityGet()}{MPU\_uxTaskPriorityGet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}} MPU\+\_\+ux\+Task\+Priority\+Get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7ea31095d7d8ec2a662cf3666085d720}\label{mpu__prototypes_8h_a7ea31095d7d8ec2a662cf3666085d720}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vEventGroupDelete@{MPU\_vEventGroupDelete}}
+\index{MPU\_vEventGroupDelete@{MPU\_vEventGroupDelete}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vEventGroupDelete()}{MPU\_vEventGroupDelete()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Event\+Group\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}}}]{x\+Event\+Group }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a6fdce2c19119af65e8d212a9f667ec10}\label{mpu__prototypes_8h_a6fdce2c19119af65e8d212a9f667ec10}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vQueueAddToRegistry@{MPU\_vQueueAddToRegistry}}
+\index{MPU\_vQueueAddToRegistry@{MPU\_vQueueAddToRegistry}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vQueueAddToRegistry()}{MPU\_vQueueAddToRegistry()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Queue\+Add\+To\+Registry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{const char $\ast$}]{pc\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a08116a96ea4b07eda68f3e4aa6897b51}\label{mpu__prototypes_8h_a08116a96ea4b07eda68f3e4aa6897b51}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vQueueDelete@{MPU\_vQueueDelete}}
+\index{MPU\_vQueueDelete@{MPU\_vQueueDelete}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vQueueDelete()}{MPU\_vQueueDelete()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Queue\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a9c3be1dd3202967efaa54c084a38d0b0}\label{mpu__prototypes_8h_a9c3be1dd3202967efaa54c084a38d0b0}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vQueueSetQueueNumber@{MPU\_vQueueSetQueueNumber}}
+\index{MPU\_vQueueSetQueueNumber@{MPU\_vQueueSetQueueNumber}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vQueueSetQueueNumber()}{MPU\_vQueueSetQueueNumber()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Queue\+Set\+Queue\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Queue\+Number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a867c601d5d2b5786ada881721e14bdd7}\label{mpu__prototypes_8h_a867c601d5d2b5786ada881721e14bdd7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vQueueUnregisterQueue@{MPU\_vQueueUnregisterQueue}}
+\index{MPU\_vQueueUnregisterQueue@{MPU\_vQueueUnregisterQueue}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vQueueUnregisterQueue()}{MPU\_vQueueUnregisterQueue()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Queue\+Unregister\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a1644bcafaedcc89ff26c3d066ae45bb2}\label{mpu__prototypes_8h_a1644bcafaedcc89ff26c3d066ae45bb2}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vStreamBufferDelete@{MPU\_vStreamBufferDelete}}
+\index{MPU\_vStreamBufferDelete@{MPU\_vStreamBufferDelete}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vStreamBufferDelete()}{MPU\_vStreamBufferDelete()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Stream\+Buffer\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a9960d84fdd937f613a2a1255db733263}\label{mpu__prototypes_8h_a9960d84fdd937f613a2a1255db733263}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskAllocateMPURegions@{MPU\_vTaskAllocateMPURegions}}
+\index{MPU\_vTaskAllocateMPURegions@{MPU\_vTaskAllocateMPURegions}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskAllocateMPURegions()}{MPU\_vTaskAllocateMPURegions()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Allocate\+MPURegions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{const \mbox{\hyperlink{task_8h_abc1e4d1b3f52e2a9101487e1831b992a}{Memory\+Region\+\_\+t}} $\ast$const}]{px\+Regions }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a66ead786f745d188bbd3d0bf30c51069}\label{mpu__prototypes_8h_a66ead786f745d188bbd3d0bf30c51069}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskDelay@{MPU\_vTaskDelay}}
+\index{MPU\_vTaskDelay@{MPU\_vTaskDelay}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskDelay()}{MPU\_vTaskDelay()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Delay (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Delay }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ad50c8ffb6798f50f7b0cc901f35c603f}\label{mpu__prototypes_8h_ad50c8ffb6798f50f7b0cc901f35c603f}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskDelayUntil@{MPU\_vTaskDelayUntil}}
+\index{MPU\_vTaskDelayUntil@{MPU\_vTaskDelayUntil}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskDelayUntil()}{MPU\_vTaskDelayUntil()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Delay\+Until (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} $\ast$const}]{px\+Previous\+Wake\+Time,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Time\+Increment }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_accbd3a6ed5d7bf2f8689a04b6b3f72d3}\label{mpu__prototypes_8h_accbd3a6ed5d7bf2f8689a04b6b3f72d3}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskDelete@{MPU\_vTaskDelete}}
+\index{MPU\_vTaskDelete@{MPU\_vTaskDelete}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskDelete()}{MPU\_vTaskDelete()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Delete }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a9232f18c3a1657f0b2aa3c6c011a341e}\label{mpu__prototypes_8h_a9232f18c3a1657f0b2aa3c6c011a341e}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskGetInfo@{MPU\_vTaskGetInfo}}
+\index{MPU\_vTaskGetInfo@{MPU\_vTaskGetInfo}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskGetInfo()}{MPU\_vTaskGetInfo()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Get\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{\mbox{\hyperlink{task_8h_ae5c0c4b9b2c8af5836583b2984ef5b6e}{Task\+Status\+\_\+t}} $\ast$}]{px\+Task\+Status,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Get\+Free\+Stack\+Space,  }\item[{\mbox{\hyperlink{task_8h_a1749369458e2282a22e862a619a3892c}{e\+Task\+State}}}]{e\+State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ae8018fcf78cd91a7c3c256aa6fee1f7a}\label{mpu__prototypes_8h_ae8018fcf78cd91a7c3c256aa6fee1f7a}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskGetRunTimeStats@{MPU\_vTaskGetRunTimeStats}}
+\index{MPU\_vTaskGetRunTimeStats@{MPU\_vTaskGetRunTimeStats}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskGetRunTimeStats()}{MPU\_vTaskGetRunTimeStats()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Get\+Run\+Time\+Stats (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a21b44bd0c658199fe3b0ffb0266811e7}\label{mpu__prototypes_8h_a21b44bd0c658199fe3b0ffb0266811e7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskList@{MPU\_vTaskList}}
+\index{MPU\_vTaskList@{MPU\_vTaskList}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskList()}{MPU\_vTaskList()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+List (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Write\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a37c11080d93ec1bec5819ef3f527259f}\label{mpu__prototypes_8h_a37c11080d93ec1bec5819ef3f527259f}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskMissedYield@{MPU\_vTaskMissedYield}}
+\index{MPU\_vTaskMissedYield@{MPU\_vTaskMissedYield}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskMissedYield()}{MPU\_vTaskMissedYield()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Missed\+Yield (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a8665769af5e4e4dd56ba3b72ba9e933b}\label{mpu__prototypes_8h_a8665769af5e4e4dd56ba3b72ba9e933b}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskPrioritySet@{MPU\_vTaskPrioritySet}}
+\index{MPU\_vTaskPrioritySet@{MPU\_vTaskPrioritySet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskPrioritySet()}{MPU\_vTaskPrioritySet()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Priority\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+New\+Priority }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a5116e0f1df45bba9e351e54fff6e8d14}\label{mpu__prototypes_8h_a5116e0f1df45bba9e351e54fff6e8d14}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskResume@{MPU\_vTaskResume}}
+\index{MPU\_vTaskResume@{MPU\_vTaskResume}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskResume()}{MPU\_vTaskResume()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Resume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Resume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a9db7ba4634b70ce01c3c80b94930ac57}\label{mpu__prototypes_8h_a9db7ba4634b70ce01c3c80b94930ac57}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskSetApplicationTaskTag@{MPU\_vTaskSetApplicationTaskTag}}
+\index{MPU\_vTaskSetApplicationTaskTag@{MPU\_vTaskSetApplicationTaskTag}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskSetApplicationTaskTag()}{MPU\_vTaskSetApplicationTaskTag()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Set\+Application\+Task\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{\mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}}}]{px\+Hook\+Function }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a1c57bdf4ed6db4253d3e7a4968e3770d}\label{mpu__prototypes_8h_a1c57bdf4ed6db4253d3e7a4968e3770d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskSetThreadLocalStoragePointer@{MPU\_vTaskSetThreadLocalStoragePointer}}
+\index{MPU\_vTaskSetThreadLocalStoragePointer@{MPU\_vTaskSetThreadLocalStoragePointer}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskSetThreadLocalStoragePointer()}{MPU\_vTaskSetThreadLocalStoragePointer()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Set\+Thread\+Local\+Storage\+Pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Set,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Index,  }\item[{void $\ast$}]{pv\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ace70e5eeb78a37b7d151400cf84ac11c}\label{mpu__prototypes_8h_ace70e5eeb78a37b7d151400cf84ac11c}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskSetTimeOutState@{MPU\_vTaskSetTimeOutState}}
+\index{MPU\_vTaskSetTimeOutState@{MPU\_vTaskSetTimeOutState}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskSetTimeOutState()}{MPU\_vTaskSetTimeOutState()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Set\+Time\+Out\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}} $\ast$const}]{px\+Time\+Out }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a67bc097861923c6eee50b87b8655c412}\label{mpu__prototypes_8h_a67bc097861923c6eee50b87b8655c412}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskStartScheduler@{MPU\_vTaskStartScheduler}}
+\index{MPU\_vTaskStartScheduler@{MPU\_vTaskStartScheduler}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskStartScheduler()}{MPU\_vTaskStartScheduler()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Start\+Scheduler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a2456fbe3861db2f8e5df961a2fc0ad25}\label{mpu__prototypes_8h_a2456fbe3861db2f8e5df961a2fc0ad25}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskSuspend@{MPU\_vTaskSuspend}}
+\index{MPU\_vTaskSuspend@{MPU\_vTaskSuspend}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskSuspend()}{MPU\_vTaskSuspend()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Suspend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Suspend }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a383cc2047ccf2b6bcbca1ec65229ab70}\label{mpu__prototypes_8h_a383cc2047ccf2b6bcbca1ec65229ab70}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTaskSuspendAll@{MPU\_vTaskSuspendAll}}
+\index{MPU\_vTaskSuspendAll@{MPU\_vTaskSuspendAll}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTaskSuspendAll()}{MPU\_vTaskSuspendAll()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Task\+Suspend\+All (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a5ee11a468b7646ce12c6f9b66f5b8e8b}\label{mpu__prototypes_8h_a5ee11a468b7646ce12c6f9b66f5b8e8b}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTimerSetReloadMode@{MPU\_vTimerSetReloadMode}}
+\index{MPU\_vTimerSetReloadMode@{MPU\_vTimerSetReloadMode}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTimerSetReloadMode()}{MPU\_vTimerSetReloadMode()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Timer\+Set\+Reload\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Auto\+Reload }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_adf37969b9e6496069f779ce5b095cc6c}\label{mpu__prototypes_8h_adf37969b9e6496069f779ce5b095cc6c}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_vTimerSetTimerID@{MPU\_vTimerSetTimerID}}
+\index{MPU\_vTimerSetTimerID@{MPU\_vTimerSetTimerID}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_vTimerSetTimerID()}{MPU\_vTimerSetTimerID()}}
+{\footnotesize\ttfamily void MPU\+\_\+v\+Timer\+Set\+Timer\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer,  }\item[{void $\ast$}]{pv\+New\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_adf34d4972866b0605d7a09d544555ccc}\label{mpu__prototypes_8h_adf34d4972866b0605d7a09d544555ccc}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupClearBits@{MPU\_xEventGroupClearBits}}
+\index{MPU\_xEventGroupClearBits@{MPU\_xEventGroupClearBits}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupClearBits()}{MPU\_xEventGroupClearBits()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Clear\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}}}]{x\+Event\+Group,  }\item[{const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}}}]{ux\+Bits\+To\+Clear }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ab7648c05a9be0e8fd5f81645ca45f475}\label{mpu__prototypes_8h_ab7648c05a9be0e8fd5f81645ca45f475}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupCreate@{MPU\_xEventGroupCreate}}
+\index{MPU\_xEventGroupCreate@{MPU\_xEventGroupCreate}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupCreate()}{MPU\_xEventGroupCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Create (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a53f543ead37e3ee8b947e3e78a622a2a}\label{mpu__prototypes_8h_a53f543ead37e3ee8b947e3e78a622a2a}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupCreateStatic@{MPU\_xEventGroupCreateStatic}}
+\index{MPU\_xEventGroupCreateStatic@{MPU\_xEventGroupCreateStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupCreateStatic()}{MPU\_xEventGroupCreateStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Create\+Static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_af87e218149130753afb4a7044e5569e6}{Static\+Event\+Group\+\_\+t}} $\ast$}]{px\+Event\+Group\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a2c5b9a954c46a85f29cf0340aaee108a}\label{mpu__prototypes_8h_a2c5b9a954c46a85f29cf0340aaee108a}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupSetBits@{MPU\_xEventGroupSetBits}}
+\index{MPU\_xEventGroupSetBits@{MPU\_xEventGroupSetBits}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupSetBits()}{MPU\_xEventGroupSetBits()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Set\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}}}]{x\+Event\+Group,  }\item[{const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}}}]{ux\+Bits\+To\+Set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a6e8e545c245c8e1edfa21fa2dcc312ce}\label{mpu__prototypes_8h_a6e8e545c245c8e1edfa21fa2dcc312ce}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupSync@{MPU\_xEventGroupSync}}
+\index{MPU\_xEventGroupSync@{MPU\_xEventGroupSync}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupSync()}{MPU\_xEventGroupSync()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Sync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}}}]{x\+Event\+Group,  }\item[{const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}}}]{ux\+Bits\+To\+Set,  }\item[{const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}}}]{ux\+Bits\+To\+Wait\+For,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_afb424c1d20e00b23d597d63acb06fabb}\label{mpu__prototypes_8h_afb424c1d20e00b23d597d63acb06fabb}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xEventGroupWaitBits@{MPU\_xEventGroupWaitBits}}
+\index{MPU\_xEventGroupWaitBits@{MPU\_xEventGroupWaitBits}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xEventGroupWaitBits()}{MPU\_xEventGroupWaitBits()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}} MPU\+\_\+x\+Event\+Group\+Wait\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{Event\+Group\+Handle\+\_\+t}}}]{x\+Event\+Group,  }\item[{const \mbox{\hyperlink{event__groups_8h_ab2f21b93db0b2a0ab64d7a81ff32ac2e}{Event\+Bits\+\_\+t}}}]{ux\+Bits\+To\+Wait\+For,  }\item[{const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Clear\+On\+Exit,  }\item[{const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Wait\+For\+All\+Bits,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aec6e3a8dd0c477fd6ef7de0b09871b9d}\label{mpu__prototypes_8h_aec6e3a8dd0c477fd6ef7de0b09871b9d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueAddToSet@{MPU\_xQueueAddToSet}}
+\index{MPU\_xQueueAddToSet@{MPU\_xQueueAddToSet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueAddToSet()}{MPU\_xQueueAddToSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Add\+To\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}}}]{x\+Queue\+Or\+Semaphore,  }\item[{\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}}}]{x\+Queue\+Set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a013ee62a2ce409e0104bcff21dfd5475}\label{mpu__prototypes_8h_a013ee62a2ce409e0104bcff21dfd5475}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueCreateCountingSemaphore@{MPU\_xQueueCreateCountingSemaphore}}
+\index{MPU\_xQueueCreateCountingSemaphore@{MPU\_xQueueCreateCountingSemaphore}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueCreateCountingSemaphore()}{MPU\_xQueueCreateCountingSemaphore()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Create\+Counting\+Semaphore (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Max\+Count,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Initial\+Count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ad31f76df40e5fb782fe73c9e8bd0aee0}\label{mpu__prototypes_8h_ad31f76df40e5fb782fe73c9e8bd0aee0}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueCreateCountingSemaphoreStatic@{MPU\_xQueueCreateCountingSemaphoreStatic}}
+\index{MPU\_xQueueCreateCountingSemaphoreStatic@{MPU\_xQueueCreateCountingSemaphoreStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueCreateCountingSemaphoreStatic()}{MPU\_xQueueCreateCountingSemaphoreStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Create\+Counting\+Semaphore\+Static (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Max\+Count,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Initial\+Count,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$}]{px\+Static\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a16739521de6a7034e0d4181e65d8ed93}\label{mpu__prototypes_8h_a16739521de6a7034e0d4181e65d8ed93}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueCreateMutex@{MPU\_xQueueCreateMutex}}
+\index{MPU\_xQueueCreateMutex@{MPU\_xQueueCreateMutex}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueCreateMutex()}{MPU\_xQueueCreateMutex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Create\+Mutex (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{uc\+Queue\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ab081f53ca41be95c6a47f89b4790ef23}\label{mpu__prototypes_8h_ab081f53ca41be95c6a47f89b4790ef23}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueCreateMutexStatic@{MPU\_xQueueCreateMutexStatic}}
+\index{MPU\_xQueueCreateMutexStatic@{MPU\_xQueueCreateMutexStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueCreateMutexStatic()}{MPU\_xQueueCreateMutexStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Create\+Mutex\+Static (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{uc\+Queue\+Type,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$}]{px\+Static\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_af593d33910a905d35e2d37cde64f059d}\label{mpu__prototypes_8h_af593d33910a905d35e2d37cde64f059d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueCreateSet@{MPU\_xQueueCreateSet}}
+\index{MPU\_xQueueCreateSet@{MPU\_xQueueCreateSet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueCreateSet()}{MPU\_xQueueCreateSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Create\+Set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Event\+Queue\+Length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a38b0af82b18009ebbb51c18e9f8c4c34}\label{mpu__prototypes_8h_a38b0af82b18009ebbb51c18e9f8c4c34}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGenericCreate@{MPU\_xQueueGenericCreate}}
+\index{MPU\_xQueueGenericCreate@{MPU\_xQueueGenericCreate}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGenericCreate()}{MPU\_xQueueGenericCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Generic\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Queue\+Length,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Item\+Size,  }\item[{const uint8\+\_\+t}]{uc\+Queue\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a50251e0cdfe07ba2ac3317425f1c7d8c}\label{mpu__prototypes_8h_a50251e0cdfe07ba2ac3317425f1c7d8c}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGenericCreateStatic@{MPU\_xQueueGenericCreateStatic}}
+\index{MPU\_xQueueGenericCreateStatic@{MPU\_xQueueGenericCreateStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGenericCreateStatic()}{MPU\_xQueueGenericCreateStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Generic\+Create\+Static (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Queue\+Length,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Item\+Size,  }\item[{uint8\+\_\+t $\ast$}]{puc\+Queue\+Storage,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a22e8979e2849d002747c0dd4c7c37908}{Static\+Queue\+\_\+t}} $\ast$}]{px\+Static\+Queue,  }\item[{const uint8\+\_\+t}]{uc\+Queue\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7d10ee03f3b7ef49895d74aea86a5627}\label{mpu__prototypes_8h_a7d10ee03f3b7ef49895d74aea86a5627}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGenericReset@{MPU\_xQueueGenericReset}}
+\index{MPU\_xQueueGenericReset@{MPU\_xQueueGenericReset}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGenericReset()}{MPU\_xQueueGenericReset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Generic\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+New\+Queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a8bdf259f59261ca4aa1e558754b4aea1}\label{mpu__prototypes_8h_a8bdf259f59261ca4aa1e558754b4aea1}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGenericSend@{MPU\_xQueueGenericSend}}
+\index{MPU\_xQueueGenericSend@{MPU\_xQueueGenericSend}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGenericSend()}{MPU\_xQueueGenericSend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Generic\+Send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{const void $\ast$const}]{pv\+Item\+To\+Queue,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait,  }\item[{const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Copy\+Position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_af26242a4ac286d585bac42296cfb77f3}\label{mpu__prototypes_8h_af26242a4ac286d585bac42296cfb77f3}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGetMutexHolder@{MPU\_xQueueGetMutexHolder}}
+\index{MPU\_xQueueGetMutexHolder@{MPU\_xQueueGetMutexHolder}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGetMutexHolder()}{MPU\_xQueueGetMutexHolder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Get\+Mutex\+Holder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Semaphore }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aeaa5eb80b801575e6174a5fc1f6ce5e9}\label{mpu__prototypes_8h_aeaa5eb80b801575e6174a5fc1f6ce5e9}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueGiveMutexRecursive@{MPU\_xQueueGiveMutexRecursive}}
+\index{MPU\_xQueueGiveMutexRecursive@{MPU\_xQueueGiveMutexRecursive}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueGiveMutexRecursive()}{MPU\_xQueueGiveMutexRecursive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Give\+Mutex\+Recursive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{px\+Mutex }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ab43f2a1eabbc923c4f7cea113c29c2a8}\label{mpu__prototypes_8h_ab43f2a1eabbc923c4f7cea113c29c2a8}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueuePeek@{MPU\_xQueuePeek}}
+\index{MPU\_xQueuePeek@{MPU\_xQueuePeek}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueuePeek()}{MPU\_xQueuePeek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Peek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{void $\ast$const}]{pv\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ad4f20d999158d27585199f957650ceda}\label{mpu__prototypes_8h_ad4f20d999158d27585199f957650ceda}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueReceive@{MPU\_xQueueReceive}}
+\index{MPU\_xQueueReceive@{MPU\_xQueueReceive}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueReceive()}{MPU\_xQueueReceive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{void $\ast$const}]{pv\+Buffer,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a3fed9edbb48b7328e15d2073526b0e00}\label{mpu__prototypes_8h_a3fed9edbb48b7328e15d2073526b0e00}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueRemoveFromSet@{MPU\_xQueueRemoveFromSet}}
+\index{MPU\_xQueueRemoveFromSet@{MPU\_xQueueRemoveFromSet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueRemoveFromSet()}{MPU\_xQueueRemoveFromSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Remove\+From\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}}}]{x\+Queue\+Or\+Semaphore,  }\item[{\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}}}]{x\+Queue\+Set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_adcaae3a3754d63ab4bc0eb0f1c84c261}\label{mpu__prototypes_8h_adcaae3a3754d63ab4bc0eb0f1c84c261}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueSelectFromSet@{MPU\_xQueueSelectFromSet}}
+\index{MPU\_xQueueSelectFromSet@{MPU\_xQueueSelectFromSet}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueSelectFromSet()}{MPU\_xQueueSelectFromSet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{Queue\+Set\+Member\+Handle\+\_\+t}} MPU\+\_\+x\+Queue\+Select\+From\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{Queue\+Set\+Handle\+\_\+t}}}]{x\+Queue\+Set,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a4109a6df9e1ff8f7469cfe94b4258fe0}\label{mpu__prototypes_8h_a4109a6df9e1ff8f7469cfe94b4258fe0}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueSemaphoreTake@{MPU\_xQueueSemaphoreTake}}
+\index{MPU\_xQueueSemaphoreTake@{MPU\_xQueueSemaphoreTake}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueSemaphoreTake()}{MPU\_xQueueSemaphoreTake()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Semaphore\+Take (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Queue,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a70f3b09df93e0432b3b35fe6165cda92}\label{mpu__prototypes_8h_a70f3b09df93e0432b3b35fe6165cda92}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xQueueTakeMutexRecursive@{MPU\_xQueueTakeMutexRecursive}}
+\index{MPU\_xQueueTakeMutexRecursive@{MPU\_xQueueTakeMutexRecursive}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xQueueTakeMutexRecursive()}{MPU\_xQueueTakeMutexRecursive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Queue\+Take\+Mutex\+Recursive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}}}]{x\+Mutex,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a976371f94aceef5da18188c63bf974f7}\label{mpu__prototypes_8h_a976371f94aceef5da18188c63bf974f7}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferBytesAvailable@{MPU\_xStreamBufferBytesAvailable}}
+\index{MPU\_xStreamBufferBytesAvailable@{MPU\_xStreamBufferBytesAvailable}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferBytesAvailable()}{MPU\_xStreamBufferBytesAvailable()}}
+{\footnotesize\ttfamily size\+\_\+t MPU\+\_\+x\+Stream\+Buffer\+Bytes\+Available (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a573ef004bbddcbb9ba99e914a481b900}\label{mpu__prototypes_8h_a573ef004bbddcbb9ba99e914a481b900}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferGenericCreate@{MPU\_xStreamBufferGenericCreate}}
+\index{MPU\_xStreamBufferGenericCreate@{MPU\_xStreamBufferGenericCreate}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferGenericCreate()}{MPU\_xStreamBufferGenericCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Generic\+Create (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x\+Buffer\+Size\+Bytes,  }\item[{size\+\_\+t}]{x\+Trigger\+Level\+Bytes,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Is\+Message\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a30c184d8209f81a8e0d105b4cb0cd620}\label{mpu__prototypes_8h_a30c184d8209f81a8e0d105b4cb0cd620}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferGenericCreateStatic@{MPU\_xStreamBufferGenericCreateStatic}}
+\index{MPU\_xStreamBufferGenericCreateStatic@{MPU\_xStreamBufferGenericCreateStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferGenericCreateStatic()}{MPU\_xStreamBufferGenericCreateStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Generic\+Create\+Static (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x\+Buffer\+Size\+Bytes,  }\item[{size\+\_\+t}]{x\+Trigger\+Level\+Bytes,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Is\+Message\+Buffer,  }\item[{uint8\+\_\+t $\ast$const}]{puc\+Stream\+Buffer\+Storage\+Area,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a3675ce07f6d3e0e7130bc6ea01162d34}{Static\+Stream\+Buffer\+\_\+t}} $\ast$const}]{px\+Static\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a62da4dc560bc0181279b9571c835e8e6}\label{mpu__prototypes_8h_a62da4dc560bc0181279b9571c835e8e6}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferIsEmpty@{MPU\_xStreamBufferIsEmpty}}
+\index{MPU\_xStreamBufferIsEmpty@{MPU\_xStreamBufferIsEmpty}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferIsEmpty()}{MPU\_xStreamBufferIsEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a40bb70472e5399a601a95eecbf6314fa}\label{mpu__prototypes_8h_a40bb70472e5399a601a95eecbf6314fa}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferIsFull@{MPU\_xStreamBufferIsFull}}
+\index{MPU\_xStreamBufferIsFull@{MPU\_xStreamBufferIsFull}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferIsFull()}{MPU\_xStreamBufferIsFull()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Is\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a2aa538546170875bce7263e959646635}\label{mpu__prototypes_8h_a2aa538546170875bce7263e959646635}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferNextMessageLengthBytes@{MPU\_xStreamBufferNextMessageLengthBytes}}
+\index{MPU\_xStreamBufferNextMessageLengthBytes@{MPU\_xStreamBufferNextMessageLengthBytes}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferNextMessageLengthBytes()}{MPU\_xStreamBufferNextMessageLengthBytes()}}
+{\footnotesize\ttfamily size\+\_\+t MPU\+\_\+x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a3e0fbebc55f824c250b7eff4b1f7d765}\label{mpu__prototypes_8h_a3e0fbebc55f824c250b7eff4b1f7d765}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferReceive@{MPU\_xStreamBufferReceive}}
+\index{MPU\_xStreamBufferReceive@{MPU\_xStreamBufferReceive}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferReceive()}{MPU\_xStreamBufferReceive()}}
+{\footnotesize\ttfamily size\+\_\+t MPU\+\_\+x\+Stream\+Buffer\+Receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer,  }\item[{void $\ast$}]{pv\+Rx\+Data,  }\item[{size\+\_\+t}]{x\+Buffer\+Length\+Bytes,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a6264274cc7d35c512555302523c92f8a}\label{mpu__prototypes_8h_a6264274cc7d35c512555302523c92f8a}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferReset@{MPU\_xStreamBufferReset}}
+\index{MPU\_xStreamBufferReset@{MPU\_xStreamBufferReset}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferReset()}{MPU\_xStreamBufferReset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a52e63f26c50a655b89e236008512bffa}\label{mpu__prototypes_8h_a52e63f26c50a655b89e236008512bffa}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferSend@{MPU\_xStreamBufferSend}}
+\index{MPU\_xStreamBufferSend@{MPU\_xStreamBufferSend}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferSend()}{MPU\_xStreamBufferSend()}}
+{\footnotesize\ttfamily size\+\_\+t MPU\+\_\+x\+Stream\+Buffer\+Send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer,  }\item[{const void $\ast$}]{pv\+Tx\+Data,  }\item[{size\+\_\+t}]{x\+Data\+Length\+Bytes,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ac869cab40fbc949e37b98eac6e10cb0a}\label{mpu__prototypes_8h_ac869cab40fbc949e37b98eac6e10cb0a}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferSetTriggerLevel@{MPU\_xStreamBufferSetTriggerLevel}}
+\index{MPU\_xStreamBufferSetTriggerLevel@{MPU\_xStreamBufferSetTriggerLevel}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferSetTriggerLevel()}{MPU\_xStreamBufferSetTriggerLevel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Stream\+Buffer\+Set\+Trigger\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer,  }\item[{size\+\_\+t}]{x\+Trigger\+Level }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aa66eeea4312467f943cf179b2a8061ef}\label{mpu__prototypes_8h_aa66eeea4312467f943cf179b2a8061ef}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xStreamBufferSpacesAvailable@{MPU\_xStreamBufferSpacesAvailable}}
+\index{MPU\_xStreamBufferSpacesAvailable@{MPU\_xStreamBufferSpacesAvailable}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xStreamBufferSpacesAvailable()}{MPU\_xStreamBufferSpacesAvailable()}}
+{\footnotesize\ttfamily size\+\_\+t MPU\+\_\+x\+Stream\+Buffer\+Spaces\+Available (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}}}]{x\+Stream\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a5789e4f7340c707c713afa6165ca3363}\label{mpu__prototypes_8h_a5789e4f7340c707c713afa6165ca3363}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskAbortDelay@{MPU\_xTaskAbortDelay}}
+\index{MPU\_xTaskAbortDelay@{MPU\_xTaskAbortDelay}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskAbortDelay()}{MPU\_xTaskAbortDelay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Abort\+Delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a49c1dbec95aef701cb84a1bd3b5e21b6}\label{mpu__prototypes_8h_a49c1dbec95aef701cb84a1bd3b5e21b6}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCallApplicationTaskHook@{MPU\_xTaskCallApplicationTaskHook}}
+\index{MPU\_xTaskCallApplicationTaskHook@{MPU\_xTaskCallApplicationTaskHook}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCallApplicationTaskHook()}{MPU\_xTaskCallApplicationTaskHook()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Call\+Application\+Task\+Hook (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task,  }\item[{void $\ast$}]{pv\+Parameter }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a6a32c460aa7ea2dd09aaec9df8c1cf13}\label{mpu__prototypes_8h_a6a32c460aa7ea2dd09aaec9df8c1cf13}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCheckForTimeOut@{MPU\_xTaskCheckForTimeOut}}
+\index{MPU\_xTaskCheckForTimeOut@{MPU\_xTaskCheckForTimeOut}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCheckForTimeOut()}{MPU\_xTaskCheckForTimeOut()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Check\+For\+Time\+Out (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a558b407b5433bee1696535e3c4816bdf}{Time\+Out\+\_\+t}} $\ast$const}]{px\+Time\+Out,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} $\ast$const}]{px\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a53ce0915f0062120137efcc89b415715}\label{mpu__prototypes_8h_a53ce0915f0062120137efcc89b415715}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCreate@{MPU\_xTaskCreate}}
+\index{MPU\_xTaskCreate@{MPU\_xTaskCreate}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCreate()}{MPU\_xTaskCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}}}]{px\+Task\+Code,  }\item[{const char $\ast$const}]{pc\+Name,  }\item[{const uint16\+\_\+t}]{us\+Stack\+Depth,  }\item[{void $\ast$const}]{pv\+Parameters,  }\item[{\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Priority,  }\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$const}]{px\+Created\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aaf2329942140771305220948bc69b1b0}\label{mpu__prototypes_8h_aaf2329942140771305220948bc69b1b0}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCreateRestricted@{MPU\_xTaskCreateRestricted}}
+\index{MPU\_xTaskCreateRestricted@{MPU\_xTaskCreateRestricted}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCreateRestricted()}{MPU\_xTaskCreateRestricted()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Create\+Restricted (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}} $\ast$const}]{px\+Task\+Definition,  }\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$}]{px\+Created\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a0a1c9271074f19d7d3ec5de2cfd4971f}\label{mpu__prototypes_8h_a0a1c9271074f19d7d3ec5de2cfd4971f}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCreateRestrictedStatic@{MPU\_xTaskCreateRestrictedStatic}}
+\index{MPU\_xTaskCreateRestrictedStatic@{MPU\_xTaskCreateRestrictedStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCreateRestrictedStatic()}{MPU\_xTaskCreateRestrictedStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Create\+Restricted\+Static (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{task_8h_a388dc3e95bc2a93a2841a8d1e49634f3}{Task\+Parameters\+\_\+t}} $\ast$const}]{px\+Task\+Definition,  }\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} $\ast$}]{px\+Created\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a3265dccf6178f6b886cf0743886b7662}\label{mpu__prototypes_8h_a3265dccf6178f6b886cf0743886b7662}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskCreateStatic@{MPU\_xTaskCreateStatic}}
+\index{MPU\_xTaskCreateStatic@{MPU\_xTaskCreateStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskCreateStatic()}{MPU\_xTaskCreateStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Task\+Create\+Static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t}}}]{px\+Task\+Code,  }\item[{const char $\ast$const}]{pc\+Name,  }\item[{const uint32\+\_\+t}]{ul\+Stack\+Depth,  }\item[{void $\ast$const}]{pv\+Parameters,  }\item[{\mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Priority,  }\item[{\mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t}} $\ast$const}]{pux\+Stack\+Buffer,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{Static\+Task\+\_\+t}} $\ast$const}]{px\+Task\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a3e782699de49b0bf8382df0b05c1a967}\label{mpu__prototypes_8h_a3e782699de49b0bf8382df0b05c1a967}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGenericNotify@{MPU\_xTaskGenericNotify}}
+\index{MPU\_xTaskGenericNotify@{MPU\_xTaskGenericNotify}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGenericNotify()}{MPU\_xTaskGenericNotify()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Generic\+Notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task\+To\+Notify,  }\item[{uint32\+\_\+t}]{ul\+Value,  }\item[{\mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233}{e\+Notify\+Action}}}]{e\+Action,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Previous\+Notification\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ab96febf9ce3574ebbc73f07d798156f6}\label{mpu__prototypes_8h_ab96febf9ce3574ebbc73f07d798156f6}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetApplicationTaskTag@{MPU\_xTaskGetApplicationTaskTag}}
+\index{MPU\_xTaskGetApplicationTaskTag@{MPU\_xTaskGetApplicationTaskTag}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetApplicationTaskTag()}{MPU\_xTaskGetApplicationTaskTag()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_af984026250bf8fece2e0068874d4661d}{Task\+Hook\+Function\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Application\+Task\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ae3a1c8aeb60aa75841a2d224bb0765ec}\label{mpu__prototypes_8h_ae3a1c8aeb60aa75841a2d224bb0765ec}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetCurrentTaskHandle@{MPU\_xTaskGetCurrentTaskHandle}}
+\index{MPU\_xTaskGetCurrentTaskHandle@{MPU\_xTaskGetCurrentTaskHandle}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetCurrentTaskHandle()}{MPU\_xTaskGetCurrentTaskHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Current\+Task\+Handle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a64a8ffb45977a187281e0316226f7a9c}\label{mpu__prototypes_8h_a64a8ffb45977a187281e0316226f7a9c}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetHandle@{MPU\_xTaskGetHandle}}
+\index{MPU\_xTaskGetHandle@{MPU\_xTaskGetHandle}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetHandle()}{MPU\_xTaskGetHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Handle (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Name\+To\+Query }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a4d85671d7c5ff17b56acacc6a21905f8}\label{mpu__prototypes_8h_a4d85671d7c5ff17b56acacc6a21905f8}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetIdleRunTimeCounter@{MPU\_xTaskGetIdleRunTimeCounter}}
+\index{MPU\_xTaskGetIdleRunTimeCounter@{MPU\_xTaskGetIdleRunTimeCounter}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetIdleRunTimeCounter()}{MPU\_xTaskGetIdleRunTimeCounter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Idle\+Run\+Time\+Counter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_adea5fb61044c3b5538d958680b1edd85}\label{mpu__prototypes_8h_adea5fb61044c3b5538d958680b1edd85}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetIdleTaskHandle@{MPU\_xTaskGetIdleTaskHandle}}
+\index{MPU\_xTaskGetIdleTaskHandle@{MPU\_xTaskGetIdleTaskHandle}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetIdleTaskHandle()}{MPU\_xTaskGetIdleTaskHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Idle\+Task\+Handle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ae67d37ffe2e61cfc3ffc8bae3b46af83}\label{mpu__prototypes_8h_ae67d37ffe2e61cfc3ffc8bae3b46af83}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetSchedulerState@{MPU\_xTaskGetSchedulerState}}
+\index{MPU\_xTaskGetSchedulerState@{MPU\_xTaskGetSchedulerState}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetSchedulerState()}{MPU\_xTaskGetSchedulerState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Scheduler\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a3f40c6063f43373dc4208989db24eb7d}\label{mpu__prototypes_8h_a3f40c6063f43373dc4208989db24eb7d}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskGetTickCount@{MPU\_xTaskGetTickCount}}
+\index{MPU\_xTaskGetTickCount@{MPU\_xTaskGetTickCount}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskGetTickCount()}{MPU\_xTaskGetTickCount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Get\+Tick\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7546d90ed3ddac32550096dc6b37c35e}\label{mpu__prototypes_8h_a7546d90ed3ddac32550096dc6b37c35e}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskIncrementTick@{MPU\_xTaskIncrementTick}}
+\index{MPU\_xTaskIncrementTick@{MPU\_xTaskIncrementTick}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskIncrementTick()}{MPU\_xTaskIncrementTick()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Increment\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a5c5655bc7656778174b357ea86540993}\label{mpu__prototypes_8h_a5c5655bc7656778174b357ea86540993}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskNotifyStateClear@{MPU\_xTaskNotifyStateClear}}
+\index{MPU\_xTaskNotifyStateClear@{MPU\_xTaskNotifyStateClear}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskNotifyStateClear()}{MPU\_xTaskNotifyStateClear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Notify\+State\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}}}]{x\+Task }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ac160d248a7ac595a078301610aeea5eb}\label{mpu__prototypes_8h_ac160d248a7ac595a078301610aeea5eb}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskNotifyWait@{MPU\_xTaskNotifyWait}}
+\index{MPU\_xTaskNotifyWait@{MPU\_xTaskNotifyWait}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskNotifyWait()}{MPU\_xTaskNotifyWait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Notify\+Wait (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Bits\+To\+Clear\+On\+Entry,  }\item[{uint32\+\_\+t}]{ul\+Bits\+To\+Clear\+On\+Exit,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Notification\+Value,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ac0ae320f4e0d00e2f642b7677268a5fc}\label{mpu__prototypes_8h_ac0ae320f4e0d00e2f642b7677268a5fc}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTaskResumeAll@{MPU\_xTaskResumeAll}}
+\index{MPU\_xTaskResumeAll@{MPU\_xTaskResumeAll}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTaskResumeAll()}{MPU\_xTaskResumeAll()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Task\+Resume\+All (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7bdcebee972b0961a644e9fcd5ebb841}\label{mpu__prototypes_8h_a7bdcebee972b0961a644e9fcd5ebb841}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerCreate@{MPU\_xTimerCreate}}
+\index{MPU\_xTimerCreate@{MPU\_xTimerCreate}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerCreate()}{MPU\_xTimerCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} MPU\+\_\+x\+Timer\+Create (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{pc\+Timer\+Name,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Timer\+Period\+In\+Ticks,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Auto\+Reload,  }\item[{void $\ast$const}]{pv\+Timer\+ID,  }\item[{\mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}}}]{px\+Callback\+Function }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_ae33d477de9b2dd90e9563e06199034b0}\label{mpu__prototypes_8h_ae33d477de9b2dd90e9563e06199034b0}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerCreateStatic@{MPU\_xTimerCreateStatic}}
+\index{MPU\_xTimerCreateStatic@{MPU\_xTimerCreateStatic}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerCreateStatic()}{MPU\_xTimerCreateStatic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} MPU\+\_\+x\+Timer\+Create\+Static (\begin{DoxyParamCaption}\item[{const char $\ast$const}]{pc\+Timer\+Name,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Timer\+Period\+In\+Ticks,  }\item[{const \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBase\+Type\+\_\+t}}}]{ux\+Auto\+Reload,  }\item[{void $\ast$const}]{pv\+Timer\+ID,  }\item[{\mbox{\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t}}}]{px\+Callback\+Function,  }\item[{\mbox{\hyperlink{_free_r_t_o_s_8h_a85fc227d111ec21647641e0deddcccc6}{Static\+Timer\+\_\+t}} $\ast$}]{px\+Timer\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a9d1f63646824f4a2cf015def907d9681}\label{mpu__prototypes_8h_a9d1f63646824f4a2cf015def907d9681}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerCreateTimerTask@{MPU\_xTimerCreateTimerTask}}
+\index{MPU\_xTimerCreateTimerTask@{MPU\_xTimerCreateTimerTask}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerCreateTimerTask()}{MPU\_xTimerCreateTimerTask()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Create\+Timer\+Task (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_aff117583cd279a1afd30d1cebb198d38}\label{mpu__prototypes_8h_aff117583cd279a1afd30d1cebb198d38}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerGenericCommand@{MPU\_xTimerGenericCommand}}
+\index{MPU\_xTimerGenericCommand@{MPU\_xTimerGenericCommand}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerGenericCommand()}{MPU\_xTimerGenericCommand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Generic\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer,  }\item[{const \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}}}]{x\+Command\+ID,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Optional\+Value,  }\item[{\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} $\ast$const}]{px\+Higher\+Priority\+Task\+Woken,  }\item[{const \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a41b59bbb282e99aca3fc57e568d5f29c}\label{mpu__prototypes_8h_a41b59bbb282e99aca3fc57e568d5f29c}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerGetExpiryTime@{MPU\_xTimerGetExpiryTime}}
+\index{MPU\_xTimerGetExpiryTime@{MPU\_xTimerGetExpiryTime}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerGetExpiryTime()}{MPU\_xTimerGetExpiryTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Get\+Expiry\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a2830e439084d1da4cf6ce92ba59ee916}\label{mpu__prototypes_8h_a2830e439084d1da4cf6ce92ba59ee916}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerGetPeriod@{MPU\_xTimerGetPeriod}}
+\index{MPU\_xTimerGetPeriod@{MPU\_xTimerGetPeriod}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerGetPeriod()}{MPU\_xTimerGetPeriod()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Get\+Period (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a7c25c579e997e4da978f1429786aaab3}\label{mpu__prototypes_8h_a7c25c579e997e4da978f1429786aaab3}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerGetTimerDaemonTaskHandle@{MPU\_xTimerGetTimerDaemonTaskHandle}}
+\index{MPU\_xTimerGetTimerDaemonTaskHandle@{MPU\_xTimerGetTimerDaemonTaskHandle}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerGetTimerDaemonTaskHandle()}{MPU\_xTimerGetTimerDaemonTaskHandle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} MPU\+\_\+x\+Timer\+Get\+Timer\+Daemon\+Task\+Handle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_adde8656afd37de6481ee64c7f7915748}\label{mpu__prototypes_8h_adde8656afd37de6481ee64c7f7915748}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerIsTimerActive@{MPU\_xTimerIsTimerActive}}
+\index{MPU\_xTimerIsTimerActive@{MPU\_xTimerIsTimerActive}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerIsTimerActive()}{MPU\_xTimerIsTimerActive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Is\+Timer\+Active (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpu__prototypes_8h_a5c6a5a9e79aede72337f2cf46f519e6f}\label{mpu__prototypes_8h_a5c6a5a9e79aede72337f2cf46f519e6f}} 
+\index{mpu\_prototypes.h@{mpu\_prototypes.h}!MPU\_xTimerPendFunctionCall@{MPU\_xTimerPendFunctionCall}}
+\index{MPU\_xTimerPendFunctionCall@{MPU\_xTimerPendFunctionCall}!mpu\_prototypes.h@{mpu\_prototypes.h}}
+\doxysubsubsection{\texorpdfstring{MPU\_xTimerPendFunctionCall()}{MPU\_xTimerPendFunctionCall()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} MPU\+\_\+x\+Timer\+Pend\+Function\+Call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_af6e8e2be58df2be9f9bb808fcdc51622}{Pended\+Function\+\_\+t}}}]{x\+Function\+To\+Pend,  }\item[{void $\ast$}]{pv\+Parameter1,  }\item[{uint32\+\_\+t}]{ul\+Parameter2,  }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})}
+

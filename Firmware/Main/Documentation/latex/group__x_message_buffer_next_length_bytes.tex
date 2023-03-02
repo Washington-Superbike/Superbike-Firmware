@@ -1,0 +1,16 @@
+\hypertarget{group__x_message_buffer_next_length_bytes}{}\doxysection{x\+Message\+Buffer\+Next\+Length\+Bytes}
+\label{group__x_message_buffer_next_length_bytes}\index{xMessageBufferNextLengthBytes@{xMessageBufferNextLengthBytes}}
+\mbox{\hyperlink{message__buffer_8h}{message\+\_\+buffer.\+h}} 
+\begin{DoxyPre}
+size\_t \mbox{\hyperlink{message__buffer_8h_ae2b56b6564cf2476891394231a31ecad}{xMessageBufferNextLengthBytes( MessageBufferHandle\_t xMessageBuffer )}} );
+\end{DoxyPre}
+ Returns the length (in bytes) of the next message in a message buffer. Useful if \mbox{\hyperlink{message__buffer_8h_af12a227ba511a95cbea5aa81c7f3ba12}{x\+Message\+Buffer\+Receive()}} returned 0 because the size of the buffer passed into \mbox{\hyperlink{message__buffer_8h_af12a227ba511a95cbea5aa81c7f3ba12}{x\+Message\+Buffer\+Receive()}} was too small to hold the next message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Message\+Buffer} & The handle of the message buffer being queried.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length (in bytes) of the next message in the message buffer, or 0 if the message buffer is empty. 
+\end{DoxyReturn}

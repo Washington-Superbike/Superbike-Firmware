@@ -1,0 +1,66 @@
+\hypertarget{_precharge_8h_source}{}\doxysection{Precharge.\+h}
+\mbox{\hyperlink{_precharge_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PRECHARGE\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PRECHARGE\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PRECHARGE\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 4096}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define CONTACTOR 16 }\textcolor{comment}{//digital pin for contactor control (closing or opening)}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define PRECHARGE 17 }\textcolor{comment}{//digital pin for relay in series with precharge resistor}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define HIGH\_VOLTAGE\_TOGGLE 15   }\textcolor{comment}{// digital pin for starting precharge, exit precharging, exit done-\/precharging}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define CLOSE\_CONTACTOR\_BUTTON 14 }\textcolor{comment}{// digital pin for closing the contactor (usable after precharging)}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define CONTACTOR\_PRECHARGED\_LED 18 }\textcolor{comment}{// digital pin for LED that illuminates after precharge complete}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define CONTACTOR\_CLOSED\_LED 19 }\textcolor{comment}{// digital pin for LED that illuminates when the contactor is closed }}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define NUMBER\_OF\_LTCS 20 }\textcolor{comment}{// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define MOTORCONTROLLER\_TEMP\_MAX 65 }\textcolor{comment}{// THIS ALSO MAY NEED TO BE CHANGED}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define MOTOR\_TEMP\_MAX 80 }}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{enum} \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29}{HV\_STATE}} \{\mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a}{HV\_OFF}} , \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29a2da9fa3988c31a60d94ee2a751ba32ce}{HV\_PRECHARGING}}, \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29ab5febf14562b68ff6bdaaa86ec9b5dec}{HV\_ON}}, \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595}{HV\_ERROR}}\};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{21   \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{struct_pre_charge_task_data_a0dff65dcdc2df79dddc5bcf2ff491c2d}{bmsStatus}};}
+\DoxyCodeLine{22   \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{struct_pre_charge_task_data_a3e8e3c4386b66dbf1011082b1f8ce7aa}{motorTemps}};}
+\DoxyCodeLine{23   \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{struct_pre_charge_task_data_afdfc29c3040101593d7d298c7b432132}{cellVoltages}}; \textcolor{comment}{// from the main accumulator}}
+\DoxyCodeLine{24   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_aae4496a1b8d72f6107bdfcf81472741b}{motorControllerBatteryVoltage}};}
+\DoxyCodeLine{25   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a53289d52f48c067285cb843ef7470c9a}{angle\_X}};}
+\DoxyCodeLine{26   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a7a48fc6887285d4cb55bff65fca23f36}{angle\_Y}};}
+\DoxyCodeLine{27   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a33b675970bf11d7e27edf3b542431997}{RateRoll}};}
+\DoxyCodeLine{28   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_afc133d30f22f7a7f72ee498b3d69be82}{RatePitch}};}
+\DoxyCodeLine{29   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_aaf5cdfb5b1dd1857d4082f3a014ffb51}{RateYaw}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a4d7799e4a73f6488e3296c35f66c2e30}{RateCalibrationRoll}};}
+\DoxyCodeLine{32   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a80f6f899a8c9d6b3e7850f52350a414d}{RateCalibrationPitch}};}
+\DoxyCodeLine{33   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_aa0d6bb3b938787ae1de06d67d1e3deaf}{RateCalibrationYaw}};}
+\DoxyCodeLine{34   }
+\DoxyCodeLine{35   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_pre_charge_task_data_ab12a4f264d6acfdf84ce67728ecb42b2}{RateCalibrationNumber}};}
+\DoxyCodeLine{36   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a3c051d79159770c924eda82743ba8d81}{AccX}};}
+\DoxyCodeLine{37   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a80f0e6e50839ffb0fc6d04cd3d871a3f}{AccY}};}
+\DoxyCodeLine{38   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a3bb9585d2c3e9ee02ed1f98f706426b3}{AccZ}};}
+\DoxyCodeLine{39   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a99d4f80bc2e399c388039183debf146a}{AngleRoll}};}
+\DoxyCodeLine{40   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a4bb0f04e326928d80e286b279ca81003}{AnglePitch}};}
+\DoxyCodeLine{41   }
+\DoxyCodeLine{42   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a6710c3c13016f4d3127232fce1782ad2}{KalmanAngleRoll}};}
+\DoxyCodeLine{43   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a56b12f35d375a77d39a5067b35701ec6}{KalmanUncertaintyAngleRoll}};}
+\DoxyCodeLine{44   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a21d75327dbefd085bb4e809b589e0dec}{KalmanAnglePitch}};}
+\DoxyCodeLine{45   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a87db2a0a7add2863f02e490544f937b2}{KalmanUncertaintyAnglePitch}};}
+\DoxyCodeLine{46   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_pre_charge_task_data_a4ca4aeeb66f8fa86b2b33287d78f8174}{Kalman1DOutput}};}
+\DoxyCodeLine{47 \} \mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{preChargeTask}}(\textcolor{keywordtype}{void} *taskData);}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_ad5e3efaa785dcd1d9143ec7e5d117277}{preChargeCircuitFSMTransitions}} (\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_ad2376a25ab645f00587791af3c89968e}{preChargeCircuitFSMStateActions}} (\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{52 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_precharge_8h_a42b25fa6ccd2c8d82ba24c5ed4aaa7d1}{isPrecharged}}(\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{53 \textcolor{keywordtype}{int} \mbox{\hyperlink{_precharge_8h_a5c2ab967f97f2c8c39878772a5f56ca2}{closeContactor}}(\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{// I2C Accelerometer/Gyroscope access methods}}
+\DoxyCodeLine{56 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setupI2C}}(\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{57 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_ad8511ef84de5112bd6beb8e3ac5fff67}{gyro\_signals}}(\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_a87184d718be6821c71e697fc1fd98d3b}{updateGyroData}}(\mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{59 \textcolor{keywordtype}{void} \mbox{\hyperlink{_precharge_8h_ade8f654468b951602d2622b34902944f}{kalman\_1d}}(\textcolor{keywordtype}{float} KalmanState, \textcolor{keywordtype}{float} KalmanUncertainty, \textcolor{keywordtype}{float} KalmanInput, \textcolor{keywordtype}{float} KalmanMeasurement, \mbox{\hyperlink{struct_pre_charge_task_data}{PreChargeTaskData}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_PRECHARGE\_H}}
+
+\end{DoxyCode}
