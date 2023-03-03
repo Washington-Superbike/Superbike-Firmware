@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__v_semaphore_create_binary" xml:lang="en-US">
+<title>vSemaphoreCreateBinary</title>
+<indexterm><primary>vSemaphoreCreateBinary</primary></indexterm>
+
+<para>semphr. h <literallayout>vSemaphoreCreateBinary( SemaphoreHandle_t xSemaphore )</literallayout></para>
+
+<para>In many usage scenarios it is faster and more memory efficient to use a direct to task notification in place of a binary semaphore! <link xlink:href="http://www.freertos.org/RTOS-task-notifications.html">http://www.freertos.org/RTOS-task-notifications.html</link></para>
+
+<para>This old vSemaphoreCreateBinary() macro is now deprecated in favour of the xSemaphoreCreateBinary() function. Note that binary semaphores created using the vSemaphoreCreateBinary() macro are created in a state such that the first call to &apos;take&apos; the semaphore would pass, whereas binary semaphores created using xSemaphoreCreateBinary() are created in a state such that the the semaphore must first be &apos;given&apos; before it can be &apos;taken&apos;.</para>
+
+<para><emphasis>Macro</emphasis> that implements a semaphore by using the existing queue mechanism. The queue length is 1 as this is a binary semaphore. The data size is 0 as we don&apos;t want to actually store any data - we just want to know if the queue is empty or full.</para>
+
+<para>This type of semaphore can be used for pure synchronisation between tasks or between an interrupt and a task. The semaphore need not be given back once obtained, so one task/interrupt can continuously &apos;give&apos; the semaphore while another continuously &apos;takes&apos; the semaphore. For this reason this type of semaphore does not use a priority inheritance mechanism. For an alternative that does use priority inheritance see xSemaphoreCreateMutex().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xSemaphore</entry><entry>
+<para>Handle to the created semaphore. Should be of type SemaphoreHandle_t.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Example usage: <literallayout>
+SemaphoreHandle_t xSemaphore = NULL;
+
+void vATask( void * pvParameters )
+{
+   // Semaphore cannot be used before a call to vSemaphoreCreateBinary ().
+   // This is a macro so pass the variable in directly.
+   vSemaphoreCreateBinary( xSemaphore );
+
+   if( xSemaphore != NULL )
+   {
+       // The semaphore was created successfully.
+       // The semaphore can now be used.
+   }
+}
+</literallayout> </para>
+</section>

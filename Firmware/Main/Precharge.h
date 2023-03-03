@@ -1,3 +1,29 @@
+/**
+   @file PreCharge.h
+   @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
+
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Goal 1.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 #ifndef _PRECHARGE_H_
 #define _PRECHARGE_H_
 
@@ -10,10 +36,10 @@
 #define HIGH_VOLTAGE_TOGGLE 15   // digital pin for starting precharge, exit precharging, exit done-precharging
 #define CLOSE_CONTACTOR_BUTTON 14 // digital pin for closing the contactor (usable after precharging)
 #define CONTACTOR_PRECHARGED_LED 18 // digital pin for LED that illuminates after precharge complete
-#define CONTACTOR_CLOSED_LED 19 // digital pin for LED that illuminates when the contactor is closed 
+#define CONTACTOR_CLOSED_LED 19 // digital pin for LED that illuminates when the contactor is closed
 #define NUMBER_OF_LTCS 20 // THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
 #define MOTORCONTROLLER_TEMP_MAX 65 // THIS ALSO MAY NEED TO BE CHANGED
-#define MOTOR_TEMP_MAX 80 
+#define MOTOR_TEMP_MAX 80
 
 enum HV_STATE {HV_OFF , HV_PRECHARGING, HV_ON, HV_ERROR};
 
@@ -31,14 +57,14 @@ typedef struct {
   float* RateCalibrationRoll;
   float* RateCalibrationPitch;
   float* RateCalibrationYaw;
-  
+
   int* RateCalibrationNumber;
   float* AccX;
   float* AccY;
   float* AccZ;
   float* AngleRoll;
   float* AnglePitch;
-  
+
   float* KalmanAngleRoll;
   float* KalmanUncertaintyAngleRoll;
   float* KalmanAnglePitch;
@@ -46,12 +72,15 @@ typedef struct {
   float* Kalman1DOutput;
 } PreChargeTaskData;
 
+HV_STATE hv_state = HV_OFF;
+
 void preChargeTask(void *taskData);
 void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData);
 void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData);
 bool isPrecharged(PreChargeTaskData preChargeData);
-int closeContactor(PreChargeTaskData preChargeData);
-
+bool isHVSafe(PreChargeTaskData preChargeData);
+bool check_HV_TOGGLE();
+char* state_name(HV_STATE state);
 // I2C Accelerometer/Gyroscope access methods
 void setupI2C(PreChargeTaskData preChargeData);
 void gyro_signals(PreChargeTaskData preChargeData);

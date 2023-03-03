@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__v_co_routine_schedule" kind="group">
+    <compoundname>vCoRoutineSchedule</compoundname>
+    <title>vCoRoutineSchedule</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>croutine. h <preformatted>
+void <ref refid="croutine_8h_1a5333c649a2c063006ca3cd7a3b5b9240" kindref="member">vCoRoutineSchedule( void )</ref>;</preformatted></para>
+<para>Run a co-routine.</para>
+<para><ref refid="croutine_8h_1a5333c649a2c063006ca3cd7a3b5b9240" kindref="member">vCoRoutineSchedule()</ref> executes the highest priority co-routine that is able to run. The co-routine will execute until it either blocks, yields or is preempted by a task. Co-routines execute cooperatively so one co-routine cannot be preempted by another, but can be preempted by a task.</para>
+<para>If an application comprises of both tasks and co-routines then vCoRoutineSchedule should be called from the idle task (in an idle task hook).</para>
+<para>Example usage: <preformatted>
+// This idle task hook will schedule a co-routine each time it is called.
+// The rest of the idle task will execute between co-routine calls.
+void vApplicationIdleHook( void )
+{
+   <ref refid="croutine_8h_1a5333c649a2c063006ca3cd7a3b5b9240" kindref="member">vCoRoutineSchedule()</ref>;
+}
+
+// Alternatively, if you do not require any other part of the idle task to
+// execute, the idle task hook can call vCoRoutineScheduler() within an
+// infinite loop.
+void vApplicationIdleHook( void )
+{
+   for( ;; )
+   {
+       <ref refid="croutine_8h_1a5333c649a2c063006ca3cd7a3b5b9240" kindref="member">vCoRoutineSchedule()</ref>;
+   }
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

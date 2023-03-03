@@ -7,7 +7,7 @@ TaskHandle\_t xTaskCreateStatic( TaskFunction\_t pvTaskCode,                    
 
 Create a new task and add it to the list of tasks that are ready to run.
 
-Internally, within the Free\+RTOS implementation, tasks use two blocks of memory. The first block is used to hold the task\textquotesingle{}s data structures. The second block is used by the task as its stack. If a task is created using x\+Task\+Create() then both blocks of memory are automatically dynamically allocated inside the x\+Task\+Create() function. (see \href{http://www.freertos.org/a00111.html}{\texttt{ http\+://www.\+freertos.\+org/a00111.\+html}}). If a task is created using x\+Task\+Create\+Static() then the application writer must provide the required memory. x\+Task\+Create\+Static() therefore allows a task to be created without using any dynamic memory allocation.
+Internally, within the Free\+RTOS implementation, tasks use two blocks of memory. The first block is used to hold the task\textquotesingle{}s data structures. The second block is used by the task as its stack. If a task is created using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} then both blocks of memory are automatically dynamically allocated inside the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} function. (see \href{http://www.freertos.org/a00111.html}{\texttt{ http\+://www.\+freertos.\+org/a00111.\+html}}). If a task is created using x\+Task\+Create\+Static() then the application writer must provide the required memory. x\+Task\+Create\+Static() therefore allows a task to be created without using any dynamic memory allocation.
 
 
 \begin{DoxyParams}{Parameters}

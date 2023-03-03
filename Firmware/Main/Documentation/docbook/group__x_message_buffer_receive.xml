@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_message_buffer_receive" xml:lang="en-US">
+<title>xMessageBufferReceive</title>
+<indexterm><primary>xMessageBufferReceive</primary></indexterm>
+
+<para><link linkend="_message__buffer_8h">message_buffer.h</link></para>
+
+<para><literallayout>
+size_t <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive( MessageBufferHandle_t xMessageBuffer,
+                              void *pvRxData,
+                              size_t xBufferLengthBytes,
+                              TickType_t xTicksToWait )</link>;
+</literallayout></para>
+
+<para>Receives a discrete message from a message buffer. Messages can be of variable length and are copied out of the buffer.</para>
+
+<para><emphasis><emphasis role="bold">NOTE</emphasis></emphasis>: Uniquely among FreeRTOS objects, the stream buffer implementation (so also the message buffer implementation, as message buffers are built on top of stream buffers) assumes there is only one task or interrupt that will write to the buffer (the writer), and only one task or interrupt that will read from the buffer (the reader). It is safe for the writer and reader to be different tasks or interrupts, but, unlike other FreeRTOS objects, it is not safe to have multiple different writers or multiple different readers. If there are to be multiple different writers then the application writer must place each call to a writing API function (such as <link linkend="_message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605">xMessageBufferSend()</link>) inside a critical section and set the send block time to 0. Likewise, if there are to be multiple different readers then the application writer must place each call to a reading API function (such as xMessageBufferRead()) inside a critical section and set the receive block time to 0.</para>
+
+<para>Use <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive()</link> to read from a message buffer from a task. Use <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> to read from a message buffer from an interrupt service routine (ISR).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer from which a message is being received.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvRxData</entry><entry>
+<para>A pointer to the buffer into which the received message is to be copied.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xBufferLengthBytes</entry><entry>
+<para>The length of the buffer pointed to by the pvRxData parameter. This sets the maximum length of the message that can be received. If xBufferLengthBytes is too small to hold the next message then the message will be left in the message buffer and 0 will be returned.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTicksToWait</entry><entry>
+<para>The maximum amount of time the task should remain in the Blocked state to wait for a message, should the message buffer be empty. <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive()</link> will return immediately if xTicksToWait is zero and the message buffer is empty. The block time is specified in tick periods, so the absolute time it represents is dependent on the tick frequency. The macro <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS()</link> can be used to convert a time specified in milliseconds into a time specified in ticks. Setting xTicksToWait to portMAX_DELAY will cause the task to wait indefinitely (without timing out), provided INCLUDE_vTaskSuspend is set to 1 in <link linkend="__free_r_t_o_s_config_8h">FreeRTOSConfig.h</link>. Tasks do not use any CPU time when they are in the Blocked state.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The length, in bytes, of the message read from the message buffer, if any. If <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive()</link> times out before a message became available then zero is returned. If the length of the message is greater than xBufferLengthBytes then the message will be left in the message buffer and zero is returned.</para>
+</formalpara>
+Example use: <literallayout>
+void vAFunction( MessageBuffer_t xMessageBuffer )
+{
+uint8_t ucRxData[ 20 ];
+size_t xReceivedBytes;
+const TickType_t xBlockTime = <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS( 20 )</link>;
+
+    // Receive the next message from the message buffer.  Wait in the Blocked
+    // state (so not using any CPU processing time) for a maximum of 100ms for
+    // a message to become available.
+    xReceivedBytes = xMessageBufferReceive( xMessageBuffer,
+                                            ( void * ) ucRxData,
+                                            sizeof( ucRxData ),
+                                            xBlockTime );
+
+    if( xReceivedBytes &gt; 0 )
+    {
+        // A ucRxData contains a message that is xReceivedBytes long.  Process
+        // the message here....
+    }
+}
+</literallayout> </para>
+</section>

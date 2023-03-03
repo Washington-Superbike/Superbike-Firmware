@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="semphr_8h" kind="file" language="C++">
+    <compoundname>semphr.h</compoundname>
+    <includes refid="queue_8h" local="yes">queue.h</includes>
+    <includedby refid="threading__alt_8h" local="yes">FreeRTOS/threading_alt.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+      </node>
+      <node id="2">
+        <label>queue.h</label>
+        <link refid="queue_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>FreeRTOS/semphr.h</label>
+        <link refid="semphr_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>task.h</label>
+        <link refid="task_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>FreeRTOS/semphr.h</label>
+        <link refid="semphr_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FreeRTOS/threading_alt.h</label>
+        <link refid="threading__alt_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="semphr_8h_1a73cfd14cf25a13f8dd4dc1d74b7fc04a" prot="public" static="no">
+        <name>semBINARY_SEMAPHORE_QUEUE_LENGTH</name>
+        <initializer>( ( uint8_t ) 1U )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="39" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1a93bd07e28aed3084bdafa1f4e99700b2" prot="public" static="no">
+        <name>semSEMAPHORE_QUEUE_ITEM_LENGTH</name>
+        <initializer>( ( uint8_t ) 0U )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="40" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1a124bb5bd7805baa06fbd3239840d6803" prot="public" static="no">
+        <name>semGIVE_BLOCK_TIME</name>
+        <initializer>( ( <ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref> ) 0U )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="41" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1af116e436d2a5ae5bd72dbade2b5ea930" prot="public" static="no">
+        <name>xSemaphoreTake</name>
+        <param><defname>xSemaphore</defname></param>
+        <param><defname>xBlockTime</defname></param>
+        <initializer><ref refid="queue_8h_1a124567e9fc3a37b99f7e184ae98de9f8" kindref="member">xQueueSemaphoreTake</ref>( ( xSemaphore ), ( xBlockTime ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="289" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1aae55761cabfa9bf85c8f4430f78c0953" prot="public" static="no">
+        <name>xSemaphoreGive</name>
+        <param><defname>xSemaphore</defname></param>
+        <initializer><ref refid="queue_8h_1a7ce86d1026e0c3055a523935bf53c0b3" kindref="member">xQueueGenericSend</ref>( ( <ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref> ) ( xSemaphore ), NULL, <ref refid="semphr_8h_1a124bb5bd7805baa06fbd3239840d6803" kindref="member">semGIVE_BLOCK_TIME</ref>, <ref refid="queue_8h_1a4d78fa863fbeb90425a2dda08fae8b12" kindref="member">queueSEND_TO_BACK</ref> )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="447" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1a68aa43df8b2a0dbe17d05fad74670ef0" prot="public" static="no">
+        <name>xSemaphoreGiveFromISR</name>
+        <param><defname>xSemaphore</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="queue_8h_1ad14ae1174c2772cffc9e0c2c45dc55a6" kindref="member">xQueueGiveFromISR</ref>( ( <ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref> ) ( xSemaphore ), ( pxHigherPriorityTaskWoken ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="624" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="624" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1a076419b58e072655686939016e7ca3c5" prot="public" static="no">
+        <name>xSemaphoreTakeFromISR</name>
+        <param><defname>xSemaphore</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="queue_8h_1acdf528f5c91131ae2f31c669cfd65758" kindref="member">xQueueReceiveFromISR</ref>( ( <ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref> ) ( xSemaphore ), NULL, ( pxHigherPriorityTaskWoken ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>semphr. h <preformatted>
+<ref refid="semphr_8h_1a076419b58e072655686939016e7ca3c5" kindref="member">xSemaphoreTakeFromISR(
+                         SemaphoreHandle_t xSemaphore,
+                         BaseType_t *pxHigherPriorityTaskWoken
+                     )</ref></preformatted></para>
+<para><emphasis>Macro</emphasis> to take a semaphore from an ISR. The semaphore must have previously been created with a call to xSemaphoreCreateBinary() or xSemaphoreCreateCounting().</para>
+<para>Mutex type semaphores (those created using a call to xSemaphoreCreateMutex()) must not be used with this macro.</para>
+<para>This macro can be used from an ISR, however taking a semaphore from an ISR is not a common operation. It is likely to only be useful when taking a counting semaphore when an interrupt is obtaining an object from a resource pool (when the semaphore count indicates the number of resources available).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xSemaphore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A handle to the semaphore being taken. This is the handle returned when the semaphore was created.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxHigherPriorityTaskWoken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="semphr_8h_1a076419b58e072655686939016e7ca3c5" kindref="member">xSemaphoreTakeFromISR()</ref> will set *pxHigherPriorityTaskWoken to pdTRUE if taking the semaphore caused a task to unblock, and the unblocked task has a priority higher than the currently running task. If <ref refid="semphr_8h_1a076419b58e072655686939016e7ca3c5" kindref="member">xSemaphoreTakeFromISR()</ref> sets this value to pdTRUE then a context switch should be requested before the interrupt is exited.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pdTRUE if the semaphore was successfully taken, otherwise pdFALSE </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="658" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="658" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1acd7d0eda0923d7caeeaaee9202c43eab" prot="public" static="no">
+        <name>vSemaphoreDelete</name>
+        <param><defname>xSemaphore</defname></param>
+        <initializer><ref refid="queue_8h_1a707cbcfe3aed6b877b6aa6d9d75a3f22" kindref="member">vQueueDelete</ref>( ( <ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref> ) ( xSemaphore ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="1098" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="1098" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1a7403bfbc06fb8449b2334f55d939a4c4" prot="public" static="no">
+        <name>xSemaphoreGetMutexHolder</name>
+        <param><defname>xSemaphore</defname></param>
+        <initializer><ref refid="queue_8h_1ac49b15e4005be658fd04e68407ef4fb1" kindref="member">xQueueGetMutexHolder</ref>( ( xSemaphore ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="semphr_8h" kindref="compound">semphr.h</ref> <preformatted>TaskHandle_t <ref refid="semphr_8h_1a7403bfbc06fb8449b2334f55d939a4c4" kindref="member">xSemaphoreGetMutexHolder( SemaphoreHandle_t xMutex )</ref>;</preformatted></para>
+<para>If xMutex is indeed a mutex type semaphore, return the current mutex holder. If xMutex is not a mutex type semaphore, or the mutex is available (not held by a task), return NULL.</para>
+<para>Note: This is a good way of determining if the calling task is the mutex holder, but not a good way of determining the identity of the mutex holder as the holder may change between the function exiting and the returned value being tested. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="1113" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="1113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1ac3db48a47d2030b535651f306b44191b" prot="public" static="no">
+        <name>xSemaphoreGetMutexHolderFromISR</name>
+        <param><defname>xSemaphore</defname></param>
+        <initializer><ref refid="queue_8h_1a8ccb06cf46ba1c052809a3809954bd07" kindref="member">xQueueGetMutexHolderFromISR</ref>( ( xSemaphore ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="semphr_8h" kindref="compound">semphr.h</ref> <preformatted>TaskHandle_t <ref refid="semphr_8h_1ac3db48a47d2030b535651f306b44191b" kindref="member">xSemaphoreGetMutexHolderFromISR( SemaphoreHandle_t xMutex )</ref>;</preformatted></para>
+<para>If xMutex is indeed a mutex type semaphore, return the current mutex holder. If xMutex is not a mutex type semaphore, or the mutex is available (not held by a task), return NULL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="1124" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="1124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="semphr_8h_1aa26a3d7cf9b5595a652daeb7f81229f3" prot="public" static="no">
+        <name>uxSemaphoreGetCount</name>
+        <param><defname>xSemaphore</defname></param>
+        <initializer><ref refid="queue_8h_1add7ee0701ba35904d190811b9e5a4eda" kindref="member">uxQueueMessagesWaiting</ref>( ( <ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref> ) ( xSemaphore ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="semphr_8h" kindref="compound">semphr.h</ref> <preformatted>UBaseType_t <ref refid="semphr_8h_1aa26a3d7cf9b5595a652daeb7f81229f3" kindref="member">uxSemaphoreGetCount( SemaphoreHandle_t xSemaphore )</ref>;</preformatted></para>
+<para>If the semaphore is a counting semaphore then <ref refid="semphr_8h_1aa26a3d7cf9b5595a652daeb7f81229f3" kindref="member">uxSemaphoreGetCount()</ref> returns its current count value. If the semaphore is a binary semaphore then <ref refid="semphr_8h_1aa26a3d7cf9b5595a652daeb7f81229f3" kindref="member">uxSemaphoreGetCount()</ref> returns 1 if the semaphore is available, and 0 if the semaphore is not available. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="1136" column="9" bodyfile="FreeRTOS/semphr.h" bodystart="1136" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="semphr_8h_1ad88c6df4a04beedeac782918c8a332f5" prot="public" static="no">
+        <type><ref refid="queue_8h_1a57349603001f8ddf51c888c49e2804d7" kindref="member">QueueHandle_t</ref></type>
+        <definition>typedef QueueHandle_t SemaphoreHandle_t</definition>
+        <argsstring></argsstring>
+        <name>SemaphoreHandle_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/semphr.h" line="37" column="23" bodyfile="FreeRTOS/semphr.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>FreeRTOS<sp/>Kernel<sp/>V10.2.0</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Amazon.com,<sp/>Inc.<sp/>or<sp/>its<sp/>affiliates.<sp/><sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy<sp/>of</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is<sp/>furnished<sp/>to<sp/>do<sp/>so,</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,<sp/>FITNESS</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,<sp/>OUT<sp/>OF<sp/>OR<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>http://www.FreeRTOS.org</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>http://aws.amazon.com/freertos</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>1<sp/>tab<sp/>==<sp/>4<sp/>spaces!</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SEMAPHORE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SEMAPHORE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INC_FREERTOS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#error<sp/>&quot;include<sp/>FreeRTOS.h&quot;</highlight><highlight class="normal"><sp/>must<sp/>appear<sp/>in<sp/>source<sp/>files<sp/>before<sp/>&quot;include<sp/>semphr.h&quot;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="queue_8h" kindref="compound">queue.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="semphr_8h_1ad88c6df4a04beedeac782918c8a332f5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="struct_queue_definition" kindref="compound">QueueHandle_t</ref><sp/><ref refid="semphr_8h_1ad88c6df4a04beedeac782918c8a332f5" kindref="member">SemaphoreHandle_t</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="semphr_8h_1a73cfd14cf25a13f8dd4dc1d74b7fc04a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>semBINARY_SEMAPHORE_QUEUE_LENGTH<sp/><sp/><sp/><sp/>(<sp/>(<sp/>uint8_t<sp/>)<sp/>1U<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="semphr_8h_1a93bd07e28aed3084bdafa1f4e99700b2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>semSEMAPHORE_QUEUE_ITEM_LENGTH<sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>(<sp/>uint8_t<sp/>)<sp/>0U<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="semphr_8h_1a124bb5bd7805baa06fbd3239840d6803" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>semGIVE_BLOCK_TIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>(<sp/>TickType_t<sp/>)<sp/>0U<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_DYNAMIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>vSemaphoreCreateBinary(<sp/>xSemaphore<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>xSemaphore<sp/>)<sp/>=<sp/>xQueueGenericCreate(<sp/>(<sp/>UBaseType_t<sp/>)<sp/>1,<sp/>semSEMAPHORE_QUEUE_ITEM_LENGTH,<sp/>queueQUEUE_TYPE_BINARY_SEMAPHORE<sp/>);<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>(<sp/>xSemaphore<sp/>)<sp/>!=<sp/>NULL<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>void<sp/>)<sp/>xSemaphoreGive(<sp/>(<sp/>xSemaphore<sp/>)<sp/>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_DYNAMIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateBinary()<sp/>xQueueGenericCreate(<sp/>(<sp/>UBaseType_t<sp/>)<sp/>1,<sp/>semSEMAPHORE_QUEUE_ITEM_LENGTH,<sp/>queueQUEUE_TYPE_BINARY_SEMAPHORE<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateBinaryStatic(<sp/>pxStaticSemaphore<sp/>)<sp/>xQueueGenericCreateStatic(<sp/>(<sp/>UBaseType_t<sp/>)<sp/>1,<sp/>semSEMAPHORE_QUEUE_ITEM_LENGTH,<sp/>NULL,<sp/>pxStaticSemaphore,<sp/>queueQUEUE_TYPE_BINARY_SEMAPHORE<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289" refid="semphr_8h_1af116e436d2a5ae5bd72dbade2b5ea930" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreTake(<sp/>xSemaphore,<sp/>xBlockTime<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xQueueSemaphoreTake(<sp/>(<sp/>xSemaphore<sp/>),<sp/>(<sp/>xBlockTime<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configUSE_RECURSIVE_MUTEXES<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreTakeRecursive(<sp/>xMutex,<sp/>xBlockTime<sp/>)<sp/><sp/><sp/>xQueueTakeMutexRecursive(<sp/>(<sp/>xMutex<sp/>),<sp/>(<sp/>xBlockTime<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight></codeline>
+<codeline lineno="447" refid="semphr_8h_1aae55761cabfa9bf85c8f4430f78c0953" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreGive(<sp/>xSemaphore<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xQueueGenericSend(<sp/>(<sp/>QueueHandle_t<sp/>)<sp/>(<sp/>xSemaphore<sp/>),<sp/>NULL,<sp/>semGIVE_BLOCK_TIME,<sp/>queueSEND_TO_BACK<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal"></highlight></codeline>
+<codeline lineno="531"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configUSE_RECURSIVE_MUTEXES<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="532"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreGiveRecursive(<sp/>xMutex<sp/>)<sp/><sp/><sp/>xQueueGiveMutexRecursive(<sp/>(<sp/>xMutex<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="533"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="534"><highlight class="normal"></highlight></codeline>
+<codeline lineno="624" refid="semphr_8h_1a68aa43df8b2a0dbe17d05fad74670ef0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreGiveFromISR(<sp/>xSemaphore,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/><sp/>xQueueGiveFromISR(<sp/>(<sp/>QueueHandle_t<sp/>)<sp/>(<sp/>xSemaphore<sp/>),<sp/>(<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="625"><highlight class="normal"></highlight></codeline>
+<codeline lineno="658" refid="semphr_8h_1a076419b58e072655686939016e7ca3c5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreTakeFromISR(<sp/>xSemaphore,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/><sp/>xQueueReceiveFromISR(<sp/>(<sp/>QueueHandle_t<sp/>)<sp/>(<sp/>xSemaphore<sp/>),<sp/>NULL,<sp/>(<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="659"><highlight class="normal"></highlight></codeline>
+<codeline lineno="715"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_DYNAMIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="716"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateMutex()<sp/>xQueueCreateMutex(<sp/>queueQUEUE_TYPE_MUTEX<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="717"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="718"><highlight class="normal"></highlight></codeline>
+<codeline lineno="776"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/>#if(<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="777"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateMutexStatic(<sp/>pxMutexBuffer<sp/>)<sp/>xQueueCreateMutexStatic(<sp/>queueQUEUE_TYPE_MUTEX,<sp/>(<sp/>pxMutexBuffer<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="778"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="779"><highlight class="normal"></highlight></codeline>
+<codeline lineno="780"><highlight class="normal"></highlight></codeline>
+<codeline lineno="844"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>(<sp/>configSUPPORT_DYNAMIC_ALLOCATION<sp/>==<sp/>1<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>configUSE_RECURSIVE_MUTEXES<sp/>==<sp/>1<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="845"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateRecursiveMutex()<sp/>xQueueCreateMutex(<sp/>queueQUEUE_TYPE_RECURSIVE_MUTEX<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="846"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="847"><highlight class="normal"></highlight></codeline>
+<codeline lineno="917"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>(<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>==<sp/>1<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>configUSE_RECURSIVE_MUTEXES<sp/>==<sp/>1<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="918"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateRecursiveMutexStatic(<sp/>pxStaticSemaphore<sp/>)<sp/>xQueueCreateMutexStatic(<sp/>queueQUEUE_TYPE_RECURSIVE_MUTEX,<sp/>pxStaticSemaphore<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="919"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="920"><highlight class="normal"></highlight></codeline>
+<codeline lineno="997"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_DYNAMIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="998"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateCounting(<sp/>uxMaxCount,<sp/>uxInitialCount<sp/>)<sp/>xQueueCreateCountingSemaphore(<sp/>(<sp/>uxMaxCount<sp/>),<sp/>(<sp/>uxInitialCount<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="999"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1000"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1082"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1083"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>xSemaphoreCreateCountingStatic(<sp/>uxMaxCount,<sp/>uxInitialCount,<sp/>pxSemaphoreBuffer<sp/>)<sp/>xQueueCreateCountingSemaphoreStatic(<sp/>(<sp/>uxMaxCount<sp/>),<sp/>(<sp/>uxInitialCount<sp/>),<sp/>(<sp/>pxSemaphoreBuffer<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1084"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>configSUPPORT_STATIC_ALLOCATION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1085"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1098" refid="semphr_8h_1acd7d0eda0923d7caeeaaee9202c43eab" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>vSemaphoreDelete(<sp/>xSemaphore<sp/>)<sp/>vQueueDelete(<sp/>(<sp/>QueueHandle_t<sp/>)<sp/>(<sp/>xSemaphore<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1099"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1113" refid="semphr_8h_1a7403bfbc06fb8449b2334f55d939a4c4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreGetMutexHolder(<sp/>xSemaphore<sp/>)<sp/>xQueueGetMutexHolder(<sp/>(<sp/>xSemaphore<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1124" refid="semphr_8h_1ac3db48a47d2030b535651f306b44191b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xSemaphoreGetMutexHolderFromISR(<sp/>xSemaphore<sp/>)<sp/>xQueueGetMutexHolderFromISR(<sp/>(<sp/>xSemaphore<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1136" refid="semphr_8h_1aa26a3d7cf9b5595a652daeb7f81229f3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>uxSemaphoreGetCount(<sp/>xSemaphore<sp/>)<sp/>uxQueueMessagesWaiting(<sp/>(<sp/>QueueHandle_t<sp/>)<sp/>(<sp/>xSemaphore<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1138"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>SEMAPHORE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1140"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="FreeRTOS/semphr.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_task_get_tick_count_from_i_s_r" xml:lang="en-US">
+<title>xTaskGetTickCountFromISR</title>
+<indexterm><primary>xTaskGetTickCountFromISR</primary></indexterm>
+
+<para>task. h <literallayout>TickType_t <link linkend="_task_8h_1a092be3fd5752625303c307620be523ff">xTaskGetTickCountFromISR( void )</link>;</literallayout></para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The count of ticks since vTaskStartScheduler was called.</para>
+</formalpara>
+This is a version of <link linkend="_task_8h_1a753ecfe23e7386066ecccad5d16422f7">xTaskGetTickCount()</link> that is safe to be called from an ISR - provided that TickType_t is the natural word size of the microcontroller being used or interrupt nesting is either not supported or not being used. </para>
+</section>

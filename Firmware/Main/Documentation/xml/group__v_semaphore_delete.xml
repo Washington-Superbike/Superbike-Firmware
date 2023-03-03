@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__v_semaphore_delete" kind="group">
+    <compoundname>vSemaphoreDelete</compoundname>
+    <title>vSemaphoreDelete</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>semphr. h <preformatted>void <ref refid="semphr_8h_1acd7d0eda0923d7caeeaaee9202c43eab" kindref="member">vSemaphoreDelete( SemaphoreHandle_t xSemaphore )</ref>;</preformatted></para>
+<para>Delete a semaphore. This function must be used with care. For example, do not delete a mutex type semaphore if the mutex is held by a task.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xSemaphore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A handle to the semaphore to be deleted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

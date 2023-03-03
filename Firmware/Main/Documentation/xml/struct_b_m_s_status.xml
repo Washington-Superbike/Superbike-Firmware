@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_b_m_s_status" kind="struct" language="C++" prot="public">
+    <compoundname>BMSStatus</compoundname>
+    <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BMSStatus::bms_status_flag</definition>
+        <argsstring></argsstring>
+        <name>bms_status_flag</name>
+        <qualifiedname>BMSStatus::bms_status_flag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="93" column="7" bodyfile="CAN.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BMSStatus::bms_c_id</definition>
+        <argsstring></argsstring>
+        <name>bms_c_id</name>
+        <qualifiedname>BMSStatus::bms_c_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="94" column="7" bodyfile="CAN.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BMSStatus::bms_c_fault</definition>
+        <argsstring></argsstring>
+        <name>bms_c_fault</name>
+        <qualifiedname>BMSStatus::bms_c_fault</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="95" column="7" bodyfile="CAN.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BMSStatus::ltc_fault</definition>
+        <argsstring></argsstring>
+        <name>ltc_fault</name>
+        <qualifiedname>BMSStatus::ltc_fault</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="96" column="7" bodyfile="CAN.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BMSStatus::ltc_count</definition>
+        <argsstring></argsstring>
+        <name>ltc_count</name>
+        <qualifiedname>BMSStatus::ltc_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="97" column="7" bodyfile="CAN.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CAN.h" line="92" column="1" bodyfile="CAN.h" bodystart="92" bodyend="98"/>
+    <listofallmembers>
+      <member refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_fault</name></member>
+      <member refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_id</name></member>
+      <member refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_status_flag</name></member>
+      <member refid="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>ltc_count</name></member>
+      <member refid="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>ltc_fault</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

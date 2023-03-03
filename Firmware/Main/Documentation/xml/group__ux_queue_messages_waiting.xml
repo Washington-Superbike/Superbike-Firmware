@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__ux_queue_messages_waiting" kind="group">
+    <compoundname>uxQueueMessagesWaiting</compoundname>
+    <title>uxQueueMessagesWaiting</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>queue. h <preformatted>UBaseType_t <ref refid="queue_8h_1add7ee0701ba35904d190811b9e5a4eda" kindref="member">uxQueueMessagesWaiting( const QueueHandle_t xQueue )</ref>;</preformatted></para>
+<para>Return the number of messages stored in a queue.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xQueue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A handle to the queue being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of messages available in the queue.</para>
+</simplesect>
+queue. h <preformatted>UBaseType_t <ref refid="queue_8h_1aae75791e91707c1e0bb31d761921531c" kindref="member">uxQueueSpacesAvailable( const QueueHandle_t xQueue )</ref>;</preformatted></para>
+<para>Return the number of free spaces available in a queue. This is equal to the number of items that can be sent to the queue before the queue becomes full if no items are removed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xQueue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A handle to the queue being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of spaces available in the queue. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

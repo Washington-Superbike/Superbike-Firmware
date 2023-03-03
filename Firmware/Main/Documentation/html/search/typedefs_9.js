@@ -3,7 +3,7 @@ var searchData=
   ['screen_0',['Screen',['../_display_8h.html#a412053d6576f296892a8ccc0d8510e46',1,'Display.h']]],
   ['semaphoredata_5ft_1',['SemaphoreData_t',['../queue_8c.html#a8806dcfc511df585a0b4daf54a9a909a',1,'queue.c']]],
   ['semaphorehandle_5ft_2',['SemaphoreHandle_t',['../semphr_8h.html#ad88c6df4a04beedeac782918c8a332f5',1,'semphr.h']]],
-  ['stacktype_5ft_3',['StackType_t',['../portmacro_8h.html#a84e9a8ba132feed0b2401c1f4e2ac63c',1,'portmacro.h']]],
+  ['stacktype_5ft_3',['StackType_t',['../portmacro_8h.html#aa73b01e0200940d619095fb74fb3030b',1,'portmacro.h']]],
   ['staticeventgroup_5ft_4',['StaticEventGroup_t',['../_free_r_t_o_s_8h.html#af87e218149130753afb4a7044e5569e6',1,'FreeRTOS.h']]],
   ['staticlist_5ft_5',['StaticList_t',['../_free_r_t_o_s_8h.html#aabf8e8548f4ffaef73c3470172c4c8de',1,'FreeRTOS.h']]],
   ['staticlistitem_5ft_6',['StaticListItem_t',['../_free_r_t_o_s_8h.html#a1d31bc0472385a87424518da484d9e09',1,'FreeRTOS.h']]],

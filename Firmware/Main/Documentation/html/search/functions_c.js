@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['manualscreenupdater_0',['manualScreenUpdater',['../_display_8h.html#ac4a830d3a5355acabc259beb381b66c5',1,'manualScreenUpdater():&#160;Display.ino'],['../_display_8ino.html#ac4a830d3a5355acabc259beb381b66c5',1,'manualScreenUpdater():&#160;Display.ino']]],
+  ['manualscreendataupdater_0',['manualScreenDataUpdater',['../_display_8h.html#a2fcaba5d0c64fb3389132dca04224211',1,'manualScreenDataUpdater():&#160;Display.ino'],['../_display_8ino.html#a2fcaba5d0c64fb3389132dca04224211',1,'manualScreenDataUpdater():&#160;Display.ino']]],
   ['mbedtls_5fthreading_5fset_5falt_1',['mbedtls_threading_set_alt',['../threading__alt_8h.html#a827c7ec5b9ed1dfa35c77c0d3664de49',1,'threading_alt.h']]],
   ['mpu_5fetaskgetstate_2',['MPU_eTaskGetState',['../mpu__prototypes_8h.html#a2fa518228b2b8cf0d56868d26744a9b5',1,'mpu_prototypes.h']]],
   ['mpu_5fpcqueuegetname_3',['MPU_pcQueueGetName',['../mpu__prototypes_8h.html#ab9a042a08bd0c113b7cd9eb4fd9a3ed7',1,'mpu_prototypes.h']]],

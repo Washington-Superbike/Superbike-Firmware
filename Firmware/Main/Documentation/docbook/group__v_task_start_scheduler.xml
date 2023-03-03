@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__v_task_start_scheduler" xml:lang="en-US">
+<title>vTaskStartScheduler</title>
+<indexterm><primary>vTaskStartScheduler</primary></indexterm>
+
+<para>task. h <literallayout>void <link linkend="_task_8h_1aaf9dca1065c60abdeb309d56ab7293cb">vTaskStartScheduler( void )</link>;</literallayout></para>
+
+<para>Starts the real time kernel tick processing. After calling the kernel has control over which tasks are executed and when.</para>
+
+<para>See the demo application file main.c for an example of creating tasks and starting the kernel.</para>
+
+<para>Example usage: <literallayout>
+void vAFunction( void )
+{
+    // Create at least one task before starting the kernel.
+    xTaskCreate( vTaskCode, &quot;NAME&quot;, STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL );
+
+    // Start the real time kernel with preemption.
+    vTaskStartScheduler ();
+
+    // Will not get here unless a task calls vTaskEndScheduler ()
+}
+  </literallayout> </para>
+</section>

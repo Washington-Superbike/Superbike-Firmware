@@ -1,0 +1,943 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_display_8h" kind="file" language="C++">
+    <compoundname>Display.h</compoundname>
+    <includes local="no">Adafruit_ILI9341.h</includes>
+    <includes local="no">Adafruit_GFX.h</includes>
+    <includes local="no">SPI.h</includes>
+    <includes local="no">XPT2046_Touchscreen.h</includes>
+    <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
+    <includedby refid="_c_a_n_8h" local="yes">CAN.h</includedby>
+    <includedby refid="_data_logging_8ino" local="yes">DataLogging.ino</includedby>
+    <includedby refid="_display_8ino" local="yes">Display.ino</includedby>
+    <includedby refid="_main_8h" local="yes">Main.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>Adafruit_GFX.h</label>
+      </node>
+      <node id="2">
+        <label>Adafruit_ILI9341.h</label>
+      </node>
+      <node id="1">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FreeRTOS_TEENSY4.h</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
+      </node>
+      <node id="4">
+        <label>SPI.h</label>
+      </node>
+      <node id="5">
+        <label>XPT2046_Touchscreen.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>CAN.h</label>
+        <link refid="_c_a_n_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CAN.ino</label>
+        <link refid="_c_a_n_8ino"/>
+      </node>
+      <node id="5">
+        <label>DataLogging.ino</label>
+        <link refid="_data_logging_8ino"/>
+      </node>
+      <node id="1">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Display.ino</label>
+        <link refid="_display_8ino"/>
+      </node>
+      <node id="4">
+        <label>Main.h</label>
+        <link refid="_main_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Main.ino</label>
+        <link refid="_main_8ino"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_printed_data_struct" prot="public">PrintedDataStruct</innerclass>
+    <innerclass refid="struct_printed_data_therm_struct" prot="public">PrintedDataThermStruct</innerclass>
+    <innerclass refid="struct_printed_data_time_stuct" prot="public">PrintedDataTimeStuct</innerclass>
+    <innerclass refid="struct_screen_info" prot="public">ScreenInfo</innerclass>
+    <innerclass refid="struct_measurement_screen_data_struct" prot="public">MeasurementScreenDataStruct</innerclass>
+    <innerclass refid="structdisplay_task_wrapper" prot="public">displayTaskWrapper</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2" prot="public" static="no">
+        <name>DISPLAY_TASK_STACK_SIZE</name>
+        <initializer><ref refid="_free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a" kindref="member">configMINIMAL_STACK_SIZE</ref> + 32368</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="36" column="9" bodyfile="Display.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a3bf1bf7c513d10bf1c142b6863f647bb" prot="public" static="no">
+        <name>DISPLAY_UPDATE_TIME_MAX</name>
+        <initializer>50</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="39" column="9" bodyfile="Display.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a5f4d46ae101b77df78010c506601c87c" prot="public" static="no">
+        <name>TFT_CS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="41" column="9" bodyfile="Display.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a51529307207622c113ff0d584536be13" prot="public" static="no">
+        <name>TFT_DC</name>
+        <initializer>9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="42" column="9" bodyfile="Display.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1ab40e9918d9141415a47e2a979292309c" prot="public" static="no">
+        <name>TFT_RST</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="43" column="9" bodyfile="Display.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1aebc2813ad338ac596f3108382916b482" prot="public" static="no">
+        <name>TS_CS</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="46" column="9" bodyfile="Display.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a5d966444a95d140572e8f999fa00f8e0" prot="public" static="no">
+        <name>TIRQ_PIN</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="50" column="9" bodyfile="Display.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" prot="public" static="no">
+        <name>NUM_DATA</name>
+        <initializer>11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="53" column="9" bodyfile="Display.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1aa6b0be19465bc73429fbaf37ea6d7f5d" prot="public" static="no">
+        <name>DEFAULT_FLOAT</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="56" column="9" bodyfile="Display.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1accd27f9824631fc37bcb677947f1f63a" prot="public" static="no">
+        <name>DEFAULT_X_POS</name>
+        <initializer>235</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="57" column="9" bodyfile="Display.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a9705c15b04a1787116a4fbdf987e0328" prot="public" static="no">
+        <name>VERTICAL_SCALER</name>
+        <initializer>16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="60" column="9" bodyfile="Display.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a33c25be9eca2247ac244fc928183eb55" prot="public" static="no">
+        <name>TS_MINX</name>
+        <initializer>327</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="62" column="9" bodyfile="Display.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" prot="public" static="no">
+        <name>TS_MAXX</name>
+        <initializer>3903</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="63" column="9" bodyfile="Display.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" prot="public" static="no">
+        <name>TS_MINY</name>
+        <initializer>243</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="64" column="9" bodyfile="Display.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a8037be4206d706c1077d0153db12690a" prot="public" static="no">
+        <name>TS_MAXY</name>
+        <initializer>3842</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="65" column="9" bodyfile="Display.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PRINT_TYPE</name>
+        <enumvalue id="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" prot="public">
+          <name>NUMBER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" prot="public">
+          <name>ARRAY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" prot="public">
+          <name>BOOL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="67" column="1" bodyfile="Display.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="enum" id="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SCREEN_TYPE</name>
+        <enumvalue id="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" prot="public">
+          <name>DEBUG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" prot="public">
+          <name>SPEEDOMETER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="71" column="1" bodyfile="Display.h" bodystart="71" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" prot="public" static="no">
+        <type>struct <ref refid="struct_printed_data_struct" kindref="compound">PrintedDataStruct</ref></type>
+        <definition>typedef struct PrintedDataStruct PrintedData</definition>
+        <argsstring></argsstring>
+        <name>PrintedData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="83" column="13"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" prot="public" static="no">
+        <type>struct <ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataThermStruct</ref></type>
+        <definition>typedef struct PrintedDataThermStruct PrintedDataTherm</definition>
+        <argsstring></argsstring>
+        <name>PrintedDataTherm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="90" column="18"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" prot="public" static="no">
+        <type>struct <ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref></type>
+        <definition>typedef struct PrintedDataTimeStuct PrintedDataTimeStuct</definition>
+        <argsstring></argsstring>
+        <name>PrintedDataTimeStuct</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="97" column="22"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_display_8h_1a412053d6576f296892a8ccc0d8510e46" prot="public" static="no">
+        <type>struct <ref refid="struct_screen_info" kindref="compound">ScreenInfo</ref></type>
+        <definition>typedef struct ScreenInfo Screen</definition>
+        <argsstring></argsstring>
+        <name>Screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="102" column="8"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" prot="public" static="no">
+        <type>struct <ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenDataStruct</ref></type>
+        <definition>typedef struct MeasurementScreenDataStruct MeasurementScreenData</definition>
+        <argsstring></argsstring>
+        <name>MeasurementScreenData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="117" column="23"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" prot="public" static="no">
+        <type>struct <ref refid="structdisplay_task_wrapper" kindref="compound">displayTaskWrapper</ref></type>
+        <definition>typedef struct displayTaskWrapper displayPointer</definition>
+        <argsstring></argsstring>
+        <name>displayPointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="122" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" prot="public" static="no" mutable="no">
+        <type>Adafruit_ILI9341</type>
+        <definition>Adafruit_ILI9341 tft</definition>
+        <argsstring></argsstring>
+        <name>tft</name>
+        <initializer>= Adafruit_ILI9341( 10 ,  9 ,  8 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="124" column="18" bodyfile="Display.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a4d31440d430c0fc247733e218f14278f" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref></type>
+        <definition>PrintedData printedVals[11]</definition>
+        <argsstring>[11]</argsstring>
+        <name>printedVals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="126" column="13" bodyfile="Display.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* batteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>batteryVoltage</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[0]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="128" column="13" bodyfile="Display.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* motorControllerVoltage</definition>
+        <argsstring></argsstring>
+        <name>motorControllerVoltage</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="129" column="13" bodyfile="Display.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a012dded9173d07c300ffad949e96a940" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* auxBatteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>auxBatteryVoltage</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[2]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="130" column="13" bodyfile="Display.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* rpm</definition>
+        <argsstring></argsstring>
+        <name>rpm</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[3]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="131" column="13" bodyfile="Display.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* motorTemperature</definition>
+        <argsstring></argsstring>
+        <name>motorTemperature</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[4]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="132" column="13" bodyfile="Display.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* motorCurr</definition>
+        <argsstring></argsstring>
+        <name>motorCurr</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[5]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="133" column="13" bodyfile="Display.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* errMessage</definition>
+        <argsstring></argsstring>
+        <name>errMessage</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[6]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="134" column="13" bodyfile="Display.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* chargerVolt</definition>
+        <argsstring></argsstring>
+        <name>chargerVolt</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[7]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="135" column="13" bodyfile="Display.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* chargerCurr</definition>
+        <argsstring></argsstring>
+        <name>chargerCurr</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[8]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="136" column="13" bodyfile="Display.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a940677548971e0943f36dcfa95bb8b44" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* bmsStatusFlag</definition>
+        <argsstring></argsstring>
+        <name>bmsStatusFlag</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[9]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="137" column="13" bodyfile="Display.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
+        <definition>PrintedData* evccVolt</definition>
+        <argsstring></argsstring>
+        <name>evccVolt</name>
+        <initializer>= &amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[10]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="138" column="13" bodyfile="Display.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1a700ec86cb550fd4426014190222173ac" prot="public" static="no" mutable="no">
+        <type><ref refid="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" kindref="member">PrintedDataTherm</ref></type>
+        <definition>PrintedDataTherm thermiData</definition>
+        <argsstring></argsstring>
+        <name>thermiData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="140" column="18" bodyfile="Display.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref></type>
+        <definition>PrintedDataTimeStuct timeData</definition>
+        <argsstring></argsstring>
+        <name>timeData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="141" column="22" bodyfile="Display.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupDisplay</definition>
+        <argsstring>(MeasurementScreenData msData, Screen screen)</argsstring>
+        <name>setupDisplay</name>
+        <param>
+          <type><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref></type>
+          <declname>msData</declname>
+        </param>
+        <param>
+          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
+          <declname>screen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="144" column="6" bodyfile="Display.ino" bodystart="55" bodyend="85" declfile="Display.h" declline="144" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void displayUpdate</definition>
+        <argsstring>(MeasurementScreenData msData, Screen screen)</argsstring>
+        <name>displayUpdate</name>
+        <param>
+          <type><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref></type>
+          <declname>msData</declname>
+        </param>
+        <param>
+          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
+          <declname>screen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="145" column="6" bodyfile="Display.ino" bodystart="87" bodyend="133" declfile="Display.h" declline="145" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void thermiDataPrint</definition>
+        <argsstring>(bool thermiDataPrint)</argsstring>
+        <name>thermiDataPrint</name>
+        <param>
+          <type>bool</type>
+          <declname>thermiDataPrint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="146" column="6" bodyfile="Display.ino" bodystart="135" bodyend="183" declfile="Display.h" declline="146" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timePrint</definition>
+        <argsstring>()</argsstring>
+        <name>timePrint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="147" column="6" bodyfile="Display.ino" bodystart="185" bodyend="194" declfile="Display.h" declline="147" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupMeasurementScreen</definition>
+        <argsstring>(Screen screen)</argsstring>
+        <name>setupMeasurementScreen</name>
+        <param>
+          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
+          <declname>screen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="148" column="6" bodyfile="Display.ino" bodystart="196" bodyend="227" declfile="Display.h" declline="148" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eraseThenPrint</definition>
+        <argsstring>(int xPos, int yPos, String oldData, String newData)</argsstring>
+        <name>eraseThenPrint</name>
+        <param>
+          <type>int</type>
+          <declname>xPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yPos</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>oldData</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>newData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="149" column="6" bodyfile="Display.ino" bodystart="229" bodyend="236" declfile="Display.h" declline="149" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void eraseThenPrintSPEEDO</definition>
+        <argsstring>(int xPos, int yPos, String oldData, String newData)</argsstring>
+        <name>eraseThenPrintSPEEDO</name>
+        <param>
+          <type>int</type>
+          <declname>xPos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>yPos</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>oldData</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>newData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="150" column="6" bodyfile="Display.ino" bodystart="238" bodyend="245" declfile="Display.h" declline="150" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void manualScreenDataUpdater</definition>
+        <argsstring>()</argsstring>
+        <name>manualScreenDataUpdater</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="152" column="6" bodyfile="Display.ino" bodystart="253" bodyend="263" declfile="Display.h" declline="152" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_display_8h_1ad609934bdce8f8169cc609cb7913f507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float aux_voltage_read</definition>
+        <argsstring>()</argsstring>
+        <name>aux_voltage_read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="153" column="7" bodyfile="Display.ino" bodystart="265" bodyend="269" declfile="Display.h" declline="153" declcolumn="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="_display_8h" kindref="compound">Display.h</ref> config file for the Display task for the bike&apos;s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Washington Superbike </para>
+</simplesect>
+<simplesect kind="date"><para>1-March-2023</para>
+</simplesect>
+<simplesect kind="note"><para>up all members to be able to use it without any trouble.</para>
+</simplesect>
+<xrefsect id="todo_1_todo000005"><xreftitle>Todo</xreftitle><xrefdescription><para>Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal. </para>
+</xrefdescription></xrefsect></para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_DISPLAY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_DISPLAY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Adafruit_ILI9341.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Adafruit_GFX.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SPI.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;XPT2046_Touchscreen.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPLAY_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>32368</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>maximum<sp/>time<sp/>in<sp/>ms<sp/>it<sp/>takes<sp/>for<sp/>the<sp/>display<sp/>task<sp/>to<sp/>run,<sp/>used<sp/>for<sp/>spi<sp/>mutex<sp/>elsewhere</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="_display_8h_1a3bf1bf7c513d10bf1c142b6863f647bb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPLAY_UPDATE_TIME_MAX<sp/>50</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TFT_CS<sp/>10<sp/></highlight><highlight class="comment">//The<sp/>display<sp/>chip<sp/>select<sp/>pin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="_display_8h_1a51529307207622c113ff0d584536be13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TFT_DC<sp/>9<sp/></highlight><highlight class="comment">//<sp/>the<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TFT_RST<sp/>8<sp/></highlight><highlight class="comment">//the<sp/>display<sp/>reset<sp/>pin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="_display_8h_1aebc2813ad338ac596f3108382916b482" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TS_CS<sp/><sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MOSI=11,<sp/>MISO=12,<sp/>SCK=13</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>TIRQ<sp/>interrupt<sp/>signal<sp/>must<sp/>be<sp/>used<sp/>for<sp/>this<sp/>example.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="_display_8h_1a5d966444a95d140572e8f999fa00f8e0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIRQ_PIN<sp/><sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>PrintedData<sp/>values<sp/>(length<sp/>of<sp/>the<sp/>array<sp/>that<sp/>contains<sp/>all<sp/>the<sp/>printedData)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_DATA<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Default<sp/>Values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="_display_8h_1aa6b0be19465bc73429fbaf37ea6d7f5d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_FLOAT<sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="_display_8h_1accd27f9824631fc37bcb677947f1f63a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_X_POS<sp/>235</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Multipliers<sp/>and<sp/>Formula<sp/>Constants:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="_display_8h_1a9705c15b04a1787116a4fbdf987e0328" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERTICAL_SCALER<sp/>16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="_display_8h_1a33c25be9eca2247ac244fc928183eb55" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TS_MINX<sp/><sp/>327</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TS_MAXX<sp/><sp/>3903</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TS_MINY<sp/><sp/>243</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="_display_8h_1a8037be4206d706c1077d0153db12690a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TS_MAXY<sp/><sp/>3842</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="68" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" kindref="member">NUMBER</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" kindref="member">ARRAY</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" kindref="member">BOOL</ref></highlight></codeline>
+<codeline lineno="69" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" kindref="member">PRINT_TYPE</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="72" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" kindref="member">DEBUG</ref>,<sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" kindref="member">SPEEDOMETER</ref></highlight></codeline>
+<codeline lineno="73" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" kindref="member">SCREEN_TYPE</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="struct_printed_data_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedDataStruct</ref><sp/>{</highlight></codeline>
+<codeline lineno="76" refid="struct_printed_data_struct_1a18a14775ee2b7c82f96868e0c838775f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_struct_1a51a548c1d85da64d917d3309648d3158" kindref="member">labelX</ref>,<sp/><ref refid="struct_printed_data_struct_1ab2aee1187f70e33083ccb3cb27b5fb5f" kindref="member">y</ref>,<sp/><ref refid="struct_printed_data_struct_1a18a14775ee2b7c82f96868e0c838775f" kindref="member">dataX</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>is<sp/>the<sp/>same<sp/>for<sp/>data<sp/>and<sp/>label,<sp/>but<sp/>X<sp/>isnt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="struct_printed_data_struct_1ae0952f0395d23e49c6db5cbea2eca92c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_struct_1ae0952f0395d23e49c6db5cbea2eca92c" kindref="member">oldData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="struct_printed_data_struct_1aa2cdf10f001ae09777a3120515d6249d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" kindref="member">PRINT_TYPE</ref><sp/><ref refid="struct_printed_data_struct_1aa2cdf10f001ae09777a3120515d6249d" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="79" refid="struct_printed_data_struct_1a5871bcbf6b81d6ba842d61fe62349ff4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_struct_1a5871bcbf6b81d6ba842d61fe62349ff4" kindref="member">currData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="struct_printed_data_struct_1a0a4fa823c9a9a2eebbe501e7ec855570" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_struct_1a0a4fa823c9a9a2eebbe501e7ec855570" kindref="member">dataLen</ref>;</highlight></codeline>
+<codeline lineno="81" refid="struct_printed_data_struct_1a9b3617ce18ad2a5b3bb27eefffd0940c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_struct_1a9b3617ce18ad2a5b3bb27eefffd0940c" kindref="member">labelPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;labelPtr&quot;<sp/>is<sp/>just<sp/>the<sp/>label<sp/>itself.<sp/>No<sp/>String<sp/>in<sp/>C/.ino,<sp/>so<sp/>this<sp/>is<sp/>our<sp/>best<sp/>option.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(maybe<sp/>add<sp/>later)<sp/>char*<sp/>unitsPtr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="struct_printed_data_therm_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataThermStruct</ref><sp/>{</highlight></codeline>
+<codeline lineno="86" refid="struct_printed_data_therm_struct_1a5f4a978790b000578684d99f8e42e747" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_therm_struct_1ab6d40c87b9c92abc235f3ca8d2e68f6c" kindref="member">labelX</ref>,<sp/><ref refid="struct_printed_data_therm_struct_1aa3c56195d5e129e46e6820fe69eb7193" kindref="member">y</ref>,<sp/><ref refid="struct_printed_data_therm_struct_1a5f4a978790b000578684d99f8e42e747" kindref="member">dataX</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>is<sp/>the<sp/>same<sp/>for<sp/>data<sp/>and<sp/>label,<sp/>but<sp/>X<sp/>isnt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="struct_printed_data_therm_struct_1a14bcd79d4f08e87c4c435ad6894f13b3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_therm_struct_1a14bcd79d4f08e87c4c435ad6894f13b3" kindref="member">oldData</ref>[10];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="struct_printed_data_therm_struct_1aa2f24f2c6e39a25af913ff218361f691" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_therm_struct_1aa2f24f2c6e39a25af913ff218361f691" kindref="member">currData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="struct_printed_data_therm_struct_1acc2d2cee759f3cc546922b2a34dae206" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_therm_struct_1acc2d2cee759f3cc546922b2a34dae206" kindref="member">labelPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;labelPtr&quot;<sp/>is<sp/>just<sp/>the<sp/>label<sp/>itself.<sp/>No<sp/>String<sp/>in<sp/>C/.ino,<sp/>so<sp/>this<sp/>is<sp/>our<sp/>best<sp/>option.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" kindref="member">PrintedDataTherm</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="struct_printed_data_time_stuct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref><sp/>{</highlight></codeline>
+<codeline lineno="93" refid="struct_printed_data_time_stuct_1a332fbb876a0fa9e6221b08d74a6611a2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_time_stuct_1ad8464ec581e32ab683228f1603ae3027" kindref="member">labelX</ref>,<sp/><ref refid="struct_printed_data_time_stuct_1abe6d041698953e871d3938f6e0de03ed" kindref="member">y</ref>,<sp/><ref refid="struct_printed_data_time_stuct_1a332fbb876a0fa9e6221b08d74a6611a2" kindref="member">dataX</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>is<sp/>the<sp/>same<sp/>for<sp/>data<sp/>and<sp/>label,<sp/>but<sp/>X<sp/>isnt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="struct_printed_data_time_stuct_1ad8c128cfd2d2717ce60876fd9206fe90" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_time_stuct_1ad8c128cfd2d2717ce60876fd9206fe90" kindref="member">oldData</ref>[10];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" kindref="member">currData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="struct_printed_data_time_stuct_1a43ac024892cb2a1ec4233431f47d850c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_time_stuct_1a43ac024892cb2a1ec4233431f47d850c" kindref="member">labelPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;labelPtr&quot;<sp/>is<sp/>just<sp/>the<sp/>label<sp/>itself.<sp/>No<sp/>String<sp/>in<sp/>C/.ino,<sp/>so<sp/>this<sp/>is<sp/>our<sp/>best<sp/>option.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" kindref="member">PrintedDataTimeStuct</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="struct_screen_info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_screen_info" kindref="compound">ScreenInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="101" refid="struct_screen_info_1abb458c47ad3635762b415e3ed4d26e97" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" kindref="member">SCREEN_TYPE</ref><sp/><ref refid="struct_screen_info_1abb458c47ad3635762b415e3ed4d26e97" kindref="member">screenType</ref>;</highlight></codeline>
+<codeline lineno="102" refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="struct_measurement_screen_data_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenDataStruct</ref><sp/>{</highlight></codeline>
+<codeline lineno="105" refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" kindref="member">mainBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="106" refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" kindref="member">motorControllerVoltage</ref>;</highlight></codeline>
+<codeline lineno="107" refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" kindref="member">auxiliaryBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="108" refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" kindref="member">RPM</ref>;</highlight></codeline>
+<codeline lineno="109" refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" kindref="member">motorTemp</ref>;</highlight></codeline>
+<codeline lineno="110" refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" kindref="member">motorCurrent</ref>;</highlight></codeline>
+<codeline lineno="111" refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" kindref="member">errorMessage</ref>;</highlight></codeline>
+<codeline lineno="112" refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" kindref="member">chargerCurrent</ref>;</highlight></codeline>
+<codeline lineno="113" refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" kindref="member">chargerVoltage</ref>;</highlight></codeline>
+<codeline lineno="114" refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" kindref="member">bmsStatusFlag</ref>;</highlight></codeline>
+<codeline lineno="115" refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" kindref="member">evccVoltage</ref>;</highlight></codeline>
+<codeline lineno="116" refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" kindref="member">thermistorTemps</ref>;</highlight></codeline>
+<codeline lineno="117" refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="structdisplay_task_wrapper" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdisplay_task_wrapper" kindref="compound">displayTaskWrapper</ref><sp/>{</highlight></codeline>
+<codeline lineno="120" refid="structdisplay_task_wrapper_1a51bf468020bb98383d49a9e0e39422cc" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref>*<sp/><ref refid="structdisplay_task_wrapper_1a51bf468020bb98383d49a9e0e39422cc" kindref="member">msDataWrap</ref>;</highlight></codeline>
+<codeline lineno="121" refid="structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref>*<sp/><ref refid="structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22" kindref="member">screenDataWrap</ref>;</highlight></codeline>
+<codeline lineno="122" refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" kindref="member">displayPointer</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" refkind="member"><highlight class="normal">Adafruit_ILI9341<sp/><ref refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" kindref="member">tft</ref><sp/>=<sp/>Adafruit_ILI9341(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/><ref refid="_display_8h_1a51529307207622c113ff0d584536be13" kindref="member">TFT_DC</ref>,<sp/><ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>);<sp/></highlight><highlight class="comment">//the<sp/>display<sp/>controller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>PrintedValue<sp/>objects/structs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/><ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[<ref refid="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" kindref="member">NUM_DATA</ref>];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" kindref="member">batteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[0];</highlight></codeline>
+<codeline lineno="129" refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" kindref="member">motorControllerVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[1];</highlight></codeline>
+<codeline lineno="130" refid="_display_8h_1a012dded9173d07c300ffad949e96a940" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a012dded9173d07c300ffad949e96a940" kindref="member">auxBatteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[2];</highlight></codeline>
+<codeline lineno="131" refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" kindref="member">rpm</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[3];</highlight></codeline>
+<codeline lineno="132" refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" kindref="member">motorTemperature</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[4];</highlight></codeline>
+<codeline lineno="133" refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" kindref="member">motorCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[5];</highlight></codeline>
+<codeline lineno="134" refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" kindref="member">errMessage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[6];</highlight></codeline>
+<codeline lineno="135" refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" kindref="member">chargerVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[7];</highlight></codeline>
+<codeline lineno="136" refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" kindref="member">chargerCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[8];</highlight></codeline>
+<codeline lineno="137" refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" kindref="member">bmsStatusFlag</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[9];</highlight></codeline>
+<codeline lineno="138" refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" kindref="member">evccVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[10];</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="_display_8h_1a700ec86cb550fd4426014190222173ac" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataTherm</ref><sp/><ref refid="_display_8h_1a700ec86cb550fd4426014190222173ac" kindref="member">thermiData</ref>;</highlight></codeline>
+<codeline lineno="141" refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref><sp/><ref refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" kindref="member">timeData</ref>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>setup<sp/>and<sp/>update<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kindref="member">setupDisplay</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData,<sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" kindref="member">displayUpdate</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData,<sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kindref="member">thermiDataPrint</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kindref="member">thermiDataPrint</ref>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" kindref="member">timePrint</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" kindref="member">setupMeasurementScreen</ref>(<ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kindref="member">eraseThenPrint</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xPos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yPos,<sp/>String<sp/>oldData,<sp/>String<sp/>newData);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" kindref="member">eraseThenPrintSPEEDO</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xPos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yPos,<sp/>String<sp/>oldData,<sp/>String<sp/>newData);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>screenEraser(int<sp/>scaler,<sp/>int<sp/>i);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" kindref="member">manualScreenDataUpdater</ref>();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ad609934bdce8f8169cc609cb7913f507" kindref="member">aux_voltage_read</ref>();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="Display.h"/>
+  </compounddef>
+</doxygen>

@@ -1,49 +1,33 @@
+/**
+   @file DataLogging.ino
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
 
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Goal 1.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 #include "DataLogging.h"
 #include "Display.h"
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
-
-//Represents the serial connection to the sd card and any internal buffers
-SdFat sd;
-
-unsigned long epochTime; //represents the time that recording started
-
-//startSD attempts to begin communication with the SD card on SPI (single bit bus)
-//Returns true if no errors exist, returns false if an error exists
-bool startSD() {
-  return  sd.begin(SdioConfig(FIFO_SDIO));
-}
-
-//openFile attemps to open the file designated at the filename inside CSVWriter
-//Returns true if no errors, returns false if any error exists
-bool openFile(CSVWriter *writer) {
-  writer->open = writer->file.open(writer->filename, O_RDWR | O_CREAT);
-  return writer->open;
-}
-
-void saveFile(CSVWriter *writer) {
-  writer->file.sync();
-}
-
-void saveFiles(CSVWriter **writers, int writersLen) {
-  for (int i = 0; i < writersLen; i++) {
-    saveFile(writers[i]);
-  }
-}
-
-//closeFile closes the file inside the CSVWriter
-void closeFile(CSVWriter *writer) {
-  writer->file.close();
-}
-
-void printFile(CSVWriter *writer) {
-  if (!writer->open) {
-    openFile(writer);
-  }
-  int data;
-  while ((data = writer->file.read()) >= 0) Serial.write(data);
-}
 
 //dataLoggingTask processes all of the data logs and formats each CSV file output
 void dataLoggingTask(void *dlData) {
@@ -68,6 +52,42 @@ void dataLoggingTask(void *dlData) {
     // as battery voltage doesn't change very fast but current can
     vTaskDelay((50 * configTICK_RATE_HZ) / 1000);
   }
+}
+
+//startSD attempts to begin communication with the SD card on SPI (single bit bus)
+//Returns true if no errors exist, returns false if an error exists
+bool startSD() {
+  return  sd.begin(SdioConfig(FIFO_SDIO));
+}
+
+//openFile attemps to open the file designated at the filename inside CSVWriter
+//Returns true if no errors, returns false if any error exists
+bool openFile(CSVWriter *writer) {
+  writer->open = writer->file.open(writer->filename, O_RDWR | O_CREAT);
+  return writer->open;
+}
+
+//closeFile closes the file inside the CSVWriter
+void closeFile(CSVWriter *writer) {
+  writer->file.close();
+}
+
+void saveFile(CSVWriter *writer) {
+  writer->file.sync();
+}
+
+void saveFiles(CSVWriter **writers, int writersLen) {
+  for (int i = 0; i < writersLen; i++) {
+    saveFile(writers[i]);
+  }
+}
+
+void printFile(CSVWriter *writer) {
+  if (!writer->open) {
+    openFile(writer);
+  }
+  int data;
+  while ((data = writer->file.read()) >= 0) Serial.write(data);
 }
 
 //addRecord adds a record to the data log with the included time in seconds since the recording has started

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_measurement_screen_data_struct" kind="struct" language="C++" prot="public">
+    <compoundname>MeasurementScreenDataStruct</compoundname>
+    <includes refid="_display_8h" local="no">Display.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::mainBatteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>mainBatteryVoltage</name>
+        <qualifiedname>MeasurementScreenDataStruct::mainBatteryVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="105" column="9" bodyfile="Display.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::motorControllerVoltage</definition>
+        <argsstring></argsstring>
+        <name>motorControllerVoltage</name>
+        <qualifiedname>MeasurementScreenDataStruct::motorControllerVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="106" column="9" bodyfile="Display.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::auxiliaryBatteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>auxiliaryBatteryVoltage</name>
+        <qualifiedname>MeasurementScreenDataStruct::auxiliaryBatteryVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="107" column="9" bodyfile="Display.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::RPM</definition>
+        <argsstring></argsstring>
+        <name>RPM</name>
+        <qualifiedname>MeasurementScreenDataStruct::RPM</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="108" column="9" bodyfile="Display.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::motorTemp</definition>
+        <argsstring></argsstring>
+        <name>motorTemp</name>
+        <qualifiedname>MeasurementScreenDataStruct::motorTemp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="109" column="9" bodyfile="Display.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::motorCurrent</definition>
+        <argsstring></argsstring>
+        <name>motorCurrent</name>
+        <qualifiedname>MeasurementScreenDataStruct::motorCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="110" column="9" bodyfile="Display.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* MeasurementScreenDataStruct::errorMessage</definition>
+        <argsstring></argsstring>
+        <name>errorMessage</name>
+        <qualifiedname>MeasurementScreenDataStruct::errorMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="111" column="7" bodyfile="Display.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::chargerCurrent</definition>
+        <argsstring></argsstring>
+        <name>chargerCurrent</name>
+        <qualifiedname>MeasurementScreenDataStruct::chargerCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="112" column="9" bodyfile="Display.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::chargerVoltage</definition>
+        <argsstring></argsstring>
+        <name>chargerVoltage</name>
+        <qualifiedname>MeasurementScreenDataStruct::chargerVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="113" column="9" bodyfile="Display.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* MeasurementScreenDataStruct::bmsStatusFlag</definition>
+        <argsstring></argsstring>
+        <name>bmsStatusFlag</name>
+        <qualifiedname>MeasurementScreenDataStruct::bmsStatusFlag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="114" column="7" bodyfile="Display.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::evccVoltage</definition>
+        <argsstring></argsstring>
+        <name>evccVoltage</name>
+        <qualifiedname>MeasurementScreenDataStruct::evccVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="115" column="9" bodyfile="Display.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MeasurementScreenDataStruct::thermistorTemps</definition>
+        <argsstring></argsstring>
+        <name>thermistorTemps</name>
+        <qualifiedname>MeasurementScreenDataStruct::thermistorTemps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Display.h" line="116" column="9" bodyfile="Display.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Display.h" line="104" column="1" bodyfile="Display.h" bodystart="104" bodyend="117"/>
+    <listofallmembers>
+      <member refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>auxiliaryBatteryVoltage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>bmsStatusFlag</name></member>
+      <member refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>chargerCurrent</name></member>
+      <member refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>chargerVoltage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>errorMessage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>evccVoltage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>mainBatteryVoltage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>motorControllerVoltage</name></member>
+      <member refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>motorCurrent</name></member>
+      <member refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>motorTemp</name></member>
+      <member refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>RPM</name></member>
+      <member refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" prot="public" virt="non-virtual"><scope>MeasurementScreenDataStruct</scope><name>thermistorTemps</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

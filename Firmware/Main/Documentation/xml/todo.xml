@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="todo" kind="page">
+    <compoundname>todo</compoundname>
+    <title>Todo List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>File <ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000001"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_c_a_n_8ino" kindref="compound">CAN.ino</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000002"/> Change the &quot;if CAN_NODES != 0&quot; to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <ref refid="_main_8h" kindref="compound">Main.h</ref> before compiling. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000003"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_data_logging_8ino" kindref="compound">DataLogging.ino</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000004"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_display_8h" kindref="compound">Display.h</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000005"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_display_8ino" kindref="compound">Display.ino</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the whole value in the <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <ref refid="_main_8h" kindref="compound">Main.h</ref> Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_main_8h" kindref="compound">Main.h</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000007"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <linebreak/>
+ <linebreak/>
+ Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add <linebreak/>
+ <linebreak/>
+ CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_main_8ino" kindref="compound">Main.ino</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000008"/> Refine further. <linebreak/>
+ <linebreak/>
+ Look for redundant variables, pins, etc and remove. <linebreak/>
+ <linebreak/>
+ Change the name of preCharge. It&apos;s not just preCharge now, I personally like the name &quot;controls.ino&quot; and &quot;controls.h&quot;. Make sure you change the #includes as well if you do that. Please Please change &quot;preCharge&quot; or whatever it&apos;s called to not use this many global/struct variables. It doesn&apos;t need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. <linebreak/>
+ <linebreak/>
+ TEST  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_precharge_8h" kindref="compound">Precharge.h</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000009"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal.  </para>
+</listitem>
+<varlistentry><term>File <ref refid="_pre_charge_8ino" kindref="compound">PreCharge.ino</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000010"/> Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal. </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="todo"/>
+  </compounddef>
+</doxygen>

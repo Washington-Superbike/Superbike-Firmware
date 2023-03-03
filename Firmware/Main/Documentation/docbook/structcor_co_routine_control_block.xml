@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcor_co_routine_control_block" xml:lang="en-US">
+<title>corCoRoutineControlBlock Struct Reference</title>
+<indexterm><primary>corCoRoutineControlBlock</primary></indexterm>
+<para>
+<computeroutput>#include &lt;croutine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_croutine_8h_1a397a7505718dd366d8411ce324c49758">crCOROUTINE_CODE</link> <link linkend="_structcor_co_routine_control_block_1acc98c7364cd88e8e034a5f9bba113832">pxCoRoutineFunction</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> <link linkend="_structcor_co_routine_control_block_1aa2900494db8782eeb8ef12d482501406">xGenericListItem</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> <link linkend="_structcor_co_routine_control_block_1a105d316da0069f766acc3b210afed1b9">xEventListItem</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structcor_co_routine_control_block_1a752101a5d41b5caa7fd5149436613c8f">uxPriority</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structcor_co_routine_control_block_1a6c185cd2145f562fb570bea9b158fc81">uxIndex</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structcor_co_routine_control_block_1aa0d702ff5a23c61598fe13e5a78fb1dc">uxState</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_croutine_8h_source_1l00049">49</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structcor_co_routine_control_block_1acc98c7364cd88e8e034a5f9bba113832"/><section>
+    <title>pxCoRoutineFunction</title>
+<indexterm><primary>pxCoRoutineFunction</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>pxCoRoutineFunction</secondary></indexterm>
+<para><computeroutput><link linkend="_croutine_8h_1a397a7505718dd366d8411ce324c49758">crCOROUTINE_CODE</link> corCoRoutineControlBlock::pxCoRoutineFunction</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00051">51</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<anchor xml:id="_structcor_co_routine_control_block_1a6c185cd2145f562fb570bea9b158fc81"/><section>
+    <title>uxIndex</title>
+<indexterm><primary>uxIndex</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>uxIndex</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> corCoRoutineControlBlock::uxIndex</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00055">55</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<anchor xml:id="_structcor_co_routine_control_block_1a752101a5d41b5caa7fd5149436613c8f"/><section>
+    <title>uxPriority</title>
+<indexterm><primary>uxPriority</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>uxPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> corCoRoutineControlBlock::uxPriority</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00054">54</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<anchor xml:id="_structcor_co_routine_control_block_1aa0d702ff5a23c61598fe13e5a78fb1dc"/><section>
+    <title>uxState</title>
+<indexterm><primary>uxState</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>uxState</secondary></indexterm>
+<para><computeroutput>uint16_t corCoRoutineControlBlock::uxState</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00056">56</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<anchor xml:id="_structcor_co_routine_control_block_1a105d316da0069f766acc3b210afed1b9"/><section>
+    <title>xEventListItem</title>
+<indexterm><primary>xEventListItem</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>xEventListItem</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> corCoRoutineControlBlock::xEventListItem</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00053">53</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<anchor xml:id="_structcor_co_routine_control_block_1aa2900494db8782eeb8ef12d482501406"/><section>
+    <title>xGenericListItem</title>
+<indexterm><primary>xGenericListItem</primary><secondary>corCoRoutineControlBlock</secondary></indexterm>
+<indexterm><primary>corCoRoutineControlBlock</primary><secondary>xGenericListItem</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> corCoRoutineControlBlock::xGenericListItem</computeroutput></para><para>
+Definition at line <link linkend="_croutine_8h_source_1l00052">52</link> of file <link linkend="_croutine_8h_source">croutine.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_croutine_8h">croutine.h</link></section>
+</section>

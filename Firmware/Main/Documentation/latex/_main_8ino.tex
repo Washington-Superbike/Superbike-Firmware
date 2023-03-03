@@ -2,186 +2,39 @@
 \label{_main_8ino}\index{Main.ino@{Main.ino}}
 
 
-The main file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+The main file for bike firmware. This includes \mbox{\hyperlink{_main_8h}{Main.\+h}} which in turn interconnects all files and allows for access to the global variables. These variables are then passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
 
 
 {\ttfamily \#include \char`\"{}Main.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_main_8ino_a5418f3a334d5f900ceb6136bedef0dd7}{initialize\+Logs}} ()
+void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setup\+Pins}} ()
+\item 
+void \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs}} ()
+\item 
+void \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initialize\+Log\+Structs}} ()
 \item 
 void \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initialize\+CANStructs}} ()
 \item 
 void \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initialize\+Pre\+Charge\+Struct}} ()
 \item 
-void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+bool \mbox{\hyperlink{_main_8ino_aafd615bc53c2f27720d792a6a2968209}{get\+\_\+\+SPI\+\_\+control}} (unsigned int \mbox{\hyperlink{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}})
+\item 
+void \mbox{\hyperlink{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}{release\+\_\+\+SPI\+\_\+control}} (void)
 \item 
 time\+\_\+t \mbox{\hyperlink{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}{get\+Teensy3\+Time}} ()
 \item 
 void \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task}} (void $\ast$task\+Data)
 \item 
-bool \mbox{\hyperlink{_main_8ino_aafd615bc53c2f27720d792a6a2968209}{get\+\_\+\+SPI\+\_\+control}} (unsigned int \mbox{\hyperlink{_main_8ino_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}})
-\item 
-void \mbox{\hyperlink{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}{release\+\_\+\+SPI\+\_\+control}} (void)
-\item 
 void \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-static int \mbox{\hyperlink{_main_8ino_a04c234659b28f92e2eab7998b586bb4c}{bms\+\_\+status\+\_\+flag}} = 0
-\begin{DoxyCompactList}\small\item\em Includes the \mbox{\hyperlink{_main_8h}{Main.\+h}} file which in turn interconnects on all separate files together. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{_main_8ino_a54619d6c6a00d3268f764c33bd352ebf}{bms\+\_\+c\+\_\+id}} = 0
-\item 
-static int \mbox{\hyperlink{_main_8ino_a668e87eca74f2126136ee32a6964005e}{bms\+\_\+c\+\_\+fault}} = 0
-\item 
-static int \mbox{\hyperlink{_main_8ino_ae21e58b785392a0951862c107609d059}{ltc\+\_\+fault}} = 0
-\item 
-static int \mbox{\hyperlink{_main_8ino_a0de2096b0657dfd13ffeb3d18ae5d65c}{ltc\+\_\+count}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a7b9ff5caa5fb1089a53d5afdf23b3922}{cell\+Voltages\+Arr}} \mbox{[}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}\mbox{]}
-\item 
-static float \mbox{\hyperlink{_main_8ino_ad2b91d0118e98c42f7d552fd5d3056ed}{series\+Voltage}}
-\item 
-static bool \mbox{\hyperlink{_main_8ino_a006c7981abf25c0944f67d017aa5fe1f}{cells\+Ready}}
-\item 
-static float \mbox{\hyperlink{_main_8ino_a283b736b2bddfc8cbec62fe0759a9cd3}{th\+Temps}} \mbox{[}10\mbox{]}
-\item 
-static int \mbox{\hyperlink{_main_8ino_aefa2152d1586505d2d271edc7e9c4187}{thermistor\+Enabled}}
-\item 
-static int \mbox{\hyperlink{_main_8ino_ad2bc733f382fc4bf0379382e3a15a94e}{thermistor\+Present}}
-\item 
-static float \mbox{\hyperlink{_main_8ino_a68edb5124f79f990fb79a9e5b7a7f1e8}{auxiliary\+Battery\+Voltage}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a6cb6d63c8afdc45f4ef149e6d3750a1c}{angle\+\_\+X}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a89aa0714a95ede6f4c623dbeb38ff019}{angle\+\_\+Y}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a5ac66e09e5f95b02b3a99a4a2a33f0aa}{Rate\+\_\+\+Roll}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_ae4de7890b46aeb807d61f0b71efc9ffe}{Rate\+\_\+\+Pitch}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a537fbd46985b9026ec7d6d0360d1d4d0}{Rate\+\_\+\+Yaw}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a1fde90bfdfb774d5f83e5fea79c17caf}{Rate\+\_\+\+Calibration\+Roll}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a474d53e2608e3f1b00990ca9a7ccc64a}{Rate\+\_\+\+Calibration\+Pitch}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_af1c993c5e41ee4d2e881139640989c1a}{Rate\+\_\+\+Calibration\+Yaw}} = 0.\+0
-\item 
-static int \mbox{\hyperlink{_main_8ino_a94bbee6853ba61e7fa11539e15174888}{Rate\+\_\+\+Calibration\+Number}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a93a21521d3b3e91006f1957dabab890b}{Acc\+\_\+X}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a3b4304cff5611528af473a1dfb86c345}{Acc\+\_\+Y}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a68e2313572725be66b8d99950942dfb4}{Acc\+\_\+Z}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a6514f0d80926dc8e4aea4c92bd86c9eb}{Angle\+\_\+\+Roll}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_acbed8fcd71fbc60a2452c5e5e9433903}{Angle\+\_\+\+Pitch}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_ac2f400fd7d3933dbf70df179a012817a}{Kalman\+\_\+\+Angle\+Roll}} = 0.\+0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a2896dd40967cce4e4f8b65e93cc2fb9d}{Kalman\+\_\+\+Uncertainty\+Angle\+Roll}} =2$\ast$2
-\item 
-static float \mbox{\hyperlink{_main_8ino_afb2a04d0a4be86d47607dea17db62631}{Kalman\+\_\+\+Angle\+Pitch}} =0
-\item 
-static float \mbox{\hyperlink{_main_8ino_ae5ea9a8add204eed975816b032f4db3b}{Kalman\+\_\+\+Uncertainty\+Angle\+Pitch}} =2$\ast$2
-\item 
-static float \mbox{\hyperlink{_main_8ino_a077d47652e49b1a9d682fd58ae94ba46}{Kalman\+\_\+1\+DOutput}} \mbox{[}$\,$\mbox{]} =\{0,0\}
-\item 
-static float \mbox{\hyperlink{_main_8ino_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a7facdac5aec018a06fc1443c2f90a66d}{motor\+Current}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_aca95a5d67296e1cf7fd5d05296cefc5a}{motor\+Controller\+Battery\+Voltage}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_adca97acc6b0ff71f782f9c8a484a47b8}{throttle}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a45af45f80ded31266ad90143957a4e5e}{motor\+Controller\+Temp}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_adf4cca4e15700419969edf3ce2ffe6e6}{motor\+Temp}} = 0
-\item 
-static int \mbox{\hyperlink{_main_8ino_a9e20c92d5e427acd66b85b1451d23a6b}{error\+Message}} = 0
-\item 
-static byte \mbox{\hyperlink{_main_8ino_ae40c5f8677bda4442f02f482f3b50d33}{controller\+Status}} = 0
-\item 
-static byte \mbox{\hyperlink{_main_8ino_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}{evcc\+Enable}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a10823f3996ecbd5481190d44baa7fd8e}{evcc\+Voltage}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a283f91fe8cbd45a92dda13dd793bbbe0}{evcc\+Current}} = 0
-\item 
-static byte \mbox{\hyperlink{_main_8ino_a1e4f6826343fcd16576ce3c411fb2287}{charge\+Flag}} = 0
-\item 
-static byte \mbox{\hyperlink{_main_8ino_a5613c4060f829f65acaac2bc064ae063}{charger\+Status\+Flag}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_ab11fffe9a473928798422de66fcde502}{charger\+Voltage}} = 0
-\item 
-static float \mbox{\hyperlink{_main_8ino_a8b27b4284d9d4039618e5da068c2bc7f}{charger\+Current}} = 0
-\item 
-static int8\+\_\+t \mbox{\hyperlink{_main_8ino_a85ede348554a838fb67a3ceb3313be5b}{charger\+Temp}} = 0
-\item 
-static \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}} = \{\mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}\}
-\item 
-static \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}} \mbox{\hyperlink{_main_8ino_aebb1e162e2ac30616875763e56823870}{display\+Task\+Wrap}} = \{\}
-\item 
-static \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} \mbox{\hyperlink{_main_8ino_a962a20f8dc1ba6934fdc04e44bde53a8}{measurement\+Data}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}} \mbox{\hyperlink{_main_8ino_a9eeb128a9907154869e9ffa78e065039}{motor\+Stats}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}} \mbox{\hyperlink{_main_8ino_abb61c6dc61d12b31aad7bdadd495b70a}{motor\+Temps}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}} \mbox{\hyperlink{_main_8ino_afca6798677cebeeb7599ea00e1e243dd}{cell\+Voltages}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_pre_charge_task_data}{Pre\+Charge\+Task\+Data}} \mbox{\hyperlink{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}{pre\+Charge\+Data}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8ino_ae0522609134711f92c96ffa8ed05e582}{bms\+Status}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}} \mbox{\hyperlink{_main_8ino_a18571448b101f12a60457d717dc4f953}{thermistor\+Temps}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}} \mbox{\hyperlink{_main_8ino_aa249f1d073086c27682168bbd7dc77ee}{charger\+Stats}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stats}} \mbox{\hyperlink{_main_8ino_a566a5d391bca1611a2bfd1d97a1aa24c}{charge\+Controller\+Stats}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}} \mbox{\hyperlink{_main_8ino_ab1d006bdd632ad57598689186c8ce63a}{can\+Task\+Data}}
-\item 
-static \mbox{\hyperlink{struct_data_logging_task_data}{Data\+Logging\+Task\+Data}} \mbox{\hyperlink{_main_8ino_af74b66e7d389be76470292071c65f556}{data\+Logging\+Task\+Data}}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_a74a7fab0bce9e95dfced1f40d1764e9a}{motor\+Temperature\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_ae230e041b8d09151f97b07151fdaf38c}{motor\+Controller\+Temperature\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_a4ca34bc3c27d808ebe3480bfed4b997a}{motor\+Controller\+Voltage\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}{motor\+Current\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_a60f914a71f12f33ed914208fbf5be838}{rpm\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_a8941dbd7f821806a7a6f4eb705b1472b}{thermistor\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} \mbox{\hyperlink{_main_8ino_ade498aeeb82732f18af609faa0b323cb}{bms\+Voltage\+Log}} = \{\}
-\item 
-static \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$ \mbox{\hyperlink{_main_8ino_a9462b5ab9931c29422982609bceb3fad}{logs}} \mbox{[}$\,$\mbox{]} = \{\&\mbox{\hyperlink{_main_8ino_a74a7fab0bce9e95dfced1f40d1764e9a}{motor\+Temperature\+Log}}, \&\mbox{\hyperlink{_main_8ino_ae230e041b8d09151f97b07151fdaf38c}{motor\+Controller\+Temperature\+Log}}, \&\mbox{\hyperlink{_main_8ino_a4ca34bc3c27d808ebe3480bfed4b997a}{motor\+Controller\+Voltage\+Log}}, \&\mbox{\hyperlink{_main_8ino_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}{motor\+Current\+Log}}, \&\mbox{\hyperlink{_main_8ino_a60f914a71f12f33ed914208fbf5be838}{rpm\+Log}}, \&\mbox{\hyperlink{_main_8ino_a8941dbd7f821806a7a6f4eb705b1472b}{thermistor\+Log}}, \&\mbox{\hyperlink{_main_8ino_ade498aeeb82732f18af609faa0b323cb}{bms\+Voltage\+Log}}\}
-\item 
-unsigned long \mbox{\hyperlink{_main_8ino_a61d9ef65d75b66821896182b133b31de}{timer}} = millis()
-\item 
-int \mbox{\hyperlink{_main_8ino_a40646f0d9308996b7d391cb8e0d95905}{cycle\+Count}} = 0
-\item 
-int \mbox{\hyperlink{_main_8ino_ad817dda0a86c980182765da5a3cafec8}{lower\+Upper\+Cells}} = -\/1
-\item 
-unsigned long \mbox{\hyperlink{_main_8ino_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}} = millis()
-\item 
-byte \mbox{\hyperlink{_main_8ino_acdca7f14bb24f1cb2aa9d0be982560b2}{sd\+Started}} = 0
-\item 
-\mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} \mbox{\hyperlink{_main_8ino_a76c0525d646735793add25b18043e600}{spi\+\_\+mutex}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The main file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+The main file for bike firmware. This includes \mbox{\hyperlink{_main_8h}{Main.\+h}} which in turn interconnects all files and allows for access to the global variables. These variables are then passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
 
 \begin{DoxyAuthor}{Author}
 Washington Superbike 
@@ -189,7 +42,24 @@ Washington Superbike
 \begin{DoxyDate}{Date}
 1-\/March-\/2023
 \end{DoxyDate}
-Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s framework with void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} and void \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()}} methods, but only void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} is used. Before the void setup, we initialize all the variables used throughout all the files as a set of static variables. The keyword static is used because in C++ it means that this variable is going to exist \char`\"{}for the  lifetime of the code\char`\"{}. These variables are initialized to 0 and then the void setup will execute everything and also act as the loop. That is because the setup calls on the x\+Task\+Create() method from the RTOS library and then the \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}} method which in turn abstracts everything from us and rotates between all the tasks updating them and transferring resources as required. As of now, tasks operate on different resources than each other, thus there is no need for semaphores, however, if that is changed in the future, there is an example line of creating a semaphore above the calls to the x\+Task\+Create() method. The breakdown of how these methods and variables work in detail are explained further in the documentation closer for those methods and variables specifically. Please make sure to read and understand everything before you make any changes to this firmware. 
+Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s framework with void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} and void \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()}} methods, but only void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} is used. Before the void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}, \mbox{\hyperlink{_main_8h}{Main.\+h}} is included into the file which in turn interconnects all files and allows for access to the global variables. These variables are what is eventually used in \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} and all the helper methods, being passed along to all other files/tasks as pointers, allowing for them to updated and accessed at the same time. If \mbox{\hyperlink{_c_a_n_8ino}{Can.\+ino}} updates the motor\+Temperature, \mbox{\hyperlink{_display_8ino}{Display.\+ino}} has an updated value for the motor\+Temperature. Then the void setup will execute everything and also act as the loop. That is because the setup calls on the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} method from the RTOS library and then the \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}} method which in turn abstracts everything from us and rotates between all the tasks updating them and transferring resources as required. As of now, tasks operate on different resources than each other, thus there is no need for semaphores, however, if that is changed in the future, there is an example line of creating a semaphore above the calls to the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} method. The breakdown of how these methods and variables work in detail are explained further in the documentation closer for those methods and variables specifically. Please make sure to read and understand everything before you make any changes to this firmware.
+
+\begin{DoxyNote}{Note}
+As of 3/1/2023, I think this firmware is fully race-\/ready and meeting all requirements to race. Ideally, I would use HIL and their CAN interface to further test the requirements and ensure proper performance under race-\/communication circumstances, but I\textquotesingle{}m just tired, you guys can do that while testing everything else next quarter. As of now, my goal is to create full documentation for this codebase and train up all members to be able to use it without any trouble.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Refine further. ~\newline
+ ~\newline
+ Look for redundant variables, pins, etc and remove. ~\newline
+ ~\newline
+ Change the name of pre\+Charge. It\textquotesingle{}s not just pre\+Charge now, I personally like the name \char`\"{}controls.\+ino\char`\"{} and \char`\"{}controls.\+h\char`\"{}. Make sure you change the \#includes as well if you do that. Please Please change \char`\"{}pre\+Charge\char`\"{} or whatever it\textquotesingle{}s called to not use this many global/struct variables. It doesn\textquotesingle{}t need everything globalized, it can pass them as parameters and eventually output to global variables $\ast$pre\+Charge.angle\+\_\+X and $\ast$pre\+Charge.angle\+\_\+Y. ~\newline
+ ~\newline
+ TEST \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
+
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{_main_8ino_aafd615bc53c2f27720d792a6a2968209}\label{_main_8ino_aafd615bc53c2f27720d792a6a2968209}} 
@@ -198,11 +68,29 @@ Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s fr
 \doxysubsubsection{\texorpdfstring{get\_SPI\_control()}{get\_SPI\_control()}}
 {\footnotesize\ttfamily bool get\+\_\+\+SPI\+\_\+control (\begin{DoxyParamCaption}\item[{unsigned int}]{ms }\end{DoxyParamCaption})}
 
+\begin{DoxyNote}{Note}
+Just a basic helper method that takes control of the spi\+Mutex which is used as an example line in \mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} but not actually used in the current \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} methods or this RTOS in general. ~\newline
+ ~\newline
+The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. ~\newline
+ ~\newline
+Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00235}{235}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
 \mbox{\Hypertarget{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}\label{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}} 
 \index{Main.ino@{Main.ino}!getTeensy3Time@{getTeensy3Time}}
 \index{getTeensy3Time@{getTeensy3Time}!Main.ino@{Main.ino}}
 \doxysubsubsection{\texorpdfstring{getTeensy3Time()}{getTeensy3Time()}}
 {\footnotesize\ttfamily time\+\_\+t get\+Teensy3\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Just a basic helper method that returns the time variable that is stored in the teensy\textquotesingle{}s RTC. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00243}{243}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}\label{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}} 
 \index{Main.ino@{Main.ino}!idleTask@{idleTask}}
@@ -210,17 +98,55 @@ Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s fr
 \doxysubsubsection{\texorpdfstring{idleTask()}{idleTask()}}
 {\footnotesize\ttfamily void idle\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{task\+Data }\end{DoxyParamCaption})}
 
+\begin{DoxyNote}{Note}
+Just a basic IDLE task that seems to do nothing. If triggered it blocks out for 50 CPU cycles. Doing nothing. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00248}{248}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
 \mbox{\Hypertarget{_main_8ino_ab91267714bdf99d7b3d177f95f484157}\label{_main_8ino_ab91267714bdf99d7b3d177f95f484157}} 
 \index{Main.ino@{Main.ino}!initializeCANStructs@{initializeCANStructs}}
 \index{initializeCANStructs@{initializeCANStructs}!Main.ino@{Main.ino}}
 \doxysubsubsection{\texorpdfstring{initializeCANStructs()}{initializeCANStructs()}}
 {\footnotesize\ttfamily void initialize\+CANStructs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_main_8ino_a5418f3a334d5f900ceb6136bedef0dd7}\label{_main_8ino_a5418f3a334d5f900ceb6136bedef0dd7}} 
-\index{Main.ino@{Main.ino}!initializeLogs@{initializeLogs}}
-\index{initializeLogs@{initializeLogs}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{initializeLogs()}{initializeLogs()}}
-{\footnotesize\ttfamily void initialize\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_ab91267714bdf99d7b3d177f95f484157}{initialize\+CANStructs()}} uses too many variables... and it packages them into the different variables that are all being updated by the CAN protocol. These are variables that are read in from the motor\+Controller, Battery Management System, thermistors, charger, and charge controller. These are then packaged in to the can\+Task\+Data variable which is passed to \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}}. \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} updates the variable which in turn updates it for everything, allowing display to be updated with no problem (since all variables used by tasks are just pointers to the original variable that is declared in \mbox{\hyperlink{_main_8h}{Main.\+h}} and then updating one just updates everything across the board. ~\newline
+ ~\newline
+Update this accordingly as we add more CAN items to the bike (if we ever do). 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00216}{216}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
+\mbox{\Hypertarget{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}\label{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}} 
+\index{Main.ino@{Main.ino}!initializeDisplayStructs@{initializeDisplayStructs}}
+\index{initializeDisplayStructs@{initializeDisplayStructs}!Main.ino@{Main.ino}}
+\doxysubsubsection{\texorpdfstring{initializeDisplayStructs()}{initializeDisplayStructs()}}
+{\footnotesize\ttfamily void initialize\+Display\+Structs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} uses the variables\+: series\+Voltage, motor\+Controller\+Battery\+Voltage, auxiliary\+Battery\+Voltage, RPM, motor\+Controller\+Temp, motor\+Current, error\+Message, charger\+Current, charger\+Voltage, bms\+\_\+status\+\_\+flag, evcc\+Voltage, th\+Tempshe and then packages them into a variable called measurement\+Data which is taken from \mbox{\hyperlink{_display_8h}{Display.\+h}} Then the measurement data and screen variable are packaged into the display\+Task\+Wrap variable which is passed to the display\+Task as the void pointer for the task\textquotesingle{}s data. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
+\mbox{\Hypertarget{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}\label{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}} 
+\index{Main.ino@{Main.ino}!initializeLogStructs@{initializeLogStructs}}
+\index{initializeLogStructs@{initializeLogStructs}!Main.ino@{Main.ino}}
+\doxysubsubsection{\texorpdfstring{initializeLogStructs()}{initializeLogStructs()}}
+{\footnotesize\ttfamily void initialize\+Log\+Structs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}{initialize\+Log\+Structs()}} uses too many variables... and it packages them into different logging variables which are then passed to the \char`\"{}logs\char`\"{} variable which is used by the \mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{data\+Logging\+Task()}}. Therefore, to add more data to datalogging or change the variables first you would need to change the corresponding variables that make up the \char`\"{}logs\char`\"{} varaible in \mbox{\hyperlink{_main_8h}{Main.\+h}} and then change those corresponding variables in \mbox{\hyperlink{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}{initialize\+Log\+Structs()}}. ~\newline
+ ~\newline
+This will be handy to the SOC team later as they implement more changes. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00205}{205}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a32469c898d757b2b30c00d0546f91802}\label{_main_8ino_a32469c898d757b2b30c00d0546f91802}} 
 \index{Main.ino@{Main.ino}!initializePreChargeStruct@{initializePreChargeStruct}}
@@ -228,11 +154,25 @@ Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s fr
 \doxysubsubsection{\texorpdfstring{initializePreChargeStruct()}{initializePreChargeStruct()}}
 {\footnotesize\ttfamily void initialize\+Pre\+Charge\+Struct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_a32469c898d757b2b30c00d0546f91802}{initialize\+Pre\+Charge\+Struct()}} uses too many variables... It is primarily composed of the cell\+Voltages, bms\+Status, etc. which are used to shutdown or startup to bike depending on the situation it is in. The rest of the variables correspond to the bloated method we use for gyroscope reading. It is good for racing and is efficient enough, but if we ever run out of stuff to do please make it less bloated as described in the TODO at the top of the file. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00227}{227}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
 \mbox{\Hypertarget{_main_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_main_8ino_afe461d27b9c48d5921c00d521181f12f}} 
 \index{Main.ino@{Main.ino}!loop@{loop}}
 \index{loop@{loop}!Main.ino@{Main.ino}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Arduino framework classic. \mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} should run once. \mbox{\hyperlink{_main_8h_afe461d27b9c48d5921c00d521181f12f}{loop()}} should run forever. Doesn\textquotesingle{}t work in our case because we run RTOS via \mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00254}{254}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}\label{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}} 
 \index{Main.ino@{Main.ino}!release\_SPI\_control@{release\_SPI\_control}}
@@ -240,460 +180,102 @@ Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s fr
 \doxysubsubsection{\texorpdfstring{release\_SPI\_control()}{release\_SPI\_control()}}
 {\footnotesize\ttfamily void release\+\_\+\+SPI\+\_\+control (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+\begin{DoxyNote}{Note}
+Just a basic helper method releases control of the spi\+Mutex which is used as an example line in \mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} but not actually used in the current \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} methods or this RTOS in general. ~\newline
+ ~\newline
+The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. ~\newline
+ ~\newline
+Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00239}{239}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
 \mbox{\Hypertarget{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
 \index{Main.ino@{Main.ino}!setup@{setup}}
 \index{setup@{setup}!Main.ino@{Main.ino}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} calls on all the helper methods in \mbox{\hyperlink{_main_8ino}{Main.\+ino}}. These helper methods serve to initialize all pin modes, package all variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} into structs, initialize all communication protocols (as of now, just I2C), and then use those packaged structs to call on the RTOS \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} to then send the variables off to various tasks with no issues. \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} takes in a function name (pointer to an existing function which contains the essence of the task (these exist in the different files)), a label (string), stack size (integer/number), the parameters required for that task (a void pointer to the packaged structs from before) and lastly a task priority. There\textquotesingle{}s another variable but it\textquotesingle{}s kinda useless for our case and is only discussed in the detailed discussion below. ~\newline
+ ~\newline
+ Taking from the Free\+RTOS documentation, the parameters serve the following DETAILED purposes. ~\newline
+ ~\newline
+pv\+Task\+Code aka the pointer to the function used for the task. This function is usually an infinite loop with an RTOS VTask\+Delay() call which will be further elaborated on within those functions in the documentation. ~\newline
+ ~\newline
+pc\+Name aka the string with the funciton name. This is ususally used for debugging purposes. us\+Stack\+Depth is the number of words to allocate for the task\textquotesingle{}s stack (for those of you who havent had a chance to take CSE 374 or CSE 351, stack is dynamic memory, thus if any of your tasks use a lot of parameters or perform recursion, the stack size might have to be increased). Display has often been a victim of the stack size being too small in the past. ~\newline
+ ~\newline
+pv\+Parameters aka the void pointer to the struct composed of the variables declared in \mbox{\hyperlink{_main_8h}{Main.\+h}}. Just a simple void pointer which is passed to the task when it executes. While passing variables and being careful with memory leaks is not too much of a concern thanks to the Arduino framework, it is still important to use good practices like this void pointer task memory unit to avoid any issues (plus RTOS just requires something to be passed through anyway). ~\newline
+ ~\newline
+ux\+Priority aka the priority at which the task will execute. Lower priority numbers indicate tasks with lower priority in execution. That is, while the RTOS is constantly swapping between your tasks, ensuring they execute properly, etc the higher priority tasks are given highest priority to run once the CPU is ready. Just makes sense really. ~\newline
+ ~\newline
+px\+Created\+Task is a variable that is used to pass a handle to the created task outside of the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} function. That means the ??? IDK it\textquotesingle{}s not needed. 
+\end{DoxyNote}
+First this method calls on \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setup\+Pins()}} to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.
 
+Then this method calls on \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{_main_8ino_a93a21521d3b3e91006f1957dabab890b}\label{_main_8ino_a93a21521d3b3e91006f1957dabab890b}} 
-\index{Main.ino@{Main.ino}!Acc\_X@{Acc\_X}}
-\index{Acc\_X@{Acc\_X}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Acc\_X}{Acc\_X}}
-{\footnotesize\ttfamily float Acc\+\_\+X = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a3b4304cff5611528af473a1dfb86c345}\label{_main_8ino_a3b4304cff5611528af473a1dfb86c345}} 
-\index{Main.ino@{Main.ino}!Acc\_Y@{Acc\_Y}}
-\index{Acc\_Y@{Acc\_Y}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Acc\_Y}{Acc\_Y}}
-{\footnotesize\ttfamily float Acc\+\_\+Y = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a68e2313572725be66b8d99950942dfb4}\label{_main_8ino_a68e2313572725be66b8d99950942dfb4}} 
-\index{Main.ino@{Main.ino}!Acc\_Z@{Acc\_Z}}
-\index{Acc\_Z@{Acc\_Z}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Acc\_Z}{Acc\_Z}}
-{\footnotesize\ttfamily float Acc\+\_\+Z = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_acbed8fcd71fbc60a2452c5e5e9433903}\label{_main_8ino_acbed8fcd71fbc60a2452c5e5e9433903}} 
-\index{Main.ino@{Main.ino}!Angle\_Pitch@{Angle\_Pitch}}
-\index{Angle\_Pitch@{Angle\_Pitch}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Angle\_Pitch}{Angle\_Pitch}}
-{\footnotesize\ttfamily float Angle\+\_\+\+Pitch = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a6514f0d80926dc8e4aea4c92bd86c9eb}\label{_main_8ino_a6514f0d80926dc8e4aea4c92bd86c9eb}} 
-\index{Main.ino@{Main.ino}!Angle\_Roll@{Angle\_Roll}}
-\index{Angle\_Roll@{Angle\_Roll}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Angle\_Roll}{Angle\_Roll}}
-{\footnotesize\ttfamily float Angle\+\_\+\+Roll = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a6cb6d63c8afdc45f4ef149e6d3750a1c}\label{_main_8ino_a6cb6d63c8afdc45f4ef149e6d3750a1c}} 
-\index{Main.ino@{Main.ino}!angle\_X@{angle\_X}}
-\index{angle\_X@{angle\_X}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{angle\_X}{angle\_X}}
-{\footnotesize\ttfamily float angle\+\_\+X = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a89aa0714a95ede6f4c623dbeb38ff019}\label{_main_8ino_a89aa0714a95ede6f4c623dbeb38ff019}} 
-\index{Main.ino@{Main.ino}!angle\_Y@{angle\_Y}}
-\index{angle\_Y@{angle\_Y}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{angle\_Y}{angle\_Y}}
-{\footnotesize\ttfamily float angle\+\_\+Y = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a68edb5124f79f990fb79a9e5b7a7f1e8}\label{_main_8ino_a68edb5124f79f990fb79a9e5b7a7f1e8}} 
-\index{Main.ino@{Main.ino}!auxiliaryBatteryVoltage@{auxiliaryBatteryVoltage}}
-\index{auxiliaryBatteryVoltage@{auxiliaryBatteryVoltage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{auxiliaryBatteryVoltage}{auxiliaryBatteryVoltage}}
-{\footnotesize\ttfamily float auxiliary\+Battery\+Voltage = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a668e87eca74f2126136ee32a6964005e}\label{_main_8ino_a668e87eca74f2126136ee32a6964005e}} 
-\index{Main.ino@{Main.ino}!bms\_c\_fault@{bms\_c\_fault}}
-\index{bms\_c\_fault@{bms\_c\_fault}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{bms\_c\_fault}{bms\_c\_fault}}
-{\footnotesize\ttfamily int bms\+\_\+c\+\_\+fault = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a54619d6c6a00d3268f764c33bd352ebf}\label{_main_8ino_a54619d6c6a00d3268f764c33bd352ebf}} 
-\index{Main.ino@{Main.ino}!bms\_c\_id@{bms\_c\_id}}
-\index{bms\_c\_id@{bms\_c\_id}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{bms\_c\_id}{bms\_c\_id}}
-{\footnotesize\ttfamily int bms\+\_\+c\+\_\+id = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a04c234659b28f92e2eab7998b586bb4c}\label{_main_8ino_a04c234659b28f92e2eab7998b586bb4c}} 
-\index{Main.ino@{Main.ino}!bms\_status\_flag@{bms\_status\_flag}}
-\index{bms\_status\_flag@{bms\_status\_flag}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{bms\_status\_flag}{bms\_status\_flag}}
-{\footnotesize\ttfamily int bms\+\_\+status\+\_\+flag = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Includes the \mbox{\hyperlink{_main_8h}{Main.\+h}} file which in turn interconnects on all separate files together. 
-
-Pragma once is the equivalent of a ifndef statement, avoiding creating extra copies of .h files. TODO\+: As of 3/1/2023, I think this firmware is fully race-\/ready and meeting all requirements to race. Ideally, I would use HIL and their CAN interface to further test the requirements and ensure proper performance under race-\/communication circumstances, but alas that project is not done yet. As of now, my goal is to create full documentation for this codebase and train up all members to be able to use it without any trouble. \mbox{\Hypertarget{_main_8ino_ae0522609134711f92c96ffa8ed05e582}\label{_main_8ino_ae0522609134711f92c96ffa8ed05e582}} 
-\index{Main.ino@{Main.ino}!bmsStatus@{bmsStatus}}
-\index{bmsStatus@{bmsStatus}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{bmsStatus}{bmsStatus}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} bms\+Status = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ade498aeeb82732f18af609faa0b323cb}\label{_main_8ino_ade498aeeb82732f18af609faa0b323cb}} 
-\index{Main.ino@{Main.ino}!bmsVoltageLog@{bmsVoltageLog}}
-\index{bmsVoltageLog@{bmsVoltageLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{bmsVoltageLog}{bmsVoltageLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} bms\+Voltage\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ab1d006bdd632ad57598689186c8ce63a}\label{_main_8ino_ab1d006bdd632ad57598689186c8ce63a}} 
-\index{Main.ino@{Main.ino}!canTaskData@{canTaskData}}
-\index{canTaskData@{canTaskData}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{canTaskData}{canTaskData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}} can\+Task\+Data\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a006c7981abf25c0944f67d017aa5fe1f}\label{_main_8ino_a006c7981abf25c0944f67d017aa5fe1f}} 
-\index{Main.ino@{Main.ino}!cellsReady@{cellsReady}}
-\index{cellsReady@{cellsReady}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{cellsReady}{cellsReady}}
-{\footnotesize\ttfamily bool cells\+Ready\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_afca6798677cebeeb7599ea00e1e243dd}\label{_main_8ino_afca6798677cebeeb7599ea00e1e243dd}} 
-\index{Main.ino@{Main.ino}!cellVoltages@{cellVoltages}}
-\index{cellVoltages@{cellVoltages}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{cellVoltages}{cellVoltages}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}} cell\+Voltages = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a7b9ff5caa5fb1089a53d5afdf23b3922}\label{_main_8ino_a7b9ff5caa5fb1089a53d5afdf23b3922}} 
-\index{Main.ino@{Main.ino}!cellVoltagesArr@{cellVoltagesArr}}
-\index{cellVoltagesArr@{cellVoltagesArr}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{cellVoltagesArr}{cellVoltagesArr}}
-{\footnotesize\ttfamily float cell\+Voltages\+Arr\mbox{[}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a566a5d391bca1611a2bfd1d97a1aa24c}\label{_main_8ino_a566a5d391bca1611a2bfd1d97a1aa24c}} 
-\index{Main.ino@{Main.ino}!chargeControllerStats@{chargeControllerStats}}
-\index{chargeControllerStats@{chargeControllerStats}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargeControllerStats}{chargeControllerStats}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stats}} charge\+Controller\+Stats = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a1e4f6826343fcd16576ce3c411fb2287}\label{_main_8ino_a1e4f6826343fcd16576ce3c411fb2287}} 
-\index{Main.ino@{Main.ino}!chargeFlag@{chargeFlag}}
-\index{chargeFlag@{chargeFlag}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargeFlag}{chargeFlag}}
-{\footnotesize\ttfamily byte charge\+Flag = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a8b27b4284d9d4039618e5da068c2bc7f}\label{_main_8ino_a8b27b4284d9d4039618e5da068c2bc7f}} 
-\index{Main.ino@{Main.ino}!chargerCurrent@{chargerCurrent}}
-\index{chargerCurrent@{chargerCurrent}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargerCurrent}{chargerCurrent}}
-{\footnotesize\ttfamily float charger\+Current = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_aa249f1d073086c27682168bbd7dc77ee}\label{_main_8ino_aa249f1d073086c27682168bbd7dc77ee}} 
-\index{Main.ino@{Main.ino}!chargerStats@{chargerStats}}
-\index{chargerStats@{chargerStats}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargerStats}{chargerStats}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}} charger\+Stats = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a5613c4060f829f65acaac2bc064ae063}\label{_main_8ino_a5613c4060f829f65acaac2bc064ae063}} 
-\index{Main.ino@{Main.ino}!chargerStatusFlag@{chargerStatusFlag}}
-\index{chargerStatusFlag@{chargerStatusFlag}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargerStatusFlag}{chargerStatusFlag}}
-{\footnotesize\ttfamily byte charger\+Status\+Flag = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a85ede348554a838fb67a3ceb3313be5b}\label{_main_8ino_a85ede348554a838fb67a3ceb3313be5b}} 
-\index{Main.ino@{Main.ino}!chargerTemp@{chargerTemp}}
-\index{chargerTemp@{chargerTemp}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargerTemp}{chargerTemp}}
-{\footnotesize\ttfamily int8\+\_\+t charger\+Temp = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ab11fffe9a473928798422de66fcde502}\label{_main_8ino_ab11fffe9a473928798422de66fcde502}} 
-\index{Main.ino@{Main.ino}!chargerVoltage@{chargerVoltage}}
-\index{chargerVoltage@{chargerVoltage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{chargerVoltage}{chargerVoltage}}
-{\footnotesize\ttfamily float charger\+Voltage = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ae40c5f8677bda4442f02f482f3b50d33}\label{_main_8ino_ae40c5f8677bda4442f02f482f3b50d33}} 
-\index{Main.ino@{Main.ino}!controllerStatus@{controllerStatus}}
-\index{controllerStatus@{controllerStatus}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{controllerStatus}{controllerStatus}}
-{\footnotesize\ttfamily byte controller\+Status = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a40646f0d9308996b7d391cb8e0d95905}\label{_main_8ino_a40646f0d9308996b7d391cb8e0d95905}} 
-\index{Main.ino@{Main.ino}!cycleCount@{cycleCount}}
-\index{cycleCount@{cycleCount}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{cycleCount}{cycleCount}}
-{\footnotesize\ttfamily int cycle\+Count = 0}
-
-\mbox{\Hypertarget{_main_8ino_af74b66e7d389be76470292071c65f556}\label{_main_8ino_af74b66e7d389be76470292071c65f556}} 
-\index{Main.ino@{Main.ino}!dataLoggingTaskData@{dataLoggingTaskData}}
-\index{dataLoggingTaskData@{dataLoggingTaskData}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{dataLoggingTaskData}{dataLoggingTaskData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_data_logging_task_data}{Data\+Logging\+Task\+Data}} data\+Logging\+Task\+Data\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_aebb1e162e2ac30616875763e56823870}\label{_main_8ino_aebb1e162e2ac30616875763e56823870}} 
-\index{Main.ino@{Main.ino}!displayTaskWrap@{displayTaskWrap}}
-\index{displayTaskWrap@{displayTaskWrap}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{displayTaskWrap}{displayTaskWrap}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}} display\+Task\+Wrap = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a9e20c92d5e427acd66b85b1451d23a6b}\label{_main_8ino_a9e20c92d5e427acd66b85b1451d23a6b}} 
-\index{Main.ino@{Main.ino}!errorMessage@{errorMessage}}
-\index{errorMessage@{errorMessage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
-{\footnotesize\ttfamily int error\+Message = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a283f91fe8cbd45a92dda13dd793bbbe0}\label{_main_8ino_a283f91fe8cbd45a92dda13dd793bbbe0}} 
-\index{Main.ino@{Main.ino}!evccCurrent@{evccCurrent}}
-\index{evccCurrent@{evccCurrent}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{evccCurrent}{evccCurrent}}
-{\footnotesize\ttfamily float evcc\+Current = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}\label{_main_8ino_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}} 
-\index{Main.ino@{Main.ino}!evccEnable@{evccEnable}}
-\index{evccEnable@{evccEnable}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{evccEnable}{evccEnable}}
-{\footnotesize\ttfamily byte evcc\+Enable = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a10823f3996ecbd5481190d44baa7fd8e}\label{_main_8ino_a10823f3996ecbd5481190d44baa7fd8e}} 
-\index{Main.ino@{Main.ino}!evccVoltage@{evccVoltage}}
-\index{evccVoltage@{evccVoltage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{evccVoltage}{evccVoltage}}
-{\footnotesize\ttfamily float evcc\+Voltage = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a077d47652e49b1a9d682fd58ae94ba46}\label{_main_8ino_a077d47652e49b1a9d682fd58ae94ba46}} 
-\index{Main.ino@{Main.ino}!Kalman\_1DOutput@{Kalman\_1DOutput}}
-\index{Kalman\_1DOutput@{Kalman\_1DOutput}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Kalman\_1DOutput}{Kalman\_1DOutput}}
-{\footnotesize\ttfamily float Kalman\+\_\+1\+DOutput\mbox{[}$\,$\mbox{]} =\{0,0\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_afb2a04d0a4be86d47607dea17db62631}\label{_main_8ino_afb2a04d0a4be86d47607dea17db62631}} 
-\index{Main.ino@{Main.ino}!Kalman\_AnglePitch@{Kalman\_AnglePitch}}
-\index{Kalman\_AnglePitch@{Kalman\_AnglePitch}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Kalman\_AnglePitch}{Kalman\_AnglePitch}}
-{\footnotesize\ttfamily float Kalman\+\_\+\+Angle\+Pitch =0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ac2f400fd7d3933dbf70df179a012817a}\label{_main_8ino_ac2f400fd7d3933dbf70df179a012817a}} 
-\index{Main.ino@{Main.ino}!Kalman\_AngleRoll@{Kalman\_AngleRoll}}
-\index{Kalman\_AngleRoll@{Kalman\_AngleRoll}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Kalman\_AngleRoll}{Kalman\_AngleRoll}}
-{\footnotesize\ttfamily float Kalman\+\_\+\+Angle\+Roll = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ae5ea9a8add204eed975816b032f4db3b}\label{_main_8ino_ae5ea9a8add204eed975816b032f4db3b}} 
-\index{Main.ino@{Main.ino}!Kalman\_UncertaintyAnglePitch@{Kalman\_UncertaintyAnglePitch}}
-\index{Kalman\_UncertaintyAnglePitch@{Kalman\_UncertaintyAnglePitch}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Kalman\_UncertaintyAnglePitch}{Kalman\_UncertaintyAnglePitch}}
-{\footnotesize\ttfamily float Kalman\+\_\+\+Uncertainty\+Angle\+Pitch =2$\ast$2\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a2896dd40967cce4e4f8b65e93cc2fb9d}\label{_main_8ino_a2896dd40967cce4e4f8b65e93cc2fb9d}} 
-\index{Main.ino@{Main.ino}!Kalman\_UncertaintyAngleRoll@{Kalman\_UncertaintyAngleRoll}}
-\index{Kalman\_UncertaintyAngleRoll@{Kalman\_UncertaintyAngleRoll}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Kalman\_UncertaintyAngleRoll}{Kalman\_UncertaintyAngleRoll}}
-{\footnotesize\ttfamily float Kalman\+\_\+\+Uncertainty\+Angle\+Roll =2$\ast$2\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a9462b5ab9931c29422982609bceb3fad}\label{_main_8ino_a9462b5ab9931c29422982609bceb3fad}} 
-\index{Main.ino@{Main.ino}!logs@{logs}}
-\index{logs@{logs}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{logs}{logs}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}}$\ast$ logs\mbox{[}$\,$\mbox{]} = \{\&\mbox{\hyperlink{_main_8ino_a74a7fab0bce9e95dfced1f40d1764e9a}{motor\+Temperature\+Log}}, \&\mbox{\hyperlink{_main_8ino_ae230e041b8d09151f97b07151fdaf38c}{motor\+Controller\+Temperature\+Log}}, \&\mbox{\hyperlink{_main_8ino_a4ca34bc3c27d808ebe3480bfed4b997a}{motor\+Controller\+Voltage\+Log}}, \&\mbox{\hyperlink{_main_8ino_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}{motor\+Current\+Log}}, \&\mbox{\hyperlink{_main_8ino_a60f914a71f12f33ed914208fbf5be838}{rpm\+Log}}, \&\mbox{\hyperlink{_main_8ino_a8941dbd7f821806a7a6f4eb705b1472b}{thermistor\+Log}}, \&\mbox{\hyperlink{_main_8ino_ade498aeeb82732f18af609faa0b323cb}{bms\+Voltage\+Log}}\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ad817dda0a86c980182765da5a3cafec8}\label{_main_8ino_ad817dda0a86c980182765da5a3cafec8}} 
-\index{Main.ino@{Main.ino}!lowerUpperCells@{lowerUpperCells}}
-\index{lowerUpperCells@{lowerUpperCells}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{lowerUpperCells}{lowerUpperCells}}
-{\footnotesize\ttfamily int lower\+Upper\+Cells = -\/1}
-
-\mbox{\Hypertarget{_main_8ino_a0de2096b0657dfd13ffeb3d18ae5d65c}\label{_main_8ino_a0de2096b0657dfd13ffeb3d18ae5d65c}} 
-\index{Main.ino@{Main.ino}!ltc\_count@{ltc\_count}}
-\index{ltc\_count@{ltc\_count}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{ltc\_count}{ltc\_count}}
-{\footnotesize\ttfamily int ltc\+\_\+count = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ae21e58b785392a0951862c107609d059}\label{_main_8ino_ae21e58b785392a0951862c107609d059}} 
-\index{Main.ino@{Main.ino}!ltc\_fault@{ltc\_fault}}
-\index{ltc\_fault@{ltc\_fault}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{ltc\_fault}{ltc\_fault}}
-{\footnotesize\ttfamily int ltc\+\_\+fault = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a962a20f8dc1ba6934fdc04e44bde53a8}\label{_main_8ino_a962a20f8dc1ba6934fdc04e44bde53a8}} 
-\index{Main.ino@{Main.ino}!measurementData@{measurementData}}
-\index{measurementData@{measurementData}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{measurementData}{measurementData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} measurement\+Data = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_aca95a5d67296e1cf7fd5d05296cefc5a}\label{_main_8ino_aca95a5d67296e1cf7fd5d05296cefc5a}} 
-\index{Main.ino@{Main.ino}!motorControllerBatteryVoltage@{motorControllerBatteryVoltage}}
-\index{motorControllerBatteryVoltage@{motorControllerBatteryVoltage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorControllerBatteryVoltage}{motorControllerBatteryVoltage}}
-{\footnotesize\ttfamily float motor\+Controller\+Battery\+Voltage = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a45af45f80ded31266ad90143957a4e5e}\label{_main_8ino_a45af45f80ded31266ad90143957a4e5e}} 
-\index{Main.ino@{Main.ino}!motorControllerTemp@{motorControllerTemp}}
-\index{motorControllerTemp@{motorControllerTemp}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorControllerTemp}{motorControllerTemp}}
-{\footnotesize\ttfamily float motor\+Controller\+Temp = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ae230e041b8d09151f97b07151fdaf38c}\label{_main_8ino_ae230e041b8d09151f97b07151fdaf38c}} 
-\index{Main.ino@{Main.ino}!motorControllerTemperatureLog@{motorControllerTemperatureLog}}
-\index{motorControllerTemperatureLog@{motorControllerTemperatureLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorControllerTemperatureLog}{motorControllerTemperatureLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} motor\+Controller\+Temperature\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a4ca34bc3c27d808ebe3480bfed4b997a}\label{_main_8ino_a4ca34bc3c27d808ebe3480bfed4b997a}} 
-\index{Main.ino@{Main.ino}!motorControllerVoltageLog@{motorControllerVoltageLog}}
-\index{motorControllerVoltageLog@{motorControllerVoltageLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorControllerVoltageLog}{motorControllerVoltageLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} motor\+Controller\+Voltage\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a7facdac5aec018a06fc1443c2f90a66d}\label{_main_8ino_a7facdac5aec018a06fc1443c2f90a66d}} 
-\index{Main.ino@{Main.ino}!motorCurrent@{motorCurrent}}
-\index{motorCurrent@{motorCurrent}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorCurrent}{motorCurrent}}
-{\footnotesize\ttfamily float motor\+Current = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}\label{_main_8ino_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}} 
-\index{Main.ino@{Main.ino}!motorCurrentLog@{motorCurrentLog}}
-\index{motorCurrentLog@{motorCurrentLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorCurrentLog}{motorCurrentLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} motor\+Current\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a9eeb128a9907154869e9ffa78e065039}\label{_main_8ino_a9eeb128a9907154869e9ffa78e065039}} 
-\index{Main.ino@{Main.ino}!motorStats@{motorStats}}
-\index{motorStats@{motorStats}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorStats}{motorStats}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}} motor\+Stats = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_adf4cca4e15700419969edf3ce2ffe6e6}\label{_main_8ino_adf4cca4e15700419969edf3ce2ffe6e6}} 
-\index{Main.ino@{Main.ino}!motorTemp@{motorTemp}}
-\index{motorTemp@{motorTemp}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorTemp}{motorTemp}}
-{\footnotesize\ttfamily float motor\+Temp = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a74a7fab0bce9e95dfced1f40d1764e9a}\label{_main_8ino_a74a7fab0bce9e95dfced1f40d1764e9a}} 
-\index{Main.ino@{Main.ino}!motorTemperatureLog@{motorTemperatureLog}}
-\index{motorTemperatureLog@{motorTemperatureLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorTemperatureLog}{motorTemperatureLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} motor\+Temperature\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_abb61c6dc61d12b31aad7bdadd495b70a}\label{_main_8ino_abb61c6dc61d12b31aad7bdadd495b70a}} 
-\index{Main.ino@{Main.ino}!motorTemps@{motorTemps}}
-\index{motorTemps@{motorTemps}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{motorTemps}{motorTemps}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}} motor\+Temps = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a548fbf99c23fe3ef17f2e1a7b0992070}\label{_main_8ino_a548fbf99c23fe3ef17f2e1a7b0992070}} 
-\index{Main.ino@{Main.ino}!ms@{ms}}
-\index{ms@{ms}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{ms}{ms}}
-{\footnotesize\ttfamily unsigned long ms = millis()}
-
-\mbox{\Hypertarget{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}\label{_main_8ino_a695dccac97a0f45cf570237e981b2b5d}} 
-\index{Main.ino@{Main.ino}!preChargeData@{preChargeData}}
-\index{preChargeData@{preChargeData}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{preChargeData}{preChargeData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_pre_charge_task_data}{Pre\+Charge\+Task\+Data}} pre\+Charge\+Data = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a94bbee6853ba61e7fa11539e15174888}\label{_main_8ino_a94bbee6853ba61e7fa11539e15174888}} 
-\index{Main.ino@{Main.ino}!Rate\_CalibrationNumber@{Rate\_CalibrationNumber}}
-\index{Rate\_CalibrationNumber@{Rate\_CalibrationNumber}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_CalibrationNumber}{Rate\_CalibrationNumber}}
-{\footnotesize\ttfamily int Rate\+\_\+\+Calibration\+Number = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a474d53e2608e3f1b00990ca9a7ccc64a}\label{_main_8ino_a474d53e2608e3f1b00990ca9a7ccc64a}} 
-\index{Main.ino@{Main.ino}!Rate\_CalibrationPitch@{Rate\_CalibrationPitch}}
-\index{Rate\_CalibrationPitch@{Rate\_CalibrationPitch}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_CalibrationPitch}{Rate\_CalibrationPitch}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Calibration\+Pitch = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a1fde90bfdfb774d5f83e5fea79c17caf}\label{_main_8ino_a1fde90bfdfb774d5f83e5fea79c17caf}} 
-\index{Main.ino@{Main.ino}!Rate\_CalibrationRoll@{Rate\_CalibrationRoll}}
-\index{Rate\_CalibrationRoll@{Rate\_CalibrationRoll}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_CalibrationRoll}{Rate\_CalibrationRoll}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Calibration\+Roll = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_af1c993c5e41ee4d2e881139640989c1a}\label{_main_8ino_af1c993c5e41ee4d2e881139640989c1a}} 
-\index{Main.ino@{Main.ino}!Rate\_CalibrationYaw@{Rate\_CalibrationYaw}}
-\index{Rate\_CalibrationYaw@{Rate\_CalibrationYaw}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_CalibrationYaw}{Rate\_CalibrationYaw}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Calibration\+Yaw = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ae4de7890b46aeb807d61f0b71efc9ffe}\label{_main_8ino_ae4de7890b46aeb807d61f0b71efc9ffe}} 
-\index{Main.ino@{Main.ino}!Rate\_Pitch@{Rate\_Pitch}}
-\index{Rate\_Pitch@{Rate\_Pitch}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_Pitch}{Rate\_Pitch}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Pitch = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a5ac66e09e5f95b02b3a99a4a2a33f0aa}\label{_main_8ino_a5ac66e09e5f95b02b3a99a4a2a33f0aa}} 
-\index{Main.ino@{Main.ino}!Rate\_Roll@{Rate\_Roll}}
-\index{Rate\_Roll@{Rate\_Roll}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_Roll}{Rate\_Roll}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Roll = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a537fbd46985b9026ec7d6d0360d1d4d0}\label{_main_8ino_a537fbd46985b9026ec7d6d0360d1d4d0}} 
-\index{Main.ino@{Main.ino}!Rate\_Yaw@{Rate\_Yaw}}
-\index{Rate\_Yaw@{Rate\_Yaw}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{Rate\_Yaw}{Rate\_Yaw}}
-{\footnotesize\ttfamily float Rate\+\_\+\+Yaw = 0.\+0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ade4e42cdef2d4a9d50b3184100ad8cba}\label{_main_8ino_ade4e42cdef2d4a9d50b3184100ad8cba}} 
-\index{Main.ino@{Main.ino}!RPM@{RPM}}
-\index{RPM@{RPM}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{RPM}{RPM}}
-{\footnotesize\ttfamily float RPM = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a60f914a71f12f33ed914208fbf5be838}\label{_main_8ino_a60f914a71f12f33ed914208fbf5be838}} 
-\index{Main.ino@{Main.ino}!rpmLog@{rpmLog}}
-\index{rpmLog@{rpmLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{rpmLog}{rpmLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} rpm\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}\label{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}} 
-\index{Main.ino@{Main.ino}!screen@{screen}}
-\index{screen@{screen}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{screen}{screen}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} screen = \{\mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_acdca7f14bb24f1cb2aa9d0be982560b2}\label{_main_8ino_acdca7f14bb24f1cb2aa9d0be982560b2}} 
-\index{Main.ino@{Main.ino}!sdStarted@{sdStarted}}
-\index{sdStarted@{sdStarted}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{sdStarted}{sdStarted}}
-{\footnotesize\ttfamily byte sd\+Started = 0}
-
-\mbox{\Hypertarget{_main_8ino_ad2b91d0118e98c42f7d552fd5d3056ed}\label{_main_8ino_ad2b91d0118e98c42f7d552fd5d3056ed}} 
-\index{Main.ino@{Main.ino}!seriesVoltage@{seriesVoltage}}
-\index{seriesVoltage@{seriesVoltage}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{seriesVoltage}{seriesVoltage}}
-{\footnotesize\ttfamily float series\+Voltage\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a76c0525d646735793add25b18043e600}\label{_main_8ino_a76c0525d646735793add25b18043e600}} 
-\index{Main.ino@{Main.ino}!spi\_mutex@{spi\_mutex}}
-\index{spi\_mutex@{spi\_mutex}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{spi\_mutex}{spi\_mutex}}
-{\footnotesize\ttfamily \mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} spi\+\_\+mutex}
-
-\mbox{\Hypertarget{_main_8ino_aefa2152d1586505d2d271edc7e9c4187}\label{_main_8ino_aefa2152d1586505d2d271edc7e9c4187}} 
-\index{Main.ino@{Main.ino}!thermistorEnabled@{thermistorEnabled}}
-\index{thermistorEnabled@{thermistorEnabled}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{thermistorEnabled}{thermistorEnabled}}
-{\footnotesize\ttfamily int thermistor\+Enabled\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a8941dbd7f821806a7a6f4eb705b1472b}\label{_main_8ino_a8941dbd7f821806a7a6f4eb705b1472b}} 
-\index{Main.ino@{Main.ino}!thermistorLog@{thermistorLog}}
-\index{thermistorLog@{thermistorLog}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{thermistorLog}{thermistorLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} thermistor\+Log = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_ad2bc733f382fc4bf0379382e3a15a94e}\label{_main_8ino_ad2bc733f382fc4bf0379382e3a15a94e}} 
-\index{Main.ino@{Main.ino}!thermistorPresent@{thermistorPresent}}
-\index{thermistorPresent@{thermistorPresent}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{thermistorPresent}{thermistorPresent}}
-{\footnotesize\ttfamily int thermistor\+Present\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a18571448b101f12a60457d717dc4f953}\label{_main_8ino_a18571448b101f12a60457d717dc4f953}} 
-\index{Main.ino@{Main.ino}!thermistorTemps@{thermistorTemps}}
-\index{thermistorTemps@{thermistorTemps}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{thermistorTemps}{thermistorTemps}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}} thermistor\+Temps = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_adca97acc6b0ff71f782f9c8a484a47b8}\label{_main_8ino_adca97acc6b0ff71f782f9c8a484a47b8}} 
-\index{Main.ino@{Main.ino}!throttle@{throttle}}
-\index{throttle@{throttle}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{throttle}{throttle}}
-{\footnotesize\ttfamily float throttle = 0\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a283b736b2bddfc8cbec62fe0759a9cd3}\label{_main_8ino_a283b736b2bddfc8cbec62fe0759a9cd3}} 
-\index{Main.ino@{Main.ino}!thTemps@{thTemps}}
-\index{thTemps@{thTemps}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{thTemps}{thTemps}}
-{\footnotesize\ttfamily float th\+Temps\mbox{[}10\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{_main_8ino_a61d9ef65d75b66821896182b133b31de}\label{_main_8ino_a61d9ef65d75b66821896182b133b31de}} 
-\index{Main.ino@{Main.ino}!timer@{timer}}
-\index{timer@{timer}!Main.ino@{Main.ino}}
-\doxysubsubsection{\texorpdfstring{timer}{timer}}
-{\footnotesize\ttfamily unsigned long timer = millis()}
+Then this method calls on \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initialize\+CANStructs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}}
+
+Then this method calls on \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initialize\+Log\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{data\+Logging\+Task()}}
+
+Then this method calls on \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initialize\+Pre\+Charge\+Struct()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_pre_charge_8ino_a2cd6f5c27d7667dbd0b6a0bc756340a3}{precharge\+Task()}}
+
+Then this method initializes Serial communication using Serial.\+begin() initializing Serial at a baud rate of 115200.
+
+\begin{DoxyNote}{Note}
+DISCLAIMER\+: When first running this code on a fresh board, the time will not properly update to Pacific Standard, or any real-\/looking time. Instead it will update to whatever default value is on the teensy board RTC (real-\/time clock). Thus, to set the Teensy RTC to the real world clock, you need to upload the sketch\+: ~\newline
+ ~\newline
+File-\/\texorpdfstring{$>$}{>}Examples-\/\texorpdfstring{$>$}{>}Time-\/\texorpdfstring{$>$}{>}Time\+Teensy3 and open the serial port. That will set the internal time to the time on the laptop I believe, or connects to the internet somehow to determine the \char`\"{}current\char`\"{} time. This next line calls with the statement set\+Time(Teensy3\+Clock.\+get()) sets the current stored time to the time stored in the internal RTC in the Teensy, allowing for Teensy time from the internal RTC (powered by the coin cell).
+\end{DoxyNote}
+Then this method starts the SD Card and prints the status if that works.
+
+Then this method calls on the \mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display()}} method which just initializes variables that are used by the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
+
+Then this method calls on the \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setup\+CAN()}} method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.
+
+Then this method calls on the \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setup\+I2\+C()}} method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking $\sim$2 seconds worth of data to calibrate.
+
+The main and most important function of setup is initializing the tasks using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}}. The details of parameters are explained in the Note at the start of \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. The stack sizes are edited in \mbox{\hyperlink{_main_8h}{Main.\+h}} and the priorities are logically assigned for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}} with highest priority 5, \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} with second highest priority 4 since it contains data that can be used to trigger Off states for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}}. data\+Logging() is 3, it\textquotesingle{}s important to update the stored data from the race, but it\textquotesingle{}s more important to shutdown the bike if batteries are dying. \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}} is a 2 because see aforementioned reasoning for data\+Logging(). \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task()}} is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.
+
+Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.
+
+Lastly the method prints out that it will attempt to start the scheduler. If this succeeds, only lines from the task methods should know execute.
+
+If this fails, the method prints out insufficient RAM and breaks.
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+
+\mbox{\Hypertarget{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}\label{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}} 
+\index{Main.ino@{Main.ino}!setupPins@{setupPins}}
+\index{setupPins@{setupPins}!Main.ino@{Main.ino}}
+\doxysubsubsection{\texorpdfstring{setupPins()}{setupPins()}}
+{\footnotesize\ttfamily void setup\+Pins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{_main_8h_a31d554847ae8fdeaba2460e0395cb75f}{setup\+Pins()}} calls on the Arduino library\textquotesingle{}s pin\+Mode and digital\+Write() methods to initialize pins to specific states. The variables and macros corresponding to the pin numbers are taken from the .h files of the task they serve. 
+\end{DoxyNote}
+\begin{DoxyNote}{Note}
+NOTE\+: SOME OF THESE PINS MAY NEED TO BE REMOVED NOW\+: CONTACTOR\+\_\+\+CLOSED\+\_\+\+LED, CONTACTOR\+\_\+\+PRECHARGED\+\_\+\+LED, CLOSE\+\_\+\+CONTACTOR\+\_\+\+BUTTON
+\end{DoxyNote}
+Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resistor.
+
+Initializes the pin corresponding to Closing the Contactor as an input PULLUP resistor.
+
+Initializes the pin corresponding to the Screen reset as output and then outputs HIGH to that pin.
+
+Initializes the pin corresponding to the Chip Select as output and then outputs HIGH to that pin.
+
+UNSURE WHAT THE TS\+\_\+\+CS pin is and at this point I\textquotesingle{}m too scared to ask. Sets it to output and HIGH.
+
+Initializes the pin corresponding to the Precharge as output and then outputs LOW to that pin.
+
+Initializes the pin corresponding to the Contactor as output and then outputs LOW to that pin.
+
+Initializes the pin corresponding to the Contactor Precharge-\/\+Read LED as output and then outputs LOW to that pin.
+
+Initializes the pin corresponding to the Contactor-\/\+Closed LED as output and then outputs LOW to that pin.
+
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00159}{159}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 

@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_todo" xml:lang="en-US">
+
+<para><variablelist>
+<varlistentry><term>File <link linkend="__c_a_n_8h">CAN.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000001"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__c_a_n_8ino">CAN.ino</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000002"/> Change the &quot;if CAN_NODES != 0&quot; to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <link linkend="__main_8h">Main.h</link> before compiling. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__data_logging_8h">DataLogging.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000003"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__data_logging_8ino">DataLogging.ino</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000004"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__display_8h">Display.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000005"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__display_8ino">Display.ino</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the whole value in the 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__main_8h">Main.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000007"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__main_8ino">Main.ino</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000008"/> Refine further. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Look for redundant variables, pins, etc and remove. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Change the name of preCharge. It&apos;s not just preCharge now, I personally like the name &quot;controls.ino&quot; and &quot;controls.h&quot;. Make sure you change the #includes as well if you do that. Please Please change &quot;preCharge&quot; or whatever it&apos;s called to not use this many global/struct variables. It doesn&apos;t need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ TEST  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__precharge_8h">Precharge.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000009"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="__pre_charge_8ino">PreCharge.ino</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000010"/> Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal. </para>
+</listitem></varlistentry>
+</variablelist>
+</para>
+</section>

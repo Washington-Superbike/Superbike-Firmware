@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_semaphore_create_recursive_mutex" kind="group">
+    <compoundname>xSemaphoreCreateRecursiveMutex</compoundname>
+    <title>xSemaphoreCreateRecursiveMutex</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>semphr. h <preformatted>SemaphoreHandle_t xSemaphoreCreateRecursiveMutex( void )</preformatted></para>
+<para>Creates a new recursive mutex type semaphore instance, and returns a handle by which the new recursive mutex can be referenced.</para>
+<para>Internally, within the FreeRTOS implementation, recursive mutexs use a block of memory, in which the mutex structure is stored. If a recursive mutex is created using xSemaphoreCreateRecursiveMutex() then the required memory is automatically dynamically allocated inside the xSemaphoreCreateRecursiveMutex() function. (see <ulink url="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</ulink>). If a recursive mutex is created using xSemaphoreCreateRecursiveMutexStatic() then the application writer must provide the memory that will get used by the mutex. xSemaphoreCreateRecursiveMutexStatic() therefore allows a recursive mutex to be created without using any dynamic memory allocation.</para>
+<para>Mutexes created using this macro can be accessed using the xSemaphoreTakeRecursive() and xSemaphoreGiveRecursive() macros. The <ref refid="semphr_8h_1af116e436d2a5ae5bd72dbade2b5ea930" kindref="member">xSemaphoreTake()</ref> and <ref refid="semphr_8h_1aae55761cabfa9bf85c8f4430f78c0953" kindref="member">xSemaphoreGive()</ref> macros must not be used.</para>
+<para>A mutex used recursively can be &apos;taken&apos; repeatedly by the owner. The mutex doesn&apos;t become available again until the owner has called xSemaphoreGiveRecursive() for each successful &apos;take&apos; request. For example, if a task successfully &apos;takes&apos; the same mutex 5 times then the mutex will not be available to any other task until it has also &apos;given&apos; the mutex back exactly five times.</para>
+<para>This type of semaphore uses a priority inheritance mechanism so a task &apos;taking&apos; a semaphore MUST ALWAYS &apos;give&apos; the semaphore back once the semaphore it is no longer required.</para>
+<para>Mutex type semaphores cannot be used from within interrupt service routines.</para>
+<para>See xSemaphoreCreateBinary() for an alternative implementation that can be used for pure synchronisation (where one task or interrupt always &apos;gives&apos; the semaphore and another always &apos;takes&apos; the semaphore) and from within interrupt service routines.</para>
+<para><simplesect kind="return"><para>xSemaphore Handle to the created mutex semaphore. Should be of type SemaphoreHandle_t.</para>
+</simplesect>
+Example usage: <preformatted>
+SemaphoreHandle_t xSemaphore;
+
+void vATask( void * pvParameters )
+{
+   // Semaphore cannot be used before a call to xSemaphoreCreateMutex().
+   // This is a macro so pass the variable in directly.
+   xSemaphore = xSemaphoreCreateRecursiveMutex();
+
+   if( xSemaphore != NULL )
+   {
+       // The semaphore was created successfully.
+       // The semaphore can now be used.
+   }
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -2,380 +2,380 @@
 \label{queue_8h_source}\index{FreeRTOS/queue.h@{FreeRTOS/queue.h}}
 \mbox{\hyperlink{queue_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{/*}}
-\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
-\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
-\DoxyCodeLine{4 \textcolor{comment}{ *}}
-\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
-\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
-\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
-\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
-\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
-\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
-\DoxyCodeLine{11 \textcolor{comment}{ *}}
-\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
-\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
-\DoxyCodeLine{14 \textcolor{comment}{ *}}
-\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
-\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
-\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
-\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
-\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
-\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
-\DoxyCodeLine{21 \textcolor{comment}{ *}}
-\DoxyCodeLine{22 \textcolor{comment}{ * http://www.FreeRTOS.org}}
-\DoxyCodeLine{23 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
-\DoxyCodeLine{24 \textcolor{comment}{ *}}
-\DoxyCodeLine{25 \textcolor{comment}{ * 1 tab == 4 spaces!}}
-\DoxyCodeLine{26 \textcolor{comment}{ */}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifndef QUEUE\_H}}
-\DoxyCodeLine{30 \textcolor{preprocessor}{\#define QUEUE\_H}}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef INC\_FREERTOS\_H}}
-\DoxyCodeLine{33 \textcolor{preprocessor}{    \#error "{}include FreeRTOS.h"{}} must appear in source files before "{}include queue.h"{}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{37 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
-\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{47 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}}; \textcolor{comment}{/* Using old naming convention so as not to break kernel aware debuggers. */}}
-\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{QueueHandle\_t}};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{55 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{QueueSetHandle\_t}};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{62 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{QueueSetMemberHandle\_t}};}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64 \textcolor{comment}{/* For internal use only. */}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{\#define queueSEND\_TO\_BACK       ( ( BaseType\_t ) 0 )}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{\#define queueSEND\_TO\_FRONT      ( ( BaseType\_t ) 1 )}}
-\DoxyCodeLine{67 \textcolor{preprocessor}{\#define queueOVERWRITE          ( ( BaseType\_t ) 2 )}}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 \textcolor{comment}{/* For internal use only.  These definitions *must* match those in queue.c. */}}
-\DoxyCodeLine{70 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_BASE                ( ( uint8\_t ) 0U )}}
-\DoxyCodeLine{71 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_SET                 ( ( uint8\_t ) 0U )}}
-\DoxyCodeLine{72 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_MUTEX               ( ( uint8\_t ) 1U )}}
-\DoxyCodeLine{73 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_COUNTING\_SEMAPHORE  ( ( uint8\_t ) 2U )}}
-\DoxyCodeLine{74 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_BINARY\_SEMAPHORE    ( ( uint8\_t ) 3U )}}
-\DoxyCodeLine{75 \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_RECURSIVE\_MUTEX     ( ( uint8\_t ) 4U )}}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{145 \textcolor{preprocessor}{\#if( configSUPPORT\_DYNAMIC\_ALLOCATION == 1 )}}
-\DoxyCodeLine{146 \textcolor{preprocessor}{    \#define xQueueCreate( uxQueueLength, uxItemSize ) xQueueGenericCreate( ( uxQueueLength ), ( uxItemSize ), ( queueQUEUE\_TYPE\_BASE ) )}}
-\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{231 \textcolor{preprocessor}{\#if( configSUPPORT\_STATIC\_ALLOCATION == 1 )}}
-\DoxyCodeLine{232 \textcolor{preprocessor}{    \#define xQueueCreateStatic( uxQueueLength, uxItemSize, pucQueueStorage, pxQueueBuffer ) xQueueGenericCreateStatic( ( uxQueueLength ), ( uxItemSize ), ( pucQueueStorage ), ( pxQueueBuffer ), ( queueQUEUE\_TYPE\_BASE ) )}}
-\DoxyCodeLine{233 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configSUPPORT\_STATIC\_ALLOCATION */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{234 }
-\DoxyCodeLine{313 \textcolor{preprocessor}{\#define xQueueSendToFront( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_FRONT )}}
-\DoxyCodeLine{314 }
-\DoxyCodeLine{395 \textcolor{preprocessor}{\#define xQueueSendToBack( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_BACK )}}
-\DoxyCodeLine{396 }
-\DoxyCodeLine{479 \textcolor{preprocessor}{\#define xQueueSend( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_BACK )}}
-\DoxyCodeLine{480 }
-\DoxyCodeLine{562 \textcolor{preprocessor}{\#define xQueueOverwrite( xQueue, pvItemToQueue ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), 0, queueOVERWRITE )}}
-\DoxyCodeLine{563 }
-\DoxyCodeLine{564 }
-\DoxyCodeLine{650 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a7ce86d1026e0c3055a523935bf53c0b3}{xQueueGenericSend}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvItemToQueue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCopyPosition ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{651 }
-\DoxyCodeLine{744 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a3f9e430276fe5244417fd82644ec8a75}{xQueuePeek}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{745 }
-\DoxyCodeLine{777 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ac402adf98be1fb8ca0345f30dc11a9dc}{xQueuePeekFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{778 }
-\DoxyCodeLine{868 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{xQueueReceive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{869 }
-\DoxyCodeLine{883 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{uxQueueMessagesWaiting}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{884 }
-\DoxyCodeLine{900 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_aae75791e91707c1e0bb31d761921531c}{uxQueueSpacesAvailable}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{901 }
-\DoxyCodeLine{914 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_a707cbcfe3aed6b877b6aa6d9d75a3f22}{vQueueDelete}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{915 }
-\DoxyCodeLine{984 \textcolor{preprocessor}{\#define xQueueSendToFrontFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_FRONT )}}
-\DoxyCodeLine{985 }
-\DoxyCodeLine{986 }
-\DoxyCodeLine{1055 \textcolor{preprocessor}{\#define xQueueSendToBackFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_BACK )}}
-\DoxyCodeLine{1056 }
-\DoxyCodeLine{1142 \textcolor{preprocessor}{\#define xQueueOverwriteFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueOVERWRITE )}}
-\DoxyCodeLine{1143 }
-\DoxyCodeLine{1216 \textcolor{preprocessor}{\#define xQueueSendFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_BACK )}}
-\DoxyCodeLine{1217 }
-\DoxyCodeLine{1295 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a263711eb0124112e828a18fd4b8ab29d}{xQueueGenericSendFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvItemToQueue, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCopyPosition ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1296 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ad14ae1174c2772cffc9e0c2c45dc55a6}{xQueueGiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1297 }
-\DoxyCodeLine{1385 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_acdf528f5c91131ae2f31c669cfd65758}{xQueueReceiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1386 }
-\DoxyCodeLine{1387 \textcolor{comment}{/*}}
-\DoxyCodeLine{1388 \textcolor{comment}{ * Utilities to query queues that are safe to use from an ISR.  These utilities}}
-\DoxyCodeLine{1389 \textcolor{comment}{ * should be used only from witin an ISR, or within a critical section.}}
-\DoxyCodeLine{1390 \textcolor{comment}{ */}}
-\DoxyCodeLine{1391 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_aa11139c58f4eecaa0c50078f2976d010}{xQueueIsQueueEmptyFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1392 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a81319b3aa562733957c5a12a088516d3}{xQueueIsQueueFullFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1393 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_a3e89b6189166f9544f283435e2732f9a}{uxQueueMessagesWaitingFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1394 }
-\DoxyCodeLine{1395 \textcolor{comment}{/*}}
-\DoxyCodeLine{1396 \textcolor{comment}{ * The functions defined above are for passing data to and from tasks.  The}}
-\DoxyCodeLine{1397 \textcolor{comment}{ * functions below are the equivalents for passing data to and from}}
-\DoxyCodeLine{1398 \textcolor{comment}{ * co-\/routines.}}
-\DoxyCodeLine{1399 \textcolor{comment}{ *}}
-\DoxyCodeLine{1400 \textcolor{comment}{ * These functions are called from the co-\/routine macro implementation and}}
-\DoxyCodeLine{1401 \textcolor{comment}{ * should not be called directly from application code.  Instead use the macro}}
-\DoxyCodeLine{1402 \textcolor{comment}{ * wrappers defined within croutine.h.}}
-\DoxyCodeLine{1403 \textcolor{comment}{ */}}
-\DoxyCodeLine{1404 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a80af2aff3f472600a12dea0642fa8b27}{xQueueCRSendFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvItemToQueue, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCoRoutinePreviouslyWoken );}
-\DoxyCodeLine{1405 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ad66b08c1d6a17efa8985605bf182b997}{xQueueCRReceiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} *pvBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxTaskWoken );}
-\DoxyCodeLine{1406 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_abb5d7bd9b62f2b642104fde73c1c666b}{xQueueCRSend}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvItemToQueue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait );}
-\DoxyCodeLine{1407 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a88a02b37c486c38b8c4112e16dfed099}{xQueueCRReceive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} *pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait );}
-\DoxyCodeLine{1408 }
-\DoxyCodeLine{1409 \textcolor{comment}{/*}}
-\DoxyCodeLine{1410 \textcolor{comment}{ * For internal use only.  Use xSemaphoreCreateMutex(),}}
-\DoxyCodeLine{1411 \textcolor{comment}{ * xSemaphoreCreateCounting() or xSemaphoreGetMutexHolder() instead of calling}}
-\DoxyCodeLine{1412 \textcolor{comment}{ * these functions directly.}}
-\DoxyCodeLine{1413 \textcolor{comment}{ */}}
-\DoxyCodeLine{1414 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_acac7df114346b4219bc2aab79cac35b5}{xQueueCreateMutex}}( \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1415 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_af92945589381b740932a7cc41e212a37}{xQueueCreateMutexStatic}}( \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}}, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1416 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_ac74677a8d243c76843c25fdb06436043}{xQueueCreateCountingSemaphore}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxMaxCount, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxInitialCount ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1417 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_a601cb15993988a393676a9df74b067bd}{xQueueCreateCountingSemaphoreStatic}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxMaxCount, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxInitialCount, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1418 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a124567e9fc3a37b99f7e184ae98de9f8}{xQueueSemaphoreTake}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1419 \mbox{\hyperlink{structtsk_task_control_block}{TaskHandle\_t}} \mbox{\hyperlink{queue_8h_ac49b15e4005be658fd04e68407ef4fb1}{xQueueGetMutexHolder}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_adb2c0818274974553c619ff953b6f477}{xSemaphore}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1420 \mbox{\hyperlink{structtsk_task_control_block}{TaskHandle\_t}} \mbox{\hyperlink{queue_8h_a8ccb06cf46ba1c052809a3809954bd07}{xQueueGetMutexHolderFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_adb2c0818274974553c619ff953b6f477}{xSemaphore}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1421 }
-\DoxyCodeLine{1422 \textcolor{comment}{/*}}
-\DoxyCodeLine{1423 \textcolor{comment}{ * For internal use only.  Use xSemaphoreTakeMutexRecursive() or}}
-\DoxyCodeLine{1424 \textcolor{comment}{ * xSemaphoreGiveMutexRecursive() instead of calling these functions directly.}}
-\DoxyCodeLine{1425 \textcolor{comment}{ */}}
-\DoxyCodeLine{1426 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a74e27d539a884589ebbbdfcc371a48cd}{xQueueTakeMutexRecursive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xMutex, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1427 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a51adeb17e9d3bb1077969e6e53f61c3b}{xQueueGiveMutexRecursive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xMutex ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1428 }
-\DoxyCodeLine{1429 \textcolor{comment}{/*}}
-\DoxyCodeLine{1430 \textcolor{comment}{ * Reset a queue back to its original empty state.  The return value is now}}
-\DoxyCodeLine{1431 \textcolor{comment}{ * obsolete and is always set to pdPASS.}}
-\DoxyCodeLine{1432 \textcolor{comment}{ */}}
-\DoxyCodeLine{1433 \textcolor{preprocessor}{\#define xQueueReset( xQueue ) xQueueGenericReset( xQueue, pdFALSE )}}
-\DoxyCodeLine{1434 }
-\DoxyCodeLine{1435 \textcolor{comment}{/*}}
-\DoxyCodeLine{1436 \textcolor{comment}{ * The registry is provided as a means for kernel aware debuggers to}}
-\DoxyCodeLine{1437 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call vQueueAddToRegistry() add}}
-\DoxyCodeLine{1438 \textcolor{comment}{ * a queue, semaphore or mutex handle to the registry if you want the handle}}
-\DoxyCodeLine{1439 \textcolor{comment}{ * to be available to a kernel aware debugger.  If you are not using a kernel}}
-\DoxyCodeLine{1440 \textcolor{comment}{ * aware debugger then this function can be ignored.}}
-\DoxyCodeLine{1441 \textcolor{comment}{ *}}
-\DoxyCodeLine{1442 \textcolor{comment}{ * configQUEUE\_REGISTRY\_SIZE defines the maximum number of handles the}}
-\DoxyCodeLine{1443 \textcolor{comment}{ * registry can hold.  configQUEUE\_REGISTRY\_SIZE must be greater than 0}}
-\DoxyCodeLine{1444 \textcolor{comment}{ * within FreeRTOSConfig.h for the registry to be available.  Its value}}
-\DoxyCodeLine{1445 \textcolor{comment}{ * does not effect the number of queues, semaphores and mutexes that can be}}
-\DoxyCodeLine{1446 \textcolor{comment}{ * created -\/ just the number that the registry can hold.}}
-\DoxyCodeLine{1447 \textcolor{comment}{ *}}
-\DoxyCodeLine{1448 \textcolor{comment}{ * @param xQueue The handle of the queue being added to the registry.  This}}
-\DoxyCodeLine{1449 \textcolor{comment}{ * is the handle returned by a call to xQueueCreate().  Semaphore and mutex}}
-\DoxyCodeLine{1450 \textcolor{comment}{ * handles can also be passed in here.}}
-\DoxyCodeLine{1451 \textcolor{comment}{ *}}
-\DoxyCodeLine{1452 \textcolor{comment}{ * @param pcName The name to be associated with the handle.  This is the}}
-\DoxyCodeLine{1453 \textcolor{comment}{ * name that the kernel aware debugger will display.  The queue registry only}}
-\DoxyCodeLine{1454 \textcolor{comment}{ * stores a pointer to the string -\/ so the string must be persistent (global or}}
-\DoxyCodeLine{1455 \textcolor{comment}{ * preferably in ROM/Flash), not on the stack.}}
-\DoxyCodeLine{1456 \textcolor{comment}{ */}}
-\DoxyCodeLine{1457 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
-\DoxyCodeLine{1458     \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8c_a1d5e2402c801e7a0ab079f6944b97f93}{vQueueAddToRegistry}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *pcQueueName ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}}; \textcolor{comment}{/*lint !e971 Unqualified char types are allowed for strings and single characters only. */}}
-\DoxyCodeLine{1459 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1460 }
-\DoxyCodeLine{1461 \textcolor{comment}{/*}}
-\DoxyCodeLine{1462 \textcolor{comment}{ * The registry is provided as a means for kernel aware debuggers to}}
-\DoxyCodeLine{1463 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call vQueueAddToRegistry() add}}
-\DoxyCodeLine{1464 \textcolor{comment}{ * a queue, semaphore or mutex handle to the registry if you want the handle}}
-\DoxyCodeLine{1465 \textcolor{comment}{ * to be available to a kernel aware debugger, and vQueueUnregisterQueue() to}}
-\DoxyCodeLine{1466 \textcolor{comment}{ * remove the queue, semaphore or mutex from the register.  If you are not using}}
-\DoxyCodeLine{1467 \textcolor{comment}{ * a kernel aware debugger then this function can be ignored.}}
-\DoxyCodeLine{1468 \textcolor{comment}{ *}}
-\DoxyCodeLine{1469 \textcolor{comment}{ * @param xQueue The handle of the queue being removed from the registry.}}
-\DoxyCodeLine{1470 \textcolor{comment}{ */}}
-\DoxyCodeLine{1471 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
-\DoxyCodeLine{1472     \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8c_ac695c7cde3c32b32a1db4689239603ed}{vQueueUnregisterQueue}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1473 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1474 }
-\DoxyCodeLine{1475 \textcolor{comment}{/*}}
-\DoxyCodeLine{1476 \textcolor{comment}{ * The queue registry is provided as a means for kernel aware debuggers to}}
-\DoxyCodeLine{1477 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call pcQueueGetName() to look}}
-\DoxyCodeLine{1478 \textcolor{comment}{ * up and return the name of a queue in the queue registry from the queue's}}
-\DoxyCodeLine{1479 \textcolor{comment}{ * handle.}}
-\DoxyCodeLine{1480 \textcolor{comment}{ *}}
-\DoxyCodeLine{1481 \textcolor{comment}{ * @param xQueue The handle of the queue the name of which will be returned.}}
-\DoxyCodeLine{1482 \textcolor{comment}{ * @return If the queue is in the registry then a pointer to the name of the}}
-\DoxyCodeLine{1483 \textcolor{comment}{ * queue is returned.  If the queue is not in the registry then NULL is}}
-\DoxyCodeLine{1484 \textcolor{comment}{ * returned.}}
-\DoxyCodeLine{1485 \textcolor{comment}{ */}}
-\DoxyCodeLine{1486 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
-\DoxyCodeLine{1487     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{queue_8c_a6cd1431e6d0f46927d6260d49f0d6df3}{pcQueueGetName}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}}; \textcolor{comment}{/*lint !e971 Unqualified char types are allowed for strings and single characters only. */}}
-\DoxyCodeLine{1488 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1489 }
-\DoxyCodeLine{1490 \textcolor{comment}{/*}}
-\DoxyCodeLine{1491 \textcolor{comment}{ * Generic version of the function used to creaet a queue using dynamic memory}}
-\DoxyCodeLine{1492 \textcolor{comment}{ * allocation.  This is called by other functions and macros that create other}}
-\DoxyCodeLine{1493 \textcolor{comment}{ * RTOS objects that use the queue structure as their base.}}
-\DoxyCodeLine{1494 \textcolor{comment}{ */}}
-\DoxyCodeLine{1495 \textcolor{preprocessor}{\#if( configSUPPORT\_DYNAMIC\_ALLOCATION == 1 )}}
-\DoxyCodeLine{1496     \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8c_ac999cdfbb09fff396fa818bb9a30b4e5}{xQueueGenericCreate}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxQueueLength, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a81bb7d3826909244baa9debf5a55abb0}{uxItemSize}}, \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1497 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1498 }
-\DoxyCodeLine{1499 \textcolor{comment}{/*}}
-\DoxyCodeLine{1500 \textcolor{comment}{ * Generic version of the function used to creaet a queue using dynamic memory}}
-\DoxyCodeLine{1501 \textcolor{comment}{ * allocation.  This is called by other functions and macros that create other}}
-\DoxyCodeLine{1502 \textcolor{comment}{ * RTOS objects that use the queue structure as their base.}}
-\DoxyCodeLine{1503 \textcolor{comment}{ */}}
-\DoxyCodeLine{1504 \textcolor{preprocessor}{\#if( configSUPPORT\_STATIC\_ALLOCATION == 1 )}}
-\DoxyCodeLine{1505     \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xQueueGenericCreateStatic( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxQueueLength, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a81bb7d3826909244baa9debf5a55abb0}{uxItemSize}}, uint8\_t *pucQueueStorage, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue, \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1506 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1507 }
-\DoxyCodeLine{1508 \textcolor{comment}{/*}}
-\DoxyCodeLine{1509 \textcolor{comment}{ * Queue sets provide a mechanism to allow a task to block (pend) on a read}}
-\DoxyCodeLine{1510 \textcolor{comment}{ * operation from multiple queues or semaphores simultaneously.}}
-\DoxyCodeLine{1511 \textcolor{comment}{ *}}
-\DoxyCodeLine{1512 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
-\DoxyCodeLine{1513 \textcolor{comment}{ * function.}}
-\DoxyCodeLine{1514 \textcolor{comment}{ *}}
-\DoxyCodeLine{1515 \textcolor{comment}{ * A queue set must be explicitly created using a call to xQueueCreateSet()}}
-\DoxyCodeLine{1516 \textcolor{comment}{ * before it can be used.  Once created, standard FreeRTOS queues and semaphores}}
-\DoxyCodeLine{1517 \textcolor{comment}{ * can be added to the set using calls to xQueueAddToSet().}}
-\DoxyCodeLine{1518 \textcolor{comment}{ * xQueueSelectFromSet() is then used to determine which, if any, of the queues}}
-\DoxyCodeLine{1519 \textcolor{comment}{ * or semaphores contained in the set is in a state where a queue read or}}
-\DoxyCodeLine{1520 \textcolor{comment}{ * semaphore take operation would be successful.}}
-\DoxyCodeLine{1521 \textcolor{comment}{ *}}
-\DoxyCodeLine{1522 \textcolor{comment}{ * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-\/queue-\/sets.html}}
-\DoxyCodeLine{1523 \textcolor{comment}{ * for reasons why queue sets are very rarely needed in practice as there are}}
-\DoxyCodeLine{1524 \textcolor{comment}{ * simpler methods of blocking on multiple objects.}}
-\DoxyCodeLine{1525 \textcolor{comment}{ *}}
-\DoxyCodeLine{1526 \textcolor{comment}{ * Note 2:  Blocking on a queue set that contains a mutex will not cause the}}
-\DoxyCodeLine{1527 \textcolor{comment}{ * mutex holder to inherit the priority of the blocked task.}}
-\DoxyCodeLine{1528 \textcolor{comment}{ *}}
-\DoxyCodeLine{1529 \textcolor{comment}{ * Note 3:  An additional 4 bytes of RAM is required for each space in a every}}
-\DoxyCodeLine{1530 \textcolor{comment}{ * queue added to a queue set.  Therefore counting semaphores that have a high}}
-\DoxyCodeLine{1531 \textcolor{comment}{ * maximum count value should not be added to a queue set.}}
-\DoxyCodeLine{1532 \textcolor{comment}{ *}}
-\DoxyCodeLine{1533 \textcolor{comment}{ * Note 4:  A receive (in the case of a queue) or take (in the case of a}}
-\DoxyCodeLine{1534 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
-\DoxyCodeLine{1535 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
-\DoxyCodeLine{1536 \textcolor{comment}{ *}}
-\DoxyCodeLine{1537 \textcolor{comment}{ * @param uxEventQueueLength Queue sets store events that occur on}}
-\DoxyCodeLine{1538 \textcolor{comment}{ * the queues and semaphores contained in the set.  uxEventQueueLength specifies}}
-\DoxyCodeLine{1539 \textcolor{comment}{ * the maximum number of events that can be queued at once.  To be absolutely}}
-\DoxyCodeLine{1540 \textcolor{comment}{ * certain that events are not lost uxEventQueueLength should be set to the}}
-\DoxyCodeLine{1541 \textcolor{comment}{ * total sum of the length of the queues added to the set, where binary}}
-\DoxyCodeLine{1542 \textcolor{comment}{ * semaphores and mutexes have a length of 1, and counting semaphores have a}}
-\DoxyCodeLine{1543 \textcolor{comment}{ * length set by their maximum count value.  Examples:}}
-\DoxyCodeLine{1544 \textcolor{comment}{ *  + If a queue set is to hold a queue of length 5, another queue of length 12,}}
-\DoxyCodeLine{1545 \textcolor{comment}{ *    and a binary semaphore, then uxEventQueueLength should be set to}}
-\DoxyCodeLine{1546 \textcolor{comment}{ *    (5 + 12 + 1), or 18.}}
-\DoxyCodeLine{1547 \textcolor{comment}{ *  + If a queue set is to hold three binary semaphores then uxEventQueueLength}}
-\DoxyCodeLine{1548 \textcolor{comment}{ *    should be set to (1 + 1 + 1 ), or 3.}}
-\DoxyCodeLine{1549 \textcolor{comment}{ *  + If a queue set is to hold a counting semaphore that has a maximum count of}}
-\DoxyCodeLine{1550 \textcolor{comment}{ *    5, and a counting semaphore that has a maximum count of 3, then}}
-\DoxyCodeLine{1551 \textcolor{comment}{ *    uxEventQueueLength should be set to (5 + 3), or 8.}}
-\DoxyCodeLine{1552 \textcolor{comment}{ *}}
-\DoxyCodeLine{1553 \textcolor{comment}{ * @return If the queue set is created successfully then a handle to the created}}
-\DoxyCodeLine{1554 \textcolor{comment}{ * queue set is returned.  Otherwise NULL is returned.}}
-\DoxyCodeLine{1555 \textcolor{comment}{ */}}
-\DoxyCodeLine{1556 \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} \mbox{\hyperlink{queue_8h_ad4208ad97f737af942a13e64b45e83e8}{xQueueCreateSet}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxEventQueueLength ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1557 }
-\DoxyCodeLine{1558 \textcolor{comment}{/*}}
-\DoxyCodeLine{1559 \textcolor{comment}{ * Adds a queue or semaphore to a queue set that was previously created by a}}
-\DoxyCodeLine{1560 \textcolor{comment}{ * call to xQueueCreateSet().}}
-\DoxyCodeLine{1561 \textcolor{comment}{ *}}
-\DoxyCodeLine{1562 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
-\DoxyCodeLine{1563 \textcolor{comment}{ * function.}}
-\DoxyCodeLine{1564 \textcolor{comment}{ *}}
-\DoxyCodeLine{1565 \textcolor{comment}{ * Note 1:  A receive (in the case of a queue) or take (in the case of a}}
-\DoxyCodeLine{1566 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
-\DoxyCodeLine{1567 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
-\DoxyCodeLine{1568 \textcolor{comment}{ *}}
-\DoxyCodeLine{1569 \textcolor{comment}{ * @param xQueueOrSemaphore The handle of the queue or semaphore being added to}}
-\DoxyCodeLine{1570 \textcolor{comment}{ * the queue set (cast to an QueueSetMemberHandle\_t type).}}
-\DoxyCodeLine{1571 \textcolor{comment}{ *}}
-\DoxyCodeLine{1572 \textcolor{comment}{ * @param xQueueSet The handle of the queue set to which the queue or semaphore}}
-\DoxyCodeLine{1573 \textcolor{comment}{ * is being added.}}
-\DoxyCodeLine{1574 \textcolor{comment}{ *}}
-\DoxyCodeLine{1575 \textcolor{comment}{ * @return If the queue or semaphore was successfully added to the queue set}}
-\DoxyCodeLine{1576 \textcolor{comment}{ * then pdPASS is returned.  If the queue could not be successfully added to the}}
-\DoxyCodeLine{1577 \textcolor{comment}{ * queue set because it is already a member of a different queue set then pdFAIL}}
-\DoxyCodeLine{1578 \textcolor{comment}{ * is returned.}}
-\DoxyCodeLine{1579 \textcolor{comment}{ */}}
-\DoxyCodeLine{1580 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ae07b563e6bbe42a977f7c46853aa11eb}{xQueueAddToSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} xQueueOrSemaphore, \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1581 }
-\DoxyCodeLine{1582 \textcolor{comment}{/*}}
-\DoxyCodeLine{1583 \textcolor{comment}{ * Removes a queue or semaphore from a queue set.  A queue or semaphore can only}}
-\DoxyCodeLine{1584 \textcolor{comment}{ * be removed from a set if the queue or semaphore is empty.}}
-\DoxyCodeLine{1585 \textcolor{comment}{ *}}
-\DoxyCodeLine{1586 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
-\DoxyCodeLine{1587 \textcolor{comment}{ * function.}}
-\DoxyCodeLine{1588 \textcolor{comment}{ *}}
-\DoxyCodeLine{1589 \textcolor{comment}{ * @param xQueueOrSemaphore The handle of the queue or semaphore being removed}}
-\DoxyCodeLine{1590 \textcolor{comment}{ * from the queue set (cast to an QueueSetMemberHandle\_t type).}}
-\DoxyCodeLine{1591 \textcolor{comment}{ *}}
-\DoxyCodeLine{1592 \textcolor{comment}{ * @param xQueueSet The handle of the queue set in which the queue or semaphore}}
-\DoxyCodeLine{1593 \textcolor{comment}{ * is included.}}
-\DoxyCodeLine{1594 \textcolor{comment}{ *}}
-\DoxyCodeLine{1595 \textcolor{comment}{ * @return If the queue or semaphore was successfully removed from the queue set}}
-\DoxyCodeLine{1596 \textcolor{comment}{ * then pdPASS is returned.  If the queue was not in the queue set, or the}}
-\DoxyCodeLine{1597 \textcolor{comment}{ * queue (or semaphore) was not empty, then pdFAIL is returned.}}
-\DoxyCodeLine{1598 \textcolor{comment}{ */}}
-\DoxyCodeLine{1599 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ab16fdd17b9b6d74a82c8366f47cda162}{xQueueRemoveFromSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} xQueueOrSemaphore, \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1600 }
-\DoxyCodeLine{1601 \textcolor{comment}{/*}}
-\DoxyCodeLine{1602 \textcolor{comment}{ * xQueueSelectFromSet() selects from the members of a queue set a queue or}}
-\DoxyCodeLine{1603 \textcolor{comment}{ * semaphore that either contains data (in the case of a queue) or is available}}
-\DoxyCodeLine{1604 \textcolor{comment}{ * to take (in the case of a semaphore).  xQueueSelectFromSet() effectively}}
-\DoxyCodeLine{1605 \textcolor{comment}{ * allows a task to block (pend) on a read operation on all the queues and}}
-\DoxyCodeLine{1606 \textcolor{comment}{ * semaphores in a queue set simultaneously.}}
-\DoxyCodeLine{1607 \textcolor{comment}{ *}}
-\DoxyCodeLine{1608 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
-\DoxyCodeLine{1609 \textcolor{comment}{ * function.}}
-\DoxyCodeLine{1610 \textcolor{comment}{ *}}
-\DoxyCodeLine{1611 \textcolor{comment}{ * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-\/queue-\/sets.html}}
-\DoxyCodeLine{1612 \textcolor{comment}{ * for reasons why queue sets are very rarely needed in practice as there are}}
-\DoxyCodeLine{1613 \textcolor{comment}{ * simpler methods of blocking on multiple objects.}}
-\DoxyCodeLine{1614 \textcolor{comment}{ *}}
-\DoxyCodeLine{1615 \textcolor{comment}{ * Note 2:  Blocking on a queue set that contains a mutex will not cause the}}
-\DoxyCodeLine{1616 \textcolor{comment}{ * mutex holder to inherit the priority of the blocked task.}}
-\DoxyCodeLine{1617 \textcolor{comment}{ *}}
-\DoxyCodeLine{1618 \textcolor{comment}{ * Note 3:  A receive (in the case of a queue) or take (in the case of a}}
-\DoxyCodeLine{1619 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
-\DoxyCodeLine{1620 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
-\DoxyCodeLine{1621 \textcolor{comment}{ *}}
-\DoxyCodeLine{1622 \textcolor{comment}{ * @param xQueueSet The queue set on which the task will (potentially) block.}}
-\DoxyCodeLine{1623 \textcolor{comment}{ *}}
-\DoxyCodeLine{1624 \textcolor{comment}{ * @param xTicksToWait The maximum time, in ticks, that the calling task will}}
-\DoxyCodeLine{1625 \textcolor{comment}{ * remain in the Blocked state (with other tasks executing) to wait for a member}}
-\DoxyCodeLine{1626 \textcolor{comment}{ * of the queue set to be ready for a successful queue read or semaphore take}}
-\DoxyCodeLine{1627 \textcolor{comment}{ * operation.}}
-\DoxyCodeLine{1628 \textcolor{comment}{ *}}
-\DoxyCodeLine{1629 \textcolor{comment}{ * @return xQueueSelectFromSet() will return the handle of a queue (cast to}}
-\DoxyCodeLine{1630 \textcolor{comment}{ * a QueueSetMemberHandle\_t type) contained in the queue set that contains data,}}
-\DoxyCodeLine{1631 \textcolor{comment}{ * or the handle of a semaphore (cast to a QueueSetMemberHandle\_t type) contained}}
-\DoxyCodeLine{1632 \textcolor{comment}{ * in the queue set that is available, or NULL if no such queue or semaphore}}
-\DoxyCodeLine{1633 \textcolor{comment}{ * exists before before the specified block time expires.}}
-\DoxyCodeLine{1634 \textcolor{comment}{ */}}
-\DoxyCodeLine{1635 \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} \mbox{\hyperlink{queue_8h_a71f56e6277ed4e419c707c8d0c785065}{xQueueSelectFromSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1636 }
-\DoxyCodeLine{1637 \textcolor{comment}{/*}}
-\DoxyCodeLine{1638 \textcolor{comment}{ * A version of xQueueSelectFromSet() that can be used from an ISR.}}
-\DoxyCodeLine{1639 \textcolor{comment}{ */}}
-\DoxyCodeLine{1640 \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} \mbox{\hyperlink{queue_8h_ac58b34fd733cf460cddab1abb9a899b3}{xQueueSelectFromSetFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1641 }
-\DoxyCodeLine{1642 \textcolor{comment}{/* Not public API functions. */}}
-\DoxyCodeLine{1643 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_abaa0f8224837d82e60cf799127185546}{vQueueWaitForMessageRestricted}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xWaitIndefinitely ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1644 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a3c13a9fe455ec2d35b5f8386a1040599}{xQueueGenericReset}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xNewQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1645 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_a37c8b0ea8f2e6c5fa5082afb9721f986}{vQueueSetQueueNumber}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a1b422cf046da7afa63a0646ed6a2e8c6}{uxQueueNumber}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1646 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_a7f7a4d9b75dcfbcefb2384da5df5290e}{uxQueueGetQueueNumber}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1647 uint8\_t \mbox{\hyperlink{queue_8h_a9730db0a2f63acbf7197fa4150d7fe08}{ucQueueGetQueueType}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{1648 }
-\DoxyCodeLine{1649 }
-\DoxyCodeLine{1650 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{1651 \}}
-\DoxyCodeLine{1652 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{1653 }
-\DoxyCodeLine{1654 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* QUEUE\_H */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{1655 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00002}00002 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00005}00005 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00006}00006 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00007}00007 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00008}00008 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00009}00009 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00010}00010 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00012}00012 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00013}00013 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00015}00015 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00016}00016 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00017}00017 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00018}00018 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00019}00019 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00020}00020 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00021}00021 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00022}00022 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00023}00023 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00024}00024 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00025}00025 \textcolor{comment}{ * 1 tab == 4 spaces!}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00026}00026 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00029}00029 \textcolor{preprocessor}{\#ifndef QUEUE\_H}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00030}00030 \textcolor{preprocessor}{\#define QUEUE\_H}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00032}00032 \textcolor{preprocessor}{\#ifndef INC\_FREERTOS\_H}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00033}00033 \textcolor{preprocessor}{    \#error "{}include FreeRTOS.h"{}} must appear in source files before "{}include queue.h"{}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00034}00034 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00036}00036 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00037}00037 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00038}00038 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00040}00040 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00047}00047 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}}; \textcolor{comment}{/* Using old naming convention so as not to break kernel aware debuggers. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00048}\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{00048}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{QueueHandle\_t}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00055}\mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{00055}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_a1ae056fb02b2467993003b85111dde16}{QueueSetHandle\_t}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00062}\mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{00062}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_queue_definition}{QueueDefinition}} * \mbox{\hyperlink{queue_8h_afac7ec7649e5c57381315eb011c36ef5}{QueueSetMemberHandle\_t}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00064}00064 \textcolor{comment}{/* For internal use only. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00065}\mbox{\hyperlink{queue_8h_a4d78fa863fbeb90425a2dda08fae8b12}{00065}} \textcolor{preprocessor}{\#define queueSEND\_TO\_BACK       ( ( BaseType\_t ) 0 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00066}\mbox{\hyperlink{queue_8h_a6bae395a00f1a4455f0e7fe3c9e76c14}{00066}} \textcolor{preprocessor}{\#define queueSEND\_TO\_FRONT      ( ( BaseType\_t ) 1 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00067}\mbox{\hyperlink{queue_8h_a5bb1c4a46d4b08b6d35cf586983476ef}{00067}} \textcolor{preprocessor}{\#define queueOVERWRITE          ( ( BaseType\_t ) 2 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00069}00069 \textcolor{comment}{/* For internal use only.  These definitions *must* match those in queue.c. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00070}\mbox{\hyperlink{queue_8h_a3f926bea6ffa4e2f1af900431d0d90a5}{00070}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_BASE                ( ( uint8\_t ) 0U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00071}\mbox{\hyperlink{queue_8h_a9b8e1b1d5d9952bd0121ae71cf3aba8d}{00071}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_SET                 ( ( uint8\_t ) 0U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00072}\mbox{\hyperlink{queue_8h_ae9c10f504e758fb69271024dc8d8a8c9}{00072}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_MUTEX               ( ( uint8\_t ) 1U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00073}\mbox{\hyperlink{queue_8h_abccf1c95aa0942f8df163d414010542b}{00073}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_COUNTING\_SEMAPHORE  ( ( uint8\_t ) 2U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00074}\mbox{\hyperlink{queue_8h_a8af9c6a83fce59c386da4f22248b56ae}{00074}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_BINARY\_SEMAPHORE    ( ( uint8\_t ) 3U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00075}\mbox{\hyperlink{queue_8h_a6f68aa65394f83b57e34061d9ff44b47}{00075}} \textcolor{preprocessor}{\#define queueQUEUE\_TYPE\_RECURSIVE\_MUTEX     ( ( uint8\_t ) 4U )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00145}00145 \textcolor{preprocessor}{\#if( configSUPPORT\_DYNAMIC\_ALLOCATION == 1 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00146}00146 \textcolor{preprocessor}{    \#define xQueueCreate( uxQueueLength, uxItemSize ) xQueueGenericCreate( ( uxQueueLength ), ( uxItemSize ), ( queueQUEUE\_TYPE\_BASE ) )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00147}00147 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00231}00231 \textcolor{preprocessor}{\#if( configSUPPORT\_STATIC\_ALLOCATION == 1 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00232}00232 \textcolor{preprocessor}{    \#define xQueueCreateStatic( uxQueueLength, uxItemSize, pucQueueStorage, pxQueueBuffer ) xQueueGenericCreateStatic( ( uxQueueLength ), ( uxItemSize ), ( pucQueueStorage ), ( pxQueueBuffer ), ( queueQUEUE\_TYPE\_BASE ) )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00233}00233 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configSUPPORT\_STATIC\_ALLOCATION */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00313}\mbox{\hyperlink{queue_8h_aa612fcc2b1ceee0200f34b942e300b41}{00313}} \textcolor{preprocessor}{\#define xQueueSendToFront( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_FRONT )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00314}00314 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00395}\mbox{\hyperlink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{00395}} \textcolor{preprocessor}{\#define xQueueSendToBack( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_BACK )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00396}00396 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00479}\mbox{\hyperlink{queue_8h_af7eb49d3249351176992950d9185abe9}{00479}} \textcolor{preprocessor}{\#define xQueueSend( xQueue, pvItemToQueue, xTicksToWait ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND\_TO\_BACK )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00480}00480 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00562}\mbox{\hyperlink{queue_8h_a8e9ced123b5a0e37a36d3bbdb2e56b4e}{00562}} \textcolor{preprocessor}{\#define xQueueOverwrite( xQueue, pvItemToQueue ) xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), 0, queueOVERWRITE )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00563}00563 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00564}00564 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00650}00650 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a7ce86d1026e0c3055a523935bf53c0b3}{xQueueGenericSend}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvItemToQueue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCopyPosition ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00651}00651 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00744}00744 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a3f9e430276fe5244417fd82644ec8a75}{xQueuePeek}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00745}00745 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00777}00777 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ac402adf98be1fb8ca0345f30dc11a9dc}{xQueuePeekFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00778}00778 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00868}00868 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{xQueueReceive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00869}00869 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00883}00883 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{uxQueueMessagesWaiting}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00884}00884 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00900}00900 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_aae75791e91707c1e0bb31d761921531c}{uxQueueSpacesAvailable}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00901}00901 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00914}00914 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_a707cbcfe3aed6b877b6aa6d9d75a3f22}{vQueueDelete}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00915}00915 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00984}\mbox{\hyperlink{queue_8h_af03b83396462affe9e28302660e7b9c6}{00984}} \textcolor{preprocessor}{\#define xQueueSendToFrontFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_FRONT )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00985}00985 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l00986}00986 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01055}\mbox{\hyperlink{queue_8h_a51e9f73417b11441a181cdc4f33a68e9}{01055}} \textcolor{preprocessor}{\#define xQueueSendToBackFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_BACK )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01056}01056 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01142}\mbox{\hyperlink{queue_8h_abdcd6a86ef82034d002193e79cfd3ce8}{01142}} \textcolor{preprocessor}{\#define xQueueOverwriteFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueOVERWRITE )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01143}01143 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01216}\mbox{\hyperlink{queue_8h_a21d5919ed26c21d121df4a4debeb643c}{01216}} \textcolor{preprocessor}{\#define xQueueSendFromISR( xQueue, pvItemToQueue, pxHigherPriorityTaskWoken ) xQueueGenericSendFromISR( ( xQueue ), ( pvItemToQueue ), ( pxHigherPriorityTaskWoken ), queueSEND\_TO\_BACK )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01217}01217 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01295}01295 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a263711eb0124112e828a18fd4b8ab29d}{xQueueGenericSendFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvItemToQueue, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCopyPosition ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01296}01296 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ad14ae1174c2772cffc9e0c2c45dc55a6}{xQueueGiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01297}01297 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01385}01385 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_acdf528f5c91131ae2f31c669cfd65758}{xQueueReceiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} pvBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01386}01386 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01387}01387 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01388}01388 \textcolor{comment}{ * Utilities to query queues that are safe to use from an ISR.  These utilities}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01389}01389 \textcolor{comment}{ * should be used only from witin an ISR, or within a critical section.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01390}01390 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01391}01391 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_aa11139c58f4eecaa0c50078f2976d010}{xQueueIsQueueEmptyFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01392}01392 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a81319b3aa562733957c5a12a088516d3}{xQueueIsQueueFullFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01393}01393 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_a3e89b6189166f9544f283435e2732f9a}{uxQueueMessagesWaitingFromISR}}( \textcolor{keyword}{const} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01394}01394 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01395}01395 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01396}01396 \textcolor{comment}{ * The functions defined above are for passing data to and from tasks.  The}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01397}01397 \textcolor{comment}{ * functions below are the equivalents for passing data to and from}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01398}01398 \textcolor{comment}{ * co-\/routines.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01399}01399 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01400}01400 \textcolor{comment}{ * These functions are called from the co-\/routine macro implementation and}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01401}01401 \textcolor{comment}{ * should not be called directly from application code.  Instead use the macro}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01402}01402 \textcolor{comment}{ * wrappers defined within croutine.h.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01403}01403 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01404}\mbox{\hyperlink{queue_8h_a80af2aff3f472600a12dea0642fa8b27}{01404}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a80af2aff3f472600a12dea0642fa8b27}{xQueueCRSendFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvItemToQueue, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xCoRoutinePreviouslyWoken );}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01405}\mbox{\hyperlink{queue_8h_ad66b08c1d6a17efa8985605bf182b997}{01405}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ad66b08c1d6a17efa8985605bf182b997}{xQueueCRReceiveFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} *pvBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxTaskWoken );}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01406}\mbox{\hyperlink{queue_8h_abb5d7bd9b62f2b642104fde73c1c666b}{01406}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_abb5d7bd9b62f2b642104fde73c1c666b}{xQueueCRSend}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvItemToQueue, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait );}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01407}\mbox{\hyperlink{queue_8h_a88a02b37c486c38b8c4112e16dfed099}{01407}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a88a02b37c486c38b8c4112e16dfed099}{xQueueCRReceive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keywordtype}{void} *pvBuffer, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait );}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01408}01408 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01409}01409 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01410}01410 \textcolor{comment}{ * For internal use only.  Use xSemaphoreCreateMutex(),}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01411}01411 \textcolor{comment}{ * xSemaphoreCreateCounting() or xSemaphoreGetMutexHolder() instead of calling}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01412}01412 \textcolor{comment}{ * these functions directly.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01413}01413 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01414}01414 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_acac7df114346b4219bc2aab79cac35b5}{xQueueCreateMutex}}( \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01415}\mbox{\hyperlink{queue_8h_af92945589381b740932a7cc41e212a37}{01415}} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_af92945589381b740932a7cc41e212a37}{xQueueCreateMutexStatic}}( \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}}, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01416}01416 \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_ac74677a8d243c76843c25fdb06436043}{xQueueCreateCountingSemaphore}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxMaxCount, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxInitialCount ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01417}\mbox{\hyperlink{queue_8h_a601cb15993988a393676a9df74b067bd}{01417}} \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8h_a601cb15993988a393676a9df74b067bd}{xQueueCreateCountingSemaphoreStatic}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxMaxCount, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxInitialCount, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01418}01418 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a124567e9fc3a37b99f7e184ae98de9f8}{xQueueSemaphoreTake}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01419}\mbox{\hyperlink{queue_8h_ac49b15e4005be658fd04e68407ef4fb1}{01419}} \mbox{\hyperlink{structtsk_task_control_block}{TaskHandle\_t}} \mbox{\hyperlink{queue_8h_ac49b15e4005be658fd04e68407ef4fb1}{xQueueGetMutexHolder}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_adb2c0818274974553c619ff953b6f477}{xSemaphore}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01420}\mbox{\hyperlink{queue_8h_a8ccb06cf46ba1c052809a3809954bd07}{01420}} \mbox{\hyperlink{structtsk_task_control_block}{TaskHandle\_t}} \mbox{\hyperlink{queue_8h_a8ccb06cf46ba1c052809a3809954bd07}{xQueueGetMutexHolderFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_adb2c0818274974553c619ff953b6f477}{xSemaphore}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01421}01421 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01422}01422 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01423}01423 \textcolor{comment}{ * For internal use only.  Use xSemaphoreTakeMutexRecursive() or}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01424}01424 \textcolor{comment}{ * xSemaphoreGiveMutexRecursive() instead of calling these functions directly.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01425}01425 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01426}01426 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a74e27d539a884589ebbbdfcc371a48cd}{xQueueTakeMutexRecursive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xMutex, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01427}01427 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a51adeb17e9d3bb1077969e6e53f61c3b}{xQueueGiveMutexRecursive}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xMutex ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01428}01428 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01429}01429 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01430}01430 \textcolor{comment}{ * Reset a queue back to its original empty state.  The return value is now}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01431}01431 \textcolor{comment}{ * obsolete and is always set to pdPASS.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01432}01432 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01433}\mbox{\hyperlink{queue_8h_a94df8d8bc938424151f8196db2f1177b}{01433}} \textcolor{preprocessor}{\#define xQueueReset( xQueue ) xQueueGenericReset( xQueue, pdFALSE )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01434}01434 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01435}01435 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01436}01436 \textcolor{comment}{ * The registry is provided as a means for kernel aware debuggers to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01437}01437 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call vQueueAddToRegistry() add}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01438}01438 \textcolor{comment}{ * a queue, semaphore or mutex handle to the registry if you want the handle}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01439}01439 \textcolor{comment}{ * to be available to a kernel aware debugger.  If you are not using a kernel}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01440}01440 \textcolor{comment}{ * aware debugger then this function can be ignored.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01441}01441 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01442}01442 \textcolor{comment}{ * configQUEUE\_REGISTRY\_SIZE defines the maximum number of handles the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01443}01443 \textcolor{comment}{ * registry can hold.  configQUEUE\_REGISTRY\_SIZE must be greater than 0}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01444}01444 \textcolor{comment}{ * within FreeRTOSConfig.h for the registry to be available.  Its value}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01445}01445 \textcolor{comment}{ * does not effect the number of queues, semaphores and mutexes that can be}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01446}01446 \textcolor{comment}{ * created -\/ just the number that the registry can hold.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01447}01447 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01448}01448 \textcolor{comment}{ * @param xQueue The handle of the queue being added to the registry.  This}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01449}01449 \textcolor{comment}{ * is the handle returned by a call to xQueueCreate().  Semaphore and mutex}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01450}01450 \textcolor{comment}{ * handles can also be passed in here.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01451}01451 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01452}01452 \textcolor{comment}{ * @param pcName The name to be associated with the handle.  This is the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01453}01453 \textcolor{comment}{ * name that the kernel aware debugger will display.  The queue registry only}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01454}01454 \textcolor{comment}{ * stores a pointer to the string -\/ so the string must be persistent (global or}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01455}01455 \textcolor{comment}{ * preferably in ROM/Flash), not on the stack.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01456}01456 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01457}01457 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01458}01458     \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8c_a1d5e2402c801e7a0ab079f6944b97f93}{vQueueAddToRegistry}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *pcQueueName ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}}; \textcolor{comment}{/*lint !e971 Unqualified char types are allowed for strings and single characters only. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01459}01459 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01460}01460 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01461}01461 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01462}01462 \textcolor{comment}{ * The registry is provided as a means for kernel aware debuggers to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01463}01463 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call vQueueAddToRegistry() add}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01464}01464 \textcolor{comment}{ * a queue, semaphore or mutex handle to the registry if you want the handle}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01465}01465 \textcolor{comment}{ * to be available to a kernel aware debugger, and vQueueUnregisterQueue() to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01466}01466 \textcolor{comment}{ * remove the queue, semaphore or mutex from the register.  If you are not using}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01467}01467 \textcolor{comment}{ * a kernel aware debugger then this function can be ignored.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01468}01468 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01469}01469 \textcolor{comment}{ * @param xQueue The handle of the queue being removed from the registry.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01470}01470 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01471}01471 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01472}01472     \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8c_ac695c7cde3c32b32a1db4689239603ed}{vQueueUnregisterQueue}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01473}01473 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01474}01474 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01475}01475 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01476}01476 \textcolor{comment}{ * The queue registry is provided as a means for kernel aware debuggers to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01477}01477 \textcolor{comment}{ * locate queues, semaphores and mutexes.  Call pcQueueGetName() to look}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01478}01478 \textcolor{comment}{ * up and return the name of a queue in the queue registry from the queue's}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01479}01479 \textcolor{comment}{ * handle.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01480}01480 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01481}01481 \textcolor{comment}{ * @param xQueue The handle of the queue the name of which will be returned.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01482}01482 \textcolor{comment}{ * @return If the queue is in the registry then a pointer to the name of the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01483}01483 \textcolor{comment}{ * queue is returned.  If the queue is not in the registry then NULL is}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01484}01484 \textcolor{comment}{ * returned.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01485}01485 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01486}01486 \textcolor{preprocessor}{\#if( configQUEUE\_REGISTRY\_SIZE > 0 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01487}01487     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{queue_8c_a6cd1431e6d0f46927d6260d49f0d6df3}{pcQueueGetName}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}}; \textcolor{comment}{/*lint !e971 Unqualified char types are allowed for strings and single characters only. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01488}01488 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01489}01489 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01490}01490 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01491}01491 \textcolor{comment}{ * Generic version of the function used to creaet a queue using dynamic memory}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01492}01492 \textcolor{comment}{ * allocation.  This is called by other functions and macros that create other}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01493}01493 \textcolor{comment}{ * RTOS objects that use the queue structure as their base.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01494}01494 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01495}01495 \textcolor{preprocessor}{\#if( configSUPPORT\_DYNAMIC\_ALLOCATION == 1 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01496}01496     \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{queue_8c_ac999cdfbb09fff396fa818bb9a30b4e5}{xQueueGenericCreate}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxQueueLength, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a81bb7d3826909244baa9debf5a55abb0}{uxItemSize}}, \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01497}01497 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01498}01498 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01499}01499 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01500}01500 \textcolor{comment}{ * Generic version of the function used to creaet a queue using dynamic memory}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01501}01501 \textcolor{comment}{ * allocation.  This is called by other functions and macros that create other}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01502}01502 \textcolor{comment}{ * RTOS objects that use the queue structure as their base.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01503}01503 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01504}01504 \textcolor{preprocessor}{\#if( configSUPPORT\_STATIC\_ALLOCATION == 1 )}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01505}01505     \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} xQueueGenericCreateStatic( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxQueueLength, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a81bb7d3826909244baa9debf5a55abb0}{uxItemSize}}, uint8\_t *pucQueueStorage, \mbox{\hyperlink{structx_s_t_a_t_i_c___q_u_e_u_e}{StaticQueue\_t}} *pxStaticQueue, \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{struct_queue_definition_a337a8dc6af8fc327a92412275e86fe81}{ucQueueType}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01506}01506 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01507}01507 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01508}01508 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01509}01509 \textcolor{comment}{ * Queue sets provide a mechanism to allow a task to block (pend) on a read}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01510}01510 \textcolor{comment}{ * operation from multiple queues or semaphores simultaneously.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01511}01511 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01512}01512 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01513}01513 \textcolor{comment}{ * function.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01514}01514 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01515}01515 \textcolor{comment}{ * A queue set must be explicitly created using a call to xQueueCreateSet()}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01516}01516 \textcolor{comment}{ * before it can be used.  Once created, standard FreeRTOS queues and semaphores}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01517}01517 \textcolor{comment}{ * can be added to the set using calls to xQueueAddToSet().}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01518}01518 \textcolor{comment}{ * xQueueSelectFromSet() is then used to determine which, if any, of the queues}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01519}01519 \textcolor{comment}{ * or semaphores contained in the set is in a state where a queue read or}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01520}01520 \textcolor{comment}{ * semaphore take operation would be successful.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01521}01521 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01522}01522 \textcolor{comment}{ * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-\/queue-\/sets.html}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01523}01523 \textcolor{comment}{ * for reasons why queue sets are very rarely needed in practice as there are}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01524}01524 \textcolor{comment}{ * simpler methods of blocking on multiple objects.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01525}01525 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01526}01526 \textcolor{comment}{ * Note 2:  Blocking on a queue set that contains a mutex will not cause the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01527}01527 \textcolor{comment}{ * mutex holder to inherit the priority of the blocked task.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01528}01528 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01529}01529 \textcolor{comment}{ * Note 3:  An additional 4 bytes of RAM is required for each space in a every}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01530}01530 \textcolor{comment}{ * queue added to a queue set.  Therefore counting semaphores that have a high}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01531}01531 \textcolor{comment}{ * maximum count value should not be added to a queue set.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01532}01532 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01533}01533 \textcolor{comment}{ * Note 4:  A receive (in the case of a queue) or take (in the case of a}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01534}01534 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01535}01535 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01536}01536 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01537}01537 \textcolor{comment}{ * @param uxEventQueueLength Queue sets store events that occur on}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01538}01538 \textcolor{comment}{ * the queues and semaphores contained in the set.  uxEventQueueLength specifies}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01539}01539 \textcolor{comment}{ * the maximum number of events that can be queued at once.  To be absolutely}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01540}01540 \textcolor{comment}{ * certain that events are not lost uxEventQueueLength should be set to the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01541}01541 \textcolor{comment}{ * total sum of the length of the queues added to the set, where binary}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01542}01542 \textcolor{comment}{ * semaphores and mutexes have a length of 1, and counting semaphores have a}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01543}01543 \textcolor{comment}{ * length set by their maximum count value.  Examples:}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01544}01544 \textcolor{comment}{ *  + If a queue set is to hold a queue of length 5, another queue of length 12,}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01545}01545 \textcolor{comment}{ *    and a binary semaphore, then uxEventQueueLength should be set to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01546}01546 \textcolor{comment}{ *    (5 + 12 + 1), or 18.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01547}01547 \textcolor{comment}{ *  + If a queue set is to hold three binary semaphores then uxEventQueueLength}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01548}01548 \textcolor{comment}{ *    should be set to (1 + 1 + 1 ), or 3.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01549}01549 \textcolor{comment}{ *  + If a queue set is to hold a counting semaphore that has a maximum count of}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01550}01550 \textcolor{comment}{ *    5, and a counting semaphore that has a maximum count of 3, then}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01551}01551 \textcolor{comment}{ *    uxEventQueueLength should be set to (5 + 3), or 8.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01552}01552 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01553}01553 \textcolor{comment}{ * @return If the queue set is created successfully then a handle to the created}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01554}01554 \textcolor{comment}{ * queue set is returned.  Otherwise NULL is returned.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01555}01555 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01556}\mbox{\hyperlink{queue_8h_ad4208ad97f737af942a13e64b45e83e8}{01556}} \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} \mbox{\hyperlink{queue_8h_ad4208ad97f737af942a13e64b45e83e8}{xQueueCreateSet}}( \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} uxEventQueueLength ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01557}01557 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01558}01558 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01559}01559 \textcolor{comment}{ * Adds a queue or semaphore to a queue set that was previously created by a}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01560}01560 \textcolor{comment}{ * call to xQueueCreateSet().}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01561}01561 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01562}01562 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01563}01563 \textcolor{comment}{ * function.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01564}01564 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01565}01565 \textcolor{comment}{ * Note 1:  A receive (in the case of a queue) or take (in the case of a}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01566}01566 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01567}01567 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01568}01568 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01569}01569 \textcolor{comment}{ * @param xQueueOrSemaphore The handle of the queue or semaphore being added to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01570}01570 \textcolor{comment}{ * the queue set (cast to an QueueSetMemberHandle\_t type).}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01571}01571 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01572}01572 \textcolor{comment}{ * @param xQueueSet The handle of the queue set to which the queue or semaphore}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01573}01573 \textcolor{comment}{ * is being added.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01574}01574 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01575}01575 \textcolor{comment}{ * @return If the queue or semaphore was successfully added to the queue set}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01576}01576 \textcolor{comment}{ * then pdPASS is returned.  If the queue could not be successfully added to the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01577}01577 \textcolor{comment}{ * queue set because it is already a member of a different queue set then pdFAIL}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01578}01578 \textcolor{comment}{ * is returned.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01579}01579 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01580}\mbox{\hyperlink{queue_8h_ae07b563e6bbe42a977f7c46853aa11eb}{01580}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ae07b563e6bbe42a977f7c46853aa11eb}{xQueueAddToSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} xQueueOrSemaphore, \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01581}01581 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01582}01582 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01583}01583 \textcolor{comment}{ * Removes a queue or semaphore from a queue set.  A queue or semaphore can only}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01584}01584 \textcolor{comment}{ * be removed from a set if the queue or semaphore is empty.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01585}01585 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01586}01586 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01587}01587 \textcolor{comment}{ * function.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01588}01588 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01589}01589 \textcolor{comment}{ * @param xQueueOrSemaphore The handle of the queue or semaphore being removed}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01590}01590 \textcolor{comment}{ * from the queue set (cast to an QueueSetMemberHandle\_t type).}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01591}01591 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01592}01592 \textcolor{comment}{ * @param xQueueSet The handle of the queue set in which the queue or semaphore}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01593}01593 \textcolor{comment}{ * is included.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01594}01594 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01595}01595 \textcolor{comment}{ * @return If the queue or semaphore was successfully removed from the queue set}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01596}01596 \textcolor{comment}{ * then pdPASS is returned.  If the queue was not in the queue set, or the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01597}01597 \textcolor{comment}{ * queue (or semaphore) was not empty, then pdFAIL is returned.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01598}01598 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01599}\mbox{\hyperlink{queue_8h_ab16fdd17b9b6d74a82c8366f47cda162}{01599}} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_ab16fdd17b9b6d74a82c8366f47cda162}{xQueueRemoveFromSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} xQueueOrSemaphore, \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01600}01600 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01601}01601 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01602}01602 \textcolor{comment}{ * xQueueSelectFromSet() selects from the members of a queue set a queue or}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01603}01603 \textcolor{comment}{ * semaphore that either contains data (in the case of a queue) or is available}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01604}01604 \textcolor{comment}{ * to take (in the case of a semaphore).  xQueueSelectFromSet() effectively}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01605}01605 \textcolor{comment}{ * allows a task to block (pend) on a read operation on all the queues and}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01606}01606 \textcolor{comment}{ * semaphores in a queue set simultaneously.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01607}01607 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01608}01608 \textcolor{comment}{ * See FreeRTOS/Source/Demo/Common/Minimal/QueueSet.c for an example using this}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01609}01609 \textcolor{comment}{ * function.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01610}01610 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01611}01611 \textcolor{comment}{ * Note 1:  See the documentation on http://wwwFreeRTOS.org/RTOS-\/queue-\/sets.html}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01612}01612 \textcolor{comment}{ * for reasons why queue sets are very rarely needed in practice as there are}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01613}01613 \textcolor{comment}{ * simpler methods of blocking on multiple objects.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01614}01614 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01615}01615 \textcolor{comment}{ * Note 2:  Blocking on a queue set that contains a mutex will not cause the}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01616}01616 \textcolor{comment}{ * mutex holder to inherit the priority of the blocked task.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01617}01617 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01618}01618 \textcolor{comment}{ * Note 3:  A receive (in the case of a queue) or take (in the case of a}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01619}01619 \textcolor{comment}{ * semaphore) operation must not be performed on a member of a queue set unless}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01620}01620 \textcolor{comment}{ * a call to xQueueSelectFromSet() has first returned a handle to that set member.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01621}01621 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01622}01622 \textcolor{comment}{ * @param xQueueSet The queue set on which the task will (potentially) block.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01623}01623 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01624}01624 \textcolor{comment}{ * @param xTicksToWait The maximum time, in ticks, that the calling task will}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01625}01625 \textcolor{comment}{ * remain in the Blocked state (with other tasks executing) to wait for a member}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01626}01626 \textcolor{comment}{ * of the queue set to be ready for a successful queue read or semaphore take}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01627}01627 \textcolor{comment}{ * operation.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01628}01628 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01629}01629 \textcolor{comment}{ * @return xQueueSelectFromSet() will return the handle of a queue (cast to}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01630}01630 \textcolor{comment}{ * a QueueSetMemberHandle\_t type) contained in the queue set that contains data,}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01631}01631 \textcolor{comment}{ * or the handle of a semaphore (cast to a QueueSetMemberHandle\_t type) contained}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01632}01632 \textcolor{comment}{ * in the queue set that is available, or NULL if no such queue or semaphore}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01633}01633 \textcolor{comment}{ * exists before before the specified block time expires.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01634}01634 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01635}\mbox{\hyperlink{queue_8h_a71f56e6277ed4e419c707c8d0c785065}{01635}} \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} \mbox{\hyperlink{queue_8h_a71f56e6277ed4e419c707c8d0c785065}{xQueueSelectFromSet}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01636}01636 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01637}01637 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01638}01638 \textcolor{comment}{ * A version of xQueueSelectFromSet() that can be used from an ISR.}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01639}01639 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01640}\mbox{\hyperlink{queue_8h_ac58b34fd733cf460cddab1abb9a899b3}{01640}} \mbox{\hyperlink{struct_queue_definition}{QueueSetMemberHandle\_t}} \mbox{\hyperlink{queue_8h_ac58b34fd733cf460cddab1abb9a899b3}{xQueueSelectFromSetFromISR}}( \mbox{\hyperlink{struct_queue_definition}{QueueSetHandle\_t}} xQueueSet ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01641}01641 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01642}01642 \textcolor{comment}{/* Not public API functions. */}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01643}01643 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_abaa0f8224837d82e60cf799127185546}{vQueueWaitForMessageRestricted}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait, \textcolor{keyword}{const} \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xWaitIndefinitely ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01644}01644 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{queue_8h_a3c13a9fe455ec2d35b5f8386a1040599}{xQueueGenericReset}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xNewQueue ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01645}01645 \textcolor{keywordtype}{void} \mbox{\hyperlink{queue_8h_a37c8b0ea8f2e6c5fa5082afb9721f986}{vQueueSetQueueNumber}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}}, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_queue_definition_a1b422cf046da7afa63a0646ed6a2e8c6}{uxQueueNumber}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01646}01646 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{queue_8h_a7f7a4d9b75dcfbcefb2384da5df5290e}{uxQueueGetQueueNumber}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01647}01647 uint8\_t \mbox{\hyperlink{queue_8h_a9730db0a2f63acbf7197fa4150d7fe08}{ucQueueGetQueueType}}( \mbox{\hyperlink{struct_queue_definition}{QueueHandle\_t}} \mbox{\hyperlink{struct_queue_definition_aea4a2daf33054ff6b535f158bd4007f0}{xQueue}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01648}01648 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01649}01649 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01650}01650 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01651}01651 \}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01652}01652 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01653}01653 }
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01654}01654 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* QUEUE\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{queue_8h_source_l01655}01655 }
 
 \end{DoxyCode}

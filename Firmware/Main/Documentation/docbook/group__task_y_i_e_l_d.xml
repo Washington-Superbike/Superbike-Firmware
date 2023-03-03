@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__task_y_i_e_l_d" xml:lang="en-US">
+<title>taskYIELD</title>
+<indexterm><primary>taskYIELD</primary></indexterm>
+
+<para>task. h</para>
+
+<para>Macro for forcing a context switch. </para>
+</section>

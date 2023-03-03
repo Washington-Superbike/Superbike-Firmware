@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stream__buffer_8h" xml:lang="en-US">
+<title>FreeRTOS/stream_buffer.h File Reference</title>
+<indexterm><primary>FreeRTOS/stream_buffer.h</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed">xStreamBufferCreate</link>(xBufferSizeBytes,  xTriggerLevelBytes)   <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77">xStreamBufferCreateStatic</link>(xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)   <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_struct_stream_buffer_def__t">StreamBufferDef_t</link> * <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d">xStreamBufferSend</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44">xStreamBufferSendFromISR</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b">xStreamBufferReceiveFromISR</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>void <link linkend="_stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2">vStreamBufferDelete</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86">xStreamBufferIsFull</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19">xStreamBufferIsEmpty</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac">xStreamBufferReset</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d">xStreamBufferSpacesAvailable</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1af32d1737de29f24ee31ac1e3c407d9fd">xStreamBufferBytesAvailable</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04">xStreamBufferSetTriggerLevel</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, size_t xTriggerLevel) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23">xStreamBufferSendCompletedFromISR</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *pxHigherPriorityTaskWoken) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32">xStreamBufferReceiveCompletedFromISR</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *pxHigherPriorityTaskWoken) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link> (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xIsMessageBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para><link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link> (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xIsMessageBuffer, uint8_t *const pucStreamBufferStorageArea, <link linkend="__free_r_t_o_s_8h_1a3675ce07f6d3e0e7130bc6ea01162d34">StaticStreamBuffer_t</link> *const pxStaticStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec">xStreamBufferNextMessageLengthBytes</link> (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed"/><section>
+    <title>xStreamBufferCreate</title>
+<indexterm><primary>xStreamBufferCreate</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferCreate</secondary></indexterm>
+<para><computeroutput>#define xStreamBufferCreate( xBufferSizeBytes,  xTriggerLevelBytes)   <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8h_source_1l00133">133</link> of file <link linkend="_stream__buffer_8h_source">stream_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77"/><section>
+    <title>xStreamBufferCreateStatic</title>
+<indexterm><primary>xStreamBufferCreateStatic</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferCreateStatic</secondary></indexterm>
+<para><computeroutput>#define xStreamBufferCreateStatic( xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)   <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8h_source_1l00214">214</link> of file <link linkend="_stream__buffer_8h_source">stream_buffer.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f"/><section>
+    <title>StreamBufferHandle_t</title>
+<indexterm><primary>StreamBufferHandle_t</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>StreamBufferHandle_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_struct_stream_buffer_def__t">StreamBufferDef_t</link>* <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link></computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8h_source_1l00065">65</link> of file <link linkend="_stream__buffer_8h_source">stream_buffer.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2"/><section>
+    <title>vStreamBufferDelete()</title>
+<indexterm><primary>vStreamBufferDelete</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>vStreamBufferDelete</secondary></indexterm>
+<para><computeroutput>void vStreamBufferDelete (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00359">359</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1af32d1737de29f24ee31ac1e3c407d9fd"/><section>
+    <title>xStreamBufferBytesAvailable()</title>
+<indexterm><primary>xStreamBufferBytesAvailable</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferBytesAvailable</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferBytesAvailable (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00494">494</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096"/><section>
+    <title>xStreamBufferGenericCreate()</title>
+<indexterm><primary>xStreamBufferGenericCreate</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferGenericCreate</secondary></indexterm>
+<para><computeroutput><link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBufferGenericCreate (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xIsMessageBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00219">219</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c"/><section>
+    <title>xStreamBufferGenericCreateStatic()</title>
+<indexterm><primary>xStreamBufferGenericCreateStatic</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferGenericCreateStatic</secondary></indexterm>
+<para><computeroutput><link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBufferGenericCreateStatic (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xIsMessageBuffer, uint8_t *const pucStreamBufferStorageArea, <link linkend="__free_r_t_o_s_8h_1a3675ce07f6d3e0e7130bc6ea01162d34">StaticStreamBuffer_t</link> *const pxStaticStreamBuffer)</computeroutput></para></section>
+<anchor xml:id="_stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19"/><section>
+    <title>xStreamBufferIsEmpty()</title>
+<indexterm><primary>xStreamBufferIsEmpty</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferIsEmpty</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferIsEmpty (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00970">970</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86"/><section>
+    <title>xStreamBufferIsFull()</title>
+<indexterm><primary>xStreamBufferIsFull</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferIsFull</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferIsFull (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00993">993</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec"/><section>
+    <title>xStreamBufferNextMessageLengthBytes()</title>
+<indexterm><primary>xStreamBufferNextMessageLengthBytes</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferNextMessageLengthBytes</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferNextMessageLengthBytes (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00817">817</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507"/><section>
+    <title>xStreamBufferReceive()</title>
+<indexterm><primary>xStreamBufferReceive</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferReceive</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferReceive (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, void * pvRxData, size_t xBufferLengthBytes, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00713">713</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32"/><section>
+    <title>xStreamBufferReceiveCompletedFromISR()</title>
+<indexterm><primary>xStreamBufferReceiveCompletedFromISR</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferReceiveCompletedFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferReceiveCompletedFromISR (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> * pxHigherPriorityTaskWoken)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l01058">1058</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b"/><section>
+    <title>xStreamBufferReceiveFromISR()</title>
+<indexterm><primary>xStreamBufferReceiveFromISR</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferReceiveFromISR</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferReceiveFromISR (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, void * pvRxData, size_t xBufferLengthBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00861">861</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac"/><section>
+    <title>xStreamBufferReset()</title>
+<indexterm><primary>xStreamBufferReset</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferReset</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferReset (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00392">392</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d"/><section>
+    <title>xStreamBufferSend()</title>
+<indexterm><primary>xStreamBufferSend</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferSend</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferSend (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, const void * pvTxData, size_t xDataLengthBytes, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00506">506</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23"/><section>
+    <title>xStreamBufferSendCompletedFromISR()</title>
+<indexterm><primary>xStreamBufferSendCompletedFromISR</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferSendCompletedFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferSendCompletedFromISR (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> * pxHigherPriorityTaskWoken)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l01028">1028</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44"/><section>
+    <title>xStreamBufferSendFromISR()</title>
+<indexterm><primary>xStreamBufferSendFromISR</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferSendFromISR</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferSendFromISR (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, const void * pvTxData, size_t xDataLengthBytes, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00610">610</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04"/><section>
+    <title>xStreamBufferSetTriggerLevel()</title>
+<indexterm><primary>xStreamBufferSetTriggerLevel</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferSetTriggerLevel</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xStreamBufferSetTriggerLevel (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer, size_t xTriggerLevel)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00441">441</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d"/><section>
+    <title>xStreamBufferSpacesAvailable()</title>
+<indexterm><primary>xStreamBufferSpacesAvailable</primary><secondary>stream_buffer.h</secondary></indexterm>
+<indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferSpacesAvailable</secondary></indexterm>
+<para><computeroutput>size_t xStreamBufferSpacesAvailable (<link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> xStreamBuffer)</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00470">470</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+</section>
+</section>

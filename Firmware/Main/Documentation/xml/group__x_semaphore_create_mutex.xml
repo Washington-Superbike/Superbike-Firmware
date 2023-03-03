@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_semaphore_create_mutex" kind="group">
+    <compoundname>xSemaphoreCreateMutex</compoundname>
+    <title>xSemaphoreCreateMutex</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>semphr. h <preformatted>SemaphoreHandle_t xSemaphoreCreateMutex( void )</preformatted></para>
+<para>Creates a new mutex type semaphore instance, and returns a handle by which the new mutex can be referenced.</para>
+<para>Internally, within the FreeRTOS implementation, mutex semaphores use a block of memory, in which the mutex structure is stored. If a mutex is created using xSemaphoreCreateMutex() then the required memory is automatically dynamically allocated inside the xSemaphoreCreateMutex() function. (see <ulink url="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</ulink>). If a mutex is created using xSemaphoreCreateMutexStatic() then the application writer must provided the memory. xSemaphoreCreateMutexStatic() therefore allows a mutex to be created without using any dynamic memory allocation.</para>
+<para>Mutexes created using this function can be accessed using the <ref refid="semphr_8h_1af116e436d2a5ae5bd72dbade2b5ea930" kindref="member">xSemaphoreTake()</ref> and <ref refid="semphr_8h_1aae55761cabfa9bf85c8f4430f78c0953" kindref="member">xSemaphoreGive()</ref> macros. The xSemaphoreTakeRecursive() and xSemaphoreGiveRecursive() macros must not be used.</para>
+<para>This type of semaphore uses a priority inheritance mechanism so a task &apos;taking&apos; a semaphore MUST ALWAYS &apos;give&apos; the semaphore back once the semaphore it is no longer required.</para>
+<para>Mutex type semaphores cannot be used from within interrupt service routines.</para>
+<para>See xSemaphoreCreateBinary() for an alternative implementation that can be used for pure synchronisation (where one task or interrupt always &apos;gives&apos; the semaphore and another always &apos;takes&apos; the semaphore) and from within interrupt service routines.</para>
+<para><simplesect kind="return"><para>If the mutex was successfully created then a handle to the created semaphore is returned. If there was not enough heap to allocate the mutex data structures then NULL is returned.</para>
+</simplesect>
+Example usage: <preformatted>
+SemaphoreHandle_t xSemaphore;
+
+void vATask( void * pvParameters )
+{
+   // Semaphore cannot be used before a call to xSemaphoreCreateMutex().
+   // This is a macro so pass the variable in directly.
+   xSemaphore = xSemaphoreCreateMutex();
+
+   if( xSemaphore != NULL )
+   {
+       // The semaphore was created successfully.
+       // The semaphore can now be used.
+   }
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

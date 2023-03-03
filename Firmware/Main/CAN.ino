@@ -1,31 +1,46 @@
+/**
+   @file CAN.ino
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The CAN.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
+
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Change the "if CAN_NODES != 0" to be an ifndef statement in the start.
+      That means the checkCAN and requestCellVoltages lines will not execute unless
+      CAN_NODES is a non-zero number in Main.h
+      before compiling.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 #include "CAN.h"
 #include "FreeRTOS_TEENSY4.h"
-
-// CAN bus handle
-FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
-
-// used to format reading/writing on the CAN bus
-CAN_message_t CAN_msg;
-
-// if cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS
-// it is false otherwise (so we know when we have collected all distinct cell voltages
-static bool cellVoltagesReady[BMS_CELLS] = {false};
-
-void setupCAN() {
-  CAN_bus.begin();
-  CAN_bus.setBaudRate(250000);
-}
 
 void canTask(void *canData) {
   int iter = 0;
   int requestCells = 1;
   while (1) {
     // check for new incoming messages
-//    checkCAN(*(CANTaskData *)canData);
 
     // CAN breaks if we try sending messages with 0 other nodes on the bus
-    // as there is no node to 'ACK' our message
+    // as there is no node to 'ACK' our message. Therefore,
+    // change CAN_NODES in Main.h to make sure things dont break.
     if (CAN_NODES !=0) {
+      checkCAN(*(CANTaskData *)canData);
       if (iter == (1000 / 20) * 2) {
           // ask for other half of cell voltages from BMS every 2 seconds
           requestCellVoltages(requestCells);
@@ -37,6 +52,11 @@ void canTask(void *canData) {
     // delay 20ms
     vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
   }
+}
+
+void setupCAN() {
+  CAN_bus.begin();
+  CAN_bus.setBaudRate(250000);
 }
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats) {
@@ -52,7 +72,6 @@ void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats) {
   *(chargerStats.outputCurrent) = (3200 - ((msg.buf[5] << 8) | msg.buf[4])) / 10.0;
   *(chargerStats.chargerTemp) = msg.buf[6] - 40;
 }
-
 
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
   *(motorStats.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);

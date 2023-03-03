@@ -1,11 +1,34 @@
+/**
+   @file CAN.h
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The CAN.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
 
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Goal 1.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 #ifndef _CAN_H_
 #define _CAN_H_
-
 #include <FlexCAN_T4.h>
 #include "Display.h"
 #include "FreeRTOS_TEENSY4.h"
-#include "config.h"
 
 
 #define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
@@ -26,6 +49,17 @@
 // this is set to 24 instead of 20 because the BMS sends cells in packs of 12
 // so it makes the decipher function simpler
 #define BMS_CELLS 24                                  // the number of cells connected to the main accumulator BMS
+
+// CAN bus handle
+FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
+
+// used to format reading/writing on the CAN bus
+CAN_message_t CAN_msg;
+
+// if cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS
+// it is false otherwise (so we know when we have collected all distinct cell voltages
+static bool cellVoltagesReady[BMS_CELLS] = {false};
+
 
 typedef struct {
   float* RPM;
@@ -85,8 +119,18 @@ typedef struct {
 } CANTaskData;
 
 void canTask(void *canData);
+void setupCAN();
+void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats);
+void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats);
+void decodeMotorStats(CAN_message_t msg, MotorStats motorStats );
+void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps);
+void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus);
+void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages);
+void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps);
+void calculateSeriesVoltage(CellVoltages cellVs);
 void checkCAN(CANTaskData canData);
-void decodeMotorStats(CAN_message_t msg, MotorStats motorStats);
-void decodeMotorTemp(CAN_message_t msg, MeasurementScreenData *measurementData);
+void printBMSStatus();
+void printMessage(CAN_message_t msg);
+void requestCellVoltages(int LTC);
 
 #endif // _CAN_H

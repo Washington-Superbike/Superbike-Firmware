@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_motor_temps" kind="struct" language="C++" prot="public">
+    <compoundname>MotorTemps</compoundname>
+    <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorTemps::throttle</definition>
+        <argsstring></argsstring>
+        <name>throttle</name>
+        <qualifiedname>MotorTemps::throttle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="72" column="9" bodyfile="CAN.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorTemps::motorControllerTemperature</definition>
+        <argsstring></argsstring>
+        <name>motorControllerTemperature</name>
+        <qualifiedname>MotorTemps::motorControllerTemperature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="73" column="9" bodyfile="CAN.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorTemps::motorTemperature</definition>
+        <argsstring></argsstring>
+        <name>motorTemperature</name>
+        <qualifiedname>MotorTemps::motorTemperature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="74" column="9" bodyfile="CAN.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" prot="public" static="no" mutable="no">
+        <type>byte *</type>
+        <definition>byte* MotorTemps::controllerStatus</definition>
+        <argsstring></argsstring>
+        <name>controllerStatus</name>
+        <qualifiedname>MotorTemps::controllerStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="75" column="8" bodyfile="CAN.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CAN.h" line="71" column="1" bodyfile="CAN.h" bodystart="71" bodyend="76"/>
+    <listofallmembers>
+      <member refid="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" prot="public" virt="non-virtual"><scope>MotorTemps</scope><name>controllerStatus</name></member>
+      <member refid="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" prot="public" virt="non-virtual"><scope>MotorTemps</scope><name>motorControllerTemperature</name></member>
+      <member refid="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" prot="public" virt="non-virtual"><scope>MotorTemps</scope><name>motorTemperature</name></member>
+      <member refid="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" prot="public" virt="non-virtual"><scope>MotorTemps</scope><name>throttle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

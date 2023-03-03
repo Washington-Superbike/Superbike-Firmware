@@ -1,0 +1,1062 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_timers_8c" xml:lang="en-US">
+<title>FreeRTOS/timers.c File Reference</title>
+<indexterm><primary>FreeRTOS/timers.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
+#include &quot;FreeRTOS.h&quot;
+#include &quot;task.h&quot;
+#include &quot;queue.h&quot;
+#include &quot;timers.h&quot;
+</programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structtmr_timer_control">tmrTimerControl</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structtmr_timer_parameters">tmrTimerParameters</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structtmr_callback_parameters">tmrCallbackParameters</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structtmr_timer_queue_message">tmrTimerQueueMessage</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_timers_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_timers_8c_1af5b629ff23c10e8664d5e898b7ac3c7c">tmrNO_DELAY</link>   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</para>
+</listitem>
+            <listitem><para>#define <link linkend="_timers_8c_1a2489265c98974dc76c4f783495d8f83b">configTIMER_SERVICE_TASK_NAME</link>   &quot;Tmr Svc&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_timers_8c_1ad0ccafec754ad5deda7e133778901ca6">tmrSTATUS_IS_ACTIVE</link>   ( ( uint8_t ) 0x01 )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_timers_8c_1a6f3ee5de8599edb425c892d7be35079d">tmrSTATUS_IS_STATICALLY_ALLOCATED</link>   ( ( uint8_t ) 0x02 )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_timers_8c_1a183834e21d7d97a36cc3fd78d297c674">tmrSTATUS_IS_AUTORELOAD</link>   ( ( uint8_t ) 0x04 )</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_structtmr_timer_control">tmrTimerControl</link> <link linkend="_timers_8c_1addd0c3f73594f47d93197a236d983528">xTIMER</link></para>
+</listitem>
+            <listitem><para>typedef <link linkend="_timers_8c_1addd0c3f73594f47d93197a236d983528">xTIMER</link> <link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structtmr_timer_parameters">tmrTimerParameters</link> <link linkend="_timers_8c_1a892677f96b4d74dd29582be79f7a90d7">TimerParameter_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structtmr_callback_parameters">tmrCallbackParameters</link> <link linkend="_timers_8c_1ad0244f58e60ff8c28d1bb7630658e2b9">CallbackParameters_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structtmr_timer_queue_message">tmrTimerQueueMessage</link> <link linkend="_timers_8c_1a813811e620ced65683d943234a98b23d">DaemonTaskMessage_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_timers_8c_1a5bed7033e13801f1c189dce26b4d929d">prvCheckForValidListAndQueue</link> (void)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1a3d8afc4656348fbebf468563c0d42cfc">prvTimerTask</link> (void *pvParameters)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1a330b58e7e72527cc9cf26f8bf6a8cf39">prvProcessReceivedCommands</link> (void)</para>
+</listitem>
+            <listitem><para>static <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1a563b5caebd5ea1bd841a6454bbfeebac">prvInsertTimerInActiveList</link> (<link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link> *const pxTimer, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpiryTime, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimeNow, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xCommandTime)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1a569478c3cde98ec2e0d3d2a4a9793253">prvProcessExpiredTimer</link> (const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpireTime, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimeNow)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1ab4642fd70519f2f82dac815a8608372c">prvSwitchTimerLists</link> (void)</para>
+</listitem>
+            <listitem><para>static <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_timers_8c_1a3a5a8646b02c32a59f66de2c5a4397d6">prvSampleTimeNow</link> (<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxTimerListsWereSwitched)</para>
+</listitem>
+            <listitem><para>static <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_timers_8c_1aa7249b703922fec10d8bfd049e284297">prvGetNextExpireTime</link> (<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxListWasEmpty)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1a88c48bc7efd39eb365e13dc5c63319d5">prvProcessTimerOrBlockTask</link> (const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpireTime, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xListWasEmpty)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_timers_8c_1a2b97f3bc97ad2439fa6e9cf2769c99bf">prvInitialiseNewTimer</link> (const char *const pcTimerName, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerPeriodInTicks, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload, void *const pvTimerID, <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link> pxCallbackFunction, <link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link> *pxNewTimer)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1abd79bb4d0a93bdb1c27a3a755ce7905b">xTimerCreateTimerTask</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate</link> (const char *const pcTimerName, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerPeriodInTicks, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload, void *const pvTimerID, <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link> pxCallbackFunction)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1abd62ba39220d1d3eea5f64661e935193">xTimerGenericCommand</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xCommandID, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xOptionalValue, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</para>
+</listitem>
+            <listitem><para><link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> <link linkend="_timers_8c_1a1fe9e235a8c27986902b71ebda7385d8">xTimerGetTimerDaemonTaskHandle</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_timers_8c_1aaf2738cf9e595b223683962afa9efb49">xTimerGetPeriod</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para>void <link linkend="_timers_8c_1ab5c8a3b0951cb234156da3dc15206e43">vTimerSetReloadMode</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_timers_8c_1ab1fb26f1672c65763cccc8c2cf276d07">xTimerGetExpiryTime</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_timers_8c_1a6967093b6b936d267d5d332490f61f67">pcTimerGetName</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1ac4a95ad98c314e2d023ff72c4ea1100e">xTimerIsTimerActive</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_timers_8c_1ac2747e22330633fe57f9473f2516e3d5">pvTimerGetTimerID</link> (const <link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para>void <link linkend="_timers_8c_1a2192cd01f3ec23d9b22f736ac6431a19">vTimerSetTimerID</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, void *pvNewID)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa">xTimerPendFunctionCallFromISR</link> (<link linkend="_timers_8h_1af6e8e2be58df2be9f9bb808fcdc51622">PendedFunction_t</link> xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *pxHigherPriorityTaskWoken)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_timers_8c_1a5df6d08740c1184489440072246a02f2">xTimerPendFunctionCall</link> (<link linkend="_timers_8h_1af6e8e2be58df2be9f9bb808fcdc51622">PendedFunction_t</link> xFunctionToPend, void *pvParameter1, uint32_t ulParameter2, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_timers_8c_1a234cad5005336d1d8631be08e9cabae4">uxTimerGetTimerNumber</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</para>
+</listitem>
+            <listitem><para>void <link linkend="_timers_8c_1ab329d018f23ae727c8823041ec65c8db">vTimerSetTimerNumber</link> (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxTimerNumber)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> <link linkend="_timers_8c_1aad857cc9e6c57ce1dde29bb14e56e496">xActiveTimerList1</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> <link linkend="_timers_8c_1acdfdeeaffcc953fa789feb24bbe72731">xActiveTimerList2</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> * <link linkend="_timers_8c_1a1de92c9b20a5fb6b0f408ae10811b3b1">pxCurrentTimerList</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> * <link linkend="_timers_8c_1a74ed5cb65f0f4e248d8130c1351d3516">pxOverflowTimerList</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link> <link linkend="_timers_8c_1af2a003dc9bd02b3cb6adf17fa3c19dd7">xTimerQueue</link> = NULL</para>
+</listitem>
+            <listitem><para>static <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> <link linkend="_timers_8c_1af94a12d3245e4e2b9de2abfab470045e">xTimerTaskHandle</link> = NULL</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_timers_8c_1a2489265c98974dc76c4f783495d8f83b"/><section>
+    <title>configTIMER_SERVICE_TASK_NAME</title>
+<indexterm><primary>configTIMER_SERVICE_TASK_NAME</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>configTIMER_SERVICE_TASK_NAME</secondary></indexterm>
+<para><computeroutput>#define configTIMER_SERVICE_TASK_NAME   &quot;Tmr Svc&quot;</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00064">64</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ab622d8c674f2a417a666a7ed89109e79"/><section>
+    <title>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</title>
+<indexterm><primary>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</secondary></indexterm>
+<para><computeroutput>#define MPU_WRAPPERS_INCLUDED_FROM_API_FILE</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00034">34</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1af5b629ff23c10e8664d5e898b7ac3c7c"/><section>
+    <title>tmrNO_DELAY</title>
+<indexterm><primary>tmrNO_DELAY</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>tmrNO_DELAY</secondary></indexterm>
+<para><computeroutput>#define tmrNO_DELAY   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00059">59</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ad0ccafec754ad5deda7e133778901ca6"/><section>
+    <title>tmrSTATUS_IS_ACTIVE</title>
+<indexterm><primary>tmrSTATUS_IS_ACTIVE</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_ACTIVE</secondary></indexterm>
+<para><computeroutput>#define tmrSTATUS_IS_ACTIVE   ( ( uint8_t ) 0x01 )</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00068">68</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a183834e21d7d97a36cc3fd78d297c674"/><section>
+    <title>tmrSTATUS_IS_AUTORELOAD</title>
+<indexterm><primary>tmrSTATUS_IS_AUTORELOAD</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_AUTORELOAD</secondary></indexterm>
+<para><computeroutput>#define tmrSTATUS_IS_AUTORELOAD   ( ( uint8_t ) 0x04 )</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00070">70</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a6f3ee5de8599edb425c892d7be35079d"/><section>
+    <title>tmrSTATUS_IS_STATICALLY_ALLOCATED</title>
+<indexterm><primary>tmrSTATUS_IS_STATICALLY_ALLOCATED</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_STATICALLY_ALLOCATED</secondary></indexterm>
+<para><computeroutput>#define tmrSTATUS_IS_STATICALLY_ALLOCATED   ( ( uint8_t ) 0x02 )</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00069">69</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_timers_8c_1ad0244f58e60ff8c28d1bb7630658e2b9"/><section>
+    <title>CallbackParameters_t</title>
+<indexterm><primary>CallbackParameters_t</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>CallbackParameters_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structtmr_callback_parameters">tmrCallbackParameters</link> <link linkend="_timers_8c_1ad0244f58e60ff8c28d1bb7630658e2b9">CallbackParameters_t</link></computeroutput></para></section>
+<anchor xml:id="_timers_8c_1a813811e620ced65683d943234a98b23d"/><section>
+    <title>DaemonTaskMessage_t</title>
+<indexterm><primary>DaemonTaskMessage_t</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>DaemonTaskMessage_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structtmr_timer_queue_message">tmrTimerQueueMessage</link> <link linkend="_timers_8c_1a813811e620ced65683d943234a98b23d">DaemonTaskMessage_t</link></computeroutput></para></section>
+<anchor xml:id="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf"/><section>
+    <title>Timer_t</title>
+<indexterm><primary>Timer_t</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>Timer_t</secondary></indexterm>
+<para><computeroutput>typedef <link linkend="_timers_8c_1addd0c3f73594f47d93197a236d983528">xTIMER</link> <link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00088">88</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a892677f96b4d74dd29582be79f7a90d7"/><section>
+    <title>TimerParameter_t</title>
+<indexterm><primary>TimerParameter_t</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>TimerParameter_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structtmr_timer_parameters">tmrTimerParameters</link> <link linkend="_timers_8c_1a892677f96b4d74dd29582be79f7a90d7">TimerParameter_t</link></computeroutput></para></section>
+<anchor xml:id="_timers_8c_1addd0c3f73594f47d93197a236d983528"/><section>
+    <title>xTIMER</title>
+<indexterm><primary>xTIMER</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTIMER</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structtmr_timer_control">tmrTimerControl</link> <link linkend="_timers_8c_1addd0c3f73594f47d93197a236d983528">xTIMER</link></computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_timers_8c_1a6967093b6b936d267d5d332490f61f67"/><section>
+    <title>pcTimerGetName()</title>
+<indexterm><primary>pcTimerGetName</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>pcTimerGetName</secondary></indexterm>
+<para><computeroutput>const char * pcTimerGetName (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para>
+<para>const char * const <link linkend="_timers_8h_1a5007aef53e4cc6aea1aadcdcc72aa9da">pcTimerGetName( TimerHandle_t xTimer )</link>;</para>
+
+<para>Returns the name that was assigned to a timer when the timer was created.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The handle of the timer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The name assigned to the timer specified by the xTimer parameter. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00473">473</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a5bed7033e13801f1c189dce26b4d929d"/><section>
+    <title>prvCheckForValidListAndQueue()</title>
+<indexterm><primary>prvCheckForValidListAndQueue</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvCheckForValidListAndQueue</secondary></indexterm>
+<para><computeroutput>static void prvCheckForValidListAndQueue (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00916">916</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1aa7249b703922fec10d8bfd049e284297"/><section>
+    <title>prvGetNextExpireTime()</title>
+<indexterm><primary>prvGetNextExpireTime</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvGetNextExpireTime</secondary></indexterm>
+<para><computeroutput>static <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> prvGetNextExpireTime (<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxListWasEmpty)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00619">619</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a2b97f3bc97ad2439fa6e9cf2769c99bf"/><section>
+    <title>prvInitialiseNewTimer()</title>
+<indexterm><primary>prvInitialiseNewTimer</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvInitialiseNewTimer</secondary></indexterm>
+<para><computeroutput>static void prvInitialiseNewTimer (const char *const pcTimerName, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerPeriodInTicks, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload, void *const pvTimerID, <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link> pxCallbackFunction, <link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link> * pxNewTimer)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00349">349</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a563b5caebd5ea1bd841a6454bbfeebac"/><section>
+    <title>prvInsertTimerInActiveList()</title>
+<indexterm><primary>prvInsertTimerInActiveList</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvInsertTimerInActiveList</secondary></indexterm>
+<para><computeroutput>static <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> prvInsertTimerInActiveList (<link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link> *const pxTimer, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpiryTime, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimeNow, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xCommandTime)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00668">668</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a569478c3cde98ec2e0d3d2a4a9793253"/><section>
+    <title>prvProcessExpiredTimer()</title>
+<indexterm><primary>prvProcessExpiredTimer</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvProcessExpiredTimer</secondary></indexterm>
+<para><computeroutput>static void prvProcessExpiredTimer (const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpireTime, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimeNow)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00482">482</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a330b58e7e72527cc9cf26f8bf6a8cf39"/><section>
+    <title>prvProcessReceivedCommands()</title>
+<indexterm><primary>prvProcessReceivedCommands</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvProcessReceivedCommands</secondary></indexterm>
+<para><computeroutput>static void prvProcessReceivedCommands (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00709">709</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a88c48bc7efd39eb365e13dc5c63319d5"/><section>
+    <title>prvProcessTimerOrBlockTask()</title>
+<indexterm><primary>prvProcessTimerOrBlockTask</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvProcessTimerOrBlockTask</secondary></indexterm>
+<para><computeroutput>static void prvProcessTimerOrBlockTask (const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xNextExpireTime, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xListWasEmpty)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00559">559</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a3a5a8646b02c32a59f66de2c5a4397d6"/><section>
+    <title>prvSampleTimeNow()</title>
+<indexterm><primary>prvSampleTimeNow</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvSampleTimeNow</secondary></indexterm>
+<para><computeroutput>static <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> prvSampleTimeNow (<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxTimerListsWereSwitched)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00645">645</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ab4642fd70519f2f82dac815a8608372c"/><section>
+    <title>prvSwitchTimerLists()</title>
+<indexterm><primary>prvSwitchTimerLists</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvSwitchTimerLists</secondary></indexterm>
+<para><computeroutput>static void prvSwitchTimerLists (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00857">857</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a3d8afc4656348fbebf468563c0d42cfc"/><section>
+    <title>prvTimerTask()</title>
+<indexterm><primary>prvTimerTask</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>prvTimerTask</secondary></indexterm>
+<para><computeroutput>static void prvTimerTask (void * pvParameters)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00523">523</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ac2747e22330633fe57f9473f2516e3d5"/><section>
+    <title>pvTimerGetTimerID()</title>
+<indexterm><primary>pvTimerGetTimerID</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>pvTimerGetTimerID</secondary></indexterm>
+<para><computeroutput>void * pvTimerGetTimerID (const <link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para>
+<para>TimerHandle_t <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate(   const char * const pcTimerName,
+                                TickType_t xTimerPeriodInTicks,
+                                UBaseType_t uxAutoReload,
+                                void * pvTimerID,
+                                TimerCallbackFunction_t pxCallbackFunction )</link>;</para>
+
+<para>Creates a new software timer instance, and returns a handle by which the created software timer can be referenced.</para>
+
+<para>Internally, within the FreeRTOS implementation, software timers use a block of memory, in which the timer data structure is stored. If a software timer is created using <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> then the required memory is automatically dynamically allocated inside the <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> function. (see <link xlink:href="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</link>). If a software timer is created using xTimerCreateStatic() then the application writer must provide the memory that will get used by the software timer. xTimerCreateStatic() therefore allows a software timer to be created without using any dynamic memory allocation.</para>
+
+<para>Timers are created in the dormant state. The <link linkend="_timers_8h_1a3a9b838f48991e852ce05c986b0eeb8c">xTimerStart()</link>, <link linkend="_timers_8h_1a8081b4541b752908dc55df2693e53287">xTimerReset()</link>, <link linkend="_timers_8h_1adab5809f9679e44a343b8dbb8fb7c67f">xTimerStartFromISR()</link>, <link linkend="_timers_8h_1a448138d0cebf76044f107ca56c842230">xTimerResetFromISR()</link>, <link linkend="_timers_8h_1ab12eac1c69a3437b8161ce81ff34b2f4">xTimerChangePeriod()</link> and <link linkend="_timers_8h_1a6d89ca6afb6e692e98932b5038c9e14a">xTimerChangePeriodFromISR()</link> API functions can all be used to transition a timer into the active state.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pcTimerName</entry><entry>
+<para>A text name that is assigned to the timer. This is done purely to assist debugging. The kernel itself only ever references a timer by its handle, and never by its name.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTimerPeriodInTicks</entry><entry>
+<para>The timer period. The time is defined in tick periods so the constant portTICK_PERIOD_MS can be used to convert a time that has been specified in milliseconds. For example, if the timer must expire after 100 ticks, then xTimerPeriodInTicks should be set to 100. Alternatively, if the timer must expire after 500ms, then xPeriod can be set to ( 500 / portTICK_PERIOD_MS ) provided configTICK_RATE_HZ is less than or equal to 1000.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxAutoReload</entry><entry>
+<para>If uxAutoReload is set to pdTRUE then the timer will expire repeatedly with a frequency set by the xTimerPeriodInTicks parameter. If uxAutoReload is set to pdFALSE then the timer will be a one-shot timer and enter the dormant state after it expires.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvTimerID</entry><entry>
+<para>An identifier that is assigned to the timer being created. Typically this would be used in the timer callback function to identify which timer expired when the same callback function is assigned to more than one timer.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pxCallbackFunction</entry><entry>
+<para>The function to call when the timer expires. Callback functions must have the prototype defined by TimerCallbackFunction_t, which is &quot;void vCallbackFunction( TimerHandle_t xTimer );&quot;.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the timer is successfully created then a handle to the newly created timer is returned. If the timer cannot be created (because either there is insufficient FreeRTOS heap remaining to allocate the timer structures, or the timer period was set to 0) then NULL is returned.</para>
+</formalpara>
+Example usage: <literallayout><computeroutput>* #define NUM_TIMERS 5
+*
+* // An array to hold handles to the created timers.
+* TimerHandle_t xTimers[ NUM_TIMERS ];
+*
+* // An array to hold a count of the number of times each timer expires.
+* int32_t lExpireCounters[ NUM_TIMERS ] = { 0 };
+*
+* // Define a callback function that will be used by multiple timer instances.
+* // The callback function does nothing but count the number of times the
+* // associated timer expires, and stop the timer once the timer has expired
+* // 10 times.
+* void vTimerCallback( TimerHandle_t pxTimer )
+* {
+* int32_t lArrayIndex;
+* const int32_t xMaxExpiryCountBeforeStopping = 10;
+*
+*      // Optionally do something if the pxTimer parameter is NULL.
+*      configASSERT( pxTimer );
+*
+*     // Which timer expired?
+*     lArrayIndex = ( int32_t ) pvTimerGetTimerID( pxTimer );
+*
+*     // Increment the number of times that pxTimer has expired.
+*     lExpireCounters[ lArrayIndex ] += 1;
+*
+*     // If the timer has expired 10 times then stop it from running.
+*     if( lExpireCounters[ lArrayIndex ] == xMaxExpiryCountBeforeStopping )
+*     {
+*         // Do not use a block time if calling a timer API function from a
+*         // timer callback function, as doing so could cause a deadlock!
+*         xTimerStop( pxTimer, 0 );
+*     }
+* }
+*
+* void main( void )
+* {
+* int32_t x;
+*
+*     // Create then start some timers.  Starting the timers before the scheduler
+*     // has been started means the timers will start running immediately that
+*     // the scheduler starts.
+*     for( x = 0; x &lt; NUM_TIMERS; x++ )
+*     {
+*         xTimers[ x ] = xTimerCreate(    &quot;Timer&quot;,       // Just a text name, not used by the kernel.
+*                                         ( 100 * x ),   // The timer period in ticks.
+*                                         pdTRUE,        // The timers will auto-reload themselves when they expire.
+*                                         ( void * ) x,  // Assign each timer a unique id equal to its array index.
+*                                         vTimerCallback // Each timer calls the same callback when it expires.
+*                                     );
+*
+*         if( xTimers[ x ] == NULL )
+*         {
+*             // The timer was not created.
+*         }
+*         else
+*         {
+*             // Start the timer.  No block time is specified, and even if one was
+*             // it would be ignored because the scheduler has not yet been
+*             // started.
+*             if( xTimerStart( xTimers[ x ], 0 ) != pdPASS )
+*             {
+*                 // The timer could not be set into the Active state.
+*             }
+*         }
+*     }
+*
+*     // ...
+*     // Create tasks here.
+*     // ...
+*
+*     // Starting the scheduler will start the timers running as they have already
+*     // been set into the active state.
+*     vTaskStartScheduler();
+*
+*     // Should not reach here.
+*     for( ;; );
+* }
+* </computeroutput></literallayout> TimerHandle_t xTimerCreateStatic(const char * const pcTimerName,
+                                    TickType_t xTimerPeriodInTicks,
+                                    UBaseType_t uxAutoReload,
+                                    void * pvTimerID,
+                                    TimerCallbackFunction_t pxCallbackFunction,
+                                    StaticTimer_t *pxTimerBuffer );</para>
+
+<para>Creates a new software timer instance, and returns a handle by which the created software timer can be referenced.</para>
+
+<para>Internally, within the FreeRTOS implementation, software timers use a block of memory, in which the timer data structure is stored. If a software timer is created using <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> then the required memory is automatically dynamically allocated inside the <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> function. (see <link xlink:href="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</link>). If a software timer is created using xTimerCreateStatic() then the application writer must provide the memory that will get used by the software timer. xTimerCreateStatic() therefore allows a software timer to be created without using any dynamic memory allocation.</para>
+
+<para>Timers are created in the dormant state. The <link linkend="_timers_8h_1a3a9b838f48991e852ce05c986b0eeb8c">xTimerStart()</link>, <link linkend="_timers_8h_1a8081b4541b752908dc55df2693e53287">xTimerReset()</link>, <link linkend="_timers_8h_1adab5809f9679e44a343b8dbb8fb7c67f">xTimerStartFromISR()</link>, <link linkend="_timers_8h_1a448138d0cebf76044f107ca56c842230">xTimerResetFromISR()</link>, <link linkend="_timers_8h_1ab12eac1c69a3437b8161ce81ff34b2f4">xTimerChangePeriod()</link> and <link linkend="_timers_8h_1a6d89ca6afb6e692e98932b5038c9e14a">xTimerChangePeriodFromISR()</link> API functions can all be used to transition a timer into the active state.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pcTimerName</entry><entry>
+<para>A text name that is assigned to the timer. This is done purely to assist debugging. The kernel itself only ever references a timer by its handle, and never by its name.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTimerPeriodInTicks</entry><entry>
+<para>The timer period. The time is defined in tick periods so the constant portTICK_PERIOD_MS can be used to convert a time that has been specified in milliseconds. For example, if the timer must expire after 100 ticks, then xTimerPeriodInTicks should be set to 100. Alternatively, if the timer must expire after 500ms, then xPeriod can be set to ( 500 / portTICK_PERIOD_MS ) provided configTICK_RATE_HZ is less than or equal to 1000.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxAutoReload</entry><entry>
+<para>If uxAutoReload is set to pdTRUE then the timer will expire repeatedly with a frequency set by the xTimerPeriodInTicks parameter. If uxAutoReload is set to pdFALSE then the timer will be a one-shot timer and enter the dormant state after it expires.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvTimerID</entry><entry>
+<para>An identifier that is assigned to the timer being created. Typically this would be used in the timer callback function to identify which timer expired when the same callback function is assigned to more than one timer.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pxCallbackFunction</entry><entry>
+<para>The function to call when the timer expires. Callback functions must have the prototype defined by TimerCallbackFunction_t, which is &quot;void vCallbackFunction( TimerHandle_t xTimer );&quot;.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pxTimerBuffer</entry><entry>
+<para>Must point to a variable of type StaticTimer_t, which will be then be used to hold the software timer&apos;s data structures, removing the need for the memory to be allocated dynamically.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the timer is created then a handle to the created timer is returned. If pxTimerBuffer was NULL then NULL is returned.</para>
+</formalpara>
+Example usage: <literallayout><computeroutput>*
+* // The buffer used to hold the software timer&apos;s data structure.
+* static StaticTimer_t xTimerBuffer;
+*
+* // A variable that will be incremented by the software timer&apos;s callback
+* // function.
+* UBaseType_t uxVariableToIncrement = 0;
+*
+* // A software timer callback function that increments a variable passed to
+* // it when the software timer was created.  After the 5th increment the
+* // callback function stops the software timer.
+* static void prvTimerCallback( TimerHandle_t xExpiredTimer )
+* {
+* UBaseType_t *puxVariableToIncrement;
+* BaseType_t xReturned;
+*
+*     // Obtain the address of the variable to increment from the timer ID.
+*     puxVariableToIncrement = ( UBaseType_t * ) pvTimerGetTimerID( xExpiredTimer );
+*
+*     // Increment the variable to show the timer callback has executed.
+*     ( *puxVariableToIncrement )++;
+*
+*     // If this callback has executed the required number of times, stop the
+*     // timer.
+*     if( *puxVariableToIncrement == 5 )
+*     {
+*         // This is called from a timer callback so must not block.
+*         xTimerStop( xExpiredTimer, staticDONT_BLOCK );
+*     }
+* }
+*
+*
+* void main( void )
+* {
+*     // Create the software time.  xTimerCreateStatic() has an extra parameter
+*     // than the normal xTimerCreate() API function.  The parameter is a pointer
+*     // to the StaticTimer_t structure that will hold the software timer
+*     // structure.  If the parameter is passed as NULL then the structure will be
+*     // allocated dynamically, just as if xTimerCreate() had been called.
+*     xTimer = xTimerCreateStatic( &quot;T1&quot;,             // Text name for the task.  Helps debugging only.  Not used by FreeRTOS.
+*                                  xTimerPeriod,     // The period of the timer in ticks.
+*                                  pdTRUE,           // This is an auto-reload timer.
+*                                  ( void * ) &amp;uxVariableToIncrement,    // A variable incremented by the software timer&apos;s callback function
+*                                  prvTimerCallback, // The function to execute when the timer expires.
+*                                  &amp;xTimerBuffer );  // The buffer that will hold the software timer structure.
+*
+*     // The scheduler has not started yet so a block time is not used.
+*     xReturned = xTimerStart( xTimer, 0 );
+*
+*     // ...
+*     // Create tasks here.
+*     // ...
+*
+*     // Starting the scheduler will start the timers running as they have already
+*     // been set into the active state.
+*     vTaskStartScheduler();
+*
+*     // Should not reach here.
+*     for( ;; );
+* }
+* </computeroutput></literallayout> void *pvTimerGetTimerID( TimerHandle_t xTimer );</para>
+
+<para>Returns the ID assigned to the timer.</para>
+
+<para>IDs are assigned to timers using the pvTimerID parameter of the call to xTimerCreated() that was used to create the timer, and by calling the <link linkend="_timers_8h_1a1f06045a953481dd7012d4c7762990cb">vTimerSetTimerID()</link> API function.</para>
+
+<para>If the same callback function is assigned to multiple timers then the timer ID can be used as time specific (timer local) storage.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The timer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The ID assigned to the timer being queried.</para>
+</formalpara>
+Example usage:</para>
+
+<para>See the <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> API function example usage scenario. </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00992">992</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a234cad5005336d1d8631be08e9cabae4"/><section>
+    <title>uxTimerGetTimerNumber()</title>
+<indexterm><primary>uxTimerGetTimerNumber</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>uxTimerGetTimerNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxTimerGetTimerNumber (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l01078">1078</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ab5c8a3b0951cb234156da3dc15206e43"/><section>
+    <title>vTimerSetReloadMode()</title>
+<indexterm><primary>vTimerSetReloadMode</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>vTimerSetReloadMode</secondary></indexterm>
+<para><computeroutput>void vTimerSetReloadMode (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload)</computeroutput></para>
+<para>void <link linkend="_timers_8h_1a27ecb4105b9180a2f354384ee00e6848">vTimerSetReloadMode( TimerHandle_t xTimer, const UBaseType_t uxAutoReload )</link>;</para>
+
+<para>Updates a timer to be either an autoreload timer, in which case the timer automatically resets itself each time it expires, or a one shot timer, in which case the timer will only expire once unless it is manually restarted.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The handle of the timer being updated.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxAutoReload</entry><entry>
+<para>If uxAutoReload is set to pdTRUE then the timer will expire repeatedly with a frequency set by the timer&apos;s period (see the xTimerPeriodInTicks parameter of the <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> API function). If uxAutoReload is set to pdFALSE then the timer will be a one-shot timer and enter the dormant state after it expires. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00442">442</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a2192cd01f3ec23d9b22f736ac6431a19"/><section>
+    <title>vTimerSetTimerID()</title>
+<indexterm><primary>vTimerSetTimerID</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>vTimerSetTimerID</secondary></indexterm>
+<para><computeroutput>void vTimerSetTimerID (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, void * pvNewID)</computeroutput></para>
+<para>void <link linkend="_timers_8h_1a1f06045a953481dd7012d4c7762990cb">vTimerSetTimerID( TimerHandle_t xTimer, void *pvNewID )</link>;</para>
+
+<para>Sets the ID assigned to the timer.</para>
+
+<para>IDs are assigned to timers using the pvTimerID parameter of the call to xTimerCreated() that was used to create the timer.</para>
+
+<para>If the same callback function is assigned to multiple timers then the timer ID can be used as time specific (timer local) storage.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The timer being updated.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvNewID</entry><entry>
+<para>The ID to assign to the timer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Example usage:</para>
+
+<para>See the <link linkend="_timers_8c_1a2952bc279488ac91453290be2012b992">xTimerCreate()</link> API function example usage scenario. </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l01009">1009</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ab329d018f23ae727c8823041ec65c8db"/><section>
+    <title>vTimerSetTimerNumber()</title>
+<indexterm><primary>vTimerSetTimerNumber</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>vTimerSetTimerNumber</secondary></indexterm>
+<para><computeroutput>void vTimerSetTimerNumber (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxTimerNumber)</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l01088">1088</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a2952bc279488ac91453290be2012b992"/><section>
+    <title>xTimerCreate()</title>
+<indexterm><primary>xTimerCreate</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerCreate</secondary></indexterm>
+<para><computeroutput><link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimerCreate (const char *const pcTimerName, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerPeriodInTicks, const <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxAutoReload, void *const pvTimerID, <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link> pxCallbackFunction)</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00282">282</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1abd79bb4d0a93bdb1c27a3a755ce7905b"/><section>
+    <title>xTimerCreateTimerTask()</title>
+<indexterm><primary>xTimerCreateTimerTask</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerCreateTimerTask</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTimerCreateTimerTask (void )</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00227">227</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1abd62ba39220d1d3eea5f64661e935193"/><section>
+    <title>xTimerGenericCommand()</title>
+<indexterm><primary>xTimerGenericCommand</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerGenericCommand</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTimerGenericCommand (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xCommandID, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xOptionalValue, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *const pxHigherPriorityTaskWoken, const <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00381">381</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ab1fb26f1672c65763cccc8c2cf276d07"/><section>
+    <title>xTimerGetExpiryTime()</title>
+<indexterm><primary>xTimerGetExpiryTime</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerGetExpiryTime</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerGetExpiryTime (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para>
+<para>TickType_t <link linkend="_timers_8h_1a06cdc26759c622eeb575070064e26025">xTimerGetExpiryTime( TimerHandle_t xTimer )</link>;</para>
+
+<para>Returns the time in ticks at which the timer will expire. If this is less than the current tick count then the expiry time has overflowed from the current time.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The handle of the timer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the timer is running then the time in ticks at which the timer will next expire is returned. If the timer is not running then the return value is undefined. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00462">462</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1aaf2738cf9e595b223683962afa9efb49"/><section>
+    <title>xTimerGetPeriod()</title>
+<indexterm><primary>xTimerGetPeriod</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerGetPeriod</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTimerGetPeriod (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para>
+<para>TickType_t <link linkend="_timers_8h_1a2735e79e155b2ca2a3809958ebb7431e">xTimerGetPeriod( TimerHandle_t xTimer )</link>;</para>
+
+<para>Returns the period of a timer.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The handle of the timer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The period of the timer in ticks. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00433">433</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a1fe9e235a8c27986902b71ebda7385d8"/><section>
+    <title>xTimerGetTimerDaemonTaskHandle()</title>
+<indexterm><primary>xTimerGetTimerDaemonTaskHandle</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerGetTimerDaemonTaskHandle</secondary></indexterm>
+<para><computeroutput><link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> xTimerGetTimerDaemonTaskHandle (void )</computeroutput></para>
+<para>TaskHandle_t <link linkend="_timers_8h_1ad2a0d15a1e213493bd898e748d9f7555">xTimerGetTimerDaemonTaskHandle( void )</link>;</para>
+
+<para>Simply returns the handle of the timer service/daemon task. It it not valid to call <link linkend="_timers_8h_1ad2a0d15a1e213493bd898e748d9f7555">xTimerGetTimerDaemonTaskHandle()</link> before the scheduler has been started. </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00424">424</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1ac4a95ad98c314e2d023ff72c4ea1100e"/><section>
+    <title>xTimerIsTimerActive()</title>
+<indexterm><primary>xTimerIsTimerActive</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerIsTimerActive</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTimerIsTimerActive (<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link> xTimer)</computeroutput></para>
+<para>BaseType_t <link linkend="_timers_8h_1a2cd9b1399fb25203be698f123846dc33">xTimerIsTimerActive( TimerHandle_t xTimer )</link>;</para>
+
+<para>Queries a timer to see if it is active or dormant.</para>
+
+<para>A timer will be dormant if: 1) It has been created but not started, or 2) It is an expired one-shot timer that has not been restarted.</para>
+
+<para>Timers are created in the dormant state. The <link linkend="_timers_8h_1a3a9b838f48991e852ce05c986b0eeb8c">xTimerStart()</link>, <link linkend="_timers_8h_1a8081b4541b752908dc55df2693e53287">xTimerReset()</link>, <link linkend="_timers_8h_1adab5809f9679e44a343b8dbb8fb7c67f">xTimerStartFromISR()</link>, <link linkend="_timers_8h_1a448138d0cebf76044f107ca56c842230">xTimerResetFromISR()</link>, <link linkend="_timers_8h_1ab12eac1c69a3437b8161ce81ff34b2f4">xTimerChangePeriod()</link> and <link linkend="_timers_8h_1a6d89ca6afb6e692e98932b5038c9e14a">xTimerChangePeriodFromISR()</link> API functions can all be used to transition a timer into the active state.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTimer</entry><entry>
+<para>The timer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pdFALSE will be returned if the timer is dormant. A value other than pdFALSE will be returned if the timer is active.</para>
+</formalpara>
+Example usage: <literallayout><computeroutput>* // This function assumes xTimer has already been created.
+* void vAFunction( TimerHandle_t xTimer )
+* {
+*     if( xTimerIsTimerActive( xTimer ) != pdFALSE ) // or more simply and equivalently &quot;if( xTimerIsTimerActive( xTimer ) )&quot;
+*     {
+*         // xTimer is active, do something.
+*     }
+*     else
+*     {
+*         // xTimer is not active, do something else.
+*     }
+* }
+* </computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00967">967</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a5df6d08740c1184489440072246a02f2"/><section>
+    <title>xTimerPendFunctionCall()</title>
+<indexterm><primary>xTimerPendFunctionCall</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerPendFunctionCall</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTimerPendFunctionCall (<link linkend="_timers_8h_1af6e8e2be58df2be9f9bb808fcdc51622">PendedFunction_t</link> xFunctionToPend, void * pvParameter1, uint32_t ulParameter2, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para>
+<para>BaseType_t <link linkend="_timers_8h_1a04e031135bd3276caaedd656d464dc23">xTimerPendFunctionCall( PendedFunction_t xFunctionToPend,
+                                   void *pvParameter1,
+                                   uint32_t ulParameter2,
+                                   TickType_t xTicksToWait )</link>;</para>
+
+<para>Used to defer the execution of a function to the RTOS daemon task (the timer service task, hence this function is implemented in <link linkend="_timers_8c">timers.c</link> and is prefixed with &apos;Timer&apos;).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xFunctionToPend</entry><entry>
+<para>The function to execute from the timer service/ daemon task. The function must conform to the PendedFunction_t prototype.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvParameter1</entry><entry>
+<para>The value of the callback function&apos;s first parameter. The parameter has a void * type to allow it to be used to pass any type. For example, unsigned longs can be cast to a void *, or the void * can be used to point to a structure.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ulParameter2</entry><entry>
+<para>The value of the callback function&apos;s second parameter.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTicksToWait</entry><entry>
+<para>Calling this function will result in a message being sent to the timer daemon task on a queue. xTicksToWait is the amount of time the calling task should remain in the Blocked state (so not using any processing time) for space to become available on the timer queue if the queue is found to be full.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pdPASS is returned if the message was successfully sent to the timer daemon task, otherwise pdFALSE is returned. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l01049">1049</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa"/><section>
+    <title>xTimerPendFunctionCallFromISR()</title>
+<indexterm><primary>xTimerPendFunctionCallFromISR</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerPendFunctionCallFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTimerPendFunctionCallFromISR (<link linkend="_timers_8h_1af6e8e2be58df2be9f9bb808fcdc51622">PendedFunction_t</link> xFunctionToPend, void * pvParameter1, uint32_t ulParameter2, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> * pxHigherPriorityTaskWoken)</computeroutput></para>
+<para>BaseType_t <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR( PendedFunction_t xFunctionToPend,
+                                           void *pvParameter1,
+                                           uint32_t ulParameter2,
+                                           BaseType_t *pxHigherPriorityTaskWoken )</link>;</para>
+
+<para>Used from application interrupt service routines to defer the execution of a function to the RTOS daemon task (the timer service task, hence this function is implemented in <link linkend="_timers_8c">timers.c</link> and is prefixed with &apos;Timer&apos;).</para>
+
+<para>Ideally an interrupt service routine (ISR) is kept as short as possible, but sometimes an ISR either has a lot of processing to do, or needs to perform processing that is not deterministic. In these cases <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR()</link> can be used to defer processing of a function to the RTOS daemon task.</para>
+
+<para>A mechanism is provided that allows the interrupt to return directly to the task that will subsequently execute the pended callback function. This allows the callback function to execute contiguously in time with the interrupt - just as if the callback had executed in the interrupt itself.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xFunctionToPend</entry><entry>
+<para>The function to execute from the timer service/ daemon task. The function must conform to the PendedFunction_t prototype.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvParameter1</entry><entry>
+<para>The value of the callback function&apos;s first parameter. The parameter has a void * type to allow it to be used to pass any type. For example, unsigned longs can be cast to a void *, or the void * can be used to point to a structure.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>ulParameter2</entry><entry>
+<para>The value of the callback function&apos;s second parameter.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pxHigherPriorityTaskWoken</entry><entry>
+<para>As mentioned above, calling this function will result in a message being sent to the timer daemon task. If the priority of the timer daemon task (which is set using configTIMER_TASK_PRIORITY in <link linkend="__free_r_t_o_s_config_8h">FreeRTOSConfig.h</link>) is higher than the priority of the currently running task (the task the interrupt interrupted) then *pxHigherPriorityTaskWoken will be set to pdTRUE within <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR()</link>, indicating that a context switch should be requested before the interrupt exits. For that reason *pxHigherPriorityTaskWoken must be initialised to pdFALSE. See the example code below.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pdPASS is returned if the message was successfully sent to the timer daemon task, otherwise pdFALSE is returned.</para>
+</formalpara>
+Example usage: <literallayout><computeroutput>*
+*   // The callback function that will execute in the context of the daemon task.
+*  // Note callback functions must all use this same prototype.
+*  void vProcessInterface( void *pvParameter1, uint32_t ulParameter2 )
+*   {
+*       BaseType_t xInterfaceToService;
+*
+*       // The interface that requires servicing is passed in the second
+*      // parameter.  The first parameter is not used in this case.
+*       xInterfaceToService = ( BaseType_t ) ulParameter2;
+*
+*       // ...Perform the processing here...
+*   }
+*
+*   // An ISR that receives data packets from multiple interfaces
+*  void vAnISR( void )
+*   {
+*       BaseType_t xInterfaceToService, xHigherPriorityTaskWoken;
+*
+*       // Query the hardware to determine which interface needs processing.
+*       xInterfaceToService = prvCheckInterfaces();
+*
+*      // The actual processing is to be deferred to a task.  Request the
+*      // vProcessInterface() callback function is executed, passing in the
+*       // number of the interface that needs processing.  The interface to
+*       // service is passed in the second parameter.  The first parameter is
+*       // not used in this case.
+*       xHigherPriorityTaskWoken = pdFALSE;
+*       xTimerPendFunctionCallFromISR( vProcessInterface, NULL, ( uint32_t ) xInterfaceToService, &amp;xHigherPriorityTaskWoken );
+*
+*       // If xHigherPriorityTaskWoken is now set to pdTRUE then a context
+*       // switch should be requested.  The macro used is port specific and will
+*       // be either portYIELD_FROM_ISR() or portEND_SWITCHING_ISR() - refer to
+*       // the documentation page for the port being used.
+*       portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+*
+*   }
+* </computeroutput></literallayout> </para>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l01025">1025</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_timers_8c_1a1de92c9b20a5fb6b0f408ae10811b3b1"/><section>
+    <title>pxCurrentTimerList</title>
+<indexterm><primary>pxCurrentTimerList</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>pxCurrentTimerList</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link>* pxCurrentTimerList<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00137">137</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1a74ed5cb65f0f4e248d8130c1351d3516"/><section>
+    <title>pxOverflowTimerList</title>
+<indexterm><primary>pxOverflowTimerList</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>pxOverflowTimerList</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link>* pxOverflowTimerList<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00138">138</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1aad857cc9e6c57ce1dde29bb14e56e496"/><section>
+    <title>xActiveTimerList1</title>
+<indexterm><primary>xActiveTimerList1</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xActiveTimerList1</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> xActiveTimerList1<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00135">135</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1acdfdeeaffcc953fa789feb24bbe72731"/><section>
+    <title>xActiveTimerList2</title>
+<indexterm><primary>xActiveTimerList2</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xActiveTimerList2</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> xActiveTimerList2<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00136">136</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1af2a003dc9bd02b3cb6adf17fa3c19dd7"/><section>
+    <title>xTimerQueue</title>
+<indexterm><primary>xTimerQueue</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerQueue</secondary></indexterm>
+<para><computeroutput><link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link> xTimerQueue = NULL<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00141">141</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_timers_8c_1af94a12d3245e4e2b9de2abfab470045e"/><section>
+    <title>xTimerTaskHandle</title>
+<indexterm><primary>xTimerTaskHandle</primary><secondary>timers.c</secondary></indexterm>
+<indexterm><primary>timers.c</primary><secondary>xTimerTaskHandle</secondary></indexterm>
+<para><computeroutput><link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> xTimerTaskHandle = NULL<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00142">142</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+</section>
+</section>

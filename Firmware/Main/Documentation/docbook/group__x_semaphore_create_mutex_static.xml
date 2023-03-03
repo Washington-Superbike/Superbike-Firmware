@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_semaphore_create_mutex_static" xml:lang="en-US">
+<title>xSemaphoreCreateMutexStatic</title>
+<indexterm><primary>xSemaphoreCreateMutexStatic</primary></indexterm>
+
+<para>semphr. h <literallayout>SemaphoreHandle_t xSemaphoreCreateMutexStatic( StaticSemaphore_t *pxMutexBuffer )</literallayout></para>
+
+<para>Creates a new mutex type semaphore instance, and returns a handle by which the new mutex can be referenced.</para>
+
+<para>Internally, within the FreeRTOS implementation, mutex semaphores use a block of memory, in which the mutex structure is stored. If a mutex is created using xSemaphoreCreateMutex() then the required memory is automatically dynamically allocated inside the xSemaphoreCreateMutex() function. (see <link xlink:href="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</link>). If a mutex is created using xSemaphoreCreateMutexStatic() then the application writer must provided the memory. xSemaphoreCreateMutexStatic() therefore allows a mutex to be created without using any dynamic memory allocation.</para>
+
+<para>Mutexes created using this function can be accessed using the <link linkend="_semphr_8h_1af116e436d2a5ae5bd72dbade2b5ea930">xSemaphoreTake()</link> and <link linkend="_semphr_8h_1aae55761cabfa9bf85c8f4430f78c0953">xSemaphoreGive()</link> macros. The xSemaphoreTakeRecursive() and xSemaphoreGiveRecursive() macros must not be used.</para>
+
+<para>This type of semaphore uses a priority inheritance mechanism so a task &apos;taking&apos; a semaphore MUST ALWAYS &apos;give&apos; the semaphore back once the semaphore it is no longer required.</para>
+
+<para>Mutex type semaphores cannot be used from within interrupt service routines.</para>
+
+<para>See xSemaphoreCreateBinary() for an alternative implementation that can be used for pure synchronisation (where one task or interrupt always &apos;gives&apos; the semaphore and another always &apos;takes&apos; the semaphore) and from within interrupt service routines.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pxMutexBuffer</entry><entry>
+<para>Must point to a variable of type StaticSemaphore_t, which will be used to hold the mutex&apos;s data structure, removing the need for the memory to be allocated dynamically.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the mutex was successfully created then a handle to the created mutex is returned. If pxMutexBuffer was NULL then NULL is returned.</para>
+</formalpara>
+Example usage: <literallayout>
+SemaphoreHandle_t xSemaphore;
+StaticSemaphore_t xMutexBuffer;
+
+void vATask( void * pvParameters )
+{
+   // A mutex cannot be used before it has been created.  xMutexBuffer is
+   // into xSemaphoreCreateMutexStatic() so no dynamic memory allocation is
+   // attempted.
+   xSemaphore = xSemaphoreCreateMutexStatic( &amp;xMutexBuffer );
+
+   // As no dynamic memory allocation was performed, xSemaphore cannot be NULL,
+   // so there is no need to check it.
+}
+</literallayout> </para>
+</section>

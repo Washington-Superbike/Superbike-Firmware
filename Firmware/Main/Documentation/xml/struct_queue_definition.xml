@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_queue_definition" kind="struct" language="C++" prot="public">
+    <compoundname>QueueDefinition</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_queue_definition_1a487dc7e43b380c58212cba72bc33e0ed" prot="public" static="no" mutable="no">
+        <type>int8_t *</type>
+        <definition>int8_t* QueueDefinition::pcHead</definition>
+        <argsstring></argsstring>
+        <name>pcHead</name>
+        <qualifiedname>QueueDefinition::pcHead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="99" column="8" bodyfile="FreeRTOS/queue.c" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1abdf13cc013c8488848cee3fce4f0fed3" prot="public" static="no" mutable="no">
+        <type>int8_t *</type>
+        <definition>int8_t* QueueDefinition::pcWriteTo</definition>
+        <argsstring></argsstring>
+        <name>pcWriteTo</name>
+        <qualifiedname>QueueDefinition::pcWriteTo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="100" column="8" bodyfile="FreeRTOS/queue.c" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0" prot="public" static="no" mutable="no">
+        <type><ref refid="queue_8c_1afa576747932ccf4c923633fc6a46a0d8" kindref="member">QueuePointers_t</ref></type>
+        <definition>QueuePointers_t QueueDefinition::xQueue</definition>
+        <argsstring></argsstring>
+        <name>xQueue</name>
+        <qualifiedname>QueueDefinition::xQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="104" column="17" bodyfile="FreeRTOS/queue.c" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1adb2c0818274974553c619ff953b6f477" prot="public" static="no" mutable="no">
+        <type><ref refid="queue_8c_1a8806dcfc511df585a0b4daf54a9a909a" kindref="member">SemaphoreData_t</ref></type>
+        <definition>SemaphoreData_t QueueDefinition::xSemaphore</definition>
+        <argsstring></argsstring>
+        <name>xSemaphore</name>
+        <qualifiedname>QueueDefinition::xSemaphore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="105" column="17" bodyfile="FreeRTOS/queue.c" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a026466df9465a22741441e259aa985aa" prot="public" static="no" mutable="no">
+        <type>union QueueDefinition::@1</type>
+        <definition>union QueueDefinition::@1 QueueDefinition::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>QueueDefinition::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="106" column="3"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1aaab135c4345cb0393d6ff3cd5164c7b2" prot="public" static="no" mutable="no">
+        <type><ref refid="list_8h_1ad14d7e3de1350e459c7c23c6f59c902a" kindref="member">List_t</ref></type>
+        <definition>List_t QueueDefinition::xTasksWaitingToSend</definition>
+        <argsstring></argsstring>
+        <name>xTasksWaitingToSend</name>
+        <qualifiedname>QueueDefinition::xTasksWaitingToSend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="108" column="8" bodyfile="FreeRTOS/queue.c" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1af6d61526f77beee659cd604a0c473359" prot="public" static="no" mutable="no">
+        <type><ref refid="list_8h_1ad14d7e3de1350e459c7c23c6f59c902a" kindref="member">List_t</ref></type>
+        <definition>List_t QueueDefinition::xTasksWaitingToReceive</definition>
+        <argsstring></argsstring>
+        <name>xTasksWaitingToReceive</name>
+        <qualifiedname>QueueDefinition::xTasksWaitingToReceive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="109" column="8" bodyfile="FreeRTOS/queue.c" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a12b07a40152d0f21488ca06d362d13d1" prot="public" static="no" mutable="no">
+        <type>volatile <ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>volatile UBaseType_t QueueDefinition::uxMessagesWaiting</definition>
+        <argsstring></argsstring>
+        <name>uxMessagesWaiting</name>
+        <qualifiedname>QueueDefinition::uxMessagesWaiting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="111" column="22" bodyfile="FreeRTOS/queue.c" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1ae80d17a812c669d4d41265b7f693988c" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t QueueDefinition::uxLength</definition>
+        <argsstring></argsstring>
+        <name>uxLength</name>
+        <qualifiedname>QueueDefinition::uxLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="112" column="13" bodyfile="FreeRTOS/queue.c" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a81bb7d3826909244baa9debf5a55abb0" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t QueueDefinition::uxItemSize</definition>
+        <argsstring></argsstring>
+        <name>uxItemSize</name>
+        <qualifiedname>QueueDefinition::uxItemSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="113" column="13" bodyfile="FreeRTOS/queue.c" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1ac750a3f75a6e174adbc697e473a0dd13" prot="public" static="no" mutable="no">
+        <type>volatile int8_t</type>
+        <definition>volatile int8_t QueueDefinition::cRxLock</definition>
+        <argsstring></argsstring>
+        <name>cRxLock</name>
+        <qualifiedname>QueueDefinition::cRxLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="115" column="17" bodyfile="FreeRTOS/queue.c" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a24ac3f0707f098da2a22244d843fcf82" prot="public" static="no" mutable="no">
+        <type>volatile int8_t</type>
+        <definition>volatile int8_t QueueDefinition::cTxLock</definition>
+        <argsstring></argsstring>
+        <name>cTxLock</name>
+        <qualifiedname>QueueDefinition::cTxLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="116" column="17" bodyfile="FreeRTOS/queue.c" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a1b422cf046da7afa63a0646ed6a2e8c6" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t QueueDefinition::uxQueueNumber</definition>
+        <argsstring></argsstring>
+        <name>uxQueueNumber</name>
+        <qualifiedname>QueueDefinition::uxQueueNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="127" column="13" bodyfile="FreeRTOS/queue.c" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_queue_definition_1a337a8dc6af8fc327a92412275e86fe81" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t QueueDefinition::ucQueueType</definition>
+        <argsstring></argsstring>
+        <name>ucQueueType</name>
+        <qualifiedname>QueueDefinition::ucQueueType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/queue.c" line="128" column="9" bodyfile="FreeRTOS/queue.c" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>QueueDefinition</label>
+        <link refid="struct_queue_definition"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xQueue</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>xSemaphore</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>xTasksWaitingToReceive</edgelabel>
+          <edgelabel>xTasksWaitingToSend</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QueuePointers</label>
+        <link refid="struct_queue_pointers"/>
+      </node>
+      <node id="3">
+        <label>SemaphoreData</label>
+        <link refid="struct_semaphore_data"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>xMutexHolder</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tskTaskControlBlock</label>
+        <link refid="structtsk_task_control_block"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>xEventListItem</edgelabel>
+          <edgelabel>xStateListItem</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xLIST</label>
+        <link refid="structx_l_i_s_t"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pxIndex</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>xListEnd</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xLIST_ITEM</label>
+        <link refid="structx_l_i_s_t___i_t_e_m"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pxNext</edgelabel>
+          <edgelabel>pxPrevious</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>pxContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xMINI_LIST_ITEM</label>
+        <link refid="structx_m_i_n_i___l_i_s_t___i_t_e_m"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pxNext</edgelabel>
+          <edgelabel>pxPrevious</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="FreeRTOS/queue.c" line="97" column="1" bodyfile="FreeRTOS/queue.c" bodystart="98" bodyend="131"/>
+    <listofallmembers>
+      <member refid="struct_queue_definition_1ac750a3f75a6e174adbc697e473a0dd13" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>cRxLock</name></member>
+      <member refid="struct_queue_definition_1a24ac3f0707f098da2a22244d843fcf82" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>cTxLock</name></member>
+      <member refid="struct_queue_definition_1a487dc7e43b380c58212cba72bc33e0ed" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>pcHead</name></member>
+      <member refid="struct_queue_definition_1abdf13cc013c8488848cee3fce4f0fed3" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>pcWriteTo</name></member>
+      <member refid="struct_queue_definition_1a026466df9465a22741441e259aa985aa" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>u</name></member>
+      <member refid="struct_queue_definition_1a337a8dc6af8fc327a92412275e86fe81" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>ucQueueType</name></member>
+      <member refid="struct_queue_definition_1a81bb7d3826909244baa9debf5a55abb0" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>uxItemSize</name></member>
+      <member refid="struct_queue_definition_1ae80d17a812c669d4d41265b7f693988c" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>uxLength</name></member>
+      <member refid="struct_queue_definition_1a12b07a40152d0f21488ca06d362d13d1" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>uxMessagesWaiting</name></member>
+      <member refid="struct_queue_definition_1a1b422cf046da7afa63a0646ed6a2e8c6" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>uxQueueNumber</name></member>
+      <member refid="struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>xQueue</name></member>
+      <member refid="struct_queue_definition_1adb2c0818274974553c619ff953b6f477" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>xSemaphore</name></member>
+      <member refid="struct_queue_definition_1af6d61526f77beee659cd604a0c473359" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>xTasksWaitingToReceive</name></member>
+      <member refid="struct_queue_definition_1aaab135c4345cb0393d6ff3cd5164c7b2" prot="public" virt="non-virtual"><scope>QueueDefinition</scope><name>xTasksWaitingToSend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

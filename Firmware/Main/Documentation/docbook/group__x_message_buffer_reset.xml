@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_message_buffer_reset" xml:lang="en-US">
+<title>xMessageBufferReset</title>
+<indexterm><primary>xMessageBufferReset</primary></indexterm>
+
+<para><link linkend="_message__buffer_8h">message_buffer.h</link> <literallayout>
+BaseType_t <link linkend="_message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c">xMessageBufferReset( MessageBufferHandle_t xMessageBuffer )</link>;
+</literallayout></para>
+
+<para>Resets a message buffer to its initial empty state, discarding any message it contained.</para>
+
+<para>A message buffer can only be reset if there are no tasks blocked on it.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer being reset.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the message buffer was reset then pdPASS is returned. If the message buffer could not be reset because either there was a task blocked on the message queue to wait for space to become available, or to wait for a a message to be available, then pdFAIL is returned. </para>
+</formalpara>
+</para>
+</section>

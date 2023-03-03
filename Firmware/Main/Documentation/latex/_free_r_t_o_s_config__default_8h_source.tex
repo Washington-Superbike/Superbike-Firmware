@@ -2,152 +2,152 @@
 \label{_free_r_t_o_s_config__default_8h_source}\index{FreeRTOS/FreeRTOSConfig\_default.h@{FreeRTOS/FreeRTOSConfig\_default.h}}
 \mbox{\hyperlink{_free_r_t_o_s_config__default_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{/*}}
-\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.0.1}}
-\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
-\DoxyCodeLine{4 \textcolor{comment}{ *}}
-\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
-\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
-\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
-\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
-\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
-\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
-\DoxyCodeLine{11 \textcolor{comment}{ *}}
-\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
-\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
-\DoxyCodeLine{14 \textcolor{comment}{ *}}
-\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
-\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
-\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
-\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
-\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
-\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
-\DoxyCodeLine{21 \textcolor{comment}{ *}}
-\DoxyCodeLine{22 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
-\DoxyCodeLine{23 \textcolor{comment}{ * http://www.FreeRTOS.org}}
-\DoxyCodeLine{24 \textcolor{comment}{ */}}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef FREERTOS\_CONFIG\_H}}
-\DoxyCodeLine{27 \textcolor{preprocessor}{\#define FREERTOS\_CONFIG\_H}}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <Arduino.h>}}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{32 \textcolor{comment}{ * Application specific definitions.}}
-\DoxyCodeLine{33 \textcolor{comment}{ *}}
-\DoxyCodeLine{34 \textcolor{comment}{ * These definitions should be adjusted for your particular hardware and}}
-\DoxyCodeLine{35 \textcolor{comment}{ * application requirements.}}
-\DoxyCodeLine{36 \textcolor{comment}{ *}}
-\DoxyCodeLine{37 \textcolor{comment}{ * THESE PARAMETERS ARE DESCRIBED WITHIN THE 'CONFIGURATION' SECTION OF THE}}
-\DoxyCodeLine{38 \textcolor{comment}{ * FreeRTOS API DOCUMENTATION AVAILABLE ON THE FreeRTOS.org WEB SITE.}}
-\DoxyCodeLine{39 \textcolor{comment}{ *}}
-\DoxyCodeLine{40 \textcolor{comment}{ * See http://www.freertos.org/a00110.html.}}
-\DoxyCodeLine{41 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \textcolor{preprocessor}{\#define F\_CPU 600000000}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{preprocessor}{\#define configUSE\_PREEMPTION                    1}}
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#define configUSE\_TICKLESS\_IDLE                 0}}
-\DoxyCodeLine{47 \textcolor{preprocessor}{\#define configCPU\_CLOCK\_HZ                      (F\_CPU)}}
-\DoxyCodeLine{48 \textcolor{preprocessor}{\#define configTICK\_RATE\_HZ                      ((TickType\_t)1000)}}
-\DoxyCodeLine{49 \textcolor{preprocessor}{\#define configMAX\_PRIORITIES                    ( 10 )}}
-\DoxyCodeLine{50 \textcolor{preprocessor}{\#define configMINIMAL\_STACK\_SIZE                ((unsigned short)2048)}}
-\DoxyCodeLine{51 \textcolor{preprocessor}{\#define configMINIMAL\_SECURE\_STACK\_SIZE         ((unsigned short)2048)}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{\#define configMAX\_TASK\_NAME\_LEN                 20}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#define configUSE\_16\_BIT\_TICKS                  0}}
-\DoxyCodeLine{54 \textcolor{preprocessor}{\#define configIDLE\_SHOULD\_YIELD                 1}}
-\DoxyCodeLine{55 \textcolor{preprocessor}{\#define configUSE\_TASK\_NOTIFICATIONS            1}}
-\DoxyCodeLine{56 \textcolor{preprocessor}{\#define configUSE\_MUTEXES                       1}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{\#define configUSE\_RECURSIVE\_MUTEXES             1}}
-\DoxyCodeLine{58 \textcolor{preprocessor}{\#define configUSE\_COUNTING\_SEMAPHORES           1}}
-\DoxyCodeLine{59 \textcolor{preprocessor}{\#define configUSE\_ALTERNATIVE\_API               0 }\textcolor{comment}{/* Deprecated! */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#define configQUEUE\_REGISTRY\_SIZE               8}}
-\DoxyCodeLine{61 \textcolor{preprocessor}{\#define configUSE\_QUEUE\_SETS                    0}}
-\DoxyCodeLine{62 \textcolor{preprocessor}{\#define configUSE\_TIME\_SLICING                  0}}
-\DoxyCodeLine{63 \textcolor{preprocessor}{\#define configUSE\_NEWLIB\_REENTRANT              0}}
-\DoxyCodeLine{64 \textcolor{preprocessor}{\#define configENABLE\_BACKWARD\_COMPATIBILITY     1}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{\#define configNUM\_THREAD\_LOCAL\_STORAGE\_POINTERS 5}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{\#define configUSE\_APPLICATION\_TASK\_TAG          0}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \textcolor{comment}{/* Memory allocation related definitions. */}}
-\DoxyCodeLine{69 \textcolor{preprocessor}{\#define configSUPPORT\_STATIC\_ALLOCATION         0}}
-\DoxyCodeLine{70 \textcolor{preprocessor}{\#define configSUPPORT\_DYNAMIC\_ALLOCATION        1}}
-\DoxyCodeLine{71 \textcolor{preprocessor}{\#define configTOTAL\_HEAP\_SIZE                   ((size\_t)(256000))}}
-\DoxyCodeLine{72 \textcolor{preprocessor}{\#define configAPPLICATION\_ALLOCATED\_HEAP        0}}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{74 \textcolor{comment}{/* Hook function related definitions. */}}
-\DoxyCodeLine{75 \textcolor{preprocessor}{\#define configUSE\_IDLE\_HOOK                     0}}
-\DoxyCodeLine{76 \textcolor{preprocessor}{\#define configUSE\_TICK\_HOOK                     0}}
-\DoxyCodeLine{77 \textcolor{preprocessor}{\#define configCHECK\_FOR\_STACK\_OVERFLOW          0}}
-\DoxyCodeLine{78 \textcolor{preprocessor}{\#define configUSE\_MALLOC\_FAILED\_HOOK            0}}
-\DoxyCodeLine{79 \textcolor{preprocessor}{\#define configUSE\_DAEMON\_TASK\_STARTUP\_HOOK      0}}
-\DoxyCodeLine{80 }
-\DoxyCodeLine{81 \textcolor{comment}{/* Run time and task stats gathering related definitions. */}}
-\DoxyCodeLine{82 \textcolor{preprocessor}{\#define configGENERATE\_RUN\_TIME\_STATS           0}}
-\DoxyCodeLine{83 \textcolor{preprocessor}{\#define configUSE\_TRACE\_FACILITY                1}}
-\DoxyCodeLine{84 \textcolor{preprocessor}{\#define configUSE\_STATS\_FORMATTING\_FUNCTIONS    0}}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86 \textcolor{comment}{/* Co-\/routine related definitions. */}}
-\DoxyCodeLine{87 \textcolor{preprocessor}{\#define configUSE\_CO\_ROUTINES                   0}}
-\DoxyCodeLine{88 \textcolor{preprocessor}{\#define configMAX\_CO\_ROUTINE\_PRIORITIES         2}}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90 \textcolor{comment}{/* Software timer related definitions. */}}
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#define configUSE\_TIMERS                        1}}
-\DoxyCodeLine{92 \textcolor{preprocessor}{\#define configTIMER\_TASK\_PRIORITY               (configMAX\_PRIORITIES -\/ 1)}}
-\DoxyCodeLine{93 \textcolor{preprocessor}{\#define configTIMER\_QUEUE\_LENGTH                10}}
-\DoxyCodeLine{94 \textcolor{preprocessor}{\#define configTIMER\_TASK\_STACK\_DEPTH            (configMINIMAL\_STACK\_SIZE * 2)}}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96 \textcolor{comment}{/* Define to trap errors during development. */}}
-\DoxyCodeLine{97 \textcolor{comment}{//\#define configASSERT(x) if((x) == 0) \{taskDISABLE\_INTERRUPTS(); Serial.println("{}assert triggered"{}); for (;;);\}}}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{99 \textcolor{comment}{/* Optional functions -\/ most linkers will remove unused functions anyway. */}}
-\DoxyCodeLine{100 \textcolor{preprocessor}{\#define INCLUDE\_vTaskPrioritySet                1}}
-\DoxyCodeLine{101 \textcolor{preprocessor}{\#define INCLUDE\_uxTaskPriorityGet               1}}
-\DoxyCodeLine{102 \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelete                     1}}
-\DoxyCodeLine{103 \textcolor{preprocessor}{\#define INCLUDE\_vTaskSuspend                    1}}
-\DoxyCodeLine{104 \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelayUntil                 1}}
-\DoxyCodeLine{105 \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelay                      1}}
-\DoxyCodeLine{106 \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetSchedulerState          1}}
-\DoxyCodeLine{107 \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetCurrentTaskHandle       1}}
-\DoxyCodeLine{108 \textcolor{preprocessor}{\#define INCLUDE\_uxTaskGetStackHighWaterMark     0}}
-\DoxyCodeLine{109 \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetIdleTaskHandle          0}}
-\DoxyCodeLine{110 \textcolor{preprocessor}{\#define INCLUDE\_eTaskGetState                   0}}
-\DoxyCodeLine{111 \textcolor{preprocessor}{\#define INCLUDE\_xTimerPendFunctionCall          1}}
-\DoxyCodeLine{112 \textcolor{preprocessor}{\#define INCLUDE\_xTaskAbortDelay                 0}}
-\DoxyCodeLine{113 \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetHandle                  1}}
-\DoxyCodeLine{114 \textcolor{preprocessor}{\#define INCLUDE\_xTaskResumeFromISR              1}}
-\DoxyCodeLine{115 \textcolor{preprocessor}{\#define INCLUDE\_vTaskEndScheduler               0}}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117 \textcolor{preprocessor}{\#ifdef \_\_NVIC\_PRIO\_BITS}}
-\DoxyCodeLine{118 \textcolor{comment}{/* \_\_BVIC\_PRIO\_BITS will be specified when CMSIS is being used. */}}
-\DoxyCodeLine{119 \textcolor{preprocessor}{\#define configPRIO\_BITS \_\_NVIC\_PRIO\_BITS}}
-\DoxyCodeLine{120 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{121 \textcolor{preprocessor}{\#define configPRIO\_BITS 8}}
-\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124 \textcolor{comment}{/* The lowest interrupt priority that can be used in a call to a "{}set priority"{}}}
-\DoxyCodeLine{125 \textcolor{comment}{function. */}}
-\DoxyCodeLine{126 \textcolor{preprocessor}{\#define configLIBRARY\_LOWEST\_INTERRUPT\_PRIORITY ((1U << (configPRIO\_BITS)) -\/ 1)}}
-\DoxyCodeLine{127 }
-\DoxyCodeLine{128 \textcolor{comment}{/* The highest interrupt priority that can be used by any interrupt service}}
-\DoxyCodeLine{129 \textcolor{comment}{routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL}}
-\DoxyCodeLine{130 \textcolor{comment}{INTERRUPT SAFE FREERTOS API FUNCTIONS FROM ANY INTERRUPT THAT HAS A HIGHER}}
-\DoxyCodeLine{131 \textcolor{comment}{PRIORITY THAN THIS! (higher priorities are lower numeric values. */}}
-\DoxyCodeLine{132 \textcolor{preprocessor}{\#define configLIBRARY\_MAX\_SYSCALL\_INTERRUPT\_PRIORITY 2}}
-\DoxyCodeLine{133 }
-\DoxyCodeLine{134 \textcolor{comment}{/* Interrupt priorities used by the kernel port layer itself.  These are generic}}
-\DoxyCodeLine{135 \textcolor{comment}{to all Cortex-\/M ports, and do not rely on any particular library functions. */}}
-\DoxyCodeLine{136 \textcolor{preprocessor}{\#define configKERNEL\_INTERRUPT\_PRIORITY (configLIBRARY\_LOWEST\_INTERRUPT\_PRIORITY << (8 -\/ configPRIO\_BITS))}}
-\DoxyCodeLine{137 \textcolor{comment}{/* !!!! configMAX\_SYSCALL\_INTERRUPT\_PRIORITY must not be set to zero !!!!}}
-\DoxyCodeLine{138 \textcolor{comment}{See http://www.FreeRTOS.org/RTOS-\/Cortex-\/M3-\/M4.html. */}}
-\DoxyCodeLine{139 \textcolor{preprocessor}{\#define configMAX\_SYSCALL\_INTERRUPT\_PRIORITY (configLIBRARY\_MAX\_SYSCALL\_INTERRUPT\_PRIORITY << (8 -\/ configPRIO\_BITS))}}
-\DoxyCodeLine{140 }
-\DoxyCodeLine{141 \textcolor{comment}{/* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS}}
-\DoxyCodeLine{142 \textcolor{comment}{standard names. */}}
-\DoxyCodeLine{143 \textcolor{comment}{//\#define vPortSVCHandler SVC\_Handler}}
-\DoxyCodeLine{144 \textcolor{comment}{//\#define xPortPendSVHandler PendSV\_Handler}}
-\DoxyCodeLine{145 \textcolor{comment}{//\#define xPortSysTickHandler SysTick\_Handler}}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FREERTOS\_CONFIG\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00002}00002 \textcolor{comment}{ * FreeRTOS Kernel V10.0.1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00005}00005 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00006}00006 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00007}00007 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00008}00008 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00009}00009 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00010}00010 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00012}00012 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00013}00013 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00015}00015 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00016}00016 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00017}00017 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00018}00018 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00019}00019 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00020}00020 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00021}00021 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00022}00022 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00023}00023 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00024}00024 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00026}00026 \textcolor{preprocessor}{\#ifndef FREERTOS\_CONFIG\_H}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00027}00027 \textcolor{preprocessor}{\#define FREERTOS\_CONFIG\_H}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00029}00029 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00031}00031 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00032}00032 \textcolor{comment}{ * Application specific definitions.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00033}00033 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00034}00034 \textcolor{comment}{ * These definitions should be adjusted for your particular hardware and}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00035}00035 \textcolor{comment}{ * application requirements.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00036}00036 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00037}00037 \textcolor{comment}{ * THESE PARAMETERS ARE DESCRIBED WITHIN THE 'CONFIGURATION' SECTION OF THE}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00038}00038 \textcolor{comment}{ * FreeRTOS API DOCUMENTATION AVAILABLE ON THE FreeRTOS.org WEB SITE.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00039}00039 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00040}00040 \textcolor{comment}{ * See http://www.freertos.org/a00110.html.}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00041}00041 \textcolor{comment}{ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00043}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a43bafb28b29491ec7f871319b5a3b2f8}{00043}} \textcolor{preprocessor}{\#define F\_CPU 600000000}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00045}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_adde83486022745409c40605922b0bdd6}{00045}} \textcolor{preprocessor}{\#define configUSE\_PREEMPTION                    1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00046}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aa19d69387b32a94d79ea52bb2c6f2649}{00046}} \textcolor{preprocessor}{\#define configUSE\_TICKLESS\_IDLE                 0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00047}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aa68082df879e6fc96bcb9b26513639e7}{00047}} \textcolor{preprocessor}{\#define configCPU\_CLOCK\_HZ                      (F\_CPU)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00048}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{00048}} \textcolor{preprocessor}{\#define configTICK\_RATE\_HZ                      ((TickType\_t)1000)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00049}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a9a78f5ac61e6cb172dadf2a51f11db38}{00049}} \textcolor{preprocessor}{\#define configMAX\_PRIORITIES                    ( 10 )}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00050}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{00050}} \textcolor{preprocessor}{\#define configMINIMAL\_STACK\_SIZE                ((unsigned short)2048)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00051}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6731fca885969b95e5f3f9ce1e12cb75}{00051}} \textcolor{preprocessor}{\#define configMINIMAL\_SECURE\_STACK\_SIZE         ((unsigned short)2048)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00052}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac388dc4041aab6997348828eb27fc1a8}{00052}} \textcolor{preprocessor}{\#define configMAX\_TASK\_NAME\_LEN                 20}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00053}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aac311ed9b9e5ae4d2d9648b33a24acce}{00053}} \textcolor{preprocessor}{\#define configUSE\_16\_BIT\_TICKS                  0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00054}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ad6a5061a742fee450ac455e4ad0f4b6c}{00054}} \textcolor{preprocessor}{\#define configIDLE\_SHOULD\_YIELD                 1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00055}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aca14daeac974218ce2497f12d614fb6b}{00055}} \textcolor{preprocessor}{\#define configUSE\_TASK\_NOTIFICATIONS            1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00056}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a543bf3c79008974cc1d36bab51d94fbf}{00056}} \textcolor{preprocessor}{\#define configUSE\_MUTEXES                       1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00057}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a9fe02d866cb1c4fbaa0c3de79f53d42d}{00057}} \textcolor{preprocessor}{\#define configUSE\_RECURSIVE\_MUTEXES             1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00058}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a55778995203c57369d2fbfb10224943d}{00058}} \textcolor{preprocessor}{\#define configUSE\_COUNTING\_SEMAPHORES           1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00059}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aefc70099423a764e4ae37a5c46ab6457}{00059}} \textcolor{preprocessor}{\#define configUSE\_ALTERNATIVE\_API               0 }\textcolor{comment}{/* Deprecated! */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00060}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aa4b5138c4e42a180f0abd4f2455f90fb}{00060}} \textcolor{preprocessor}{\#define configQUEUE\_REGISTRY\_SIZE               8}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00061}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a7bfbcca89aaa971f59fe9233772cc33d}{00061}} \textcolor{preprocessor}{\#define configUSE\_QUEUE\_SETS                    0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00062}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a493c5763eb7a39bd80779a1c58de0d82}{00062}} \textcolor{preprocessor}{\#define configUSE\_TIME\_SLICING                  0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00063}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_acf3616a8cbe15687f6000cefcca84bbd}{00063}} \textcolor{preprocessor}{\#define configUSE\_NEWLIB\_REENTRANT              0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00064}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a815d63f3e973f88335f639b03786e37f}{00064}} \textcolor{preprocessor}{\#define configENABLE\_BACKWARD\_COMPATIBILITY     1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00065}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a8d32b5f74e55dfd12c5aa3415e16d75e}{00065}} \textcolor{preprocessor}{\#define configNUM\_THREAD\_LOCAL\_STORAGE\_POINTERS 5}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00066}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2eb2a0baf886a7adab15b5735029434b}{00066}} \textcolor{preprocessor}{\#define configUSE\_APPLICATION\_TASK\_TAG          0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00068}00068 \textcolor{comment}{/* Memory allocation related definitions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00069}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a1d6797a53b62d501b095f964036a7ac4}{00069}} \textcolor{preprocessor}{\#define configSUPPORT\_STATIC\_ALLOCATION         0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00070}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_afa3f8d6510699d972c9af08fa41f66dc}{00070}} \textcolor{preprocessor}{\#define configSUPPORT\_DYNAMIC\_ALLOCATION        1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00071}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a9f213227674effff0122a75d94d87938}{00071}} \textcolor{preprocessor}{\#define configTOTAL\_HEAP\_SIZE                   ((size\_t)(256000))}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00072}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ae1a85802d42764830d47abe43a3d9a5e}{00072}} \textcolor{preprocessor}{\#define configAPPLICATION\_ALLOCATED\_HEAP        0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00074}00074 \textcolor{comment}{/* Hook function related definitions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00075}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac637ae45863c19fa2e919db0ed49301f}{00075}} \textcolor{preprocessor}{\#define configUSE\_IDLE\_HOOK                     0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00076}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a23c5922c077106fad3f70b54d9071466}{00076}} \textcolor{preprocessor}{\#define configUSE\_TICK\_HOOK                     0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00077}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a847511ee433494b1e32c90602c967ae7}{00077}} \textcolor{preprocessor}{\#define configCHECK\_FOR\_STACK\_OVERFLOW          0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00078}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_abdf48e7c9cf513f083aa9cbed0dd7cd7}{00078}} \textcolor{preprocessor}{\#define configUSE\_MALLOC\_FAILED\_HOOK            0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00079}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a0415288d8efe664e0b05a7b53fbfaa33}{00079}} \textcolor{preprocessor}{\#define configUSE\_DAEMON\_TASK\_STARTUP\_HOOK      0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00081}00081 \textcolor{comment}{/* Run time and task stats gathering related definitions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00082}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ad8081822f3ebc7c917b63bd7bdd7bc58}{00082}} \textcolor{preprocessor}{\#define configGENERATE\_RUN\_TIME\_STATS           0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00083}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a27f5ee137dc9f125681a31f0b0a4b3be}{00083}} \textcolor{preprocessor}{\#define configUSE\_TRACE\_FACILITY                1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00084}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a5b7fae1e2f6d4fe42104ed8d28a0569d}{00084}} \textcolor{preprocessor}{\#define configUSE\_STATS\_FORMATTING\_FUNCTIONS    0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00086}00086 \textcolor{comment}{/* Co-\/routine related definitions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00087}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a57990715eb06402474b8b47e1d562616}{00087}} \textcolor{preprocessor}{\#define configUSE\_CO\_ROUTINES                   0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00088}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ae8f3fd645e6e78dfeb8a6e874af6195a}{00088}} \textcolor{preprocessor}{\#define configMAX\_CO\_ROUTINE\_PRIORITIES         2}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00090}00090 \textcolor{comment}{/* Software timer related definitions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00091}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac342ae309b0c53828d2ecad3e6de355b}{00091}} \textcolor{preprocessor}{\#define configUSE\_TIMERS                        1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00092}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a05c75ff9029ba3f0ab5bde9196f1e873}{00092}} \textcolor{preprocessor}{\#define configTIMER\_TASK\_PRIORITY               (configMAX\_PRIORITIES -\/ 1)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00093}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_abb9aa0f31c1f3b14a15083a3c6120918}{00093}} \textcolor{preprocessor}{\#define configTIMER\_QUEUE\_LENGTH                10}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00094}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aed7c7ebcdee603583a55e8ce04e55841}{00094}} \textcolor{preprocessor}{\#define configTIMER\_TASK\_STACK\_DEPTH            (configMINIMAL\_STACK\_SIZE * 2)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00096}00096 \textcolor{comment}{/* Define to trap errors during development. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00097}00097 \textcolor{comment}{//\#define configASSERT(x) if((x) == 0) \{taskDISABLE\_INTERRUPTS(); Serial.println("{}assert triggered"{}); for (;;);\}}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00099}00099 \textcolor{comment}{/* Optional functions -\/ most linkers will remove unused functions anyway. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00100}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ad6858ac8aaf726007fd19752956ef1bd}{00100}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskPrioritySet                1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00101}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a1279eb797355460aeeec06aa524e91df}{00101}} \textcolor{preprocessor}{\#define INCLUDE\_uxTaskPriorityGet               1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00102}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a5ae1434fdf995108dc749ff9329f53bd}{00102}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelete                     1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00103}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_aef8fbb97819ad3d962f334ac298206d1}{00103}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskSuspend                    1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00104}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ae8459bfd5b428319bb10de9f504a53aa}{00104}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelayUntil                 1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00105}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a24361a6eb816a965f1ee4e2e08e364f8}{00105}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskDelay                      1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00106}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a9ed60ede556830584e6bfd4a3ab4f9de}{00106}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetSchedulerState          1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00107}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac96b6a6e70667f266db4278be71cbd78}{00107}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetCurrentTaskHandle       1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00108}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a23c7b4b41fe9b575cf2329c7cbe78b86}{00108}} \textcolor{preprocessor}{\#define INCLUDE\_uxTaskGetStackHighWaterMark     0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00109}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ae8811def4dd6983011fed9ef8686f18f}{00109}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetIdleTaskHandle          0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00110}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a4fd1d67d54044ac86e8ffc890180f9f6}{00110}} \textcolor{preprocessor}{\#define INCLUDE\_eTaskGetState                   0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00111}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a4b4336acd61a8e513ca2376be84326b5}{00111}} \textcolor{preprocessor}{\#define INCLUDE\_xTimerPendFunctionCall          1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00112}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac54efb28edcc1d3b9d0844005ea20674}{00112}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskAbortDelay                 0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00113}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a33733d2bbe005751ec3a417e5ac373bf}{00113}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskGetHandle                  1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00114}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a85e3dae9f3daa26f24e679cb6793811e}{00114}} \textcolor{preprocessor}{\#define INCLUDE\_xTaskResumeFromISR              1}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00115}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ae98fa41b29fd55a961461d59b06aa371}{00115}} \textcolor{preprocessor}{\#define INCLUDE\_vTaskEndScheduler               0}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00117}00117 \textcolor{preprocessor}{\#ifdef \_\_NVIC\_PRIO\_BITS}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00118}00118 \textcolor{comment}{/* \_\_BVIC\_PRIO\_BITS will be specified when CMSIS is being used. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00119}00119 \textcolor{preprocessor}{\#define configPRIO\_BITS \_\_NVIC\_PRIO\_BITS}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00120}00120 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00121}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a5796db11ec6f9aa38d017d2ac393c5ba}{00121}} \textcolor{preprocessor}{\#define configPRIO\_BITS 8}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00122}00122 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00124}00124 \textcolor{comment}{/* The lowest interrupt priority that can be used in a call to a "{}set priority"{}}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00125}00125 \textcolor{comment}{function. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00126}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a10da20f180ec9bd131b0052a802dbc39}{00126}} \textcolor{preprocessor}{\#define configLIBRARY\_LOWEST\_INTERRUPT\_PRIORITY ((1U << (configPRIO\_BITS)) -\/ 1)}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00128}00128 \textcolor{comment}{/* The highest interrupt priority that can be used by any interrupt service}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00129}00129 \textcolor{comment}{routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00130}00130 \textcolor{comment}{INTERRUPT SAFE FREERTOS API FUNCTIONS FROM ANY INTERRUPT THAT HAS A HIGHER}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00131}00131 \textcolor{comment}{PRIORITY THAN THIS! (higher priorities are lower numeric values. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00132}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2254bd235d882be3061bcad0b1e8be98}{00132}} \textcolor{preprocessor}{\#define configLIBRARY\_MAX\_SYSCALL\_INTERRUPT\_PRIORITY 2}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00134}00134 \textcolor{comment}{/* Interrupt priorities used by the kernel port layer itself.  These are generic}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00135}00135 \textcolor{comment}{to all Cortex-\/M ports, and do not rely on any particular library functions. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00136}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_ac42cff506ad61d4174fa23e952e3225e}{00136}} \textcolor{preprocessor}{\#define configKERNEL\_INTERRUPT\_PRIORITY (configLIBRARY\_LOWEST\_INTERRUPT\_PRIORITY << (8 -\/ configPRIO\_BITS))}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00137}00137 \textcolor{comment}{/* !!!! configMAX\_SYSCALL\_INTERRUPT\_PRIORITY must not be set to zero !!!!}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00138}00138 \textcolor{comment}{See http://www.FreeRTOS.org/RTOS-\/Cortex-\/M3-\/M4.html. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00139}\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a54bfc31c410ee452577a25a4552c3704}{00139}} \textcolor{preprocessor}{\#define configMAX\_SYSCALL\_INTERRUPT\_PRIORITY (configLIBRARY\_MAX\_SYSCALL\_INTERRUPT\_PRIORITY << (8 -\/ configPRIO\_BITS))}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00141}00141 \textcolor{comment}{/* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00142}00142 \textcolor{comment}{standard names. */}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00143}00143 \textcolor{comment}{//\#define vPortSVCHandler SVC\_Handler}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00144}00144 \textcolor{comment}{//\#define xPortPendSVHandler PendSV\_Handler}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00145}00145 \textcolor{comment}{//\#define xPortSysTickHandler SysTick\_Handler}}
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_free_r_t_o_s_config__default_8h_source_l00147}00147 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FREERTOS\_CONFIG\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

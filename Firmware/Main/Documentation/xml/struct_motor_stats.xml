@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_motor_stats" kind="struct" language="C++" prot="public">
+    <compoundname>MotorStats</compoundname>
+    <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorStats::RPM</definition>
+        <argsstring></argsstring>
+        <name>RPM</name>
+        <qualifiedname>MotorStats::RPM</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="65" column="9" bodyfile="CAN.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorStats::motorCurrent</definition>
+        <argsstring></argsstring>
+        <name>motorCurrent</name>
+        <qualifiedname>MotorStats::motorCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="66" column="9" bodyfile="CAN.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* MotorStats::motorControllerBatteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>motorControllerBatteryVoltage</name>
+        <qualifiedname>MotorStats::motorControllerBatteryVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="67" column="9" bodyfile="CAN.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* MotorStats::errorMessage</definition>
+        <argsstring></argsstring>
+        <name>errorMessage</name>
+        <qualifiedname>MotorStats::errorMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="68" column="7" bodyfile="CAN.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CAN.h" line="64" column="1" bodyfile="CAN.h" bodystart="64" bodyend="69"/>
+    <listofallmembers>
+      <member refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>errorMessage</name></member>
+      <member refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>motorControllerBatteryVoltage</name></member>
+      <member refid="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>motorCurrent</name></member>
+      <member refid="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>RPM</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

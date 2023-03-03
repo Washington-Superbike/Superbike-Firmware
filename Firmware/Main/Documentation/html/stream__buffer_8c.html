@@ -80,7 +80,9 @@ $(function() {
 <code>#include &quot;<a class="el" href="_free_r_t_o_s_8h_source.html">FreeRTOS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="task_8h_source.html">task.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="stream__buffer_8h_source.html">stream_buffer.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="stream__buffer_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stream_buffer_def__t.html">StreamBufferDef_t</a></td></tr>
@@ -112,18 +114,18 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac4183c0af266bc5ffbd4f3eb4a4d07c2"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#ac4183c0af266bc5ffbd4f3eb4a4d07c2">prvBytesInBuffer</a> (const <a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:ac4183c0af266bc5ffbd4f3eb4a4d07c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab05b79124292dd7bed33fca7a92473c0"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#ab05b79124292dd7bed33fca7a92473c0">prvWriteBytesToBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, const uint8_t *pucData, size_t xCount) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:ab05b79124292dd7bed33fca7a92473c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea486f3983538e061b22cce98612d8bc"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#aea486f3983538e061b22cce98612d8bc">prvReadMessageFromBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *pxStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, size_t xBytesAvailable, size_t xBytesToStoreMessageLength) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:aea486f3983538e061b22cce98612d8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1415b7e265e106aab476023f9a6cce6c"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a1415b7e265e106aab476023f9a6cce6c">prvWriteMessageToBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, size_t xSpace, size_t xRequiredSpace) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a1415b7e265e106aab476023f9a6cce6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ec163e54dc25c091dbff11c1b8f7a2c"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a8ec163e54dc25c091dbff11c1b8f7a2c">prvReadBytesFromBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *pxStreamBuffer, uint8_t *pucData, size_t xMaxCount, size_t xBytesAvailable) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a8ec163e54dc25c091dbff11c1b8f7a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f655ff13acb1a5614dbc7e7f43ecbb2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a7f655ff13acb1a5614dbc7e7f43ecbb2">prvInitialiseNewStreamBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, uint8_t *const pucBuffer, size_t xBufferSizeBytes, size_t xTriggerLevelBytes, uint8_t ucFlags) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a7f655ff13acb1a5614dbc7e7f43ecbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab588e6a51ba9c8e7796aa05e5c600c36"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#ab588e6a51ba9c8e7796aa05e5c600c36">prvBytesInBuffer</a> (const <a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer)</td></tr>
+<tr class="separator:ab588e6a51ba9c8e7796aa05e5c600c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e311fb1b4587477fd167f249e02286b"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a4e311fb1b4587477fd167f249e02286b">prvWriteBytesToBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, const uint8_t *pucData, size_t xCount)</td></tr>
+<tr class="separator:a4e311fb1b4587477fd167f249e02286b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5823b1fb23f6468eb0447db4adb95ebd"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a5823b1fb23f6468eb0447db4adb95ebd">prvReadMessageFromBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *pxStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, size_t xBytesAvailable, size_t xBytesToStoreMessageLength)</td></tr>
+<tr class="separator:a5823b1fb23f6468eb0447db4adb95ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0982313ee374e6edf9296d3ce4fefd3e"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a0982313ee374e6edf9296d3ce4fefd3e">prvWriteMessageToBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, size_t xSpace, size_t xRequiredSpace)</td></tr>
+<tr class="separator:a0982313ee374e6edf9296d3ce4fefd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d74bf9ad861552245f1e382c4c0f7fa"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a7d74bf9ad861552245f1e382c4c0f7fa">prvReadBytesFromBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *pxStreamBuffer, uint8_t *pucData, size_t xMaxCount, size_t xBytesAvailable)</td></tr>
+<tr class="separator:a7d74bf9ad861552245f1e382c4c0f7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a788f6b7c88760204fc60aa514c5849b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a788f6b7c88760204fc60aa514c5849b7">prvInitialiseNewStreamBuffer</a> (<a class="el" href="stream__buffer_8c.html#ac30372f81bb381115f91d7daa384db2d">StreamBuffer_t</a> *const pxStreamBuffer, uint8_t *const pucBuffer, size_t xBufferSizeBytes, size_t xTriggerLevelBytes, uint8_t ucFlags)</td></tr>
+<tr class="separator:a788f6b7c88760204fc60aa514c5849b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4387e6f3c52bd8755a014673c97aa497"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stream__buffer_8h.html#a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a4387e6f3c52bd8755a014673c97aa497">xStreamBufferGenericCreate</a> (size_t xBufferSizeBytes, size_t xTriggerLevelBytes, <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xIsMessageBuffer)</td></tr>
 <tr class="separator:a4387e6f3c52bd8755a014673c97aa497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e66db41c3fd13acf3b9f814d650f77d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__buffer_8c.html#a7e66db41c3fd13acf3b9f814d650f77d">vStreamBufferDelete</a> (<a class="el" href="stream__buffer_8h.html#a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</a> xStreamBuffer)</td></tr>
@@ -174,6 +176,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00035">35</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="aaa21967227eb06d02cdd038047b836f6" name="aaa21967227eb06d02cdd038047b836f6"></a>
@@ -187,6 +191,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00132">132</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -202,6 +208,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00135">135</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a80943e49aae8a493f02d78527b3fc01e" name="a80943e49aae8a493f02d78527b3fc01e"></a>
@@ -215,6 +223,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00136">136</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -244,11 +254,13 @@ Functions</h2></td></tr>
 <div class="line">            }                                                                           \</div>
 <div class="line">        }                                                                               \</div>
 <div class="line">        ( void ) <a class="code hl_function" href="task_8h.html#a003f8ae6d649225abd030cc76e1c7d0e">xTaskResumeAll</a>();</div>
-<div class="ttc" id="atask_8h_html_a003f8ae6d649225abd030cc76e1c7d0e"><div class="ttname"><a href="task_8h.html#a003f8ae6d649225abd030cc76e1c7d0e">xTaskResumeAll</a></div><div class="ttdeci">BaseType_t xTaskResumeAll(void) PRIVILEGED_FUNCTION</div><div class="ttdef"><b>Definition:</b> tasks.c:2173</div></div>
-<div class="ttc" id="atask_8h_html_a0d2d54fb8a64011dfbb54983e4ed06bd"><div class="ttname"><a href="task_8h.html#a0d2d54fb8a64011dfbb54983e4ed06bd">xTaskNotify</a></div><div class="ttdeci">#define xTaskNotify(xTaskToNotify, ulValue, eAction)</div><div class="ttdef"><b>Definition:</b> task.h:1857</div></div>
-<div class="ttc" id="atask_8h_html_a366b302eba79d10b5ee2a3756f0fcc43"><div class="ttname"><a href="task_8h.html#a366b302eba79d10b5ee2a3756f0fcc43">vTaskSuspendAll</a></div><div class="ttdeci">void vTaskSuspendAll(void) PRIVILEGED_FUNCTION</div><div class="ttdef"><b>Definition:</b> tasks.c:2100</div></div>
-<div class="ttc" id="atask_8h_html_ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a"><div class="ttname"><a href="task_8h.html#ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a">eNoAction</a></div><div class="ttdeci">@ eNoAction</div><div class="ttdef"><b>Definition:</b> task.h:100</div></div>
+<div class="ttc" id="atask_8h_html_a003f8ae6d649225abd030cc76e1c7d0e"><div class="ttname"><a href="task_8h.html#a003f8ae6d649225abd030cc76e1c7d0e">xTaskResumeAll</a></div><div class="ttdeci">BaseType_t xTaskResumeAll(void) PRIVILEGED_FUNCTION</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l02173">tasks.c:2173</a></div></div>
+<div class="ttc" id="atask_8h_html_a0d2d54fb8a64011dfbb54983e4ed06bd"><div class="ttname"><a href="task_8h.html#a0d2d54fb8a64011dfbb54983e4ed06bd">xTaskNotify</a></div><div class="ttdeci">#define xTaskNotify(xTaskToNotify, ulValue, eAction)</div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l01857">task.h:1857</a></div></div>
+<div class="ttc" id="atask_8h_html_a366b302eba79d10b5ee2a3756f0fcc43"><div class="ttname"><a href="task_8h.html#a366b302eba79d10b5ee2a3756f0fcc43">vTaskSuspendAll</a></div><div class="ttdeci">void vTaskSuspendAll(void) PRIVILEGED_FUNCTION</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l02100">tasks.c:2100</a></div></div>
+<div class="ttc" id="atask_8h_html_ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a"><div class="ttname"><a href="task_8h.html#ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a">eNoAction</a></div><div class="ttdeci">@ eNoAction</div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l00100">task.h:100</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00057">57</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="ab72c363566113705c021596f90c6eb5a" name="ab72c363566113705c021596f90c6eb5a"></a>
@@ -292,10 +304,12 @@ Functions</h2></td></tr>
 <div class="line">        }                                                                               \</div>
 <div class="line">        portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );                    \</div>
 <div class="line">    }</div>
-<div class="ttc" id="aportmacro_8h_html_a31b4260dbc1823ba80b578f86eb15a98"><div class="ttname"><a href="portmacro_8h.html#a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</a></div><div class="ttdeci">#define portSET_INTERRUPT_MASK_FROM_ISR()</div><div class="ttdef"><b>Definition:</b> portmacro.h:98</div></div>
-<div class="ttc" id="aportmacro_8h_html_a646f89d4298e4f5afd522202b11cb2e6"><div class="ttname"><a href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></div><div class="ttdeci">unsigned long UBaseType_t</div><div class="ttdef"><b>Definition:</b> portmacro.h:57</div></div>
-<div class="ttc" id="atask_8h_html_a1ed9129068b96a909356bd0369c5ecb0"><div class="ttname"><a href="task_8h.html#a1ed9129068b96a909356bd0369c5ecb0">xTaskNotifyFromISR</a></div><div class="ttdeci">#define xTaskNotifyFromISR(xTaskToNotify, ulValue, eAction, pxHigherPriorityTaskWoken)</div><div class="ttdef"><b>Definition:</b> task.h:1948</div></div>
+<div class="ttc" id="aportmacro_8h_html_a31b4260dbc1823ba80b578f86eb15a98"><div class="ttname"><a href="portmacro_8h.html#a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</a></div><div class="ttdeci">#define portSET_INTERRUPT_MASK_FROM_ISR()</div><div class="ttdef"><b>Definition:</b> <a href="portmacro_8h_source.html#l00098">portmacro.h:98</a></div></div>
+<div class="ttc" id="aportmacro_8h_html_a646f89d4298e4f5afd522202b11cb2e6"><div class="ttname"><a href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></div><div class="ttdeci">unsigned long UBaseType_t</div><div class="ttdef"><b>Definition:</b> <a href="portmacro_8h_source.html#l00057">portmacro.h:57</a></div></div>
+<div class="ttc" id="atask_8h_html_a1ed9129068b96a909356bd0369c5ecb0"><div class="ttname"><a href="task_8h.html#a1ed9129068b96a909356bd0369c5ecb0">xTaskNotifyFromISR</a></div><div class="ttdeci">#define xTaskNotifyFromISR(xTaskToNotify, ulValue, eAction, pxHigherPriorityTaskWoken)</div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l01948">task.h:1948</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00072">72</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="aadd3cf567c5086402552c463c55dda7c" name="aadd3cf567c5086402552c463c55dda7c"></a>
@@ -340,6 +354,8 @@ Functions</h2></td></tr>
 <div class="line">        portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );                    \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00111">111</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="aa75273dfbcd92710254df0165ae1da5d" name="aa75273dfbcd92710254df0165ae1da5d"></a>
@@ -369,6 +385,8 @@ Functions</h2></td></tr>
 <div class="line">        }                                                                               \</div>
 <div class="line">        ( void ) <a class="code hl_function" href="task_8h.html#a003f8ae6d649225abd030cc76e1c7d0e">xTaskResumeAll</a>();</div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00096">96</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -387,8 +405,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac4183c0af266bc5ffbd4f3eb4a4d07c2" name="ac4183c0af266bc5ffbd4f3eb4a4d07c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4183c0af266bc5ffbd4f3eb4a4d07c2">&#9670;&nbsp;</a></span>prvBytesInBuffer()</h2>
+<a id="ab588e6a51ba9c8e7796aa05e5c600c36" name="ab588e6a51ba9c8e7796aa05e5c600c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab588e6a51ba9c8e7796aa05e5c600c36">&#9670;&nbsp;</a></span>prvBytesInBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,10 +429,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01189">1189</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
-<a id="a7f655ff13acb1a5614dbc7e7f43ecbb2" name="a7f655ff13acb1a5614dbc7e7f43ecbb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f655ff13acb1a5614dbc7e7f43ecbb2">&#9670;&nbsp;</a></span>prvInitialiseNewStreamBuffer()</h2>
+<a id="a788f6b7c88760204fc60aa514c5849b7" name="a788f6b7c88760204fc60aa514c5849b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a788f6b7c88760204fc60aa514c5849b7">&#9670;&nbsp;</a></span>prvInitialiseNewStreamBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -465,10 +485,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01209">1209</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
-<a id="a8ec163e54dc25c091dbff11c1b8f7a2c" name="a8ec163e54dc25c091dbff11c1b8f7a2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ec163e54dc25c091dbff11c1b8f7a2c">&#9670;&nbsp;</a></span>prvReadBytesFromBuffer()</h2>
+<a id="a7d74bf9ad861552245f1e382c4c0f7fa" name="a7d74bf9ad861552245f1e382c4c0f7fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d74bf9ad861552245f1e382c4c0f7fa">&#9670;&nbsp;</a></span>prvReadBytesFromBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -513,10 +535,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01134">1134</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
-<a id="aea486f3983538e061b22cce98612d8bc" name="aea486f3983538e061b22cce98612d8bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea486f3983538e061b22cce98612d8bc">&#9670;&nbsp;</a></span>prvReadMessageFromBuffer()</h2>
+<a id="a5823b1fb23f6468eb0447db4adb95ebd" name="a5823b1fb23f6468eb0447db4adb95ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5823b1fb23f6468eb0447db4adb95ebd">&#9670;&nbsp;</a></span>prvReadMessageFromBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -567,10 +591,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00918">918</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
-<a id="ab05b79124292dd7bed33fca7a92473c0" name="ab05b79124292dd7bed33fca7a92473c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab05b79124292dd7bed33fca7a92473c0">&#9670;&nbsp;</a></span>prvWriteBytesToBuffer()</h2>
+<a id="a4e311fb1b4587477fd167f249e02286b" name="a4e311fb1b4587477fd167f249e02286b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e311fb1b4587477fd167f249e02286b">&#9670;&nbsp;</a></span>prvWriteBytesToBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -609,10 +635,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01088">1088</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
-<a id="a1415b7e265e106aab476023f9a6cce6c" name="a1415b7e265e106aab476023f9a6cce6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1415b7e265e106aab476023f9a6cce6c">&#9670;&nbsp;</a></span>prvWriteMessageToBuffer()</h2>
+<a id="a0982313ee374e6edf9296d3ce4fefd3e" name="a0982313ee374e6edf9296d3ce4fefd3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0982313ee374e6edf9296d3ce4fefd3e">&#9670;&nbsp;</a></span>prvWriteMessageToBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -663,6 +691,8 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00661">661</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="ae0cd387d75e89534b6332aac4a3a03b3" name="ae0cd387d75e89534b6332aac4a3a03b3"></a>
@@ -680,6 +710,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01257">1257</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -699,6 +731,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01237">1237</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a7e66db41c3fd13acf3b9f814d650f77d" name="a7e66db41c3fd13acf3b9f814d650f77d"></a>
@@ -716,6 +750,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00359">359</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -745,6 +781,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01247">1247</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a5c473cb971d8a20b0528a1abc890833c" name="a5c473cb971d8a20b0528a1abc890833c"></a>
@@ -762,6 +800,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00494">494</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -797,6 +837,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00219">219</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a95465cd3702e3eae08afb8e69e1c6525" name="a95465cd3702e3eae08afb8e69e1c6525"></a>
@@ -814,6 +856,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00970">970</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -833,6 +877,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00993">993</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="afe4f32e931b684bc32189f086e5ec41c" name="afe4f32e931b684bc32189f086e5ec41c"></a>
@@ -850,6 +896,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00817">817</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -891,6 +939,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00713">713</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="adbcf08da91cb0b9c179d012e0c99237d" name="adbcf08da91cb0b9c179d012e0c99237d"></a>
@@ -918,6 +968,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01058">1058</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -959,6 +1011,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00861">861</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a05ed4d42963aa4aaf50e49700d44659c" name="a05ed4d42963aa4aaf50e49700d44659c"></a>
@@ -976,6 +1030,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00392">392</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1017,6 +1073,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00506">506</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a734bf1bcef16810abb6d53781b8f1f07" name="a734bf1bcef16810abb6d53781b8f1f07"></a>
@@ -1044,6 +1102,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l01028">1028</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>
@@ -1085,6 +1145,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00610">610</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a375b92e87b73351a6a30c8a2ba7d2ce0" name="a375b92e87b73351a6a30c8a2ba7d2ce0"></a>
@@ -1113,6 +1175,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00441">441</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
+
 </div>
 </div>
 <a id="a8fb90892c74eb94fb063b2a018a10509" name="a8fb90892c74eb94fb063b2a018a10509"></a>
@@ -1130,6 +1194,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stream__buffer_8c_source.html#l00470">470</a> of file <a class="el" href="stream__buffer_8c_source.html">stream_buffer.c</a>.</p>
 
 </div>
 </div>

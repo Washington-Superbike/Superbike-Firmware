@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_stream_buffer_set_trigger_level" xml:lang="en-US">
+<title>xStreamBufferSetTriggerLevel</title>
+<indexterm><primary>xStreamBufferSetTriggerLevel</primary></indexterm>
+
+<para><link linkend="_stream__buffer_8h">stream_buffer.h</link></para>
+
+<para><literallayout>
+BaseType_t <link linkend="_stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04">xStreamBufferSetTriggerLevel( StreamBufferHandle_t xStreamBuffer, size_t xTriggerLevel )</link>;
+</literallayout></para>
+
+<para>A stream buffer&apos;s trigger level is the number of bytes that must be in the stream buffer before a task that is blocked on the stream buffer to wait for data is moved out of the blocked state. For example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 1 then the task will be unblocked when a single byte is written to the buffer or the task&apos;s block time expires. As another example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 10 then the task will not be unblocked until the stream buffer contains at least 10 bytes or the task&apos;s block time expires. If a reading task&apos;s block time expires before the trigger level is reached then the task will still receive however many bytes are actually available. Setting a trigger level of 0 will result in a trigger level of 1 being used. It is not valid to specify a trigger level that is greater than the buffer size.</para>
+
+<para>A trigger level is set when the stream buffer is created, and can be modified using <link linkend="_stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04">xStreamBufferSetTriggerLevel()</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xStreamBuffer</entry><entry>
+<para>The handle of the stream buffer being updated.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTriggerLevel</entry><entry>
+<para>The new trigger level for the stream buffer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If xTriggerLevel was less than or equal to the stream buffer&apos;s length then the trigger level will be updated and pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</formalpara>
+</para>
+</section>

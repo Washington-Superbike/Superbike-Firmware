@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_heap_region" kind="struct" language="C++" prot="public">
+    <compoundname>HeapRegion</compoundname>
+    <includes refid="portable_8h" local="no">portable.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_heap_region_1aab323508c34642ebfb884a68441d97fc" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* HeapRegion::pucStartAddress</definition>
+        <argsstring></argsstring>
+        <name>pucStartAddress</name>
+        <qualifiedname>HeapRegion::pucStartAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/portable.h" line="124" column="9" bodyfile="FreeRTOS/portable.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_heap_region_1a5933b0fd422e70a92ceef839b89a757f" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t HeapRegion::xSizeInBytes</definition>
+        <argsstring></argsstring>
+        <name>xSizeInBytes</name>
+        <qualifiedname>HeapRegion::xSizeInBytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/portable.h" line="125" column="8" bodyfile="FreeRTOS/portable.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="FreeRTOS/portable.h" line="122" column="1" bodyfile="FreeRTOS/portable.h" bodystart="123" bodyend="126"/>
+    <listofallmembers>
+      <member refid="struct_heap_region_1aab323508c34642ebfb884a68441d97fc" prot="public" virt="non-virtual"><scope>HeapRegion</scope><name>pucStartAddress</name></member>
+      <member refid="struct_heap_region_1a5933b0fd422e70a92ceef839b89a757f" prot="public" virt="non-virtual"><scope>HeapRegion</scope><name>xSizeInBytes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__stack_macros_8h" xml:lang="en-US">
+<title>FreeRTOS/StackMacros.h File Reference</title>
+<indexterm><primary>FreeRTOS/StackMacros.h</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__stack_macros_8h_1a48d287f599f5c139ae0764f024368806">taskCHECK_FOR_STACK_OVERFLOW</link>()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__stack_macros_8h_1a48d287f599f5c139ae0764f024368806"/><section>
+    <title>taskCHECK_FOR_STACK_OVERFLOW</title>
+<indexterm><primary>taskCHECK_FOR_STACK_OVERFLOW</primary><secondary>StackMacros.h</secondary></indexterm>
+<indexterm><primary>StackMacros.h</primary><secondary>taskCHECK_FOR_STACK_OVERFLOW</secondary></indexterm>
+<para><computeroutput>#define taskCHECK_FOR_STACK_OVERFLOW( )</computeroutput></para><para>
+Definition at line <link linkend="__stack_macros_8h_source_1l00127">127</link> of file <link linkend="__stack_macros_8h_source">StackMacros.h</link>.</para>
+</section>
+</section>
+</section>

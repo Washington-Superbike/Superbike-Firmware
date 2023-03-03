@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__display_8ino" xml:lang="en-US">
+<title>Display.ino File Reference</title>
+<indexterm><primary>Display.ino</primary></indexterm>
+<para>
+
+<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;Display.h&quot;
+#include &quot;Main.h&quot;
+#include &quot;FreeRTOS_TEENSY4.h&quot;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask</link> (void *<link linkend="__main_8h_1aebb1e162e2ac30616875763e56823870">displayTaskWrap</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a756efac71e8cf83b5add1ffcb9035a20">setupDisplay</link> (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> <link linkend="__main_8h_1a25cab1c2dd63e90138b14fec27cecc4b">screen</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1ad2818acb0d1eb44a804059aa40c432b3">displayUpdate</link> (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> <link linkend="__main_8h_1a25cab1c2dd63e90138b14fec27cecc4b">screen</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a48f20f2ac1788f51aaa3aefd6c8ccb96">thermiDataPrint</link> (bool thermiDataPrint)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a1faaa02c20faaddf6f9e78859eb3cb0c">timePrint</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen</link> (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> <link linkend="__main_8h_1a25cab1c2dd63e90138b14fec27cecc4b">screen</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint</link> (int xPos, int yPos, String oldData, String newData)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1acf63fd6f02499d20156ded2a3582fb9b">eraseThenPrintSPEEDO</link> (int xPos, int yPos, String oldData, String newData)</para>
+</listitem>
+            <listitem><para>void <link linkend="__display_8ino_1a2fcaba5d0c64fb3389132dca04224211">manualScreenDataUpdater</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="__display_8ino_1ad609934bdce8f8169cc609cb7913f507">aux_voltage_read</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Washington Superbike </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>1-March-2023</para>
+</formalpara>
+<note><title>Note</title>
+
+<para>up all members to be able to use it without any trouble.</para>
+</note>
+<para><link linkend="_todo_1_todo000006">Todo</link> 
+<para>PLEASE remove the whole screen parameter situation. Change the whole value in the 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> Final Goal. </para>
+</para></para>
+<para>
+Definition in file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__display_8ino_1ad609934bdce8f8169cc609cb7913f507"/><section>
+    <title>aux_voltage_read()</title>
+<indexterm><primary>aux_voltage_read</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>aux_voltage_read</secondary></indexterm>
+<para><computeroutput>float aux_voltage_read ( )</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00265">265</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047"/><section>
+    <title>displayTask()</title>
+<indexterm><primary>displayTask</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>displayTask</secondary></indexterm>
+<para><computeroutput>void displayTask (void * displayTaskWrap)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00045">45</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1ad2818acb0d1eb44a804059aa40c432b3"/><section>
+    <title>displayUpdate()</title>
+<indexterm><primary>displayUpdate</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>displayUpdate</secondary></indexterm>
+<para><computeroutput>void displayUpdate (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00087">87</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d"/><section>
+    <title>eraseThenPrint()</title>
+<indexterm><primary>eraseThenPrint</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>eraseThenPrint</secondary></indexterm>
+<para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00229">229</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1acf63fd6f02499d20156ded2a3582fb9b"/><section>
+    <title>eraseThenPrintSPEEDO()</title>
+<indexterm><primary>eraseThenPrintSPEEDO</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>eraseThenPrintSPEEDO</secondary></indexterm>
+<para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a2fcaba5d0c64fb3389132dca04224211"/><section>
+    <title>manualScreenDataUpdater()</title>
+<indexterm><primary>manualScreenDataUpdater</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>manualScreenDataUpdater</secondary></indexterm>
+<para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00253">253</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a756efac71e8cf83b5add1ffcb9035a20"/><section>
+    <title>setupDisplay()</title>
+<indexterm><primary>setupDisplay</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>setupDisplay</secondary></indexterm>
+<para><computeroutput>void setupDisplay (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00055">55</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a"/><section>
+    <title>setupMeasurementScreen()</title>
+<indexterm><primary>setupMeasurementScreen</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>setupMeasurementScreen</secondary></indexterm>
+<para><computeroutput>void setupMeasurementScreen (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00196">196</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a48f20f2ac1788f51aaa3aefd6c8ccb96"/><section>
+    <title>thermiDataPrint()</title>
+<indexterm><primary>thermiDataPrint</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>thermiDataPrint</secondary></indexterm>
+<para><computeroutput>void thermiDataPrint (bool thermiDataPrint)</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00135">135</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+<anchor xml:id="__display_8ino_1a1faaa02c20faaddf6f9e78859eb3cb0c"/><section>
+    <title>timePrint()</title>
+<indexterm><primary>timePrint</primary><secondary>Display.ino</secondary></indexterm>
+<indexterm><primary>Display.ino</primary><secondary>timePrint</secondary></indexterm>
+<para><computeroutput>void timePrint ( )</computeroutput></para><para>
+Definition at line <link linkend="__display_8ino_source_1l00185">185</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+</section>
+</section>
+</section>

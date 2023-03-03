@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_event_group_clear_bits" xml:lang="en-US">
+<title>xEventGroupClearBits</title>
+<indexterm><primary>xEventGroupClearBits</primary></indexterm>
+
+<para><link linkend="_event__groups_8h">event_groups.h</link> <literallayout>
+   EventBits_t <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear )</link>;
+</literallayout></para>
+
+<para>Clear bits within an event group. This function cannot be called from an interrupt.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xEventGroup</entry><entry>
+<para>The event group in which the bits are to be cleared.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxBitsToClear</entry><entry>
+<para>A bitwise value that indicates the bit or bits to clear in the event group. For example, to clear bit 3 only, set uxBitsToClear to 0x08. To clear bit 3 and bit 0 set uxBitsToClear to 0x09.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the event group before the specified bits were cleared.</para>
+</formalpara>
+Example usage: <literallayout>
+  #define BIT_0 ( 1 &lt;&lt; 0 )
+  #define BIT_4 ( 1 &lt;&lt; 4 )
+
+  void aFunction( EventGroupHandle_t xEventGroup )
+  {
+  EventBits_t uxBits;
+
+    // Clear bit 0 and bit 4 in xEventGroup.
+    uxBits = xEventGroupClearBits(
+                            xEventGroup,    // The event group being updated.
+                            BIT_0 | BIT_4 );// The bits being cleared.
+
+    if( ( uxBits &amp; ( BIT_0 | BIT_4 ) ) == ( BIT_0 | BIT_4 ) )
+    {
+        // Both bit 0 and bit 4 were set before <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits()</link> was
+        // called.  Both will now be clear (not set).
+    }
+    else if( ( uxBits &amp; BIT_0 ) != 0 )
+    {
+        // Bit 0 was set before <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits()</link> was called.  It will
+        // now be clear.
+    }
+    else if( ( uxBits &amp; BIT_4 ) != 0 )
+    {
+        // Bit 4 was set before <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits()</link> was called.  It will
+        // now be clear.
+    }
+    else
+    {
+        // Neither bit 0 nor bit 4 were set in the first place.
+    }
+  }
+  </literallayout> </para>
+</section>

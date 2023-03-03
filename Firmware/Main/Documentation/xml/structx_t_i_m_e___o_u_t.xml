@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structx_t_i_m_e___o_u_t" kind="struct" language="C++" prot="public">
+    <compoundname>xTIME_OUT</compoundname>
+    <includes refid="task_8h" local="no">task.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structx_t_i_m_e___o_u_t_1a9289c6f97096a9b3e3fc705d0bc5a160" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xTIME_OUT::xOverflowCount</definition>
+        <argsstring></argsstring>
+        <name>xOverflowCount</name>
+        <qualifiedname>xTIME_OUT::xOverflowCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="112" column="12" bodyfile="FreeRTOS/task.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_i_m_e___o_u_t_1a3464939ca050f7bcc6ffe0d8d3766337" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref></type>
+        <definition>TickType_t xTIME_OUT::xTimeOnEntering</definition>
+        <argsstring></argsstring>
+        <name>xTimeOnEntering</name>
+        <qualifiedname>xTIME_OUT::xTimeOnEntering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="113" column="12" bodyfile="FreeRTOS/task.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="FreeRTOS/task.h" line="110" column="1" bodyfile="FreeRTOS/task.h" bodystart="111" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structx_t_i_m_e___o_u_t_1a9289c6f97096a9b3e3fc705d0bc5a160" prot="public" virt="non-virtual"><scope>xTIME_OUT</scope><name>xOverflowCount</name></member>
+      <member refid="structx_t_i_m_e___o_u_t_1a3464939ca050f7bcc6ffe0d8d3766337" prot="public" virt="non-virtual"><scope>xTIME_OUT</scope><name>xTimeOnEntering</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

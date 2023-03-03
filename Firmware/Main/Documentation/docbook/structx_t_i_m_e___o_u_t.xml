@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structx_t_i_m_e___o_u_t" xml:lang="en-US">
+<title>xTIME_OUT Struct Reference</title>
+<indexterm><primary>xTIME_OUT</primary></indexterm>
+<para>
+<computeroutput>#include &lt;task.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_structx_t_i_m_e___o_u_t_1a9289c6f97096a9b3e3fc705d0bc5a160">xOverflowCount</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_structx_t_i_m_e___o_u_t_1a3464939ca050f7bcc6ffe0d8d3766337">xTimeOnEntering</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_task_8h_source_1l00110">110</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structx_t_i_m_e___o_u_t_1a9289c6f97096a9b3e3fc705d0bc5a160"/><section>
+    <title>xOverflowCount</title>
+<indexterm><primary>xOverflowCount</primary><secondary>xTIME_OUT</secondary></indexterm>
+<indexterm><primary>xTIME_OUT</primary><secondary>xOverflowCount</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xTIME_OUT::xOverflowCount</computeroutput></para><para>
+Definition at line <link linkend="_task_8h_source_1l00112">112</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
+</section>
+<anchor xml:id="_structx_t_i_m_e___o_u_t_1a3464939ca050f7bcc6ffe0d8d3766337"/><section>
+    <title>xTimeOnEntering</title>
+<indexterm><primary>xTimeOnEntering</primary><secondary>xTIME_OUT</secondary></indexterm>
+<indexterm><primary>xTIME_OUT</primary><secondary>xTimeOnEntering</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTIME_OUT::xTimeOnEntering</computeroutput></para><para>
+Definition at line <link linkend="_task_8h_source_1l00113">113</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_task_8h">task.h</link></section>
+</section>

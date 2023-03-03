@@ -81,7 +81,9 @@ $(function() {
 <code>#include &quot;<a class="el" href="_free_r_t_o_s_8h_source.html">FreeRTOS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="task_8h_source.html">task.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="queue_8h_source.html">queue.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="queue_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_queue_pointers.html">QueuePointers</a></td></tr>
@@ -131,22 +133,22 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7297c84a7c770ed57567bad1d3e2faf6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a7297c84a7c770ed57567bad1d3e2faf6">prvUnlockQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a7297c84a7c770ed57567bad1d3e2faf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f21d4b7a21be0d109953120c93f6741"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a8f21d4b7a21be0d109953120c93f6741">prvIsQueueEmpty</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a8f21d4b7a21be0d109953120c93f6741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70546f6b48a8b715eae3dd84e0546045"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a70546f6b48a8b715eae3dd84e0546045">prvIsQueueFull</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a70546f6b48a8b715eae3dd84e0546045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77098159b7735e0c27e27aa7072376c6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a77098159b7735e0c27e27aa7072376c6">prvCopyDataToQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue, const void *pvItemToQueue, const <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xPosition) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a77098159b7735e0c27e27aa7072376c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a2e17b2b13d4878f7af1361437320e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ad9a2e17b2b13d4878f7af1361437320e">prvCopyDataFromQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue, void *const pvBuffer) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:ad9a2e17b2b13d4878f7af1361437320e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f632268707981dea3f177f5fba36e22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a0f632268707981dea3f177f5fba36e22">prvInitialiseNewQueue</a> (const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxQueueLength, const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxItemSize, uint8_t *pucQueueStorage, const uint8_t ucQueueType, <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxNewQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a0f632268707981dea3f177f5fba36e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13ea37841f55995c602f9977df964ed8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a13ea37841f55995c602f9977df964ed8">prvInitialiseMutex</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxNewQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a13ea37841f55995c602f9977df964ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8c0e4eed9899b6665cc563180074771"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ae8c0e4eed9899b6665cc563180074771">prvGetDisinheritPriorityAfterTimeout</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:ae8c0e4eed9899b6665cc563180074771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc5447bec23cc93aa61911b140273ee"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#aafc5447bec23cc93aa61911b140273ee">prvUnlockQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue)</td></tr>
+<tr class="separator:aafc5447bec23cc93aa61911b140273ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0e7fbbf62b3e12d60c4fcdaef1ad76"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#afd0e7fbbf62b3e12d60c4fcdaef1ad76">prvIsQueueEmpty</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxQueue)</td></tr>
+<tr class="separator:afd0e7fbbf62b3e12d60c4fcdaef1ad76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae726cc8b535fc7a601ee442fd2f7da53"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ae726cc8b535fc7a601ee442fd2f7da53">prvIsQueueFull</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxQueue)</td></tr>
+<tr class="separator:ae726cc8b535fc7a601ee442fd2f7da53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1908d5f670f2b73216a5f1fc78917ae"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ad1908d5f670f2b73216a5f1fc78917ae">prvCopyDataToQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue, const void *pvItemToQueue, const <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xPosition)</td></tr>
+<tr class="separator:ad1908d5f670f2b73216a5f1fc78917ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a305eea92fc333c62ed162f37ffa63e1d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a305eea92fc333c62ed162f37ffa63e1d">prvCopyDataFromQueue</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue, void *const pvBuffer)</td></tr>
+<tr class="separator:a305eea92fc333c62ed162f37ffa63e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4bcd737110dced391d9bcb7d246fb34"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#aa4bcd737110dced391d9bcb7d246fb34">prvInitialiseNewQueue</a> (const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxQueueLength, const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxItemSize, uint8_t *pucQueueStorage, const uint8_t ucQueueType, <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxNewQueue)</td></tr>
+<tr class="separator:aa4bcd737110dced391d9bcb7d246fb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af6d378a0b1fe9daca483a0a03b0f69"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a0af6d378a0b1fe9daca483a0a03b0f69">prvInitialiseMutex</a> (<a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *pxNewQueue)</td></tr>
+<tr class="separator:a0af6d378a0b1fe9daca483a0a03b0f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd61e286656a8956006b95556b604da"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a7dd61e286656a8956006b95556b604da">prvGetDisinheritPriorityAfterTimeout</a> (const <a class="el" href="queue_8c.html#ade16d14675fc1ac34af04a1162a6b883">Queue_t</a> *const pxQueue)</td></tr>
+<tr class="separator:a7dd61e286656a8956006b95556b604da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e54273dbe3f56b8bdc8f7abee67a871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a5e54273dbe3f56b8bdc8f7abee67a871">xQueueGenericReset</a> (<a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a> xQueue, <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xNewQueue)</td></tr>
 <tr class="separator:a5e54273dbe3f56b8bdc8f7abee67a871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac999cdfbb09fff396fa818bb9a30b4e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="queue_8h.html#a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#ac999cdfbb09fff396fa818bb9a30b4e5">xQueueGenericCreate</a> (const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxQueueLength, const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxItemSize, const uint8_t ucQueueType)</td></tr>
@@ -204,8 +206,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a591a492f5f9b83cdc8ed02b5c13a5af5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="queue_8c.html#a51b5b21c8a33be452f8b5c663e07c6f2">QueueRegistryItem_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#a591a492f5f9b83cdc8ed02b5c13a5af5">xQueueRegistry</a> [<a class="el" href="_free_r_t_o_s_config__default_8h.html#aa4b5138c4e42a180f0abd4f2455f90fb">configQUEUE_REGISTRY_SIZE</a>]</td></tr>
-<tr class="separator:a591a492f5f9b83cdc8ed02b5c13a5af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa255957b515c8fac6c33f319c3a3a2d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="queue_8c.html#a51b5b21c8a33be452f8b5c663e07c6f2">QueueRegistryItem_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8c.html#aa255957b515c8fac6c33f319c3a3a2d5">xQueueRegistry</a> [8]</td></tr>
+<tr class="separator:aa255957b515c8fac6c33f319c3a3a2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ab622d8c674f2a417a666a7ed89109e79" name="ab622d8c674f2a417a666a7ed89109e79"></a>
@@ -219,6 +221,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00034">34</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -249,10 +253,12 @@ Variables</h2></td></tr>
 <div class="line">        }                                                   \</div>
 <div class="line">    }                                                       \</div>
 <div class="line">    taskEXIT_CRITICAL()</div>
-<div class="ttc" id="aqueue_8c_html_a60a95aa91f84782416755f38616231fd"><div class="ttname"><a href="queue_8c.html#a60a95aa91f84782416755f38616231fd">queueLOCKED_UNMODIFIED</a></div><div class="ttdeci">#define queueLOCKED_UNMODIFIED</div><div class="ttdef"><b>Definition:</b> queue.c:53</div></div>
-<div class="ttc" id="aqueue_8c_html_acdb781ba6b38714cf41f7417de8fe6bf"><div class="ttname"><a href="queue_8c.html#acdb781ba6b38714cf41f7417de8fe6bf">queueUNLOCKED</a></div><div class="ttdeci">#define queueUNLOCKED</div><div class="ttdef"><b>Definition:</b> queue.c:52</div></div>
-<div class="ttc" id="atask_8h_html_ab7bf0ae866292ba8296091a9d5209689"><div class="ttname"><a href="task_8h.html#ab7bf0ae866292ba8296091a9d5209689">taskENTER_CRITICAL</a></div><div class="ttdeci">#define taskENTER_CRITICAL()</div><div class="ttdef"><b>Definition:</b> task.h:195</div></div>
+<div class="ttc" id="aqueue_8c_html_a60a95aa91f84782416755f38616231fd"><div class="ttname"><a href="queue_8c.html#a60a95aa91f84782416755f38616231fd">queueLOCKED_UNMODIFIED</a></div><div class="ttdeci">#define queueLOCKED_UNMODIFIED</div><div class="ttdef"><b>Definition:</b> <a href="queue_8c_source.html#l00053">queue.c:53</a></div></div>
+<div class="ttc" id="aqueue_8c_html_acdb781ba6b38714cf41f7417de8fe6bf"><div class="ttname"><a href="queue_8c.html#acdb781ba6b38714cf41f7417de8fe6bf">queueUNLOCKED</a></div><div class="ttdeci">#define queueUNLOCKED</div><div class="ttdef"><b>Definition:</b> <a href="queue_8c_source.html#l00052">queue.c:52</a></div></div>
+<div class="ttc" id="atask_8h_html_ab7bf0ae866292ba8296091a9d5209689"><div class="ttname"><a href="task_8h.html#ab7bf0ae866292ba8296091a9d5209689">taskENTER_CRITICAL</a></div><div class="ttdeci">#define taskENTER_CRITICAL()</div><div class="ttdef"><b>Definition:</b> <a href="task_8h_source.html#l00195">task.h:195</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00240">240</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a60a95aa91f84782416755f38616231fd" name="a60a95aa91f84782416755f38616231fd"></a>
@@ -266,6 +272,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00053">53</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -281,6 +289,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00082">82</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a0799077a434aea43f5cca3cda3625aa8" name="a0799077a434aea43f5cca3cda3625aa8"></a>
@@ -294,6 +304,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00065">65</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -309,6 +321,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00081">81</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="acdb781ba6b38714cf41f7417de8fe6bf" name="acdb781ba6b38714cf41f7417de8fe6bf"></a>
@@ -322,6 +336,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00052">52</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -340,6 +356,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00089">89</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="afe3f7afb2a02c085f2d634003902cbc0" name="afe3f7afb2a02c085f2d634003902cbc0"></a>
@@ -353,6 +371,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00064">64</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -368,6 +388,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00135">135</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -396,6 +418,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00157">157</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -458,10 +482,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02675">2675</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="ad9a2e17b2b13d4878f7af1361437320e" name="ad9a2e17b2b13d4878f7af1361437320e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9a2e17b2b13d4878f7af1361437320e">&#9670;&nbsp;</a></span>prvCopyDataFromQueue()</h2>
+<a id="a305eea92fc333c62ed162f37ffa63e1d" name="a305eea92fc333c62ed162f37ffa63e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a305eea92fc333c62ed162f37ffa63e1d">&#9670;&nbsp;</a></span>prvCopyDataFromQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -494,10 +520,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02151">2151</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a77098159b7735e0c27e27aa7072376c6" name="a77098159b7735e0c27e27aa7072376c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77098159b7735e0c27e27aa7072376c6">&#9670;&nbsp;</a></span>prvCopyDataToQueue()</h2>
+<a id="ad1908d5f670f2b73216a5f1fc78917ae" name="ad1908d5f670f2b73216a5f1fc78917ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1908d5f670f2b73216a5f1fc78917ae">&#9670;&nbsp;</a></span>prvCopyDataToQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -536,10 +564,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02072">2072</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="ae8c0e4eed9899b6665cc563180074771" name="ae8c0e4eed9899b6665cc563180074771"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8c0e4eed9899b6665cc563180074771">&#9670;&nbsp;</a></span>prvGetDisinheritPriorityAfterTimeout()</h2>
+<a id="a7dd61e286656a8956006b95556b604da" name="a7dd61e286656a8956006b95556b604da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd61e286656a8956006b95556b604da">&#9670;&nbsp;</a></span>prvGetDisinheritPriorityAfterTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -562,10 +592,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02047">2047</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a13ea37841f55995c602f9977df964ed8" name="a13ea37841f55995c602f9977df964ed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13ea37841f55995c602f9977df964ed8">&#9670;&nbsp;</a></span>prvInitialiseMutex()</h2>
+<a id="a0af6d378a0b1fe9daca483a0a03b0f69" name="a0af6d378a0b1fe9daca483a0a03b0f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af6d378a0b1fe9daca483a0a03b0f69">&#9670;&nbsp;</a></span>prvInitialiseMutex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -588,10 +620,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00473">473</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a0f632268707981dea3f177f5fba36e22" name="a0f632268707981dea3f177f5fba36e22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f632268707981dea3f177f5fba36e22">&#9670;&nbsp;</a></span>prvInitialiseNewQueue()</h2>
+<a id="aa4bcd737110dced391d9bcb7d246fb34" name="aa4bcd737110dced391d9bcb7d246fb34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4bcd737110dced391d9bcb7d246fb34">&#9670;&nbsp;</a></span>prvInitialiseNewQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,10 +676,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00429">429</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a8f21d4b7a21be0d109953120c93f6741" name="a8f21d4b7a21be0d109953120c93f6741"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f21d4b7a21be0d109953120c93f6741">&#9670;&nbsp;</a></span>prvIsQueueEmpty()</h2>
+<a id="afd0e7fbbf62b3e12d60c4fcdaef1ad76" name="afd0e7fbbf62b3e12d60c4fcdaef1ad76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0e7fbbf62b3e12d60c4fcdaef1ad76">&#9670;&nbsp;</a></span>prvIsQueueEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -668,10 +704,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02289">2289</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a70546f6b48a8b715eae3dd84e0546045" name="a70546f6b48a8b715eae3dd84e0546045"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70546f6b48a8b715eae3dd84e0546045">&#9670;&nbsp;</a></span>prvIsQueueFull()</h2>
+<a id="ae726cc8b535fc7a601ee442fd2f7da53" name="ae726cc8b535fc7a601ee442fd2f7da53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae726cc8b535fc7a601ee442fd2f7da53">&#9670;&nbsp;</a></span>prvIsQueueFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -694,10 +732,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02329">2329</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
-<a id="a7297c84a7c770ed57567bad1d3e2faf6" name="a7297c84a7c770ed57567bad1d3e2faf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7297c84a7c770ed57567bad1d3e2faf6">&#9670;&nbsp;</a></span>prvUnlockQueue()</h2>
+<a id="aafc5447bec23cc93aa61911b140273ee" name="aafc5447bec23cc93aa61911b140273ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc5447bec23cc93aa61911b140273ee">&#9670;&nbsp;</a></span>prvUnlockQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -720,6 +760,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02169">2169</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a6e857ec4dd73c5c250924e92885c2433" name="a6e857ec4dd73c5c250924e92885c2433"></a>
@@ -737,6 +779,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02037">2037</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -756,6 +800,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02017">2017</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a4158a6134c9d1c60ffdb18d279d475b1" name="a4158a6134c9d1c60ffdb18d279d475b1"></a>
@@ -773,6 +819,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01928">1928</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -792,6 +840,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01961">1961</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a27d6fb77ce7a0b5a16f6471730d33201" name="a27d6fb77ce7a0b5a16f6471730d33201"></a>
@@ -809,6 +859,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01944">1944</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -838,6 +890,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02646">2646</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a35c0b4f9a0e940cb3a86ca4c5e84c41c" name="a35c0b4f9a0e940cb3a86ca4c5e84c41c"></a>
@@ -855,6 +909,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01973">1973</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -884,6 +940,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02027">2027</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="ac695c7cde3c32b32a1db4689239603ed" name="ac695c7cde3c32b32a1db4689239603ed"></a>
@@ -901,6 +959,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02703">2703</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -936,6 +996,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02735">2735</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a94632b0b3d9fc1961140bd2f6bc01fea" name="a94632b0b3d9fc1961140bd2f6bc01fea"></a>
@@ -964,6 +1026,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00721">721</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a2cde35e52724005fa736c80f8c9bc9ee" name="a2cde35e52724005fa736c80f8c9bc9ee"></a>
@@ -981,6 +1045,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00503">503</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1016,6 +1082,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00368">368</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a5e54273dbe3f56b8bdc8f7abee67a871" name="a5e54273dbe3f56b8bdc8f7abee67a871"></a>
@@ -1043,6 +1111,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00255">255</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1084,6 +1154,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00747">747</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a0fb58b25eb396a5cf8e1688b7e1a56cb" name="a0fb58b25eb396a5cf8e1688b7e1a56cb"></a>
@@ -1124,6 +1196,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00957">957</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a4df49fafb6ba4400ede6f2d07a40865f" name="a4df49fafb6ba4400ede6f2d07a40865f"></a>
@@ -1152,6 +1226,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01108">1108</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a73ad84b979640a8c3f79dc253e0fa9b5" name="a73ad84b979640a8c3f79dc253e0fa9b5"></a>
@@ -1169,6 +1245,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00596">596</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1188,6 +1266,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02310">2310</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="a76bbe8ebd21b3e89784e865d06f1058c" name="a76bbe8ebd21b3e89784e865d06f1058c"></a>
@@ -1205,6 +1285,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l02350">2350</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1240,6 +1322,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01634">1634</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="af67763957452955ac663c374d71278ce" name="af67763957452955ac663c374d71278ce"></a>
@@ -1267,6 +1351,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01874">1874</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1302,6 +1388,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01273">1273</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="ac61ec62828e70ed35d18559a35550462" name="ac61ec62828e70ed35d18559a35550462"></a>
@@ -1336,6 +1424,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01783">1783</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <a id="ade45e48664e5ec17ea091f00cd34394f" name="ade45e48664e5ec17ea091f00cd34394f"></a>
@@ -1363,6 +1453,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l01414">1414</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>
@@ -1392,20 +1484,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00651">651</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a591a492f5f9b83cdc8ed02b5c13a5af5" name="a591a492f5f9b83cdc8ed02b5c13a5af5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a591a492f5f9b83cdc8ed02b5c13a5af5">&#9670;&nbsp;</a></span>xQueueRegistry</h2>
+<a id="aa255957b515c8fac6c33f319c3a3a2d5" name="aa255957b515c8fac6c33f319c3a3a2d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa255957b515c8fac6c33f319c3a3a2d5">&#9670;&nbsp;</a></span>xQueueRegistry</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="queue_8c.html#a51b5b21c8a33be452f8b5c663e07c6f2">QueueRegistryItem_t</a> xQueueRegistry[<a class="el" href="_free_r_t_o_s_config__default_8h.html#aa4b5138c4e42a180f0abd4f2455f90fb">configQUEUE_REGISTRY_SIZE</a>]</td>
+          <td class="memname"><a class="el" href="queue_8c.html#a51b5b21c8a33be452f8b5c663e07c6f2">QueueRegistryItem_t</a> xQueueRegistry[ 8]</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="queue_8c_source.html#l00162">162</a> of file <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
 
 </div>
 </div>

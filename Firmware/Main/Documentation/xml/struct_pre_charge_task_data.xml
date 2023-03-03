@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_pre_charge_task_data" kind="struct" language="C++" prot="public">
+    <compoundname>PreChargeTaskData</compoundname>
+    <includes refid="_precharge_8h" local="no">Precharge.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref></type>
+        <definition>BMSStatus PreChargeTaskData::bmsStatus</definition>
+        <argsstring></argsstring>
+        <name>bmsStatus</name>
+        <qualifiedname>PreChargeTaskData::bmsStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="47" column="13" bodyfile="Precharge.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref></type>
+        <definition>MotorTemps PreChargeTaskData::motorTemps</definition>
+        <argsstring></argsstring>
+        <name>motorTemps</name>
+        <qualifiedname>PreChargeTaskData::motorTemps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="48" column="14" bodyfile="Precharge.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref></type>
+        <definition>CellVoltages PreChargeTaskData::cellVoltages</definition>
+        <argsstring></argsstring>
+        <name>cellVoltages</name>
+        <qualifiedname>PreChargeTaskData::cellVoltages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="49" column="16" bodyfile="Precharge.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::motorControllerBatteryVoltage</definition>
+        <argsstring></argsstring>
+        <name>motorControllerBatteryVoltage</name>
+        <qualifiedname>PreChargeTaskData::motorControllerBatteryVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="50" column="9" bodyfile="Precharge.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::angle_X</definition>
+        <argsstring></argsstring>
+        <name>angle_X</name>
+        <qualifiedname>PreChargeTaskData::angle_X</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="51" column="9" bodyfile="Precharge.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::angle_Y</definition>
+        <argsstring></argsstring>
+        <name>angle_Y</name>
+        <qualifiedname>PreChargeTaskData::angle_Y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="52" column="9" bodyfile="Precharge.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RateRoll</definition>
+        <argsstring></argsstring>
+        <name>RateRoll</name>
+        <qualifiedname>PreChargeTaskData::RateRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="53" column="9" bodyfile="Precharge.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RatePitch</definition>
+        <argsstring></argsstring>
+        <name>RatePitch</name>
+        <qualifiedname>PreChargeTaskData::RatePitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="54" column="9" bodyfile="Precharge.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RateYaw</definition>
+        <argsstring></argsstring>
+        <name>RateYaw</name>
+        <qualifiedname>PreChargeTaskData::RateYaw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="55" column="9" bodyfile="Precharge.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RateCalibrationRoll</definition>
+        <argsstring></argsstring>
+        <name>RateCalibrationRoll</name>
+        <qualifiedname>PreChargeTaskData::RateCalibrationRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="57" column="9" bodyfile="Precharge.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RateCalibrationPitch</definition>
+        <argsstring></argsstring>
+        <name>RateCalibrationPitch</name>
+        <qualifiedname>PreChargeTaskData::RateCalibrationPitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="58" column="9" bodyfile="Precharge.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::RateCalibrationYaw</definition>
+        <argsstring></argsstring>
+        <name>RateCalibrationYaw</name>
+        <qualifiedname>PreChargeTaskData::RateCalibrationYaw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="59" column="9" bodyfile="Precharge.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* PreChargeTaskData::RateCalibrationNumber</definition>
+        <argsstring></argsstring>
+        <name>RateCalibrationNumber</name>
+        <qualifiedname>PreChargeTaskData::RateCalibrationNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="61" column="7" bodyfile="Precharge.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::AccX</definition>
+        <argsstring></argsstring>
+        <name>AccX</name>
+        <qualifiedname>PreChargeTaskData::AccX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="62" column="9" bodyfile="Precharge.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::AccY</definition>
+        <argsstring></argsstring>
+        <name>AccY</name>
+        <qualifiedname>PreChargeTaskData::AccY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="63" column="9" bodyfile="Precharge.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::AccZ</definition>
+        <argsstring></argsstring>
+        <name>AccZ</name>
+        <qualifiedname>PreChargeTaskData::AccZ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="64" column="9" bodyfile="Precharge.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::AngleRoll</definition>
+        <argsstring></argsstring>
+        <name>AngleRoll</name>
+        <qualifiedname>PreChargeTaskData::AngleRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="65" column="9" bodyfile="Precharge.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::AnglePitch</definition>
+        <argsstring></argsstring>
+        <name>AnglePitch</name>
+        <qualifiedname>PreChargeTaskData::AnglePitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="66" column="9" bodyfile="Precharge.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::KalmanAngleRoll</definition>
+        <argsstring></argsstring>
+        <name>KalmanAngleRoll</name>
+        <qualifiedname>PreChargeTaskData::KalmanAngleRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="68" column="9" bodyfile="Precharge.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::KalmanUncertaintyAngleRoll</definition>
+        <argsstring></argsstring>
+        <name>KalmanUncertaintyAngleRoll</name>
+        <qualifiedname>PreChargeTaskData::KalmanUncertaintyAngleRoll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="69" column="9" bodyfile="Precharge.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::KalmanAnglePitch</definition>
+        <argsstring></argsstring>
+        <name>KalmanAnglePitch</name>
+        <qualifiedname>PreChargeTaskData::KalmanAnglePitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="70" column="9" bodyfile="Precharge.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::KalmanUncertaintyAnglePitch</definition>
+        <argsstring></argsstring>
+        <name>KalmanUncertaintyAnglePitch</name>
+        <qualifiedname>PreChargeTaskData::KalmanUncertaintyAnglePitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="71" column="9" bodyfile="Precharge.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* PreChargeTaskData::Kalman1DOutput</definition>
+        <argsstring></argsstring>
+        <name>Kalman1DOutput</name>
+        <qualifiedname>PreChargeTaskData::Kalman1DOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Precharge.h" line="72" column="9" bodyfile="Precharge.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>BMSStatus</label>
+        <link refid="struct_b_m_s_status"/>
+      </node>
+      <node id="4">
+        <label>CellVoltages</label>
+        <link refid="struct_cell_voltages"/>
+      </node>
+      <node id="3">
+        <label>MotorTemps</label>
+        <link refid="struct_motor_temps"/>
+      </node>
+      <node id="1">
+        <label>PreChargeTaskData</label>
+        <link refid="struct_pre_charge_task_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>bmsStatus</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>motorTemps</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>cellVoltages</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Precharge.h" line="46" column="1" bodyfile="Precharge.h" bodystart="46" bodyend="73"/>
+    <listofallmembers>
+      <member refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AccX</name></member>
+      <member refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AccY</name></member>
+      <member refid="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AccZ</name></member>
+      <member refid="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>angle_X</name></member>
+      <member refid="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>angle_Y</name></member>
+      <member refid="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AnglePitch</name></member>
+      <member refid="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AngleRoll</name></member>
+      <member refid="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>bmsStatus</name></member>
+      <member refid="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>cellVoltages</name></member>
+      <member refid="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>Kalman1DOutput</name></member>
+      <member refid="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>KalmanAnglePitch</name></member>
+      <member refid="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>KalmanAngleRoll</name></member>
+      <member refid="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>KalmanUncertaintyAnglePitch</name></member>
+      <member refid="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>KalmanUncertaintyAngleRoll</name></member>
+      <member refid="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>motorControllerBatteryVoltage</name></member>
+      <member refid="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>motorTemps</name></member>
+      <member refid="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateCalibrationNumber</name></member>
+      <member refid="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateCalibrationPitch</name></member>
+      <member refid="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateCalibrationRoll</name></member>
+      <member refid="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateCalibrationYaw</name></member>
+      <member refid="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RatePitch</name></member>
+      <member refid="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateRoll</name></member>
+      <member refid="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>RateYaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

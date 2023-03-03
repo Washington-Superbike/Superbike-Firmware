@@ -1,3 +1,29 @@
+/**
+   @file DataLogging.h
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
+
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Goal 1.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 
 #ifndef DATALOG_H_
 #define DATALOG_H_
@@ -27,6 +53,11 @@ const uint8_t SD_CS_PIN = SDCARD_SS_PIN;
 
 const size_t BUF_DIM = 4096;
 
+//Represents the serial connection to the sd card and any internal buffers
+SdFat sd;
+
+unsigned long epochTime; //represents the time that recording started
+
 //Clarification on how SD card stores data: each block is generally about 512 or 1024 bytes. SdFat stores an internal buffer of 512 and when the limit is reached
 //only then does it save the data onto the sd card. This is an important trade off. if we are less than that value and the bike suddenly turns off, those <512 bytes aren't stored
 //unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv)
@@ -55,10 +86,13 @@ typedef struct {
   int writersLen;
 } DataLoggingTaskData;
 
+void dataLoggingTask(void *dlData);
 bool startSD();
 bool openFile(CSVWriter *writer);
 void closeFile(CSVWriter *writer);
-void dataLoggingTask(void *dlData);
-void addRecordToCSV(CSVWriter *writer, int sTime, float record);
-
+void saveFile(CSVWriter *writer);
+void saveFiles(CSVWriter **writers, int writersLen);
+void printFile(CSVWriter *writer);
+void addRecord(CSVWriter *writer, int sTime);
+void startRecording();
 #endif

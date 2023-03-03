@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_message_buffer_receive_from_i_s_r" xml:lang="en-US">
+<title>xMessageBufferReceiveFromISR</title>
+<indexterm><primary>xMessageBufferReceiveFromISR</primary></indexterm>
+
+<para><link linkend="_message__buffer_8h">message_buffer.h</link></para>
+
+<para><literallayout>
+size_t <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR( MessageBufferHandle_t xMessageBuffer,
+                                     void *pvRxData,
+                                     size_t xBufferLengthBytes,
+                                     BaseType_t *pxHigherPriorityTaskWoken )</link>;
+</literallayout></para>
+
+<para>An interrupt safe version of the API function that receives a discrete message from a message buffer. Messages can be of variable length and are copied out of the buffer.</para>
+
+<para><emphasis><emphasis role="bold">NOTE</emphasis></emphasis>: Uniquely among FreeRTOS objects, the stream buffer implementation (so also the message buffer implementation, as message buffers are built on top of stream buffers) assumes there is only one task or interrupt that will write to the buffer (the writer), and only one task or interrupt that will read from the buffer (the reader). It is safe for the writer and reader to be different tasks or interrupts, but, unlike other FreeRTOS objects, it is not safe to have multiple different writers or multiple different readers. If there are to be multiple different writers then the application writer must place each call to a writing API function (such as <link linkend="_message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605">xMessageBufferSend()</link>) inside a critical section and set the send block time to 0. Likewise, if there are to be multiple different readers then the application writer must place each call to a reading API function (such as xMessageBufferRead()) inside a critical section and set the receive block time to 0.</para>
+
+<para>Use <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive()</link> to read from a message buffer from a task. Use <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> to read from a message buffer from an interrupt service routine (ISR).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer from which a message is being received.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvRxData</entry><entry>
+<para>A pointer to the buffer into which the received message is to be copied.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xBufferLengthBytes</entry><entry>
+<para>The length of the buffer pointed to by the pvRxData parameter. This sets the maximum length of the message that can be received. If xBufferLengthBytes is too small to hold the next message then the message will be left in the message buffer and 0 will be returned.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pxHigherPriorityTaskWoken</entry><entry>
+<para>It is possible that a message buffer will have a task blocked on it waiting for space to become available. Calling <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> can make space available, and so cause a task that is waiting for space to leave the Blocked state. If calling <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> causes a task to leave the Blocked state, and the unblocked task has a priority higher than the currently executing task (the task that was interrupted), then, internally, <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> will set *pxHigherPriorityTaskWoken to pdTRUE. If <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> sets this value to pdTRUE, then normally a context switch should be performed before the interrupt is exited. That will ensure the interrupt returns directly to the highest priority Ready state task. *pxHigherPriorityTaskWoken should be set to pdFALSE before it is passed into the function. See the code example below for an example.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The length, in bytes, of the message read from the message buffer, if any.</para>
+</formalpara>
+Example use: <literallayout>
+// A message buffer that has already been created.
+MessageBuffer_t xMessageBuffer;
+
+void vAnInterruptServiceRoutine( void )
+{
+uint8_t ucRxData[ 20 ];
+size_t xReceivedBytes;
+BaseType_t xHigherPriorityTaskWoken = pdFALSE;  // Initialised to pdFALSE.
+
+    // Receive the next message from the message buffer.
+    xReceivedBytes = xMessageBufferReceiveFromISR( xMessageBuffer,
+                                                  ( void * ) ucRxData,
+                                                  sizeof( ucRxData ),
+                                                  &amp;xHigherPriorityTaskWoken );
+
+    if( xReceivedBytes &gt; 0 )
+    {
+        // A ucRxData contains a message that is xReceivedBytes long.  Process
+        // the message here....
+    }
+
+    // If xHigherPriorityTaskWoken was set to pdTRUE inside
+    // <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR()</link> then a task that has a priority above the
+    // priority of the currently executing task was unblocked and a context
+    // switch should be performed to ensure the ISR returns to the unblocked
+    // task.  In most FreeRTOS ports this is done by simply passing
+    // xHigherPriorityTaskWoken into taskYIELD_FROM_ISR(), which will test the
+    // variables value, and perform the context switch if necessary.  Check the
+    // documentation for the port in use for port specific instructions.
+    taskYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+}
+</literallayout> </para>
+</section>

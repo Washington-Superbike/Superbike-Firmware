@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structx_t_a_s_k___s_t_a_t_u_s" kind="struct" language="C++" prot="public">
+    <compoundname>xTASK_STATUS</compoundname>
+    <includes refid="task_8h" local="no">task.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1ac57f825f365c3c64bba827285fe3c2a0" prot="public" static="no" mutable="no">
+        <type><ref refid="task_8h_1a25b35e6e19ecf894173e7ff95edb96ef" kindref="member">TaskHandle_t</ref></type>
+        <definition>TaskHandle_t xTASK_STATUS::xHandle</definition>
+        <argsstring></argsstring>
+        <name>xHandle</name>
+        <qualifiedname>xTASK_STATUS::xHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="147" column="14" bodyfile="FreeRTOS/task.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1ad272663e2560bd9ea088384a39ba6192" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* xTASK_STATUS::pcTaskName</definition>
+        <argsstring></argsstring>
+        <name>pcTaskName</name>
+        <qualifiedname>xTASK_STATUS::pcTaskName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="148" column="12" bodyfile="FreeRTOS/task.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1acd44468ba37270b04f83d0833c098057" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t xTASK_STATUS::xTaskNumber</definition>
+        <argsstring></argsstring>
+        <name>xTaskNumber</name>
+        <qualifiedname>xTASK_STATUS::xTaskNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="149" column="13" bodyfile="FreeRTOS/task.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1a727e904e3afe49472b0fc6a4e96439cb" prot="public" static="no" mutable="no">
+        <type><ref refid="task_8h_1a1749369458e2282a22e862a619a3892c" kindref="member">eTaskState</ref></type>
+        <definition>eTaskState xTASK_STATUS::eCurrentState</definition>
+        <argsstring></argsstring>
+        <name>eCurrentState</name>
+        <qualifiedname>xTASK_STATUS::eCurrentState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="150" column="12" bodyfile="FreeRTOS/task.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1a39df647234fc0d6de5852042a2741a94" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t xTASK_STATUS::uxCurrentPriority</definition>
+        <argsstring></argsstring>
+        <name>uxCurrentPriority</name>
+        <qualifiedname>xTASK_STATUS::uxCurrentPriority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="151" column="13" bodyfile="FreeRTOS/task.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1a692f4c8957b7270f1579cdee63ff287e" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t xTASK_STATUS::uxBasePriority</definition>
+        <argsstring></argsstring>
+        <name>uxBasePriority</name>
+        <qualifiedname>xTASK_STATUS::uxBasePriority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="152" column="13" bodyfile="FreeRTOS/task.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1a92ab83f4f376c255dedf8e06a78261f7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t xTASK_STATUS::ulRunTimeCounter</definition>
+        <argsstring></argsstring>
+        <name>ulRunTimeCounter</name>
+        <qualifiedname>xTASK_STATUS::ulRunTimeCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="153" column="10" bodyfile="FreeRTOS/task.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1a0ee59674d2cc57d3a5a29c777d5452ed" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1aa73b01e0200940d619095fb74fb3030b" kindref="member">StackType_t</ref> *</type>
+        <definition>StackType_t* xTASK_STATUS::pxStackBase</definition>
+        <argsstring></argsstring>
+        <name>pxStackBase</name>
+        <qualifiedname>xTASK_STATUS::pxStackBase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="154" column="13" bodyfile="FreeRTOS/task.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_t_a_s_k___s_t_a_t_u_s_1aaad57afd4a629d2404e1cff97891c571" prot="public" static="no" mutable="no">
+        <type><ref refid="_free_r_t_o_s_8h_1ae4e85bffd36d76cf2796092f0ccd784a" kindref="member">configSTACK_DEPTH_TYPE</ref></type>
+        <definition>configSTACK_DEPTH_TYPE xTASK_STATUS::usStackHighWaterMark</definition>
+        <argsstring></argsstring>
+        <name>usStackHighWaterMark</name>
+        <qualifiedname>xTASK_STATUS::usStackHighWaterMark</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="155" column="24" bodyfile="FreeRTOS/task.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>tskTaskControlBlock</label>
+        <link refid="structtsk_task_control_block"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>xEventListItem</edgelabel>
+          <edgelabel>xStateListItem</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xLIST</label>
+        <link refid="structx_l_i_s_t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pxIndex</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>xListEnd</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xLIST_ITEM</label>
+        <link refid="structx_l_i_s_t___i_t_e_m"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pxNext</edgelabel>
+          <edgelabel>pxPrevious</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pxContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xMINI_LIST_ITEM</label>
+        <link refid="structx_m_i_n_i___l_i_s_t___i_t_e_m"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>pxNext</edgelabel>
+          <edgelabel>pxPrevious</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xTASK_STATUS</label>
+        <link refid="structx_t_a_s_k___s_t_a_t_u_s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xHandle</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="FreeRTOS/task.h" line="145" column="1" bodyfile="FreeRTOS/task.h" bodystart="146" bodyend="156"/>
+    <listofallmembers>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1a727e904e3afe49472b0fc6a4e96439cb" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>eCurrentState</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1ad272663e2560bd9ea088384a39ba6192" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>pcTaskName</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1a0ee59674d2cc57d3a5a29c777d5452ed" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>pxStackBase</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1a92ab83f4f376c255dedf8e06a78261f7" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>ulRunTimeCounter</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1aaad57afd4a629d2404e1cff97891c571" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>usStackHighWaterMark</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1a692f4c8957b7270f1579cdee63ff287e" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>uxBasePriority</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1a39df647234fc0d6de5852042a2741a94" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>uxCurrentPriority</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1ac57f825f365c3c64bba827285fe3c2a0" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>xHandle</name></member>
+      <member refid="structx_t_a_s_k___s_t_a_t_u_s_1acd44468ba37270b04f83d0833c098057" prot="public" virt="non-virtual"><scope>xTASK_STATUS</scope><name>xTaskNumber</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

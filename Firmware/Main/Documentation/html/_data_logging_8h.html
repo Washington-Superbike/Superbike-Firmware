@@ -72,6 +72,9 @@ $(function() {
   <div class="headertitle"><div class="title">DataLogging.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;SdFat.h&quot;</code><br />
 </div>
 <p><a href="_data_logging_8h_source.html">Go to the source code of this file.</a></p>
@@ -111,16 +114,24 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a24f7ab7e53619e5770ad9acc25b9b819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask</a> (void *dlData)</td></tr>
+<tr class="separator:a24f7ab7e53619e5770ad9acc25b9b819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d2a3a213399ec010b89dede4ba4de77"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a0d2a3a213399ec010b89dede4ba4de77">startSD</a> ()</td></tr>
 <tr class="separator:a0d2a3a213399ec010b89dede4ba4de77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac579da51eca1f113da5d315ab23b8b1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#ac579da51eca1f113da5d315ab23b8b1e">openFile</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer)</td></tr>
 <tr class="separator:ac579da51eca1f113da5d315ab23b8b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10c88f7cc0c34cd0a584f78997f13827"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a10c88f7cc0c34cd0a584f78997f13827">closeFile</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer)</td></tr>
 <tr class="separator:a10c88f7cc0c34cd0a584f78997f13827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24f7ab7e53619e5770ad9acc25b9b819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask</a> (void *dlData)</td></tr>
-<tr class="separator:a24f7ab7e53619e5770ad9acc25b9b819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a714cf59e5bb8adc7e798d68a5d874049"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a714cf59e5bb8adc7e798d68a5d874049">addRecordToCSV</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer, int sTime, float record)</td></tr>
-<tr class="separator:a714cf59e5bb8adc7e798d68a5d874049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678245415389e1bbd75b088a980b008a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a678245415389e1bbd75b088a980b008a">saveFile</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer)</td></tr>
+<tr class="separator:a678245415389e1bbd75b088a980b008a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d8bf385131a3543793f22ee432100a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a52d8bf385131a3543793f22ee432100a">saveFiles</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> **writers, int writersLen)</td></tr>
+<tr class="separator:a52d8bf385131a3543793f22ee432100a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8777416fb5b01666e7b28ada9f3b552a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a8777416fb5b01666e7b28ada9f3b552a">printFile</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer)</td></tr>
+<tr class="separator:a8777416fb5b01666e7b28ada9f3b552a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa394fd0868d0e097f701cb3f21d9c451"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#aa394fd0868d0e097f701cb3f21d9c451">addRecord</a> (<a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *writer, int sTime)</td></tr>
+<tr class="separator:aa394fd0868d0e097f701cb3f21d9c451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91616c118b701c2afd9136393d1f19b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#ab91616c118b701c2afd9136393d1f19b">startRecording</a> ()</td></tr>
+<tr class="separator:ab91616c118b701c2afd9136393d1f19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -128,8 +139,26 @@ Variables</h2></td></tr>
 <tr class="separator:a587c91dc29e14d8227957fbe22af6f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888ed23a146630d5e36a08aed19ff638"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a888ed23a146630d5e36a08aed19ff638">BUF_DIM</a> = 4096</td></tr>
 <tr class="separator:a888ed23a146630d5e36a08aed19ff638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15e6b7e1f0fb2d1e0fe1654721bb5302"><td class="memItemLeft" align="right" valign="top">SdFat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a15e6b7e1f0fb2d1e0fe1654721bb5302">sd</a></td></tr>
+<tr class="separator:a15e6b7e1f0fb2d1e0fe1654721bb5302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b197693eeaad244ff381d5645b1c16"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_data_logging_8h.html#a90b197693eeaad244ff381d5645b1c16">epochTime</a></td></tr>
+<tr class="separator:a90b197693eeaad244ff381d5645b1c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Goal 1. <br  />
+ <br  />
+ Goal 2. <br  />
+ <br  />
+ Goal 3. <br  />
+ <br  />
+ Final Goal. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad345eeebe4d36d151827e130e6082a1b" name="ad345eeebe4d36d151827e130e6082a1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad345eeebe4d36d151827e130e6082a1b">&#9670;&nbsp;</a></span>BMS_VOLTAGE_LOG</h2>
 
@@ -141,6 +170,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00038">38</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -156,6 +187,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00033">33</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <a id="ab9b2c0322cedfd8d3cd1c9dbb513b10f" name="ab9b2c0322cedfd8d3cd1c9dbb513b10f"></a>
@@ -169,6 +202,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00037">37</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -184,6 +219,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00039">39</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <a id="aa98fafae382d16d375eeef356bf55917" name="aa98fafae382d16d375eeef356bf55917"></a>
@@ -197,6 +234,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00040">40</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -212,6 +251,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00036">36</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <a id="af7b33dd28efa07f171323d23a5f714d2" name="af7b33dd28efa07f171323d23a5f714d2"></a>
@@ -226,6 +267,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00042">42</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <a id="a2665461802b5e24f2d0f9d8f1ca8351d" name="a2665461802b5e24f2d0f9d8f1ca8351d"></a>
@@ -239,6 +282,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00041">41</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -259,17 +304,19 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" name="ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c"></a>FLOAT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00067">67</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a714cf59e5bb8adc7e798d68a5d874049" name="a714cf59e5bb8adc7e798d68a5d874049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a714cf59e5bb8adc7e798d68a5d874049">&#9670;&nbsp;</a></span>addRecordToCSV()</h2>
+<a id="aa394fd0868d0e097f701cb3f21d9c451" name="aa394fd0868d0e097f701cb3f21d9c451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa394fd0868d0e097f701cb3f21d9c451">&#9670;&nbsp;</a></span>addRecord()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void addRecordToCSV </td>
+          <td class="memname">void addRecord </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *&#160;</td>
           <td class="paramname"><em>writer</em>, </td>
@@ -278,13 +325,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sTime</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>record</em>&#160;</td>
+          <td class="paramname"><em>sTime</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -293,6 +334,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00095">95</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -312,6 +355,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00071">71</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
 </div>
 </div>
 <a id="a24f7ab7e53619e5770ad9acc25b9b819" name="a24f7ab7e53619e5770ad9acc25b9b819"></a>
@@ -329,6 +374,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00033">33</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -348,6 +395,97 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00065">65</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
+</div>
+</div>
+<a id="a8777416fb5b01666e7b28ada9f3b552a" name="a8777416fb5b01666e7b28ada9f3b552a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8777416fb5b01666e7b28ada9f3b552a">&#9670;&nbsp;</a></span>printFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *&#160;</td>
+          <td class="paramname"><em>writer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00085">85</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
+</div>
+</div>
+<a id="a678245415389e1bbd75b088a980b008a" name="a678245415389e1bbd75b088a980b008a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678245415389e1bbd75b088a980b008a">&#9670;&nbsp;</a></span>saveFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveFile </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> *&#160;</td>
+          <td class="paramname"><em>writer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00075">75</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
+</div>
+</div>
+<a id="a52d8bf385131a3543793f22ee432100a" name="a52d8bf385131a3543793f22ee432100a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d8bf385131a3543793f22ee432100a">&#9670;&nbsp;</a></span>saveFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveFiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> **&#160;</td>
+          <td class="paramname"><em>writers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>writersLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00079">79</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
+</div>
+</div>
+<a id="ab91616c118b701c2afd9136393d1f19b" name="ab91616c118b701c2afd9136393d1f19b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91616c118b701c2afd9136393d1f19b">&#9670;&nbsp;</a></span>startRecording()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void startRecording </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00136">136</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
 </div>
 </div>
 <a id="a0d2a3a213399ec010b89dede4ba4de77" name="a0d2a3a213399ec010b89dede4ba4de77"></a>
@@ -365,6 +503,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00059">59</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -380,6 +520,40 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00054">54</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
+</div>
+</div>
+<a id="a90b197693eeaad244ff381d5645b1c16" name="a90b197693eeaad244ff381d5645b1c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b197693eeaad244ff381d5645b1c16">&#9670;&nbsp;</a></span>epochTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long epochTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00059">59</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
+</div>
+</div>
+<a id="a15e6b7e1f0fb2d1e0fe1654721bb5302" name="a15e6b7e1f0fb2d1e0fe1654721bb5302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15e6b7e1f0fb2d1e0fe1654721bb5302">&#9670;&nbsp;</a></span>sd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SdFat sd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00057">57</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+
 </div>
 </div>
 <a id="a587c91dc29e14d8227957fbe22af6f45" name="a587c91dc29e14d8227957fbe22af6f45"></a>
@@ -393,6 +567,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00048">48</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>

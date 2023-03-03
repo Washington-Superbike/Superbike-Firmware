@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_stream_buffer_spaces_available" kind="group">
+    <compoundname>xStreamBufferSpacesAvailable</compoundname>
+    <title>xStreamBufferSpacesAvailable</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="stream__buffer_8h" kindref="compound">stream_buffer.h</ref></para>
+<para><preformatted>
+size_t <ref refid="stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d" kindref="member">xStreamBufferSpacesAvailable( StreamBufferHandle_t xStreamBuffer )</ref>;
+</preformatted></para>
+<para>Queries a stream buffer to see how much free space it contains, which is equal to the amount of data that can be sent to the stream buffer before it is full.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xStreamBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the stream buffer being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes that can be written to the stream buffer before the stream buffer would be full. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

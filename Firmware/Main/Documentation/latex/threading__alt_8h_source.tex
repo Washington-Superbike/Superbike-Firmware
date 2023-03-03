@@ -2,25 +2,25 @@
 \label{threading__alt_8h_source}\index{FreeRTOS/threading\_alt.h@{FreeRTOS/threading\_alt.h}}
 \mbox{\hyperlink{threading__alt_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_THREADING\_ALT\_H\_\_}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_THREADING\_ALT\_H\_\_}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{semphr_8h}{semphr.h}}"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10     \mbox{\hyperlink{struct_queue_definition}{SemaphoreHandle\_t}} \mbox{\hyperlink{structmbedtls__threading__mutex__t_a65e31070213d56dca105a6727dce9ada}{mutex}};}
-\DoxyCodeLine{11     \textcolor{keywordtype}{char} \mbox{\hyperlink{structmbedtls__threading__mutex__t_abcb41b414dc71a45e5150ddeb3452b86}{is\_valid}};}
-\DoxyCodeLine{12 \} \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{threading__alt_8h_a827c7ec5b9ed1dfa35c77c0d3664de49}{mbedtls\_threading\_set\_alt}}( \textcolor{keywordtype}{void} ( * mutex\_init )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
-\DoxyCodeLine{15                                        \textcolor{keywordtype}{void} ( * mutex\_free )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
-\DoxyCodeLine{16                                        \textcolor{keywordtype}{int} ( * mutex\_lock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
-\DoxyCodeLine{17                                        \textcolor{keywordtype}{int} ( * mutex\_unlock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ) );}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ifndef \_\_THREADING\_ALT\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef \_\_THREADING\_ALT\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00002}00002 \textcolor{preprocessor}{\#define \_\_THREADING\_ALT\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{semphr_8h}{semphr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00008}\mbox{\hyperlink{structmbedtls__threading__mutex__t}{00008}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00010}\mbox{\hyperlink{structmbedtls__threading__mutex__t_a65e31070213d56dca105a6727dce9ada}{00010}}     \mbox{\hyperlink{struct_queue_definition}{SemaphoreHandle\_t}} \mbox{\hyperlink{structmbedtls__threading__mutex__t_a65e31070213d56dca105a6727dce9ada}{mutex}};}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00011}\mbox{\hyperlink{structmbedtls__threading__mutex__t_abcb41b414dc71a45e5150ddeb3452b86}{00011}}     \textcolor{keywordtype}{char} \mbox{\hyperlink{structmbedtls__threading__mutex__t_abcb41b414dc71a45e5150ddeb3452b86}{is\_valid}};}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00012}00012 \} \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}};}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00014}\mbox{\hyperlink{threading__alt_8h_a827c7ec5b9ed1dfa35c77c0d3664de49}{00014}} \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{threading__alt_8h_a827c7ec5b9ed1dfa35c77c0d3664de49}{mbedtls\_threading\_set\_alt}}( \textcolor{keywordtype}{void} ( * mutex\_init )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00015}00015                                        \textcolor{keywordtype}{void} ( * mutex\_free )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00016}00016                                        \textcolor{keywordtype}{int} ( * mutex\_lock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ),}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00017}00017                                        \textcolor{keywordtype}{int} ( * mutex\_unlock )( \mbox{\hyperlink{structmbedtls__threading__mutex__t}{mbedtls\_threading\_mutex\_t}} * ) );}
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{threading__alt_8h_source_l00020}00020 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ifndef \_\_THREADING\_ALT\_H\_\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

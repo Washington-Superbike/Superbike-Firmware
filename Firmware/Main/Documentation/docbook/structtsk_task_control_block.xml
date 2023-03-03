@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structtsk_task_control_block" xml:lang="en-US">
+<title>tskTaskControlBlock Struct Reference</title>
+<indexterm><primary>tskTaskControlBlock</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>volatile <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> * <link linkend="_structtsk_task_control_block_1a429a186c7f8e34aba1eef5e12d215b90">pxTopOfStack</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> <link linkend="_structtsk_task_control_block_1a16e0d20425d53ac78537e1fdb8834cf6">xStateListItem</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> <link linkend="_structtsk_task_control_block_1a1a1612b6081a13683808284d93a9b28f">xEventListItem</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structtsk_task_control_block_1a79187811e3d2a15595942e3b44237d85">uxPriority</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> * <link linkend="_structtsk_task_control_block_1a9a0d71a9f95dd0609f9911d9efd79134">pxStack</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_structtsk_task_control_block_1affa468d3857e94ddeeea03b1d454778b">pcTaskName</link> [20]</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structtsk_task_control_block_1a3f3169fa5667af8ee542304f8dd48553">uxTCBNumber</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structtsk_task_control_block_1a46894d7d546d614cc881212dc8039f41">uxTaskNumber</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structtsk_task_control_block_1a3ce2f9306ee315873114616fb49a0ed2">uxBasePriority</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structtsk_task_control_block_1a405a8451e393290ef92337cd77a3bf1f">uxMutexesHeld</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structtsk_task_control_block_1afa9621ce7433273ee2842a637cccb69e">pvThreadLocalStoragePointers</link> [5]</para>
+</listitem>
+            <listitem><para>volatile uint32_t <link linkend="_structtsk_task_control_block_1a7c571b992f90bfe77414cab060ca2af8">ulNotifiedValue</link></para>
+</listitem>
+            <listitem><para>volatile uint8_t <link linkend="_structtsk_task_control_block_1adab5291f06b774ed8f5bb6f76a77496f">ucNotifyState</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_tasks_8c_source_1l00252">252</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structtsk_task_control_block_1affa468d3857e94ddeeea03b1d454778b"/><section>
+    <title>pcTaskName</title>
+<indexterm><primary>pcTaskName</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>pcTaskName</secondary></indexterm>
+<para><computeroutput>char tskTaskControlBlock::pcTaskName[ 20]</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00264">264</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1afa9621ce7433273ee2842a637cccb69e"/><section>
+    <title>pvThreadLocalStoragePointers</title>
+<indexterm><primary>pvThreadLocalStoragePointers</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>pvThreadLocalStoragePointers</secondary></indexterm>
+<para><computeroutput>void* tskTaskControlBlock::pvThreadLocalStoragePointers[ 5]</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00289">289</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a9a0d71a9f95dd0609f9911d9efd79134"/><section>
+    <title>pxStack</title>
+<indexterm><primary>pxStack</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>pxStack</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link>* tskTaskControlBlock::pxStack</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00263">263</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a429a186c7f8e34aba1eef5e12d215b90"/><section>
+    <title>pxTopOfStack</title>
+<indexterm><primary>pxTopOfStack</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>pxTopOfStack</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link>* tskTaskControlBlock::pxTopOfStack</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00254">254</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1adab5291f06b774ed8f5bb6f76a77496f"/><section>
+    <title>ucNotifyState</title>
+<indexterm><primary>ucNotifyState</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>ucNotifyState</secondary></indexterm>
+<para><computeroutput>volatile uint8_t tskTaskControlBlock::ucNotifyState</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00309">309</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a7c571b992f90bfe77414cab060ca2af8"/><section>
+    <title>ulNotifiedValue</title>
+<indexterm><primary>ulNotifiedValue</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>ulNotifiedValue</secondary></indexterm>
+<para><computeroutput>volatile uint32_t tskTaskControlBlock::ulNotifiedValue</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00308">308</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a3ce2f9306ee315873114616fb49a0ed2"/><section>
+    <title>uxBasePriority</title>
+<indexterm><primary>uxBasePriority</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>uxBasePriority</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> tskTaskControlBlock::uxBasePriority</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00280">280</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a405a8451e393290ef92337cd77a3bf1f"/><section>
+    <title>uxMutexesHeld</title>
+<indexterm><primary>uxMutexesHeld</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>uxMutexesHeld</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> tskTaskControlBlock::uxMutexesHeld</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00281">281</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a79187811e3d2a15595942e3b44237d85"/><section>
+    <title>uxPriority</title>
+<indexterm><primary>uxPriority</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>uxPriority</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> tskTaskControlBlock::uxPriority</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00262">262</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a46894d7d546d614cc881212dc8039f41"/><section>
+    <title>uxTaskNumber</title>
+<indexterm><primary>uxTaskNumber</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>uxTaskNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> tskTaskControlBlock::uxTaskNumber</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00276">276</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a3f3169fa5667af8ee542304f8dd48553"/><section>
+    <title>uxTCBNumber</title>
+<indexterm><primary>uxTCBNumber</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>uxTCBNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> tskTaskControlBlock::uxTCBNumber</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00275">275</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a1a1612b6081a13683808284d93a9b28f"/><section>
+    <title>xEventListItem</title>
+<indexterm><primary>xEventListItem</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>xEventListItem</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> tskTaskControlBlock::xEventListItem</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00261">261</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<anchor xml:id="_structtsk_task_control_block_1a16e0d20425d53ac78537e1fdb8834cf6"/><section>
+    <title>xStateListItem</title>
+<indexterm><primary>xStateListItem</primary><secondary>tskTaskControlBlock</secondary></indexterm>
+<indexterm><primary>tskTaskControlBlock</primary><secondary>xStateListItem</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> tskTaskControlBlock::xStateListItem</computeroutput></para><para>
+Definition at line <link linkend="_tasks_8c_source_1l00260">260</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_tasks_8c">tasks.c</link></section>
+</section>

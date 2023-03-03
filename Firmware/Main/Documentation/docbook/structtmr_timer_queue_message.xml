@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structtmr_timer_queue_message" xml:lang="en-US">
+<title>tmrTimerQueueMessage Struct Reference</title>
+<indexterm><primary>tmrTimerQueueMessage</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_structtmr_timer_queue_message_1a9b10513e29451b9ebfb24b153bc51f46">xMessageID</link></para>
+</listitem>
+            <listitem><para>union {</para>
+        <itemizedlist>
+            <listitem><para>   <link linkend="_timers_8c_1a892677f96b4d74dd29582be79f7a90d7">TimerParameter_t</link> <link linkend="_structtmr_timer_queue_message_1a2ae84af7c3b2497dc337d98059346ce8">xTimerParameters</link></para>
+</listitem>
+            <listitem><para>   <link linkend="_timers_8c_1ad0244f58e60ff8c28d1bb7630658e2b9">CallbackParameters_t</link> <link linkend="_structtmr_timer_queue_message_1a85ccd1dad2e0e201b0938c9909673cc4">xCallbackParameters</link></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_structtmr_timer_queue_message_1a601d7b2b2321a09e60a1de08f2073f06">u</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00111">111</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structtmr_timer_queue_message_1a601d7b2b2321a09e60a1de08f2073f06"/><section>
+    <title></title>
+<indexterm><primary>u</primary><secondary>tmrTimerQueueMessage</secondary></indexterm>
+<indexterm><primary>tmrTimerQueueMessage</primary><secondary>u</secondary></indexterm>
+<para><computeroutput>union  { ... }  tmrTimerQueueMessage::u</computeroutput></para></section>
+<anchor xml:id="_structtmr_timer_queue_message_1a85ccd1dad2e0e201b0938c9909673cc4"/><section>
+    <title>xCallbackParameters</title>
+<indexterm><primary>xCallbackParameters</primary><secondary>tmrTimerQueueMessage</secondary></indexterm>
+<indexterm><primary>tmrTimerQueueMessage</primary><secondary>xCallbackParameters</secondary></indexterm>
+<para><computeroutput><link linkend="_timers_8c_1ad0244f58e60ff8c28d1bb7630658e2b9">CallbackParameters_t</link> tmrTimerQueueMessage::xCallbackParameters</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00121">121</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_structtmr_timer_queue_message_1a9b10513e29451b9ebfb24b153bc51f46"/><section>
+    <title>xMessageID</title>
+<indexterm><primary>xMessageID</primary><secondary>tmrTimerQueueMessage</secondary></indexterm>
+<indexterm><primary>tmrTimerQueueMessage</primary><secondary>xMessageID</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> tmrTimerQueueMessage::xMessageID</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00113">113</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_structtmr_timer_queue_message_1a2ae84af7c3b2497dc337d98059346ce8"/><section>
+    <title>xTimerParameters</title>
+<indexterm><primary>xTimerParameters</primary><secondary>tmrTimerQueueMessage</secondary></indexterm>
+<indexterm><primary>tmrTimerQueueMessage</primary><secondary>xTimerParameters</secondary></indexterm>
+<para><computeroutput><link linkend="_timers_8c_1a892677f96b4d74dd29582be79f7a90d7">TimerParameter_t</link> tmrTimerQueueMessage::xTimerParameters</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00116">116</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_timers_8c">timers.c</link></section>
+</section>

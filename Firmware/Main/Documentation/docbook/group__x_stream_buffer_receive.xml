@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_stream_buffer_receive" xml:lang="en-US">
+<title>xStreamBufferReceive</title>
+<indexterm><primary>xStreamBufferReceive</primary></indexterm>
+
+<para><link linkend="_stream__buffer_8h">stream_buffer.h</link></para>
+
+<para><literallayout>
+size_t <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive( StreamBufferHandle_t xStreamBuffer,
+                             void *pvRxData,
+                             size_t xBufferLengthBytes,
+                             TickType_t xTicksToWait )</link>;
+</literallayout></para>
+
+<para>Receives bytes from a stream buffer.</para>
+
+<para><emphasis><emphasis role="bold">NOTE</emphasis></emphasis>: Uniquely among FreeRTOS objects, the stream buffer implementation (so also the message buffer implementation, as message buffers are built on top of stream buffers) assumes there is only one task or interrupt that will write to the buffer (the writer), and only one task or interrupt that will read from the buffer (the reader). It is safe for the writer and reader to be different tasks or interrupts, but, unlike other FreeRTOS objects, it is not safe to have multiple different writers or multiple different readers. If there are to be multiple different writers then the application writer must place each call to a writing API function (such as <link linkend="_stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d">xStreamBufferSend()</link>) inside a critical section and set the send block time to 0. Likewise, if there are to be multiple different readers then the application writer must place each call to a reading API function (such as xStreamBufferRead()) inside a critical section and set the receive block time to 0.</para>
+
+<para>Use <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive()</link> to read from a stream buffer from a task. Use <link linkend="_stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b">xStreamBufferReceiveFromISR()</link> to read from a stream buffer from an interrupt service routine (ISR).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xStreamBuffer</entry><entry>
+<para>The handle of the stream buffer from which bytes are to be received.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvRxData</entry><entry>
+<para>A pointer to the buffer into which the received bytes will be copied.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xBufferLengthBytes</entry><entry>
+<para>The length of the buffer pointed to by the pvRxData parameter. This sets the maximum number of bytes to receive in one call. xStreamBufferReceive will return as many bytes as possible up to a maximum set by xBufferLengthBytes.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>xTicksToWait</entry><entry>
+<para>The maximum amount of time the task should remain in the Blocked state to wait for data to become available if the stream buffer is empty. <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive()</link> will return immediately if xTicksToWait is zero. The block time is specified in tick periods, so the absolute time it represents is dependent on the tick frequency. The macro <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS()</link> can be used to convert a time specified in milliseconds into a time specified in ticks. Setting xTicksToWait to portMAX_DELAY will cause the task to wait indefinitely (without timing out), provided INCLUDE_vTaskSuspend is set to 1 in <link linkend="__free_r_t_o_s_config_8h">FreeRTOSConfig.h</link>. A task does not use any CPU time when it is in the Blocked state.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of bytes actually read from the stream buffer, which will be less than xBufferLengthBytes if the call to <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive()</link> timed out before xBufferLengthBytes were available.</para>
+</formalpara>
+Example use: <literallayout>
+void vAFunction( StreamBuffer_t xStreamBuffer )
+{
+uint8_t ucRxData[ 20 ];
+size_t xReceivedBytes;
+const TickType_t xBlockTime = <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS( 20 )</link>;
+
+    // Receive up to another sizeof( ucRxData ) bytes from the stream buffer.
+    // Wait in the Blocked state (so not using any CPU processing time) for a
+    // maximum of 100ms for the full sizeof( ucRxData ) number of bytes to be
+    // available.
+    xReceivedBytes = xStreamBufferReceive( xStreamBuffer,
+                                           ( void * ) ucRxData,
+                                           sizeof( ucRxData ),
+                                           xBlockTime );
+
+    if( xReceivedBytes &gt; 0 )
+    {
+        // A ucRxData contains another xRecievedBytes bytes of data, which can
+        // be processed here....
+    }
+}
+</literallayout> </para>
+</section>

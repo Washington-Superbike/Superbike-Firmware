@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_message_buffer_reset" kind="group">
+    <compoundname>xMessageBufferReset</compoundname>
+    <title>xMessageBufferReset</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="message__buffer_8h" kindref="compound">message_buffer.h</ref> <preformatted>
+BaseType_t <ref refid="message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c" kindref="member">xMessageBufferReset( MessageBufferHandle_t xMessageBuffer )</ref>;
+</preformatted></para>
+<para>Resets a message buffer to its initial empty state, discarding any message it contained.</para>
+<para>A message buffer can only be reset if there are no tasks blocked on it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xMessageBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the message buffer being reset.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the message buffer was reset then pdPASS is returned. If the message buffer could not be reset because either there was a task blocked on the message queue to wait for space to become available, or to wait for a a message to be available, then pdFAIL is returned. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

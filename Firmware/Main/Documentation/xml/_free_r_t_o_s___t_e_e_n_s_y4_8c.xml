@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_free_r_t_o_s___t_e_e_n_s_y4_8c" kind="file" language="C++">
+    <compoundname>FreeRTOS_TEENSY4.c</compoundname>
+    <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
+    <includes local="no">Arduino.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="1">
+        <label>FreeRTOS/FreeRTOS_TEENSY4.c</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FreeRTOS_TEENSY4.h</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a232ceee9e10a97b8ec8f14503861e699" prot="public" static="no">
+        <name>CAL_FACTOR</name>
+        <initializer>(<ref refid="_free_r_t_o_s_config__default_8h_1a43bafb28b29491ec7f871319b5a3b2f8" kindref="member">F_CPU</ref>/7000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>calibration factor for delayMS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="9" column="9" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void delayMS</definition>
+        <argsstring>(uint32_t millis)</argsstring>
+        <name>delayMS</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>millis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>delay between led error flashes <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">millis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>milliseconds to delay </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="13" column="13" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void errorBlink</definition>
+        <argsstring>(int n)</argsstring>
+        <name>errorBlink</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Blink error pattern</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of short pulses </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="25" column="13" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="25" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1aa8cad1e2decb59c70b8247133b61157c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void assertBlink</definition>
+        <argsstring>()</argsstring>
+        <name>assertBlink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>assertBlink Blink one short pulse every two seconds if configASSERT fails. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="43" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="43" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a73f6aa45470ada02a5d6f3a522d8f13c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vApplicationMallocFailedHook</definition>
+        <argsstring>()</argsstring>
+        <name>vApplicationMallocFailedHook</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a73f6aa45470ada02a5d6f3a522d8f13c" kindref="member">vApplicationMallocFailedHook()</ref> Blink two short pulses if malloc fails.</para>
+<para>will only be called if configUSE_MALLOC_FAILED_HOOK is set to 1 in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>. It is a hook function that will get called if a call to <ref refid="heap__3_8c_1ac56bcb7515f081a5b3df83935499fa4a" kindref="member">pvPortMalloc()</ref> fails. <ref refid="heap__3_8c_1ac56bcb7515f081a5b3df83935499fa4a" kindref="member">pvPortMalloc()</ref> is called internally by the kernel whenever a task, queue, timer or semaphore is created. It is also called by various parts of the demo application. If heap_1.c or heap_2.c are used, then the size of the heap available to <ref refid="heap__3_8c_1ac56bcb7515f081a5b3df83935499fa4a" kindref="member">pvPortMalloc()</ref> is defined by configTOTAL_HEAP_SIZE in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>, and the <ref refid="portable_8h_1a0c28a12b313bc248be0cb7a37ed81bb7" kindref="member">xPortGetFreeHeapSize()</ref> API function can be used to query the size of free heap space that remains (although it does not provide information on how the remaining heap might be fragmented). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="60" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __attribute__</definition>
+        <argsstring>((weak))</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(weak)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set to 1 in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>. It will be called on each iteration of the idle task. It is essential that code added to this hook function never attempts to block in any way (for example, call <ref refid="queue_8c_1ad0a166f3b1219a5e37e31f8090d4800d" kindref="member">xQueueReceive()</ref> with a block time specified, or call <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref>). If the application makes use of the <ref refid="task_8h_1a27ff4ebce26565bef136bda84201ff80" kindref="member">vTaskDelete()</ref> API function (as this demo application does) then it is also important that vApplicationIdleHook() is permitted to return to its calling function, because it is the responsibility of the idle task to clean up memory allocated by the kernel to any task that has since been deleted.</para>
+<para>This function will be called by each tick interrupt if configUSE_TICK_HOOK is set to 1 in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>. User code can be added here, but the tick hook is called from an interrupt context, so code must not attempt to block, and only the interrupt safe FreeRTOS API functions can be used (those that end in FromISR()). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="74" column="7" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a306672a74bdd13ce210c05fca3385c59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vApplicationStackOverflowHook</definition>
+        <argsstring>(TaskHandle_t pxTask, char *pcTaskName)</argsstring>
+        <name>vApplicationStackOverflowHook</name>
+        <param>
+          <type><ref refid="task_8h_1a25b35e6e19ecf894173e7ff95edb96ef" kindref="member">TaskHandle_t</ref></type>
+          <declname>pxTask</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pcTaskName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Blink three short pulses if stack overflow is detected. Run time stack overflow checking is performed if configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is called if a stack overflow is detected. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pcTaskName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="86" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5b27d72b205084efd5c6b2f18838724b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hard_fault_isr</definition>
+        <argsstring>()</argsstring>
+        <name>hard_fault_isr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hard fault - blink four short flash every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="94" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a2af56a8bf3197b2f06cac4c0b84ffc3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HardFault_Handler</definition>
+        <argsstring>()</argsstring>
+        <name>HardFault_Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hard fault - blink four short flash every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="96" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ae2d60774bb61a4f46e670ea245570f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bus_fault_isr</definition>
+        <argsstring>()</argsstring>
+        <name>bus_fault_isr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bus fault - blink five short flashes every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="99" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a12baaa0dec32c007fbc333df880025c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BusFault_Handler</definition>
+        <argsstring>()</argsstring>
+        <name>BusFault_Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bus fault - blink five short flashes every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="101" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1af556591e06c5d6cad7fd16bdc3f2da1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void usage_fault_isr</definition>
+        <argsstring>()</argsstring>
+        <name>usage_fault_isr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Usage fault - blink six short flashes every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="104" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ac4b80575ac8f7fdb0c96faa95810d0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UsageFault_Handler</definition>
+        <argsstring>()</argsstring>
+        <name>UsageFault_Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Usage fault - blink six short flashes every two seconds </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="106" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ab042bd469054b754e2710fa560fd3ff7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vMainConfigureTimerForRunTimeStats</definition>
+        <argsstring>(void)</argsstring>
+        <name>vMainConfigureTimerForRunTimeStats</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dummy time stats gathering functions need to be defined to keep the linker happy. Could edit <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref> to remove these. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="118" column="6" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a128013062564ee200ba30d0369b9865c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned long</type>
+        <definition>unsigned long ulMainGetRunTimeCounterValue</definition>
+        <argsstring>()</argsstring>
+        <name>ulMainGetRunTimeCounterValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dummy function <simplesect kind="return"><para>zero </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS_TEENSY4.c" line="122" column="15" bodyfile="FreeRTOS/FreeRTOS_TEENSY4.c" bodystart="122" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>FreeRTOS for Teensy 4.0. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="9" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a232ceee9e10a97b8ec8f14503861e699" refkind="member"><highlight class="comment"></highlight><highlight class="preprocessor">#define<sp/>CAL_FACTOR<sp/>(F_CPU/7000)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" kindref="member">delayMS</ref>(uint32_t<sp/>millis)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>uint32_t<sp/>iterations<sp/>=<sp/>millis<sp/>*<sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a232ceee9e10a97b8ec8f14503861e699" kindref="member">CAL_FACTOR</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>uint32_t<sp/>i;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>iterations;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">asm</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;nop\n\t&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="25" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>noInterrupts();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>pinMode(13,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;;)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(13,<sp/>1);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" kindref="member">delayMS</ref>(300);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(13,<sp/>0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" kindref="member">delayMS</ref>(300);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a4d5e82901421218561290929a1b12548" kindref="member">delayMS</ref>(2000);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="43" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1aa8cad1e2decb59c70b8247133b61157c" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1aa8cad1e2decb59c70b8247133b61157c" kindref="member">assertBlink</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(1);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="60" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a73f6aa45470ada02a5d6f3a522d8f13c" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a73f6aa45470ada02a5d6f3a522d8f13c" kindref="member">vApplicationMallocFailedHook</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(2);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097" kindref="member">__attribute__</ref>((weak))<sp/>vApplicationIdleHook(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*-----------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a306672a74bdd13ce210c05fca3385c59" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a306672a74bdd13ce210c05fca3385c59" kindref="member">vApplicationStackOverflowHook</ref>(<ref refid="structtsk_task_control_block" kindref="compound">TaskHandle_t</ref><sp/>pxTask,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*pcTaskName)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)<sp/>pcTaskName;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>(void)<sp/>pxTask;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(3);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/>catch<sp/>Teensy<sp/>3<sp/>and<sp/>Due<sp/>exceptions</highlight></codeline>
+<codeline lineno="94" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5b27d72b205084efd5c6b2f18838724b" refkind="member"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5b27d72b205084efd5c6b2f18838724b" kindref="member">hard_fault_isr</ref>()<sp/><sp/><sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(4);}</highlight></codeline>
+<codeline lineno="96" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a2af56a8bf3197b2f06cac4c0b84ffc3e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a2af56a8bf3197b2f06cac4c0b84ffc3e" kindref="member">HardFault_Handler</ref>()<sp/><sp/><sp/><sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(4);}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ae2d60774bb61a4f46e670ea245570f95" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ae2d60774bb61a4f46e670ea245570f95" kindref="member">bus_fault_isr</ref>()<sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(5);}</highlight></codeline>
+<codeline lineno="101" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a12baaa0dec32c007fbc333df880025c9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a12baaa0dec32c007fbc333df880025c9" kindref="member">BusFault_Handler</ref>()<sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(5);}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1af556591e06c5d6cad7fd16bdc3f2da1e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1af556591e06c5d6cad7fd16bdc3f2da1e" kindref="member">usage_fault_isr</ref>()<sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(6);}</highlight></codeline>
+<codeline lineno="106" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ac4b80575ac8f7fdb0c96faa95810d0e4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ac4b80575ac8f7fdb0c96faa95810d0e4" kindref="member">UsageFault_Handler</ref>()<sp/>{<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a5da8b1b72bfdb1d8a8f7b8581e4160c2" kindref="member">errorBlink</ref>(6);}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">/*-----------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097" kindref="member">__attribute__</ref>((weak))<sp/>vApplicationTickHook()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*-----------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ab042bd469054b754e2710fa560fd3ff7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1ab042bd469054b754e2710fa560fd3ff7" kindref="member">vMainConfigureTimerForRunTimeStats</ref>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>)<sp/>{}</highlight></codeline>
+<codeline lineno="122" refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a128013062564ee200ba30d0369b9865c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8c_1a128013062564ee200ba30d0369b9865c" kindref="member">ulMainGetRunTimeCounterValue</ref>()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0UL;}</highlight></codeline>
+    </programlisting>
+    <location file="FreeRTOS/FreeRTOS_TEENSY4.c"/>
+  </compounddef>
+</doxygen>

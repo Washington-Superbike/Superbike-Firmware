@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structx_m_e_m_o_r_y___r_e_g_i_o_n" kind="struct" language="C++" prot="public">
+    <compoundname>xMEMORY_REGION</compoundname>
+    <includes refid="task_8h" local="no">task.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a228036bbfdbc38f170e45deadb166172" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* xMEMORY_REGION::pvBaseAddress</definition>
+        <argsstring></argsstring>
+        <name>pvBaseAddress</name>
+        <qualifiedname>xMEMORY_REGION::pvBaseAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="121" column="6" bodyfile="FreeRTOS/task.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a97e59578d3c4c46270d33e7206258a65" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t xMEMORY_REGION::ulLengthInBytes</definition>
+        <argsstring></argsstring>
+        <name>ulLengthInBytes</name>
+        <qualifiedname>xMEMORY_REGION::ulLengthInBytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="122" column="10" bodyfile="FreeRTOS/task.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a6ba180553e9a318f23acc5f4664934e3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t xMEMORY_REGION::ulParameters</definition>
+        <argsstring></argsstring>
+        <name>ulParameters</name>
+        <qualifiedname>xMEMORY_REGION::ulParameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/task.h" line="123" column="10" bodyfile="FreeRTOS/task.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="FreeRTOS/task.h" line="119" column="1" bodyfile="FreeRTOS/task.h" bodystart="120" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a228036bbfdbc38f170e45deadb166172" prot="public" virt="non-virtual"><scope>xMEMORY_REGION</scope><name>pvBaseAddress</name></member>
+      <member refid="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a97e59578d3c4c46270d33e7206258a65" prot="public" virt="non-virtual"><scope>xMEMORY_REGION</scope><name>ulLengthInBytes</name></member>
+      <member refid="structx_m_e_m_o_r_y___r_e_g_i_o_n_1a6ba180553e9a318f23acc5f4664934e3" prot="public" virt="non-virtual"><scope>xMEMORY_REGION</scope><name>ulParameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_task_get_tick_count" xml:lang="en-US">
+<title>xTaskGetTickCount</title>
+<indexterm><primary>xTaskGetTickCount</primary></indexterm>
+
+<para>task. h <literallayout>TickType_t <link linkend="_task_8h_1a753ecfe23e7386066ecccad5d16422f7">xTaskGetTickCount( void )</link>;</literallayout></para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The count of ticks since vTaskStartScheduler was called. </para>
+</formalpara>
+</para>
+</section>

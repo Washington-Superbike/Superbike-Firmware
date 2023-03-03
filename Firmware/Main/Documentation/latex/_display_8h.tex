@@ -1,5 +1,10 @@
 \hypertarget{_display_8h}{}\doxysection{Display.\+h File Reference}
 \label{_display_8h}\index{Display.h@{Display.h}}
+
+
+The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+
+
 {\ttfamily \#include $<$Adafruit\+\_\+\+ILI9341.\+h$>$}\newline
 {\ttfamily \#include $<$Adafruit\+\_\+\+GFX.\+h$>$}\newline
 {\ttfamily \#include $<$SPI.\+h$>$}\newline
@@ -83,28 +88,83 @@ enum \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\+\_\
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_display_8h_a444674a8acd174d60aaf8a750aae944b}{draw\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data)
+void \mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
-void \mbox{\hyperlink{_display_8h_a55356673fc2f1fb26932f57c55156598}{display\+Task}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
-\item 
-void \mbox{\hyperlink{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}{draw\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
-\item 
-void \mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
-\item 
-void \mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
+void \mbox{\hyperlink{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}{display\+Update}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
 void \mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermi\+Data\+Print}} (bool thermi\+Data\+Print)
 \item 
 void \mbox{\hyperlink{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}{time\+Print}} ()
 \item 
-void \mbox{\hyperlink{_display_8h_ac4a830d3a5355acabc259beb381b66c5}{manual\+Screen\+Updater}} ()
+void \mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
-void \mbox{\hyperlink{_display_8h_ad5cca009eb616ac4145f788c39b84157}{screen\+Eraser}} (int scaler, int i)
+void \mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
 \item 
 void \mbox{\hyperlink{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}{erase\+Then\+Print\+SPEEDO}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
 \item 
+void \mbox{\hyperlink{_display_8h_a2fcaba5d0c64fb3389132dca04224211}{manual\+Screen\+Data\+Updater}} ()
+\item 
 float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+voltage\+\_\+read}} ()
-\begin{DoxyCompactList}\small\item\em Checks for Auxiliary voltage reading from pin 13. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Adafruit\+\_\+\+ILI9341 \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}} = Adafruit\+\_\+\+ILI9341( 10 , 9 , 8 )
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}} \mbox{[}11\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}{battery\+Voltage}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}{motor\+Controller\+Voltage}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a012dded9173d07c300ffad949e96a940}{aux\+Battery\+Voltage}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}{rpm}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}{motor\+Temperature}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}4\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}{motor\+Curr}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}5\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}{err\+Message}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}6\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}{charger\+Volt}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}7\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}{charger\+Curr}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}8\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a940677548971e0943f36dcfa95bb8b44}{bms\+Status\+Flag}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}9\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}{evcc\+Volt}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}10\mbox{]}
+\item 
+\mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}} \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermi\+Data}}
+\item 
+\mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}{time\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+
+\begin{DoxyAuthor}{Author}
+Washington Superbike 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1-\/March-\/2023
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+up all members to be able to use it without any trouble.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Goal 1. ~\newline
+ ~\newline
+ Goal 2. ~\newline
+ ~\newline
+ Goal 3. ~\newline
+ ~\newline
+ Final Goal. \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -114,11 +174,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{DEFAULT\_FLOAT}{DEFAULT\_FLOAT}}
 {\footnotesize\ttfamily \#define DEFAULT\+\_\+\+FLOAT~-\/1}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00056}{56}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_accd27f9824631fc37bcb677947f1f63a}\label{_display_8h_accd27f9824631fc37bcb677947f1f63a}} 
 \index{Display.h@{Display.h}!DEFAULT\_X\_POS@{DEFAULT\_X\_POS}}
 \index{DEFAULT\_X\_POS@{DEFAULT\_X\_POS}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{DEFAULT\_X\_POS}{DEFAULT\_X\_POS}}
 {\footnotesize\ttfamily \#define DEFAULT\+\_\+\+X\+\_\+\+POS~235}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00057}{57}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}\label{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}} 
 \index{Display.h@{Display.h}!DISPLAY\_TASK\_STACK\_SIZE@{DISPLAY\_TASK\_STACK\_SIZE}}
@@ -126,11 +194,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{DISPLAY\_TASK\_STACK\_SIZE}{DISPLAY\_TASK\_STACK\_SIZE}}
 {\footnotesize\ttfamily \#define DISPLAY\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 32368}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00036}{36}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}\label{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}} 
 \index{Display.h@{Display.h}!DISPLAY\_UPDATE\_TIME\_MAX@{DISPLAY\_UPDATE\_TIME\_MAX}}
 \index{DISPLAY\_UPDATE\_TIME\_MAX@{DISPLAY\_UPDATE\_TIME\_MAX}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{DISPLAY\_UPDATE\_TIME\_MAX}{DISPLAY\_UPDATE\_TIME\_MAX}}
 {\footnotesize\ttfamily \#define DISPLAY\+\_\+\+UPDATE\+\_\+\+TIME\+\_\+\+MAX~50}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00039}{39}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}\label{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}} 
 \index{Display.h@{Display.h}!NUM\_DATA@{NUM\_DATA}}
@@ -138,11 +214,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{NUM\_DATA}{NUM\_DATA}}
 {\footnotesize\ttfamily \#define NUM\+\_\+\+DATA~11}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00053}{53}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a5f4d46ae101b77df78010c506601c87c}\label{_display_8h_a5f4d46ae101b77df78010c506601c87c}} 
 \index{Display.h@{Display.h}!TFT\_CS@{TFT\_CS}}
 \index{TFT\_CS@{TFT\_CS}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{TFT\_CS}{TFT\_CS}}
 {\footnotesize\ttfamily \#define TFT\+\_\+\+CS~10}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00041}{41}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a51529307207622c113ff0d584536be13}\label{_display_8h_a51529307207622c113ff0d584536be13}} 
 \index{Display.h@{Display.h}!TFT\_DC@{TFT\_DC}}
@@ -150,11 +234,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{TFT\_DC}{TFT\_DC}}
 {\footnotesize\ttfamily \#define TFT\+\_\+\+DC~9}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00042}{42}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_ab40e9918d9141415a47e2a979292309c}\label{_display_8h_ab40e9918d9141415a47e2a979292309c}} 
 \index{Display.h@{Display.h}!TFT\_RST@{TFT\_RST}}
 \index{TFT\_RST@{TFT\_RST}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{TFT\_RST}{TFT\_RST}}
 {\footnotesize\ttfamily \#define TFT\+\_\+\+RST~8}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00043}{43}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a5d966444a95d140572e8f999fa00f8e0}\label{_display_8h_a5d966444a95d140572e8f999fa00f8e0}} 
 \index{Display.h@{Display.h}!TIRQ\_PIN@{TIRQ\_PIN}}
@@ -162,11 +254,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{TIRQ\_PIN}{TIRQ\_PIN}}
 {\footnotesize\ttfamily \#define TIRQ\+\_\+\+PIN~-\/1}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00050}{50}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_aebc2813ad338ac596f3108382916b482}\label{_display_8h_aebc2813ad338ac596f3108382916b482}} 
 \index{Display.h@{Display.h}!TS\_CS@{TS\_CS}}
 \index{TS\_CS@{TS\_CS}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{TS\_CS}{TS\_CS}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+CS~10}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00046}{46}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}\label{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}} 
 \index{Display.h@{Display.h}!TS\_MAXX@{TS\_MAXX}}
@@ -174,11 +274,19 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{TS\_MAXX}{TS\_MAXX}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+MAXX~3903}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00063}{63}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a8037be4206d706c1077d0153db12690a}\label{_display_8h_a8037be4206d706c1077d0153db12690a}} 
 \index{Display.h@{Display.h}!TS\_MAXY@{TS\_MAXY}}
 \index{TS\_MAXY@{TS\_MAXY}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{TS\_MAXY}{TS\_MAXY}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+MAXY~3842}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00065}{65}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a33c25be9eca2247ac244fc928183eb55}\label{_display_8h_a33c25be9eca2247ac244fc928183eb55}} 
 \index{Display.h@{Display.h}!TS\_MINX@{TS\_MINX}}
@@ -186,17 +294,29 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \doxysubsubsection{\texorpdfstring{TS\_MINX}{TS\_MINX}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+MINX~327}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00062}{62}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}\label{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}} 
 \index{Display.h@{Display.h}!TS\_MINY@{TS\_MINY}}
 \index{TS\_MINY@{TS\_MINY}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{TS\_MINY}{TS\_MINY}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+MINY~243}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00064}{64}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a9705c15b04a1787116a4fbdf987e0328}\label{_display_8h_a9705c15b04a1787116a4fbdf987e0328}} 
 \index{Display.h@{Display.h}!VERTICAL\_SCALER@{VERTICAL\_SCALER}}
 \index{VERTICAL\_SCALER@{VERTICAL\_SCALER}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{VERTICAL\_SCALER}{VERTICAL\_SCALER}}
 {\footnotesize\ttfamily \#define VERTICAL\+\_\+\+SCALER~16}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00060}{60}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 
 
@@ -260,6 +380,10 @@ BOOL&\\
 \hline
 
 \end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00067}{67}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
 \mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173f}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173f}} 
 \index{Display.h@{Display.h}!SCREEN\_TYPE@{SCREEN\_TYPE}}
 \index{SCREEN\_TYPE@{SCREEN\_TYPE}!Display.h@{Display.h}}
@@ -278,6 +402,10 @@ SPEEDOMETER&\\
 \end{DoxyEnumFields}
 
 
+Definition at line \mbox{\hyperlink{_display_8h_source_l00071}{71}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{_display_8h_ad609934bdce8f8169cc609cb7913f507}\label{_display_8h_ad609934bdce8f8169cc609cb7913f507}} 
 \index{Display.h@{Display.h}!aux\_voltage\_read@{aux\_voltage\_read}}
@@ -287,25 +415,17 @@ SPEEDOMETER&\\
 
 
 
-Checks for Auxiliary voltage reading from pin 13. 
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
-\mbox{\Hypertarget{_display_8h_a55356673fc2f1fb26932f57c55156598}\label{_display_8h_a55356673fc2f1fb26932f57c55156598}} 
-\index{Display.h@{Display.h}!displayTask@{displayTask}}
-\index{displayTask@{displayTask}!Display.h@{Display.h}}
-\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}}
-{\footnotesize\ttfamily void display\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}\label{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}} 
+\index{Display.h@{Display.h}!displayUpdate@{displayUpdate}}
+\index{displayUpdate@{displayUpdate}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{displayUpdate()}{displayUpdate()}}
+{\footnotesize\ttfamily void display\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8h_a444674a8acd174d60aaf8a750aae944b}\label{_display_8h_a444674a8acd174d60aaf8a750aae944b}} 
-\index{Display.h@{Display.h}!drawMeasurementScreen@{drawMeasurementScreen}}
-\index{drawMeasurementScreen@{drawMeasurementScreen}!Display.h@{Display.h}}
-\doxysubsubsection{\texorpdfstring{drawMeasurementScreen()}{drawMeasurementScreen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void draw\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}\label{_display_8h_a520d4bd047b32e94c93249cf2042dfbb}} 
-\index{Display.h@{Display.h}!drawMeasurementScreen@{drawMeasurementScreen}}
-\index{drawMeasurementScreen@{drawMeasurementScreen}!Display.h@{Display.h}}
-\doxysubsubsection{\texorpdfstring{drawMeasurementScreen()}{drawMeasurementScreen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void draw\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}\label{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}} 
 \index{Display.h@{Display.h}!eraseThenPrint@{eraseThenPrint}}
@@ -313,23 +433,39 @@ Checks for Auxiliary voltage reading from pin 13.
 \doxysubsubsection{\texorpdfstring{eraseThenPrint()}{eraseThenPrint()}}
 {\footnotesize\ttfamily void erase\+Then\+Print (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}\label{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}} 
 \index{Display.h@{Display.h}!eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}}
 \index{eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{eraseThenPrintSPEEDO()}{eraseThenPrintSPEEDO()}}
 {\footnotesize\ttfamily void erase\+Then\+Print\+SPEEDO (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8h_ac4a830d3a5355acabc259beb381b66c5}\label{_display_8h_ac4a830d3a5355acabc259beb381b66c5}} 
-\index{Display.h@{Display.h}!manualScreenUpdater@{manualScreenUpdater}}
-\index{manualScreenUpdater@{manualScreenUpdater}!Display.h@{Display.h}}
-\doxysubsubsection{\texorpdfstring{manualScreenUpdater()}{manualScreenUpdater()}}
-{\footnotesize\ttfamily void manual\+Screen\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8h_ad5cca009eb616ac4145f788c39b84157}\label{_display_8h_ad5cca009eb616ac4145f788c39b84157}} 
-\index{Display.h@{Display.h}!screenEraser@{screenEraser}}
-\index{screenEraser@{screenEraser}!Display.h@{Display.h}}
-\doxysubsubsection{\texorpdfstring{screenEraser()}{screenEraser()}}
-{\footnotesize\ttfamily void screen\+Eraser (\begin{DoxyParamCaption}\item[{int}]{scaler,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
+\mbox{\Hypertarget{_display_8h_a2fcaba5d0c64fb3389132dca04224211}\label{_display_8h_a2fcaba5d0c64fb3389132dca04224211}} 
+\index{Display.h@{Display.h}!manualScreenDataUpdater@{manualScreenDataUpdater}}
+\index{manualScreenDataUpdater@{manualScreenDataUpdater}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{manualScreenDataUpdater()}{manualScreenDataUpdater()}}
+{\footnotesize\ttfamily void manual\+Screen\+Data\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
+\mbox{\Hypertarget{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}\label{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}} 
+\index{Display.h@{Display.h}!setupDisplay@{setupDisplay}}
+\index{setupDisplay@{setupDisplay}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{setupDisplay()}{setupDisplay()}}
+{\footnotesize\ttfamily void setup\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}\label{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}} 
 \index{Display.h@{Display.h}!setupMeasurementScreen@{setupMeasurementScreen}}
@@ -337,15 +473,180 @@ Checks for Auxiliary voltage reading from pin 13.
 \doxysubsubsection{\texorpdfstring{setupMeasurementScreen()}{setupMeasurementScreen()}}
 {\footnotesize\ttfamily void setup\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}\label{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}} 
 \index{Display.h@{Display.h}!thermiDataPrint@{thermiDataPrint}}
 \index{thermiDataPrint@{thermiDataPrint}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{thermiDataPrint()}{thermiDataPrint()}}
 {\footnotesize\ttfamily void thermi\+Data\+Print (\begin{DoxyParamCaption}\item[{bool}]{thermi\+Data\+Print }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}\label{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}} 
 \index{Display.h@{Display.h}!timePrint@{timePrint}}
 \index{timePrint@{timePrint}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{timePrint()}{timePrint()}}
 {\footnotesize\ttfamily void time\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00185}{185}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_display_8h_a012dded9173d07c300ffad949e96a940}\label{_display_8h_a012dded9173d07c300ffad949e96a940}} 
+\index{Display.h@{Display.h}!auxBatteryVoltage@{auxBatteryVoltage}}
+\index{auxBatteryVoltage@{auxBatteryVoltage}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{auxBatteryVoltage}{auxBatteryVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ aux\+Battery\+Voltage = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}2\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00130}{130}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}\label{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}} 
+\index{Display.h@{Display.h}!batteryVoltage@{batteryVoltage}}
+\index{batteryVoltage@{batteryVoltage}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{batteryVoltage}{batteryVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ battery\+Voltage = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}0\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00128}{128}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a940677548971e0943f36dcfa95bb8b44}\label{_display_8h_a940677548971e0943f36dcfa95bb8b44}} 
+\index{Display.h@{Display.h}!bmsStatusFlag@{bmsStatusFlag}}
+\index{bmsStatusFlag@{bmsStatusFlag}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{bmsStatusFlag}{bmsStatusFlag}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ bms\+Status\+Flag = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}9\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00137}{137}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}\label{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}} 
+\index{Display.h@{Display.h}!chargerCurr@{chargerCurr}}
+\index{chargerCurr@{chargerCurr}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{chargerCurr}{chargerCurr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ charger\+Curr = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}8\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00136}{136}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}\label{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}} 
+\index{Display.h@{Display.h}!chargerVolt@{chargerVolt}}
+\index{chargerVolt@{chargerVolt}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{chargerVolt}{chargerVolt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ charger\+Volt = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}7\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00135}{135}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}\label{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}} 
+\index{Display.h@{Display.h}!errMessage@{errMessage}}
+\index{errMessage@{errMessage}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{errMessage}{errMessage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ err\+Message = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}6\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00134}{134}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}\label{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}} 
+\index{Display.h@{Display.h}!evccVolt@{evccVolt}}
+\index{evccVolt@{evccVolt}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{evccVolt}{evccVolt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ evcc\+Volt = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00138}{138}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}\label{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}} 
+\index{Display.h@{Display.h}!motorControllerVoltage@{motorControllerVoltage}}
+\index{motorControllerVoltage@{motorControllerVoltage}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{motorControllerVoltage}{motorControllerVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Controller\+Voltage = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}1\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00129}{129}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}\label{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}} 
+\index{Display.h@{Display.h}!motorCurr@{motorCurr}}
+\index{motorCurr@{motorCurr}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{motorCurr}{motorCurr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Curr = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00133}{133}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}\label{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}} 
+\index{Display.h@{Display.h}!motorTemperature@{motorTemperature}}
+\index{motorTemperature@{motorTemperature}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{motorTemperature}{motorTemperature}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Temperature = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}4\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00132}{132}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a4d31440d430c0fc247733e218f14278f}\label{_display_8h_a4d31440d430c0fc247733e218f14278f}} 
+\index{Display.h@{Display.h}!printedVals@{printedVals}}
+\index{printedVals@{printedVals}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{printedVals}{printedVals}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} printed\+Vals\mbox{[}11\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00126}{126}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}\label{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}} 
+\index{Display.h@{Display.h}!rpm@{rpm}}
+\index{rpm@{rpm}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{rpm}{rpm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ rpm = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}3\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00131}{131}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}\label{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}} 
+\index{Display.h@{Display.h}!tft@{tft}}
+\index{tft@{tft}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{tft}{tft}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+ILI9341 tft = Adafruit\+\_\+\+ILI9341( 10 , 9 , 8 )}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00124}{124}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_a700ec86cb550fd4426014190222173ac}\label{_display_8h_a700ec86cb550fd4426014190222173ac}} 
+\index{Display.h@{Display.h}!thermiData@{thermiData}}
+\index{thermiData@{thermiData}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{thermiData}{thermiData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}} thermi\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00140}{140}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+
+\mbox{\Hypertarget{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}\label{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}} 
+\index{Display.h@{Display.h}!timeData@{timeData}}
+\index{timeData@{timeData}!Display.h@{Display.h}}
+\doxysubsubsection{\texorpdfstring{timeData}{timeData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} time\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00141}{141}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 

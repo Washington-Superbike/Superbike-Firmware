@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_task_notify" kind="group">
+    <compoundname>xTaskNotify</compoundname>
+    <title>xTaskNotify</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>task. h <preformatted>BaseType_t <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction )</ref>;</preformatted></para>
+<para>configUSE_TASK_NOTIFICATIONS must be undefined or defined as 1 for this function to be available.</para>
+<para>When configUSE_TASK_NOTIFICATIONS is set to one each task has its own private &quot;notification value&quot;, which is a 32-bit unsigned integer (uint32_t).</para>
+<para>Events can be sent to a task using an intermediary object. Examples of such objects are queues, semaphores, mutexes and event groups. Task notifications are a method of sending an event directly to a task without the need for such an intermediary object.</para>
+<para>A notification sent to a task can optionally perform an action, such as update, overwrite or increment the task&apos;s notification value. In that way task notifications can be used to send data to a task, or be used as light weight and fast binary or counting semaphores.</para>
+<para>A notification sent to a task will remain pending until it is cleared by the task calling <ref refid="task_8h_1a0475fcda9718f403521c270a7270ff93" kindref="member">xTaskNotifyWait()</ref> or <ref refid="task_8h_1a66540bef602522a01a519f776e4c07d8" kindref="member">ulTaskNotifyTake()</ref>. If the task was already in the Blocked state to wait for a notification when the notification arrives then the task will automatically be removed from the Blocked state (unblocked) and the notification cleared.</para>
+<para>A task can use <ref refid="task_8h_1a0475fcda9718f403521c270a7270ff93" kindref="member">xTaskNotifyWait()</ref> to [optionally] block to wait for a notification to be pending, or <ref refid="task_8h_1a66540bef602522a01a519f776e4c07d8" kindref="member">ulTaskNotifyTake()</ref> to [optionally] block to wait for its notification value to have a non-zero value. The task does not consume any CPU time while it is in the Blocked state.</para>
+<para>See <ulink url="http://www.FreeRTOS.org/RTOS-task-notifications.html">http://www.FreeRTOS.org/RTOS-task-notifications.html</ulink> for details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xTaskToNotify</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the task being notified. The handle to a task can be returned from the <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> API function used to create the task, and the handle of the currently running task can be obtained by calling <ref refid="task_8h_1a85a0f9c9f817b18686efbf8f37c72dfc" kindref="member">xTaskGetCurrentTaskHandle()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ulValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data that can be sent with the notification. How the data is used depends on the value of the eAction parameter.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eAction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how the notification updates the task&apos;s notification value, if at all. Valid values for eAction are as follows:</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+eSetBits - The task&apos;s notification value is bitwise ORed with ulValue. xTaskNofify() always returns pdPASS in this case.</para>
+<para>eIncrement - The task&apos;s notification value is incremented. ulValue is not used and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para>eSetValueWithOverwrite - The task&apos;s notification value is set to the value of ulValue, even if the task being notified had not yet processed the previous notification (the task already had a notification pending). <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para>eSetValueWithoutOverwrite - If the task being notified did not already have a notification pending then the task&apos;s notification value is set to ulValue and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> will return pdPASS. If the task being notified already had a notification pending then no action is performed and pdFAIL is returned.</para>
+<para>eNoAction - The task receives a notification without its notification value being updated. ulValue is not used and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para>pulPreviousNotificationValue - Can be used to pass out the subject task&apos;s notification value before any bits are modified by the notify function.</para>
+<para><simplesect kind="return"><para>Dependent on the value of eAction. See the description of the eAction parameter.</para>
+</simplesect>
+task. h <preformatted>BaseType_t <ref refid="task_8h_1a1ed9129068b96a909356bd0369c5ecb0" kindref="member">xTaskNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, BaseType_t *pxHigherPriorityTaskWoken )</ref>;</preformatted></para>
+<para>configUSE_TASK_NOTIFICATIONS must be undefined or defined as 1 for this function to be available.</para>
+<para>When configUSE_TASK_NOTIFICATIONS is set to one each task has its own private &quot;notification value&quot;, which is a 32-bit unsigned integer (uint32_t).</para>
+<para>A version of <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> that can be used from an interrupt service routine (ISR).</para>
+<para>Events can be sent to a task using an intermediary object. Examples of such objects are queues, semaphores, mutexes and event groups. Task notifications are a method of sending an event directly to a task without the need for such an intermediary object.</para>
+<para>A notification sent to a task can optionally perform an action, such as update, overwrite or increment the task&apos;s notification value. In that way task notifications can be used to send data to a task, or be used as light weight and fast binary or counting semaphores.</para>
+<para>A notification sent to a task will remain pending until it is cleared by the task calling <ref refid="task_8h_1a0475fcda9718f403521c270a7270ff93" kindref="member">xTaskNotifyWait()</ref> or <ref refid="task_8h_1a66540bef602522a01a519f776e4c07d8" kindref="member">ulTaskNotifyTake()</ref>. If the task was already in the Blocked state to wait for a notification when the notification arrives then the task will automatically be removed from the Blocked state (unblocked) and the notification cleared.</para>
+<para>A task can use <ref refid="task_8h_1a0475fcda9718f403521c270a7270ff93" kindref="member">xTaskNotifyWait()</ref> to [optionally] block to wait for a notification to be pending, or <ref refid="task_8h_1a66540bef602522a01a519f776e4c07d8" kindref="member">ulTaskNotifyTake()</ref> to [optionally] block to wait for its notification value to have a non-zero value. The task does not consume any CPU time while it is in the Blocked state.</para>
+<para>See <ulink url="http://www.FreeRTOS.org/RTOS-task-notifications.html">http://www.FreeRTOS.org/RTOS-task-notifications.html</ulink> for details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xTaskToNotify</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the task being notified. The handle to a task can be returned from the <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> API function used to create the task, and the handle of the currently running task can be obtained by calling <ref refid="task_8h_1a85a0f9c9f817b18686efbf8f37c72dfc" kindref="member">xTaskGetCurrentTaskHandle()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ulValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data that can be sent with the notification. How the data is used depends on the value of the eAction parameter.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eAction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how the notification updates the task&apos;s notification value, if at all. Valid values for eAction are as follows:</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+eSetBits - The task&apos;s notification value is bitwise ORed with ulValue. xTaskNofify() always returns pdPASS in this case.</para>
+<para>eIncrement - The task&apos;s notification value is incremented. ulValue is not used and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para>eSetValueWithOverwrite - The task&apos;s notification value is set to the value of ulValue, even if the task being notified had not yet processed the previous notification (the task already had a notification pending). <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para>eSetValueWithoutOverwrite - If the task being notified did not already have a notification pending then the task&apos;s notification value is set to ulValue and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> will return pdPASS. If the task being notified already had a notification pending then no action is performed and pdFAIL is returned.</para>
+<para>eNoAction - The task receives a notification without its notification value being updated. ulValue is not used and <ref refid="task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd" kindref="member">xTaskNotify()</ref> always returns pdPASS in this case.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pxHigherPriorityTaskWoken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="task_8h_1a1ed9129068b96a909356bd0369c5ecb0" kindref="member">xTaskNotifyFromISR()</ref> will set *pxHigherPriorityTaskWoken to pdTRUE if sending the notification caused the task to which the notification was sent to leave the Blocked state, and the unblocked task has a priority higher than the currently running task. If <ref refid="task_8h_1a1ed9129068b96a909356bd0369c5ecb0" kindref="member">xTaskNotifyFromISR()</ref> sets this value to pdTRUE then a context switch should be requested before the interrupt is exited. How a context switch is requested from an ISR is dependent on the port - see the documentation page for the port in use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Dependent on the value of eAction. See the description of the eAction parameter. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

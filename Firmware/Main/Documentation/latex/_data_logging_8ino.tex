@@ -1,5 +1,10 @@
 \hypertarget{_data_logging_8ino}{}\doxysection{Data\+Logging.\+ino File Reference}
 \label{_data_logging_8ino}\index{DataLogging.ino@{DataLogging.ino}}
+
+
+The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+
+
 {\ttfamily \#include \char`\"{}Data\+Logging.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Display.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Main.\+h\char`\"{}}\newline
@@ -7,31 +12,50 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}{data\+Logging\+Task}} (void $\ast$dl\+Data)
+\item 
 bool \mbox{\hyperlink{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}{start\+SD}} ()
 \item 
 bool \mbox{\hyperlink{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}{open\+File}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer)
+\item 
+void \mbox{\hyperlink{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}{close\+File}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer)
 \item 
 void \mbox{\hyperlink{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}{save\+File}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer)
 \item 
 void \mbox{\hyperlink{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}{save\+Files}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$$\ast$writers, int writers\+Len)
 \item 
-void \mbox{\hyperlink{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}{close\+File}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer)
-\item 
 void \mbox{\hyperlink{_data_logging_8ino_a8777416fb5b01666e7b28ada9f3b552a}{print\+File}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer)
-\item 
-void \mbox{\hyperlink{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}{data\+Logging\+Task}} (void $\ast$dl\+Data)
 \item 
 void \mbox{\hyperlink{_data_logging_8ino_aa394fd0868d0e097f701cb3f21d9c451}{add\+Record}} (\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$writer, int s\+Time)
 \item 
 void \mbox{\hyperlink{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}{start\+Recording}} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-Sd\+Fat \mbox{\hyperlink{_data_logging_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}{sd}}
-\item 
-unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1c16}{epoch\+Time}}
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+
+\begin{DoxyAuthor}{Author}
+Washington Superbike 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1-\/March-\/2023
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+up all members to be able to use it without any trouble.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Goal 1. ~\newline
+ ~\newline
+ Goal 2. ~\newline
+ ~\newline
+ Goal 3. ~\newline
+ ~\newline
+ Final Goal. \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -41,11 +65,19 @@ unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1
 \doxysubsubsection{\texorpdfstring{addRecord()}{addRecord()}}
 {\footnotesize\ttfamily void add\+Record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$}]{writer,  }\item[{int}]{s\+Time }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00095}{95}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+
 \mbox{\Hypertarget{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}\label{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}} 
 \index{DataLogging.ino@{DataLogging.ino}!closeFile@{closeFile}}
 \index{closeFile@{closeFile}!DataLogging.ino@{DataLogging.ino}}
 \doxysubsubsection{\texorpdfstring{closeFile()}{closeFile()}}
 {\footnotesize\ttfamily void close\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$}]{writer }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00071}{71}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}\label{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}} 
 \index{DataLogging.ino@{DataLogging.ino}!dataLoggingTask@{dataLoggingTask}}
@@ -53,11 +85,19 @@ unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1
 \doxysubsubsection{\texorpdfstring{dataLoggingTask()}{dataLoggingTask()}}
 {\footnotesize\ttfamily void data\+Logging\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{dl\+Data }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00033}{33}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+
 \mbox{\Hypertarget{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}\label{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}} 
 \index{DataLogging.ino@{DataLogging.ino}!openFile@{openFile}}
 \index{openFile@{openFile}!DataLogging.ino@{DataLogging.ino}}
 \doxysubsubsection{\texorpdfstring{openFile()}{openFile()}}
 {\footnotesize\ttfamily bool open\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$}]{writer }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00065}{65}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a8777416fb5b01666e7b28ada9f3b552a}\label{_data_logging_8ino_a8777416fb5b01666e7b28ada9f3b552a}} 
 \index{DataLogging.ino@{DataLogging.ino}!printFile@{printFile}}
@@ -65,11 +105,19 @@ unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1
 \doxysubsubsection{\texorpdfstring{printFile()}{printFile()}}
 {\footnotesize\ttfamily void print\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$}]{writer }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00085}{85}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+
 \mbox{\Hypertarget{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}\label{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}} 
 \index{DataLogging.ino@{DataLogging.ino}!saveFile@{saveFile}}
 \index{saveFile@{saveFile}!DataLogging.ino@{DataLogging.ino}}
 \doxysubsubsection{\texorpdfstring{saveFile()}{saveFile()}}
 {\footnotesize\ttfamily void save\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$}]{writer }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00075}{75}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}\label{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}} 
 \index{DataLogging.ino@{DataLogging.ino}!saveFiles@{saveFiles}}
@@ -77,11 +125,19 @@ unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1
 \doxysubsubsection{\texorpdfstring{saveFiles()}{saveFiles()}}
 {\footnotesize\ttfamily void save\+Files (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} $\ast$$\ast$}]{writers,  }\item[{int}]{writers\+Len }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00079}{79}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+
 \mbox{\Hypertarget{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}\label{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}} 
 \index{DataLogging.ino@{DataLogging.ino}!startRecording@{startRecording}}
 \index{startRecording@{startRecording}!DataLogging.ino@{DataLogging.ino}}
 \doxysubsubsection{\texorpdfstring{startRecording()}{startRecording()}}
 {\footnotesize\ttfamily void start\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00136}{136}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}\label{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}} 
 \index{DataLogging.ino@{DataLogging.ino}!startSD@{startSD}}
@@ -91,16 +147,5 @@ unsigned long \mbox{\hyperlink{_data_logging_8ino_a90b197693eeaad244ff381d5645b1
 
 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{_data_logging_8ino_a90b197693eeaad244ff381d5645b1c16}\label{_data_logging_8ino_a90b197693eeaad244ff381d5645b1c16}} 
-\index{DataLogging.ino@{DataLogging.ino}!epochTime@{epochTime}}
-\index{epochTime@{epochTime}!DataLogging.ino@{DataLogging.ino}}
-\doxysubsubsection{\texorpdfstring{epochTime}{epochTime}}
-{\footnotesize\ttfamily unsigned long epoch\+Time}
-
-\mbox{\Hypertarget{_data_logging_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}\label{_data_logging_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}} 
-\index{DataLogging.ino@{DataLogging.ino}!sd@{sd}}
-\index{sd@{sd}!DataLogging.ino@{DataLogging.ino}}
-\doxysubsubsection{\texorpdfstring{sd}{sd}}
-{\footnotesize\ttfamily Sd\+Fat sd}
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00059}{59}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 

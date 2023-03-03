@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_stream_buffer_create_static" kind="group">
+    <compoundname>xStreamBufferCreateStatic</compoundname>
+    <title>xStreamBufferCreateStatic</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="stream__buffer_8h" kindref="compound">stream_buffer.h</ref></para>
+<para><preformatted>
+StreamBufferHandle_t <ref refid="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" kindref="member">xStreamBufferCreateStatic( size_t xBufferSizeBytes,
+                                                size_t xTriggerLevelBytes,
+                                                uint8_t *pucStreamBufferStorageArea,
+                                                StaticStreamBuffer_t *pxStaticStreamBuffer )</ref>;
+</preformatted> Creates a new stream buffer using statically allocated memory. See <ref refid="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" kindref="member">xStreamBufferCreate()</ref> for a version that uses dynamically allocated memory.</para>
+<para>configSUPPORT_STATIC_ALLOCATION must be set to 1 in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref> for <ref refid="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" kindref="member">xStreamBufferCreateStatic()</ref> to be available.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xBufferSizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size, in bytes, of the buffer pointed to by the pucStreamBufferStorageArea parameter.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xTriggerLevelBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that must be in the stream buffer before a task that is blocked on the stream buffer to wait for data is moved out of the blocked state. For example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 1 then the task will be unblocked when a single byte is written to the buffer or the task&apos;s block time expires. As another example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 10 then the task will not be unblocked until the stream buffer contains at least 10 bytes or the task&apos;s block time expires. If a reading task&apos;s block time expires before the trigger level is reached then the task will still receive however many bytes are actually available. Setting a trigger level of 0 will result in a trigger level of 1 being used. It is not valid to specify a trigger level that is greater than the buffer size.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pucStreamBufferStorageArea</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must point to a uint8_t array that is at least xBufferSizeBytes + 1 big. This is the array to which streams are copied when they are written to the stream buffer.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxStaticStreamBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Must point to a variable of type StaticStreamBuffer_t, which will be used to hold the stream buffer&apos;s data structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the stream buffer is created successfully then a handle to the created stream buffer is returned. If either pucStreamBufferStorageArea or pxStaticstreamBuffer are NULL then NULL is returned.</para>
+</simplesect>
+Example use: <preformatted>
+
+// Used to dimension the array used to hold the streams.  The available space
+// will actually be one less than this, so 999.
+#define STORAGE_SIZE_BYTES 1000
+
+// Defines the memory that will actually hold the streams within the stream
+// buffer.
+static uint8_t ucStorageBuffer[ STORAGE_SIZE_BYTES ];
+
+// The variable used to hold the stream buffer structure.
+StaticStreamBuffer_t xStreamBufferStruct;
+
+void MyFunction( void )
+{
+StreamBufferHandle_t xStreamBuffer;
+const size_t xTriggerLevel = 1;
+
+    xStreamBuffer = <ref refid="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" kindref="member">xStreamBufferCreateStatic( sizeof( ucBufferStorage ),
+                                               xTriggerLevel,
+                                               ucBufferStorage,
+                                               &amp;xStreamBufferStruct )</ref>;
+
+    // As neither the pucStreamBufferStorageArea or pxStaticStreamBuffer
+    // parameters were NULL, xStreamBuffer will not be NULL, and can be used to
+    // reference the created stream buffer in other stream buffer API calls.
+
+    // Other code that uses the stream buffer can go here.
+}
+
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,3 +1,32 @@
+/**
+   @file Display.ino
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
+
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      PLEASE remove the whole screen parameter situation. Change the whole
+      value in the
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Change the thermistor code to use "NUM_THERMI" from Main.h
+      Final Goal.
+*/
+
 #include "Display.h"
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
@@ -7,34 +36,18 @@
 //  Write out a header comment for this file and all other files.
 //  Write out comments for big blocks that are hard to interpret.
 //  Write out comments for all functions explaining them.
+// 1. Remove oldData field from the printedData struct.
+// 2. Add more macros for default vals that are repeated in Display.ino
+// 3. Remove all the extra macros and predefined methods
+// 4. Remove everything that corresponds to things removed from Display.ino
 
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
 
-// All PrintedValue objects/structs
-PrintedData printedVals[NUM_DATA];
-
-PrintedData *batteryVoltage = &printedVals[0];
-PrintedData *motorControllerVoltage = &printedVals[1];
-PrintedData *auxBatteryVoltage = &printedVals[2];
-PrintedData *rpm = &printedVals[3];
-PrintedData *motorTemperature = &printedVals[4];
-PrintedData *motorCurr = &printedVals[5];
-PrintedData *errMessage = &printedVals[6];
-PrintedData *chargerVolt = &printedVals[7];
-PrintedData *chargerCurr = &printedVals[8];
-PrintedData *bmsStatusFlag = &printedVals[9];
-PrintedData *evccVolt = &printedVals[10];
-
-PrintedDataTherm thermiData;
-PrintedDataTimeStuct timeData;
-
-// displayTaskWrap->screen[] is unused currently but will be useful when we switch to using a proper speedometer
 void displayTask(void *displayTaskWrap) {
   while (1) {
     displayPointer displayWrapper = *(displayPointer *)displayTaskWrap;
     MeasurementScreenData test = *(displayWrapper.msDataWrap);
-    drawMeasurementScreen(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
-    manualScreenUpdater();
+    displayUpdate(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
+    manualScreenDataUpdater();
     vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
   }
 }
@@ -49,7 +62,7 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
   if (screen.screenType == SPEEDOMETER){
     tft.fillScreen(ILI9341_BLACK);
   }
-  
+
   //PrintedData *thermTemps = &printedVals[7];
   //PrintedData *timeData = &printedVals[11];
 
@@ -71,21 +84,7 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
   setupMeasurementScreen(screen);
 }
 
-// Update function for display.
-
-// TODO: DISCUSS screen function:
-// Again, what point does the Screen serve?
-// Do we truly need a multiple screen setup?
-// We only really need the testing screen?
-// Unless we want some kind of cool Odometer?
-// Potential implementation of screen-based swapping:
-// if testingScreen ...
-// if drivingScreen ... (load an odometer, etc.)
-void displayTask(MeasurementScreenData msData, Screen screen) {
-  drawMeasurementScreen(msData, screen);
-}
-
-void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
+void displayUpdate(MeasurementScreenData msData, Screen screen) {
   if (screen.screenType == DEBUG) {
     tft.setTextSize(1);
     for (int i = 0; i < NUM_DATA; i++) {
@@ -117,7 +116,7 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
       float diameterPerSecond = 0.522/60;
       float pi = 3.14159;
       float mphConvert = 2.2369362920544;
-      
+
       float newSpeed = *printedVals[3].currData / gearRatio * pi * diameterPerSecond * mphConvert;
       float oldSpeed = printedVals[3].oldData / gearRatio * pi * diameterPerSecond * mphConvert;
       newString = (String) (int) newSpeed;
@@ -130,7 +129,7 @@ void drawMeasurementScreen(MeasurementScreenData msData, Screen screen) {
       eraseThenPrintSPEEDO(120, 180, oldString, newString);
       printedVals[3].oldData = *printedVals[3].currData;
     }
-  }  
+  }
 }
 
 void thermiDataPrint(bool thermiDataPrint) {
@@ -215,16 +214,16 @@ void setupMeasurementScreen(Screen screen) {
   if (screen.screenType == SPEEDOMETER){
     tft.setTextColor(ILI9341_WHITE);
     tft.setTextSize(5);
-    
+
     tft.setCursor(0,0);
     tft.print("SPEED");
 
     tft.setCursor(220, 62);
     tft.print("mph");
-    
+
     tft.setCursor(0, 205);
     tft.print("RPM");
-  }  
+  }
 }
 
 void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
@@ -246,12 +245,12 @@ void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData) {
 }
 
 //void screenEraser(int scaler, int i) {
-//  // floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.
-//  // Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.
+//  floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.
+//  Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.
 //  tft.fillRect(printedVals[i].dataX, printedVals[i].y, scaler * (floor(log10(abs(*printedVals[i].currData))) + 1), 8, ILI9341_WHITE);
 //}
 
-void manualScreenUpdater() {
+void manualScreenDataUpdater() {
   for (int i = 0; i < NUM_DATA; i++) {
     if (printedVals[i].type == NUMBER) {
       *printedVals[i].currData = *printedVals[i].currData + 1;

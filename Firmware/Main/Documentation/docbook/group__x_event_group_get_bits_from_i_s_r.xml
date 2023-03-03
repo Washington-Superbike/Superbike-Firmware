@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_event_group_get_bits_from_i_s_r" xml:lang="en-US">
+<title>xEventGroupGetBitsFromISR</title>
+<indexterm><primary>xEventGroupGetBitsFromISR</primary></indexterm>
+
+<para><link linkend="_event__groups_8h">event_groups.h</link> <literallayout>
+   EventBits_t <link linkend="_event__groups_8h_1a95822db4357d0b77c35aed0c7427eca0">xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup )</link>;
+</literallayout></para>
+
+<para>A version of <link linkend="_event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584">xEventGroupGetBits()</link> that can be called from an ISR.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xEventGroup</entry><entry>
+<para>The event group being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The event group bits at the time <link linkend="_event__groups_8h_1a95822db4357d0b77c35aed0c7427eca0">xEventGroupGetBitsFromISR()</link> was called. </para>
+</formalpara>
+</para>
+</section>

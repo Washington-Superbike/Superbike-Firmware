@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__data_logging_8h_source" xml:lang="en-US">
+<title>DataLogging.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__data_logging_8h_source_1l00001"/>00001 
+<anchor xml:id="__data_logging_8h_source_1l00028"/>00028 <emphasis role="preprocessor">#ifndef&#32;DATALOG_H_</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#define&#32;DATALOG_H_</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00030"/>00030 
+<anchor xml:id="__data_logging_8h_source_1l00031"/>00031 <emphasis role="preprocessor">#include&#32;&quot;SdFat.h&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00032"/>00032 
+<anchor xml:id="__data_logging_8h_source_1l00033"/><link linkend="__data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2">00033</link> <emphasis role="preprocessor">#define&#32;DATALOGGING_TASK_STACK_SIZE&#32;configMINIMAL_STACK_SIZE&#32;+&#32;32368</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00034"/>00034 
+<anchor xml:id="__data_logging_8h_source_1l00035"/>00035 <emphasis role="comment">//Names&#32;for&#32;each&#32;of&#32;the&#32;log&#32;files</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00036"/><link linkend="__data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99">00036</link> <emphasis role="preprocessor">#define&#32;MOTOR_TEMPERATURE_LOG&#32;&quot;motor_temperature_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00037"/><link linkend="__data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f">00037</link> <emphasis role="preprocessor">#define&#32;MOTOR_CONTROLLER_TEMPERATURE_LOG&#32;&quot;motor_controller_temperature_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00038"/><link linkend="__data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b">00038</link> <emphasis role="preprocessor">#define&#32;BMS_VOLTAGE_LOG&#32;&quot;bms_voltage_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00039"/><link linkend="__data_logging_8h_1a34f856128abdd56434d31edd1f4ce549">00039</link> <emphasis role="preprocessor">#define&#32;MOTOR_CONTROLLER_VOLTAGE_LOG&#32;&quot;motor_controller_voltage_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00040"/><link linkend="__data_logging_8h_1aa98fafae382d16d375eeef356bf55917">00040</link> <emphasis role="preprocessor">#define&#32;MOTOR_CURRENT_LOG&#32;&quot;current_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00041"/><link linkend="__data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d">00041</link> <emphasis role="preprocessor">#define&#32;THERMISTOR_LOG&#32;&quot;thermistor_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00042"/><link linkend="__data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2">00042</link> <emphasis role="preprocessor">#define&#32;RPM_LOG&#32;&quot;rpm_log.csv&quot;</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00043"/>00043 
+<anchor xml:id="__data_logging_8h_source_1l00044"/>00044 <emphasis role="comment">//&#32;Use&#32;built-in&#32;SD&#32;for&#32;SPI&#32;modes&#32;on&#32;Teensy&#32;3.5/3.6.</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00045"/>00045 <emphasis role="comment">//&#32;Teensy&#32;4.0&#32;use&#32;first&#32;SPI&#32;port.</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00046"/>00046 <emphasis role="comment">//&#32;SDCARD_SS_PIN&#32;is&#32;defined&#32;for&#32;the&#32;built-in&#32;SD&#32;on&#32;some&#32;boards.</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00047"/>00047 <emphasis role="preprocessor">#ifndef&#32;SDCARD_SS_PIN</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00048"/><link linkend="__data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45">00048</link> <emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;<link linkend="__data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45">SD_CS_PIN</link>&#32;=&#32;SS;
+<anchor xml:id="__data_logging_8h_source_1l00049"/>00049 <emphasis role="preprocessor">#else&#32;&#32;</emphasis><emphasis role="comment">//&#32;SDCARD_SS_PIN</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00050"/>00050 <emphasis role="comment">//&#32;Assume&#32;built-in&#32;SD&#32;is&#32;used.</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00051"/>00051 <emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;<link linkend="__data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45">SD_CS_PIN</link>&#32;=&#32;SDCARD_SS_PIN;
+<anchor xml:id="__data_logging_8h_source_1l00052"/>00052 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;SDCARD_SS_PIN</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00053"/>00053 
+<anchor xml:id="__data_logging_8h_source_1l00054"/><link linkend="__data_logging_8h_1a888ed23a146630d5e36a08aed19ff638">00054</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="__data_logging_8h_1a888ed23a146630d5e36a08aed19ff638">BUF_DIM</link>&#32;=&#32;4096;
+<anchor xml:id="__data_logging_8h_source_1l00055"/>00055 
+<anchor xml:id="__data_logging_8h_source_1l00056"/>00056 <emphasis role="comment">//Represents&#32;the&#32;serial&#32;connection&#32;to&#32;the&#32;sd&#32;card&#32;and&#32;any&#32;internal&#32;buffers</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00057"/><link linkend="__data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302">00057</link> SdFat&#32;<link linkend="__data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302">sd</link>;
+<anchor xml:id="__data_logging_8h_source_1l00058"/>00058 
+<anchor xml:id="__data_logging_8h_source_1l00059"/><link linkend="__data_logging_8h_1a90b197693eeaad244ff381d5645b1c16">00059</link> <emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">long</emphasis>&#32;<link linkend="__data_logging_8h_1a90b197693eeaad244ff381d5645b1c16">epochTime</link>;&#32;<emphasis role="comment">//represents&#32;the&#32;time&#32;that&#32;recording&#32;started</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00060"/>00060 
+<anchor xml:id="__data_logging_8h_source_1l00061"/>00061 <emphasis role="comment">//Clarification&#32;on&#32;how&#32;SD&#32;card&#32;stores&#32;data:&#32;each&#32;block&#32;is&#32;generally&#32;about&#32;512&#32;or&#32;1024&#32;bytes.&#32;SdFat&#32;stores&#32;an&#32;internal&#32;buffer&#32;of&#32;512&#32;and&#32;when&#32;the&#32;limit&#32;is&#32;reached</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00062"/>00062 <emphasis role="comment">//only&#32;then&#32;does&#32;it&#32;save&#32;the&#32;data&#32;onto&#32;the&#32;sd&#32;card.&#32;This&#32;is&#32;an&#32;important&#32;trade&#32;off.&#32;if&#32;we&#32;are&#32;less&#32;than&#32;that&#32;value&#32;and&#32;the&#32;bike&#32;suddenly&#32;turns&#32;off,&#32;those&#32;&lt;512&#32;bytes&#32;aren&apos;t&#32;stored</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00063"/>00063 <emphasis role="comment">//unless&#32;we&#32;somehow&#32;flush&#32;the&#32;data&#32;or&#32;use&#32;file.close();&#32;this&#32;means&#32;we&#32;should&#32;potentially&#32;implement&#32;a&#32;signal&#32;for&#32;recording&#32;values,&#32;or&#32;even&#32;just&#32;only&#32;record&#32;when&#32;the&#32;HV&#32;system&#32;is&#32;on&#32;(not&#32;for&#32;testing&#32;things&#32;like&#32;precharge&#32;obv)</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00064"/>00064 <emphasis role="comment">//or&#32;we&#32;just&#32;periodically&#32;flush&#32;data&#32;but&#32;that&#32;uses&#32;more&#32;resources&#32;on&#32;the&#32;teensy&#32;(this&#32;depends&#32;on&#32;how&#32;long&#32;it&#32;takes&#32;+&#32;how&#32;fast&#32;we&#32;are&#32;writing&#32;data)</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00065"/>00065 
+<anchor xml:id="__data_logging_8h_source_1l00066"/>00066 
+<anchor xml:id="__data_logging_8h_source_1l00067"/><link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">00067</link> <emphasis role="keyword">enum</emphasis>&#32;<link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">data_type</link>&#32;{
+<anchor xml:id="__data_logging_8h_source_1l00068"/><link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a">00068</link> &#32;&#32;<link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a">INT</link>,
+<anchor xml:id="__data_logging_8h_source_1l00069"/>00069 &#32;&#32;<link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c">FLOAT</link>
+<anchor xml:id="__data_logging_8h_source_1l00070"/><link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c">00070</link> };
+<anchor xml:id="__data_logging_8h_source_1l00071"/>00071 
+<anchor xml:id="__data_logging_8h_source_1l00072"/>00072 
+<anchor xml:id="__data_logging_8h_source_1l00073"/>00073 <emphasis role="comment">//Represents&#32;a&#32;writer&#32;to&#32;a&#32;CSV&#32;log&#32;file&#32;on&#32;the&#32;sd&#32;card</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00074"/><link linkend="_struct_c_s_v_writer">00074</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis>{
+<anchor xml:id="__data_logging_8h_source_1l00075"/><link linkend="_struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf">00075</link> &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf">filename</link>;
+<anchor xml:id="__data_logging_8h_source_1l00076"/><link linkend="_struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e">00076</link> &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e">dataValuesLen</link>;
+<anchor xml:id="__data_logging_8h_source_1l00077"/><link linkend="_struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9">00077</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;*<link linkend="_struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9">dataValues</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//array&#32;of&#32;pointers&#32;to&#32;shared&#32;variables&#32;(the&#32;data&#32;values&#32;in&#32;the&#32;csv&#32;log)</emphasis>
+<anchor xml:id="__data_logging_8h_source_1l00078"/><link linkend="_struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27">00078</link> &#32;&#32;<link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">data_type</link>&#32;<link linkend="_struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27">D_TYPE</link>;
+<anchor xml:id="__data_logging_8h_source_1l00079"/><link linkend="_struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962">00079</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962">open</link>;
+<anchor xml:id="__data_logging_8h_source_1l00080"/><link linkend="_struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa">00080</link> &#32;&#32;SdFile&#32;<link linkend="_struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa">file</link>;
+<anchor xml:id="__data_logging_8h_source_1l00081"/>00081 
+<anchor xml:id="__data_logging_8h_source_1l00082"/>00082 }&#32;<link linkend="_struct_c_s_v_writer">CSVWriter</link>;
+<anchor xml:id="__data_logging_8h_source_1l00083"/>00083 
+<anchor xml:id="__data_logging_8h_source_1l00084"/><link linkend="_struct_data_logging_task_data">00084</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis>{
+<anchor xml:id="__data_logging_8h_source_1l00085"/><link linkend="_struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a">00085</link> &#32;&#32;<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;**<link linkend="_struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a">writers</link>;
+<anchor xml:id="__data_logging_8h_source_1l00086"/><link linkend="_struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e">00086</link> &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e">writersLen</link>;
+<anchor xml:id="__data_logging_8h_source_1l00087"/>00087 }&#32;<link linkend="_struct_data_logging_task_data">DataLoggingTaskData</link>;
+<anchor xml:id="__data_logging_8h_source_1l00088"/>00088 
+<anchor xml:id="__data_logging_8h_source_1l00089"/>00089 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask</link>(<emphasis role="keywordtype">void</emphasis>&#32;*dlData);
+<anchor xml:id="__data_logging_8h_source_1l00090"/>00090 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="__data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77">startSD</link>();
+<anchor xml:id="__data_logging_8h_source_1l00091"/>00091 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="__data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e">openFile</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;*writer);
+<anchor xml:id="__data_logging_8h_source_1l00092"/>00092 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827">closeFile</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;*writer);
+<anchor xml:id="__data_logging_8h_source_1l00093"/>00093 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1a678245415389e1bbd75b088a980b008a">saveFile</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;*writer);
+<anchor xml:id="__data_logging_8h_source_1l00094"/>00094 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1a52d8bf385131a3543793f22ee432100a">saveFiles</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;**writers,&#32;<emphasis role="keywordtype">int</emphasis>&#32;writersLen);
+<anchor xml:id="__data_logging_8h_source_1l00095"/>00095 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1a8777416fb5b01666e7b28ada9f3b552a">printFile</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;*writer);
+<anchor xml:id="__data_logging_8h_source_1l00096"/>00096 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1aa394fd0868d0e097f701cb3f21d9c451">addRecord</link>(<link linkend="_struct_c_s_v_writer">CSVWriter</link>&#32;*writer,&#32;<emphasis role="keywordtype">int</emphasis>&#32;sTime);
+<anchor xml:id="__data_logging_8h_source_1l00097"/>00097 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="__data_logging_8h_1ab91616c118b701c2afd9136393d1f19b">startRecording</link>();
+<anchor xml:id="__data_logging_8h_source_1l00098"/>00098 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

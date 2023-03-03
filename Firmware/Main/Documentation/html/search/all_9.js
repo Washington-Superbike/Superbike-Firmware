@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['idletask_0',['idleTask',['../_main_8ino.html#a0d7297755c0775a9b0e4f7eeeafd7c7e',1,'Main.ino']]],
+  ['idletask_0',['idleTask',['../_main_8h.html#a0d7297755c0775a9b0e4f7eeeafd7c7e',1,'idleTask(void *taskData):&#160;Main.ino'],['../_main_8ino.html#a0d7297755c0775a9b0e4f7eeeafd7c7e',1,'idleTask(void *taskData):&#160;Main.ino']]],
   ['include_5fetaskgetstate_1',['INCLUDE_eTaskGetState',['../_free_r_t_o_s_config__default_8h.html#a4fd1d67d54044ac86e8ffc890180f9f6',1,'FreeRTOSConfig_default.h']]],
   ['include_5fuxtaskgetstackhighwatermark_2',['INCLUDE_uxTaskGetStackHighWaterMark',['../_free_r_t_o_s_config__default_8h.html#a23c7b4b41fe9b575cf2329c7cbe78b86',1,'FreeRTOSConfig_default.h']]],
   ['include_5fuxtaskpriorityget_3',['INCLUDE_uxTaskPriorityGet',['../_free_r_t_o_s_config__default_8h.html#a1279eb797355460aeeec06aa524e91df',1,'FreeRTOSConfig_default.h']]],
@@ -19,11 +19,12 @@ var searchData=
   ['include_5fxtaskgetschedulerstate_16',['INCLUDE_xTaskGetSchedulerState',['../_free_r_t_o_s_config__default_8h.html#a9ed60ede556830584e6bfd4a3ab4f9de',1,'FreeRTOSConfig_default.h']]],
   ['include_5fxtaskresumefromisr_17',['INCLUDE_xTaskResumeFromISR',['../_free_r_t_o_s_config__default_8h.html#a85e3dae9f3daa26f24e679cb6793811e',1,'FreeRTOSConfig_default.h']]],
   ['include_5fxtimerpendfunctioncall_18',['INCLUDE_xTimerPendFunctionCall',['../_free_r_t_o_s_config__default_8h.html#a4b4336acd61a8e513ca2376be84326b5',1,'FreeRTOSConfig_default.h']]],
-  ['initializecanstructs_19',['initializeCANStructs',['../_main_8ino.html#ab91267714bdf99d7b3d177f95f484157',1,'Main.ino']]],
-  ['initializelogs_20',['initializeLogs',['../_main_8ino.html#a5418f3a334d5f900ceb6136bedef0dd7',1,'Main.ino']]],
-  ['initializeprechargestruct_21',['initializePreChargeStruct',['../_main_8ino.html#a32469c898d757b2b30c00d0546f91802',1,'Main.ino']]],
-  ['int_22',['INT',['../_data_logging_8h.html#ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a',1,'DataLogging.h']]],
-  ['is_5fvalid_23',['is_valid',['../structmbedtls__threading__mutex__t.html#abcb41b414dc71a45e5150ddeb3452b86',1,'mbedtls_threading_mutex_t']]],
-  ['ishvsafe_24',['isHVSafe',['../_pre_charge_8ino.html#a65867cb936f7ef47ffd07fbfd4a91355',1,'PreCharge.ino']]],
-  ['isprecharged_25',['isPrecharged',['../_precharge_8h.html#a42b25fa6ccd2c8d82ba24c5ed4aaa7d1',1,'isPrecharged(PreChargeTaskData preChargeData):&#160;PreCharge.ino'],['../_pre_charge_8ino.html#a42b25fa6ccd2c8d82ba24c5ed4aaa7d1',1,'isPrecharged(PreChargeTaskData preChargeData):&#160;PreCharge.ino']]]
+  ['initializecanstructs_19',['initializeCANStructs',['../_main_8h.html#ab91267714bdf99d7b3d177f95f484157',1,'initializeCANStructs():&#160;Main.ino'],['../_main_8ino.html#ab91267714bdf99d7b3d177f95f484157',1,'initializeCANStructs():&#160;Main.ino']]],
+  ['initializedisplaystructs_20',['initializeDisplayStructs',['../_main_8h.html#a128d10ba9e06eb69d1dfc91ffef935ba',1,'initializeDisplayStructs():&#160;Main.ino'],['../_main_8ino.html#a128d10ba9e06eb69d1dfc91ffef935ba',1,'initializeDisplayStructs():&#160;Main.ino']]],
+  ['initializelogstructs_21',['initializeLogStructs',['../_main_8h.html#a797cf3c70ce7ae02bba9bfd3f6d886de',1,'initializeLogStructs():&#160;Main.ino'],['../_main_8ino.html#a797cf3c70ce7ae02bba9bfd3f6d886de',1,'initializeLogStructs():&#160;Main.ino']]],
+  ['initializeprechargestruct_22',['initializePreChargeStruct',['../_main_8h.html#a32469c898d757b2b30c00d0546f91802',1,'initializePreChargeStruct():&#160;Main.ino'],['../_main_8ino.html#a32469c898d757b2b30c00d0546f91802',1,'initializePreChargeStruct():&#160;Main.ino']]],
+  ['int_23',['INT',['../_data_logging_8h.html#ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a',1,'DataLogging.h']]],
+  ['is_5fvalid_24',['is_valid',['../structmbedtls__threading__mutex__t.html#abcb41b414dc71a45e5150ddeb3452b86',1,'mbedtls_threading_mutex_t']]],
+  ['ishvsafe_25',['isHVSafe',['../_precharge_8h.html#a65867cb936f7ef47ffd07fbfd4a91355',1,'isHVSafe(PreChargeTaskData preChargeData):&#160;PreCharge.ino'],['../_pre_charge_8ino.html#a65867cb936f7ef47ffd07fbfd4a91355',1,'isHVSafe(PreChargeTaskData preChargeData):&#160;PreCharge.ino']]],
+  ['isprecharged_26',['isPrecharged',['../_precharge_8h.html#a42b25fa6ccd2c8d82ba24c5ed4aaa7d1',1,'isPrecharged(PreChargeTaskData preChargeData):&#160;PreCharge.ino'],['../_pre_charge_8ino.html#a42b25fa6ccd2c8d82ba24c5ed4aaa7d1',1,'isPrecharged(PreChargeTaskData preChargeData):&#160;PreCharge.ino']]]
 ];

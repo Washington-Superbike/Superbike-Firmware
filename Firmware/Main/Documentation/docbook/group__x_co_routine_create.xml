@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_co_routine_create" xml:lang="en-US">
+<title>xCoRoutineCreate</title>
+<indexterm><primary>xCoRoutineCreate</primary></indexterm>
+
+<para>croutine. h <literallayout>
+BaseType_t <link linkend="_croutine_8h_1ae0e03637a3d2c134e9b52006f353d8c0">xCoRoutineCreate(
+                                crCOROUTINE_CODE pxCoRoutineCode,
+                                UBaseType_t uxPriority,
+                                UBaseType_t uxIndex
+                              )</link>;</literallayout></para>
+
+<para>Create a new co-routine and add it to the list of co-routines that are ready to run.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pxCoRoutineCode</entry><entry>
+<para>Pointer to the co-routine function. Co-routine functions require special syntax - see the co-routine section of the WEB documentation for more information.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxPriority</entry><entry>
+<para>The priority with respect to other co-routines at which the co-routine will run.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>uxIndex</entry><entry>
+<para>Used to distinguish between different co-routines that execute the same function. See the example below and the co-routine section of the WEB documentation for further information.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pdPASS if the co-routine was successfully created and added to a ready list, otherwise an error code defined with <link linkend="_projdefs_8h">ProjDefs.h</link>.</para>
+</formalpara>
+Example usage: <literallayout>
+// Co-routine to be created.
+void vFlashCoRoutine( CoRoutineHandle_t xHandle, UBaseType_t uxIndex )
+{
+// Variables in co-routines must be declared static if they must maintain value across a blocking call.
+// This may not be necessary for const variables.
+static const char cLedToFlash[ 2 ] = { 5, 6 };
+static const TickType_t uxFlashRates[ 2 ] = { 200, 400 };
+
+    // Must start every co-routine with a call to <link linkend="_croutine_8h_1a19a57a201a325e8af1207ed68c4aedde">crSTART()</link>;
+    <link linkend="_croutine_8h_1a19a57a201a325e8af1207ed68c4aedde">crSTART( xHandle )</link>;
+
+    for( ;; )
+    {
+        // This co-routine just delays for a fixed period, then toggles
+        // an LED.  Two co-routines are created using this function, so
+        // the uxIndex parameter is used to tell the co-routine which
+        // LED to flash and how int32_t to delay.  This assumes xQueue has
+        // already been created.
+        vParTestToggleLED( cLedToFlash[ uxIndex ] );
+        <link linkend="_croutine_8h_1a05a06feb11028f2d1d440ea335f562ba">crDELAY( xHandle, uxFlashRates[ uxIndex ] )</link>;
+    }
+
+    // Must end every co-routine with a call to <link linkend="_croutine_8h_1ae6038cc976689b50000475ebfc4e2f23">crEND()</link>;
+    <link linkend="_croutine_8h_1ae6038cc976689b50000475ebfc4e2f23">crEND()</link>;
+}
+
+// Function that creates two co-routines.
+void vOtherFunction( void )
+{
+uint8_t ucParameterToPass;
+TaskHandle_t xHandle;
+
+    // Create two co-routines at priority 0.  The first is given index 0
+    // so (from the code above) toggles LED 5 every 200 ticks.  The second
+    // is given index 1 so toggles LED 6 every 400 ticks.
+    for( uxIndex = 0; uxIndex &lt; 2; uxIndex++ )
+    {
+        xCoRoutineCreate( vFlashCoRoutine, 0, uxIndex );
+    }
+}
+  </literallayout> </para>
+</section>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__task_e_n_t_e_r___c_r_i_t_i_c_a_l" xml:lang="en-US">
+<title>taskENTER_CRITICAL</title>
+<indexterm><primary>taskENTER_CRITICAL</primary></indexterm>
+
+<para>task. h</para>
+
+<para>Macro to mark the start of a critical code region. Preemptive context switches cannot occur when in a critical region.</para>
+
+<para>NOTE: This may alter the stack (depending on the portable implementation) so must be used with care! </para>
+</section>

@@ -1,0 +1,1181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__free_r_t_o_s_8h_source" xml:lang="en-US">
+<title>FreeRTOS.h</title>
+<indexterm><primary>FreeRTOS/FreeRTOS.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__free_r_t_o_s_8h_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;Kernel&#32;V10.0.1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2017&#32;Amazon.com,&#32;Inc.&#32;or&#32;its&#32;affiliates.&#32;&#32;All&#32;Rights&#32;Reserved.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00005"/>00005 <emphasis role="comment">&#32;*&#32;Permission&#32;is&#32;hereby&#32;granted,&#32;free&#32;of&#32;charge,&#32;to&#32;any&#32;person&#32;obtaining&#32;a&#32;copy&#32;of</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00006"/>00006 <emphasis role="comment">&#32;*&#32;this&#32;software&#32;and&#32;associated&#32;documentation&#32;files&#32;(the&#32;&quot;Software&quot;),&#32;to&#32;deal&#32;in</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00007"/>00007 <emphasis role="comment">&#32;*&#32;the&#32;Software&#32;without&#32;restriction,&#32;including&#32;without&#32;limitation&#32;the&#32;rights&#32;to</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00008"/>00008 <emphasis role="comment">&#32;*&#32;use,&#32;copy,&#32;modify,&#32;merge,&#32;publish,&#32;distribute,&#32;sublicense,&#32;and/or&#32;sell&#32;copies&#32;of</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00009"/>00009 <emphasis role="comment">&#32;*&#32;the&#32;Software,&#32;and&#32;to&#32;permit&#32;persons&#32;to&#32;whom&#32;the&#32;Software&#32;is&#32;furnished&#32;to&#32;do&#32;so,</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00010"/>00010 <emphasis role="comment">&#32;*&#32;subject&#32;to&#32;the&#32;following&#32;conditions:</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00011"/>00011 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00012"/>00012 <emphasis role="comment">&#32;*&#32;The&#32;above&#32;copyright&#32;notice&#32;and&#32;this&#32;permission&#32;notice&#32;shall&#32;be&#32;included&#32;in&#32;all</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00013"/>00013 <emphasis role="comment">&#32;*&#32;copies&#32;or&#32;substantial&#32;portions&#32;of&#32;the&#32;Software.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00014"/>00014 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00015"/>00015 <emphasis role="comment">&#32;*&#32;THE&#32;SOFTWARE&#32;IS&#32;PROVIDED&#32;&quot;AS&#32;IS&quot;,&#32;WITHOUT&#32;WARRANTY&#32;OF&#32;ANY&#32;KIND,&#32;EXPRESS&#32;OR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00016"/>00016 <emphasis role="comment">&#32;*&#32;IMPLIED,&#32;INCLUDING&#32;BUT&#32;NOT&#32;LIMITED&#32;TO&#32;THE&#32;WARRANTIES&#32;OF&#32;MERCHANTABILITY,&#32;FITNESS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00017"/>00017 <emphasis role="comment">&#32;*&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE&#32;AND&#32;NONINFRINGEMENT.&#32;IN&#32;NO&#32;EVENT&#32;SHALL&#32;THE&#32;AUTHORS&#32;OR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00018"/>00018 <emphasis role="comment">&#32;*&#32;COPYRIGHT&#32;HOLDERS&#32;BE&#32;LIABLE&#32;FOR&#32;ANY&#32;CLAIM,&#32;DAMAGES&#32;OR&#32;OTHER&#32;LIABILITY,&#32;WHETHER</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00019"/>00019 <emphasis role="comment">&#32;*&#32;IN&#32;AN&#32;ACTION&#32;OF&#32;CONTRACT,&#32;TORT&#32;OR&#32;OTHERWISE,&#32;ARISING&#32;FROM,&#32;OUT&#32;OF&#32;OR&#32;IN</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00020"/>00020 <emphasis role="comment">&#32;*&#32;CONNECTION&#32;WITH&#32;THE&#32;SOFTWARE&#32;OR&#32;THE&#32;USE&#32;OR&#32;OTHER&#32;DEALINGS&#32;IN&#32;THE&#32;SOFTWARE.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00021"/>00021 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00022"/>00022 <emphasis role="comment">&#32;*&#32;http://www.FreeRTOS.org</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00023"/>00023 <emphasis role="comment">&#32;*&#32;http://aws.amazon.com/freertos</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00024"/>00024 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00025"/>00025 <emphasis role="comment">&#32;*&#32;1&#32;tab&#32;==&#32;4&#32;spaces!</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00026"/>00026 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00027"/>00027 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00028"/>00028 <emphasis role="preprocessor">#ifndef&#32;INC_FREERTOS_H</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#define&#32;INC_FREERTOS_H</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00030"/>00030 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00031"/>00031 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00032"/>00032 <emphasis role="comment">&#32;*&#32;Include&#32;the&#32;generic&#32;headers&#32;required&#32;for&#32;the&#32;FreeRTOS&#32;port&#32;being&#32;used.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00033"/>00033 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00034"/>00034 <emphasis role="preprocessor">#include&#32;&lt;stddef.h&gt;</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00035"/>00035 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00036"/>00036 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00037"/>00037 <emphasis role="comment">&#32;*&#32;If&#32;stdint.h&#32;cannot&#32;be&#32;located&#32;then:</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00038"/>00038 <emphasis role="comment">&#32;*&#32;&#32;&#32;+&#32;If&#32;using&#32;GCC&#32;ensure&#32;the&#32;-nostdint&#32;options&#32;is&#32;*not*&#32;being&#32;used.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00039"/>00039 <emphasis role="comment">&#32;*&#32;&#32;&#32;+&#32;Ensure&#32;the&#32;project&apos;s&#32;include&#32;path&#32;includes&#32;the&#32;directory&#32;in&#32;which&#32;your</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00040"/>00040 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;compiler&#32;stores&#32;stdint.h.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00041"/>00041 <emphasis role="comment">&#32;*&#32;&#32;&#32;+&#32;Set&#32;any&#32;compiler&#32;options&#32;necessary&#32;for&#32;it&#32;to&#32;support&#32;C99,&#32;as&#32;technically</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00042"/>00042 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;stdint.h&#32;is&#32;only&#32;mandatory&#32;with&#32;C99&#32;(FreeRTOS&#32;does&#32;not&#32;require&#32;C99&#32;in&#32;any</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00043"/>00043 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;other&#32;way).</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00044"/>00044 <emphasis role="comment">&#32;*&#32;&#32;&#32;+&#32;The&#32;FreeRTOS&#32;download&#32;includes&#32;a&#32;simple&#32;stdint.h&#32;definition&#32;that&#32;can&#32;be</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00045"/>00045 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;used&#32;in&#32;cases&#32;where&#32;none&#32;is&#32;provided&#32;by&#32;the&#32;compiler.&#32;&#32;The&#32;files&#32;only</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00046"/>00046 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;contains&#32;the&#32;typedefs&#32;required&#32;to&#32;build&#32;FreeRTOS.&#32;&#32;Read&#32;the&#32;instructions</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00047"/>00047 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;&#32;in&#32;FreeRTOS/source/stdint.readme&#32;for&#32;more&#32;information.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00048"/>00048 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00049"/>00049 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>&#32;<emphasis role="comment">/*&#32;READ&#32;COMMENT&#32;ABOVE.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00050"/>00050 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00051"/>00051 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00052"/>00052 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="stringliteral">&quot;C&quot;</emphasis>&#32;{
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00053"/>00053 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00054"/>00054 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00055"/>00055 <emphasis role="comment">/*&#32;Application&#32;specific&#32;configuration&#32;options.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00056"/>00056 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__free_r_t_o_s_config_8h">FreeRTOSConfig.h</link>&quot;</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00057"/>00057 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00058"/>00058 <emphasis role="comment">/*&#32;Basic&#32;FreeRTOS&#32;definitions.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00059"/>00059 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_projdefs_8h">projdefs.h</link>&quot;</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00060"/>00060 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00061"/>00061 <emphasis role="comment">/*&#32;Definitions&#32;specific&#32;to&#32;the&#32;port&#32;being&#32;used.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00062"/>00062 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_portable_8h">portable.h</link>&quot;</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00063"/>00063 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00064"/>00064 <emphasis role="comment">/*&#32;Must&#32;be&#32;defaulted&#32;before&#32;configUSE_NEWLIB_REENTRANT&#32;is&#32;used&#32;below.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00065"/>00065 <emphasis role="preprocessor">#ifndef&#32;configUSE_NEWLIB_REENTRANT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00066"/>00066 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_NEWLIB_REENTRANT&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00067"/>00067 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00068"/>00068 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00069"/>00069 <emphasis role="comment">/*&#32;Required&#32;if&#32;struct&#32;_reent&#32;is&#32;used.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00070"/>00070 <emphasis role="preprocessor">#if&#32;(&#32;configUSE_NEWLIB_REENTRANT&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00071"/>00071 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;reent.h&gt;</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00072"/>00072 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00073"/>00073 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00074"/>00074 <emphasis role="comment">&#32;*&#32;Check&#32;all&#32;the&#32;required&#32;application&#32;specific&#32;macros&#32;have&#32;been&#32;defined.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00075"/>00075 <emphasis role="comment">&#32;*&#32;These&#32;macros&#32;are&#32;application&#32;specific&#32;and&#32;(as&#32;downloaded)&#32;are&#32;defined</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00076"/>00076 <emphasis role="comment">&#32;*&#32;within&#32;FreeRTOSConfig.h.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00077"/>00077 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00078"/>00078 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00079"/>00079 <emphasis role="preprocessor">#ifndef&#32;configMINIMAL_STACK_SIZE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00080"/>00080 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configMINIMAL_STACK_SIZE&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h.&#32;&#32;configMINIMAL_STACK_SIZE&#32;defines&#32;the&#32;size&#32;(in&#32;words)&#32;of&#32;the&#32;stack&#32;allocated&#32;to&#32;the&#32;idle&#32;task.&#32;&#32;Refer&#32;to&#32;the&#32;demo&#32;project&#32;provided&#32;for&#32;your&#32;port&#32;for&#32;a&#32;suitable&#32;value.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00081"/>00081 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00082"/>00082 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00083"/>00083 <emphasis role="preprocessor">#ifndef&#32;configMAX_PRIORITIES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00084"/>00084 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configMAX_PRIORITIES&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h.&#32;&#32;See&#32;the&#32;Configuration&#32;section&#32;of&#32;the&#32;FreeRTOS&#32;API&#32;documentation&#32;for&#32;details.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00085"/>00085 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00086"/>00086 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00087"/>00087 <emphasis role="preprocessor">#if&#32;configMAX_PRIORITIES&#32;&lt;&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00088"/>00088 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;configMAX_PRIORITIES&#32;must&#32;be&#32;defined&#32;to&#32;be&#32;greater&#32;than&#32;or&#32;equal&#32;to&#32;1.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00089"/>00089 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00090"/>00090 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00091"/>00091 <emphasis role="preprocessor">#ifndef&#32;configUSE_PREEMPTION</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00092"/>00092 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configUSE_PREEMPTION&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h&#32;as&#32;either&#32;1&#32;or&#32;0.&#32;&#32;See&#32;the&#32;Configuration&#32;section&#32;of&#32;the&#32;FreeRTOS&#32;API&#32;documentation&#32;for&#32;details.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00093"/>00093 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00094"/>00094 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00095"/>00095 <emphasis role="preprocessor">#ifndef&#32;configUSE_IDLE_HOOK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00096"/>00096 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configUSE_IDLE_HOOK&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h&#32;as&#32;either&#32;1&#32;or&#32;0.&#32;&#32;See&#32;the&#32;Configuration&#32;section&#32;of&#32;the&#32;FreeRTOS&#32;API&#32;documentation&#32;for&#32;details.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00097"/>00097 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00098"/>00098 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00099"/>00099 <emphasis role="preprocessor">#ifndef&#32;configUSE_TICK_HOOK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00100"/>00100 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configUSE_TICK_HOOK&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h&#32;as&#32;either&#32;1&#32;or&#32;0.&#32;&#32;See&#32;the&#32;Configuration&#32;section&#32;of&#32;the&#32;FreeRTOS&#32;API&#32;documentation&#32;for&#32;details.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00101"/>00101 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00102"/>00102 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00103"/>00103 <emphasis role="preprocessor">#ifndef&#32;configUSE_16_BIT_TICKS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00104"/>00104 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;Missing&#32;definition:&#32;&#32;configUSE_16_BIT_TICKS&#32;must&#32;be&#32;defined&#32;in&#32;FreeRTOSConfig.h&#32;as&#32;either&#32;1&#32;or&#32;0.&#32;&#32;See&#32;the&#32;Configuration&#32;section&#32;of&#32;the&#32;FreeRTOS&#32;API&#32;documentation&#32;for&#32;details.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00105"/>00105 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00106"/>00106 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00107"/>00107 <emphasis role="preprocessor">#ifndef&#32;configUSE_CO_ROUTINES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00108"/>00108 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_CO_ROUTINES&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00109"/>00109 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00110"/>00110 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00111"/>00111 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_vTaskPrioritySet</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00112"/>00112 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_vTaskPrioritySet&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00113"/>00113 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00114"/>00114 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00115"/>00115 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_uxTaskPriorityGet</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00116"/>00116 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_uxTaskPriorityGet&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00117"/>00117 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00118"/>00118 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00119"/>00119 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_vTaskDelete</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00120"/>00120 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_vTaskDelete&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00121"/>00121 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00122"/>00122 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00123"/>00123 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_vTaskSuspend</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00124"/>00124 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_vTaskSuspend&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00125"/>00125 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00126"/>00126 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00127"/>00127 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_vTaskDelayUntil</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00128"/>00128 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_vTaskDelayUntil&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00129"/>00129 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00130"/>00130 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00131"/>00131 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_vTaskDelay</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00132"/>00132 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_vTaskDelay&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00133"/>00133 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00134"/>00134 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00135"/>00135 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskGetIdleTaskHandle</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00136"/>00136 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskGetIdleTaskHandle&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00137"/>00137 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00138"/>00138 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00139"/>00139 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskAbortDelay</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00140"/>00140 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskAbortDelay&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00141"/>00141 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00142"/>00142 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00143"/>00143 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xQueueGetMutexHolder</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00144"/><link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">00144</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xQueueGetMutexHolder&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00145"/>00145 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00146"/>00146 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00147"/>00147 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xSemaphoreGetMutexHolder</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00148"/><link linkend="__free_r_t_o_s_8h_1ad221128595137414579be33cf8e446d8">00148</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xSemaphoreGetMutexHolder&#32;INCLUDE_xQueueGetMutexHolder</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00149"/>00149 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00150"/>00150 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00151"/>00151 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskGetHandle</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00152"/>00152 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskGetHandle&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00153"/>00153 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00154"/>00154 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00155"/>00155 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_uxTaskGetStackHighWaterMark</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00156"/>00156 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_uxTaskGetStackHighWaterMark&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00157"/>00157 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00158"/>00158 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00159"/>00159 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_eTaskGetState</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00160"/>00160 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_eTaskGetState&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00161"/>00161 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00162"/>00162 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00163"/>00163 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskResumeFromISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00164"/>00164 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskResumeFromISR&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00165"/>00165 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00166"/>00166 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00167"/>00167 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTimerPendFunctionCall</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00168"/>00168 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTimerPendFunctionCall&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00169"/>00169 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00170"/>00170 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00171"/>00171 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskGetSchedulerState</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00172"/>00172 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskGetSchedulerState&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00173"/>00173 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00174"/>00174 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00175"/>00175 <emphasis role="preprocessor">#ifndef&#32;INCLUDE_xTaskGetCurrentTaskHandle</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00176"/>00176 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;INCLUDE_xTaskGetCurrentTaskHandle&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00177"/>00177 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00178"/>00178 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00179"/>00179 <emphasis role="preprocessor">#if&#32;configUSE_CO_ROUTINES&#32;!=&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00180"/>00180 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;configMAX_CO_ROUTINE_PRIORITIES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00181"/>00181 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;configMAX_CO_ROUTINE_PRIORITIES&#32;must&#32;be&#32;greater&#32;than&#32;or&#32;equal&#32;to&#32;1.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00182"/>00182 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00183"/>00183 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00184"/>00184 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00185"/>00185 <emphasis role="preprocessor">#ifndef&#32;configUSE_DAEMON_TASK_STARTUP_HOOK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00186"/>00186 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_DAEMON_TASK_STARTUP_HOOK&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00187"/>00187 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00188"/>00188 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00189"/>00189 <emphasis role="preprocessor">#ifndef&#32;configUSE_APPLICATION_TASK_TAG</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00190"/>00190 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_APPLICATION_TASK_TAG&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00191"/>00191 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00192"/>00192 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00193"/>00193 <emphasis role="preprocessor">#ifndef&#32;configNUM_THREAD_LOCAL_STORAGE_POINTERS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00194"/>00194 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configNUM_THREAD_LOCAL_STORAGE_POINTERS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00195"/>00195 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00196"/>00196 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00197"/>00197 <emphasis role="preprocessor">#ifndef&#32;configUSE_RECURSIVE_MUTEXES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00198"/>00198 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_RECURSIVE_MUTEXES&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00199"/>00199 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00200"/>00200 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00201"/>00201 <emphasis role="preprocessor">#ifndef&#32;configUSE_MUTEXES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00202"/>00202 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_MUTEXES&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00203"/>00203 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00204"/>00204 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00205"/>00205 <emphasis role="preprocessor">#ifndef&#32;configUSE_TIMERS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00206"/>00206 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TIMERS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00207"/>00207 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00208"/>00208 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00209"/>00209 <emphasis role="preprocessor">#ifndef&#32;configUSE_COUNTING_SEMAPHORES</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00210"/>00210 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_COUNTING_SEMAPHORES&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00211"/>00211 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00212"/>00212 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00213"/>00213 <emphasis role="preprocessor">#ifndef&#32;configUSE_ALTERNATIVE_API</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00214"/>00214 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_ALTERNATIVE_API&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00215"/>00215 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00216"/>00216 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00217"/>00217 <emphasis role="preprocessor">#ifndef&#32;portCRITICAL_NESTING_IN_TCB</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00218"/><link linkend="__free_r_t_o_s_8h_1a4088d4f41bae06c9e871b918888ce7e6">00218</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portCRITICAL_NESTING_IN_TCB&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00219"/>00219 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00220"/>00220 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00221"/>00221 <emphasis role="preprocessor">#ifndef&#32;configMAX_TASK_NAME_LEN</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00222"/>00222 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configMAX_TASK_NAME_LEN&#32;16</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00223"/>00223 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00224"/>00224 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00225"/>00225 <emphasis role="preprocessor">#ifndef&#32;configIDLE_SHOULD_YIELD</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00226"/>00226 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configIDLE_SHOULD_YIELD&#32;&#32;&#32;&#32;&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00227"/>00227 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00228"/>00228 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00229"/>00229 <emphasis role="preprocessor">#if&#32;configMAX_TASK_NAME_LEN&#32;&lt;&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00230"/>00230 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;configMAX_TASK_NAME_LEN&#32;must&#32;be&#32;set&#32;to&#32;a&#32;minimum&#32;of&#32;1&#32;in&#32;FreeRTOSConfig.h</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00231"/>00231 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00232"/>00232 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00233"/>00233 <emphasis role="preprocessor">#ifndef&#32;configASSERT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00234"/><link linkend="__free_r_t_o_s_8h_1a228c70cd48927d6ab730ed1a6dfbe35f">00234</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configASSERT(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00235"/><link linkend="__free_r_t_o_s_8h_1a7c1502a6fbffa00b3e2350e86e8bff06">00235</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configASSERT_DEFINED&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00236"/>00236 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00237"/>00237 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configASSERT_DEFINED&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00238"/>00238 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00239"/>00239 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00240"/>00240 <emphasis role="comment">/*&#32;The&#32;timers&#32;module&#32;relies&#32;on&#32;xTaskGetSchedulerState().&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00241"/>00241 <emphasis role="preprocessor">#if&#32;configUSE_TIMERS&#32;==&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00242"/>00242 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00243"/>00243 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;configTIMER_TASK_PRIORITY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00244"/>00244 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;If&#32;configUSE_TIMERS&#32;is&#32;set&#32;to&#32;1&#32;then&#32;configTIMER_TASK_PRIORITY&#32;must&#32;also&#32;be&#32;defined.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00245"/>00245 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;configTIMER_TASK_PRIORITY&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00246"/>00246 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00247"/>00247 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;configTIMER_QUEUE_LENGTH</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00248"/>00248 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;If&#32;configUSE_TIMERS&#32;is&#32;set&#32;to&#32;1&#32;then&#32;configTIMER_QUEUE_LENGTH&#32;must&#32;also&#32;be&#32;defined.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00249"/>00249 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;configTIMER_QUEUE_LENGTH&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00250"/>00250 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00251"/>00251 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;configTIMER_TASK_STACK_DEPTH</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00252"/>00252 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;If&#32;configUSE_TIMERS&#32;is&#32;set&#32;to&#32;1&#32;then&#32;configTIMER_TASK_STACK_DEPTH&#32;must&#32;also&#32;be&#32;defined.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00253"/>00253 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;configTIMER_TASK_STACK_DEPTH&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00254"/>00254 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00255"/>00255 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;configUSE_TIMERS&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00256"/>00256 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00257"/>00257 <emphasis role="preprocessor">#ifndef&#32;portSET_INTERRUPT_MASK_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00258"/>00258 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portSET_INTERRUPT_MASK_FROM_ISR()&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00259"/>00259 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00260"/>00260 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00261"/>00261 <emphasis role="preprocessor">#ifndef&#32;portCLEAR_INTERRUPT_MASK_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00262"/>00262 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portCLEAR_INTERRUPT_MASK_FROM_ISR(&#32;uxSavedStatusValue&#32;)&#32;(&#32;void&#32;)&#32;uxSavedStatusValue</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00263"/>00263 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00264"/>00264 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00265"/>00265 <emphasis role="preprocessor">#ifndef&#32;portCLEAN_UP_TCB</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00266"/><link linkend="__free_r_t_o_s_8h_1a3c506bf351102047fb5a75491287fe69">00266</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portCLEAN_UP_TCB(&#32;pxTCB&#32;)&#32;(&#32;void&#32;)&#32;pxTCB</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00267"/>00267 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00268"/>00268 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00269"/>00269 <emphasis role="preprocessor">#ifndef&#32;portPRE_TASK_DELETE_HOOK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00270"/><link linkend="__free_r_t_o_s_8h_1a712f8cbd5ce7b049ef6a92dbb0da0215">00270</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portPRE_TASK_DELETE_HOOK(&#32;pvTaskToDelete,&#32;pxYieldPending&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00271"/>00271 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00272"/>00272 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00273"/>00273 <emphasis role="preprocessor">#ifndef&#32;portSETUP_TCB</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00274"/><link linkend="__free_r_t_o_s_8h_1aca0e7403a160318f5c216fc40c95e294">00274</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portSETUP_TCB(&#32;pxTCB&#32;)&#32;(&#32;void&#32;)&#32;pxTCB</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00275"/>00275 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00276"/>00276 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00277"/>00277 <emphasis role="preprocessor">#ifndef&#32;configQUEUE_REGISTRY_SIZE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00278"/>00278 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configQUEUE_REGISTRY_SIZE&#32;0U</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00279"/>00279 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00280"/>00280 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00281"/>00281 <emphasis role="preprocessor">#if&#32;(&#32;configQUEUE_REGISTRY_SIZE&#32;&lt;&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00282"/>00282 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;vQueueAddToRegistry(&#32;xQueue,&#32;pcName&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00283"/>00283 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;vQueueUnregisterQueue(&#32;xQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00284"/>00284 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pcQueueGetName(&#32;xQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00285"/>00285 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00286"/>00286 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00287"/>00287 <emphasis role="preprocessor">#ifndef&#32;portPOINTER_SIZE_TYPE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00288"/><link linkend="__free_r_t_o_s_8h_1a53bae25f223b7156dce0fc6e6b1b2295">00288</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portPOINTER_SIZE_TYPE&#32;uint32_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00289"/>00289 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00290"/>00290 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00291"/>00291 <emphasis role="comment">/*&#32;Remove&#32;any&#32;unused&#32;trace&#32;macros.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00292"/>00292 <emphasis role="preprocessor">#ifndef&#32;traceSTART</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00293"/>00293 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Used&#32;to&#32;perform&#32;any&#32;necessary&#32;initialisation&#32;-&#32;for&#32;example,&#32;open&#32;a&#32;file</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00294"/>00294 <emphasis role="comment">&#32;&#32;&#32;&#32;into&#32;which&#32;trace&#32;is&#32;to&#32;be&#32;written.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00295"/><link linkend="__free_r_t_o_s_8h_1ac0d88fb803a85b6afd2a2c20de0ddcd0">00295</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTART()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00296"/>00296 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00297"/>00297 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00298"/>00298 <emphasis role="preprocessor">#ifndef&#32;traceEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00299"/>00299 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Use&#32;to&#32;close&#32;a&#32;trace,&#32;for&#32;example&#32;close&#32;a&#32;file&#32;into&#32;which&#32;trace&#32;has&#32;been</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00300"/>00300 <emphasis role="comment">&#32;&#32;&#32;&#32;written.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00301"/><link linkend="__free_r_t_o_s_8h_1aeb2fb62c3f25ec4d8e7a02f267f7e508">00301</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEND()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00302"/>00302 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00303"/>00303 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00304"/>00304 <emphasis role="preprocessor">#ifndef&#32;traceTASK_SWITCHED_IN</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00305"/>00305 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;after&#32;a&#32;task&#32;has&#32;been&#32;selected&#32;to&#32;run.&#32;&#32;pxCurrentTCB&#32;holds&#32;a&#32;pointer</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00306"/>00306 <emphasis role="comment">&#32;&#32;&#32;&#32;to&#32;the&#32;task&#32;control&#32;block&#32;of&#32;the&#32;selected&#32;task.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00307"/><link linkend="__free_r_t_o_s_8h_1a2f813fe80d3519a396a9f2bb7cc7e820">00307</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_SWITCHED_IN()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00308"/>00308 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00309"/>00309 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00310"/>00310 <emphasis role="preprocessor">#ifndef&#32;traceINCREASE_TICK_COUNT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00311"/>00311 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;before&#32;stepping&#32;the&#32;tick&#32;count&#32;after&#32;waking&#32;from&#32;tickless&#32;idle</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00312"/>00312 <emphasis role="comment">&#32;&#32;&#32;&#32;sleep.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00313"/><link linkend="__free_r_t_o_s_8h_1a74e013fe2bad2c2d7db71f4b17bad698">00313</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceINCREASE_TICK_COUNT(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00314"/>00314 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00315"/>00315 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00316"/>00316 <emphasis role="preprocessor">#ifndef&#32;traceLOW_POWER_IDLE_BEGIN</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00317"/>00317 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;immediately&#32;before&#32;entering&#32;tickless&#32;idle.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00318"/><link linkend="__free_r_t_o_s_8h_1acc1364ea0a06d6395232d57708e4987c">00318</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceLOW_POWER_IDLE_BEGIN()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00319"/>00319 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00320"/>00320 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00321"/>00321 <emphasis role="preprocessor">#ifndef&#32;traceLOW_POWER_IDLE_END</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00322"/>00322 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;when&#32;returning&#32;to&#32;the&#32;Idle&#32;task&#32;after&#32;a&#32;tickless&#32;idle.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00323"/><link linkend="__free_r_t_o_s_8h_1aa5471ee0f56cb504d9aaba9cb3b7750e">00323</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceLOW_POWER_IDLE_END()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00324"/>00324 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00325"/>00325 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00326"/>00326 <emphasis role="preprocessor">#ifndef&#32;traceTASK_SWITCHED_OUT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00327"/>00327 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;before&#32;a&#32;task&#32;has&#32;been&#32;selected&#32;to&#32;run.&#32;&#32;pxCurrentTCB&#32;holds&#32;a&#32;pointer</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00328"/>00328 <emphasis role="comment">&#32;&#32;&#32;&#32;to&#32;the&#32;task&#32;control&#32;block&#32;of&#32;the&#32;task&#32;being&#32;switched&#32;out.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00329"/><link linkend="__free_r_t_o_s_8h_1a4b94b0d35e9a4ad783af7be32cabbdaa">00329</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_SWITCHED_OUT()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00330"/>00330 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00331"/>00331 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00332"/>00332 <emphasis role="preprocessor">#ifndef&#32;traceTASK_PRIORITY_INHERIT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00333"/>00333 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;when&#32;a&#32;task&#32;attempts&#32;to&#32;take&#32;a&#32;mutex&#32;that&#32;is&#32;already&#32;held&#32;by&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00334"/>00334 <emphasis role="comment">&#32;&#32;&#32;&#32;lower&#32;priority&#32;task.&#32;&#32;pxTCBOfMutexHolder&#32;is&#32;a&#32;pointer&#32;to&#32;the&#32;TCB&#32;of&#32;the&#32;task</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00335"/>00335 <emphasis role="comment">&#32;&#32;&#32;&#32;that&#32;holds&#32;the&#32;mutex.&#32;&#32;uxInheritedPriority&#32;is&#32;the&#32;priority&#32;the&#32;mutex&#32;holder</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00336"/>00336 <emphasis role="comment">&#32;&#32;&#32;&#32;will&#32;inherit&#32;(the&#32;priority&#32;of&#32;the&#32;task&#32;that&#32;is&#32;attempting&#32;to&#32;obtain&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00337"/>00337 <emphasis role="comment">&#32;&#32;&#32;&#32;muted.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00338"/><link linkend="__free_r_t_o_s_8h_1a4149bb2def17cb85a356c17fa6331c79">00338</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_PRIORITY_INHERIT(&#32;pxTCBOfMutexHolder,&#32;uxInheritedPriority&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00339"/>00339 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00340"/>00340 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00341"/>00341 <emphasis role="preprocessor">#ifndef&#32;traceTASK_PRIORITY_DISINHERIT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00342"/>00342 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Called&#32;when&#32;a&#32;task&#32;releases&#32;a&#32;mutex,&#32;the&#32;holding&#32;of&#32;which&#32;had&#32;resulted&#32;in</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00343"/>00343 <emphasis role="comment">&#32;&#32;&#32;&#32;the&#32;task&#32;inheriting&#32;the&#32;priority&#32;of&#32;a&#32;higher&#32;priority&#32;task.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00344"/>00344 <emphasis role="comment">&#32;&#32;&#32;&#32;pxTCBOfMutexHolder&#32;is&#32;a&#32;pointer&#32;to&#32;the&#32;TCB&#32;of&#32;the&#32;task&#32;that&#32;is&#32;releasing&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00345"/>00345 <emphasis role="comment">&#32;&#32;&#32;&#32;mutex.&#32;&#32;uxOriginalPriority&#32;is&#32;the&#32;task&apos;s&#32;configured&#32;(base)&#32;priority.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00346"/><link linkend="__free_r_t_o_s_8h_1aeef741f693914ccacb456313d613c810">00346</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_PRIORITY_DISINHERIT(&#32;pxTCBOfMutexHolder,&#32;uxOriginalPriority&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00347"/>00347 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00348"/>00348 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00349"/>00349 <emphasis role="preprocessor">#ifndef&#32;traceBLOCKING_ON_QUEUE_RECEIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00350"/>00350 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Task&#32;is&#32;about&#32;to&#32;block&#32;because&#32;it&#32;cannot&#32;read&#32;from&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00351"/>00351 <emphasis role="comment">&#32;&#32;&#32;&#32;queue/mutex/semaphore.&#32;&#32;pxQueue&#32;is&#32;a&#32;pointer&#32;to&#32;the&#32;queue/mutex/semaphore</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00352"/>00352 <emphasis role="comment">&#32;&#32;&#32;&#32;upon&#32;which&#32;the&#32;read&#32;was&#32;attempted.&#32;&#32;pxCurrentTCB&#32;points&#32;to&#32;the&#32;TCB&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00353"/>00353 <emphasis role="comment">&#32;&#32;&#32;&#32;task&#32;that&#32;attempted&#32;the&#32;read.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00354"/><link linkend="__free_r_t_o_s_8h_1a657997eddb8c89bef7157e74bac003e2">00354</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceBLOCKING_ON_QUEUE_RECEIVE(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00355"/>00355 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00356"/>00356 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00357"/>00357 <emphasis role="preprocessor">#ifndef&#32;traceBLOCKING_ON_QUEUE_PEEK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00358"/>00358 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Task&#32;is&#32;about&#32;to&#32;block&#32;because&#32;it&#32;cannot&#32;read&#32;from&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00359"/>00359 <emphasis role="comment">&#32;&#32;&#32;&#32;queue/mutex/semaphore.&#32;&#32;pxQueue&#32;is&#32;a&#32;pointer&#32;to&#32;the&#32;queue/mutex/semaphore</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00360"/>00360 <emphasis role="comment">&#32;&#32;&#32;&#32;upon&#32;which&#32;the&#32;read&#32;was&#32;attempted.&#32;&#32;pxCurrentTCB&#32;points&#32;to&#32;the&#32;TCB&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00361"/>00361 <emphasis role="comment">&#32;&#32;&#32;&#32;task&#32;that&#32;attempted&#32;the&#32;read.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00362"/><link linkend="__free_r_t_o_s_8h_1a186c66f73c470500e556ec0f2fd3994f">00362</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceBLOCKING_ON_QUEUE_PEEK(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00363"/>00363 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00364"/>00364 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00365"/>00365 <emphasis role="preprocessor">#ifndef&#32;traceBLOCKING_ON_QUEUE_SEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00366"/>00366 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Task&#32;is&#32;about&#32;to&#32;block&#32;because&#32;it&#32;cannot&#32;write&#32;to&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00367"/>00367 <emphasis role="comment">&#32;&#32;&#32;&#32;queue/mutex/semaphore.&#32;&#32;pxQueue&#32;is&#32;a&#32;pointer&#32;to&#32;the&#32;queue/mutex/semaphore</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00368"/>00368 <emphasis role="comment">&#32;&#32;&#32;&#32;upon&#32;which&#32;the&#32;write&#32;was&#32;attempted.&#32;&#32;pxCurrentTCB&#32;points&#32;to&#32;the&#32;TCB&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00369"/>00369 <emphasis role="comment">&#32;&#32;&#32;&#32;task&#32;that&#32;attempted&#32;the&#32;write.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00370"/><link linkend="__free_r_t_o_s_8h_1a9484f4523e4bec2ab2dc233f2556c3c5">00370</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceBLOCKING_ON_QUEUE_SEND(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00371"/>00371 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00372"/>00372 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00373"/>00373 <emphasis role="preprocessor">#ifndef&#32;configCHECK_FOR_STACK_OVERFLOW</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00374"/>00374 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configCHECK_FOR_STACK_OVERFLOW&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00375"/>00375 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00376"/>00376 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00377"/>00377 <emphasis role="preprocessor">#ifndef&#32;configRECORD_STACK_HIGH_ADDRESS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00378"/><link linkend="__free_r_t_o_s_8h_1a8299719d9fd640db65e6e59a4e5b0204">00378</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configRECORD_STACK_HIGH_ADDRESS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00379"/>00379 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00380"/>00380 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00381"/>00381 <emphasis role="preprocessor">#ifndef&#32;configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00382"/><link linkend="__free_r_t_o_s_8h_1a90fad7fe3febe486b110f10635404469">00382</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00383"/>00383 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00384"/>00384 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00385"/>00385 <emphasis role="comment">/*&#32;The&#32;following&#32;event&#32;macros&#32;are&#32;embedded&#32;in&#32;the&#32;kernel&#32;API&#32;calls.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00386"/>00386 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00387"/>00387 <emphasis role="preprocessor">#ifndef&#32;traceMOVED_TASK_TO_READY_STATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00388"/><link linkend="__free_r_t_o_s_8h_1a8c5050de556ff7e7cdbc7de55f46709d">00388</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceMOVED_TASK_TO_READY_STATE(&#32;pxTCB&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00389"/>00389 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00390"/>00390 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00391"/>00391 <emphasis role="preprocessor">#ifndef&#32;tracePOST_MOVED_TASK_TO_READY_STATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00392"/><link linkend="__free_r_t_o_s_8h_1a8d70c64cfe141df1bbe25b624405ec37">00392</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;tracePOST_MOVED_TASK_TO_READY_STATE(&#32;pxTCB&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00393"/>00393 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00394"/>00394 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00395"/>00395 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_CREATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00396"/><link linkend="__free_r_t_o_s_8h_1a62dcc27e040063ec72e174c985740f96">00396</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_CREATE(&#32;pxNewQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00397"/>00397 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00398"/>00398 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00399"/>00399 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_CREATE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00400"/><link linkend="__free_r_t_o_s_8h_1a3a0d6a2e556a9bb303cbcb2a23700118">00400</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_CREATE_FAILED(&#32;ucQueueType&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00401"/>00401 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00402"/>00402 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00403"/>00403 <emphasis role="preprocessor">#ifndef&#32;traceCREATE_MUTEX</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00404"/><link linkend="__free_r_t_o_s_8h_1a2eff67edaee170b33b549966d8b99b47">00404</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceCREATE_MUTEX(&#32;pxNewQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00405"/>00405 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00406"/>00406 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00407"/>00407 <emphasis role="preprocessor">#ifndef&#32;traceCREATE_MUTEX_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00408"/><link linkend="__free_r_t_o_s_8h_1aa01e89d6df9ac9c4506f8918cc809ddf">00408</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceCREATE_MUTEX_FAILED()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00409"/>00409 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00410"/>00410 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00411"/>00411 <emphasis role="preprocessor">#ifndef&#32;traceGIVE_MUTEX_RECURSIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00412"/><link linkend="__free_r_t_o_s_8h_1aa42efc6b6938c6f2a5f04c7367f59b22">00412</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceGIVE_MUTEX_RECURSIVE(&#32;pxMutex&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00413"/>00413 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00414"/>00414 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00415"/>00415 <emphasis role="preprocessor">#ifndef&#32;traceGIVE_MUTEX_RECURSIVE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00416"/><link linkend="__free_r_t_o_s_8h_1a6b41ab1bbdaa0eb7f8e790602ed21077">00416</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceGIVE_MUTEX_RECURSIVE_FAILED(&#32;pxMutex&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00417"/>00417 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00418"/>00418 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00419"/>00419 <emphasis role="preprocessor">#ifndef&#32;traceTAKE_MUTEX_RECURSIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00420"/><link linkend="__free_r_t_o_s_8h_1a088b831fdffacf61abf9c7312a2386ad">00420</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTAKE_MUTEX_RECURSIVE(&#32;pxMutex&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00421"/>00421 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00422"/>00422 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00423"/>00423 <emphasis role="preprocessor">#ifndef&#32;traceTAKE_MUTEX_RECURSIVE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00424"/><link linkend="__free_r_t_o_s_8h_1ad2d983d63b7d1c3d9208b14d3b76df53">00424</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTAKE_MUTEX_RECURSIVE_FAILED(&#32;pxMutex&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00425"/>00425 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00426"/>00426 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00427"/>00427 <emphasis role="preprocessor">#ifndef&#32;traceCREATE_COUNTING_SEMAPHORE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00428"/><link linkend="__free_r_t_o_s_8h_1a3803714a43519a6bfc93dadfa255bf14">00428</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceCREATE_COUNTING_SEMAPHORE()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00429"/>00429 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00430"/>00430 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00431"/>00431 <emphasis role="preprocessor">#ifndef&#32;traceCREATE_COUNTING_SEMAPHORE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00432"/><link linkend="__free_r_t_o_s_8h_1a656fccb9717146cc4036ff8701eeb67e">00432</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceCREATE_COUNTING_SEMAPHORE_FAILED()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00433"/>00433 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00434"/>00434 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00435"/>00435 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_SEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00436"/><link linkend="__free_r_t_o_s_8h_1a5cfc9dd899c89966172cb329740f551a">00436</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_SEND(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00437"/>00437 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00438"/>00438 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00439"/>00439 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_SEND_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00440"/><link linkend="__free_r_t_o_s_8h_1ab4896b8d7e443200918a6e4a7f64585d">00440</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_SEND_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00441"/>00441 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00442"/>00442 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00443"/>00443 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_RECEIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00444"/><link linkend="__free_r_t_o_s_8h_1a82b39aa722910a5e43793e882ded0faf">00444</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_RECEIVE(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00445"/>00445 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00446"/>00446 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00447"/>00447 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_PEEK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00448"/><link linkend="__free_r_t_o_s_8h_1acd24b909ecdd18ed844cdede3027e534">00448</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_PEEK(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00449"/>00449 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00450"/>00450 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00451"/>00451 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_PEEK_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00452"/><link linkend="__free_r_t_o_s_8h_1afa4b34739a92eb44f09947a669c98fb7">00452</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_PEEK_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00453"/>00453 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00454"/>00454 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00455"/>00455 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_PEEK_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00456"/><link linkend="__free_r_t_o_s_8h_1a3e2a14b61c26f9690deb26d76cc801ee">00456</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_PEEK_FROM_ISR(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00457"/>00457 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00458"/>00458 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00459"/>00459 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_RECEIVE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00460"/><link linkend="__free_r_t_o_s_8h_1a0dbf5969c9d984920177a19d5b402e4e">00460</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_RECEIVE_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00461"/>00461 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00462"/>00462 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00463"/>00463 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_SEND_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00464"/><link linkend="__free_r_t_o_s_8h_1a590bfae4dcb6be8a4b3daadf09a1b587">00464</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_SEND_FROM_ISR(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00465"/>00465 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00466"/>00466 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00467"/>00467 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_SEND_FROM_ISR_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00468"/><link linkend="__free_r_t_o_s_8h_1a71fa002ce8a199d38e697d94c613649f">00468</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_SEND_FROM_ISR_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00469"/>00469 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00470"/>00470 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00471"/>00471 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_RECEIVE_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00472"/><link linkend="__free_r_t_o_s_8h_1ace59eac86a08f533c19edf91594961c6">00472</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_RECEIVE_FROM_ISR(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00473"/>00473 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00474"/>00474 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00475"/>00475 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_RECEIVE_FROM_ISR_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00476"/><link linkend="__free_r_t_o_s_8h_1a1f1f4a1fea93a33050fa6c27c30752d5">00476</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_RECEIVE_FROM_ISR_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00477"/>00477 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00478"/>00478 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00479"/>00479 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_PEEK_FROM_ISR_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00480"/><link linkend="__free_r_t_o_s_8h_1a72ea0f09cc6a38363f2b5217aab27fd3">00480</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_PEEK_FROM_ISR_FAILED(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00481"/>00481 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00482"/>00482 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00483"/>00483 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_DELETE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00484"/><link linkend="__free_r_t_o_s_8h_1aae8ebd9c82ecd564953a37bb26a5a1e5">00484</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_DELETE(&#32;pxQueue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00485"/>00485 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00486"/>00486 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00487"/>00487 <emphasis role="preprocessor">#ifndef&#32;traceTASK_CREATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00488"/><link linkend="__free_r_t_o_s_8h_1a453dc678632734505187c453da598172">00488</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_CREATE(&#32;pxNewTCB&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00489"/>00489 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00490"/>00490 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00491"/>00491 <emphasis role="preprocessor">#ifndef&#32;traceTASK_CREATE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00492"/><link linkend="__free_r_t_o_s_8h_1a82a6a366facc1fb8b0209bfe2e5ce546">00492</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_CREATE_FAILED()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00493"/>00493 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00494"/>00494 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00495"/>00495 <emphasis role="preprocessor">#ifndef&#32;traceTASK_DELETE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00496"/><link linkend="__free_r_t_o_s_8h_1af3f9bb780241cc663247908a22defa65">00496</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_DELETE(&#32;pxTaskToDelete&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00497"/>00497 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00498"/>00498 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00499"/>00499 <emphasis role="preprocessor">#ifndef&#32;traceTASK_DELAY_UNTIL</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00500"/><link linkend="__free_r_t_o_s_8h_1ac7bba9e806376061522f5cb2eef261c4">00500</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_DELAY_UNTIL(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00501"/>00501 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00502"/>00502 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00503"/>00503 <emphasis role="preprocessor">#ifndef&#32;traceTASK_DELAY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00504"/><link linkend="__free_r_t_o_s_8h_1adb0c71969f4eed7a92f0f398dffb443d">00504</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_DELAY()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00505"/>00505 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00506"/>00506 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00507"/>00507 <emphasis role="preprocessor">#ifndef&#32;traceTASK_PRIORITY_SET</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00508"/><link linkend="__free_r_t_o_s_8h_1acec813ac5f0628aa108bede0cd8c329d">00508</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_PRIORITY_SET(&#32;pxTask,&#32;uxNewPriority&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00509"/>00509 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00510"/>00510 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00511"/>00511 <emphasis role="preprocessor">#ifndef&#32;traceTASK_SUSPEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00512"/><link linkend="__free_r_t_o_s_8h_1ac48891d4d553ea9acbc660d2ebd2ffd7">00512</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_SUSPEND(&#32;pxTaskToSuspend&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00513"/>00513 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00514"/>00514 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00515"/>00515 <emphasis role="preprocessor">#ifndef&#32;traceTASK_RESUME</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00516"/><link linkend="__free_r_t_o_s_8h_1a4f21b0c170fa8675ee2dbf70141695a2">00516</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_RESUME(&#32;pxTaskToResume&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00517"/>00517 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00518"/>00518 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00519"/>00519 <emphasis role="preprocessor">#ifndef&#32;traceTASK_RESUME_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00520"/><link linkend="__free_r_t_o_s_8h_1a7b4afafa82e9c80d0dc43cc22108d248">00520</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_RESUME_FROM_ISR(&#32;pxTaskToResume&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00521"/>00521 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00522"/>00522 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00523"/>00523 <emphasis role="preprocessor">#ifndef&#32;traceTASK_INCREMENT_TICK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00524"/><link linkend="__free_r_t_o_s_8h_1aeea8ada76999a73fd5ffcacd267d336d">00524</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_INCREMENT_TICK(&#32;xTickCount&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00525"/>00525 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00526"/>00526 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00527"/>00527 <emphasis role="preprocessor">#ifndef&#32;traceTIMER_CREATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00528"/><link linkend="__free_r_t_o_s_8h_1a21b54dae77c227db92f56131cae6de81">00528</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTIMER_CREATE(&#32;pxNewTimer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00529"/>00529 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00530"/>00530 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00531"/>00531 <emphasis role="preprocessor">#ifndef&#32;traceTIMER_CREATE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00532"/><link linkend="__free_r_t_o_s_8h_1a9b508233fb4bebee72529af4f4413cf6">00532</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTIMER_CREATE_FAILED()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00533"/>00533 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00534"/>00534 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00535"/>00535 <emphasis role="preprocessor">#ifndef&#32;traceTIMER_COMMAND_SEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00536"/><link linkend="__free_r_t_o_s_8h_1aa5e8cd9587c262fdf914b56c286c47b8">00536</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTIMER_COMMAND_SEND(&#32;xTimer,&#32;xMessageID,&#32;xMessageValueValue,&#32;xReturn&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00537"/>00537 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00538"/>00538 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00539"/>00539 <emphasis role="preprocessor">#ifndef&#32;traceTIMER_EXPIRED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00540"/><link linkend="__free_r_t_o_s_8h_1a71329ddad88950ea45b32d5adcb1b2f3">00540</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTIMER_EXPIRED(&#32;pxTimer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00541"/>00541 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00542"/>00542 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00543"/>00543 <emphasis role="preprocessor">#ifndef&#32;traceTIMER_COMMAND_RECEIVED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00544"/><link linkend="__free_r_t_o_s_8h_1a6c6d5767fb1746077b62e5da5a28db63">00544</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTIMER_COMMAND_RECEIVED(&#32;pxTimer,&#32;xMessageID,&#32;xMessageValue&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00545"/>00545 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00546"/>00546 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00547"/>00547 <emphasis role="preprocessor">#ifndef&#32;traceMALLOC</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00548"/><link linkend="__free_r_t_o_s_8h_1af326afe922ffa6da245c98dc227a3293">00548</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceMALLOC(&#32;pvAddress,&#32;uiSize&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00549"/>00549 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00550"/>00550 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00551"/>00551 <emphasis role="preprocessor">#ifndef&#32;traceFREE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00552"/><link linkend="__free_r_t_o_s_8h_1a941bb09090b5788f0c27d9690118eed2">00552</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceFREE(&#32;pvAddress,&#32;uiSize&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00553"/>00553 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00554"/>00554 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00555"/>00555 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_CREATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00556"/><link linkend="__free_r_t_o_s_8h_1a0100fcbcc03e3c2f0cd7bc7071f9ab70">00556</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_CREATE(&#32;xEventGroup&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00557"/>00557 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00558"/>00558 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00559"/>00559 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_CREATE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00560"/><link linkend="__free_r_t_o_s_8h_1ac6f6ea04ddbf43f62f1b0285622d4474">00560</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_CREATE_FAILED()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00561"/>00561 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00562"/>00562 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00563"/>00563 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_SYNC_BLOCK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00564"/><link linkend="__free_r_t_o_s_8h_1a898ead658f344a0475a9f2ed3bf8f407">00564</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_SYNC_BLOCK(&#32;xEventGroup,&#32;uxBitsToSet,&#32;uxBitsToWaitFor&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00565"/>00565 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00566"/>00566 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00567"/>00567 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_SYNC_END</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00568"/><link linkend="__free_r_t_o_s_8h_1af0cb50e5a1402163cd29e638c6140a2e">00568</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_SYNC_END(&#32;xEventGroup,&#32;uxBitsToSet,&#32;uxBitsToWaitFor,&#32;xTimeoutOccurred&#32;)&#32;(&#32;void&#32;)&#32;xTimeoutOccurred</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00569"/>00569 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00570"/>00570 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00571"/>00571 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_WAIT_BITS_BLOCK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00572"/><link linkend="__free_r_t_o_s_8h_1aeb8953a9be153986d0e830acdf60445a">00572</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_WAIT_BITS_BLOCK(&#32;xEventGroup,&#32;uxBitsToWaitFor&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00573"/>00573 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00574"/>00574 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00575"/>00575 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_WAIT_BITS_END</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00576"/><link linkend="__free_r_t_o_s_8h_1ad7a6b7684053a41690cac487ccf4d927">00576</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_WAIT_BITS_END(&#32;xEventGroup,&#32;uxBitsToWaitFor,&#32;xTimeoutOccurred&#32;)&#32;(&#32;void&#32;)&#32;xTimeoutOccurred</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00577"/>00577 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00578"/>00578 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00579"/>00579 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_CLEAR_BITS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00580"/><link linkend="__free_r_t_o_s_8h_1ad929200fa50e5a1ae2c5894ffeea2ef6">00580</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_CLEAR_BITS(&#32;xEventGroup,&#32;uxBitsToClear&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00581"/>00581 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00582"/>00582 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00583"/>00583 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_CLEAR_BITS_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00584"/><link linkend="__free_r_t_o_s_8h_1a9facfdc883aa503d2891c27c5c136d84">00584</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_CLEAR_BITS_FROM_ISR(&#32;xEventGroup,&#32;uxBitsToClear&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00585"/>00585 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00586"/>00586 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00587"/>00587 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_SET_BITS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00588"/><link linkend="__free_r_t_o_s_8h_1a56eb08eb12a36c99a32729a518d5b3fd">00588</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_SET_BITS(&#32;xEventGroup,&#32;uxBitsToSet&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00589"/>00589 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00590"/>00590 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00591"/>00591 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_SET_BITS_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00592"/><link linkend="__free_r_t_o_s_8h_1ae11a37557005c2660326e9874d5d3155">00592</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_SET_BITS_FROM_ISR(&#32;xEventGroup,&#32;uxBitsToSet&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00593"/>00593 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00594"/>00594 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00595"/>00595 <emphasis role="preprocessor">#ifndef&#32;traceEVENT_GROUP_DELETE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00596"/><link linkend="__free_r_t_o_s_8h_1abf48364a72dd38af47bf7203c06ee832">00596</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceEVENT_GROUP_DELETE(&#32;xEventGroup&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00597"/>00597 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00598"/>00598 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00599"/>00599 <emphasis role="preprocessor">#ifndef&#32;tracePEND_FUNC_CALL</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00600"/><link linkend="__free_r_t_o_s_8h_1ab9c72706acbdbcec75ffb2cdaca45b24">00600</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;tracePEND_FUNC_CALL(xFunctionToPend,&#32;pvParameter1,&#32;ulParameter2,&#32;ret)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00601"/>00601 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00602"/>00602 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00603"/>00603 <emphasis role="preprocessor">#ifndef&#32;tracePEND_FUNC_CALL_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00604"/><link linkend="__free_r_t_o_s_8h_1a9b864660c6d826e802d9e3f94548cd7f">00604</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;tracePEND_FUNC_CALL_FROM_ISR(xFunctionToPend,&#32;pvParameter1,&#32;ulParameter2,&#32;ret)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00605"/>00605 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00606"/>00606 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00607"/>00607 <emphasis role="preprocessor">#ifndef&#32;traceQUEUE_REGISTRY_ADD</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00608"/><link linkend="__free_r_t_o_s_8h_1a2f326b01ad82a3ab14cc9fc4b3abd6b8">00608</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceQUEUE_REGISTRY_ADD(xQueue,&#32;pcQueueName)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00609"/>00609 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00610"/>00610 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00611"/>00611 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_TAKE_BLOCK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00612"/><link linkend="__free_r_t_o_s_8h_1af6c636f9baf2eb594ffb0b6689d1b729">00612</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_TAKE_BLOCK()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00613"/>00613 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00614"/>00614 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00615"/>00615 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_TAKE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00616"/><link linkend="__free_r_t_o_s_8h_1ab60d0210392d54bc0539de67c8bb3bf6">00616</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_TAKE()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00617"/>00617 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00618"/>00618 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00619"/>00619 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_WAIT_BLOCK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00620"/><link linkend="__free_r_t_o_s_8h_1a42d4b4f2c5bac89d617c27902606019c">00620</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_WAIT_BLOCK()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00621"/>00621 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00622"/>00622 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00623"/>00623 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_WAIT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00624"/><link linkend="__free_r_t_o_s_8h_1a32ea7a3f22b7ef8b2ddc7b98848b8446">00624</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_WAIT()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00625"/>00625 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00626"/>00626 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00627"/>00627 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00628"/><link linkend="__free_r_t_o_s_8h_1a0047b9beb807b3c8b31d485532f7b077">00628</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00629"/>00629 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00630"/>00630 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00631"/>00631 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00632"/><link linkend="__free_r_t_o_s_8h_1aad4d3ae692f3500f4644070fe971b646">00632</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_FROM_ISR()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00633"/>00633 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00634"/>00634 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00635"/>00635 <emphasis role="preprocessor">#ifndef&#32;traceTASK_NOTIFY_GIVE_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00636"/><link linkend="__free_r_t_o_s_8h_1a99d95526db9937c96ba110f46bb59ee5">00636</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceTASK_NOTIFY_GIVE_FROM_ISR()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00637"/>00637 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00638"/>00638 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00639"/>00639 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_CREATE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00640"/><link linkend="__free_r_t_o_s_8h_1a2bc57023bb903e717940ac8aa13a3016">00640</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_CREATE_FAILED(&#32;xIsMessageBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00641"/>00641 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00642"/>00642 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00643"/>00643 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_CREATE_STATIC_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00644"/><link linkend="__free_r_t_o_s_8h_1a8437a62aa94288842b56a2d63786c118">00644</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_CREATE_STATIC_FAILED(&#32;xReturn,&#32;xIsMessageBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00645"/>00645 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00646"/>00646 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00647"/>00647 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_CREATE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00648"/><link linkend="__free_r_t_o_s_8h_1a3666750a606dd4323b011db1b146e7b9">00648</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_CREATE(&#32;pxStreamBuffer,&#32;xIsMessageBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00649"/>00649 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00650"/>00650 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00651"/>00651 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_DELETE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00652"/><link linkend="__free_r_t_o_s_8h_1ae919bd00b51b396ff237bc8ec3b6b439">00652</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_DELETE(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00653"/>00653 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00654"/>00654 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00655"/>00655 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_RESET</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00656"/><link linkend="__free_r_t_o_s_8h_1a2ef92acbaa66efdb85be7f8256fe91ba">00656</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_RESET(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00657"/>00657 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00658"/>00658 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00659"/>00659 <emphasis role="preprocessor">#ifndef&#32;traceBLOCKING_ON_STREAM_BUFFER_SEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00660"/><link linkend="__free_r_t_o_s_8h_1a5788bf0db92eda90675aa5f3caa42eeb">00660</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceBLOCKING_ON_STREAM_BUFFER_SEND(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00661"/>00661 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00662"/>00662 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00663"/>00663 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_SEND</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00664"/><link linkend="__free_r_t_o_s_8h_1a4f4fc6954ae7c5b8a4819f70afd37c1f">00664</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_SEND(&#32;xStreamBuffer,&#32;xBytesSent&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00665"/>00665 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00666"/>00666 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00667"/>00667 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_SEND_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00668"/><link linkend="__free_r_t_o_s_8h_1a527e8f19c9b9b339985c2b8e47bff02a">00668</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_SEND_FAILED(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00669"/>00669 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00670"/>00670 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00671"/>00671 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_SEND_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00672"/><link linkend="__free_r_t_o_s_8h_1ab79a8d87f1c865b1a76af02932b3dda6">00672</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_SEND_FROM_ISR(&#32;xStreamBuffer,&#32;xBytesSent&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00673"/>00673 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00674"/>00674 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00675"/>00675 <emphasis role="preprocessor">#ifndef&#32;traceBLOCKING_ON_STREAM_BUFFER_RECEIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00676"/><link linkend="__free_r_t_o_s_8h_1a80419264672cb0ddd2b865048483b537">00676</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceBLOCKING_ON_STREAM_BUFFER_RECEIVE(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00677"/>00677 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00678"/>00678 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00679"/>00679 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_RECEIVE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00680"/><link linkend="__free_r_t_o_s_8h_1a6ecefd3df93cb11986cca1b41f215138">00680</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_RECEIVE(&#32;xStreamBuffer,&#32;xReceivedLength&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00681"/>00681 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00682"/>00682 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00683"/>00683 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_RECEIVE_FAILED</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00684"/><link linkend="__free_r_t_o_s_8h_1a57e5d8ccc74dd8e04bd3a8534de79bb4">00684</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_RECEIVE_FAILED(&#32;xStreamBuffer&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00685"/>00685 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00686"/>00686 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00687"/>00687 <emphasis role="preprocessor">#ifndef&#32;traceSTREAM_BUFFER_RECEIVE_FROM_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00688"/><link linkend="__free_r_t_o_s_8h_1a30fe3a49605cf2c232d190e4f6565a0d">00688</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;traceSTREAM_BUFFER_RECEIVE_FROM_ISR(&#32;xStreamBuffer,&#32;xReceivedLength&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00689"/>00689 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00690"/>00690 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00691"/>00691 <emphasis role="preprocessor">#ifndef&#32;configGENERATE_RUN_TIME_STATS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00692"/>00692 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configGENERATE_RUN_TIME_STATS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00693"/>00693 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00694"/>00694 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00695"/>00695 <emphasis role="preprocessor">#if&#32;(&#32;configGENERATE_RUN_TIME_STATS&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00696"/>00696 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00697"/>00697 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00698"/>00698 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;If&#32;configGENERATE_RUN_TIME_STATS&#32;is&#32;defined&#32;then&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS&#32;must&#32;also&#32;be&#32;defined.&#32;&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS&#32;should&#32;call&#32;a&#32;port&#32;layer&#32;function&#32;to&#32;setup&#32;a&#32;peripheral&#32;timer/counter&#32;that&#32;can&#32;then&#32;be&#32;used&#32;as&#32;the&#32;run&#32;time&#32;counter&#32;time&#32;base.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00699"/>00699 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00700"/>00700 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00701"/>00701 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#ifndef&#32;portGET_RUN_TIME_COUNTER_VALUE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00702"/>00702 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#ifndef&#32;portALT_GET_RUN_TIME_COUNTER_VALUE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00703"/>00703 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;If&#32;configGENERATE_RUN_TIME_STATS&#32;is&#32;defined&#32;then&#32;either&#32;portGET_RUN_TIME_COUNTER_VALUE&#32;or&#32;portALT_GET_RUN_TIME_COUNTER_VALUE&#32;must&#32;also&#32;be&#32;defined.&#32;&#32;See&#32;the&#32;examples&#32;provided&#32;and&#32;the&#32;FreeRTOS&#32;web&#32;site&#32;for&#32;more&#32;information.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00704"/>00704 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;portALT_GET_RUN_TIME_COUNTER_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00705"/>00705 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;portGET_RUN_TIME_COUNTER_VALUE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00706"/>00706 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00707"/>00707 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;configGENERATE_RUN_TIME_STATS&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00708"/>00708 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00709"/>00709 <emphasis role="preprocessor">#ifndef&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00710"/><link linkend="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b">00710</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00711"/>00711 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00712"/>00712 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00713"/>00713 <emphasis role="preprocessor">#ifndef&#32;configUSE_MALLOC_FAILED_HOOK</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00714"/>00714 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_MALLOC_FAILED_HOOK&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00715"/>00715 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00716"/>00716 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00717"/>00717 <emphasis role="preprocessor">#ifndef&#32;portPRIVILEGE_BIT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00718"/><link linkend="__free_r_t_o_s_8h_1a27b7e11718b2ec5b5217e60f3b9e8aec">00718</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portPRIVILEGE_BIT&#32;(&#32;(&#32;UBaseType_t&#32;)&#32;0x00&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00719"/>00719 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00720"/>00720 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00721"/>00721 <emphasis role="preprocessor">#ifndef&#32;portYIELD_WITHIN_API</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00722"/><link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">00722</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portYIELD_WITHIN_API&#32;portYIELD</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00723"/>00723 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00724"/>00724 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00725"/>00725 <emphasis role="preprocessor">#ifndef&#32;portSUPPRESS_TICKS_AND_SLEEP</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00726"/>00726 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portSUPPRESS_TICKS_AND_SLEEP(&#32;xExpectedIdleTime&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00727"/>00727 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00728"/>00728 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00729"/>00729 <emphasis role="preprocessor">#ifndef&#32;configEXPECTED_IDLE_TIME_BEFORE_SLEEP</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00730"/><link linkend="__free_r_t_o_s_8h_1aff3d7f6e5b38283f5214880d8086bb57">00730</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configEXPECTED_IDLE_TIME_BEFORE_SLEEP&#32;2</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00731"/>00731 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00732"/>00732 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00733"/>00733 <emphasis role="preprocessor">#if&#32;configEXPECTED_IDLE_TIME_BEFORE_SLEEP&#32;&lt;&#32;2</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00734"/>00734 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;configEXPECTED_IDLE_TIME_BEFORE_SLEEP&#32;must&#32;not&#32;be&#32;less&#32;than&#32;2</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00735"/>00735 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00736"/>00736 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00737"/>00737 <emphasis role="preprocessor">#ifndef&#32;configUSE_TICKLESS_IDLE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00738"/>00738 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TICKLESS_IDLE&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00739"/>00739 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00740"/>00740 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00741"/>00741 <emphasis role="preprocessor">#ifndef&#32;configPRE_SUPPRESS_TICKS_AND_SLEEP_PROCESSING</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00742"/><link linkend="__free_r_t_o_s_8h_1a506860f45e7b8f14ee85c09db15eed7a">00742</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configPRE_SUPPRESS_TICKS_AND_SLEEP_PROCESSING(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00743"/>00743 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00744"/>00744 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00745"/>00745 <emphasis role="preprocessor">#ifndef&#32;configPRE_SLEEP_PROCESSING</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00746"/><link linkend="__free_r_t_o_s_8h_1a986fc0c49fdf4945edd7fb6701e04978">00746</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configPRE_SLEEP_PROCESSING(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00747"/>00747 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00748"/>00748 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00749"/>00749 <emphasis role="preprocessor">#ifndef&#32;configPOST_SLEEP_PROCESSING</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00750"/><link linkend="__free_r_t_o_s_8h_1a55f848c10319c953bfcc456fc724cee1">00750</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configPOST_SLEEP_PROCESSING(&#32;x&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00751"/>00751 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00752"/>00752 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00753"/>00753 <emphasis role="preprocessor">#ifndef&#32;configUSE_QUEUE_SETS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00754"/>00754 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_QUEUE_SETS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00755"/>00755 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00756"/>00756 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00757"/>00757 <emphasis role="preprocessor">#ifndef&#32;portTASK_USES_FLOATING_POINT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00758"/><link linkend="__free_r_t_o_s_8h_1ad39396f0acc31310827fbbaf28623d58">00758</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTASK_USES_FLOATING_POINT()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00759"/>00759 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00760"/>00760 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00761"/>00761 <emphasis role="preprocessor">#ifndef&#32;portTASK_CALLS_SECURE_FUNCTIONS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00762"/><link linkend="__free_r_t_o_s_8h_1a401e0f8194560d5f27f5844ba82009b5">00762</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTASK_CALLS_SECURE_FUNCTIONS()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00763"/>00763 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00764"/>00764 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00765"/>00765 <emphasis role="preprocessor">#ifndef&#32;configUSE_TIME_SLICING</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00766"/>00766 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TIME_SLICING&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00767"/>00767 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00768"/>00768 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00769"/>00769 <emphasis role="preprocessor">#ifndef&#32;configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00770"/><link linkend="__free_r_t_o_s_8h_1a7990cb1664418797a8aad3917b665116">00770</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00771"/>00771 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00772"/>00772 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00773"/>00773 <emphasis role="preprocessor">#ifndef&#32;configUSE_STATS_FORMATTING_FUNCTIONS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00774"/>00774 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_STATS_FORMATTING_FUNCTIONS&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00775"/>00775 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00776"/>00776 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00777"/>00777 <emphasis role="preprocessor">#ifndef&#32;portASSERT_IF_INTERRUPT_PRIORITY_INVALID</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00778"/><link linkend="__free_r_t_o_s_8h_1a10f75d20c71c4289f96d1b89cb6c62e2">00778</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portASSERT_IF_INTERRUPT_PRIORITY_INVALID()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00779"/>00779 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00780"/>00780 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00781"/>00781 <emphasis role="preprocessor">#ifndef&#32;configUSE_TRACE_FACILITY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00782"/>00782 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TRACE_FACILITY&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00783"/>00783 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00784"/>00784 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00785"/>00785 <emphasis role="preprocessor">#ifndef&#32;mtCOVERAGE_TEST_MARKER</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00786"/><link linkend="__free_r_t_o_s_8h_1ac77e2af1a6b0d38fbab36cf2aa96f1a8">00786</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;mtCOVERAGE_TEST_MARKER()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00787"/>00787 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00788"/>00788 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00789"/>00789 <emphasis role="preprocessor">#ifndef&#32;mtCOVERAGE_TEST_DELAY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00790"/><link linkend="__free_r_t_o_s_8h_1a2ddaee9013b02cfbfe2773ec4257375c">00790</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;mtCOVERAGE_TEST_DELAY()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00791"/>00791 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00792"/>00792 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00793"/>00793 <emphasis role="preprocessor">#ifndef&#32;portASSERT_IF_IN_ISR</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00794"/><link linkend="__free_r_t_o_s_8h_1a24a48f166f347e5201a72efcc73d0202">00794</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portASSERT_IF_IN_ISR()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00795"/>00795 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00796"/>00796 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00797"/>00797 <emphasis role="preprocessor">#ifndef&#32;configUSE_PORT_OPTIMISED_TASK_SELECTION</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00798"/>00798 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_PORT_OPTIMISED_TASK_SELECTION&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00799"/>00799 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00800"/>00800 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00801"/>00801 <emphasis role="preprocessor">#ifndef&#32;configAPPLICATION_ALLOCATED_HEAP</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00802"/>00802 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configAPPLICATION_ALLOCATED_HEAP&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00803"/>00803 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00804"/>00804 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00805"/>00805 <emphasis role="preprocessor">#ifndef&#32;configUSE_TASK_NOTIFICATIONS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00806"/>00806 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TASK_NOTIFICATIONS&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00807"/>00807 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00808"/>00808 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00809"/>00809 <emphasis role="preprocessor">#ifndef&#32;portTICK_TYPE_IS_ATOMIC</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00810"/>00810 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_IS_ATOMIC&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00811"/>00811 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00812"/>00812 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00813"/>00813 <emphasis role="preprocessor">#ifndef&#32;configSUPPORT_STATIC_ALLOCATION</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00814"/>00814 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Defaults&#32;to&#32;0&#32;for&#32;backward&#32;compatibility.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00815"/>00815 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configSUPPORT_STATIC_ALLOCATION&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00816"/>00816 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00817"/>00817 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00818"/>00818 <emphasis role="preprocessor">#ifndef&#32;configSUPPORT_DYNAMIC_ALLOCATION</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00819"/>00819 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Defaults&#32;to&#32;1&#32;for&#32;backward&#32;compatibility.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00820"/>00820 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00821"/>00821 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00822"/>00822 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00823"/>00823 <emphasis role="preprocessor">#ifndef&#32;configSTACK_DEPTH_TYPE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00824"/>00824 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Defaults&#32;to&#32;uint16_t&#32;for&#32;backward&#32;compatibility,&#32;but&#32;can&#32;be&#32;overridden</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00825"/>00825 <emphasis role="comment">&#32;&#32;&#32;&#32;in&#32;FreeRTOSConfig.h&#32;if&#32;uint16_t&#32;is&#32;too&#32;restrictive.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00826"/><link linkend="__free_r_t_o_s_8h_1ae4e85bffd36d76cf2796092f0ccd784a">00826</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configSTACK_DEPTH_TYPE&#32;uint16_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00827"/>00827 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00828"/>00828 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00829"/>00829 <emphasis role="preprocessor">#ifndef&#32;configMESSAGE_BUFFER_LENGTH_TYPE</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00830"/>00830 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Defaults&#32;to&#32;size_t&#32;for&#32;backward&#32;compatibility,&#32;but&#32;can&#32;be&#32;overridden</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00831"/>00831 <emphasis role="comment">&#32;&#32;&#32;&#32;in&#32;FreeRTOSConfig.h&#32;if&#32;lengths&#32;will&#32;always&#32;be&#32;less&#32;than&#32;the&#32;number&#32;of&#32;bytes</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00832"/>00832 <emphasis role="comment">&#32;&#32;&#32;&#32;in&#32;a&#32;size_t.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00833"/><link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">00833</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configMESSAGE_BUFFER_LENGTH_TYPE&#32;size_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00834"/>00834 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00835"/>00835 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00836"/>00836 <emphasis role="comment">/*&#32;Sanity&#32;check&#32;the&#32;configuration.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00837"/>00837 <emphasis role="preprocessor">#if(&#32;configUSE_TICKLESS_IDLE&#32;!=&#32;0&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00838"/>00838 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;INCLUDE_vTaskSuspend&#32;!=&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00839"/>00839 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#error&#32;INCLUDE_vTaskSuspend&#32;must&#32;be&#32;set&#32;to&#32;1&#32;if&#32;configUSE_TICKLESS_IDLE&#32;is&#32;not&#32;set&#32;to&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00840"/>00840 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif&#32;</emphasis><emphasis role="comment">/*&#32;INCLUDE_vTaskSuspend&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00841"/>00841 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;configUSE_TICKLESS_IDLE&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00842"/>00842 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00843"/>00843 <emphasis role="preprocessor">#if(&#32;(&#32;configSUPPORT_STATIC_ALLOCATION&#32;==&#32;0&#32;)&#32;&amp;&amp;&#32;(&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;==&#32;0&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00844"/>00844 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;configSUPPORT_STATIC_ALLOCATION&#32;and&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;cannot&#32;both&#32;be&#32;0,&#32;but&#32;can&#32;both&#32;be&#32;1.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00845"/>00845 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00846"/>00846 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00847"/>00847 <emphasis role="preprocessor">#if(&#32;(&#32;configUSE_RECURSIVE_MUTEXES&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configUSE_MUTEXES&#32;!=&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00848"/>00848 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;configUSE_MUTEXES&#32;must&#32;be&#32;set&#32;to&#32;1&#32;to&#32;use&#32;recursive&#32;mutexes</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00849"/>00849 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00850"/>00850 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00851"/>00851 <emphasis role="preprocessor">#ifndef&#32;configINITIAL_TICK_COUNT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00852"/><link linkend="__free_r_t_o_s_8h_1ae52c1acd13b26e8758dc66b60b0e3417">00852</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configINITIAL_TICK_COUNT&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00853"/>00853 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00854"/>00854 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00855"/>00855 <emphasis role="preprocessor">#if(&#32;portTICK_TYPE_IS_ATOMIC&#32;==&#32;0&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00856"/>00856 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Either&#32;variables&#32;of&#32;tick&#32;type&#32;cannot&#32;be&#32;read&#32;atomically,&#32;or</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00857"/>00857 <emphasis role="comment">&#32;&#32;&#32;&#32;portTICK_TYPE_IS_ATOMIC&#32;was&#32;not&#32;set&#32;-&#32;map&#32;the&#32;critical&#32;sections&#32;used&#32;when</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00858"/>00858 <emphasis role="comment">&#32;&#32;&#32;&#32;the&#32;tick&#32;count&#32;is&#32;returned&#32;to&#32;the&#32;standard&#32;critical&#32;section&#32;macros.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00859"/>00859 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_ENTER_CRITICAL()&#32;portENTER_CRITICAL()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00860"/>00860 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_EXIT_CRITICAL()&#32;portEXIT_CRITICAL()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00861"/>00861 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR()&#32;portSET_INTERRUPT_MASK_FROM_ISR()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00862"/>00862 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR(&#32;x&#32;)&#32;portCLEAR_INTERRUPT_MASK_FROM_ISR(&#32;(&#32;x&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00863"/>00863 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00864"/>00864 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;The&#32;tick&#32;type&#32;can&#32;be&#32;read&#32;atomically,&#32;so&#32;critical&#32;sections&#32;used&#32;when&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00865"/>00865 <emphasis role="comment">&#32;&#32;&#32;&#32;tick&#32;count&#32;is&#32;returned&#32;can&#32;be&#32;defined&#32;away.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00866"/><link linkend="__free_r_t_o_s_8h_1a5ada85b405891061cad280c1e35213ee">00866</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_ENTER_CRITICAL()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00867"/><link linkend="__free_r_t_o_s_8h_1a3a24fff82b123ddc7cf8195a466733dd">00867</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_EXIT_CRITICAL()</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00868"/><link linkend="__free_r_t_o_s_8h_1a7b53d0f5d4ae09f599f92fb5cd546e6b">00868</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR()&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00869"/><link linkend="__free_r_t_o_s_8h_1a506f401396abd44a8dbe31edac713f8b">00869</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR(&#32;x&#32;)&#32;(&#32;void&#32;)&#32;x</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00870"/>00870 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00871"/>00871 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00872"/>00872 <emphasis role="comment">/*&#32;Definitions&#32;to&#32;allow&#32;backward&#32;compatibility&#32;with&#32;FreeRTOS&#32;versions&#32;prior&#32;to</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00873"/>00873 <emphasis role="comment">V8&#32;if&#32;desired.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00874"/>00874 <emphasis role="preprocessor">#ifndef&#32;configENABLE_BACKWARD_COMPATIBILITY</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00875"/>00875 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configENABLE_BACKWARD_COMPATIBILITY&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00876"/>00876 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00877"/>00877 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00878"/>00878 <emphasis role="preprocessor">#ifndef&#32;configPRINTF</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00879"/>00879 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;configPRINTF()&#32;was&#32;not&#32;defined,&#32;so&#32;define&#32;it&#32;away&#32;to&#32;nothing.&#32;&#32;To&#32;use</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00880"/>00880 <emphasis role="comment">&#32;&#32;&#32;&#32;configPRINTF()&#32;then&#32;define&#32;it&#32;as&#32;follows&#32;(where&#32;MyPrintFunction()&#32;is</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00881"/>00881 <emphasis role="comment">&#32;&#32;&#32;&#32;provided&#32;by&#32;the&#32;application&#32;writer):</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00882"/>00882 <emphasis role="comment"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00883"/>00883 <emphasis role="comment">&#32;&#32;&#32;&#32;void&#32;MyPrintFunction(const&#32;char&#32;*pcFormat,&#32;...&#32;);</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00884"/>00884 <emphasis role="comment">&#32;&#32;&#32;&#32;#define&#32;configPRINTF(&#32;X&#32;)&#32;&#32;&#32;MyPrintFunction&#32;X</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00885"/>00885 <emphasis role="comment"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00886"/>00886 <emphasis role="comment">&#32;&#32;&#32;&#32;Then&#32;call&#32;like&#32;a&#32;standard&#32;printf()&#32;function,&#32;but&#32;placing&#32;brackets&#32;around</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00887"/>00887 <emphasis role="comment">&#32;&#32;&#32;&#32;all&#32;parameters&#32;so&#32;they&#32;are&#32;passed&#32;as&#32;a&#32;single&#32;parameter.&#32;&#32;For&#32;example:</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00888"/>00888 <emphasis role="comment">&#32;&#32;&#32;&#32;configPRINTF(&#32;(&quot;Value&#32;=&#32;%d&quot;,&#32;MyVariable)&#32;);&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00889"/><link linkend="__free_r_t_o_s_8h_1a560d79b61f78ade80659b321586ab7b4">00889</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configPRINTF(&#32;X&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00890"/>00890 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00891"/>00891 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00892"/>00892 <emphasis role="preprocessor">#ifndef&#32;configMAX</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00893"/>00893 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;The&#32;application&#32;writer&#32;has&#32;not&#32;provided&#32;their&#32;own&#32;MAX&#32;macro,&#32;so&#32;define</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00894"/>00894 <emphasis role="comment">&#32;&#32;&#32;&#32;the&#32;following&#32;generic&#32;implementation.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00895"/><link linkend="__free_r_t_o_s_8h_1adaad2ada6c5242c3b68ae936d60a66b9">00895</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configMAX(&#32;a,&#32;b&#32;)&#32;(&#32;(&#32;(&#32;a&#32;)&#32;&gt;&#32;(&#32;b&#32;)&#32;)&#32;?&#32;(&#32;a&#32;)&#32;:&#32;(&#32;b&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00896"/>00896 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00897"/>00897 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00898"/>00898 <emphasis role="preprocessor">#ifndef&#32;configMIN</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00899"/>00899 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;The&#32;application&#32;writer&#32;has&#32;not&#32;provided&#32;their&#32;own&#32;MAX&#32;macro,&#32;so&#32;define</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00900"/>00900 <emphasis role="comment">&#32;&#32;&#32;&#32;the&#32;following&#32;generic&#32;implementation.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00901"/><link linkend="__free_r_t_o_s_8h_1a101a57cef3f76ec13110cec59ce49edf">00901</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configMIN(&#32;a,&#32;b&#32;)&#32;(&#32;(&#32;(&#32;a&#32;)&#32;&lt;&#32;(&#32;b&#32;)&#32;)&#32;?&#32;(&#32;a&#32;)&#32;:&#32;(&#32;b&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00902"/>00902 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00903"/>00903 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00904"/>00904 <emphasis role="preprocessor">#if&#32;configENABLE_BACKWARD_COMPATIBILITY&#32;==&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00905"/><link linkend="__free_r_t_o_s_8h_1ad1bc0e8a3c68c90d6711ec4a9ac1a516">00905</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;eTaskStateGet&#32;eTaskGetState</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00906"/><link linkend="__free_r_t_o_s_8h_1a324d7087026e1e9dfe6b7567d5bf63c8">00906</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTickType&#32;TickType_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00907"/><link linkend="__free_r_t_o_s_8h_1af7cd8f53b62f0c497b442b504c30f2ec">00907</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xTaskHandle&#32;TaskHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00908"/><link linkend="__free_r_t_o_s_8h_1a2b4ea2af4cc24db3cbd458722e96fa2f">00908</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xQueueHandle&#32;QueueHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00909"/><link linkend="__free_r_t_o_s_8h_1a520d8cf032327581ece00e5bd8e03a75">00909</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xSemaphoreHandle&#32;SemaphoreHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00910"/><link linkend="__free_r_t_o_s_8h_1ab8d6acee206b02a6a4cf4e63d035b3fd">00910</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xQueueSetHandle&#32;QueueSetHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00911"/><link linkend="__free_r_t_o_s_8h_1a009d2d6ce8ab8635eaf9f3e507866f6c">00911</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xQueueSetMemberHandle&#32;QueueSetMemberHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00912"/><link linkend="__free_r_t_o_s_8h_1a819785230f5d9368aec050ac661d12e0">00912</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xTimeOutType&#32;TimeOut_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00913"/><link linkend="__free_r_t_o_s_8h_1a5971b85d409766aa17def6cc275c15cd">00913</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xMemoryRegion&#32;MemoryRegion_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00914"/><link linkend="__free_r_t_o_s_8h_1aba476594b7c76708495313b143d7edde">00914</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xTaskParameters&#32;TaskParameters_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00915"/><link linkend="__free_r_t_o_s_8h_1a86ae1e476b7df91b0b58f7cc0f1ce7ea">00915</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xTaskStatusType&#32;TaskStatus_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00916"/><link linkend="__free_r_t_o_s_8h_1a9fa57c444af781c3b6286f5cc9e4982d">00916</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xTimerHandle&#32;TimerHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00917"/><link linkend="__free_r_t_o_s_8h_1ac6d7ef270d5c85eb91906683157ffc13">00917</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xCoRoutineHandle&#32;CoRoutineHandle_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00918"/><link linkend="__free_r_t_o_s_8h_1ac53ab0d2f78148433574898386aeb5f4">00918</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pdTASK_HOOK_CODE&#32;TaskHookFunction_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00919"/><link linkend="__free_r_t_o_s_8h_1a8689cad2afb0c5f65d866e2c356378bf">00919</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;portTICK_RATE_MS&#32;portTICK_PERIOD_MS</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00920"/><link linkend="__free_r_t_o_s_8h_1a626c65afa49005d067495a6cdaace885">00920</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pcTaskGetTaskName&#32;pcTaskGetName</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00921"/><link linkend="__free_r_t_o_s_8h_1a870358d5faa01a5290705b073de220ca">00921</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pcTimerGetTimerName&#32;pcTimerGetName</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00922"/><link linkend="__free_r_t_o_s_8h_1a8363e9859059888726caa268e1816e54">00922</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pcQueueGetQueueName&#32;pcQueueGetName</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00923"/><link linkend="__free_r_t_o_s_8h_1af91a84ee7fcd1c03bba33c0c86c9a493">00923</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;vTaskGetTaskInfo&#32;vTaskGetInfo</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00924"/>00924 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00925"/>00925 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Backward&#32;compatibility&#32;within&#32;the&#32;scheduler&#32;code&#32;only&#32;-&#32;these&#32;definitions</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00926"/>00926 <emphasis role="comment">&#32;&#32;&#32;&#32;are&#32;not&#32;really&#32;required&#32;but&#32;are&#32;included&#32;for&#32;completeness.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00927"/><link linkend="__free_r_t_o_s_8h_1a0da0e4db75906783854965b3cb9db214">00927</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;tmrTIMER_CALLBACK&#32;TimerCallbackFunction_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00928"/><link linkend="__free_r_t_o_s_8h_1a74cee96c96792dab96bdc57ba9007b24">00928</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;pdTASK_CODE&#32;TaskFunction_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00929"/><link linkend="__free_r_t_o_s_8h_1a62b284ca8496de2faf0157e6c8be94b6">00929</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xListItem&#32;ListItem_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00930"/><link linkend="__free_r_t_o_s_8h_1a990e46a268202dae9f09ca56c35cc17c">00930</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;xList&#32;List_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00931"/>00931 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;configENABLE_BACKWARD_COMPATIBILITY&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00932"/>00932 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00933"/>00933 <emphasis role="preprocessor">#if(&#32;configUSE_ALTERNATIVE_API&#32;!=&#32;0&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00934"/>00934 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#error&#32;The&#32;alternative&#32;API&#32;was&#32;deprecated&#32;some&#32;time&#32;ago,&#32;and&#32;was&#32;removed&#32;in&#32;FreeRTOS&#32;V9.0&#32;0</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00935"/>00935 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00936"/>00936 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00937"/>00937 <emphasis role="comment">/*&#32;Set&#32;configUSE_TASK_FPU_SUPPORT&#32;to&#32;0&#32;to&#32;omit&#32;floating&#32;point&#32;support&#32;even</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00938"/>00938 <emphasis role="comment">if&#32;floating&#32;point&#32;hardware&#32;is&#32;otherwise&#32;supported&#32;by&#32;the&#32;FreeRTOS&#32;port&#32;in&#32;use.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00939"/>00939 <emphasis role="comment">This&#32;constant&#32;is&#32;not&#32;supported&#32;by&#32;all&#32;FreeRTOS&#32;ports&#32;that&#32;include&#32;floating</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00940"/>00940 <emphasis role="comment">point&#32;support.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00941"/>00941 <emphasis role="preprocessor">#ifndef&#32;configUSE_TASK_FPU_SUPPORT</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00942"/><link linkend="__free_r_t_o_s_8h_1aec0ba4af7bdd0e0acba26902a496de6c">00942</link> <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;configUSE_TASK_FPU_SUPPORT&#32;1</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00943"/>00943 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00944"/>00944 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00945"/>00945 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00946"/>00946 <emphasis role="comment">&#32;*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;FreeRTOS&#32;implements&#32;a&#32;strict</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00947"/>00947 <emphasis role="comment">&#32;*&#32;data&#32;hiding&#32;policy,&#32;so&#32;the&#32;real&#32;structures&#32;used&#32;by&#32;FreeRTOS&#32;to&#32;maintain&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00948"/>00948 <emphasis role="comment">&#32;*&#32;state&#32;of&#32;tasks,&#32;queues,&#32;semaphores,&#32;etc.&#32;are&#32;not&#32;accessible&#32;to&#32;the&#32;application</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00949"/>00949 <emphasis role="comment">&#32;*&#32;code.&#32;&#32;However,&#32;if&#32;the&#32;application&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;such</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00950"/>00950 <emphasis role="comment">&#32;*&#32;an&#32;object&#32;then&#32;the&#32;size&#32;of&#32;the&#32;object&#32;needs&#32;to&#32;be&#32;know.&#32;&#32;Dummy&#32;structures</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00951"/>00951 <emphasis role="comment">&#32;*&#32;that&#32;are&#32;guaranteed&#32;to&#32;have&#32;the&#32;same&#32;size&#32;and&#32;alignment&#32;requirements&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00952"/>00952 <emphasis role="comment">&#32;*&#32;real&#32;objects&#32;are&#32;used&#32;for&#32;this&#32;purpose.&#32;&#32;The&#32;dummy&#32;list&#32;and&#32;list&#32;item</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00953"/>00953 <emphasis role="comment">&#32;*&#32;structures&#32;below&#32;are&#32;used&#32;for&#32;inclusion&#32;in&#32;such&#32;a&#32;dummy&#32;structure.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00954"/>00954 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00955"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">00955</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">xSTATIC_LIST_ITEM</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00956"/>00956 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00957"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m_1abdb8e415f1bcfbba19fbf57d8d4e9438">00957</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m_1abdb8e415f1bcfbba19fbf57d8d4e9438">xDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00958"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m_1a53c6cb2b8094f991254635d04c9be55b">00958</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m_1a53c6cb2b8094f991254635d04c9be55b">pvDummy2</link>[&#32;4&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00959"/>00959 };
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00960"/><link linkend="__free_r_t_o_s_8h_1a1d31bc0472385a87424518da484d9e09">00960</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">xSTATIC_LIST_ITEM</link>&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">StaticListItem_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00961"/>00961 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00962"/>00962 <emphasis role="comment">/*&#32;See&#32;the&#32;comments&#32;above&#32;the&#32;struct&#32;xSTATIC_LIST_ITEM&#32;definition.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00963"/><link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m">00963</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m">xSTATIC_MINI_LIST_ITEM</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00964"/>00964 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00965"/><link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m_1a43efd282907e8243bca29338d55dbefa">00965</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m_1a43efd282907e8243bca29338d55dbefa">xDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00966"/><link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m_1a384ac285efb6edf346f260bdc09ccac6">00966</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m_1a384ac285efb6edf346f260bdc09ccac6">pvDummy2</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00967"/>00967 };
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00968"/><link linkend="__free_r_t_o_s_8h_1a9097f48f4dfa56e8e01d9179462c7994">00968</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m">xSTATIC_MINI_LIST_ITEM</link>&#32;<link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m">StaticMiniListItem_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00969"/>00969 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00970"/>00970 <emphasis role="comment">/*&#32;See&#32;the&#32;comments&#32;above&#32;the&#32;struct&#32;xSTATIC_LIST_ITEM&#32;definition.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00971"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t">00971</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___l_i_s_t">xSTATIC_LIST</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00972"/>00972 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00973"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a6d7f720dc21e3a676b885b72a945fea7">00973</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a6d7f720dc21e3a676b885b72a945fea7">uxDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00974"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a681e588716be5f49fe8e9eb73e8f280e">00974</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a681e588716be5f49fe8e9eb73e8f280e">pvDummy2</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00975"/><link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a232545ebb5629617e0ee6ba286e37788">00975</link> &#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m">StaticMiniListItem_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t_1a232545ebb5629617e0ee6ba286e37788">xDummy3</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00976"/><link linkend="__free_r_t_o_s_8h_1aabf8e8548f4ffaef73c3470172c4c8de">00976</link> }&#32;<link linkend="__free_r_t_o_s_8h_1aabf8e8548f4ffaef73c3470172c4c8de">StaticList_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00977"/>00977 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00978"/>00978 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00979"/>00979 <emphasis role="comment">&#32;*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;especially&#32;when&#32;supplying&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00980"/>00980 <emphasis role="comment">&#32;*&#32;library&#32;that&#32;is&#32;likely&#32;to&#32;change&#32;in&#32;future&#32;versions,&#32;FreeRTOS&#32;implements&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00981"/>00981 <emphasis role="comment">&#32;*&#32;strict&#32;data&#32;hiding&#32;policy.&#32;&#32;This&#32;means&#32;the&#32;Task&#32;structure&#32;used&#32;internally&#32;by</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00982"/>00982 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;is&#32;not&#32;accessible&#32;to&#32;application&#32;code.&#32;&#32;However,&#32;if&#32;the&#32;application</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00983"/>00983 <emphasis role="comment">&#32;*&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;the&#32;memory&#32;required&#32;to&#32;create&#32;a&#32;task&#32;then</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00984"/>00984 <emphasis role="comment">&#32;*&#32;the&#32;size&#32;of&#32;the&#32;task&#32;object&#32;needs&#32;to&#32;be&#32;know.&#32;&#32;The&#32;StaticTask_t&#32;structure</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00985"/>00985 <emphasis role="comment">&#32;*&#32;below&#32;is&#32;provided&#32;for&#32;this&#32;purpose.&#32;&#32;Its&#32;sizes&#32;and&#32;alignment&#32;requirements&#32;are</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00986"/>00986 <emphasis role="comment">&#32;*&#32;guaranteed&#32;to&#32;match&#32;those&#32;of&#32;the&#32;genuine&#32;structure,&#32;no&#32;matter&#32;which</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00987"/>00987 <emphasis role="comment">&#32;*&#32;architecture&#32;is&#32;being&#32;used,&#32;and&#32;no&#32;matter&#32;how&#32;the&#32;values&#32;in&#32;FreeRTOSConfig.h</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00988"/>00988 <emphasis role="comment">&#32;*&#32;are&#32;set.&#32;&#32;Its&#32;contents&#32;are&#32;somewhat&#32;obfuscated&#32;in&#32;the&#32;hope&#32;users&#32;will</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00989"/>00989 <emphasis role="comment">&#32;*&#32;recognise&#32;that&#32;it&#32;would&#32;be&#32;unwise&#32;to&#32;make&#32;direct&#32;use&#32;of&#32;the&#32;structure&#32;members.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00990"/>00990 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00991"/><link linkend="_structx_s_t_a_t_i_c___t_c_b">00991</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___t_c_b">xSTATIC_TCB</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00992"/>00992 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00993"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a2f66b620fdeb13f8969f27e1bbb4d1d1">00993</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a2f66b620fdeb13f8969f27e1bbb4d1d1">pxDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00994"/>00994 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;portUSING_MPU_WRAPPERS&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00995"/>00995 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;xMPU_SETTINGS&#32;&#32;&#32;xDummy2;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00996"/>00996 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00997"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a7f182aa8f5003494f63d975dabcb3ec1">00997</link> &#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">StaticListItem_t</link>&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a7f182aa8f5003494f63d975dabcb3ec1">xDummy3</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00998"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1ab950bb498901ef7291e49086e5a2efd0">00998</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1ab950bb498901ef7291e49086e5a2efd0">uxDummy5</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l00999"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a416495e152e5caef64994f72329c60b0">00999</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a416495e152e5caef64994f72329c60b0">pxDummy6</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01000"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a6a0065f041a8960532368b7219e5f074">01000</link> &#32;&#32;&#32;&#32;uint8_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a6a0065f041a8960532368b7219e5f074">ucDummy7</link>[&#32;<link linkend="__free_r_t_o_s_config__default_8h_1ac388dc4041aab6997348828eb27fc1a8">configMAX_TASK_NAME_LEN</link>&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01001"/>01001 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;(&#32;portSTACK_GROWTH&#32;&gt;&#32;0&#32;)&#32;||&#32;(&#32;configRECORD_STACK_HIGH_ADDRESS&#32;==&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01002"/>01002 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*pxDummy8;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01003"/>01003 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01004"/>01004 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;portCRITICAL_NESTING_IN_TCB&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01005"/>01005 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;uxDummy9;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01006"/>01006 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01007"/>01007 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01008"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1ae5ff25c2fde1ad3c9a51bb45db81ac9f">01008</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1ae5ff25c2fde1ad3c9a51bb45db81ac9f">uxDummy10</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01009"/>01009 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01010"/>01010 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_MUTEXES&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01011"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a4ebf548878e48d8b5232d1b8a1f789ab">01011</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a4ebf548878e48d8b5232d1b8a1f789ab">uxDummy12</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01012"/>01012 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01013"/>01013 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_APPLICATION_TASK_TAG&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01014"/>01014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*pxDummy14;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01015"/>01015 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01016"/>01016 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;configNUM_THREAD_LOCAL_STORAGE_POINTERS&#32;&gt;&#32;0&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01017"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1a4efa23b844cf4c1eb6aa15c40d59c993">01017</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_structx_s_t_a_t_i_c___t_c_b_1a4efa23b844cf4c1eb6aa15c40d59c993">pvDummy15</link>[&#32;<link linkend="__free_r_t_o_s_config__default_8h_1a8d32b5f74e55dfd12c5aa3415e16d75e">configNUM_THREAD_LOCAL_STORAGE_POINTERS</link>&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01018"/>01018 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01019"/>01019 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configGENERATE_RUN_TIME_STATS&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01020"/>01020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ulDummy16;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01021"/>01021 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01022"/>01022 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_NEWLIB_REENTRANT&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01023"/>01023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;&#32;</emphasis>_reent&#32;&#32;xDummy17;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01024"/>01024 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01025"/>01025 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_TASK_NOTIFICATIONS&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01026"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1ade6781276f913dcd592ee0f6cce76c7e">01026</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1ade6781276f913dcd592ee0f6cce76c7e">ulDummy18</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01027"/><link linkend="_structx_s_t_a_t_i_c___t_c_b_1aa98151056a161f180013ae36dae0d17b">01027</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_c_b_1aa98151056a161f180013ae36dae0d17b">ucDummy19</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01028"/>01028 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01029"/>01029 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;(&#32;configSUPPORT_STATIC_ALLOCATION&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;==&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01030"/>01030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uxDummy20;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01031"/>01031 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01032"/>01032 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01033"/>01033 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;INCLUDE_xTaskAbortDelay&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01034"/>01034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;ucDummy21;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01035"/>01035 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01036"/>01036 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01037"/><link linkend="__free_r_t_o_s_8h_1af0002e4ad72220b34b95fcdf43bcd82d">01037</link> }&#32;<link linkend="__free_r_t_o_s_8h_1af0002e4ad72220b34b95fcdf43bcd82d">StaticTask_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01038"/>01038 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01039"/>01039 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01040"/>01040 <emphasis role="comment">&#32;*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;especially&#32;when&#32;supplying&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01041"/>01041 <emphasis role="comment">&#32;*&#32;library&#32;that&#32;is&#32;likely&#32;to&#32;change&#32;in&#32;future&#32;versions,&#32;FreeRTOS&#32;implements&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01042"/>01042 <emphasis role="comment">&#32;*&#32;strict&#32;data&#32;hiding&#32;policy.&#32;&#32;This&#32;means&#32;the&#32;Queue&#32;structure&#32;used&#32;internally&#32;by</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01043"/>01043 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;is&#32;not&#32;accessible&#32;to&#32;application&#32;code.&#32;&#32;However,&#32;if&#32;the&#32;application</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01044"/>01044 <emphasis role="comment">&#32;*&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;the&#32;memory&#32;required&#32;to&#32;create&#32;a&#32;queue</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01045"/>01045 <emphasis role="comment">&#32;*&#32;then&#32;the&#32;size&#32;of&#32;the&#32;queue&#32;object&#32;needs&#32;to&#32;be&#32;know.&#32;&#32;The&#32;StaticQueue_t</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01046"/>01046 <emphasis role="comment">&#32;*&#32;structure&#32;below&#32;is&#32;provided&#32;for&#32;this&#32;purpose.&#32;&#32;Its&#32;sizes&#32;and&#32;alignment</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01047"/>01047 <emphasis role="comment">&#32;*&#32;requirements&#32;are&#32;guaranteed&#32;to&#32;match&#32;those&#32;of&#32;the&#32;genuine&#32;structure,&#32;no</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01048"/>01048 <emphasis role="comment">&#32;*&#32;matter&#32;which&#32;architecture&#32;is&#32;being&#32;used,&#32;and&#32;no&#32;matter&#32;how&#32;the&#32;values&#32;in</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01049"/>01049 <emphasis role="comment">&#32;*&#32;FreeRTOSConfig.h&#32;are&#32;set.&#32;&#32;Its&#32;contents&#32;are&#32;somewhat&#32;obfuscated&#32;in&#32;the&#32;hope</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01050"/>01050 <emphasis role="comment">&#32;*&#32;users&#32;will&#32;recognise&#32;that&#32;it&#32;would&#32;be&#32;unwise&#32;to&#32;make&#32;direct&#32;use&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01051"/>01051 <emphasis role="comment">&#32;*&#32;structure&#32;members.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01052"/>01052 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01053"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e">01053</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e">xSTATIC_QUEUE</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01054"/>01054 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01055"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1aacf22a66a8d723648995692ec77ee416">01055</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1aacf22a66a8d723648995692ec77ee416">pvDummy1</link>[&#32;3&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01056"/>01056 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01057"/>01057 &#32;&#32;&#32;&#32;<emphasis role="keyword">union</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01058"/>01058 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01059"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1adb72a02b22a558f6fad381d65af5ac68">01059</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1adb72a02b22a558f6fad381d65af5ac68">pvDummy2</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01060"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1ab4e6a2a0bb59ba54d05927e99afd553f">01060</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1ab4e6a2a0bb59ba54d05927e99afd553f">uxDummy2</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01061"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a282583ebce16a7014f34a41e8f6fca11">01061</link> &#32;&#32;&#32;&#32;}&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a282583ebce16a7014f34a41e8f6fca11">u</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01062"/>01062 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01063"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1add0de93e08b632124122850bcd543597">01063</link> &#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t">StaticList_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1add0de93e08b632124122850bcd543597">xDummy3</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01064"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a502854697731754ce445f6503d14b127">01064</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a502854697731754ce445f6503d14b127">uxDummy4</link>[&#32;3&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01065"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a541c5044376603540cc3c9cabcbdc5e6">01065</link> &#32;&#32;&#32;&#32;uint8_t&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a541c5044376603540cc3c9cabcbdc5e6">ucDummy5</link>[&#32;2&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01066"/>01066 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01067"/>01067 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;(&#32;configSUPPORT_STATIC_ALLOCATION&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;==&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01068"/>01068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;ucDummy6;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01069"/>01069 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01070"/>01070 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01071"/>01071 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_QUEUE_SETS&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01072"/>01072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*pvDummy7;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01073"/>01073 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01074"/>01074 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01075"/>01075 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01076"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a9c763680025a3205671239a3a535d22d">01076</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a9c763680025a3205671239a3a535d22d">uxDummy8</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01077"/><link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a9442f864adb35e210702e0657a5a7a7b">01077</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1a9442f864adb35e210702e0657a5a7a7b">ucDummy9</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01078"/>01078 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01079"/>01079 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01080"/><link linkend="__free_r_t_o_s_8h_1a22e8979e2849d002747c0dd4c7c37908">01080</link> }&#32;<link linkend="__free_r_t_o_s_8h_1a22e8979e2849d002747c0dd4c7c37908">StaticQueue_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01081"/><link linkend="__free_r_t_o_s_8h_1a5899eefbfd03bc6eb83c9accffc8975e">01081</link> <emphasis role="keyword">typedef</emphasis>&#32;<link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e">StaticQueue_t</link>&#32;<link linkend="__free_r_t_o_s_8h_1a5899eefbfd03bc6eb83c9accffc8975e">StaticSemaphore_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01082"/>01082 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01083"/>01083 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01084"/>01084 <emphasis role="comment">&#32;*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;especially&#32;when&#32;supplying&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01085"/>01085 <emphasis role="comment">&#32;*&#32;library&#32;that&#32;is&#32;likely&#32;to&#32;change&#32;in&#32;future&#32;versions,&#32;FreeRTOS&#32;implements&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01086"/>01086 <emphasis role="comment">&#32;*&#32;strict&#32;data&#32;hiding&#32;policy.&#32;&#32;This&#32;means&#32;the&#32;event&#32;group&#32;structure&#32;used</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01087"/>01087 <emphasis role="comment">&#32;*&#32;internally&#32;by&#32;FreeRTOS&#32;is&#32;not&#32;accessible&#32;to&#32;application&#32;code.&#32;&#32;However,&#32;if</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01088"/>01088 <emphasis role="comment">&#32;*&#32;the&#32;application&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;the&#32;memory&#32;required&#32;to</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01089"/>01089 <emphasis role="comment">&#32;*&#32;create&#32;an&#32;event&#32;group&#32;then&#32;the&#32;size&#32;of&#32;the&#32;event&#32;group&#32;object&#32;needs&#32;to&#32;be</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01090"/>01090 <emphasis role="comment">&#32;*&#32;know.&#32;&#32;The&#32;StaticEventGroup_t&#32;structure&#32;below&#32;is&#32;provided&#32;for&#32;this&#32;purpose.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01091"/>01091 <emphasis role="comment">&#32;*&#32;Its&#32;sizes&#32;and&#32;alignment&#32;requirements&#32;are&#32;guaranteed&#32;to&#32;match&#32;those&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01092"/>01092 <emphasis role="comment">&#32;*&#32;genuine&#32;structure,&#32;no&#32;matter&#32;which&#32;architecture&#32;is&#32;being&#32;used,&#32;and&#32;no&#32;matter</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01093"/>01093 <emphasis role="comment">&#32;*&#32;how&#32;the&#32;values&#32;in&#32;FreeRTOSConfig.h&#32;are&#32;set.&#32;&#32;Its&#32;contents&#32;are&#32;somewhat</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01094"/>01094 <emphasis role="comment">&#32;*&#32;obfuscated&#32;in&#32;the&#32;hope&#32;users&#32;will&#32;recognise&#32;that&#32;it&#32;would&#32;be&#32;unwise&#32;to&#32;make</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01095"/>01095 <emphasis role="comment">&#32;*&#32;direct&#32;use&#32;of&#32;the&#32;structure&#32;members.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01096"/>01096 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01097"/><link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p">01097</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p">xSTATIC_EVENT_GROUP</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01098"/>01098 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01099"/><link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1a4ed0094f715dd8f79a354f42fd973fc6">01099</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1a4ed0094f715dd8f79a354f42fd973fc6">xDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01100"/><link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1a17d070c972ecd0151d7505a539653551">01100</link> &#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t">StaticList_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1a17d070c972ecd0151d7505a539653551">xDummy2</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01101"/>01101 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01102"/>01102 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01103"/><link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1ac059ee9daf2007d76e5a576ac159ebb6">01103</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___e_v_e_n_t___g_r_o_u_p_1ac059ee9daf2007d76e5a576ac159ebb6">uxDummy3</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01104"/>01104 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01105"/>01105 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01106"/>01106 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;(&#32;configSUPPORT_STATIC_ALLOCATION&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;==&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01107"/>01107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;ucDummy4;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01108"/>01108 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01109"/>01109 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01110"/><link linkend="__free_r_t_o_s_8h_1af87e218149130753afb4a7044e5569e6">01110</link> }&#32;<link linkend="__free_r_t_o_s_8h_1af87e218149130753afb4a7044e5569e6">StaticEventGroup_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01111"/>01111 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01112"/>01112 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01113"/>01113 <emphasis role="comment">&#32;*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;especially&#32;when&#32;supplying&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01114"/>01114 <emphasis role="comment">&#32;*&#32;library&#32;that&#32;is&#32;likely&#32;to&#32;change&#32;in&#32;future&#32;versions,&#32;FreeRTOS&#32;implements&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01115"/>01115 <emphasis role="comment">&#32;*&#32;strict&#32;data&#32;hiding&#32;policy.&#32;&#32;This&#32;means&#32;the&#32;software&#32;timer&#32;structure&#32;used</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01116"/>01116 <emphasis role="comment">&#32;*&#32;internally&#32;by&#32;FreeRTOS&#32;is&#32;not&#32;accessible&#32;to&#32;application&#32;code.&#32;&#32;However,&#32;if</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01117"/>01117 <emphasis role="comment">&#32;*&#32;the&#32;application&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;the&#32;memory&#32;required&#32;to</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01118"/>01118 <emphasis role="comment">&#32;*&#32;create&#32;a&#32;software&#32;timer&#32;then&#32;the&#32;size&#32;of&#32;the&#32;queue&#32;object&#32;needs&#32;to&#32;be&#32;know.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01119"/>01119 <emphasis role="comment">&#32;*&#32;The&#32;StaticTimer_t&#32;structure&#32;below&#32;is&#32;provided&#32;for&#32;this&#32;purpose.&#32;&#32;Its&#32;sizes</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01120"/>01120 <emphasis role="comment">&#32;*&#32;and&#32;alignment&#32;requirements&#32;are&#32;guaranteed&#32;to&#32;match&#32;those&#32;of&#32;the&#32;genuine</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01121"/>01121 <emphasis role="comment">&#32;*&#32;structure,&#32;no&#32;matter&#32;which&#32;architecture&#32;is&#32;being&#32;used,&#32;and&#32;no&#32;matter&#32;how&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01122"/>01122 <emphasis role="comment">&#32;*&#32;values&#32;in&#32;FreeRTOSConfig.h&#32;are&#32;set.&#32;&#32;Its&#32;contents&#32;are&#32;somewhat&#32;obfuscated&#32;in</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01123"/>01123 <emphasis role="comment">&#32;*&#32;the&#32;hope&#32;users&#32;will&#32;recognise&#32;that&#32;it&#32;would&#32;be&#32;unwise&#32;to&#32;make&#32;direct&#32;use&#32;of</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01124"/>01124 <emphasis role="comment">&#32;*&#32;the&#32;structure&#32;members.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01125"/>01125 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01126"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r">01126</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r">xSTATIC_TIMER</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01127"/>01127 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01128"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a040499298faced6032f84f3a33c785fd">01128</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a040499298faced6032f84f3a33c785fd">pvDummy1</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01129"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a622e2e596e5829c9197bb44b9009474f">01129</link> &#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">StaticListItem_t</link>&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a622e2e596e5829c9197bb44b9009474f">xDummy2</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01130"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a60d582d1d0b5b9b15e8050d5ae29bc30">01130</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a60d582d1d0b5b9b15e8050d5ae29bc30">xDummy3</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01131"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1abe61bde25ac09934004caa0222f4831b">01131</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1abe61bde25ac09934004caa0222f4831b">uxDummy4</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01132"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a5150821e9535f86547aafbfc50d44423">01132</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a5150821e9535f86547aafbfc50d44423">pvDummy5</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01133"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1ac0d22064153fd2394380a61528d3c705">01133</link> &#32;&#32;&#32;&#32;<link linkend="_projdefs_8h_1a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</link>&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1ac0d22064153fd2394380a61528d3c705">pvDummy6</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01134"/>01134 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01135"/><link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a382d3190e98c19e744a4f047a67c89b7">01135</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;&#32;&#32;&#32;&#32;<link linkend="_structx_s_t_a_t_i_c___t_i_m_e_r_1a382d3190e98c19e744a4f047a67c89b7">uxDummy7</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01136"/>01136 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01137"/>01137 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01138"/>01138 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if(&#32;(&#32;configSUPPORT_STATIC_ALLOCATION&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configSUPPORT_DYNAMIC_ALLOCATION&#32;==&#32;1&#32;)&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01139"/>01139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ucDummy8;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01140"/>01140 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01141"/>01141 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01142"/><link linkend="__free_r_t_o_s_8h_1a85fc227d111ec21647641e0deddcccc6">01142</link> }&#32;<link linkend="__free_r_t_o_s_8h_1a85fc227d111ec21647641e0deddcccc6">StaticTimer_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01143"/>01143 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01144"/>01144 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01145"/>01145 <emphasis role="comment">*&#32;In&#32;line&#32;with&#32;software&#32;engineering&#32;best&#32;practice,&#32;especially&#32;when&#32;supplying&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01146"/>01146 <emphasis role="comment">*&#32;library&#32;that&#32;is&#32;likely&#32;to&#32;change&#32;in&#32;future&#32;versions,&#32;FreeRTOS&#32;implements&#32;a</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01147"/>01147 <emphasis role="comment">*&#32;strict&#32;data&#32;hiding&#32;policy.&#32;&#32;This&#32;means&#32;the&#32;stream&#32;buffer&#32;structure&#32;used</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01148"/>01148 <emphasis role="comment">*&#32;internally&#32;by&#32;FreeRTOS&#32;is&#32;not&#32;accessible&#32;to&#32;application&#32;code.&#32;&#32;However,&#32;if</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01149"/>01149 <emphasis role="comment">*&#32;the&#32;application&#32;writer&#32;wants&#32;to&#32;statically&#32;allocate&#32;the&#32;memory&#32;required&#32;to</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01150"/>01150 <emphasis role="comment">*&#32;create&#32;a&#32;stream&#32;buffer&#32;then&#32;the&#32;size&#32;of&#32;the&#32;stream&#32;buffer&#32;object&#32;needs&#32;to&#32;be</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01151"/>01151 <emphasis role="comment">*&#32;know.&#32;&#32;The&#32;StaticStreamBuffer_t&#32;structure&#32;below&#32;is&#32;provided&#32;for&#32;this&#32;purpose.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01152"/>01152 <emphasis role="comment">*&#32;Its&#32;size&#32;and&#32;alignment&#32;requirements&#32;are&#32;guaranteed&#32;to&#32;match&#32;those&#32;of&#32;the</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01153"/>01153 <emphasis role="comment">*&#32;genuine&#32;structure,&#32;no&#32;matter&#32;which&#32;architecture&#32;is&#32;being&#32;used,&#32;and&#32;no&#32;matter</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01154"/>01154 <emphasis role="comment">*&#32;how&#32;the&#32;values&#32;in&#32;FreeRTOSConfig.h&#32;are&#32;set.&#32;&#32;Its&#32;contents&#32;are&#32;somewhat</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01155"/>01155 <emphasis role="comment">*&#32;obfuscated&#32;in&#32;the&#32;hope&#32;users&#32;will&#32;recognise&#32;that&#32;it&#32;would&#32;be&#32;unwise&#32;to&#32;make</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01156"/>01156 <emphasis role="comment">*&#32;direct&#32;use&#32;of&#32;the&#32;structure&#32;members.</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01157"/>01157 <emphasis role="comment">*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01158"/><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r">01158</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r">xSTATIC_STREAM_BUFFER</link>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01159"/>01159 {
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01160"/><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a9020496ea46d0d95451ed11b3193fa09">01160</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a9020496ea46d0d95451ed11b3193fa09">uxDummy1</link>[&#32;4&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01161"/><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a7603bb483828c39906839c90c4e70fe9">01161</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;<link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a7603bb483828c39906839c90c4e70fe9">pvDummy2</link>[&#32;3&#32;];
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01162"/><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a7a6df8a6f408f01b245c0c90732dea72">01162</link> &#32;&#32;&#32;&#32;uint8_t&#32;<link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1a7a6df8a6f408f01b245c0c90732dea72">ucDummy3</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01163"/>01163 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#if&#32;(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01164"/><link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1aaadbae800b554f402fb5275ceee46aec">01164</link> &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;<link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r_1aaadbae800b554f402fb5275ceee46aec">uxDummy4</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01165"/>01165 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01166"/><link linkend="__free_r_t_o_s_8h_1a3675ce07f6d3e0e7130bc6ea01162d34">01166</link> }&#32;<link linkend="__free_r_t_o_s_8h_1a3675ce07f6d3e0e7130bc6ea01162d34">StaticStreamBuffer_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01167"/>01167 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01168"/>01168 <emphasis role="comment">/*&#32;Message&#32;buffers&#32;are&#32;built&#32;on&#32;stream&#32;buffers.&#32;*/</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01169"/><link linkend="__free_r_t_o_s_8h_1aebe27a051714571e9051a8e33fe40bd9">01169</link> <emphasis role="keyword">typedef</emphasis>&#32;<link linkend="_structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r">StaticStreamBuffer_t</link>&#32;<link linkend="__free_r_t_o_s_8h_1aebe27a051714571e9051a8e33fe40bd9">StaticMessageBuffer_t</link>;
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01170"/>01170 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01171"/>01171 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01172"/>01172 }
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01173"/>01173 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01174"/>01174 
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01175"/>01175 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;INC_FREERTOS_H&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="__free_r_t_o_s_8h_source_1l01176"/>01176 
+</programlisting></section>

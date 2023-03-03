@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_queue_definition" xml:lang="en-US">
+<title>QueueDefinition Struct Reference</title>
+<indexterm><primary>QueueDefinition</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int8_t * <link linkend="_struct_queue_definition_1a487dc7e43b380c58212cba72bc33e0ed">pcHead</link></para>
+</listitem>
+            <listitem><para>int8_t * <link linkend="_struct_queue_definition_1abdf13cc013c8488848cee3fce4f0fed3">pcWriteTo</link></para>
+</listitem>
+            <listitem><para>union {</para>
+        <itemizedlist>
+            <listitem><para>   <link linkend="_queue_8c_1afa576747932ccf4c923633fc6a46a0d8">QueuePointers_t</link> <link linkend="_struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0">xQueue</link></para>
+</listitem>
+            <listitem><para>   <link linkend="_queue_8c_1a8806dcfc511df585a0b4daf54a9a909a">SemaphoreData_t</link> <link linkend="_struct_queue_definition_1adb2c0818274974553c619ff953b6f477">xSemaphore</link></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>} <link linkend="_struct_queue_definition_1a026466df9465a22741441e259aa985aa">u</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> <link linkend="_struct_queue_definition_1aaab135c4345cb0393d6ff3cd5164c7b2">xTasksWaitingToSend</link></para>
+</listitem>
+            <listitem><para><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> <link linkend="_struct_queue_definition_1af6d61526f77beee659cd604a0c473359">xTasksWaitingToReceive</link></para>
+</listitem>
+            <listitem><para>volatile <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_struct_queue_definition_1a12b07a40152d0f21488ca06d362d13d1">uxMessagesWaiting</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_struct_queue_definition_1ae80d17a812c669d4d41265b7f693988c">uxLength</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_struct_queue_definition_1a81bb7d3826909244baa9debf5a55abb0">uxItemSize</link></para>
+</listitem>
+            <listitem><para>volatile int8_t <link linkend="_struct_queue_definition_1ac750a3f75a6e174adbc697e473a0dd13">cRxLock</link></para>
+</listitem>
+            <listitem><para>volatile int8_t <link linkend="_struct_queue_definition_1a24ac3f0707f098da2a22244d843fcf82">cTxLock</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_struct_queue_definition_1a1b422cf046da7afa63a0646ed6a2e8c6">uxQueueNumber</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_queue_definition_1a337a8dc6af8fc327a92412275e86fe81">ucQueueType</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_queue_8c_source_1l00097">97</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_queue_definition_1ac750a3f75a6e174adbc697e473a0dd13"/><section>
+    <title>cRxLock</title>
+<indexterm><primary>cRxLock</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>cRxLock</secondary></indexterm>
+<para><computeroutput>volatile int8_t QueueDefinition::cRxLock</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00115">115</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a24ac3f0707f098da2a22244d843fcf82"/><section>
+    <title>cTxLock</title>
+<indexterm><primary>cTxLock</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>cTxLock</secondary></indexterm>
+<para><computeroutput>volatile int8_t QueueDefinition::cTxLock</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00116">116</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a487dc7e43b380c58212cba72bc33e0ed"/><section>
+    <title>pcHead</title>
+<indexterm><primary>pcHead</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>pcHead</secondary></indexterm>
+<para><computeroutput>int8_t* QueueDefinition::pcHead</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00099">99</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1abdf13cc013c8488848cee3fce4f0fed3"/><section>
+    <title>pcWriteTo</title>
+<indexterm><primary>pcWriteTo</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>pcWriteTo</secondary></indexterm>
+<para><computeroutput>int8_t* QueueDefinition::pcWriteTo</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00100">100</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a026466df9465a22741441e259aa985aa"/><section>
+    <title></title>
+<indexterm><primary>u</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>u</secondary></indexterm>
+<para><computeroutput>union  { ... }  QueueDefinition::u</computeroutput></para></section>
+<anchor xml:id="_struct_queue_definition_1a337a8dc6af8fc327a92412275e86fe81"/><section>
+    <title>ucQueueType</title>
+<indexterm><primary>ucQueueType</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>ucQueueType</secondary></indexterm>
+<para><computeroutput>uint8_t QueueDefinition::ucQueueType</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00128">128</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a81bb7d3826909244baa9debf5a55abb0"/><section>
+    <title>uxItemSize</title>
+<indexterm><primary>uxItemSize</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>uxItemSize</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> QueueDefinition::uxItemSize</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00113">113</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1ae80d17a812c669d4d41265b7f693988c"/><section>
+    <title>uxLength</title>
+<indexterm><primary>uxLength</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>uxLength</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> QueueDefinition::uxLength</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00112">112</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a12b07a40152d0f21488ca06d362d13d1"/><section>
+    <title>uxMessagesWaiting</title>
+<indexterm><primary>uxMessagesWaiting</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>uxMessagesWaiting</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> QueueDefinition::uxMessagesWaiting</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00111">111</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1a1b422cf046da7afa63a0646ed6a2e8c6"/><section>
+    <title>uxQueueNumber</title>
+<indexterm><primary>uxQueueNumber</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>uxQueueNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> QueueDefinition::uxQueueNumber</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00127">127</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0"/><section>
+    <title>xQueue</title>
+<indexterm><primary>xQueue</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>xQueue</secondary></indexterm>
+<para><computeroutput><link linkend="_queue_8c_1afa576747932ccf4c923633fc6a46a0d8">QueuePointers_t</link> QueueDefinition::xQueue</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00104">104</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1adb2c0818274974553c619ff953b6f477"/><section>
+    <title>xSemaphore</title>
+<indexterm><primary>xSemaphore</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>xSemaphore</secondary></indexterm>
+<para><computeroutput><link linkend="_queue_8c_1a8806dcfc511df585a0b4daf54a9a909a">SemaphoreData_t</link> QueueDefinition::xSemaphore</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00105">105</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1af6d61526f77beee659cd604a0c473359"/><section>
+    <title>xTasksWaitingToReceive</title>
+<indexterm><primary>xTasksWaitingToReceive</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>xTasksWaitingToReceive</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> QueueDefinition::xTasksWaitingToReceive</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00109">109</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<anchor xml:id="_struct_queue_definition_1aaab135c4345cb0393d6ff3cd5164c7b2"/><section>
+    <title>xTasksWaitingToSend</title>
+<indexterm><primary>xTasksWaitingToSend</primary><secondary>QueueDefinition</secondary></indexterm>
+<indexterm><primary>QueueDefinition</primary><secondary>xTasksWaitingToSend</secondary></indexterm>
+<para><computeroutput><link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link> QueueDefinition::xTasksWaitingToSend</computeroutput></para><para>
+Definition at line <link linkend="_queue_8c_source_1l00108">108</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_queue_8c">queue.c</link></section>
+</section>

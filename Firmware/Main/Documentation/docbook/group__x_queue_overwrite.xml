@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_queue_overwrite" xml:lang="en-US">
+<title>xQueueOverwrite</title>
+<indexterm><primary>xQueueOverwrite</primary></indexterm>
+
+<para>queue. h <literallayout>
+ BaseType_t <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite(
+                              QueueHandle_t xQueue,
+                              const void * pvItemToQueue
+                         )</link>;
+   </literallayout></para>
+
+<para>Only for use with queues that have a length of one - so the queue is either empty or full.</para>
+
+<para>Post an item on a queue. If the queue is already full then overwrite the value held in the queue. The item is queued by copy, not by reference.</para>
+
+<para>This function must not be called from an interrupt service routine. See xQueueOverwriteFromISR () for an alternative which may be used in an ISR.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xQueue</entry><entry>
+<para>The handle of the queue to which the data is being sent.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>pvItemToQueue</entry><entry>
+<para>A pointer to the item that is to be placed on the queue. The size of the items the queue will hold was defined when the queue was created, so this many bytes will be copied from pvItemToQueue into the queue storage area.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para><link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite()</link> is a macro that calls <link linkend="_queue_8h_1a7ce86d1026e0c3055a523935bf53c0b3">xQueueGenericSend()</link>, and therefore has the same return values as <link linkend="_queue_8h_1aa612fcc2b1ceee0200f34b942e300b41">xQueueSendToFront()</link>. However, pdPASS is the only value that can be returned because <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite()</link> will write to the queue even when the queue is already full.</para>
+</formalpara>
+Example usage: <literallayout>
+
+ void vFunction( void *pvParameters )
+ {
+ QueueHandle_t xQueue;
+ uint32_t ulVarToSend, ulValReceived;
+
+    // Create a queue to hold one uint32_t value.  It is strongly
+    // recommended *not* to use <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite()</link> on queues that can
+    // contain more than one value, and doing so will trigger an assertion
+    // if <link linkend="__free_r_t_o_s_8h_1a228c70cd48927d6ab730ed1a6dfbe35f">configASSERT()</link> is defined.
+    xQueue = xQueueCreate( 1, sizeof( uint32_t ) );
+
+    // Write the value 10 to the queue using <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite()</link>.
+    ulVarToSend = 10;
+    <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite( xQueue, &amp;ulVarToSend )</link>;
+
+    // Peeking the queue should now return 10, but leave the value 10 in
+    // the queue.  A block time of zero is used as it is known that the
+    // queue holds a value.
+    ulValReceived = 0;
+    xQueuePeek( xQueue, &amp;ulValReceived, 0 );
+
+    if( ulValReceived != 10 )
+    {
+        // Error unless the item was removed by a different task.
+    }
+
+    // The queue is still full.  Use <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite()</link> to overwrite the
+    // value held in the queue with 100.
+    ulVarToSend = 100;
+    <link linkend="_queue_8h_1a8e9ced123b5a0e37a36d3bbdb2e56b4e">xQueueOverwrite( xQueue, &amp;ulVarToSend )</link>;
+
+    // This time read from the queue, leaving the queue empty once more.
+    // A block time of 0 is used again.
+    xQueueReceive( xQueue, &amp;ulValReceived, 0 );
+
+    // The value read should be the last value written, even though the
+    // queue was already full when the value was written.
+    if( ulValReceived != 100 )
+    {
+        // Error!
+    }
+
+    // ...
+}
+ </literallayout> </para>
+</section>

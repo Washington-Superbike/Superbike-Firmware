@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_croutine_8c" xml:lang="en-US">
+<title>FreeRTOS/croutine.c File Reference</title>
+<indexterm><primary>FreeRTOS/croutine.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;FreeRTOS.h&quot;
+#include &quot;task.h&quot;
+#include &quot;croutine.h&quot;
+</programlisting></section>

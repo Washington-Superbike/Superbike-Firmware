@@ -2,132 +2,132 @@
 \label{stream__buffer_8h_source}\index{FreeRTOS/stream\_buffer.h@{FreeRTOS/stream\_buffer.h}}
 \mbox{\hyperlink{stream__buffer_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{/*}}
-\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
-\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
-\DoxyCodeLine{4 \textcolor{comment}{ *}}
-\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
-\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
-\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
-\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
-\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
-\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
-\DoxyCodeLine{11 \textcolor{comment}{ *}}
-\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
-\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
-\DoxyCodeLine{14 \textcolor{comment}{ *}}
-\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
-\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
-\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
-\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
-\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
-\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
-\DoxyCodeLine{21 \textcolor{comment}{ *}}
-\DoxyCodeLine{22 \textcolor{comment}{ * http://www.FreeRTOS.org}}
-\DoxyCodeLine{23 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
-\DoxyCodeLine{24 \textcolor{comment}{ *}}
-\DoxyCodeLine{25 \textcolor{comment}{ * 1 tab == 4 spaces!}}
-\DoxyCodeLine{26 \textcolor{comment}{ */}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{comment}{/*}}
-\DoxyCodeLine{29 \textcolor{comment}{ * Stream buffers are used to send a continuous stream of data from one task or}}
-\DoxyCodeLine{30 \textcolor{comment}{ * interrupt to another.  Their implementation is light weight, making them}}
-\DoxyCodeLine{31 \textcolor{comment}{ * particularly suited for interrupt to task and core to core communication}}
-\DoxyCodeLine{32 \textcolor{comment}{ * scenarios.}}
-\DoxyCodeLine{33 \textcolor{comment}{ *}}
-\DoxyCodeLine{34 \textcolor{comment}{ * ***NOTE***:  Uniquely among FreeRTOS objects, the stream buffer}}
-\DoxyCodeLine{35 \textcolor{comment}{ * implementation (so also the message buffer implementation, as message buffers}}
-\DoxyCodeLine{36 \textcolor{comment}{ * are built on top of stream buffers) assumes there is only one task or}}
-\DoxyCodeLine{37 \textcolor{comment}{ * interrupt that will write to the buffer (the writer), and only one task or}}
-\DoxyCodeLine{38 \textcolor{comment}{ * interrupt that will read from the buffer (the reader).  It is safe for the}}
-\DoxyCodeLine{39 \textcolor{comment}{ * writer and reader to be different tasks or interrupts, but, unlike other}}
-\DoxyCodeLine{40 \textcolor{comment}{ * FreeRTOS objects, it is not safe to have multiple different writers or}}
-\DoxyCodeLine{41 \textcolor{comment}{ * multiple different readers.  If there are to be multiple different writers}}
-\DoxyCodeLine{42 \textcolor{comment}{ * then the application writer must place each call to a writing API function}}
-\DoxyCodeLine{43 \textcolor{comment}{ * (such as xStreamBufferSend()) inside a critical section and set the send}}
-\DoxyCodeLine{44 \textcolor{comment}{ * block time to 0.  Likewise, if there are to be multiple different readers}}
-\DoxyCodeLine{45 \textcolor{comment}{ * then the application writer must place each call to a reading API function}}
-\DoxyCodeLine{46 \textcolor{comment}{ * (such as xStreamBufferRead()) inside a critical section section and set the}}
-\DoxyCodeLine{47 \textcolor{comment}{ * receive block time to 0.}}
-\DoxyCodeLine{48 \textcolor{comment}{ *}}
-\DoxyCodeLine{49 \textcolor{comment}{ */}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifndef STREAM\_BUFFER\_H}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{\#define STREAM\_BUFFER\_H}}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{preprocessor}{\#if defined( \_\_cplusplus )}}
-\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
-\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{64 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferDef\_t}};}
-\DoxyCodeLine{65 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferDef\_t}} * \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{StreamBufferHandle\_t}};}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 }
-\DoxyCodeLine{133 \textcolor{preprocessor}{\#define xStreamBufferCreate( xBufferSizeBytes, xTriggerLevelBytes ) xStreamBufferGenericCreate( xBufferSizeBytes, xTriggerLevelBytes, pdFALSE )}}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{214 \textcolor{preprocessor}{\#define xStreamBufferCreateStatic( xBufferSizeBytes, xTriggerLevelBytes, pucStreamBufferStorageArea, pxStaticStreamBuffer ) xStreamBufferGenericCreateStatic( xBufferSizeBytes, xTriggerLevelBytes, pdFALSE, pucStreamBufferStorageArea, pxStaticStreamBuffer )}}
-\DoxyCodeLine{215 }
-\DoxyCodeLine{308 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a35cdf3b6bf677086b9128782f762499d}{xStreamBufferSend}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
-\DoxyCodeLine{309                           \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvTxData,}
-\DoxyCodeLine{310                           \textcolor{keywordtype}{size\_t} xDataLengthBytes,}
-\DoxyCodeLine{311                           \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{312 }
-\DoxyCodeLine{409 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a1dab226e99230e01e79bc2b5c0605e44}{xStreamBufferSendFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
-\DoxyCodeLine{410                                  \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvTxData,}
-\DoxyCodeLine{411                                  \textcolor{keywordtype}{size\_t} xDataLengthBytes,}
-\DoxyCodeLine{412                                  \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{413 }
-\DoxyCodeLine{498 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a55efc144b988598d84a6087d3e20b507}{xStreamBufferReceive}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
-\DoxyCodeLine{499                              \textcolor{keywordtype}{void} *pvRxData,}
-\DoxyCodeLine{500                              \textcolor{keywordtype}{size\_t} xBufferLengthBytes,}
-\DoxyCodeLine{501                              \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{502 }
-\DoxyCodeLine{584 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a6c882a1d9f26c40f93f271bd1b844b3b}{xStreamBufferReceiveFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
-\DoxyCodeLine{585                                     \textcolor{keywordtype}{void} *pvRxData,}
-\DoxyCodeLine{586                                     \textcolor{keywordtype}{size\_t} xBufferLengthBytes,}
-\DoxyCodeLine{587                                     \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{588 }
-\DoxyCodeLine{609 \textcolor{keywordtype}{void} \mbox{\hyperlink{stream__buffer_8h_a05dc9d2ae220a050526a062eddf6d7a2}{vStreamBufferDelete}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{610 }
-\DoxyCodeLine{629 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_ae393d82ee06e89692248a4381f85dc86}{xStreamBufferIsFull}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{630 }
-\DoxyCodeLine{649 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_af65cd558025ddc29ca68fba1b3f5dc19}{xStreamBufferIsEmpty}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{650 }
-\DoxyCodeLine{672 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_a5253429645c67902c2fc8682f8af0aac}{xStreamBufferReset}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{673 }
-\DoxyCodeLine{693 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a9a78e0206cb1dc343c329f9db579208d}{xStreamBufferSpacesAvailable}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{694 }
-\DoxyCodeLine{714 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_af32d1737de29f24ee31ac1e3c407d9fd}{xStreamBufferBytesAvailable}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{715 }
-\DoxyCodeLine{751 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_a28f0280587c76e71efeaa8f415ebde04}{xStreamBufferSetTriggerLevel}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \textcolor{keywordtype}{size\_t} xTriggerLevel ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{752 }
-\DoxyCodeLine{790 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_abc37189e4eb8618f5434ae333dd50b23}{xStreamBufferSendCompletedFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{791 }
-\DoxyCodeLine{830 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_ac12e93e96e0eafbc0e981d00e7275d32}{xStreamBufferReceiveCompletedFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{831 }
-\DoxyCodeLine{832 \textcolor{comment}{/* Functions below here are not part of the public API. */}}
-\DoxyCodeLine{833 \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} \mbox{\hyperlink{stream__buffer_8h_a7a613c6fa11323c871ce7991db214096}{xStreamBufferGenericCreate}}( \textcolor{keywordtype}{size\_t} xBufferSizeBytes,}
-\DoxyCodeLine{834                                                  \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_stream_buffer_def__t_a4a7ee9b374cc0b358d049811def8d595}{xTriggerLevelBytes}},}
-\DoxyCodeLine{835                                                  \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xIsMessageBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{836 }
-\DoxyCodeLine{837 \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} \mbox{\hyperlink{stream__buffer_8h_a1263847a3f77a4f34462df326d78c48c}{xStreamBufferGenericCreateStatic}}( \textcolor{keywordtype}{size\_t} xBufferSizeBytes,}
-\DoxyCodeLine{838                                                        \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_stream_buffer_def__t_a4a7ee9b374cc0b358d049811def8d595}{xTriggerLevelBytes}},}
-\DoxyCodeLine{839                                                        \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xIsMessageBuffer,}
-\DoxyCodeLine{840                                                        uint8\_t * \textcolor{keyword}{const} pucStreamBufferStorageArea,}
-\DoxyCodeLine{841                                                        \mbox{\hyperlink{structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r}{StaticStreamBuffer\_t}} * \textcolor{keyword}{const} pxStaticStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{842 }
-\DoxyCodeLine{843 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a9a952a2cffab91471ec2a3651e2160ec}{xStreamBufferNextMessageLengthBytes}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{844 }
-\DoxyCodeLine{845 \textcolor{preprocessor}{\#if( configUSE\_TRACE\_FACILITY == 1 )}}
-\DoxyCodeLine{846     \textcolor{keywordtype}{void} \mbox{\hyperlink{stream__buffer_8c_a950e5f7b820b821025cd0bc0c797653c}{vStreamBufferSetStreamBufferNumber}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_stream_buffer_def__t_aee83da827fa7eb47682250297d6961b0}{uxStreamBufferNumber}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{847     \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{stream__buffer_8c_a4fa4d3119b6d1b35f886f0d03a60172e}{uxStreamBufferGetStreamBufferNumber}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{848     uint8\_t \mbox{\hyperlink{stream__buffer_8c_ae0cd387d75e89534b6332aac4a3a03b3}{ucStreamBufferGetStreamBufferType}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{849 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{850 }
-\DoxyCodeLine{851 \textcolor{preprocessor}{\#if defined( \_\_cplusplus )}}
-\DoxyCodeLine{852 \}}
-\DoxyCodeLine{853 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{854 }
-\DoxyCodeLine{855 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/* !defined( STREAM\_BUFFER\_H ) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00002}00002 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00005}00005 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00006}00006 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00007}00007 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00008}00008 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00009}00009 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00010}00010 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00012}00012 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00013}00013 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00015}00015 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00016}00016 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00017}00017 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00018}00018 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00019}00019 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00020}00020 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00021}00021 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00022}00022 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00023}00023 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00024}00024 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00025}00025 \textcolor{comment}{ * 1 tab == 4 spaces!}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00026}00026 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00028}00028 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00029}00029 \textcolor{comment}{ * Stream buffers are used to send a continuous stream of data from one task or}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00030}00030 \textcolor{comment}{ * interrupt to another.  Their implementation is light weight, making them}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00031}00031 \textcolor{comment}{ * particularly suited for interrupt to task and core to core communication}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00032}00032 \textcolor{comment}{ * scenarios.}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00033}00033 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00034}00034 \textcolor{comment}{ * ***NOTE***:  Uniquely among FreeRTOS objects, the stream buffer}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00035}00035 \textcolor{comment}{ * implementation (so also the message buffer implementation, as message buffers}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00036}00036 \textcolor{comment}{ * are built on top of stream buffers) assumes there is only one task or}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00037}00037 \textcolor{comment}{ * interrupt that will write to the buffer (the writer), and only one task or}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00038}00038 \textcolor{comment}{ * interrupt that will read from the buffer (the reader).  It is safe for the}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00039}00039 \textcolor{comment}{ * writer and reader to be different tasks or interrupts, but, unlike other}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00040}00040 \textcolor{comment}{ * FreeRTOS objects, it is not safe to have multiple different writers or}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00041}00041 \textcolor{comment}{ * multiple different readers.  If there are to be multiple different writers}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00042}00042 \textcolor{comment}{ * then the application writer must place each call to a writing API function}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00043}00043 \textcolor{comment}{ * (such as xStreamBufferSend()) inside a critical section and set the send}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00044}00044 \textcolor{comment}{ * block time to 0.  Likewise, if there are to be multiple different readers}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00045}00045 \textcolor{comment}{ * then the application writer must place each call to a reading API function}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00046}00046 \textcolor{comment}{ * (such as xStreamBufferRead()) inside a critical section section and set the}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00047}00047 \textcolor{comment}{ * receive block time to 0.}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00048}00048 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00049}00049 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00051}00051 \textcolor{preprocessor}{\#ifndef STREAM\_BUFFER\_H}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00052}00052 \textcolor{preprocessor}{\#define STREAM\_BUFFER\_H}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00054}00054 \textcolor{preprocessor}{\#if defined( \_\_cplusplus )}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00055}00055 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00056}00056 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00064}00064 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferDef\_t}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00065}\mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{00065}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferDef\_t}} * \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{StreamBufferHandle\_t}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00133}\mbox{\hyperlink{stream__buffer_8h_a39aa4dd8b83e2df7ded291f863fb5fed}{00133}} \textcolor{preprocessor}{\#define xStreamBufferCreate( xBufferSizeBytes, xTriggerLevelBytes ) xStreamBufferGenericCreate( xBufferSizeBytes, xTriggerLevelBytes, pdFALSE )}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00214}\mbox{\hyperlink{stream__buffer_8h_a3c248575ac1b83801db605b32a118f77}{00214}} \textcolor{preprocessor}{\#define xStreamBufferCreateStatic( xBufferSizeBytes, xTriggerLevelBytes, pucStreamBufferStorageArea, pxStaticStreamBuffer ) xStreamBufferGenericCreateStatic( xBufferSizeBytes, xTriggerLevelBytes, pdFALSE, pucStreamBufferStorageArea, pxStaticStreamBuffer )}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00308}00308 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a35cdf3b6bf677086b9128782f762499d}{xStreamBufferSend}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00309}00309                           \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvTxData,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00310}00310                           \textcolor{keywordtype}{size\_t} xDataLengthBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00311}00311                           \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00312}00312 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00409}00409 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a1dab226e99230e01e79bc2b5c0605e44}{xStreamBufferSendFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00410}00410                                  \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pvTxData,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00411}00411                                  \textcolor{keywordtype}{size\_t} xDataLengthBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00412}00412                                  \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00413}00413 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00498}00498 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a55efc144b988598d84a6087d3e20b507}{xStreamBufferReceive}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00499}00499                              \textcolor{keywordtype}{void} *pvRxData,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00500}00500                              \textcolor{keywordtype}{size\_t} xBufferLengthBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00501}00501                              \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} xTicksToWait ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00502}00502 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00584}00584 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a6c882a1d9f26c40f93f271bd1b844b3b}{xStreamBufferReceiveFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00585}00585                                     \textcolor{keywordtype}{void} *pvRxData,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00586}00586                                     \textcolor{keywordtype}{size\_t} xBufferLengthBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00587}00587                                     \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} * \textcolor{keyword}{const} pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00588}00588 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00609}00609 \textcolor{keywordtype}{void} \mbox{\hyperlink{stream__buffer_8h_a05dc9d2ae220a050526a062eddf6d7a2}{vStreamBufferDelete}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00610}00610 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00629}00629 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_ae393d82ee06e89692248a4381f85dc86}{xStreamBufferIsFull}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00630}00630 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00649}00649 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_af65cd558025ddc29ca68fba1b3f5dc19}{xStreamBufferIsEmpty}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00650}00650 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00672}00672 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_a5253429645c67902c2fc8682f8af0aac}{xStreamBufferReset}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00673}00673 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00693}00693 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a9a78e0206cb1dc343c329f9db579208d}{xStreamBufferSpacesAvailable}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00694}00694 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00714}00714 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_af32d1737de29f24ee31ac1e3c407d9fd}{xStreamBufferBytesAvailable}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00715}00715 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00751}00751 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_a28f0280587c76e71efeaa8f415ebde04}{xStreamBufferSetTriggerLevel}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \textcolor{keywordtype}{size\_t} xTriggerLevel ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00752}00752 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00790}00790 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_abc37189e4eb8618f5434ae333dd50b23}{xStreamBufferSendCompletedFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00791}00791 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00830}00830 \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} \mbox{\hyperlink{stream__buffer_8h_ac12e93e96e0eafbc0e981d00e7275d32}{xStreamBufferReceiveCompletedFromISR}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} *pxHigherPriorityTaskWoken ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00831}00831 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00832}00832 \textcolor{comment}{/* Functions below here are not part of the public API. */}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00833}00833 \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} \mbox{\hyperlink{stream__buffer_8h_a7a613c6fa11323c871ce7991db214096}{xStreamBufferGenericCreate}}( \textcolor{keywordtype}{size\_t} xBufferSizeBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00834}00834                                                  \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_stream_buffer_def__t_a4a7ee9b374cc0b358d049811def8d595}{xTriggerLevelBytes}},}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00835}00835                                                  \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xIsMessageBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00836}00836 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00837}\mbox{\hyperlink{stream__buffer_8h_a1263847a3f77a4f34462df326d78c48c}{00837}} \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} \mbox{\hyperlink{stream__buffer_8h_a1263847a3f77a4f34462df326d78c48c}{xStreamBufferGenericCreateStatic}}( \textcolor{keywordtype}{size\_t} xBufferSizeBytes,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00838}00838                                                        \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_stream_buffer_def__t_a4a7ee9b374cc0b358d049811def8d595}{xTriggerLevelBytes}},}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00839}00839                                                        \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}} xIsMessageBuffer,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00840}00840                                                        uint8\_t * \textcolor{keyword}{const} pucStreamBufferStorageArea,}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00841}00841                                                        \mbox{\hyperlink{structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r}{StaticStreamBuffer\_t}} * \textcolor{keyword}{const} pxStaticStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00842}00842 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00843}00843 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{stream__buffer_8h_a9a952a2cffab91471ec2a3651e2160ec}{xStreamBufferNextMessageLengthBytes}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00844}00844 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00845}00845 \textcolor{preprocessor}{\#if( configUSE\_TRACE\_FACILITY == 1 )}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00846}00846     \textcolor{keywordtype}{void} \mbox{\hyperlink{stream__buffer_8c_a950e5f7b820b821025cd0bc0c797653c}{vStreamBufferSetStreamBufferNumber}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer, \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{struct_stream_buffer_def__t_aee83da827fa7eb47682250297d6961b0}{uxStreamBufferNumber}} ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00847}00847     \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{stream__buffer_8c_a4fa4d3119b6d1b35f886f0d03a60172e}{uxStreamBufferGetStreamBufferNumber}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00848}00848     uint8\_t \mbox{\hyperlink{stream__buffer_8c_ae0cd387d75e89534b6332aac4a3a03b3}{ucStreamBufferGetStreamBufferType}}( \mbox{\hyperlink{struct_stream_buffer_def__t}{StreamBufferHandle\_t}} xStreamBuffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00849}00849 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00850}00850 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00851}00851 \textcolor{preprocessor}{\#if defined( \_\_cplusplus )}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00852}00852 \}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00853}00853 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00854}00854 }
+\DoxyCodeLine{\Hypertarget{stream__buffer_8h_source_l00855}00855 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/* !defined( STREAM\_BUFFER\_H ) */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

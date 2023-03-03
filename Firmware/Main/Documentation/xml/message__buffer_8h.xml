@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="message__buffer_8h" kind="file" language="C++">
+    <compoundname>message_buffer.h</compoundname>
+    <includes refid="stream__buffer_8h" local="yes">stream_buffer.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>FreeRTOS/message_buffer.h</label>
+        <link refid="message__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stream_buffer.h</label>
+        <link refid="stream__buffer_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36" prot="public" static="no">
+        <name>xMessageBufferCreate</name>
+        <param><defname>xBufferSizeBytes</defname></param>
+        <initializer>( <ref refid="message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a" kindref="member">MessageBufferHandle_t</ref> ) <ref refid="stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096" kindref="member">xStreamBufferGenericCreate</ref>( xBufferSizeBytes, ( size_t ) 0, <ref refid="projdefs_8h_1af268cf937960eb029256bd9c4d949fbe" kindref="member">pdTRUE</ref> )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="138" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c" prot="public" static="no">
+        <name>xMessageBufferCreateStatic</name>
+        <param><defname>xBufferSizeBytes</defname></param>
+        <param><defname>pucMessageBufferStorageArea</defname></param>
+        <param><defname>pxStaticMessageBuffer</defname></param>
+        <initializer>( <ref refid="message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a" kindref="member">MessageBufferHandle_t</ref> ) <ref refid="stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c" kindref="member">xStreamBufferGenericCreateStatic</ref>( xBufferSizeBytes, 0, <ref refid="projdefs_8h_1af268cf937960eb029256bd9c4d949fbe" kindref="member">pdTRUE</ref>, pucMessageBufferStorageArea, pxStaticMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="204" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605" prot="public" static="no">
+        <name>xMessageBufferSend</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pvTxData</defname></param>
+        <param><defname>xDataLengthBytes</defname></param>
+        <param><defname>xTicksToWait</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d" kindref="member">xStreamBufferSend</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="303" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1aeef5b0c4f8c2db6ca2230a8874813e79" prot="public" static="no">
+        <name>xMessageBufferSendFromISR</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pvTxData</defname></param>
+        <param><defname>xDataLengthBytes</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="407" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12" prot="public" static="no">
+        <name>xMessageBufferReceive</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pvRxData</defname></param>
+        <param><defname>xBufferLengthBytes</defname></param>
+        <param><defname>xTicksToWait</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507" kindref="member">xStreamBufferReceive</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="495" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="495" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234" prot="public" static="no">
+        <name>xMessageBufferReceiveFromISR</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pvRxData</defname></param>
+        <param><defname>xBufferLengthBytes</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b" kindref="member">xStreamBufferReceiveFromISR</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pvRxData, xBufferLengthBytes, pxHigherPriorityTaskWoken )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="596" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="596" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a" prot="public" static="no">
+        <name>vMessageBufferDelete</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2" kindref="member">vStreamBufferDelete</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="message__buffer_8h" kindref="compound">message_buffer.h</ref></para>
+<para><preformatted>
+void <ref refid="message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a" kindref="member">vMessageBufferDelete( MessageBufferHandle_t xMessageBuffer )</ref>;
+</preformatted></para>
+<para>Deletes a message buffer that was previously created using a call to <ref refid="message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36" kindref="member">xMessageBufferCreate()</ref> or <ref refid="message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c" kindref="member">xMessageBufferCreateStatic()</ref>. If the message buffer was created using dynamic memory (that is, by <ref refid="message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36" kindref="member">xMessageBufferCreate()</ref>), then the allocated memory is freed.</para>
+<para>A message buffer handle must not be used after the message buffer has been deleted.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xMessageBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the message buffer to be deleted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="616" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179" prot="public" static="no">
+        <name>xMessageBufferIsFull</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86" kindref="member">xStreamBufferIsFull</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="message__buffer_8h" kindref="compound">message_buffer.h</ref> <preformatted>
+BaseType_t <ref refid="message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179" kindref="member">xMessageBufferIsFull( MessageBufferHandle_t xMessageBuffer )</ref> );
+</preformatted></para>
+<para>Tests to see if a message buffer is full. A message buffer is full if it cannot accept any more messages, of any size, until space is made available by a message being removed from the message buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xMessageBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the message buffer being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the message buffer referenced by xMessageBuffer is full then pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="633" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="633" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8" prot="public" static="no">
+        <name>xMessageBufferIsEmpty</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19" kindref="member">xStreamBufferIsEmpty</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="message__buffer_8h" kindref="compound">message_buffer.h</ref> <preformatted>
+BaseType_t <ref refid="message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8" kindref="member">xMessageBufferIsEmpty( MessageBufferHandle_t xMessageBuffer )</ref> );
+</preformatted></para>
+<para>Tests to see if a message buffer is empty (does not contain any messages).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xMessageBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the message buffer being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the message buffer referenced by xMessageBuffer is empty then pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="649" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="649" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c" prot="public" static="no">
+        <name>xMessageBufferReset</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac" kindref="member">xStreamBufferReset</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="672" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="672" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a9f1e75a283ef603e914e10ae354e5ab8" prot="public" static="no">
+        <name>xMessageBufferSpaceAvailable</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d" kindref="member">xStreamBufferSpacesAvailable</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="694" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="694" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1ae2b56b6564cf2476891394231a31ecad" prot="public" static="no">
+        <name>xMessageBufferNextLengthBytes</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec" kindref="member">xStreamBufferNextMessageLengthBytes</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer ) <ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="713" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="713" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a45918d12bf530cb2b4bf21c0936460a9" prot="public" static="no">
+        <name>xMessageBufferSendCompletedFromISR</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23" kindref="member">xStreamBufferSendCompletedFromISR</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pxHigherPriorityTaskWoken )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="752" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="752" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="message__buffer_8h_1a22b1a37d0d4f39acd87250f73d9aab0c" prot="public" static="no">
+        <name>xMessageBufferReceiveCompletedFromISR</name>
+        <param><defname>xMessageBuffer</defname></param>
+        <param><defname>pxHigherPriorityTaskWoken</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32" kindref="member">xStreamBufferReceiveCompletedFromISR</ref>( ( <ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref> ) xMessageBuffer, pxHigherPriorityTaskWoken )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="792" column="9" bodyfile="FreeRTOS/message_buffer.h" bodystart="792" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a" prot="public" static="no">
+        <type>void *</type>
+        <definition>typedef void* MessageBufferHandle_t</definition>
+        <argsstring></argsstring>
+        <name>MessageBufferHandle_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Type by which message buffers are referenced. For example, a call to <ref refid="message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36" kindref="member">xMessageBufferCreate()</ref> returns an MessageBufferHandle_t variable that can then be used as a parameter to <ref refid="message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605" kindref="member">xMessageBufferSend()</ref>, <ref refid="message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12" kindref="member">xMessageBufferReceive()</ref>, etc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/message_buffer.h" line="78" column="15" bodyfile="FreeRTOS/message_buffer.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>FreeRTOS<sp/>Kernel<sp/>V10.2.0</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Amazon.com,<sp/>Inc.<sp/>or<sp/>its<sp/>affiliates.<sp/><sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy<sp/>of</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is<sp/>furnished<sp/>to<sp/>do<sp/>so,</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,<sp/>FITNESS</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,<sp/>OUT<sp/>OF<sp/>OR<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>http://www.FreeRTOS.org</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>http://aws.amazon.com/freertos</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>1<sp/>tab<sp/>==<sp/>4<sp/>spaces!</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>Message<sp/>buffers<sp/>build<sp/>functionality<sp/>on<sp/>top<sp/>of<sp/>FreeRTOS<sp/>stream<sp/>buffers.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>Whereas<sp/>stream<sp/>buffers<sp/>are<sp/>used<sp/>to<sp/>send<sp/>a<sp/>continuous<sp/>stream<sp/>of<sp/>data<sp/>from<sp/>one</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>task<sp/>or<sp/>interrupt<sp/>to<sp/>another,<sp/>message<sp/>buffers<sp/>are<sp/>used<sp/>to<sp/>send<sp/>variable</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>length<sp/>discrete<sp/>messages<sp/>from<sp/>one<sp/>task<sp/>or<sp/>interrupt<sp/>to<sp/>another.<sp/><sp/>Their</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>implementation<sp/>is<sp/>light<sp/>weight,<sp/>making<sp/>them<sp/>particularly<sp/>suited<sp/>for<sp/>interrupt</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>to<sp/>task<sp/>and<sp/>core<sp/>to<sp/>core<sp/>communication<sp/>scenarios.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>***NOTE***:<sp/><sp/>Uniquely<sp/>among<sp/>FreeRTOS<sp/>objects,<sp/>the<sp/>stream<sp/>buffer</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>implementation<sp/>(so<sp/>also<sp/>the<sp/>message<sp/>buffer<sp/>implementation,<sp/>as<sp/>message<sp/>buffers</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>are<sp/>built<sp/>on<sp/>top<sp/>of<sp/>stream<sp/>buffers)<sp/>assumes<sp/>there<sp/>is<sp/>only<sp/>one<sp/>task<sp/>or</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>that<sp/>will<sp/>write<sp/>to<sp/>the<sp/>buffer<sp/>(the<sp/>writer),<sp/>and<sp/>only<sp/>one<sp/>task<sp/>or</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>that<sp/>will<sp/>read<sp/>from<sp/>the<sp/>buffer<sp/>(the<sp/>reader).<sp/><sp/>It<sp/>is<sp/>safe<sp/>for<sp/>the</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>writer<sp/>and<sp/>reader<sp/>to<sp/>be<sp/>different<sp/>tasks<sp/>or<sp/>interrupts,<sp/>but,<sp/>unlike<sp/>other</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>FreeRTOS<sp/>objects,<sp/>it<sp/>is<sp/>not<sp/>safe<sp/>to<sp/>have<sp/>multiple<sp/>different<sp/>writers<sp/>or</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>multiple<sp/>different<sp/>readers.<sp/><sp/>If<sp/>there<sp/>are<sp/>to<sp/>be<sp/>multiple<sp/>different<sp/>writers</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>then<sp/>the<sp/>application<sp/>writer<sp/>must<sp/>place<sp/>each<sp/>call<sp/>to<sp/>a<sp/>writing<sp/>API<sp/>function</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>(such<sp/>as<sp/>xMessageBufferSend())<sp/>inside<sp/>a<sp/>critical<sp/>section<sp/>and<sp/>set<sp/>the<sp/>send</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>block<sp/>time<sp/>to<sp/>0.<sp/><sp/>Likewise,<sp/>if<sp/>there<sp/>are<sp/>to<sp/>be<sp/>multiple<sp/>different<sp/>readers</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>then<sp/>the<sp/>application<sp/>writer<sp/>must<sp/>place<sp/>each<sp/>call<sp/>to<sp/>a<sp/>reading<sp/>API<sp/>function</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>(such<sp/>as<sp/>xMessageBufferRead())<sp/>inside<sp/>a<sp/>critical<sp/>section<sp/>and<sp/>set<sp/>the<sp/>receive</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>timeout<sp/>to<sp/>0.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Message<sp/>buffers<sp/>hold<sp/>variable<sp/>length<sp/>messages.<sp/><sp/>To<sp/>enable<sp/>that,<sp/>when<sp/>a</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>message<sp/>is<sp/>written<sp/>to<sp/>the<sp/>message<sp/>buffer<sp/>an<sp/>additional<sp/>sizeof(<sp/>size_t<sp/>)<sp/>bytes</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>are<sp/>also<sp/>written<sp/>to<sp/>store<sp/>the<sp/>message&apos;s<sp/>length<sp/>(that<sp/>happens<sp/>internally,<sp/>with</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>the<sp/>API<sp/>function).<sp/><sp/>sizeof(<sp/>size_t<sp/>)<sp/>is<sp/>typically<sp/>4<sp/>bytes<sp/>on<sp/>a<sp/>32-bit</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>architecture,<sp/>so<sp/>writing<sp/>a<sp/>10<sp/>byte<sp/>message<sp/>to<sp/>a<sp/>message<sp/>buffer<sp/>on<sp/>a<sp/>32-bit</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>architecture<sp/>will<sp/>actually<sp/>reduce<sp/>the<sp/>available<sp/>space<sp/>in<sp/>the<sp/>message<sp/>buffer</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>by<sp/>14<sp/>bytes<sp/>(10<sp/>byte<sp/>are<sp/>used<sp/>by<sp/>the<sp/>message,<sp/>and<sp/>4<sp/>bytes<sp/>to<sp/>hold<sp/>the<sp/>length</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>of<sp/>the<sp/>message).</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FREERTOS_MESSAGE_BUFFER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FREERTOS_MESSAGE_BUFFER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Message<sp/>buffers<sp/>are<sp/>built<sp/>onto<sp/>of<sp/>stream<sp/>buffers.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="stream__buffer_8h" kindref="compound">stream_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>__cplusplus<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a" kindref="member">MessageBufferHandle_t</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*-----------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferCreate(<sp/>xBufferSizeBytes<sp/>)<sp/>(<sp/>MessageBufferHandle_t<sp/>)<sp/>xStreamBufferGenericCreate(<sp/>xBufferSizeBytes,<sp/>(<sp/>size_t<sp/>)<sp/>0,<sp/>pdTRUE<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferCreateStatic(<sp/>xBufferSizeBytes,<sp/>pucMessageBufferStorageArea,<sp/>pxStaticMessageBuffer<sp/>)<sp/>(<sp/>MessageBufferHandle_t<sp/>)<sp/>xStreamBufferGenericCreateStatic(<sp/>xBufferSizeBytes,<sp/>0,<sp/>pdTRUE,<sp/>pucMessageBufferStorageArea,<sp/>pxStaticMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferSend(<sp/>xMessageBuffer,<sp/>pvTxData,<sp/>xDataLengthBytes,<sp/>xTicksToWait<sp/>)<sp/>xStreamBufferSend(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pvTxData,<sp/>xDataLengthBytes,<sp/>xTicksToWait<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="407" refid="message__buffer_8h_1aeef5b0c4f8c2db6ca2230a8874813e79" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferSendFromISR(<sp/>xMessageBuffer,<sp/>pvTxData,<sp/>xDataLengthBytes,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>xStreamBufferSendFromISR(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pvTxData,<sp/>xDataLengthBytes,<sp/>pxHigherPriorityTaskWoken<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="408"><highlight class="normal"></highlight></codeline>
+<codeline lineno="495" refid="message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferReceive(<sp/>xMessageBuffer,<sp/>pvRxData,<sp/>xBufferLengthBytes,<sp/>xTicksToWait<sp/>)<sp/>xStreamBufferReceive(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pvRxData,<sp/>xBufferLengthBytes,<sp/>xTicksToWait<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="496"><highlight class="normal"></highlight></codeline>
+<codeline lineno="497"><highlight class="normal"></highlight></codeline>
+<codeline lineno="596" refid="message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferReceiveFromISR(<sp/>xMessageBuffer,<sp/>pvRxData,<sp/>xBufferLengthBytes,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>xStreamBufferReceiveFromISR(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pvRxData,<sp/>xBufferLengthBytes,<sp/>pxHigherPriorityTaskWoken<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="597"><highlight class="normal"></highlight></codeline>
+<codeline lineno="616" refid="message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>vMessageBufferDelete(<sp/>xMessageBuffer<sp/>)<sp/>vStreamBufferDelete(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="617"><highlight class="normal"></highlight></codeline>
+<codeline lineno="633" refid="message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferIsFull(<sp/>xMessageBuffer<sp/>)<sp/>xStreamBufferIsFull(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="634"><highlight class="normal"></highlight></codeline>
+<codeline lineno="649" refid="message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferIsEmpty(<sp/>xMessageBuffer<sp/>)<sp/>xStreamBufferIsEmpty(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="650"><highlight class="normal"></highlight></codeline>
+<codeline lineno="672" refid="message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferReset(<sp/>xMessageBuffer<sp/>)<sp/>xStreamBufferReset(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="673"><highlight class="normal"></highlight></codeline>
+<codeline lineno="674"><highlight class="normal"></highlight></codeline>
+<codeline lineno="694" refid="message__buffer_8h_1a9f1e75a283ef603e914e10ae354e5ab8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferSpaceAvailable(<sp/>xMessageBuffer<sp/>)<sp/>xStreamBufferSpacesAvailable(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="695"><highlight class="normal"></highlight></codeline>
+<codeline lineno="713" refid="message__buffer_8h_1ae2b56b6564cf2476891394231a31ecad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferNextLengthBytes(<sp/>xMessageBuffer<sp/>)<sp/>xStreamBufferNextMessageLengthBytes(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer<sp/>)<sp/>PRIVILEGED_FUNCTION;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="714"><highlight class="normal"></highlight></codeline>
+<codeline lineno="752" refid="message__buffer_8h_1a45918d12bf530cb2b4bf21c0936460a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferSendCompletedFromISR(<sp/>xMessageBuffer,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>xStreamBufferSendCompletedFromISR(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pxHigherPriorityTaskWoken<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="753"><highlight class="normal"></highlight></codeline>
+<codeline lineno="792" refid="message__buffer_8h_1a22b1a37d0d4f39acd87250f73d9aab0c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xMessageBufferReceiveCompletedFromISR(<sp/>xMessageBuffer,<sp/>pxHigherPriorityTaskWoken<sp/>)<sp/>xStreamBufferReceiveCompletedFromISR(<sp/>(<sp/>StreamBufferHandle_t<sp/>)<sp/>xMessageBuffer,<sp/>pxHigherPriorityTaskWoken<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="793"><highlight class="normal"></highlight></codeline>
+<codeline lineno="794"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>__cplusplus<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="795"><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>extern<sp/>&quot;C&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="796"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="797"><highlight class="normal"></highlight></codeline>
+<codeline lineno="798"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>!defined(<sp/>FREERTOS_MESSAGE_BUFFER_H<sp/>)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="FreeRTOS/message_buffer.h"/>
+  </compounddef>
+</doxygen>

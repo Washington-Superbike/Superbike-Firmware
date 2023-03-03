@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__v_semaphore_create_binary" kind="group">
+    <compoundname>vSemaphoreCreateBinary</compoundname>
+    <title>vSemaphoreCreateBinary</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>semphr. h <preformatted>vSemaphoreCreateBinary( SemaphoreHandle_t xSemaphore )</preformatted></para>
+<para>In many usage scenarios it is faster and more memory efficient to use a direct to task notification in place of a binary semaphore! <ulink url="http://www.freertos.org/RTOS-task-notifications.html">http://www.freertos.org/RTOS-task-notifications.html</ulink></para>
+<para>This old vSemaphoreCreateBinary() macro is now deprecated in favour of the xSemaphoreCreateBinary() function. Note that binary semaphores created using the vSemaphoreCreateBinary() macro are created in a state such that the first call to &apos;take&apos; the semaphore would pass, whereas binary semaphores created using xSemaphoreCreateBinary() are created in a state such that the the semaphore must first be &apos;given&apos; before it can be &apos;taken&apos;.</para>
+<para><emphasis>Macro</emphasis> that implements a semaphore by using the existing queue mechanism. The queue length is 1 as this is a binary semaphore. The data size is 0 as we don&apos;t want to actually store any data - we just want to know if the queue is empty or full.</para>
+<para>This type of semaphore can be used for pure synchronisation between tasks or between an interrupt and a task. The semaphore need not be given back once obtained, so one task/interrupt can continuously &apos;give&apos; the semaphore while another continuously &apos;takes&apos; the semaphore. For this reason this type of semaphore does not use a priority inheritance mechanism. For an alternative that does use priority inheritance see xSemaphoreCreateMutex().</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xSemaphore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle to the created semaphore. Should be of type SemaphoreHandle_t.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Example usage: <preformatted>
+SemaphoreHandle_t xSemaphore = NULL;
+
+void vATask( void * pvParameters )
+{
+   // Semaphore cannot be used before a call to vSemaphoreCreateBinary ().
+   // This is a macro so pass the variable in directly.
+   vSemaphoreCreateBinary( xSemaphore );
+
+   if( xSemaphore != NULL )
+   {
+       // The semaphore was created successfully.
+       // The semaphore can now be used.
+   }
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

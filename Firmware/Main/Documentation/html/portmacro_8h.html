@@ -113,13 +113,13 @@ Macros</h2></td></tr>
 <tr class="separator:a63b994040c62c9685490a71c87a13d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac6850c66595efdc02a8bbb95fb4648e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#aac6850c66595efdc02a8bbb95fb4648e">portYIELD_FROM_ISR</a>(x)&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a63b994040c62c9685490a71c87a13d8a">portEND_SWITCHING_ISR</a>( x )</td></tr>
 <tr class="separator:aac6850c66595efdc02a8bbb95fb4648e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31b4260dbc1823ba80b578f86eb15a98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</a>()&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a1ae9e6953da44984c5595ad82b3c0af3">ulPortRaiseBASEPRI</a>()</td></tr>
+<tr class="memitem:a31b4260dbc1823ba80b578f86eb15a98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</a>()&#160;&#160;&#160;ulPortRaiseBASEPRI()</td></tr>
 <tr class="separator:a31b4260dbc1823ba80b578f86eb15a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79d65a5d0f6f9133a0739832e9d8367e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</a>(x)&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#ae7a42595148b6b21ed0569c4e8ca11b0">vPortSetBASEPRI</a>(x)</td></tr>
+<tr class="memitem:a79d65a5d0f6f9133a0739832e9d8367e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</a>(x)&#160;&#160;&#160;vPortSetBASEPRI(x)</td></tr>
 <tr class="separator:a79d65a5d0f6f9133a0739832e9d8367e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e3d10ee1a0734a647ca192523c2cfc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</a>()&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a9021d55b208c59fc725af4e7c330a417">vPortRaiseBASEPRI</a>()</td></tr>
+<tr class="memitem:a6e3d10ee1a0734a647ca192523c2cfc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</a>()&#160;&#160;&#160;vPortRaiseBASEPRI()</td></tr>
 <tr class="separator:a6e3d10ee1a0734a647ca192523c2cfc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc47e85a6befbb47961ad5ee7aa57173"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</a>()&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#ae7a42595148b6b21ed0569c4e8ca11b0">vPortSetBASEPRI</a>(0)</td></tr>
+<tr class="memitem:abc47e85a6befbb47961ad5ee7aa57173"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</a>()&#160;&#160;&#160;vPortSetBASEPRI(0)</td></tr>
 <tr class="separator:abc47e85a6befbb47961ad5ee7aa57173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a09321ad004019f3c8d0f2e4d7224c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</a>()&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a2ed3554a3de09a3bd09d396ee081ab69">vPortEnterCritical</a>()</td></tr>
 <tr class="separator:a8a09321ad004019f3c8d0f2e4d7224c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,8 +148,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a84e9a8ba132feed0b2401c1f4e2ac63c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="portmacro_8h.html#ab0a294066ac7369b8f59a52d9491a92c">portSTACK_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a84e9a8ba132feed0b2401c1f4e2ac63c">StackType_t</a></td></tr>
-<tr class="separator:a84e9a8ba132feed0b2401c1f4e2ac63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa73b01e0200940d619095fb74fb3030b"><td class="memItemLeft" align="right" valign="top">typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#aa73b01e0200940d619095fb74fb3030b">StackType_t</a></td></tr>
+<tr class="separator:aa73b01e0200940d619095fb74fb3030b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46fb21e00ae0729d7515c0fbf2269796"><td class="memItemLeft" align="right" valign="top">typedef long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a></td></tr>
 <tr class="separator:a46fb21e00ae0729d7515c0fbf2269796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a646f89d4298e4f5afd522202b11cb2e6"><td class="memItemLeft" align="right" valign="top">typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></td></tr>
@@ -167,14 +167,6 @@ Functions</h2></td></tr>
 <tr class="separator:aefd025907402b0b863d5012673d5036e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac864e333c11a6614eab8e8542ba01ed0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#ac864e333c11a6614eab8e8542ba01ed0">__attribute__</a> ((always_inline)) static inline uint8_t ucPortCountLeadingZeros(uint32_t ulBitmap)</td></tr>
 <tr class="separator:ac864e333c11a6614eab8e8542ba01ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a9be2aa97aac4e7f03fe386f9281b9a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a6a9be2aa97aac4e7f03fe386f9281b9a">xPortIsInsideInterrupt</a> (void)</td></tr>
-<tr class="separator:a6a9be2aa97aac4e7f03fe386f9281b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9021d55b208c59fc725af4e7c330a417"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a9021d55b208c59fc725af4e7c330a417">vPortRaiseBASEPRI</a> (void)</td></tr>
-<tr class="separator:a9021d55b208c59fc725af4e7c330a417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae9e6953da44984c5595ad82b3c0af3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#a1ae9e6953da44984c5595ad82b3c0af3">ulPortRaiseBASEPRI</a> (void)</td></tr>
-<tr class="separator:a1ae9e6953da44984c5595ad82b3c0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a42595148b6b21ed0569c4e8ca11b0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="portmacro_8h.html#ae7a42595148b6b21ed0569c4e8ca11b0">vPortSetBASEPRI</a> (uint32_t ulNewMaskValue)</td></tr>
-<tr class="separator:ae7a42595148b6b21ed0569c4e8ca11b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aebb8c3a87d591f60f974772be0ee798d" name="aebb8c3a87d591f60f974772be0ee798d"></a>
@@ -188,6 +180,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00124">124</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -203,6 +197,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00053">53</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="ab9091ce3940d8bd93ec850122a2c6a1c" name="ab9091ce3940d8bd93ec850122a2c6a1c"></a>
@@ -216,6 +212,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00075">75</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -231,6 +229,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00047">47</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a79d65a5d0f6f9133a0739832e9d8367e" name="a79d65a5d0f6f9133a0739832e9d8367e"></a>
@@ -244,10 +244,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#ae7a42595148b6b21ed0569c4e8ca11b0">vPortSetBASEPRI</a>(x)</td>
+          <td>&#160;&#160;&#160;vPortSetBASEPRI(x)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00099">99</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -261,10 +263,12 @@ Functions</h2></td></tr>
           <td class="memname">#define portDISABLE_INTERRUPTS</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a9021d55b208c59fc725af4e7c330a417">vPortRaiseBASEPRI</a>()</td>
+          <td>&#160;&#160;&#160;vPortRaiseBASEPRI()</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00100">100</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -280,6 +284,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00049">49</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="abc47e85a6befbb47961ad5ee7aa57173" name="abc47e85a6befbb47961ad5ee7aa57173"></a>
@@ -292,10 +298,12 @@ Functions</h2></td></tr>
           <td class="memname">#define portENABLE_INTERRUPTS</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#ae7a42595148b6b21ed0569c4e8ca11b0">vPortSetBASEPRI</a>(0)</td>
+          <td>&#160;&#160;&#160;vPortSetBASEPRI(0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00101">101</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -315,6 +323,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00091">91</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a8a09321ad004019f3c8d0f2e4d7224c7" name="a8a09321ad004019f3c8d0f2e4d7224c7"></a>
@@ -331,6 +341,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00102">102</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -349,6 +361,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00103">103</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a1bbe1ef117ec274ef919e0a930c888ac" name="a1bbe1ef117ec274ef919e0a930c888ac"></a>
@@ -363,6 +377,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00048">48</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="aaa356ca7932487d20a42d6839842d308" name="aaa356ca7932487d20a42d6839842d308"></a>
@@ -376,6 +392,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00166">166</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -405,6 +423,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00149">149</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a73448585c9c9e96500c2f0c9ea824601" name="a73448585c9c9e96500c2f0c9ea824601"></a>
@@ -418,6 +438,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00163">163</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -433,6 +455,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00050">50</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a72723ba1e4a85ca14f25c2b9e066613d" name="a72723ba1e4a85ca14f25c2b9e066613d"></a>
@@ -446,6 +470,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00064">64</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -464,6 +490,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00161">161</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="ae42817ecbd6fe76d846a89cc0fcd0d95" name="ae42817ecbd6fe76d846a89cc0fcd0d95"></a>
@@ -478,6 +506,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00089">89</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a16830bf8349e14cdeed05193af234d5e" name="a16830bf8349e14cdeed05193af234d5e"></a>
@@ -491,6 +521,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00090">90</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -520,6 +552,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00144">144</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="aab771d12c0912d93d52a586628fb18a6" name="aab771d12c0912d93d52a586628fb18a6"></a>
@@ -548,6 +582,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00145">145</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a31b4260dbc1823ba80b578f86eb15a98" name="a31b4260dbc1823ba80b578f86eb15a98"></a>
@@ -560,10 +596,12 @@ Functions</h2></td></tr>
           <td class="memname">#define portSET_INTERRUPT_MASK_FROM_ISR</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a1ae9e6953da44984c5595ad82b3c0af3">ulPortRaiseBASEPRI</a>()</td>
+          <td>&#160;&#160;&#160;ulPortRaiseBASEPRI()</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00098">98</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -579,6 +617,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00051">51</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a21adaab1601f6a0f35ba550a43060830" name="a21adaab1601f6a0f35ba550a43060830"></a>
@@ -593,6 +633,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00073">73</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="ab0a294066ac7369b8f59a52d9491a92c" name="ab0a294066ac7369b8f59a52d9491a92c"></a>
@@ -606,6 +648,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00052">52</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -624,6 +668,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00118">118</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -653,6 +699,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00112">112</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a2921e1c5a1f974dfa01ae44d1f665f14" name="a2921e1c5a1f974dfa01ae44d1f665f14"></a>
@@ -681,6 +729,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00111">111</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a554d9322ce7f698a86a22b21234bd8cd" name="a554d9322ce7f698a86a22b21234bd8cd"></a>
@@ -695,6 +745,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00074">74</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a62e53bc6d3fa5c4bf4e65ab2752930f3" name="a62e53bc6d3fa5c4bf4e65ab2752930f3"></a>
@@ -708,6 +760,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00068">68</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -734,8 +788,10 @@ Functions</h2></td></tr>
 <div class="line">    __asm <span class="keyword">volatile</span>( <span class="stringliteral">&quot;dsb&quot;</span> ::: <span class="stringliteral">&quot;memory&quot;</span> );                                       \</div>
 <div class="line">    __asm <span class="keyword">volatile</span>( <span class="stringliteral">&quot;isb&quot;</span> );                                                    \</div>
 <div class="line">}</div>
-<div class="ttc" id="aportmacro_8h_html_a16830bf8349e14cdeed05193af234d5e"><div class="ttname"><a href="portmacro_8h.html#a16830bf8349e14cdeed05193af234d5e">portNVIC_PENDSVSET_BIT</a></div><div class="ttdeci">#define portNVIC_PENDSVSET_BIT</div><div class="ttdef"><b>Definition:</b> portmacro.h:90</div></div>
+<div class="ttc" id="aportmacro_8h_html_a16830bf8349e14cdeed05193af234d5e"><div class="ttname"><a href="portmacro_8h.html#a16830bf8349e14cdeed05193af234d5e">portNVIC_PENDSVSET_BIT</a></div><div class="ttdeci">#define portNVIC_PENDSVSET_BIT</div><div class="ttdef"><b>Definition:</b> <a href="portmacro_8h_source.html#l00090">portmacro.h:90</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00079">79</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="aac6850c66595efdc02a8bbb95fb4648e" name="aac6850c66595efdc02a8bbb95fb4648e"></a>
@@ -754,6 +810,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00092">92</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -769,19 +827,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00056">56</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
-<a id="a84e9a8ba132feed0b2401c1f4e2ac63c" name="a84e9a8ba132feed0b2401c1f4e2ac63c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84e9a8ba132feed0b2401c1f4e2ac63c">&#9670;&nbsp;</a></span>StackType_t</h2>
+<a id="aa73b01e0200940d619095fb74fb3030b" name="aa73b01e0200940d619095fb74fb3030b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73b01e0200940d619095fb74fb3030b">&#9670;&nbsp;</a></span>StackType_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="portmacro_8h.html#ab0a294066ac7369b8f59a52d9491a92c">portSTACK_TYPE</a> <a class="el" href="portmacro_8h.html#a84e9a8ba132feed0b2401c1f4e2ac63c">StackType_t</a></td>
+          <td class="memname">typedef uint32_t <a class="el" href="portmacro_8h.html#aa73b01e0200940d619095fb74fb3030b">StackType_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00055">55</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -797,6 +859,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00063">63</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <a id="a646f89d4298e4f5afd522202b11cb2e6" name="a646f89d4298e4f5afd522202b11cb2e6"></a>
@@ -811,6 +875,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00057">57</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -819,6 +885,9 @@ Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">__attribute__ </td>
@@ -828,33 +897,14 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1ae9e6953da44984c5595ad82b3c0af3" name="a1ae9e6953da44984c5595ad82b3c0af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ae9e6953da44984c5595ad82b3c0af3">&#9670;&nbsp;</a></span>ulPortRaiseBASEPRI()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> uint32_t ulPortRaiseBASEPRI </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portmacro_8h_source.html#l00130">130</a> of file <a class="el" href="portmacro_8h_source.html">portmacro.h</a>.</p>
 
 </div>
 </div>
@@ -874,6 +924,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="port_8c_source.html#l00505">505</a> of file <a class="el" href="port_8c_source.html">port.c</a>.</p>
+
 </div>
 </div>
 <a id="aed20ada05b957181a0de042802a82a5b" name="aed20ada05b957181a0de042802a82a5b"></a>
@@ -892,57 +944,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a9021d55b208c59fc725af4e7c330a417" name="a9021d55b208c59fc725af4e7c330a417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9021d55b208c59fc725af4e7c330a417">&#9670;&nbsp;</a></span>vPortRaiseBASEPRI()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> void vPortRaiseBASEPRI </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae7a42595148b6b21ed0569c4e8ca11b0" name="ae7a42595148b6b21ed0569c4e8ca11b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7a42595148b6b21ed0569c4e8ca11b0">&#9670;&nbsp;</a></span>vPortSetBASEPRI()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> void vPortSetBASEPRI </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>ulNewMaskValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="port_8c_source.html#l00522">522</a> of file <a class="el" href="port_8c_source.html">port.c</a>.</p>
 
 </div>
 </div>
@@ -960,32 +962,6 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6a9be2aa97aac4e7f03fe386f9281b9a" name="a6a9be2aa97aac4e7f03fe386f9281b9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a9be2aa97aac4e7f03fe386f9281b9a">&#9670;&nbsp;</a></span>xPortIsInsideInterrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="portmacro_8h.html#aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</a> <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xPortIsInsideInterrupt </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

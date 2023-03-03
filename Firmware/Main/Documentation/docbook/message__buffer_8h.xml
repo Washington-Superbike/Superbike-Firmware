@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_message__buffer_8h" xml:lang="en-US">
+<title>FreeRTOS/message_buffer.h File Reference</title>
+<indexterm><primary>FreeRTOS/message_buffer.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;stream_buffer.h&quot;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36">xMessageBufferCreate</link>(xBufferSizeBytes)   ( <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link> ) <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, ( size_t ) 0, <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c">xMessageBufferCreateStatic</link>(xBufferSizeBytes,  pucMessageBufferStorageArea,  pxStaticMessageBuffer)   ( <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link> ) <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, 0, <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link>, pucMessageBufferStorageArea, pxStaticMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605">xMessageBufferSend</link>(xMessageBuffer,  pvTxData,  xDataLengthBytes,  xTicksToWait)   <link linkend="_stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d">xStreamBufferSend</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1aeef5b0c4f8c2db6ca2230a8874813e79">xMessageBufferSendFromISR</link>(xMessageBuffer,  pvTxData,  xDataLengthBytes,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44">xStreamBufferSendFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive</link>(xMessageBuffer,  pvRxData,  xBufferLengthBytes,  xTicksToWait)   <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234">xMessageBufferReceiveFromISR</link>(xMessageBuffer,  pvRxData,  xBufferLengthBytes,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b">xStreamBufferReceiveFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvRxData, xBufferLengthBytes, pxHigherPriorityTaskWoken )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a">vMessageBufferDelete</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2">vStreamBufferDelete</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179">xMessageBufferIsFull</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86">xStreamBufferIsFull</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8">xMessageBufferIsEmpty</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19">xStreamBufferIsEmpty</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c">xMessageBufferReset</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac">xStreamBufferReset</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a9f1e75a283ef603e914e10ae354e5ab8">xMessageBufferSpaceAvailable</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d">xStreamBufferSpacesAvailable</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1ae2b56b6564cf2476891394231a31ecad">xMessageBufferNextLengthBytes</link>(xMessageBuffer)   <link linkend="_stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec">xStreamBufferNextMessageLengthBytes</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer ) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link>;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a45918d12bf530cb2b4bf21c0936460a9">xMessageBufferSendCompletedFromISR</link>(xMessageBuffer,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23">xStreamBufferSendCompletedFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pxHigherPriorityTaskWoken )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_message__buffer_8h_1a22b1a37d0d4f39acd87250f73d9aab0c">xMessageBufferReceiveCompletedFromISR</link>(xMessageBuffer,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32">xStreamBufferReceiveCompletedFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pxHigherPriorityTaskWoken )</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef void * <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a"/><section>
+    <title>vMessageBufferDelete</title>
+<indexterm><primary>vMessageBufferDelete</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>vMessageBufferDelete</secondary></indexterm>
+<para><computeroutput>#define vMessageBufferDelete( xMessageBuffer)   <link linkend="_stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2">vStreamBufferDelete</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</computeroutput></para>
+<para><link linkend="_message__buffer_8h">message_buffer.h</link></para>
+
+<para><literallayout>
+void <link linkend="_message__buffer_8h_1aa29d6c50600a7b0154e4a47e7c981d1a">vMessageBufferDelete( MessageBufferHandle_t xMessageBuffer )</link>;
+</literallayout></para>
+
+<para>Deletes a message buffer that was previously created using a call to <link linkend="_message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36">xMessageBufferCreate()</link> or <link linkend="_message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c">xMessageBufferCreateStatic()</link>. If the message buffer was created using dynamic memory (that is, by <link linkend="_message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36">xMessageBufferCreate()</link>), then the allocated memory is freed.</para>
+
+<para>A message buffer handle must not be used after the message buffer has been deleted.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer to be deleted. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00616">616</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36"/><section>
+    <title>xMessageBufferCreate</title>
+<indexterm><primary>xMessageBufferCreate</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferCreate</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferCreate( xBufferSizeBytes)   ( <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link> ) <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, ( size_t ) 0, <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00138">138</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1acc84f4a15dbd39ecbad35f7337e78b2c"/><section>
+    <title>xMessageBufferCreateStatic</title>
+<indexterm><primary>xMessageBufferCreateStatic</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferCreateStatic</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferCreateStatic( xBufferSizeBytes,  pucMessageBufferStorageArea,  pxStaticMessageBuffer)   ( <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link> ) <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, 0, <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link>, pucMessageBufferStorageArea, pxStaticMessageBuffer )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00204">204</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8"/><section>
+    <title>xMessageBufferIsEmpty</title>
+<indexterm><primary>xMessageBufferIsEmpty</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferIsEmpty</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferIsEmpty( xMessageBuffer)   <link linkend="_stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19">xStreamBufferIsEmpty</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</computeroutput></para>
+<para><link linkend="_message__buffer_8h">message_buffer.h</link> <literallayout>
+BaseType_t <link linkend="_message__buffer_8h_1a7bc30ef43be4bd228d80de1da88c71d8">xMessageBufferIsEmpty( MessageBufferHandle_t xMessageBuffer )</link> );
+</literallayout></para>
+
+<para>Tests to see if a message buffer is empty (does not contain any messages).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the message buffer referenced by xMessageBuffer is empty then pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00649">649</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179"/><section>
+    <title>xMessageBufferIsFull</title>
+<indexterm><primary>xMessageBufferIsFull</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferIsFull</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferIsFull( xMessageBuffer)   <link linkend="_stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86">xStreamBufferIsFull</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</computeroutput></para>
+<para><link linkend="_message__buffer_8h">message_buffer.h</link> <literallayout>
+BaseType_t <link linkend="_message__buffer_8h_1a60a7e136b74c2a8ce703a99ef636f179">xMessageBufferIsFull( MessageBufferHandle_t xMessageBuffer )</link> );
+</literallayout></para>
+
+<para>Tests to see if a message buffer is full. A message buffer is full if it cannot accept any more messages, of any size, until space is made available by a message being removed from the message buffer.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xMessageBuffer</entry><entry>
+<para>The handle of the message buffer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the message buffer referenced by xMessageBuffer is full then pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00633">633</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1ae2b56b6564cf2476891394231a31ecad"/><section>
+    <title>xMessageBufferNextLengthBytes</title>
+<indexterm><primary>xMessageBufferNextLengthBytes</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferNextLengthBytes</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferNextLengthBytes( xMessageBuffer)   <link linkend="_stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec">xStreamBufferNextMessageLengthBytes</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer ) <link linkend="_mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</link>;</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00713">713</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12"/><section>
+    <title>xMessageBufferReceive</title>
+<indexterm><primary>xMessageBufferReceive</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferReceive</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferReceive( xMessageBuffer,  pvRxData,  xBufferLengthBytes,  xTicksToWait)   <link linkend="_stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507">xStreamBufferReceive</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00495">495</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a22b1a37d0d4f39acd87250f73d9aab0c"/><section>
+    <title>xMessageBufferReceiveCompletedFromISR</title>
+<indexterm><primary>xMessageBufferReceiveCompletedFromISR</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferReceiveCompletedFromISR</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferReceiveCompletedFromISR( xMessageBuffer,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32">xStreamBufferReceiveCompletedFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pxHigherPriorityTaskWoken )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00792">792</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1adf596c00c44752a3c8c542cc6b5df234"/><section>
+    <title>xMessageBufferReceiveFromISR</title>
+<indexterm><primary>xMessageBufferReceiveFromISR</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferReceiveFromISR</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferReceiveFromISR( xMessageBuffer,  pvRxData,  xBufferLengthBytes,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b">xStreamBufferReceiveFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvRxData, xBufferLengthBytes, pxHigherPriorityTaskWoken )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00596">596</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a6d22ac0fd0463b202f2e22674380a41c"/><section>
+    <title>xMessageBufferReset</title>
+<indexterm><primary>xMessageBufferReset</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferReset</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferReset( xMessageBuffer)   <link linkend="_stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac">xStreamBufferReset</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00672">672</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605"/><section>
+    <title>xMessageBufferSend</title>
+<indexterm><primary>xMessageBufferSend</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferSend</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferSend( xMessageBuffer,  pvTxData,  xDataLengthBytes,  xTicksToWait)   <link linkend="_stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d">xStreamBufferSend</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvTxData, xDataLengthBytes, xTicksToWait )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00303">303</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a45918d12bf530cb2b4bf21c0936460a9"/><section>
+    <title>xMessageBufferSendCompletedFromISR</title>
+<indexterm><primary>xMessageBufferSendCompletedFromISR</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferSendCompletedFromISR</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferSendCompletedFromISR( xMessageBuffer,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23">xStreamBufferSendCompletedFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pxHigherPriorityTaskWoken )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00752">752</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1aeef5b0c4f8c2db6ca2230a8874813e79"/><section>
+    <title>xMessageBufferSendFromISR</title>
+<indexterm><primary>xMessageBufferSendFromISR</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferSendFromISR</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferSendFromISR( xMessageBuffer,  pvTxData,  xDataLengthBytes,  pxHigherPriorityTaskWoken)   <link linkend="_stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44">xStreamBufferSendFromISR</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00407">407</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+<anchor xml:id="_message__buffer_8h_1a9f1e75a283ef603e914e10ae354e5ab8"/><section>
+    <title>xMessageBufferSpaceAvailable</title>
+<indexterm><primary>xMessageBufferSpaceAvailable</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>xMessageBufferSpaceAvailable</secondary></indexterm>
+<para><computeroutput>#define xMessageBufferSpaceAvailable( xMessageBuffer)   <link linkend="_stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d">xStreamBufferSpacesAvailable</link>( ( <link linkend="_stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f">StreamBufferHandle_t</link> ) xMessageBuffer )</computeroutput></para><para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00694">694</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a"/><section>
+    <title>MessageBufferHandle_t</title>
+<indexterm><primary>MessageBufferHandle_t</primary><secondary>message_buffer.h</secondary></indexterm>
+<indexterm><primary>message_buffer.h</primary><secondary>MessageBufferHandle_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_message__buffer_8h_1ae8442d50f3b62d237c40b02742f0209a">MessageBufferHandle_t</link></computeroutput></para>
+<para>Type by which message buffers are referenced. For example, a call to <link linkend="_message__buffer_8h_1a2959cd0e3d2bd20d46908e5c9872be36">xMessageBufferCreate()</link> returns an MessageBufferHandle_t variable that can then be used as a parameter to <link linkend="_message__buffer_8h_1a858f6da6fe24a226c45caf1634ea1605">xMessageBufferSend()</link>, <link linkend="_message__buffer_8h_1af12a227ba511a95cbea5aa81c7f3ba12">xMessageBufferReceive()</link>, etc. </para>
+<para>
+Definition at line <link linkend="_message__buffer_8h_source_1l00078">78</link> of file <link linkend="_message__buffer_8h_source">message_buffer.h</link>.</para>
+</section>
+</section>
+</section>

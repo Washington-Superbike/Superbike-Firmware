@@ -82,7 +82,9 @@ $(function() {
 <code>#include &quot;<a class="el" href="task_8h_source.html">task.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="timers_8h_source.html">timers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="stack__macros_8h_source.html">stack_macros.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="tasks_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtsk_task_control_block.html">tskTaskControlBlock</a></td></tr>
@@ -122,7 +124,7 @@ Macros</h2></td></tr>
 <tr class="separator:a3613b4b66406c8f6cc73e5c3e9f208db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa637612832bcdd420acc9e6cc4361071"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aa637612832bcdd420acc9e6cc4361071">configIDLE_TASK_NAME</a>&#160;&#160;&#160;&quot;IDLE&quot;</td></tr>
 <tr class="separator:aa637612832bcdd420acc9e6cc4361071"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80c883536b1faef436fcd47b16a10f98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a80c883536b1faef436fcd47b16a10f98">taskRECORD_READY_PRIORITY</a>(uxPriority)&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</a>( uxPriority, <a class="el" href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a> )</td></tr>
+<tr class="memitem:a80c883536b1faef436fcd47b16a10f98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a80c883536b1faef436fcd47b16a10f98">taskRECORD_READY_PRIORITY</a>(uxPriority)&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</a>( uxPriority, <a class="el" href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a> )</td></tr>
 <tr class="separator:a80c883536b1faef436fcd47b16a10f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adace394d56a7fe7a8f8ee83edba3537c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#adace394d56a7fe7a8f8ee83edba3537c">taskSELECT_HIGHEST_PRIORITY_TASK</a>()</td></tr>
 <tr class="separator:adace394d56a7fe7a8f8ee83edba3537c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +134,7 @@ Macros</h2></td></tr>
 <tr class="separator:aa604b7713b82e63154a290e21ecf700c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94afc7269fff7c906c5eb0d9d315624b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a94afc7269fff7c906c5eb0d9d315624b">prvAddTaskToReadyList</a>(pxTCB)</td></tr>
 <tr class="separator:a94afc7269fff7c906c5eb0d9d315624b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad910f5e908283f1dfabd642fe1b11c6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad910f5e908283f1dfabd642fe1b11c6b">prvGetTCBFromHandle</a>(pxHandle)&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <a class="el" href="tasks_8c.html#acdecf2afe97343aba42b111bc6df9eea">pxCurrentTCB</a> : ( pxHandle ) )</td></tr>
+<tr class="memitem:ad910f5e908283f1dfabd642fe1b11c6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad910f5e908283f1dfabd642fe1b11c6b">prvGetTCBFromHandle</a>(pxHandle)&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <a class="el" href="tasks_8c.html#a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</a> : ( pxHandle ) )</td></tr>
 <tr class="separator:ad910f5e908283f1dfabd642fe1b11c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e36f3eda563e810a24ab36ee7c978d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a3e36f3eda563e810a24ab36ee7c978d4">taskEVENT_LIST_ITEM_VALUE_IN_USE</a>&#160;&#160;&#160;0x80000000UL</td></tr>
 <tr class="separator:a3e36f3eda563e810a24ab36ee7c978d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,14 +148,32 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0862bc7f1c4295e129a8497d1e10075d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a0862bc7f1c4295e129a8497d1e10075d">prvTaskIsTaskSuspended</a> (const <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTask) <a class="el" href="mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078">PRIVILEGED_FUNCTION</a></td></tr>
-<tr class="separator:a0862bc7f1c4295e129a8497d1e10075d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ceb56c5c7ff2581a5ea837db4f721c1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a1ceb56c5c7ff2581a5ea837db4f721c1">prvInitialiseTaskLists</a> (static void <a class="el" href="tasks_8c.html#a903096c962a2bc907f4b902a7d42302a">prvCheckTasksWaitingTermination</a> void)</td></tr>
-<tr class="separator:a1ceb56c5c7ff2581a5ea837db4f721c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefde0f5ca141ae3d6e25f66a5234082"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#abefde0f5ca141ae3d6e25f66a5234082">prvTaskIsTaskSuspended</a> (const <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTask)</td></tr>
+<tr class="separator:abefde0f5ca141ae3d6e25f66a5234082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a1bd397cb871d893fc24e5f86e4f19"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#af4a1bd397cb871d893fc24e5f86e4f19">prvInitialiseTaskLists</a> (void)</td></tr>
+<tr class="separator:af4a1bd397cb871d893fc24e5f86e4f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0212702c981e5413a318c0346ac37b2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#af0212702c981e5413a318c0346ac37b2">prvIdleTask</a> (void *pvParameters)</td></tr>
+<tr class="separator:af0212702c981e5413a318c0346ac37b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad538c599036f7914942471780230ffa6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad538c599036f7914942471780230ffa6">prvDeleteTCB</a> (<a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *pxTCB)</td></tr>
+<tr class="separator:ad538c599036f7914942471780230ffa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903096c962a2bc907f4b902a7d42302a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a903096c962a2bc907f4b902a7d42302a">prvCheckTasksWaitingTermination</a> (void)</td></tr>
+<tr class="separator:a903096c962a2bc907f4b902a7d42302a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4574e77d9aea876272e563c68f639da"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ab4574e77d9aea876272e563c68f639da">prvAddCurrentTaskToDelayedList</a> (<a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xTicksToWait, const <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xCanBlockIndefinitely)</td></tr>
+<tr class="separator:ab4574e77d9aea876272e563c68f639da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a09ef72cff5e96bdfb4f9e882f4cfe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a76a09ef72cff5e96bdfb4f9e882f4cfe">prvListTasksWithinSingleList</a> (<a class="el" href="task_8h.html#ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</a> *pxTaskStatusArray, <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *pxList, <a class="el" href="task_8h.html#a1749369458e2282a22e862a619a3892c">eTaskState</a> eState)</td></tr>
+<tr class="separator:a76a09ef72cff5e96bdfb4f9e882f4cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2eca63c8d866fff6851e2096881382"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a2a2eca63c8d866fff6851e2096881382">prvSearchForNameWithinSingleList</a> (<a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *pxList, const char pcNameToQuery[])</td></tr>
+<tr class="separator:a2a2eca63c8d866fff6851e2096881382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaba9e72c97964b8d9496e8dbdd40aa60"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aaba9e72c97964b8d9496e8dbdd40aa60">prvTaskCheckFreeStackSpace</a> (const uint8_t *pucStackByte)</td></tr>
+<tr class="separator:aaba9e72c97964b8d9496e8dbdd40aa60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b2e4995f863a99cf980836efe330d7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad1b2e4995f863a99cf980836efe330d7">prvResetNextTaskUnblockTime</a> (void)</td></tr>
+<tr class="separator:ad1b2e4995f863a99cf980836efe330d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c4d7ca7b68c92ae0d62edd7ecdd8e31"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a6c4d7ca7b68c92ae0d62edd7ecdd8e31">prvInitialiseNewTask</a> (<a class="el" href="projdefs_8h.html#a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</a> pxTaskCode, const char *const pcName, const uint32_t ulStackDepth, void *const pvParameters, <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxPriority, <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> *const pxCreatedTask, <a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *pxNewTCB, const <a class="el" href="task_8h.html#abc1e4d1b3f52e2a9101487e1831b992a">MemoryRegion_t</a> *const xRegions)</td></tr>
 <tr class="separator:a6c4d7ca7b68c92ae0d62edd7ecdd8e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a132d136b8d2586e0778ce369e5cb8a1e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a132d136b8d2586e0778ce369e5cb8a1e">prvAddNewTaskToReadyList</a> (<a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *pxNewTCB)</td></tr>
 <tr class="separator:a132d136b8d2586e0778ce369e5cb8a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad138d9dda4709b10d711775fa40eb1a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate</a> (<a class="el" href="projdefs_8h.html#a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</a> pxTaskCode, const char *const pcName, const uint16_t usStackDepth, void *const pvParameters, <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxPriority, <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> *const pxCreatedTask)</td></tr>
+<tr class="separator:ad138d9dda4709b10d711775fa40eb1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9cf8dedc1248f4351d3cb5910e33d7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#af9cf8dedc1248f4351d3cb5910e33d7a">vTaskDelete</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTaskToDelete)</td></tr>
 <tr class="separator:af9cf8dedc1248f4351d3cb5910e33d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbc32467f223c78ba36f577b56a32897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#abbc32467f223c78ba36f577b56a32897">vTaskDelayUntil</a> (<a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> *const pxPreviousWakeTime, const <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xTimeIncrement)</td></tr>
@@ -190,8 +210,6 @@ Functions</h2></td></tr>
 <tr class="separator:a4b660446c721df74158dddb9fc189c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb1be57d03f6f1a3161b69e98df6ccb9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#acb1be57d03f6f1a3161b69e98df6ccb9">pcTaskGetName</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTaskToQuery)</td></tr>
 <tr class="separator:acb1be57d03f6f1a3161b69e98df6ccb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a2eca63c8d866fff6851e2096881382"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a2a2eca63c8d866fff6851e2096881382">prvSearchForNameWithinSingleList</a> (<a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *pxList, const char pcNameToQuery[])</td></tr>
-<tr class="separator:a2a2eca63c8d866fff6851e2096881382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86e945a322943dca5023dc49d1458b0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a86e945a322943dca5023dc49d1458b0c">xTaskGetHandle</a> (const char *pcNameToQuery)</td></tr>
 <tr class="separator:a86e945a322943dca5023dc49d1458b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd92b080086390cae790e5bd74bd018"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a5bd92b080086390cae790e5bd74bd018">uxTaskGetSystemState</a> (<a class="el" href="task_8h.html#ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</a> *const pxTaskStatusArray, const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxArraySize, uint32_t *const pulTotalRunTime)</td></tr>
@@ -222,26 +240,12 @@ Functions</h2></td></tr>
 <tr class="separator:a3d0244e50b0591b64cc05df68ed1217f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19139609bc1895960fcd85613c819a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a19139609bc1895960fcd85613c819a20">vTaskSetTaskNumber</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTask, const <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxHandle)</td></tr>
 <tr class="separator:a19139609bc1895960fcd85613c819a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c7cc58985d41c2cb1b263563dbbaa1"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a36c7cc58985d41c2cb1b263563dbbaa1">portTASK_FUNCTION</a> (prvIdleTask, pvParameters)</td></tr>
-<tr class="separator:a36c7cc58985d41c2cb1b263563dbbaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b1132bc3b01220a1b949c8006af0943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a8b1132bc3b01220a1b949c8006af0943">vTaskSetThreadLocalStoragePointer</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTaskToSet, <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xIndex, void *pvValue)</td></tr>
 <tr class="separator:a8b1132bc3b01220a1b949c8006af0943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c95aced700fe8d9cc12326a3eb0e916"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a7c95aced700fe8d9cc12326a3eb0e916">pvTaskGetThreadLocalStoragePointer</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTaskToQuery, <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xIndex)</td></tr>
 <tr class="separator:a7c95aced700fe8d9cc12326a3eb0e916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4a1bd397cb871d893fc24e5f86e4f19"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#af4a1bd397cb871d893fc24e5f86e4f19">prvInitialiseTaskLists</a> (void)</td></tr>
-<tr class="separator:af4a1bd397cb871d893fc24e5f86e4f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a903096c962a2bc907f4b902a7d42302a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a903096c962a2bc907f4b902a7d42302a">prvCheckTasksWaitingTermination</a> (void)</td></tr>
-<tr class="separator:a903096c962a2bc907f4b902a7d42302a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24b033eee266bdc8c3de63171a543f65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a24b033eee266bdc8c3de63171a543f65">vTaskGetInfo</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTask, <a class="el" href="task_8h.html#ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</a> *pxTaskStatus, <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xGetFreeStackSpace, <a class="el" href="task_8h.html#a1749369458e2282a22e862a619a3892c">eTaskState</a> eState)</td></tr>
 <tr class="separator:a24b033eee266bdc8c3de63171a543f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a09ef72cff5e96bdfb4f9e882f4cfe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a76a09ef72cff5e96bdfb4f9e882f4cfe">prvListTasksWithinSingleList</a> (<a class="el" href="task_8h.html#ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</a> *pxTaskStatusArray, <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *pxList, <a class="el" href="task_8h.html#a1749369458e2282a22e862a619a3892c">eTaskState</a> eState)</td></tr>
-<tr class="separator:a76a09ef72cff5e96bdfb4f9e882f4cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bf2d2e3688a3298cf4c98108e3ecaec"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_free_r_t_o_s_8h.html#ae4e85bffd36d76cf2796092f0ccd784a">configSTACK_DEPTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a4bf2d2e3688a3298cf4c98108e3ecaec">prvTaskCheckFreeStackSpace</a> (const uint8_t *pucStackByte)</td></tr>
-<tr class="separator:a4bf2d2e3688a3298cf4c98108e3ecaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad538c599036f7914942471780230ffa6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad538c599036f7914942471780230ffa6">prvDeleteTCB</a> (<a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *pxTCB)</td></tr>
-<tr class="separator:ad538c599036f7914942471780230ffa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1b2e4995f863a99cf980836efe330d7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad1b2e4995f863a99cf980836efe330d7">prvResetNextTaskUnblockTime</a> (void)</td></tr>
-<tr class="separator:ad1b2e4995f863a99cf980836efe330d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28aaeed93d0de14da726f3a1a8c33251"><td class="memItemLeft" align="right" valign="top"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a28aaeed93d0de14da726f3a1a8c33251">xTaskGetCurrentTaskHandle</a> (void)</td></tr>
 <tr class="separator:a28aaeed93d0de14da726f3a1a8c33251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95ee42e80f8afd6815d4b7080717cd7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a95ee42e80f8afd6815d4b7080717cd7f">xTaskGetSchedulerState</a> (void)</td></tr>
@@ -268,53 +272,51 @@ Functions</h2></td></tr>
 <tr class="separator:a0c31cb4be76285f05909de23ede05331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cb6c908a9d2d733e9d519d7dc27bb34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a4cb6c908a9d2d733e9d519d7dc27bb34">xTaskNotifyStateClear</a> (<a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xTask)</td></tr>
 <tr class="separator:a4cb6c908a9d2d733e9d519d7dc27bb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4574e77d9aea876272e563c68f639da"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ab4574e77d9aea876272e563c68f639da">prvAddCurrentTaskToDelayedList</a> (<a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xTicksToWait, const <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xCanBlockIndefinitely)</td></tr>
-<tr class="separator:ab4574e77d9aea876272e563c68f639da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:acdecf2afe97343aba42b111bc6df9eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#acdecf2afe97343aba42b111bc6df9eea">pxCurrentTCB</a> = NULL</td></tr>
-<tr class="separator:acdecf2afe97343aba42b111bc6df9eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c4a2488f96216742ad8ffff360a98e6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a> [<a class="el" href="_free_r_t_o_s_config__default_8h.html#a9a78f5ac61e6cb172dadf2a51f11db38">configMAX_PRIORITIES</a>]</td></tr>
-<tr class="separator:a7c4a2488f96216742ad8ffff360a98e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa632b40f050382cce625ffb3c2ea8c7a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aa632b40f050382cce625ffb3c2ea8c7a">xDelayedTaskList1</a></td></tr>
-<tr class="separator:aa632b40f050382cce625ffb3c2ea8c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52144ecca109402fbab49fa548175f82"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a52144ecca109402fbab49fa548175f82">xDelayedTaskList2</a></td></tr>
-<tr class="separator:a52144ecca109402fbab49fa548175f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adce0027ea7792541f2851462ac3581a6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#adce0027ea7792541f2851462ac3581a6">pxDelayedTaskList</a></td></tr>
-<tr class="separator:adce0027ea7792541f2851462ac3581a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807ccd06933ebea592c86f91004f85aa"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a807ccd06933ebea592c86f91004f85aa">pxOverflowDelayedTaskList</a></td></tr>
-<tr class="separator:a807ccd06933ebea592c86f91004f85aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0a50cd44e760ae9c7adf77de3e91785"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#af0a50cd44e760ae9c7adf77de3e91785">xPendingReadyList</a></td></tr>
-<tr class="separator:af0a50cd44e760ae9c7adf77de3e91785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0826ca381ebeb426ab3f0f993d4f4a26"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a0826ca381ebeb426ab3f0f993d4f4a26">xTasksWaitingTermination</a></td></tr>
-<tr class="separator:a0826ca381ebeb426ab3f0f993d4f4a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4879a44d8593db97f5409010c0eca6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aa4879a44d8593db97f5409010c0eca6b">uxDeletedTasksWaitingCleanUp</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
-<tr class="separator:aa4879a44d8593db97f5409010c0eca6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50273c44f1f2f9c4810800e1ad50195"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ae50273c44f1f2f9c4810800e1ad50195">xSuspendedTaskList</a></td></tr>
-<tr class="separator:ae50273c44f1f2f9c4810800e1ad50195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7afbe7f26cb6bef5c4e367d5a6550c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#adb7afbe7f26cb6bef5c4e367d5a6550c">uxCurrentNumberOfTasks</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
-<tr class="separator:adb7afbe7f26cb6bef5c4e367d5a6550c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98b55fbbd701ac74b2b6ab1ffc8d5a65"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a98b55fbbd701ac74b2b6ab1ffc8d5a65">xTickCount</a> = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) <a class="el" href="_free_r_t_o_s_8h.html#ae52c1acd13b26e8758dc66b60b0e3417">configINITIAL_TICK_COUNT</a></td></tr>
-<tr class="separator:a98b55fbbd701ac74b2b6ab1ffc8d5a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa63dabfd96985451f96aaf74c2293642"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a> = <a class="el" href="task_8h.html#a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</a></td></tr>
-<tr class="separator:aa63dabfd96985451f96aaf74c2293642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc51acc8c40b26506a2a05aae91593fd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#adc51acc8c40b26506a2a05aae91593fd">xSchedulerRunning</a> = <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td></tr>
-<tr class="separator:adc51acc8c40b26506a2a05aae91593fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed99f1aacc35d35bbf098f7d4ad30c19"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aed99f1aacc35d35bbf098f7d4ad30c19">uxPendedTicks</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
-<tr class="separator:aed99f1aacc35d35bbf098f7d4ad30c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a228b369b272bd560709d52837b3ac48c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a228b369b272bd560709d52837b3ac48c">xYieldPending</a> = <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td></tr>
-<tr class="separator:a228b369b272bd560709d52837b3ac48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba03b8cb535f03f1921f11868c98b0ef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aba03b8cb535f03f1921f11868c98b0ef">xNumOfOverflows</a> = ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0</td></tr>
-<tr class="separator:aba03b8cb535f03f1921f11868c98b0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43097b97496231e1af2dff1fac62bcc6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a43097b97496231e1af2dff1fac62bcc6">uxTaskNumber</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
-<tr class="separator:a43097b97496231e1af2dff1fac62bcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9869547a39abae93ce9ad092d580445"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ac9869547a39abae93ce9ad092d580445">xNextTaskUnblockTime</a> = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0U</td></tr>
-<tr class="separator:ac9869547a39abae93ce9ad092d580445"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90c8a23419d8fa71919e020c433f1a6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ac90c8a23419d8fa71919e020c433f1a6">xIdleTaskHandle</a> = NULL</td></tr>
-<tr class="separator:ac90c8a23419d8fa71919e020c433f1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac177740d1c0f453ad4ee8b96183bc666"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ac177740d1c0f453ad4ee8b96183bc666">uxSchedulerSuspended</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td></tr>
-<tr class="separator:ac177740d1c0f453ad4ee8b96183bc666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2284b749c9706d04510853bd8e8f91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</a> = NULL</td></tr>
+<tr class="separator:a1f2284b749c9706d04510853bd8e8f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a8345f8c340d07086342c0dd92c972"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a> [(10)]</td></tr>
+<tr class="separator:ab4a8345f8c340d07086342c0dd92c972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07888d97f0712ee0b671b295c03ad19d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a07888d97f0712ee0b671b295c03ad19d">xDelayedTaskList1</a></td></tr>
+<tr class="separator:a07888d97f0712ee0b671b295c03ad19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa53d90340a8a11b958e385cd170b8c6d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aa53d90340a8a11b958e385cd170b8c6d">xDelayedTaskList2</a></td></tr>
+<tr class="separator:aa53d90340a8a11b958e385cd170b8c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30b4b716a99940e93fc9d4a13c1f81db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</a></td></tr>
+<tr class="separator:a30b4b716a99940e93fc9d4a13c1f81db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae5cac9860aec54036f49920561a9705"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> *volatile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</a></td></tr>
+<tr class="separator:aae5cac9860aec54036f49920561a9705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73880e71e7ed72242d1a078685107421"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a73880e71e7ed72242d1a078685107421">xPendingReadyList</a></td></tr>
+<tr class="separator:a73880e71e7ed72242d1a078685107421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5346b64d3da2ce013224df5f403005"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a9d5346b64d3da2ce013224df5f403005">xTasksWaitingTermination</a></td></tr>
+<tr class="separator:a9d5346b64d3da2ce013224df5f403005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31bb9fd9a09cc9045861dd458f54615"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ad31bb9fd9a09cc9045861dd458f54615">uxDeletedTasksWaitingCleanUp</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
+<tr class="separator:ad31bb9fd9a09cc9045861dd458f54615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeff59d101a1407ffc42f81fda83baca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aeeff59d101a1407ffc42f81fda83baca">xSuspendedTaskList</a></td></tr>
+<tr class="separator:aeeff59d101a1407ffc42f81fda83baca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54edd210c179ef9d185f5ebb020eaa5a"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a54edd210c179ef9d185f5ebb020eaa5a">uxCurrentNumberOfTasks</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
+<tr class="separator:a54edd210c179ef9d185f5ebb020eaa5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa88969a9b48aea401dbb1ff2b0ef4de"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#aaa88969a9b48aea401dbb1ff2b0ef4de">xTickCount</a> = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0</td></tr>
+<tr class="separator:aaa88969a9b48aea401dbb1ff2b0ef4de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fffd96ac9ae0d8b352ae10896ed4531"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a> = ( ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U )</td></tr>
+<tr class="separator:a3fffd96ac9ae0d8b352ae10896ed4531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1799bfbb95c907794761d18bd75faff5"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a1799bfbb95c907794761d18bd75faff5">xSchedulerRunning</a> = ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td></tr>
+<tr class="separator:a1799bfbb95c907794761d18bd75faff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a476a5b10aeb0bf39d29d6baccbc26f56"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a476a5b10aeb0bf39d29d6baccbc26f56">uxPendedTicks</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
+<tr class="separator:a476a5b10aeb0bf39d29d6baccbc26f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25abc99b92e910c1602028081e13b1b0"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a25abc99b92e910c1602028081e13b1b0">xYieldPending</a> = ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td></tr>
+<tr class="separator:a25abc99b92e910c1602028081e13b1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab278ffe04bd2e0cdf4acdabdd7692306"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ab278ffe04bd2e0cdf4acdabdd7692306">xNumOfOverflows</a> = ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0</td></tr>
+<tr class="separator:ab278ffe04bd2e0cdf4acdabdd7692306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47256f539ed98e54c6e5b025ccc68279"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a47256f539ed98e54c6e5b025ccc68279">uxTaskNumber</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td></tr>
+<tr class="separator:a47256f539ed98e54c6e5b025ccc68279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27aa725d8922f33f880005e72edec68"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ac27aa725d8922f33f880005e72edec68">xNextTaskUnblockTime</a> = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0U</td></tr>
+<tr class="separator:ac27aa725d8922f33f880005e72edec68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1afeb7ccc3b00411775f107e31134ad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#ab1afeb7ccc3b00411775f107e31134ad">xIdleTaskHandle</a> = NULL</td></tr>
+<tr class="separator:ab1afeb7ccc3b00411775f107e31134ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7522707fcf80b216e3a5b25ba464ec85"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8c.html#a7522707fcf80b216e3a5b25ba464ec85">uxSchedulerSuspended</a> = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td></tr>
+<tr class="separator:a7522707fcf80b216e3a5b25ba464ec85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aa637612832bcdd420acc9e6cc4361071" name="aa637612832bcdd420acc9e6cc4361071"></a>
@@ -329,6 +331,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00112">112</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ab622d8c674f2a417a666a7ed89109e79" name="ab622d8c674f2a417a666a7ed89109e79"></a>
@@ -342,6 +346,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00035">35</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -362,11 +368,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="_free_r_t_o_s_8h.html#a8c5050de556ff7e7cdbc7de55f46709d">traceMOVED_TASK_TO_READY_STATE</a>( pxTCB );                                                        \</div>
 <div class="line">    taskRECORD_READY_PRIORITY( ( pxTCB )-&gt;uxPriority );                                             \</div>
-<div class="line">    vListInsertEnd( &amp;( <a class="code hl_variable" href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a>[ ( pxTCB )-&gt;uxPriority ] ), &amp;( ( pxTCB )-&gt;xStateListItem ) ); \</div>
+<div class="line">    vListInsertEnd( &amp;( <a class="code hl_variable" href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a>[ ( pxTCB )-&gt;uxPriority ] ), &amp;( ( pxTCB )-&gt;xStateListItem ) ); \</div>
 <div class="line">    tracePOST_MOVED_TASK_TO_READY_STATE( pxTCB )</div>
-<div class="ttc" id="a_free_r_t_o_s_8h_html_a8c5050de556ff7e7cdbc7de55f46709d"><div class="ttname"><a href="_free_r_t_o_s_8h.html#a8c5050de556ff7e7cdbc7de55f46709d">traceMOVED_TASK_TO_READY_STATE</a></div><div class="ttdeci">#define traceMOVED_TASK_TO_READY_STATE(pxTCB)</div><div class="ttdef"><b>Definition:</b> FreeRTOS.h:388</div></div>
-<div class="ttc" id="atasks_8c_html_a7c4a2488f96216742ad8ffff360a98e6"><div class="ttname"><a href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a></div><div class="ttdeci">static PRIVILEGED_DATA List_t pxReadyTasksLists[configMAX_PRIORITIES]</div><div class="ttdef"><b>Definition:</b> tasks.c:340</div></div>
+<div class="ttc" id="a_free_r_t_o_s_8h_html_a8c5050de556ff7e7cdbc7de55f46709d"><div class="ttname"><a href="_free_r_t_o_s_8h.html#a8c5050de556ff7e7cdbc7de55f46709d">traceMOVED_TASK_TO_READY_STATE</a></div><div class="ttdeci">#define traceMOVED_TASK_TO_READY_STATE(pxTCB)</div><div class="ttdef"><b>Definition:</b> <a href="_free_r_t_o_s_8h_source.html#l00388">FreeRTOS.h:388</a></div></div>
+<div class="ttc" id="atasks_8c_html_ab4a8345f8c340d07086342c0dd92c972"><div class="ttname"><a href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a></div><div class="ttdeci">static List_t pxReadyTasksLists[(10)]</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l00340">tasks.c:340</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00218">218</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad910f5e908283f1dfabd642fe1b11c6b" name="ad910f5e908283f1dfabd642fe1b11c6b"></a>
@@ -380,10 +388,12 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">pxHandle</td><td>)</td>
-          <td>&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <a class="el" href="tasks_8c.html#acdecf2afe97343aba42b111bc6df9eea">pxCurrentTCB</a> : ( pxHandle ) )</td>
+          <td>&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <a class="el" href="tasks_8c.html#a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</a> : ( pxHandle ) )</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00231">231</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -399,6 +409,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00244">244</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a4f2f023143b2cd2367a441e104f8cf2c" name="a4f2f023143b2cd2367a441e104f8cf2c"></a>
@@ -412,6 +424,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00068">68</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -427,6 +441,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00070">70</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a80c883536b1faef436fcd47b16a10f98" name="a80c883536b1faef436fcd47b16a10f98"></a>
@@ -440,10 +456,12 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">uxPriority</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</a>( uxPriority, <a class="el" href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a> )</td>
+          <td>&#160;&#160;&#160;<a class="el" href="portmacro_8h.html#a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</a>( uxPriority, <a class="el" href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a> )</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00165">165</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -463,15 +481,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    {                                                                                                   \</div>
-<div class="line">        if( <a class="code hl_define" href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a>( &amp;( <a class="code hl_variable" href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a>[ ( uxPriority ) ] ) ) == ( <a class="code hl_typedef" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0 )  \</div>
+<div class="line">        if( <a class="code hl_define" href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a>( &amp;( <a class="code hl_variable" href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a>[ ( uxPriority ) ] ) ) == ( <a class="code hl_typedef" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0 )  \</div>
 <div class="line">        {                                                                                               \</div>
-<div class="line">            portRESET_READY_PRIORITY( ( uxPriority ), ( <a class="code hl_variable" href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a> ) );                         \</div>
+<div class="line">            portRESET_READY_PRIORITY( ( uxPriority ), ( <a class="code hl_variable" href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a> ) );                         \</div>
 <div class="line">        }                                                                                               \</div>
 <div class="line">    }</div>
-<div class="ttc" id="alist_8h_html_a18b4aded515bdc512017ea6e677a13bb"><div class="ttname"><a href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a></div><div class="ttdeci">#define listCURRENT_LIST_LENGTH(pxList)</div><div class="ttdef"><b>Definition:</b> list.h:255</div></div>
-<div class="ttc" id="aportmacro_8h_html_a646f89d4298e4f5afd522202b11cb2e6"><div class="ttname"><a href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></div><div class="ttdeci">unsigned long UBaseType_t</div><div class="ttdef"><b>Definition:</b> portmacro.h:57</div></div>
-<div class="ttc" id="atasks_8c_html_aa63dabfd96985451f96aaf74c2293642"><div class="ttname"><a href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a></div><div class="ttdeci">static PRIVILEGED_DATA volatile UBaseType_t uxTopReadyPriority</div><div class="ttdef"><b>Definition:</b> tasks.c:369</div></div>
+<div class="ttc" id="alist_8h_html_a18b4aded515bdc512017ea6e677a13bb"><div class="ttname"><a href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a></div><div class="ttdeci">#define listCURRENT_LIST_LENGTH(pxList)</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00255">list.h:255</a></div></div>
+<div class="ttc" id="aportmacro_8h_html_a646f89d4298e4f5afd522202b11cb2e6"><div class="ttname"><a href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a></div><div class="ttdeci">unsigned long UBaseType_t</div><div class="ttdef"><b>Definition:</b> <a href="portmacro_8h_source.html#l00057">portmacro.h:57</a></div></div>
+<div class="ttc" id="atasks_8c_html_a3fffd96ac9ae0d8b352ae10896ed4531"><div class="ttname"><a href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a></div><div class="ttdeci">static volatile UBaseType_t uxTopReadyPriority</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l00369">tasks.c:369</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00184">184</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="adace394d56a7fe7a8f8ee83edba3537c" name="adace394d56a7fe7a8f8ee83edba3537c"></a>
@@ -492,12 +512,14 @@ Variables</h2></td></tr>
 <div class="line">    UBaseType_t uxTopPriority;                                                                      \</div>
 <div class="line">                                                                                                    \</div>
 <div class="line">        <span class="comment">/* Find the highest priority list that contains ready tasks. */</span>                             \</div>
-<div class="line">        portGET_HIGHEST_PRIORITY( uxTopPriority, <a class="code hl_variable" href="tasks_8c.html#aa63dabfd96985451f96aaf74c2293642">uxTopReadyPriority</a> );                              \</div>
-<div class="line">        configASSERT( <a class="code hl_define" href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a>( &amp;( <a class="code hl_variable" href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a>[ uxTopPriority ] ) ) &gt; 0 );     \</div>
-<div class="line">        listGET_OWNER_OF_NEXT_ENTRY( <a class="code hl_variable" href="tasks_8c.html#acdecf2afe97343aba42b111bc6df9eea">pxCurrentTCB</a>, &amp;( <a class="code hl_variable" href="tasks_8c.html#a7c4a2488f96216742ad8ffff360a98e6">pxReadyTasksLists</a>[ uxTopPriority ] ) );       \</div>
+<div class="line">        portGET_HIGHEST_PRIORITY( uxTopPriority, <a class="code hl_variable" href="tasks_8c.html#a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</a> );                              \</div>
+<div class="line">        configASSERT( <a class="code hl_define" href="list_8h.html#a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</a>( &amp;( <a class="code hl_variable" href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a>[ uxTopPriority ] ) ) &gt; 0 );     \</div>
+<div class="line">        listGET_OWNER_OF_NEXT_ENTRY( <a class="code hl_variable" href="tasks_8c.html#a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</a>, &amp;( <a class="code hl_variable" href="tasks_8c.html#ab4a8345f8c340d07086342c0dd92c972">pxReadyTasksLists</a>[ uxTopPriority ] ) );       \</div>
 <div class="line">    } <span class="comment">/* taskSELECT_HIGHEST_PRIORITY_TASK() */</span></div>
-<div class="ttc" id="atasks_8c_html_acdecf2afe97343aba42b111bc6df9eea"><div class="ttname"><a href="tasks_8c.html#acdecf2afe97343aba42b111bc6df9eea">pxCurrentTCB</a></div><div class="ttdeci">PRIVILEGED_DATA TCB_t *volatile pxCurrentTCB</div><div class="ttdef"><b>Definition:</b> tasks.c:334</div></div>
+<div class="ttc" id="atasks_8c_html_a1f2284b749c9706d04510853bd8e8f91"><div class="ttname"><a href="tasks_8c.html#a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</a></div><div class="ttdeci">TCB_t *volatile pxCurrentTCB</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l00334">tasks.c:334</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00169">169</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="aa604b7713b82e63154a290e21ecf700c" name="aa604b7713b82e63154a290e21ecf700c"></a>
@@ -518,18 +540,20 @@ Variables</h2></td></tr>
 <div class="line">    List_t *pxTemp;                                                                                 \</div>
 <div class="line">                                                                                                    \</div>
 <div class="line">    <span class="comment">/* The delayed tasks list should be empty when the lists are switched. */</span>                       \</div>
-<div class="line">    configASSERT( ( <a class="code hl_define" href="list_8h.html#aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</a>( <a class="code hl_variable" href="tasks_8c.html#adce0027ea7792541f2851462ac3581a6">pxDelayedTaskList</a> ) ) );                                     \</div>
+<div class="line">    configASSERT( ( <a class="code hl_define" href="list_8h.html#aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</a>( <a class="code hl_variable" href="tasks_8c.html#a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</a> ) ) );                                     \</div>
 <div class="line">                                                                                                    \</div>
-<div class="line">    pxTemp = <a class="code hl_variable" href="tasks_8c.html#adce0027ea7792541f2851462ac3581a6">pxDelayedTaskList</a>;                                                                     \</div>
-<div class="line">    pxDelayedTaskList = <a class="code hl_variable" href="tasks_8c.html#a807ccd06933ebea592c86f91004f85aa">pxOverflowDelayedTaskList</a>;                                                  \</div>
+<div class="line">    pxTemp = <a class="code hl_variable" href="tasks_8c.html#a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</a>;                                                                     \</div>
+<div class="line">    pxDelayedTaskList = <a class="code hl_variable" href="tasks_8c.html#aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</a>;                                                  \</div>
 <div class="line">    pxOverflowDelayedTaskList = pxTemp;                                                             \</div>
 <div class="line">    xNumOfOverflows++;                                                                              \</div>
 <div class="line">    prvResetNextTaskUnblockTime();                                                                  \</div>
 <div class="line">}</div>
-<div class="ttc" id="alist_8h_html_aaba6eb05d67ebc8026bea29193eca28f"><div class="ttname"><a href="list_8h.html#aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</a></div><div class="ttdeci">#define listLIST_IS_EMPTY(pxList)</div><div class="ttdef"><b>Definition:</b> list.h:250</div></div>
-<div class="ttc" id="atasks_8c_html_a807ccd06933ebea592c86f91004f85aa"><div class="ttname"><a href="tasks_8c.html#a807ccd06933ebea592c86f91004f85aa">pxOverflowDelayedTaskList</a></div><div class="ttdeci">static PRIVILEGED_DATA List_t *volatile pxOverflowDelayedTaskList</div><div class="ttdef"><b>Definition:</b> tasks.c:344</div></div>
-<div class="ttc" id="atasks_8c_html_adce0027ea7792541f2851462ac3581a6"><div class="ttname"><a href="tasks_8c.html#adce0027ea7792541f2851462ac3581a6">pxDelayedTaskList</a></div><div class="ttdeci">static PRIVILEGED_DATA List_t *volatile pxDelayedTaskList</div><div class="ttdef"><b>Definition:</b> tasks.c:343</div></div>
+<div class="ttc" id="alist_8h_html_aaba6eb05d67ebc8026bea29193eca28f"><div class="ttname"><a href="list_8h.html#aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</a></div><div class="ttdeci">#define listLIST_IS_EMPTY(pxList)</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00250">list.h:250</a></div></div>
+<div class="ttc" id="atasks_8c_html_a30b4b716a99940e93fc9d4a13c1f81db"><div class="ttname"><a href="tasks_8c.html#a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</a></div><div class="ttdeci">static List_t *volatile pxDelayedTaskList</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l00343">tasks.c:343</a></div></div>
+<div class="ttc" id="atasks_8c_html_aae5cac9860aec54036f49920561a9705"><div class="ttname"><a href="tasks_8c.html#aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</a></div><div class="ttdeci">static List_t *volatile pxOverflowDelayedTaskList</div><div class="ttdef"><b>Definition:</b> <a href="tasks_8c_source.html#l00344">tasks.c:344</a></div></div>
 </div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00198">198</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="acee66205293e253c13626e74798a0cf0" name="acee66205293e253c13626e74798a0cf0"></a>
@@ -543,6 +567,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00069">69</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -561,6 +587,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00064">64</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a4cd87df39bdffff557d06f4ff15a30b0" name="a4cd87df39bdffff557d06f4ff15a30b0"></a>
@@ -574,6 +602,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00096">96</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -589,6 +619,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00098">98</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="af06a1633d2fb92f67712e62f3d1c3777" name="af06a1633d2fb92f67712e62f3d1c3777"></a>
@@ -602,6 +634,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00079">79</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -617,6 +651,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00097">97</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a13f2f32dab5dee7a9b2c848c88ef9bcc" name="a13f2f32dab5dee7a9b2c848c88ef9bcc"></a>
@@ -630,6 +666,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00095">95</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -645,6 +683,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00087">87</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad3b1c99066f14855be098ccca1685fac" name="ad3b1c99066f14855be098ccca1685fac"></a>
@@ -658,6 +698,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00076">76</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -673,6 +715,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00081">81</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad65be2320d426aca4e0e72d29ccd04de" name="ad65be2320d426aca4e0e72d29ccd04de"></a>
@@ -686,6 +730,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00080">80</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -701,6 +747,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00099">99</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -715,6 +763,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00330">330</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -758,6 +808,8 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The state of xTask at the time the function was called. Note the state of the task might change between the function being called, and the functions return value being tested by the calling task. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01378">1378</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="acb1be57d03f6f1a3161b69e98df6ccb9" name="acb1be57d03f6f1a3161b69e98df6ccb9"></a>
@@ -776,42 +828,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a36c7cc58985d41c2cb1b263563dbbaa1" name="a36c7cc58985d41c2cb1b263563dbbaa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36c7cc58985d41c2cb1b263563dbbaa1">&#9670;&nbsp;</a></span>portTASK_FUNCTION()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static portTASK_FUNCTION </td>
-          <td>(</td>
-          <td class="paramtype">prvIdleTask&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">pvParameters&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >THIS IS THE RTOS IDLE TASK - WHICH IS CREATED AUTOMATICALLY WHEN THE SCHEDULER IS STARTED.</p>
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02337">2337</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -849,6 +866,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l05081">5081</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a132d136b8d2586e0778ce369e5cb8a1e" name="a132d136b8d2586e0778ce369e5cb8a1e"></a>
@@ -874,6 +893,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01072">1072</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -902,6 +923,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p >THIS FUNCTION IS CALLED FROM THE RTOS IDLE TASK</p>
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03578">3578</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad538c599036f7914942471780230ffa6" name="ad538c599036f7914942471780230ffa6"></a>
@@ -927,6 +950,37 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03826">3826</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
+</div>
+</div>
+<a id="af0212702c981e5413a318c0346ac37b2" name="af0212702c981e5413a318c0346ac37b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0212702c981e5413a318c0346ac37b2">&#9670;&nbsp;</a></span>prvIdleTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void prvIdleTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pvParameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >THIS IS THE RTOS IDLE TASK - WHICH IS CREATED AUTOMATICALLY WHEN THE SCHEDULER IS STARTED.</p>
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03333">3333</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1000,36 +1054,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a1ceb56c5c7ff2581a5ea837db4f721c1" name="a1ceb56c5c7ff2581a5ea837db4f721c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ceb56c5c7ff2581a5ea837db4f721c1">&#9670;&nbsp;</a></span>prvInitialiseTaskLists() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void prvInitialiseTaskLists </td>
-          <td>(</td>
-          <td class="paramtype">static void <a class="el" href="tasks_8c.html#a903096c962a2bc907f4b902a7d42302a">prvCheckTasksWaitingTermination</a>&#160;</td>
-          <td class="paramname"><em>void</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00821">821</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
 <a id="af4a1bd397cb871d893fc24e5f86e4f19" name="af4a1bd397cb871d893fc24e5f86e4f19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4a1bd397cb871d893fc24e5f86e4f19">&#9670;&nbsp;</a></span>prvInitialiseTaskLists() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a1bd397cb871d893fc24e5f86e4f19">&#9670;&nbsp;</a></span>prvInitialiseTaskLists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1051,6 +1081,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03546">3546</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1094,6 +1126,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03705">3705</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad1b2e4995f863a99cf980836efe330d7" name="ad1b2e4995f863a99cf980836efe330d7"></a>
@@ -1119,6 +1153,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03880">3880</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1156,10 +1192,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02351">2351</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a4bf2d2e3688a3298cf4c98108e3ecaec" name="a4bf2d2e3688a3298cf4c98108e3ecaec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bf2d2e3688a3298cf4c98108e3ecaec">&#9670;&nbsp;</a></span>prvTaskCheckFreeStackSpace()</h2>
+<a id="aaba9e72c97964b8d9496e8dbdd40aa60" name="aaba9e72c97964b8d9496e8dbdd40aa60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaba9e72c97964b8d9496e8dbdd40aa60">&#9670;&nbsp;</a></span>prvTaskCheckFreeStackSpace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1168,7 +1206,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="_free_r_t_o_s_8h.html#ae4e85bffd36d76cf2796092f0ccd784a">configSTACK_DEPTH_TYPE</a> prvTaskCheckFreeStackSpace </td>
+          <td class="memname">static uint16_t prvTaskCheckFreeStackSpace </td>
           <td>(</td>
           <td class="paramtype">const uint8_t *&#160;</td>
           <td class="paramname"><em>pucStackByte</em></td><td>)</td>
@@ -1182,10 +1220,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03738">3738</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a0862bc7f1c4295e129a8497d1e10075d" name="a0862bc7f1c4295e129a8497d1e10075d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0862bc7f1c4295e129a8497d1e10075d">&#9670;&nbsp;</a></span>prvTaskIsTaskSuspended()</h2>
+<a id="abefde0f5ca141ae3d6e25f66a5234082" name="abefde0f5ca141ae3d6e25f66a5234082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefde0f5ca141ae3d6e25f66a5234082">&#9670;&nbsp;</a></span>prvTaskIsTaskSuspended()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1208,6 +1248,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >Utility task that simply returns pdTRUE if the task referenced by xTask is currently in the Suspended state, or pdFALSE if the task referenced by xTask is in any other state. </p>
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01797">1797</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1237,6 +1279,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03509">3509</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a9ccf2385d919ea110e39b7b3420bec0d" name="a9ccf2385d919ea110e39b7b3420bec0d"></a>
@@ -1254,6 +1298,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04549">4549</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1283,6 +1329,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04566">4566</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a4b660446c721df74158dddb9fc189c1e" name="a4b660446c721df74158dddb9fc189c1e"></a>
@@ -1300,6 +1348,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02329">2329</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1407,6 +1457,8 @@ Variables</h2></td></tr>
     }
  }
  </pre> 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02484">2484</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a3d0244e50b0591b64cc05df68ed1217f" name="a3d0244e50b0591b64cc05df68ed1217f"></a>
@@ -1425,6 +1477,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03286">3286</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a30334556d57da4f2bc8faf60dfa5b63b" name="a30334556d57da4f2bc8faf60dfa5b63b"></a>
@@ -1442,6 +1496,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01470">1470</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1462,6 +1518,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p >task. h </p><pre>UBaseType_t <a class="el" href="task_8h.html#a772bdcb1ae3cb58b0f12a172357f4a06">uxTaskPriorityGetFromISR( const TaskHandle_t xTask )</a>;</pre><p >A version of <a class="el" href="task_8h.html#a18d1148c845f5c4bff3b9e5b2077e058">uxTaskPriorityGet()</a> that can be used from an ISR. </p>
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01492">1492</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a7ffe39eff8b9037b2de04f15a10ba717" name="a7ffe39eff8b9037b2de04f15a10ba717"></a>
@@ -1480,6 +1538,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04533">4533</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a9917b05abb77e75e959151ae67065dce" name="a9917b05abb77e75e959151ae67065dce"></a>
@@ -1497,6 +1557,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01333">1333</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1526,6 +1588,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01249">1249</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="af9cf8dedc1248f4351d3cb5910e33d7a" name="af9cf8dedc1248f4351d3cb5910e33d7a"></a>
@@ -1544,6 +1608,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01157">1157</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="aeadc53d3d0d0ea3a6c7702a9eacbf452" name="aeadc53d3d0d0ea3a6c7702a9eacbf452"></a>
@@ -1561,6 +1627,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02089">2089</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1602,6 +1670,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03609">3609</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a91fbc7c4b65e32fae51b7d43ebdcb131" name="a91fbc7c4b65e32fae51b7d43ebdcb131"></a>
@@ -1620,6 +1690,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03207">3207</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a33c369f5f08ab96659f94093fdb985af" name="a33c369f5f08ab96659f94093fdb985af"></a>
@@ -1637,6 +1709,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03278">3278</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1666,6 +1740,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04957">4957</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="adc9eb47ceecf7dd7ee325bebff9eafc5" name="adc9eb47ceecf7dd7ee325bebff9eafc5"></a>
@@ -1693,6 +1769,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03019">3019</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1728,6 +1806,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03062">3062</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a0896d9cd10d789ef8dbb95c4959c3ce5" name="a0896d9cd10d789ef8dbb95c4959c3ce5"></a>
@@ -1762,6 +1842,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03036">3036</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a8d317cbb8311a0f572dbee9fe35ab01d" name="a8d317cbb8311a0f572dbee9fe35ab01d"></a>
@@ -1789,6 +1871,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04118">4118</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1818,6 +1902,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01532">1532</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a82d239ddcdd2d68abe14789b1257b11f" name="a82d239ddcdd2d68abe14789b1257b11f"></a>
@@ -1846,6 +1932,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03161">3161</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad8abaa814e2cfc4830c276415d0935bb" name="ad8abaa814e2cfc4830c276415d0935bb"></a>
@@ -1863,6 +1951,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01843">1843</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1891,6 +1981,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03309">3309</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1926,6 +2018,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03493">3493</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a5dfb2b9e41fb002318d9c55452a91c83" name="a5dfb2b9e41fb002318d9c55452a91c83"></a>
@@ -1943,6 +2037,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03195">3195</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1962,6 +2058,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01967">1967</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a7fa54417f854974ae4a2b38729b60f12" name="a7fa54417f854974ae4a2b38729b60f12"></a>
@@ -1979,6 +2077,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01696">1696</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -1998,6 +2098,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02100">2100</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a9c86137bc3c1cbffc39fff22627cb885" name="a9c86137bc3c1cbffc39fff22627cb885"></a>
@@ -2015,6 +2117,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02946">2946</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2043,6 +2147,62 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03215">3215</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
+</div>
+</div>
+<a id="ad138d9dda4709b10d711775fa40eb1a1" name="ad138d9dda4709b10d711775fa40eb1a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad138d9dda4709b10d711775fa40eb1a1">&#9670;&nbsp;</a></span>xTaskCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xTaskCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projdefs_8h.html#a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</a>&#160;</td>
+          <td class="paramname"><em>pxTaskCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>pcName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>usStackDepth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>pvParameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a>&#160;</td>
+          <td class="paramname"><em>uxPriority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> *const&#160;</td>
+          <td class="paramname"><em>pxCreatedTask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00730">730</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2083,6 +2243,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04714">4714</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2130,6 +2292,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04828">4828</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a28aaeed93d0de14da726f3a1a8c33251" name="a28aaeed93d0de14da726f3a1a8c33251"></a>
@@ -2147,6 +2311,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03906">3906</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2166,6 +2332,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02419">2419</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a95ee42e80f8afd6815d4b7080717cd7f" name="a95ee42e80f8afd6815d4b7080717cd7f"></a>
@@ -2183,6 +2351,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03923">3923</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2202,6 +2372,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02283">2283</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="ad58fd766b8f438b5703276f585738762" name="ad58fd766b8f438b5703276f585738762"></a>
@@ -2219,6 +2391,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02298">2298</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2238,6 +2412,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02664">2664</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a4cb6c908a9d2d733e9d519d7dc27bb34" name="a4cb6c908a9d2d733e9d519d7dc27bb34"></a>
@@ -2255,6 +2431,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l05044">5044</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2296,6 +2474,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04634">4634</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a5d3cae31dc49e7c8d552e7e16b226379" name="a5d3cae31dc49e7c8d552e7e16b226379"></a>
@@ -2313,6 +2493,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l04038">4038</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2332,6 +2514,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03951">3951</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a6d21c9054b62d8bc1bfb2724e11578d9" name="a6d21c9054b62d8bc1bfb2724e11578d9"></a>
@@ -2349,6 +2533,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l03093">3093</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>
@@ -2368,6 +2554,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l02173">2173</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <a id="a17fb13e7325d9dee9dec76f4a736138b" name="a17fb13e7325d9dee9dec76f4a736138b"></a>
@@ -2386,25 +2574,29 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l01897">1897</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="acdecf2afe97343aba42b111bc6df9eea" name="acdecf2afe97343aba42b111bc6df9eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdecf2afe97343aba42b111bc6df9eea">&#9670;&nbsp;</a></span>pxCurrentTCB</h2>
+<a id="a1f2284b749c9706d04510853bd8e8f91" name="a1f2284b749c9706d04510853bd8e8f91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2284b749c9706d04510853bd8e8f91">&#9670;&nbsp;</a></span>pxCurrentTCB</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a>* volatile pxCurrentTCB = NULL</td>
+          <td class="memname"><a class="el" href="tasks_8c.html#aa3c2dda92a6dc22860bbdb36e42a0453">TCB_t</a>* volatile pxCurrentTCB = NULL</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00334">334</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="adce0027ea7792541f2851462ac3581a6" name="adce0027ea7792541f2851462ac3581a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce0027ea7792541f2851462ac3581a6">&#9670;&nbsp;</a></span>pxDelayedTaskList</h2>
+<a id="a30b4b716a99940e93fc9d4a13c1f81db" name="a30b4b716a99940e93fc9d4a13c1f81db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b4b716a99940e93fc9d4a13c1f81db">&#9670;&nbsp;</a></span>pxDelayedTaskList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2413,7 +2605,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>* volatile pxDelayedTaskList</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>* volatile pxDelayedTaskList</td>
         </tr>
       </table>
   </td>
@@ -2423,10 +2615,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00343">343</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a807ccd06933ebea592c86f91004f85aa" name="a807ccd06933ebea592c86f91004f85aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807ccd06933ebea592c86f91004f85aa">&#9670;&nbsp;</a></span>pxOverflowDelayedTaskList</h2>
+<a id="aae5cac9860aec54036f49920561a9705" name="aae5cac9860aec54036f49920561a9705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae5cac9860aec54036f49920561a9705">&#9670;&nbsp;</a></span>pxOverflowDelayedTaskList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2435,7 +2629,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>* volatile pxOverflowDelayedTaskList</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a>* volatile pxOverflowDelayedTaskList</td>
         </tr>
       </table>
   </td>
@@ -2445,10 +2639,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00344">344</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a7c4a2488f96216742ad8ffff360a98e6" name="a7c4a2488f96216742ad8ffff360a98e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c4a2488f96216742ad8ffff360a98e6">&#9670;&nbsp;</a></span>pxReadyTasksLists</h2>
+<a id="ab4a8345f8c340d07086342c0dd92c972" name="ab4a8345f8c340d07086342c0dd92c972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a8345f8c340d07086342c0dd92c972">&#9670;&nbsp;</a></span>pxReadyTasksLists</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2457,7 +2653,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> pxReadyTasksLists[<a class="el" href="_free_r_t_o_s_config__default_8h.html#a9a78f5ac61e6cb172dadf2a51f11db38">configMAX_PRIORITIES</a>]</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> pxReadyTasksLists[(10)]</td>
         </tr>
       </table>
   </td>
@@ -2467,10 +2663,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00340">340</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="adb7afbe7f26cb6bef5c4e367d5a6550c" name="adb7afbe7f26cb6bef5c4e367d5a6550c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb7afbe7f26cb6bef5c4e367d5a6550c">&#9670;&nbsp;</a></span>uxCurrentNumberOfTasks</h2>
+<a id="a54edd210c179ef9d185f5ebb020eaa5a" name="a54edd210c179ef9d185f5ebb020eaa5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54edd210c179ef9d185f5ebb020eaa5a">&#9670;&nbsp;</a></span>uxCurrentNumberOfTasks</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2479,7 +2677,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxCurrentNumberOfTasks = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxCurrentNumberOfTasks = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
         </tr>
       </table>
   </td>
@@ -2489,10 +2687,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00367">367</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="aa4879a44d8593db97f5409010c0eca6b" name="aa4879a44d8593db97f5409010c0eca6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4879a44d8593db97f5409010c0eca6b">&#9670;&nbsp;</a></span>uxDeletedTasksWaitingCleanUp</h2>
+<a id="ad31bb9fd9a09cc9045861dd458f54615" name="ad31bb9fd9a09cc9045861dd458f54615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31bb9fd9a09cc9045861dd458f54615">&#9670;&nbsp;</a></span>uxDeletedTasksWaitingCleanUp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2501,7 +2701,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxDeletedTasksWaitingCleanUp = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxDeletedTasksWaitingCleanUp = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
         </tr>
       </table>
   </td>
@@ -2511,10 +2711,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00350">350</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="aed99f1aacc35d35bbf098f7d4ad30c19" name="aed99f1aacc35d35bbf098f7d4ad30c19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed99f1aacc35d35bbf098f7d4ad30c19">&#9670;&nbsp;</a></span>uxPendedTicks</h2>
+<a id="a476a5b10aeb0bf39d29d6baccbc26f56" name="a476a5b10aeb0bf39d29d6baccbc26f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a476a5b10aeb0bf39d29d6baccbc26f56">&#9670;&nbsp;</a></span>uxPendedTicks</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2523,7 +2725,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxPendedTicks = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxPendedTicks = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
         </tr>
       </table>
   </td>
@@ -2533,10 +2735,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00371">371</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="ac177740d1c0f453ad4ee8b96183bc666" name="ac177740d1c0f453ad4ee8b96183bc666"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac177740d1c0f453ad4ee8b96183bc666">&#9670;&nbsp;</a></span>uxSchedulerSuspended</h2>
+<a id="a7522707fcf80b216e3a5b25ba464ec85" name="a7522707fcf80b216e3a5b25ba464ec85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7522707fcf80b216e3a5b25ba464ec85">&#9670;&nbsp;</a></span>uxSchedulerSuspended</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2545,7 +2749,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxSchedulerSuspended = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxSchedulerSuspended = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td>
         </tr>
       </table>
   </td>
@@ -2555,10 +2759,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00386">386</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a43097b97496231e1af2dff1fac62bcc6" name="a43097b97496231e1af2dff1fac62bcc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43097b97496231e1af2dff1fac62bcc6">&#9670;&nbsp;</a></span>uxTaskNumber</h2>
+<a id="a47256f539ed98e54c6e5b025ccc68279" name="a47256f539ed98e54c6e5b025ccc68279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47256f539ed98e54c6e5b025ccc68279">&#9670;&nbsp;</a></span>uxTaskNumber</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2567,7 +2773,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxTaskNumber = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
+          <td class="memname"><a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxTaskNumber = ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U</td>
         </tr>
       </table>
   </td>
@@ -2577,10 +2783,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00374">374</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="aa63dabfd96985451f96aaf74c2293642" name="aa63dabfd96985451f96aaf74c2293642"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa63dabfd96985451f96aaf74c2293642">&#9670;&nbsp;</a></span>uxTopReadyPriority</h2>
+<a id="a3fffd96ac9ae0d8b352ae10896ed4531" name="a3fffd96ac9ae0d8b352ae10896ed4531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fffd96ac9ae0d8b352ae10896ed4531">&#9670;&nbsp;</a></span>uxTopReadyPriority</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2589,7 +2797,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxTopReadyPriority = <a class="el" href="task_8h.html#a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</a></td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> uxTopReadyPriority = ( ( <a class="el" href="portmacro_8h.html#a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</a> ) 0U )</td>
         </tr>
       </table>
   </td>
@@ -2599,10 +2807,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00369">369</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="aa632b40f050382cce625ffb3c2ea8c7a" name="aa632b40f050382cce625ffb3c2ea8c7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa632b40f050382cce625ffb3c2ea8c7a">&#9670;&nbsp;</a></span>xDelayedTaskList1</h2>
+<a id="a07888d97f0712ee0b671b295c03ad19d" name="a07888d97f0712ee0b671b295c03ad19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07888d97f0712ee0b671b295c03ad19d">&#9670;&nbsp;</a></span>xDelayedTaskList1</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2611,7 +2821,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xDelayedTaskList1</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xDelayedTaskList1</td>
         </tr>
       </table>
   </td>
@@ -2621,10 +2831,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00341">341</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a52144ecca109402fbab49fa548175f82" name="a52144ecca109402fbab49fa548175f82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52144ecca109402fbab49fa548175f82">&#9670;&nbsp;</a></span>xDelayedTaskList2</h2>
+<a id="aa53d90340a8a11b958e385cd170b8c6d" name="aa53d90340a8a11b958e385cd170b8c6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53d90340a8a11b958e385cd170b8c6d">&#9670;&nbsp;</a></span>xDelayedTaskList2</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2633,7 +2845,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xDelayedTaskList2</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xDelayedTaskList2</td>
         </tr>
       </table>
   </td>
@@ -2643,10 +2855,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00342">342</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="ac90c8a23419d8fa71919e020c433f1a6" name="ac90c8a23419d8fa71919e020c433f1a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90c8a23419d8fa71919e020c433f1a6">&#9670;&nbsp;</a></span>xIdleTaskHandle</h2>
+<a id="ab1afeb7ccc3b00411775f107e31134ad" name="ab1afeb7ccc3b00411775f107e31134ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1afeb7ccc3b00411775f107e31134ad">&#9670;&nbsp;</a></span>xIdleTaskHandle</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2655,7 +2869,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xIdleTaskHandle = NULL</td>
+          <td class="memname"><a class="el" href="task_8h.html#a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</a> xIdleTaskHandle = NULL</td>
         </tr>
       </table>
   </td>
@@ -2665,10 +2879,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00376">376</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="ac9869547a39abae93ce9ad092d580445" name="ac9869547a39abae93ce9ad092d580445"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9869547a39abae93ce9ad092d580445">&#9670;&nbsp;</a></span>xNextTaskUnblockTime</h2>
+<a id="ac27aa725d8922f33f880005e72edec68" name="ac27aa725d8922f33f880005e72edec68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27aa725d8922f33f880005e72edec68">&#9670;&nbsp;</a></span>xNextTaskUnblockTime</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2677,7 +2893,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xNextTaskUnblockTime = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0U</td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xNextTaskUnblockTime = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0U</td>
         </tr>
       </table>
   </td>
@@ -2687,10 +2903,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00375">375</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="aba03b8cb535f03f1921f11868c98b0ef" name="aba03b8cb535f03f1921f11868c98b0ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba03b8cb535f03f1921f11868c98b0ef">&#9670;&nbsp;</a></span>xNumOfOverflows</h2>
+<a id="ab278ffe04bd2e0cdf4acdabdd7692306" name="ab278ffe04bd2e0cdf4acdabdd7692306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab278ffe04bd2e0cdf4acdabdd7692306">&#9670;&nbsp;</a></span>xNumOfOverflows</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2699,7 +2917,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xNumOfOverflows = ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0</td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xNumOfOverflows = ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0</td>
         </tr>
       </table>
   </td>
@@ -2709,10 +2927,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00373">373</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="af0a50cd44e760ae9c7adf77de3e91785" name="af0a50cd44e760ae9c7adf77de3e91785"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0a50cd44e760ae9c7adf77de3e91785">&#9670;&nbsp;</a></span>xPendingReadyList</h2>
+<a id="a73880e71e7ed72242d1a078685107421" name="a73880e71e7ed72242d1a078685107421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73880e71e7ed72242d1a078685107421">&#9670;&nbsp;</a></span>xPendingReadyList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2721,7 +2941,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xPendingReadyList</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xPendingReadyList</td>
         </tr>
       </table>
   </td>
@@ -2731,10 +2951,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00345">345</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="adc51acc8c40b26506a2a05aae91593fd" name="adc51acc8c40b26506a2a05aae91593fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc51acc8c40b26506a2a05aae91593fd">&#9670;&nbsp;</a></span>xSchedulerRunning</h2>
+<a id="a1799bfbb95c907794761d18bd75faff5" name="a1799bfbb95c907794761d18bd75faff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1799bfbb95c907794761d18bd75faff5">&#9670;&nbsp;</a></span>xSchedulerRunning</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2743,7 +2965,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xSchedulerRunning = <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xSchedulerRunning = ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td>
         </tr>
       </table>
   </td>
@@ -2753,10 +2975,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00370">370</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="ae50273c44f1f2f9c4810800e1ad50195" name="ae50273c44f1f2f9c4810800e1ad50195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae50273c44f1f2f9c4810800e1ad50195">&#9670;&nbsp;</a></span>xSuspendedTaskList</h2>
+<a id="aeeff59d101a1407ffc42f81fda83baca" name="aeeff59d101a1407ffc42f81fda83baca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeff59d101a1407ffc42f81fda83baca">&#9670;&nbsp;</a></span>xSuspendedTaskList</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2765,7 +2989,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xSuspendedTaskList</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xSuspendedTaskList</td>
         </tr>
       </table>
   </td>
@@ -2775,10 +2999,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00356">356</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a0826ca381ebeb426ab3f0f993d4f4a26" name="a0826ca381ebeb426ab3f0f993d4f4a26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0826ca381ebeb426ab3f0f993d4f4a26">&#9670;&nbsp;</a></span>xTasksWaitingTermination</h2>
+<a id="a9d5346b64d3da2ce013224df5f403005" name="a9d5346b64d3da2ce013224df5f403005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5346b64d3da2ce013224df5f403005">&#9670;&nbsp;</a></span>xTasksWaitingTermination</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2787,7 +3013,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> <a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xTasksWaitingTermination</td>
+          <td class="memname"><a class="el" href="list_8h.html#ad14d7e3de1350e459c7c23c6f59c902a">List_t</a> xTasksWaitingTermination</td>
         </tr>
       </table>
   </td>
@@ -2797,10 +3023,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00349">349</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a98b55fbbd701ac74b2b6ab1ffc8d5a65" name="a98b55fbbd701ac74b2b6ab1ffc8d5a65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98b55fbbd701ac74b2b6ab1ffc8d5a65">&#9670;&nbsp;</a></span>xTickCount</h2>
+<a id="aaa88969a9b48aea401dbb1ff2b0ef4de" name="aaa88969a9b48aea401dbb1ff2b0ef4de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa88969a9b48aea401dbb1ff2b0ef4de">&#9670;&nbsp;</a></span>xTickCount</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2809,7 +3037,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xTickCount = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) <a class="el" href="_free_r_t_o_s_8h.html#ae52c1acd13b26e8758dc66b60b0e3417">configINITIAL_TICK_COUNT</a></td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> xTickCount = ( <a class="el" href="portmacro_8h.html#aa69c48c6e902ce54f70886e6573c92a9">TickType_t</a> ) 0</td>
         </tr>
       </table>
   </td>
@@ -2819,10 +3047,12 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00368">368</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
+
 </div>
 </div>
-<a id="a228b369b272bd560709d52837b3ac48c" name="a228b369b272bd560709d52837b3ac48c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a228b369b272bd560709d52837b3ac48c">&#9670;&nbsp;</a></span>xYieldPending</h2>
+<a id="a25abc99b92e910c1602028081e13b1b0" name="a25abc99b92e910c1602028081e13b1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25abc99b92e910c1602028081e13b1b0">&#9670;&nbsp;</a></span>xYieldPending</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2831,7 +3061,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5">PRIVILEGED_DATA</a> volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xYieldPending = <a class="el" href="projdefs_8h.html#aa56260e937e7e203026707e5ba944273">pdFALSE</a></td>
+          <td class="memname">volatile <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> xYieldPending = ( ( <a class="el" href="portmacro_8h.html#a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</a> ) 0 )</td>
         </tr>
       </table>
   </td>
@@ -2840,6 +3070,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tasks_8c_source.html#l00372">372</a> of file <a class="el" href="tasks_8c_source.html">tasks.c</a>.</p>
 
 </div>
 </div>

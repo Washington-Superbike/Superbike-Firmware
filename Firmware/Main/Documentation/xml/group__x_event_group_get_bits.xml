@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_event_group_get_bits" kind="group">
+    <compoundname>xEventGroupGetBits</compoundname>
+    <title>xEventGroupGetBits</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+   EventBits_t <ref refid="event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584" kindref="member">xEventGroupGetBits( EventGroupHandle_t xEventGroup )</ref>;
+</preformatted></para>
+<para>Returns the current value of the bits in an event group. This function cannot be used from an interrupt.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xEventGroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event group being queried.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The event group bits at the time <ref refid="event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584" kindref="member">xEventGroupGetBits()</ref> was called. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

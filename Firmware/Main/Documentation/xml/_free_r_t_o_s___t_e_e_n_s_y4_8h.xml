@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_free_r_t_o_s___t_e_e_n_s_y4_8h" kind="file" language="C++">
+    <compoundname>FreeRTOS_TEENSY4.h</compoundname>
+    <includedby refid="_c_a_n_8h" local="yes">CAN.h</includedby>
+    <includedby refid="_c_a_n_8ino" local="yes">CAN.ino</includedby>
+    <includedby refid="_data_logging_8ino" local="yes">DataLogging.ino</includedby>
+    <includedby refid="_display_8h" local="yes">Display.h</includedby>
+    <includedby refid="_display_8ino" local="yes">Display.ino</includedby>
+    <includedby refid="_free_r_t_o_s___t_e_e_n_s_y4_8c" local="yes">FreeRTOS/FreeRTOS_TEENSY4.c</includedby>
+    <includedby refid="_main_8h" local="yes">Main.h</includedby>
+    <includedby refid="_precharge_8h" local="yes">Precharge.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>CAN.h</label>
+        <link refid="_c_a_n_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CAN.ino</label>
+        <link refid="_c_a_n_8ino"/>
+      </node>
+      <node id="5">
+        <label>DataLogging.ino</label>
+        <link refid="_data_logging_8ino"/>
+      </node>
+      <node id="8">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Display.ino</label>
+        <link refid="_display_8ino"/>
+      </node>
+      <node id="9">
+        <label>FreeRTOS/FreeRTOS_TEENSY4.c</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8c"/>
+      </node>
+      <node id="1">
+        <label>FreeRTOS/FreeRTOS_TEENSY4.h</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Main.h</label>
+        <link refid="_main_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Main.ino</label>
+        <link refid="_main_8ino"/>
+      </node>
+      <node id="11">
+        <label>PreCharge.ino</label>
+        <link refid="_pre_charge_8ino"/>
+      </node>
+      <node id="10">
+        <label>Precharge.h</label>
+        <link refid="_precharge_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+<para>FreeRTOS for Teensy 4.0. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>FreeRTOS_TEENSY4_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FreeRTOS_TEENSY4_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__arm__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#error<sp/>Teensy<sp/>4.0<sp/>required</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/></highlight><highlight class="comment">//<sp/>__arm__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s_8h" kindref="compound">FreeRTOS.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="task_8h" kindref="compound">task.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="queue_8h" kindref="compound">queue.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="semphr_8h" kindref="compound">semphr.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="portmacro_8h" kindref="compound">portmacro.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__arm__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>FreeRTOS_TEENSY4_h</highlight></codeline>
+    </programlisting>
+    <location file="FreeRTOS/FreeRTOS_TEENSY4.h"/>
+  </compounddef>
+</doxygen>

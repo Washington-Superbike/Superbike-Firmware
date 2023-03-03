@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structx_s_t_a_t_i_c___l_i_s_t" kind="struct" language="C++" prot="public">
+    <compoundname>xSTATIC_LIST</compoundname>
+    <includes refid="_free_r_t_o_s_8h" local="no">FreeRTOS.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structx_s_t_a_t_i_c___l_i_s_t_1a6d7f720dc21e3a676b885b72a945fea7" prot="public" static="no" mutable="no">
+        <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
+        <definition>UBaseType_t xSTATIC_LIST::uxDummy1</definition>
+        <argsstring></argsstring>
+        <name>uxDummy1</name>
+        <qualifiedname>xSTATIC_LIST::uxDummy1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS.h" line="973" column="13" bodyfile="FreeRTOS/FreeRTOS.h" bodystart="973" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_s_t_a_t_i_c___l_i_s_t_1a681e588716be5f49fe8e9eb73e8f280e" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* xSTATIC_LIST::pvDummy2</definition>
+        <argsstring></argsstring>
+        <name>pvDummy2</name>
+        <qualifiedname>xSTATIC_LIST::pvDummy2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS.h" line="974" column="6" bodyfile="FreeRTOS/FreeRTOS.h" bodystart="974" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx_s_t_a_t_i_c___l_i_s_t_1a232545ebb5629617e0ee6ba286e37788" prot="public" static="no" mutable="no">
+        <type><ref refid="_free_r_t_o_s_8h_1a9097f48f4dfa56e8e01d9179462c7994" kindref="member">StaticMiniListItem_t</ref></type>
+        <definition>StaticMiniListItem_t xSTATIC_LIST::xDummy3</definition>
+        <argsstring></argsstring>
+        <name>xDummy3</name>
+        <qualifiedname>xSTATIC_LIST::xDummy3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/FreeRTOS.h" line="975" column="22" bodyfile="FreeRTOS/FreeRTOS.h" bodystart="975" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>xSTATIC_LIST</label>
+        <link refid="structx_s_t_a_t_i_c___l_i_s_t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xDummy3</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xSTATIC_MINI_LIST_ITEM</label>
+        <link refid="structx_s_t_a_t_i_c___m_i_n_i___l_i_s_t___i_t_e_m"/>
+      </node>
+    </collaborationgraph>
+    <location file="FreeRTOS/FreeRTOS.h" line="971" column="1" bodyfile="FreeRTOS/FreeRTOS.h" bodystart="972" bodyend="976"/>
+    <listofallmembers>
+      <member refid="structx_s_t_a_t_i_c___l_i_s_t_1a681e588716be5f49fe8e9eb73e8f280e" prot="public" virt="non-virtual"><scope>xSTATIC_LIST</scope><name>pvDummy2</name></member>
+      <member refid="structx_s_t_a_t_i_c___l_i_s_t_1a6d7f720dc21e3a676b885b72a945fea7" prot="public" virt="non-virtual"><scope>xSTATIC_LIST</scope><name>uxDummy1</name></member>
+      <member refid="structx_s_t_a_t_i_c___l_i_s_t_1a232545ebb5629617e0ee6ba286e37788" prot="public" virt="non-virtual"><scope>xSTATIC_LIST</scope><name>xDummy3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

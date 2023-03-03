@@ -1,0 +1,145 @@
+\hypertarget{heap__3_8c_source}{}\doxysection{heap\+\_\+3.\+c}
+\label{heap__3_8c_source}\index{FreeRTOS/heap\_3.c@{FreeRTOS/heap\_3.c}}
+\mbox{\hyperlink{heap__3_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00002}00002 \textcolor{comment}{    FreeRTOS V9.0.0 -\/ Copyright (C) 2016 Real Time Engineers Ltd.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00003}00003 \textcolor{comment}{    All rights reserved}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00004}00004 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00005}00005 \textcolor{comment}{    VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00006}00006 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00007}00007 \textcolor{comment}{    This file is part of the FreeRTOS distribution.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00008}00008 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00009}00009 \textcolor{comment}{    FreeRTOS is free software; you can redistribute it and/or modify it under}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00010}00010 \textcolor{comment}{    the terms of the GNU General Public License (version 2) as published by the}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00011}00011 \textcolor{comment}{    Free Software Foundation >>>> AND MODIFIED BY <<<< the FreeRTOS exception.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00012}00012 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00013}00013 \textcolor{comment}{    ***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00014}00014 \textcolor{comment}{    >>!   NOTE: The modification to the GPL is included to allow you to     !<<}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00015}00015 \textcolor{comment}{    >>!   distribute a combined work that includes FreeRTOS without being   !<<}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00016}00016 \textcolor{comment}{    >>!   obliged to provide the source code for proprietary components     !<<}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00017}00017 \textcolor{comment}{    >>!   outside of the FreeRTOS kernel.                                   !<<}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00018}00018 \textcolor{comment}{    ***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00020}00020 \textcolor{comment}{    FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00021}00021 \textcolor{comment}{    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00022}00022 \textcolor{comment}{    FOR A PARTICULAR PURPOSE.  Full license text is available on the following}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00023}00023 \textcolor{comment}{    link: http://www.freertos.org/a00114.html}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00024}00024 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00025}00025 \textcolor{comment}{    ***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00026}00026 \textcolor{comment}{     *                                                                       *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00027}00027 \textcolor{comment}{     *    FreeRTOS provides completely free yet professionally developed,    *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00028}00028 \textcolor{comment}{     *    robust, strictly quality controlled, supported, and cross          *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00029}00029 \textcolor{comment}{     *    platform software that is more than just the market leader, it     *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00030}00030 \textcolor{comment}{     *    is the industry's de facto standard.                               *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00031}00031 \textcolor{comment}{     *                                                                       *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00032}00032 \textcolor{comment}{     *    Help yourself get started quickly while simultaneously helping     *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00033}00033 \textcolor{comment}{     *    to support the FreeRTOS project by purchasing a FreeRTOS           *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00034}00034 \textcolor{comment}{     *    tutorial book, reference manual, or both:                          *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00035}00035 \textcolor{comment}{     *    http://www.FreeRTOS.org/Documentation                              *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00036}00036 \textcolor{comment}{     *                                                                       *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00037}00037 \textcolor{comment}{    ***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00038}00038 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00039}00039 \textcolor{comment}{    http://www.FreeRTOS.org/FAQHelp.html -\/ Having a problem?  Start by reading}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00040}00040 \textcolor{comment}{    the FAQ page "{}My application does not run, what could be wrong?"{}.  Have you}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00041}00041 \textcolor{comment}{    defined configASSERT()?}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00042}00042 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00043}00043 \textcolor{comment}{    http://www.FreeRTOS.org/support -\/ In return for receiving this top quality}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00044}00044 \textcolor{comment}{    embedded software for free we request you assist our global community by}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00045}00045 \textcolor{comment}{    participating in the support forum.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00046}00046 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00047}00047 \textcolor{comment}{    http://www.FreeRTOS.org/training -\/ Investing in training allows your team to}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00048}00048 \textcolor{comment}{    be as productive as possible as early as possible.  Now you can receive}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00049}00049 \textcolor{comment}{    FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00050}00050 \textcolor{comment}{    Ltd, and the world's leading authority on the world's leading RTOS.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00051}00051 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00052}00052 \textcolor{comment}{    http://www.FreeRTOS.org/plus -\/ A selection of FreeRTOS ecosystem products,}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00053}00053 \textcolor{comment}{    including FreeRTOS+Trace -\/ an indispensable productivity tool, a DOS}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00054}00054 \textcolor{comment}{    compatible FAT file system, and our tiny thread aware UDP/IP stack.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00055}00055 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00056}00056 \textcolor{comment}{    http://www.FreeRTOS.org/labs -\/ Where new FreeRTOS products go to incubate.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00057}00057 \textcolor{comment}{    Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00058}00058 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00059}00059 \textcolor{comment}{    http://www.OpenRTOS.com -\/ Real Time Engineers ltd. license FreeRTOS to High}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00060}00060 \textcolor{comment}{    Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00061}00061 \textcolor{comment}{    licenses offer ticketed support, indemnification and commercial middleware.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00062}00062 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00063}00063 \textcolor{comment}{    http://www.SafeRTOS.com -\/ High Integrity Systems also provide a safety}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00064}00064 \textcolor{comment}{    engineered and independently SIL3 certified version for use in safety and}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00065}00065 \textcolor{comment}{    mission critical applications that require provable dependability.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00066}00066 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00067}00067 \textcolor{comment}{    1 tab == 4 spaces!}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00068}00068 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00071}00071 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00072}00072 \textcolor{comment}{ * Implementation of pvPortMalloc() and vPortFree() that relies on the}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00073}00073 \textcolor{comment}{ * compilers own malloc() and free() implementations.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00074}00074 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00075}00075 \textcolor{comment}{ * This file can only be used if the linker is configured to to generate}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00076}00076 \textcolor{comment}{ * a heap memory area.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00077}00077 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00078}00078 \textcolor{comment}{ * See heap\_1.c, heap\_2.c and heap\_4.c for alternative implementations, and the}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00079}00079 \textcolor{comment}{ * memory management pages of http://www.FreeRTOS.org for more information.}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00080}00080 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00082}00082 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00084}00084 \textcolor{comment}{/* Defining MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE prevents task.h from redefining}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00085}00085 \textcolor{comment}{all the API functions to use the MPU wrappers.  That should only be done when}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00086}00086 \textcolor{comment}{task.h is included from an application file. */}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00087}\mbox{\hyperlink{heap__3_8c_ab622d8c674f2a417a666a7ed89109e79}{00087}} \textcolor{preprocessor}{\#define MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00089}00089 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00090}00090 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00092}00092 \textcolor{preprocessor}{\#undef MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00094}00094 \textcolor{preprocessor}{\#if( configSUPPORT\_DYNAMIC\_ALLOCATION == 0 )}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00095}00095 \textcolor{preprocessor}{    \#error This file must not be used if configSUPPORT\_DYNAMIC\_ALLOCATION is 0}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00096}00096 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00098}00098 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00100}\mbox{\hyperlink{heap__3_8c_ac56bcb7515f081a5b3df83935499fa4a}{00100}} \textcolor{keywordtype}{void} *\mbox{\hyperlink{heap__3_8c_ac56bcb7515f081a5b3df83935499fa4a}{pvPortMalloc}}( \textcolor{keywordtype}{size\_t} xWantedSize )}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00101}00101 \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00102}00102 \textcolor{keywordtype}{void} *pvReturn;}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00104}00104     \mbox{\hyperlink{task_8h_a366b302eba79d10b5ee2a3756f0fcc43}{vTaskSuspendAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00105}00105     \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00106}00106         pvReturn = malloc( xWantedSize );}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00107}00107         \mbox{\hyperlink{_free_r_t_o_s_8h_af326afe922ffa6da245c98dc227a3293}{traceMALLOC}}( pvReturn, xWantedSize );}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00108}00108     \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00109}00109     ( void ) \mbox{\hyperlink{task_8h_a003f8ae6d649225abd030cc76e1c7d0e}{xTaskResumeAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00111}00111 \textcolor{preprocessor}{    \#if( configUSE\_MALLOC\_FAILED\_HOOK == 1 )}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00112}00112     \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00113}00113         \textcolor{keywordflow}{if}( pvReturn == NULL )}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00114}00114         \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00115}00115             \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8c_a73f6aa45470ada02a5d6f3a522d8f13c}{vApplicationMallocFailedHook}}( \textcolor{keywordtype}{void} );}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00116}00116             \mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8c_a73f6aa45470ada02a5d6f3a522d8f13c}{vApplicationMallocFailedHook}}();}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00117}00117         \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00118}00118     \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00119}00119 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00121}00121     \textcolor{keywordflow}{return} pvReturn;}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00123}00123 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00125}\mbox{\hyperlink{heap__3_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{00125}} \textcolor{keywordtype}{void} \mbox{\hyperlink{heap__3_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{vPortFree}}( \textcolor{keywordtype}{void} *pv )}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00126}00126 \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00127}00127     \textcolor{keywordflow}{if}( pv )}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00128}00128     \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00129}00129         \mbox{\hyperlink{task_8h_a366b302eba79d10b5ee2a3756f0fcc43}{vTaskSuspendAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00130}00130         \{}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00131}00131             free( pv );}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00132}00132             \mbox{\hyperlink{_free_r_t_o_s_8h_a941bb09090b5788f0c27d9690118eed2}{traceFREE}}( pv, 0 );}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00133}00133         \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00134}00134         ( void ) \mbox{\hyperlink{task_8h_a003f8ae6d649225abd030cc76e1c7d0e}{xTaskResumeAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00135}00135     \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00136}00136 \}}
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{heap__3_8c_source_l00139}00139 }
+
+\end{DoxyCode}

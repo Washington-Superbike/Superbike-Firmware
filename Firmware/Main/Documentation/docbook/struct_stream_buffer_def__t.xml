@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_stream_buffer_def__t" xml:lang="en-US">
+<title>StreamBufferDef_t Struct Reference</title>
+<indexterm><primary>StreamBufferDef_t</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>volatile size_t <link linkend="_struct_stream_buffer_def__t_1a937e441ed6c946a099d52b5955d7302c">xTail</link></para>
+</listitem>
+            <listitem><para>volatile size_t <link linkend="_struct_stream_buffer_def__t_1a75aafb9fdee8f0666837302bd9b12341">xHead</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_struct_stream_buffer_def__t_1a6eedf41c877edd42b3b460780d1b6555">xLength</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_struct_stream_buffer_def__t_1a4a7ee9b374cc0b358d049811def8d595">xTriggerLevelBytes</link></para>
+</listitem>
+            <listitem><para>volatile <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> <link linkend="_struct_stream_buffer_def__t_1a8377ae8625121efa22d66e678add4057">xTaskWaitingToReceive</link></para>
+</listitem>
+            <listitem><para>volatile <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> <link linkend="_struct_stream_buffer_def__t_1a85b1cf05c0222f8d67a64f7d01722e52">xTaskWaitingToSend</link></para>
+</listitem>
+            <listitem><para>uint8_t * <link linkend="_struct_stream_buffer_def__t_1a4e05054a8a3d61a5cec0c18a70bbdb67">pucBuffer</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_stream_buffer_def__t_1a1afd02d997a1cb3149e3cf203c681d58">ucFlags</link></para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_struct_stream_buffer_def__t_1aee83da827fa7eb47682250297d6961b0">uxStreamBufferNumber</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00141">141</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_stream_buffer_def__t_1a4e05054a8a3d61a5cec0c18a70bbdb67"/><section>
+    <title>pucBuffer</title>
+<indexterm><primary>pucBuffer</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>pucBuffer</secondary></indexterm>
+<para><computeroutput>uint8_t* StreamBufferDef_t::pucBuffer</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00149">149</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a1afd02d997a1cb3149e3cf203c681d58"/><section>
+    <title>ucFlags</title>
+<indexterm><primary>ucFlags</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>ucFlags</secondary></indexterm>
+<para><computeroutput>uint8_t StreamBufferDef_t::ucFlags</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00150">150</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1aee83da827fa7eb47682250297d6961b0"/><section>
+    <title>uxStreamBufferNumber</title>
+<indexterm><primary>uxStreamBufferNumber</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>uxStreamBufferNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> StreamBufferDef_t::uxStreamBufferNumber</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00153">153</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a75aafb9fdee8f0666837302bd9b12341"/><section>
+    <title>xHead</title>
+<indexterm><primary>xHead</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xHead</secondary></indexterm>
+<para><computeroutput>volatile size_t StreamBufferDef_t::xHead</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00144">144</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a6eedf41c877edd42b3b460780d1b6555"/><section>
+    <title>xLength</title>
+<indexterm><primary>xLength</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xLength</secondary></indexterm>
+<para><computeroutput>size_t StreamBufferDef_t::xLength</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00145">145</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a937e441ed6c946a099d52b5955d7302c"/><section>
+    <title>xTail</title>
+<indexterm><primary>xTail</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xTail</secondary></indexterm>
+<para><computeroutput>volatile size_t StreamBufferDef_t::xTail</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00143">143</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a8377ae8625121efa22d66e678add4057"/><section>
+    <title>xTaskWaitingToReceive</title>
+<indexterm><primary>xTaskWaitingToReceive</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xTaskWaitingToReceive</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> StreamBufferDef_t::xTaskWaitingToReceive</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00147">147</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a85b1cf05c0222f8d67a64f7d01722e52"/><section>
+    <title>xTaskWaitingToSend</title>
+<indexterm><primary>xTaskWaitingToSend</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xTaskWaitingToSend</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link> StreamBufferDef_t::xTaskWaitingToSend</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00148">148</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<anchor xml:id="_struct_stream_buffer_def__t_1a4a7ee9b374cc0b358d049811def8d595"/><section>
+    <title>xTriggerLevelBytes</title>
+<indexterm><primary>xTriggerLevelBytes</primary><secondary>StreamBufferDef_t</secondary></indexterm>
+<indexterm><primary>StreamBufferDef_t</primary><secondary>xTriggerLevelBytes</secondary></indexterm>
+<para><computeroutput>size_t StreamBufferDef_t::xTriggerLevelBytes</computeroutput></para><para>
+Definition at line <link linkend="_stream__buffer_8c_source_1l00146">146</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_stream__buffer_8c">stream_buffer.c</link></section>
+</section>

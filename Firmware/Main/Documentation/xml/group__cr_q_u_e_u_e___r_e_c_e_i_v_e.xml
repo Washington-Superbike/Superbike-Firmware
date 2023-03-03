@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__cr_q_u_e_u_e___r_e_c_e_i_v_e" kind="group">
+    <compoundname>crQUEUE_RECEIVE</compoundname>
+    <title>crQUEUE_RECEIVE</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>croutine. h <preformatted>
+ <ref refid="croutine_8h_1a586d57fd9a3e2aa5ae66484ed3be36c9" kindref="member">crQUEUE_RECEIVE(
+                    CoRoutineHandle_t xHandle,
+                    QueueHandle_t pxQueue,
+                    void *pvBuffer,
+                    TickType_t xTicksToWait,
+                    BaseType_t *pxResult
+                )</ref></preformatted></para>
+<para>The macro&apos;s <ref refid="croutine_8h_1a26af3d36f22a04168eebdf5b08465d6e" kindref="member">crQUEUE_SEND()</ref> and <ref refid="croutine_8h_1a586d57fd9a3e2aa5ae66484ed3be36c9" kindref="member">crQUEUE_RECEIVE()</ref> are the co-routine equivalent to the <ref refid="queue_8h_1af7eb49d3249351176992950d9185abe9" kindref="member">xQueueSend()</ref> and <ref refid="queue_8c_1ad0a166f3b1219a5e37e31f8090d4800d" kindref="member">xQueueReceive()</ref> functions used by tasks.</para>
+<para>crQUEUE_SEND and crQUEUE_RECEIVE can only be used from a co-routine whereas <ref refid="queue_8h_1af7eb49d3249351176992950d9185abe9" kindref="member">xQueueSend()</ref> and <ref refid="queue_8c_1ad0a166f3b1219a5e37e31f8090d4800d" kindref="member">xQueueReceive()</ref> can only be used from tasks.</para>
+<para>crQUEUE_RECEIVE can only be called from the co-routine function itself - not from within a function called by the co-routine function. This is because co-routines do not maintain their own stack.</para>
+<para>See the co-routine section of the WEB documentation for information on passing data between tasks and co-routines and between ISR&apos;s and co-routines.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xHandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the calling co-routine. This is the xHandle parameter of the co-routine function.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxQueue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the queue from which the data will be received. The handle is obtained as the return value when the queue is created using the xQueueCreate() API function.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pvBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer into which the received item is to be copied. The number of bytes of each queued item is specified when the queue is created. This number of bytes is copied into pvBuffer.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xTickToDelay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of ticks that the co-routine should block to wait for data to become available from the queue, should data not be available immediately. The actual amount of time this equates to is defined by configTICK_RATE_HZ (set in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>). The constant portTICK_PERIOD_MS can be used to convert ticks to milliseconds (see the crQUEUE_SEND example).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxResult</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The variable pointed to by pxResult will be set to pdPASS if data was successfully retrieved from the queue, otherwise it will be set to an error code as defined within <ref refid="projdefs_8h" kindref="compound">ProjDefs.h</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Example usage: <preformatted>
+// A co-routine receives the number of an LED to flash from a queue.  It
+// blocks on the queue until the number is received.
+static void prvCoRoutineFlashWorkTask( CoRoutineHandle_t xHandle, UBaseType_t uxIndex )
+{
+// Variables in co-routines must be declared static if they must maintain value across a blocking call.
+static BaseType_t xResult;
+static UBaseType_t uxLEDToFlash;
+
+   // All co-routines must start with a call to <ref refid="croutine_8h_1a19a57a201a325e8af1207ed68c4aedde" kindref="member">crSTART()</ref>.
+   <ref refid="croutine_8h_1a19a57a201a325e8af1207ed68c4aedde" kindref="member">crSTART( xHandle )</ref>;
+
+   for( ;; )
+   {
+       // Wait for data to become available on the queue.
+       <ref refid="croutine_8h_1a586d57fd9a3e2aa5ae66484ed3be36c9" kindref="member">crQUEUE_RECEIVE( xHandle, xCoRoutineQueue, &amp;uxLEDToFlash, portMAX_DELAY, &amp;xResult )</ref>;
+
+       if( xResult == pdPASS )
+       {
+           // We received the LED to flash - flash it!
+           vParTestToggleLED( uxLEDToFlash );
+       }
+   }
+
+   <ref refid="croutine_8h_1ae6038cc976689b50000475ebfc4e2f23" kindref="member">crEND()</ref>;
+}</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

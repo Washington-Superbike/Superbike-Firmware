@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___task_handle__t" xml:lang="en-US">
+<title>TaskHandle_t</title>
+<indexterm><primary>TaskHandle_t</primary></indexterm>
+
+<para>task. h</para>
+
+<para>Type by which tasks are referenced. For example, a call to xTaskCreate returns (via a pointer parameter) an TaskHandle_t variable that can then be used as a parameter to vTaskDelete to delete the task. </para>
+</section>

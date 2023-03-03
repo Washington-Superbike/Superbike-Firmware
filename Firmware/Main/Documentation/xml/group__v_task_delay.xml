@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__v_task_delay" kind="group">
+    <compoundname>vTaskDelay</compoundname>
+    <title>vTaskDelay</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>task. h <preformatted>void <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay( const TickType_t xTicksToDelay )</ref>;</preformatted></para>
+<para>Delay a task for a given number of ticks. The actual time that the task remains blocked depends on the tick rate. The constant portTICK_PERIOD_MS can be used to calculate real time from the tick rate - with the resolution of one tick period.</para>
+<para>INCLUDE_vTaskDelay must be defined as 1 for this function to be available. See the configuration section for more information.</para>
+<para><ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref> specifies a time at which the task wishes to unblock relative to the time at which <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref> is called. For example, specifying a block period of 100 ticks will cause the task to unblock 100 ticks after <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref> is called. <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref> does not therefore provide a good method of controlling the frequency of a periodic task as the path taken through the code, as well as other task and interrupt activity, will effect the frequency at which <ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay()</ref> gets called and therefore the time at which the task next executes. See <ref refid="task_8h_1a067da3e949e248096ec6c01f9cb75a47" kindref="member">vTaskDelayUntil()</ref> for an alternative API function designed to facilitate fixed frequency execution. It does this by specifying an absolute time (rather than a relative time) at which the calling task should unblock.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xTicksToDelay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of time, in tick periods, that the calling task should block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Example usage:</para>
+<para>void vTaskFunction( void * pvParameters ) { Block for 500ms. const TickType_t xDelay = 500 / portTICK_PERIOD_MS; <verbatim>for( ;; )
+{
+</verbatim> Simply toggle the LED every 500ms, blocking between each toggle. vToggleLED(); vTaskDelay( xDelay ); } } </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

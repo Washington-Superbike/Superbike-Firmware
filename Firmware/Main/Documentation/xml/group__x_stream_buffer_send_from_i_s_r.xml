@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_stream_buffer_send_from_i_s_r" kind="group">
+    <compoundname>xStreamBufferSendFromISR</compoundname>
+    <title>xStreamBufferSendFromISR</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="stream__buffer_8h" kindref="compound">stream_buffer.h</ref></para>
+<para><preformatted>
+size_t <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR( StreamBufferHandle_t xStreamBuffer,
+                                 const void *pvTxData,
+                                 size_t xDataLengthBytes,
+                                 BaseType_t *pxHigherPriorityTaskWoken )</ref>;
+</preformatted></para>
+<para>Interrupt safe version of the API function that sends a stream of bytes to the stream buffer.</para>
+<para><emphasis><bold>NOTE</bold></emphasis>: Uniquely among FreeRTOS objects, the stream buffer implementation (so also the message buffer implementation, as message buffers are built on top of stream buffers) assumes there is only one task or interrupt that will write to the buffer (the writer), and only one task or interrupt that will read from the buffer (the reader). It is safe for the writer and reader to be different tasks or interrupts, but, unlike other FreeRTOS objects, it is not safe to have multiple different writers or multiple different readers. If there are to be multiple different writers then the application writer must place each call to a writing API function (such as <ref refid="stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d" kindref="member">xStreamBufferSend()</ref>) inside a critical section and set the send block time to 0. Likewise, if there are to be multiple different readers then the application writer must place each call to a reading API function (such as xStreamBufferRead()) inside a critical section and set the receive block time to 0.</para>
+<para>Use <ref refid="stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d" kindref="member">xStreamBufferSend()</ref> to write to a stream buffer from a task. Use <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> to write to a stream buffer from an interrupt service routine (ISR).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xStreamBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the stream buffer to which a stream is being sent.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pvTxData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the data that is to be copied into the stream buffer.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xDataLengthBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of bytes to copy from pvTxData into the stream buffer.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxHigherPriorityTaskWoken</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>It is possible that a stream buffer will have a task blocked on it waiting for data. Calling <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> can make data available, and so cause a task that was waiting for data to leave the Blocked state. If calling <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> causes a task to leave the Blocked state, and the unblocked task has a priority higher than the currently executing task (the task that was interrupted), then, internally, <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> will set *pxHigherPriorityTaskWoken to pdTRUE. If <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> sets this value to pdTRUE, then normally a context switch should be performed before the interrupt is exited. This will ensure that the interrupt returns directly to the highest priority Ready state task. *pxHigherPriorityTaskWoken should be set to pdFALSE before it is passed into the function. See the example code below for an example.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually written to the stream buffer, which will be less than xDataLengthBytes if the stream buffer didn&apos;t have enough free space for all the bytes to be written.</para>
+</simplesect>
+Example use: <preformatted>
+// A stream buffer that has already been created.
+StreamBufferHandle_t xStreamBuffer;
+
+void vAnInterruptServiceRoutine( void )
+{
+size_t xBytesSent;
+char *pcStringToSend = &quot;String to send&quot;;
+BaseType_t xHigherPriorityTaskWoken = pdFALSE; // Initialised to pdFALSE.
+
+    // Attempt to send the string to the stream buffer.
+    xBytesSent = xStreamBufferSendFromISR( xStreamBuffer,
+                                           ( void * ) pcStringToSend,
+                                           strlen( pcStringToSend ),
+                                           &amp;xHigherPriorityTaskWoken );
+
+    if( xBytesSent != strlen( pcStringToSend ) )
+    {
+        // There was not enough free space in the stream buffer for the entire
+        // string to be written, ut xBytesSent bytes were written.
+    }
+
+    // If xHigherPriorityTaskWoken was set to pdTRUE inside
+    // <ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR()</ref> then a task that has a priority above the
+    // priority of the currently executing task was unblocked and a context
+    // switch should be performed to ensure the ISR returns to the unblocked
+    // task.  In most FreeRTOS ports this is done by simply passing
+    // xHigherPriorityTaskWoken into taskYIELD_FROM_ISR(), which will test the
+    // variables value, and perform the context switch if necessary.  Check the
+    // documentation for the port in use for port specific instructions.
+    taskYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_event__groups_8c" xml:lang="en-US">
+<title>FreeRTOS/event_groups.c File Reference</title>
+<indexterm><primary>FreeRTOS/event_groups.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
+#include &quot;FreeRTOS.h&quot;
+#include &quot;task.h&quot;
+#include &quot;timers.h&quot;
+#include &quot;event_groups.h&quot;
+</programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_event_group_def__t">EventGroupDef_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_event__groups_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_event__groups_8c_1a1404686af7c8070fa57675707c817abc">eventCLEAR_EVENTS_ON_EXIT_BIT</link>   0x01000000UL</para>
+</listitem>
+            <listitem><para>#define <link linkend="_event__groups_8c_1ab451d5ad95813d5ec7ff1784d69e9ec3">eventUNBLOCKED_DUE_TO_BIT_SET</link>   0x02000000UL</para>
+</listitem>
+            <listitem><para>#define <link linkend="_event__groups_8c_1ae98d5f1271845ad42742aef9659e1568">eventWAIT_FOR_ALL_BITS</link>   0x04000000UL</para>
+</listitem>
+            <listitem><para>#define <link linkend="_event__groups_8c_1a46c8292a6ba88b017cca402f5baf670b">eventEVENT_BITS_CONTROL_BYTES</link>   0xff000000UL</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_struct_event_group_def__t">EventGroupDef_t</link> <link linkend="_event__groups_8c_1ae4fc9408a7fab90c6296379ff3cb0f11">EventGroup_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_event__groups_8c_1a0b39881dccfddfde543fb7181872fb5b">prvTestWaitCondition</link> (const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxCurrentEventBits, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xWaitForAllBits)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> <link linkend="_event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519">xEventGroupCreate</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> <link linkend="_event__groups_8c_1ac38db316f0928c7ddaacb677a75dbc03">xEventGroupSync</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> <link linkend="_event__groups_8c_1a379c5cca4552d3d8acd4c51e8220a6c3">xEventGroupWaitBits</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xClearOnExit, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xWaitForAllBits, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> <link linkend="_event__groups_8c_1a71dd2680fdfbdde7d6b10db203e266ba">xEventGroupClearBits</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToClear)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_event__groups_8c_1ad3307f09bd0c4cd72ea21d84b4f4f33d">xEventGroupClearBitsFromISR</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToClear)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> <link linkend="_event__groups_8c_1adcb3d3f7dded9fa372bb1ee405c36b8d">xEventGroupGetBitsFromISR</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup)</para>
+</listitem>
+            <listitem><para><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> <link linkend="_event__groups_8c_1a9ac7cd970f50e2e50a494b656e0eb239">xEventGroupSetBits</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__groups_8c_1a6939faca89fc4ba52fa8288527042464">vEventGroupDelete</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__groups_8c_1a54db6cc97bbb926aa4b78d5affc257d9">vEventGroupSetBitsCallback</link> (void *pvEventGroup, const uint32_t ulBitsToSet)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__groups_8c_1a3bce459038e87064109c8462b1174c29">vEventGroupClearBitsCallback</link> (void *pvEventGroup, const uint32_t ulBitsToClear)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> <link linkend="_event__groups_8c_1adf701822b780cba9cd5976288aae5a07">xEventGroupSetBitsFromISR</link> (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> *pxHigherPriorityTaskWoken)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_event__groups_8c_1ae78a16e547898198965c2d1119269c8b">uxEventGroupGetNumber</link> (void *xEventGroup)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__groups_8c_1a27b522f2ab57b7438df588bd15e5e90a">vEventGroupSetNumber</link> (void *xEventGroup, <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxEventGroupNumber)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_event__groups_8c_1a1404686af7c8070fa57675707c817abc"/><section>
+    <title>eventCLEAR_EVENTS_ON_EXIT_BIT</title>
+<indexterm><primary>eventCLEAR_EVENTS_ON_EXIT_BIT</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>eventCLEAR_EVENTS_ON_EXIT_BIT</secondary></indexterm>
+<para><computeroutput>#define eventCLEAR_EVENTS_ON_EXIT_BIT   0x01000000UL</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00057">57</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a46c8292a6ba88b017cca402f5baf670b"/><section>
+    <title>eventEVENT_BITS_CONTROL_BYTES</title>
+<indexterm><primary>eventEVENT_BITS_CONTROL_BYTES</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>eventEVENT_BITS_CONTROL_BYTES</secondary></indexterm>
+<para><computeroutput>#define eventEVENT_BITS_CONTROL_BYTES   0xff000000UL</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00060">60</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ab451d5ad95813d5ec7ff1784d69e9ec3"/><section>
+    <title>eventUNBLOCKED_DUE_TO_BIT_SET</title>
+<indexterm><primary>eventUNBLOCKED_DUE_TO_BIT_SET</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>eventUNBLOCKED_DUE_TO_BIT_SET</secondary></indexterm>
+<para><computeroutput>#define eventUNBLOCKED_DUE_TO_BIT_SET   0x02000000UL</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00058">58</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ae98d5f1271845ad42742aef9659e1568"/><section>
+    <title>eventWAIT_FOR_ALL_BITS</title>
+<indexterm><primary>eventWAIT_FOR_ALL_BITS</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>eventWAIT_FOR_ALL_BITS</secondary></indexterm>
+<para><computeroutput>#define eventWAIT_FOR_ALL_BITS   0x04000000UL</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00059">59</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ab622d8c674f2a417a666a7ed89109e79"/><section>
+    <title>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</title>
+<indexterm><primary>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>MPU_WRAPPERS_INCLUDED_FROM_API_FILE</secondary></indexterm>
+<para><computeroutput>#define MPU_WRAPPERS_INCLUDED_FROM_API_FILE</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00034">34</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_event__groups_8c_1ae4fc9408a7fab90c6296379ff3cb0f11"/><section>
+    <title>EventGroup_t</title>
+<indexterm><primary>EventGroup_t</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>EventGroup_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_struct_event_group_def__t">EventGroupDef_t</link> <link linkend="_event__groups_8c_1ae4fc9408a7fab90c6296379ff3cb0f11">EventGroup_t</link></computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_event__groups_8c_1a0b39881dccfddfde543fb7181872fb5b"/><section>
+    <title>prvTestWaitCondition()</title>
+<indexterm><primary>prvTestWaitCondition</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>prvTestWaitCondition</secondary></indexterm>
+<para><computeroutput>static <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> prvTestWaitCondition (const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxCurrentEventBits, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xWaitForAllBits)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00671">671</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ae78a16e547898198965c2d1119269c8b"/><section>
+    <title>uxEventGroupGetNumber()</title>
+<indexterm><primary>uxEventGroupGetNumber</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>uxEventGroupGetNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxEventGroupGetNumber (void * xEventGroup)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00723">723</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a3bce459038e87064109c8462b1174c29"/><section>
+    <title>vEventGroupClearBitsCallback()</title>
+<indexterm><primary>vEventGroupClearBitsCallback</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>vEventGroupClearBitsCallback</secondary></indexterm>
+<para><computeroutput>void vEventGroupClearBitsCallback (void * pvEventGroup, const uint32_t ulBitsToClear)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00665">665</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a6939faca89fc4ba52fa8288527042464"/><section>
+    <title>vEventGroupDelete()</title>
+<indexterm><primary>vEventGroupDelete</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>vEventGroupDelete</secondary></indexterm>
+<para><computeroutput>void vEventGroupDelete (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup)</computeroutput></para>
+<para><link linkend="_event__groups_8h">event_groups.h</link> <literallayout>
+   void xEventGroupDelete( EventGroupHandle_t xEventGroup );
+</literallayout></para>
+
+<para>Delete an event group that was previously created by a call to <link linkend="_event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519">xEventGroupCreate()</link>. Tasks that are blocked on the event group will be unblocked and obtain 0 as the event group&apos;s value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xEventGroup</entry><entry>
+<para>The event group being deleted. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_event__groups_8c_source_1l00613">613</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a54db6cc97bbb926aa4b78d5affc257d9"/><section>
+    <title>vEventGroupSetBitsCallback()</title>
+<indexterm><primary>vEventGroupSetBitsCallback</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>vEventGroupSetBitsCallback</secondary></indexterm>
+<para><computeroutput>void vEventGroupSetBitsCallback (void * pvEventGroup, const uint32_t ulBitsToSet)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00657">657</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a27b522f2ab57b7438df588bd15e5e90a"/><section>
+    <title>vEventGroupSetNumber()</title>
+<indexterm><primary>vEventGroupSetNumber</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>vEventGroupSetNumber</secondary></indexterm>
+<para><computeroutput>void vEventGroupSetNumber (void * xEventGroup, <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> uxEventGroupNumber)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00745">745</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a71dd2680fdfbdde7d6b10db203e266ba"/><section>
+    <title>xEventGroupClearBits()</title>
+<indexterm><primary>xEventGroupClearBits</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupClearBits</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> xEventGroupClearBits (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToClear)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00461">461</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ad3307f09bd0c4cd72ea21d84b4f4f33d"/><section>
+    <title>xEventGroupClearBitsFromISR()</title>
+<indexterm><primary>xEventGroupClearBitsFromISR</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupClearBitsFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xEventGroupClearBitsFromISR (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToClear)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00490">490</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519"/><section>
+    <title>xEventGroupCreate()</title>
+<indexterm><primary>xEventGroupCreate</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupCreate</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroupCreate (void )</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00145">145</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1adcb3d3f7dded9fa372bb1ee405c36b8d"/><section>
+    <title>xEventGroupGetBitsFromISR()</title>
+<indexterm><primary>xEventGroupGetBitsFromISR</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupGetBitsFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> xEventGroupGetBitsFromISR (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00503">503</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a9ac7cd970f50e2e50a494b656e0eb239"/><section>
+    <title>xEventGroupSetBits()</title>
+<indexterm><primary>xEventGroupSetBits</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupSetBits</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> xEventGroupSetBits (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00519">519</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1adf701822b780cba9cd5976288aae5a07"/><section>
+    <title>xEventGroupSetBitsFromISR()</title>
+<indexterm><primary>xEventGroupSetBitsFromISR</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupSetBitsFromISR</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xEventGroupSetBitsFromISR (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet, <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> * pxHigherPriorityTaskWoken)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00708">708</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1ac38db316f0928c7ddaacb677a75dbc03"/><section>
+    <title>xEventGroupSync()</title>
+<indexterm><primary>xEventGroupSync</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupSync</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> xEventGroupSync (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToSet, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00191">191</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+<anchor xml:id="_event__groups_8c_1a379c5cca4552d3d8acd4c51e8220a6c3"/><section>
+    <title>xEventGroupWaitBits()</title>
+<indexterm><primary>xEventGroupWaitBits</primary><secondary>event_groups.c</secondary></indexterm>
+<indexterm><primary>event_groups.c</primary><secondary>xEventGroupWaitBits</secondary></indexterm>
+<para><computeroutput><link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> xEventGroupWaitBits (<link linkend="_event__groups_8h_1acab96e0b6a5cab7f7b29822b79cc78ed">EventGroupHandle_t</link> xEventGroup, const <link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link> uxBitsToWaitFor, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xClearOnExit, const <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> xWaitForAllBits, <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xTicksToWait)</computeroutput></para><para>
+Definition at line <link linkend="_event__groups_8c_source_1l00311">311</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
+</section>
+</section>
+</section>

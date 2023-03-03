@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_event_group_clear_bits" kind="group">
+    <compoundname>xEventGroupClearBits</compoundname>
+    <title>xEventGroupClearBits</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+   EventBits_t <ref refid="event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a" kindref="member">xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToClear )</ref>;
+</preformatted></para>
+<para>Clear bits within an event group. This function cannot be called from an interrupt.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xEventGroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event group in which the bits are to be cleared.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uxBitsToClear</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bitwise value that indicates the bit or bits to clear in the event group. For example, to clear bit 3 only, set uxBitsToClear to 0x08. To clear bit 3 and bit 0 set uxBitsToClear to 0x09.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the event group before the specified bits were cleared.</para>
+</simplesect>
+Example usage: <preformatted>
+  #define BIT_0 ( 1 &lt;&lt; 0 )
+  #define BIT_4 ( 1 &lt;&lt; 4 )
+
+  void aFunction( EventGroupHandle_t xEventGroup )
+  {
+  EventBits_t uxBits;
+
+    // Clear bit 0 and bit 4 in xEventGroup.
+    uxBits = xEventGroupClearBits(
+                            xEventGroup,    // The event group being updated.
+                            BIT_0 | BIT_4 );// The bits being cleared.
+
+    if( ( uxBits &amp; ( BIT_0 | BIT_4 ) ) == ( BIT_0 | BIT_4 ) )
+    {
+        // Both bit 0 and bit 4 were set before <ref refid="event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a" kindref="member">xEventGroupClearBits()</ref> was
+        // called.  Both will now be clear (not set).
+    }
+    else if( ( uxBits &amp; BIT_0 ) != 0 )
+    {
+        // Bit 0 was set before <ref refid="event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a" kindref="member">xEventGroupClearBits()</ref> was called.  It will
+        // now be clear.
+    }
+    else if( ( uxBits &amp; BIT_4 ) != 0 )
+    {
+        // Bit 4 was set before <ref refid="event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a" kindref="member">xEventGroupClearBits()</ref> was called.  It will
+        // now be clear.
+    }
+    else
+    {
+        // Neither bit 0 nor bit 4 were set in the first place.
+    }
+  }
+  </preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

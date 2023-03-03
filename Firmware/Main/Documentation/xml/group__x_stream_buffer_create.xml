@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_stream_buffer_create" kind="group">
+    <compoundname>xStreamBufferCreate</compoundname>
+    <title>xStreamBufferCreate</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="message__buffer_8h" kindref="compound">message_buffer.h</ref></para>
+<para><preformatted>
+StreamBufferHandle_t <ref refid="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" kindref="member">xStreamBufferCreate( size_t xBufferSizeBytes, size_t xTriggerLevelBytes )</ref>;
+</preformatted></para>
+<para>Creates a new stream buffer using dynamically allocated memory. See <ref refid="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" kindref="member">xStreamBufferCreateStatic()</ref> for a version that uses statically allocated memory (memory that is allocated at compile time).</para>
+<para>configSUPPORT_DYNAMIC_ALLOCATION must be set to 1 or left undefined in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref> for <ref refid="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" kindref="member">xStreamBufferCreate()</ref> to be available.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xBufferSizeBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total number of bytes the stream buffer will be able to hold at any one time.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xTriggerLevelBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that must be in the stream buffer before a task that is blocked on the stream buffer to wait for data is moved out of the blocked state. For example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 1 then the task will be unblocked when a single byte is written to the buffer or the task&apos;s block time expires. As another example, if a task is blocked on a read of an empty stream buffer that has a trigger level of 10 then the task will not be unblocked until the stream buffer contains at least 10 bytes or the task&apos;s block time expires. If a reading task&apos;s block time expires before the trigger level is reached then the task will still receive however many bytes are actually available. Setting a trigger level of 0 will result in a trigger level of 1 being used. It is not valid to specify a trigger level that is greater than the buffer size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If NULL is returned, then the stream buffer cannot be created because there is insufficient heap memory available for FreeRTOS to allocate the stream buffer data structures and storage area. A non-NULL value being returned indicates that the stream buffer has been created successfully - the returned value should be stored as the handle to the created stream buffer.</para>
+</simplesect>
+Example use: <preformatted>
+
+void vAFunction( void )
+{
+StreamBufferHandle_t xStreamBuffer;
+const size_t xStreamBufferSizeBytes = 100, xTriggerLevel = 10;
+
+    // Create a stream buffer that can hold 100 bytes.  The memory used to hold
+    // both the stream buffer structure and the data in the stream buffer is
+    // allocated dynamically.
+    xStreamBuffer = <ref refid="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" kindref="member">xStreamBufferCreate( xStreamBufferSizeBytes, xTriggerLevel )</ref>;
+
+    if( xStreamBuffer == NULL )
+    {
+        // There was not enough heap memory space available to create the
+        // stream buffer.
+    }
+    else
+    {
+        // The stream buffer was created successfully and can now be used.
+    }
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

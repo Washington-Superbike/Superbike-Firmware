@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structtmr_timer_parameters" xml:lang="en-US">
+<title>tmrTimerParameters Struct Reference</title>
+<indexterm><primary>tmrTimerParameters</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> <link linkend="_structtmr_timer_parameters_1a3d2b83a746a56a8a2b5b011373333340">xMessageValue</link></para>
+</listitem>
+            <listitem><para><link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link> * <link linkend="_structtmr_timer_parameters_1a4e83c5e66a6c70abe97d5d22f0c6bd6a">pxTimer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_timers_8c_source_1l00095">95</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structtmr_timer_parameters_1a4e83c5e66a6c70abe97d5d22f0c6bd6a"/><section>
+    <title>pxTimer</title>
+<indexterm><primary>pxTimer</primary><secondary>tmrTimerParameters</secondary></indexterm>
+<indexterm><primary>tmrTimerParameters</primary><secondary>pxTimer</secondary></indexterm>
+<para><computeroutput><link linkend="_timers_8c_1ace29b8092a171cd9625d458b23d7cfdf">Timer_t</link>* tmrTimerParameters::pxTimer</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00098">98</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<anchor xml:id="_structtmr_timer_parameters_1a3d2b83a746a56a8a2b5b011373333340"/><section>
+    <title>xMessageValue</title>
+<indexterm><primary>xMessageValue</primary><secondary>tmrTimerParameters</secondary></indexterm>
+<indexterm><primary>tmrTimerParameters</primary><secondary>xMessageValue</secondary></indexterm>
+<para><computeroutput><link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> tmrTimerParameters::xMessageValue</computeroutput></para><para>
+Definition at line <link linkend="_timers_8c_source_1l00097">97</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_timers_8c">timers.c</link></section>
+</section>

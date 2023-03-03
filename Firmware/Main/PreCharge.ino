@@ -1,3 +1,29 @@
+/**
+   @file PreCharge.ino
+     @author    Washington Superbike
+     @date      1-March-2023
+     @brief
+          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
+          all variables that are passed along to all other files as
+          pointers. Then it runs the setup methods for all those
+          files and then it sets up RTOS to run all the different files
+          as individual tasks. These tasks are: datalogging,
+          display, precharge, CAN, idle. These tasks will be further
+          described in the documentation for their individual files.
+
+
+    \note
+      up all members to be able to use it without any trouble.
+
+    \todo
+      Goal 1.
+      \n \n
+      Goal 2.
+      \n \n
+      Goal 3.
+      \n \n
+      Final Goal.
+*/
 #include "Precharge.h"
 #include <Wire.h>
 
@@ -21,12 +47,11 @@
 // reprogram it by using the button on the board.
 // In the case of the actual race, I would turn on low-voltage
 // and then wait a second and then turn it off and then
-// turn it back on. 
+// turn it back on.
 
 // The state HV_PRECHARGING, HV_ON are badly named.
 // The enum should be renamed to HV_STATE
 // and instead we should have HV_OFF, HV_ON, HV_ON states
-HV_STATE hv_state = HV_OFF;
 
 void prechargeTask(void *taskData) {
   PreChargeTaskData prechargeData = *(PreChargeTaskData *)taskData;
@@ -34,7 +59,7 @@ void prechargeTask(void *taskData) {
     preChargeCircuitFSMStateActions(prechargeData);
     preChargeCircuitFSMTransitions(prechargeData);
     updateGyroData(preChargeData);
-    
+
     // 100 ms should be unnoticeable compared to other task updates
     // but should be fast to pick up errors / switch updates
     vTaskDelay((1 * configTICK_RATE_HZ) / 1000);
@@ -102,7 +127,6 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
   }
 }
 
-
 void preChargeCircuitFSMStateActions (PreChargeTaskData preChargeData) {
   switch (hv_state) { // state actions
     case HV_OFF:
@@ -142,7 +166,6 @@ bool isPrecharged(PreChargeTaskData preChargeData) {
 }
 
 // this function returns true if there are no HV errors detected on the bike
-
 bool isHVSafe(PreChargeTaskData preChargeData) {
   //BMSStatus bmsStatus = preChargeData.bmsStatus;
   MotorTemps motorTemps = preChargeData.motorTemps;
@@ -167,8 +190,6 @@ bool isHVSafe(PreChargeTaskData preChargeData) {
 bool check_HV_TOGGLE() {
   return !digitalRead(HIGH_VOLTAGE_TOGGLE);
 }
-
-// TODO: add a method that reads in gyro angle data again, which is then compared to initial angle, to determine leaning.
 
 char* state_name(HV_STATE state) {
   switch (state) {

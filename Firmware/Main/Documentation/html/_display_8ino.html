@@ -64,75 +64,57 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Display.ino File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_display_8h_source.html">Display.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_main_8h_source.html">Main.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_free_r_t_o_s___t_e_e_n_s_y4_8h_source.html">FreeRTOS_TEENSY4.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="_display_8ino_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abbc2dd9c7d8fc4714a0379f70d919047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#abbc2dd9c7d8fc4714a0379f70d919047">displayTask</a> (void *<a class="el" href="_main_8ino.html#aebb1e162e2ac30616875763e56823870">displayTaskWrap</a>)</td></tr>
+<tr class="memitem:abbc2dd9c7d8fc4714a0379f70d919047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#abbc2dd9c7d8fc4714a0379f70d919047">displayTask</a> (void *<a class="el" href="_main_8h.html#aebb1e162e2ac30616875763e56823870">displayTaskWrap</a>)</td></tr>
 <tr class="separator:abbc2dd9c7d8fc4714a0379f70d919047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a756efac71e8cf83b5add1ffcb9035a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a756efac71e8cf83b5add1ffcb9035a20">setupDisplay</a> (<a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a> msData, <a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8ino.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
+<tr class="memitem:a756efac71e8cf83b5add1ffcb9035a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a756efac71e8cf83b5add1ffcb9035a20">setupDisplay</a> (<a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a> msData, <a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8h.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
 <tr class="separator:a756efac71e8cf83b5add1ffcb9035a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55356673fc2f1fb26932f57c55156598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a55356673fc2f1fb26932f57c55156598">displayTask</a> (<a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a> msData, <a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8ino.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
-<tr class="separator:a55356673fc2f1fb26932f57c55156598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a520d4bd047b32e94c93249cf2042dfbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a520d4bd047b32e94c93249cf2042dfbb">drawMeasurementScreen</a> (<a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a> msData, <a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8ino.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
-<tr class="separator:a520d4bd047b32e94c93249cf2042dfbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2818acb0d1eb44a804059aa40c432b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ad2818acb0d1eb44a804059aa40c432b3">displayUpdate</a> (<a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a> msData, <a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8h.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
+<tr class="separator:ad2818acb0d1eb44a804059aa40c432b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48f20f2ac1788f51aaa3aefd6c8ccb96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a48f20f2ac1788f51aaa3aefd6c8ccb96">thermiDataPrint</a> (bool thermiDataPrint)</td></tr>
 <tr class="separator:a48f20f2ac1788f51aaa3aefd6c8ccb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1faaa02c20faaddf6f9e78859eb3cb0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a1faaa02c20faaddf6f9e78859eb3cb0c">timePrint</a> ()</td></tr>
 <tr class="separator:a1faaa02c20faaddf6f9e78859eb3cb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b73a1c90c594f4d6e205cf19666468a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen</a> (<a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8ino.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
+<tr class="memitem:a2b73a1c90c594f4d6e205cf19666468a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen</a> (<a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a> <a class="el" href="_main_8h.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>)</td></tr>
 <tr class="separator:a2b73a1c90c594f4d6e205cf19666468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9622e737a6a548ba9f9ffcbb6ed1bb2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint</a> (int xPos, int yPos, String oldData, String newData)</td></tr>
 <tr class="separator:a9622e737a6a548ba9f9ffcbb6ed1bb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf63fd6f02499d20156ded2a3582fb9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#acf63fd6f02499d20156ded2a3582fb9b">eraseThenPrintSPEEDO</a> (int xPos, int yPos, String oldData, String newData)</td></tr>
 <tr class="separator:acf63fd6f02499d20156ded2a3582fb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a830d3a5355acabc259beb381b66c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ac4a830d3a5355acabc259beb381b66c5">manualScreenUpdater</a> ()</td></tr>
-<tr class="separator:ac4a830d3a5355acabc259beb381b66c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fcaba5d0c64fb3389132dca04224211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a2fcaba5d0c64fb3389132dca04224211">manualScreenDataUpdater</a> ()</td></tr>
+<tr class="separator:a2fcaba5d0c64fb3389132dca04224211"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad609934bdce8f8169cc609cb7913f507"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ad609934bdce8f8169cc609cb7913f507">aux_voltage_read</a> ()</td></tr>
-<tr class="memdesc:ad609934bdce8f8169cc609cb7913f507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for Auxiliary voltage reading from pin 13.  <a href="_display_8ino.html#ad609934bdce8f8169cc609cb7913f507">More...</a><br /></td></tr>
 <tr class="separator:ad609934bdce8f8169cc609cb7913f507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a41c3eb6bc5901609f9f976b594e5089f"><td class="memItemLeft" align="right" valign="top">Adafruit_ILI9341&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a41c3eb6bc5901609f9f976b594e5089f">tft</a> = Adafruit_ILI9341(<a class="el" href="_display_8h.html#a5f4d46ae101b77df78010c506601c87c">TFT_CS</a>, <a class="el" href="_display_8h.html#a51529307207622c113ff0d584536be13">TFT_DC</a>, <a class="el" href="_display_8h.html#ab40e9918d9141415a47e2a979292309c">TFT_RST</a>)</td></tr>
-<tr class="separator:a41c3eb6bc5901609f9f976b594e5089f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49fe56d1f3147a5d156ae6bba71c22e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a> [<a class="el" href="_display_8h.html#a3b5584bed4734b437f2ef171dfa600e2">NUM_DATA</a>]</td></tr>
-<tr class="separator:af49fe56d1f3147a5d156ae6bba71c22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dbb33f8e641008d67ebd4388521ab69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a0dbb33f8e641008d67ebd4388521ab69">batteryVoltage</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[0]</td></tr>
-<tr class="separator:a0dbb33f8e641008d67ebd4388521ab69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f53d3b1963f27d117ab4846e36897e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ab1f53d3b1963f27d117ab4846e36897e">motorControllerVoltage</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[1]</td></tr>
-<tr class="separator:ab1f53d3b1963f27d117ab4846e36897e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012dded9173d07c300ffad949e96a940"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a012dded9173d07c300ffad949e96a940">auxBatteryVoltage</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[2]</td></tr>
-<tr class="separator:a012dded9173d07c300ffad949e96a940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f08d4bf70ba395b285b8d6a352bdf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a96f08d4bf70ba395b285b8d6a352bdf9">rpm</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[3]</td></tr>
-<tr class="separator:a96f08d4bf70ba395b285b8d6a352bdf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1eb6959a5903caaa2277b5c19bc64b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ab1eb6959a5903caaa2277b5c19bc64b8">motorTemperature</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[4]</td></tr>
-<tr class="separator:ab1eb6959a5903caaa2277b5c19bc64b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5969222ac88224eb77bc5aa7dd0e2d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ac5969222ac88224eb77bc5aa7dd0e2d0">motorCurr</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[5]</td></tr>
-<tr class="separator:ac5969222ac88224eb77bc5aa7dd0e2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec89495f1135f6268d3c23d3d89c6b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#aec89495f1135f6268d3c23d3d89c6b05">errMessage</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[6]</td></tr>
-<tr class="separator:aec89495f1135f6268d3c23d3d89c6b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44fd669aa58c2b66ab018fd2df3e046a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a44fd669aa58c2b66ab018fd2df3e046a">chargerVolt</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[7]</td></tr>
-<tr class="separator:a44fd669aa58c2b66ab018fd2df3e046a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac618dcef8a9f06e79d1cbe8cb9383aa6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#ac618dcef8a9f06e79d1cbe8cb9383aa6">chargerCurr</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[8]</td></tr>
-<tr class="separator:ac618dcef8a9f06e79d1cbe8cb9383aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a940677548971e0943f36dcfa95bb8b44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a940677548971e0943f36dcfa95bb8b44">bmsStatusFlag</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[9]</td></tr>
-<tr class="separator:a940677548971e0943f36dcfa95bb8b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f928d9e961d6ef649cb8bc5d3178b8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a1f928d9e961d6ef649cb8bc5d3178b8e">evccVolt</a> = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[10]</td></tr>
-<tr class="separator:a1f928d9e961d6ef649cb8bc5d3178b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a700ec86cb550fd4426014190222173ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#a700ec86cb550fd4426014190222173ac">thermiData</a></td></tr>
-<tr class="separator:a700ec86cb550fd4426014190222173ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a50ee378fcf45591eb041ee70b2368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_printed_data_time_stuct.html">PrintedDataTimeStuct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8ino.html#aa2a50ee378fcf45591eb041ee70b2368">timeData</a></td></tr>
-<tr class="separator:aa2a50ee378fcf45591eb041ee70b2368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>PLEASE remove the whole screen parameter situation. Change the whole value in the <br  />
+ <br  />
+ Goal 2. <br  />
+ <br  />
+ Goal 3. <br  />
+ <br  />
+ Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> Final Goal. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ad609934bdce8f8169cc609cb7913f507" name="ad609934bdce8f8169cc609cb7913f507"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad609934bdce8f8169cc609cb7913f507">&#9670;&nbsp;</a></span>aux_voltage_read()</h2>
 
@@ -148,40 +130,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks for Auxiliary voltage reading from pin 13. </p>
-
-</div>
-</div>
-<a id="a55356673fc2f1fb26932f57c55156598" name="a55356673fc2f1fb26932f57c55156598"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55356673fc2f1fb26932f57c55156598">&#9670;&nbsp;</a></span>displayTask() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void displayTask </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a>&#160;</td>
-          <td class="paramname"><em>msData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="_display_8h.html#a412053d6576f296892a8ccc0d8510e46">Screen</a>&#160;</td>
-          <td class="paramname"><em>screen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00265">265</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
 <a id="abbc2dd9c7d8fc4714a0379f70d919047" name="abbc2dd9c7d8fc4714a0379f70d919047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbc2dd9c7d8fc4714a0379f70d919047">&#9670;&nbsp;</a></span>displayTask() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc2dd9c7d8fc4714a0379f70d919047">&#9670;&nbsp;</a></span>displayTask()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,16 +150,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00045">45</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+
 </div>
 </div>
-<a id="a520d4bd047b32e94c93249cf2042dfbb" name="a520d4bd047b32e94c93249cf2042dfbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a520d4bd047b32e94c93249cf2042dfbb">&#9670;&nbsp;</a></span>drawMeasurementScreen()</h2>
+<a id="ad2818acb0d1eb44a804059aa40c432b3" name="ad2818acb0d1eb44a804059aa40c432b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2818acb0d1eb44a804059aa40c432b3">&#9670;&nbsp;</a></span>displayUpdate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawMeasurementScreen </td>
+          <td class="memname">void displayUpdate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_display_8h.html#a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</a>&#160;</td>
           <td class="paramname"><em>msData</em>, </td>
@@ -223,6 +179,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00087">87</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -264,6 +222,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00229">229</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+
 </div>
 </div>
 <a id="acf63fd6f02499d20156ded2a3582fb9b" name="acf63fd6f02499d20156ded2a3582fb9b"></a>
@@ -304,22 +264,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00238">238</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+
 </div>
 </div>
-<a id="ac4a830d3a5355acabc259beb381b66c5" name="ac4a830d3a5355acabc259beb381b66c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a830d3a5355acabc259beb381b66c5">&#9670;&nbsp;</a></span>manualScreenUpdater()</h2>
+<a id="a2fcaba5d0c64fb3389132dca04224211" name="a2fcaba5d0c64fb3389132dca04224211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fcaba5d0c64fb3389132dca04224211">&#9670;&nbsp;</a></span>manualScreenDataUpdater()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void manualScreenUpdater </td>
+          <td class="memname">void manualScreenDataUpdater </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00253">253</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -349,6 +313,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00055">55</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+
 </div>
 </div>
 <a id="a2b73a1c90c594f4d6e205cf19666468a" name="a2b73a1c90c594f4d6e205cf19666468a"></a>
@@ -366,6 +332,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00196">196</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -385,6 +353,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00135">135</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+
 </div>
 </div>
 <a id="a1faaa02c20faaddf6f9e78859eb3cb0c" name="a1faaa02c20faaddf6f9e78859eb3cb0c"></a>
@@ -402,216 +372,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a012dded9173d07c300ffad949e96a940" name="a012dded9173d07c300ffad949e96a940"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012dded9173d07c300ffad949e96a940">&#9670;&nbsp;</a></span>auxBatteryVoltage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* auxBatteryVoltage = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[2]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0dbb33f8e641008d67ebd4388521ab69" name="a0dbb33f8e641008d67ebd4388521ab69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dbb33f8e641008d67ebd4388521ab69">&#9670;&nbsp;</a></span>batteryVoltage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* batteryVoltage = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[0]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a940677548971e0943f36dcfa95bb8b44" name="a940677548971e0943f36dcfa95bb8b44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a940677548971e0943f36dcfa95bb8b44">&#9670;&nbsp;</a></span>bmsStatusFlag</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* bmsStatusFlag = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[9]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac618dcef8a9f06e79d1cbe8cb9383aa6" name="ac618dcef8a9f06e79d1cbe8cb9383aa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac618dcef8a9f06e79d1cbe8cb9383aa6">&#9670;&nbsp;</a></span>chargerCurr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* chargerCurr = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[8]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a44fd669aa58c2b66ab018fd2df3e046a" name="a44fd669aa58c2b66ab018fd2df3e046a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44fd669aa58c2b66ab018fd2df3e046a">&#9670;&nbsp;</a></span>chargerVolt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* chargerVolt = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[7]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aec89495f1135f6268d3c23d3d89c6b05" name="aec89495f1135f6268d3c23d3d89c6b05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec89495f1135f6268d3c23d3d89c6b05">&#9670;&nbsp;</a></span>errMessage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* errMessage = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[6]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1f928d9e961d6ef649cb8bc5d3178b8e" name="a1f928d9e961d6ef649cb8bc5d3178b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f928d9e961d6ef649cb8bc5d3178b8e">&#9670;&nbsp;</a></span>evccVolt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* evccVolt = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[10]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab1f53d3b1963f27d117ab4846e36897e" name="ab1f53d3b1963f27d117ab4846e36897e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1f53d3b1963f27d117ab4846e36897e">&#9670;&nbsp;</a></span>motorControllerVoltage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* motorControllerVoltage = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[1]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac5969222ac88224eb77bc5aa7dd0e2d0" name="ac5969222ac88224eb77bc5aa7dd0e2d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5969222ac88224eb77bc5aa7dd0e2d0">&#9670;&nbsp;</a></span>motorCurr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* motorCurr = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[5]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab1eb6959a5903caaa2277b5c19bc64b8" name="ab1eb6959a5903caaa2277b5c19bc64b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1eb6959a5903caaa2277b5c19bc64b8">&#9670;&nbsp;</a></span>motorTemperature</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* motorTemperature = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[4]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af49fe56d1f3147a5d156ae6bba71c22e" name="af49fe56d1f3147a5d156ae6bba71c22e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af49fe56d1f3147a5d156ae6bba71c22e">&#9670;&nbsp;</a></span>printedVals</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> printedVals[<a class="el" href="_display_8h.html#a3b5584bed4734b437f2ef171dfa600e2">NUM_DATA</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a96f08d4bf70ba395b285b8d6a352bdf9" name="a96f08d4bf70ba395b285b8d6a352bdf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96f08d4bf70ba395b285b8d6a352bdf9">&#9670;&nbsp;</a></span>rpm</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>* rpm = &amp;<a class="el" href="_display_8ino.html#af49fe56d1f3147a5d156ae6bba71c22e">printedVals</a>[3]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a41c3eb6bc5901609f9f976b594e5089f" name="a41c3eb6bc5901609f9f976b594e5089f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41c3eb6bc5901609f9f976b594e5089f">&#9670;&nbsp;</a></span>tft</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Adafruit_ILI9341 tft = Adafruit_ILI9341(<a class="el" href="_display_8h.html#a5f4d46ae101b77df78010c506601c87c">TFT_CS</a>, <a class="el" href="_display_8h.html#a51529307207622c113ff0d584536be13">TFT_DC</a>, <a class="el" href="_display_8h.html#ab40e9918d9141415a47e2a979292309c">TFT_RST</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a700ec86cb550fd4426014190222173ac" name="a700ec86cb550fd4426014190222173ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a700ec86cb550fd4426014190222173ac">&#9670;&nbsp;</a></span>thermiData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_display_8h.html#a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</a> thermiData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa2a50ee378fcf45591eb041ee70b2368" name="aa2a50ee378fcf45591eb041ee70b2368"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2a50ee378fcf45591eb041ee70b2368">&#9670;&nbsp;</a></span>timeData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_printed_data_time_stuct.html">PrintedDataTimeStuct</a> timeData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00185">185</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>

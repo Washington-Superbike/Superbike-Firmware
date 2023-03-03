@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_portmacro_8h" xml:lang="en-US">
+<title>FreeRTOS/portmacro.h File Reference</title>
+<indexterm><primary>FreeRTOS/portmacro.h</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_portmacro_8h_1add0bdbfef5abf241c7774f68bde42f1d">portCHAR</link>   char</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a1bbe1ef117ec274ef919e0a930c888ac">portFLOAT</link>   float</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a4711ce186a903a14bc8ea7c8650b4f61">portDOUBLE</link>   double</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a6bbebff6020ac333ab6ec2ffd7f77001">portLONG</link>   long</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a42e62d5881b12ff2a5c659576c64d003">portSHORT</link>   short</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1ab0a294066ac7369b8f59a52d9491a92c">portSTACK_TYPE</link>   uint32_t</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a1ebe82d24d764ae4e352f7c3a9f92c01">portBASE_TYPE</link>   long</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</link>   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0xffffffffUL</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a62e53bc6d3fa5c4bf4e65ab2752930f3">portTICK_TYPE_IS_ATOMIC</link>   1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a21adaab1601f6a0f35ba550a43060830">portSTACK_GROWTH</link>   ( -1 )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd">portTICK_PERIOD_MS</link>   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 / <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1ab9091ce3940d8bd93ec850122a2c6a1c">portBYTE_ALIGNMENT</link>   4</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1ae42817ecbd6fe76d846a89cc0fcd0d95">portNVIC_INT_CTRL_REG</link>   ( * ( ( volatile uint32_t * ) 0xe000ed04 ) )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a16830bf8349e14cdeed05193af234d5e">portNVIC_PENDSVSET_BIT</link>   ( 1UL &lt;&lt; 28UL )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a63b994040c62c9685490a71c87a13d8a">portEND_SWITCHING_ISR</link>(xSwitchRequired)   if( xSwitchRequired != <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1aac6850c66595efdc02a8bbb95fb4648e">portYIELD_FROM_ISR</link>(x)   <link linkend="_portmacro_8h_1a63b994040c62c9685490a71c87a13d8a">portEND_SWITCHING_ISR</link>( x )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>()   ulPortRaiseBASEPRI()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</link>(x)   vPortSetBASEPRI(x)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</link>()   vPortRaiseBASEPRI()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>()   vPortSetBASEPRI(0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</link>()   <link linkend="_portmacro_8h_1a2ed3554a3de09a3bd09d396ee081ab69">vPortEnterCritical</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd">portEXIT_CRITICAL</link>()   <link linkend="_portmacro_8h_1aed20ada05b957181a0de042802a82a5b">vPortExitCritical</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a2921e1c5a1f974dfa01ae44d1f665f14">portTASK_FUNCTION_PROTO</link>(vFunction,  pvParameters)   void vFunction( void *pvParameters )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a3a289793652f505c538abea27045ccdf">portTASK_FUNCTION</link>(vFunction,  pvParameters)   void vFunction( void *pvParameters )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a1dcf4bd9c1ad4fe16a71391dd95cf585">portSUPPRESS_TICKS_AND_SLEEP</link>(xExpectedIdleTime)   <link linkend="_portmacro_8h_1aefd025907402b0b863d5012673d5036e">vPortSuppressTicksAndSleep</link>( xExpectedIdleTime )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1aebb8c3a87d591f60f974772be0ee798d">configUSE_PORT_OPTIMISED_TASK_SELECTION</link>   1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</link>(uxPriority,  uxReadyPriorities)   ( uxReadyPriorities ) |= ( 1UL &lt;&lt; ( uxPriority ) )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1aab771d12c0912d93d52a586628fb18a6">portRESET_READY_PRIORITY</link>(uxPriority,  uxReadyPriorities)   ( uxReadyPriorities ) &amp;= ~( 1UL &lt;&lt; ( uxPriority ) )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a5ed536be98084ed8c77c95d79a2688ee">portGET_HIGHEST_PRIORITY</link>(uxTopPriority,  uxReadyPriorities)   uxTopPriority = ( 31UL - ( uint32_t ) ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a23c54dff0b50ff35563ef06c6d6d1835">portNOP</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1a73448585c9c9e96500c2f0c9ea824601">portINLINE</link>   __inline</para>
+</listitem>
+            <listitem><para>#define <link linkend="_portmacro_8h_1aaa356ca7932487d20a42d6839842d308">portFORCE_INLINE</link>   inline <link linkend="_portmacro_8h_1ac864e333c11a6614eab8e8542ba01ed0">__attribute__</link>(( always_inline))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef uint32_t <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link></para>
+</listitem>
+            <listitem><para>typedef long <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link></para>
+</listitem>
+            <listitem><para>typedef unsigned long <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link></para>
+</listitem>
+            <listitem><para>typedef uint32_t <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_portmacro_8h_1a2ed3554a3de09a3bd09d396ee081ab69">vPortEnterCritical</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_portmacro_8h_1aed20ada05b957181a0de042802a82a5b">vPortExitCritical</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_portmacro_8h_1aefd025907402b0b863d5012673d5036e">vPortSuppressTicksAndSleep</link> (<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xExpectedIdleTime)</para>
+</listitem>
+            <listitem><para><link linkend="_portmacro_8h_1ac864e333c11a6614eab8e8542ba01ed0">__attribute__</link> ((always_inline)) static inline uint8_t ucPortCountLeadingZeros(uint32_t ulBitmap)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_portmacro_8h_1aebb8c3a87d591f60f974772be0ee798d"/><section>
+    <title>configUSE_PORT_OPTIMISED_TASK_SELECTION</title>
+<indexterm><primary>configUSE_PORT_OPTIMISED_TASK_SELECTION</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>configUSE_PORT_OPTIMISED_TASK_SELECTION</secondary></indexterm>
+<para><computeroutput>#define configUSE_PORT_OPTIMISED_TASK_SELECTION   1</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00124">124</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a1ebe82d24d764ae4e352f7c3a9f92c01"/><section>
+    <title>portBASE_TYPE</title>
+<indexterm><primary>portBASE_TYPE</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portBASE_TYPE</secondary></indexterm>
+<para><computeroutput>#define portBASE_TYPE   long</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00053">53</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1ab9091ce3940d8bd93ec850122a2c6a1c"/><section>
+    <title>portBYTE_ALIGNMENT</title>
+<indexterm><primary>portBYTE_ALIGNMENT</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portBYTE_ALIGNMENT</secondary></indexterm>
+<para><computeroutput>#define portBYTE_ALIGNMENT   4</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00075">75</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1add0bdbfef5abf241c7774f68bde42f1d"/><section>
+    <title>portCHAR</title>
+<indexterm><primary>portCHAR</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portCHAR</secondary></indexterm>
+<para><computeroutput>#define portCHAR   char</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00047">47</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e"/><section>
+    <title>portCLEAR_INTERRUPT_MASK_FROM_ISR</title>
+<indexterm><primary>portCLEAR_INTERRUPT_MASK_FROM_ISR</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portCLEAR_INTERRUPT_MASK_FROM_ISR</secondary></indexterm>
+<para><computeroutput>#define portCLEAR_INTERRUPT_MASK_FROM_ISR( x)   vPortSetBASEPRI(x)</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00099">99</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1"/><section>
+    <title>portDISABLE_INTERRUPTS</title>
+<indexterm><primary>portDISABLE_INTERRUPTS</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portDISABLE_INTERRUPTS</secondary></indexterm>
+<para><computeroutput>#define portDISABLE_INTERRUPTS( )   vPortRaiseBASEPRI()</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00100">100</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a4711ce186a903a14bc8ea7c8650b4f61"/><section>
+    <title>portDOUBLE</title>
+<indexterm><primary>portDOUBLE</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portDOUBLE</secondary></indexterm>
+<para><computeroutput>#define portDOUBLE   double</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00049">49</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173"/><section>
+    <title>portENABLE_INTERRUPTS</title>
+<indexterm><primary>portENABLE_INTERRUPTS</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portENABLE_INTERRUPTS</secondary></indexterm>
+<para><computeroutput>#define portENABLE_INTERRUPTS( )   vPortSetBASEPRI(0)</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00101">101</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a63b994040c62c9685490a71c87a13d8a"/><section>
+    <title>portEND_SWITCHING_ISR</title>
+<indexterm><primary>portEND_SWITCHING_ISR</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portEND_SWITCHING_ISR</secondary></indexterm>
+<para><computeroutput>#define portEND_SWITCHING_ISR( xSwitchRequired)   if( xSwitchRequired != <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00091">91</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7"/><section>
+    <title>portENTER_CRITICAL</title>
+<indexterm><primary>portENTER_CRITICAL</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portENTER_CRITICAL</secondary></indexterm>
+<para><computeroutput>#define portENTER_CRITICAL( )   <link linkend="_portmacro_8h_1a2ed3554a3de09a3bd09d396ee081ab69">vPortEnterCritical</link>()</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00102">102</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd"/><section>
+    <title>portEXIT_CRITICAL</title>
+<indexterm><primary>portEXIT_CRITICAL</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portEXIT_CRITICAL</secondary></indexterm>
+<para><computeroutput>#define portEXIT_CRITICAL( )   <link linkend="_portmacro_8h_1aed20ada05b957181a0de042802a82a5b">vPortExitCritical</link>()</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00103">103</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a1bbe1ef117ec274ef919e0a930c888ac"/><section>
+    <title>portFLOAT</title>
+<indexterm><primary>portFLOAT</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portFLOAT</secondary></indexterm>
+<para><computeroutput>#define portFLOAT   float</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00048">48</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aaa356ca7932487d20a42d6839842d308"/><section>
+    <title>portFORCE_INLINE</title>
+<indexterm><primary>portFORCE_INLINE</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portFORCE_INLINE</secondary></indexterm>
+<para><computeroutput>#define portFORCE_INLINE   inline <link linkend="_portmacro_8h_1ac864e333c11a6614eab8e8542ba01ed0">__attribute__</link>(( always_inline))</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00166">166</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a5ed536be98084ed8c77c95d79a2688ee"/><section>
+    <title>portGET_HIGHEST_PRIORITY</title>
+<indexterm><primary>portGET_HIGHEST_PRIORITY</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portGET_HIGHEST_PRIORITY</secondary></indexterm>
+<para><computeroutput>#define portGET_HIGHEST_PRIORITY( uxTopPriority,  uxReadyPriorities)   uxTopPriority = ( 31UL - ( uint32_t ) ucPortCountLeadingZeros( ( uxReadyPriorities ) ) )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00149">149</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a73448585c9c9e96500c2f0c9ea824601"/><section>
+    <title>portINLINE</title>
+<indexterm><primary>portINLINE</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portINLINE</secondary></indexterm>
+<para><computeroutput>#define portINLINE   __inline</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00163">163</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a6bbebff6020ac333ab6ec2ffd7f77001"/><section>
+    <title>portLONG</title>
+<indexterm><primary>portLONG</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portLONG</secondary></indexterm>
+<para><computeroutput>#define portLONG   long</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00050">50</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d"/><section>
+    <title>portMAX_DELAY</title>
+<indexterm><primary>portMAX_DELAY</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portMAX_DELAY</secondary></indexterm>
+<para><computeroutput>#define portMAX_DELAY   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0xffffffffUL</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00064">64</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a23c54dff0b50ff35563ef06c6d6d1835"/><section>
+    <title>portNOP</title>
+<indexterm><primary>portNOP</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portNOP</secondary></indexterm>
+<para><computeroutput>#define portNOP( )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00161">161</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1ae42817ecbd6fe76d846a89cc0fcd0d95"/><section>
+    <title>portNVIC_INT_CTRL_REG</title>
+<indexterm><primary>portNVIC_INT_CTRL_REG</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portNVIC_INT_CTRL_REG</secondary></indexterm>
+<para><computeroutput>#define portNVIC_INT_CTRL_REG   ( * ( ( volatile uint32_t * ) 0xe000ed04 ) )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00089">89</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a16830bf8349e14cdeed05193af234d5e"/><section>
+    <title>portNVIC_PENDSVSET_BIT</title>
+<indexterm><primary>portNVIC_PENDSVSET_BIT</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portNVIC_PENDSVSET_BIT</secondary></indexterm>
+<para><computeroutput>#define portNVIC_PENDSVSET_BIT   ( 1UL &lt;&lt; 28UL )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00090">90</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484"/><section>
+    <title>portRECORD_READY_PRIORITY</title>
+<indexterm><primary>portRECORD_READY_PRIORITY</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portRECORD_READY_PRIORITY</secondary></indexterm>
+<para><computeroutput>#define portRECORD_READY_PRIORITY( uxPriority,  uxReadyPriorities)   ( uxReadyPriorities ) |= ( 1UL &lt;&lt; ( uxPriority ) )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00144">144</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aab771d12c0912d93d52a586628fb18a6"/><section>
+    <title>portRESET_READY_PRIORITY</title>
+<indexterm><primary>portRESET_READY_PRIORITY</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portRESET_READY_PRIORITY</secondary></indexterm>
+<para><computeroutput>#define portRESET_READY_PRIORITY( uxPriority,  uxReadyPriorities)   ( uxReadyPriorities ) &amp;= ~( 1UL &lt;&lt; ( uxPriority ) )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00145">145</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98"/><section>
+    <title>portSET_INTERRUPT_MASK_FROM_ISR</title>
+<indexterm><primary>portSET_INTERRUPT_MASK_FROM_ISR</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portSET_INTERRUPT_MASK_FROM_ISR</secondary></indexterm>
+<para><computeroutput>#define portSET_INTERRUPT_MASK_FROM_ISR( )   ulPortRaiseBASEPRI()</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00098">98</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a42e62d5881b12ff2a5c659576c64d003"/><section>
+    <title>portSHORT</title>
+<indexterm><primary>portSHORT</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portSHORT</secondary></indexterm>
+<para><computeroutput>#define portSHORT   short</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00051">51</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a21adaab1601f6a0f35ba550a43060830"/><section>
+    <title>portSTACK_GROWTH</title>
+<indexterm><primary>portSTACK_GROWTH</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portSTACK_GROWTH</secondary></indexterm>
+<para><computeroutput>#define portSTACK_GROWTH   ( -1 )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00073">73</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1ab0a294066ac7369b8f59a52d9491a92c"/><section>
+    <title>portSTACK_TYPE</title>
+<indexterm><primary>portSTACK_TYPE</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portSTACK_TYPE</secondary></indexterm>
+<para><computeroutput>#define portSTACK_TYPE   uint32_t</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00052">52</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a1dcf4bd9c1ad4fe16a71391dd95cf585"/><section>
+    <title>portSUPPRESS_TICKS_AND_SLEEP</title>
+<indexterm><primary>portSUPPRESS_TICKS_AND_SLEEP</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portSUPPRESS_TICKS_AND_SLEEP</secondary></indexterm>
+<para><computeroutput>#define portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime)   <link linkend="_portmacro_8h_1aefd025907402b0b863d5012673d5036e">vPortSuppressTicksAndSleep</link>( xExpectedIdleTime )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00118">118</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a3a289793652f505c538abea27045ccdf"/><section>
+    <title>portTASK_FUNCTION</title>
+<indexterm><primary>portTASK_FUNCTION</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portTASK_FUNCTION</secondary></indexterm>
+<para><computeroutput>#define portTASK_FUNCTION( vFunction,  pvParameters)   void vFunction( void *pvParameters )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00112">112</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a2921e1c5a1f974dfa01ae44d1f665f14"/><section>
+    <title>portTASK_FUNCTION_PROTO</title>
+<indexterm><primary>portTASK_FUNCTION_PROTO</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portTASK_FUNCTION_PROTO</secondary></indexterm>
+<para><computeroutput>#define portTASK_FUNCTION_PROTO( vFunction,  pvParameters)   void vFunction( void *pvParameters )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00111">111</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd"/><section>
+    <title>portTICK_PERIOD_MS</title>
+<indexterm><primary>portTICK_PERIOD_MS</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portTICK_PERIOD_MS</secondary></indexterm>
+<para><computeroutput>#define portTICK_PERIOD_MS   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 / <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00074">74</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a62e53bc6d3fa5c4bf4e65ab2752930f3"/><section>
+    <title>portTICK_TYPE_IS_ATOMIC</title>
+<indexterm><primary>portTICK_TYPE_IS_ATOMIC</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portTICK_TYPE_IS_ATOMIC</secondary></indexterm>
+<para><computeroutput>#define portTICK_TYPE_IS_ATOMIC   1</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00068">68</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7"/><section>
+    <title>portYIELD</title>
+<indexterm><primary>portYIELD</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portYIELD</secondary></indexterm>
+<para><computeroutput>#define portYIELD( )</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Set&#32;a&#32;PendSV&#32;to&#32;request&#32;a&#32;context&#32;switch.&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;portNVIC_INT_CTRL_REG&#32;=&#32;<link linkend="_portmacro_8h_1a16830bf8349e14cdeed05193af234d5e">portNVIC_PENDSVSET_BIT</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Barriers&#32;are&#32;normally&#32;not&#32;required&#32;but&#32;do&#32;ensure&#32;the&#32;code&#32;is&#32;completely&#32;&#32;\</emphasis>
+<emphasis role="comment">&#32;&#32;&#32;&#32;within&#32;the&#32;specified&#32;behaviour&#32;for&#32;the&#32;architecture.&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;__asm&#32;<emphasis role="keyword">volatile</emphasis>(&#32;<emphasis role="stringliteral">&quot;dsb&quot;</emphasis>&#32;:::&#32;<emphasis role="stringliteral">&quot;memory&quot;</emphasis>&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;__asm&#32;<emphasis role="keyword">volatile</emphasis>(&#32;<emphasis role="stringliteral">&quot;isb&quot;</emphasis>&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+}
+</programlisting><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00079">79</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aac6850c66595efdc02a8bbb95fb4648e"/><section>
+    <title>portYIELD_FROM_ISR</title>
+<indexterm><primary>portYIELD_FROM_ISR</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>portYIELD_FROM_ISR</secondary></indexterm>
+<para><computeroutput>#define portYIELD_FROM_ISR( x)   <link linkend="_portmacro_8h_1a63b994040c62c9685490a71c87a13d8a">portEND_SWITCHING_ISR</link>( x )</computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00092">92</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796"/><section>
+    <title>BaseType_t</title>
+<indexterm><primary>BaseType_t</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>BaseType_t</secondary></indexterm>
+<para><computeroutput>typedef long <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link></computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00056">56</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b"/><section>
+    <title>StackType_t</title>
+<indexterm><primary>StackType_t</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>StackType_t</secondary></indexterm>
+<para><computeroutput>typedef uint32_t <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link></computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00055">55</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9"/><section>
+    <title>TickType_t</title>
+<indexterm><primary>TickType_t</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>TickType_t</secondary></indexterm>
+<para><computeroutput>typedef uint32_t <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00063">63</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6"/><section>
+    <title>UBaseType_t</title>
+<indexterm><primary>UBaseType_t</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>UBaseType_t</secondary></indexterm>
+<para><computeroutput>typedef unsigned long <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link></computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00057">57</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_portmacro_8h_1ac864e333c11a6614eab8e8542ba01ed0"/><section>
+    <title>__attribute__()</title>
+<indexterm><primary>__attribute__</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>__attribute__</secondary></indexterm>
+<para><computeroutput>__attribute__ ((always_inline) )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_portmacro_8h_source_1l00130">130</link> of file <link linkend="_portmacro_8h_source">portmacro.h</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1a2ed3554a3de09a3bd09d396ee081ab69"/><section>
+    <title>vPortEnterCritical()</title>
+<indexterm><primary>vPortEnterCritical</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>vPortEnterCritical</secondary></indexterm>
+<para><computeroutput>void vPortEnterCritical (void )</computeroutput></para><para>
+Definition at line <link linkend="_port_8c_source_1l00505">505</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aed20ada05b957181a0de042802a82a5b"/><section>
+    <title>vPortExitCritical()</title>
+<indexterm><primary>vPortExitCritical</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>vPortExitCritical</secondary></indexterm>
+<para><computeroutput>void vPortExitCritical (void )</computeroutput></para><para>
+Definition at line <link linkend="_port_8c_source_1l00522">522</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
+</section>
+<anchor xml:id="_portmacro_8h_1aefd025907402b0b863d5012673d5036e"/><section>
+    <title>vPortSuppressTicksAndSleep()</title>
+<indexterm><primary>vPortSuppressTicksAndSleep</primary><secondary>portmacro.h</secondary></indexterm>
+<indexterm><primary>portmacro.h</primary><secondary>vPortSuppressTicksAndSleep</secondary></indexterm>
+<para><computeroutput>void vPortSuppressTicksAndSleep (<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> xExpectedIdleTime)</computeroutput></para></section>
+</section>
+</section>

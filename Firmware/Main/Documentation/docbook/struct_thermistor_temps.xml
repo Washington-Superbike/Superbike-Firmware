@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_thermistor_temps" xml:lang="en-US">
+<title>ThermistorTemps Struct Reference</title>
+<indexterm><primary>ThermistorTemps</primary></indexterm>
+<para>
+<computeroutput>#include &lt;CAN.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>float * <link linkend="_struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b">temps</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00100">100</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b"/><section>
+    <title>temps</title>
+<indexterm><primary>temps</primary><secondary>ThermistorTemps</secondary></indexterm>
+<indexterm><primary>ThermistorTemps</primary><secondary>temps</secondary></indexterm>
+<para><computeroutput>float* ThermistorTemps::temps</computeroutput></para><para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00101">101</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="__c_a_n_8h">CAN.h</link></section>
+</section>

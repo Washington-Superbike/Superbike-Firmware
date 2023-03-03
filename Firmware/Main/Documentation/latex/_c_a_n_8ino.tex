@@ -1,28 +1,32 @@
 \hypertarget{_c_a_n_8ino}{}\doxysection{CAN.\+ino File Reference}
 \label{_c_a_n_8ino}\index{CAN.ino@{CAN.ino}}
+
+
+The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+
+
 {\ttfamily \#include \char`\"{}CAN.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Free\+RTOS\+\_\+\+TEENSY4.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setup\+CAN}} ()
-\item 
 void \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{can\+Task}} (void $\ast$can\+Data)
+\item 
+void \mbox{\hyperlink{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setup\+CAN}} ()
 \item 
 void \mbox{\hyperlink{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}{decipher\+EVCCStats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stats}} evcc\+Stats)
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipher\+Charger\+Stats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}} \mbox{\hyperlink{_main_8ino_aa249f1d073086c27682168bbd7dc77ee}{charger\+Stats}})
+void \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipher\+Charger\+Stats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}} \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{charger\+Stats}})
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decode\+Motor\+Stats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}} \mbox{\hyperlink{_main_8ino_a9eeb128a9907154869e9ffa78e065039}{motor\+Stats}})
+void \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decode\+Motor\+Stats}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}} \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motor\+Stats}})
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decode\+Motor\+Temps}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}} \mbox{\hyperlink{_main_8ino_abb61c6dc61d12b31aad7bdadd495b70a}{motor\+Temps}})
+void \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decode\+Motor\+Temps}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}} \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motor\+Temps}})
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipher\+BMSStatus}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8ino_ae0522609134711f92c96ffa8ed05e582}{bms\+Status}})
+void \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipher\+BMSStatus}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bms\+Status}})
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipher\+Cells\+Voltage}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}} \mbox{\hyperlink{_main_8ino_afca6798677cebeeb7599ea00e1e243dd}{cell\+Voltages}})
+void \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipher\+Cells\+Voltage}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}} \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cell\+Voltages}})
 \item 
-void \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipher\+Thermistors}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}} \mbox{\hyperlink{_main_8ino_a18571448b101f12a60457d717dc4f953}{thermistor\+Temps}})
+void \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipher\+Thermistors}} (CAN\+\_\+message\+\_\+t msg, \mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}} \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistor\+Temps}})
 \item 
 void \mbox{\hyperlink{_c_a_n_8ino_afd1fb5329197c4478969008e0ee42f90}{calculate\+Series\+Voltage}} (\mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}} cell\+Vs)
 \item 
@@ -34,15 +38,32 @@ void \mbox{\hyperlink{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}{print\+Mess
 \item 
 void \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{request\+Cell\+Voltages}} (int LTC)
 \end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-Flex\+CAN\+\_\+\+T4$<$ CAN2, RX\+\_\+\+SIZE\+\_\+256, TX\+\_\+\+SIZE\+\_\+16 $>$ \mbox{\hyperlink{_c_a_n_8ino_aa4303f5a4b2f41108b988f850270b2d1}{CAN\+\_\+bus}}
-\item 
-CAN\+\_\+message\+\_\+t \mbox{\hyperlink{_c_a_n_8ino_afef5641c16f897cbe9fc00682fb749ed}{CAN\+\_\+msg}}
-\item 
-static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell\+Voltages\+Ready}} \mbox{[}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}\mbox{]} = \{false\}
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+
+\begin{DoxyAuthor}{Author}
+Washington Superbike 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1-\/March-\/2023
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+up all members to be able to use it without any trouble.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Change the \char`\"{}if CAN\+\_\+\+NODES != 0\char`\"{} to be an ifndef statement in the start. That means the check\+CAN and request\+Cell\+Voltages lines will not execute unless CAN\+\_\+\+NODES is a non-\/zero number in \mbox{\hyperlink{_main_8h}{Main.\+h}} before compiling. ~\newline
+ ~\newline
+ Goal 2. ~\newline
+ ~\newline
+ Goal 3. ~\newline
+ ~\newline
+ Final Goal. \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -52,11 +73,19 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{calculateSeriesVoltage()}{calculateSeriesVoltage()}}
 {\footnotesize\ttfamily void calculate\+Series\+Voltage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}}}]{cell\+Vs }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00137}{137}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}\label{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}} 
 \index{CAN.ino@{CAN.ino}!canTask@{canTask}}
 \index{canTask@{canTask}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{canTask()}{canTask()}}
 {\footnotesize\ttfamily void can\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{can\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}\label{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}} 
 \index{CAN.ino@{CAN.ino}!checkCAN@{checkCAN}}
@@ -64,11 +93,19 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{checkCAN()}{checkCAN()}}
 {\footnotesize\ttfamily void check\+CAN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}}}]{can\+Data }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00147}{147}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}\label{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}} 
 \index{CAN.ino@{CAN.ino}!decipherBMSStatus@{decipherBMSStatus}}
 \index{decipherBMSStatus@{decipherBMSStatus}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{decipherBMSStatus()}{decipherBMSStatus()}}
 {\footnotesize\ttfamily void decipher\+BMSStatus (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}}}]{bms\+Status }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00090}{90}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}\label{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}} 
 \index{CAN.ino@{CAN.ino}!decipherCellsVoltage@{decipherCellsVoltage}}
@@ -76,11 +113,19 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{decipherCellsVoltage()}{decipherCellsVoltage()}}
 {\footnotesize\ttfamily void decipher\+Cells\+Voltage (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_cell_voltages}{Cell\+Voltages}}}]{cell\+Voltages }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00098}{98}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}\label{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}} 
 \index{CAN.ino@{CAN.ino}!decipherChargerStats@{decipherChargerStats}}
 \index{decipherChargerStats@{decipherChargerStats}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{decipherChargerStats()}{decipherChargerStats()}}
 {\footnotesize\ttfamily void decipher\+Charger\+Stats (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_charger_stats}{Charger\+Stats}}}]{charger\+Stats }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00068}{68}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}\label{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}} 
 \index{CAN.ino@{CAN.ino}!decipherEVCCStats@{decipherEVCCStats}}
@@ -88,11 +133,19 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{decipherEVCCStats()}{decipherEVCCStats()}}
 {\footnotesize\ttfamily void decipher\+EVCCStats (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stats}}}]{evcc\+Stats }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}\label{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}} 
 \index{CAN.ino@{CAN.ino}!decipherThermistors@{decipherThermistors}}
 \index{decipherThermistors@{decipherThermistors}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{decipherThermistors()}{decipherThermistors()}}
 {\footnotesize\ttfamily void decipher\+Thermistors (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_thermistor_temps}{Thermistor\+Temps}}}]{thermistor\+Temps }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00125}{125}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}\label{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}} 
 \index{CAN.ino@{CAN.ino}!decodeMotorStats@{decodeMotorStats}}
@@ -100,11 +153,19 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{decodeMotorStats()}{decodeMotorStats()}}
 {\footnotesize\ttfamily void decode\+Motor\+Stats (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_motor_stats}{Motor\+Stats}}}]{motor\+Stats }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00076}{76}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}\label{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}} 
 \index{CAN.ino@{CAN.ino}!decodeMotorTemps@{decodeMotorTemps}}
 \index{decodeMotorTemps@{decodeMotorTemps}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{decodeMotorTemps()}{decodeMotorTemps()}}
 {\footnotesize\ttfamily void decode\+Motor\+Temps (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg,  }\item[{\mbox{\hyperlink{struct_motor_temps}{Motor\+Temps}}}]{motor\+Temps }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00083}{83}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}\label{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}} 
 \index{CAN.ino@{CAN.ino}!printBMSStatus@{printBMSStatus}}
@@ -112,17 +173,29 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 \doxysubsubsection{\texorpdfstring{printBMSStatus()}{printBMSStatus()}}
 {\footnotesize\ttfamily void print\+BMSStatus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00192}{192}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}\label{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}} 
 \index{CAN.ino@{CAN.ino}!printMessage@{printMessage}}
 \index{printMessage@{printMessage}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{printMessage()}{printMessage()}}
 {\footnotesize\ttfamily void print\+Message (\begin{DoxyParamCaption}\item[{CAN\+\_\+message\+\_\+t}]{msg }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00226}{226}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+
 \mbox{\Hypertarget{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}\label{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}} 
 \index{CAN.ino@{CAN.ino}!requestCellVoltages@{requestCellVoltages}}
 \index{requestCellVoltages@{requestCellVoltages}!CAN.ino@{CAN.ino}}
 \doxysubsubsection{\texorpdfstring{requestCellVoltages()}{requestCellVoltages()}}
 {\footnotesize\ttfamily void request\+Cell\+Voltages (\begin{DoxyParamCaption}\item[{int}]{LTC }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00236}{236}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}\label{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}} 
 \index{CAN.ino@{CAN.ino}!setupCAN@{setupCAN}}
@@ -132,22 +205,5 @@ static bool \mbox{\hyperlink{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}{cell
 
 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{_c_a_n_8ino_aa4303f5a4b2f41108b988f850270b2d1}\label{_c_a_n_8ino_aa4303f5a4b2f41108b988f850270b2d1}} 
-\index{CAN.ino@{CAN.ino}!CAN\_bus@{CAN\_bus}}
-\index{CAN\_bus@{CAN\_bus}!CAN.ino@{CAN.ino}}
-\doxysubsubsection{\texorpdfstring{CAN\_bus}{CAN\_bus}}
-{\footnotesize\ttfamily Flex\+CAN\+\_\+\+T4$<$CAN2, RX\+\_\+\+SIZE\+\_\+256, TX\+\_\+\+SIZE\+\_\+16$>$ CAN\+\_\+bus}
-
-\mbox{\Hypertarget{_c_a_n_8ino_afef5641c16f897cbe9fc00682fb749ed}\label{_c_a_n_8ino_afef5641c16f897cbe9fc00682fb749ed}} 
-\index{CAN.ino@{CAN.ino}!CAN\_msg@{CAN\_msg}}
-\index{CAN\_msg@{CAN\_msg}!CAN.ino@{CAN.ino}}
-\doxysubsubsection{\texorpdfstring{CAN\_msg}{CAN\_msg}}
-{\footnotesize\ttfamily CAN\+\_\+message\+\_\+t CAN\+\_\+msg}
-
-\mbox{\Hypertarget{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}\label{_c_a_n_8ino_a01b19bcc2d13deb8c8b792fa8a37fc7f}} 
-\index{CAN.ino@{CAN.ino}!cellVoltagesReady@{cellVoltagesReady}}
-\index{cellVoltagesReady@{cellVoltagesReady}!CAN.ino@{CAN.ino}}
-\doxysubsubsection{\texorpdfstring{cellVoltagesReady}{cellVoltagesReady}}
-{\footnotesize\ttfamily bool cell\+Voltages\+Ready\mbox{[}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}\mbox{]} = \{false\}\hspace{0.3cm}{\ttfamily [static]}}
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 

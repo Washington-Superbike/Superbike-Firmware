@@ -1,0 +1,476 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_data_logging_8h" kind="file" language="C++">
+    <compoundname>DataLogging.h</compoundname>
+    <includes local="yes">SdFat.h</includes>
+    <includedby refid="_data_logging_8ino" local="yes">DataLogging.ino</includedby>
+    <includedby refid="_main_8h" local="yes">Main.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>DataLogging.h</label>
+        <link refid="_data_logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SdFat.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>DataLogging.h</label>
+        <link refid="_data_logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DataLogging.ino</label>
+        <link refid="_data_logging_8ino"/>
+      </node>
+      <node id="4">
+        <label>Display.ino</label>
+        <link refid="_display_8ino"/>
+      </node>
+      <node id="3">
+        <label>Main.h</label>
+        <link refid="_main_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Main.ino</label>
+        <link refid="_main_8ino"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_c_s_v_writer" prot="public">CSVWriter</innerclass>
+    <innerclass refid="struct_data_logging_task_data" prot="public">DataLoggingTaskData</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2" prot="public" static="no">
+        <name>DATALOGGING_TASK_STACK_SIZE</name>
+        <initializer><ref refid="_free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a" kindref="member">configMINIMAL_STACK_SIZE</ref> + 32368</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="33" column="9" bodyfile="DataLogging.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99" prot="public" static="no">
+        <name>MOTOR_TEMPERATURE_LOG</name>
+        <initializer>&quot;motor_temperature_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="36" column="9" bodyfile="DataLogging.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f" prot="public" static="no">
+        <name>MOTOR_CONTROLLER_TEMPERATURE_LOG</name>
+        <initializer>&quot;motor_controller_temperature_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="37" column="9" bodyfile="DataLogging.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b" prot="public" static="no">
+        <name>BMS_VOLTAGE_LOG</name>
+        <initializer>&quot;bms_voltage_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="38" column="9" bodyfile="DataLogging.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1a34f856128abdd56434d31edd1f4ce549" prot="public" static="no">
+        <name>MOTOR_CONTROLLER_VOLTAGE_LOG</name>
+        <initializer>&quot;motor_controller_voltage_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="39" column="9" bodyfile="DataLogging.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1aa98fafae382d16d375eeef356bf55917" prot="public" static="no">
+        <name>MOTOR_CURRENT_LOG</name>
+        <initializer>&quot;current_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="40" column="9" bodyfile="DataLogging.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d" prot="public" static="no">
+        <name>THERMISTOR_LOG</name>
+        <initializer>&quot;thermistor_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="41" column="9" bodyfile="DataLogging.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2" prot="public" static="no">
+        <name>RPM_LOG</name>
+        <initializer>&quot;rpm_log.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="42" column="9" bodyfile="DataLogging.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14" prot="public" static="no" strong="no">
+        <type></type>
+        <name>data_type</name>
+        <enumvalue id="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a" prot="public">
+          <name>INT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" prot="public">
+          <name>FLOAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="67" column="1" bodyfile="DataLogging.h" bodystart="67" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45" prot="public" static="no" mutable="no">
+        <type>const uint8_t</type>
+        <definition>const uint8_t SD_CS_PIN</definition>
+        <argsstring></argsstring>
+        <name>SD_CS_PIN</name>
+        <initializer>= SS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="48" column="15" bodyfile="DataLogging.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_data_logging_8h_1a888ed23a146630d5e36a08aed19ff638" prot="public" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t BUF_DIM</definition>
+        <argsstring></argsstring>
+        <name>BUF_DIM</name>
+        <initializer>= 4096</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="54" column="14" bodyfile="DataLogging.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302" prot="public" static="no" mutable="no">
+        <type>SdFat</type>
+        <definition>SdFat sd</definition>
+        <argsstring></argsstring>
+        <name>sd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="57" column="7" bodyfile="DataLogging.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long epochTime</definition>
+        <argsstring></argsstring>
+        <name>epochTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="59" column="15" bodyfile="DataLogging.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dataLoggingTask</definition>
+        <argsstring>(void *dlData)</argsstring>
+        <name>dataLoggingTask</name>
+        <param>
+          <type>void *</type>
+          <declname>dlData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="89" column="6" bodyfile="DataLogging.ino" bodystart="33" bodyend="55" declfile="DataLogging.h" declline="89" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool startSD</definition>
+        <argsstring>()</argsstring>
+        <name>startSD</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="90" column="6" bodyfile="DataLogging.ino" bodystart="59" bodyend="61" declfile="DataLogging.h" declline="90" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool openFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>openFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="91" column="6" bodyfile="DataLogging.ino" bodystart="65" bodyend="68" declfile="DataLogging.h" declline="91" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void closeFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>closeFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="92" column="6" bodyfile="DataLogging.ino" bodystart="71" bodyend="73" declfile="DataLogging.h" declline="92" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1a678245415389e1bbd75b088a980b008a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void saveFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>saveFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="93" column="6" bodyfile="DataLogging.ino" bodystart="75" bodyend="77" declfile="DataLogging.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1a52d8bf385131a3543793f22ee432100a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void saveFiles</definition>
+        <argsstring>(CSVWriter **writers, int writersLen)</argsstring>
+        <name>saveFiles</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> **</type>
+          <declname>writers</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>writersLen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="94" column="6" bodyfile="DataLogging.ino" bodystart="79" bodyend="83" declfile="DataLogging.h" declline="94" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1a8777416fb5b01666e7b28ada9f3b552a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>printFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="95" column="6" bodyfile="DataLogging.ino" bodystart="85" bodyend="91" declfile="DataLogging.h" declline="95" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1aa394fd0868d0e097f701cb3f21d9c451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addRecord</definition>
+        <argsstring>(CSVWriter *writer, int sTime)</argsstring>
+        <name>addRecord</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="96" column="6" bodyfile="DataLogging.ino" bodystart="95" bodyend="133" declfile="DataLogging.h" declline="96" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8h_1ab91616c118b701c2afd9136393d1f19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startRecording</definition>
+        <argsstring>()</argsstring>
+        <name>startRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.h" line="97" column="6" bodyfile="DataLogging.ino" bodystart="136" bodyend="138" declfile="DataLogging.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Washington Superbike </para>
+</simplesect>
+<simplesect kind="date"><para>1-March-2023</para>
+</simplesect>
+<simplesect kind="note"><para>up all members to be able to use it without any trouble.</para>
+</simplesect>
+<xrefsect id="todo_1_todo000003"><xreftitle>Todo</xreftitle><xrefdescription><para>Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal. </para>
+</xrefdescription></xrefsect></para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DATALOG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATALOG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SdFat.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATALOGGING_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>32368</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//Names<sp/>for<sp/>each<sp/>of<sp/>the<sp/>log<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_TEMPERATURE_LOG<sp/>&quot;motor_temperature_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="_data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_CONTROLLER_TEMPERATURE_LOG<sp/>&quot;motor_controller_temperature_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="_data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMS_VOLTAGE_LOG<sp/>&quot;bms_voltage_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="_data_logging_8h_1a34f856128abdd56434d31edd1f4ce549" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_CONTROLLER_VOLTAGE_LOG<sp/>&quot;motor_controller_voltage_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="_data_logging_8h_1aa98fafae382d16d375eeef356bf55917" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_CURRENT_LOG<sp/>&quot;current_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>THERMISTOR_LOG<sp/>&quot;thermistor_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="_data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RPM_LOG<sp/>&quot;rpm_log.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Use<sp/>built-in<sp/>SD<sp/>for<sp/>SPI<sp/>modes<sp/>on<sp/>Teensy<sp/>3.5/3.6.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Teensy<sp/>4.0<sp/>use<sp/>first<sp/>SPI<sp/>port.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SDCARD_SS_PIN<sp/>is<sp/>defined<sp/>for<sp/>the<sp/>built-in<sp/>SD<sp/>on<sp/>some<sp/>boards.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SDCARD_SS_PIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="_data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="_data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45" kindref="member">SD_CS_PIN</ref><sp/>=<sp/>SS;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/></highlight><highlight class="comment">//<sp/>SDCARD_SS_PIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Assume<sp/>built-in<sp/>SD<sp/>is<sp/>used.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="_data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45" kindref="member">SD_CS_PIN</ref><sp/>=<sp/>SDCARD_SS_PIN;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>SDCARD_SS_PIN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="_data_logging_8h_1a888ed23a146630d5e36a08aed19ff638" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a888ed23a146630d5e36a08aed19ff638" kindref="member">BUF_DIM</ref><sp/>=<sp/>4096;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//Represents<sp/>the<sp/>serial<sp/>connection<sp/>to<sp/>the<sp/>sd<sp/>card<sp/>and<sp/>any<sp/>internal<sp/>buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="_data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302" refkind="member"><highlight class="normal">SdFat<sp/><ref refid="_data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302" kindref="member">sd</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" kindref="member">epochTime</ref>;<sp/></highlight><highlight class="comment">//represents<sp/>the<sp/>time<sp/>that<sp/>recording<sp/>started</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//Clarification<sp/>on<sp/>how<sp/>SD<sp/>card<sp/>stores<sp/>data:<sp/>each<sp/>block<sp/>is<sp/>generally<sp/>about<sp/>512<sp/>or<sp/>1024<sp/>bytes.<sp/>SdFat<sp/>stores<sp/>an<sp/>internal<sp/>buffer<sp/>of<sp/>512<sp/>and<sp/>when<sp/>the<sp/>limit<sp/>is<sp/>reached</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//only<sp/>then<sp/>does<sp/>it<sp/>save<sp/>the<sp/>data<sp/>onto<sp/>the<sp/>sd<sp/>card.<sp/>This<sp/>is<sp/>an<sp/>important<sp/>trade<sp/>off.<sp/>if<sp/>we<sp/>are<sp/>less<sp/>than<sp/>that<sp/>value<sp/>and<sp/>the<sp/>bike<sp/>suddenly<sp/>turns<sp/>off,<sp/>those<sp/>&lt;512<sp/>bytes<sp/>aren&apos;t<sp/>stored</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//unless<sp/>we<sp/>somehow<sp/>flush<sp/>the<sp/>data<sp/>or<sp/>use<sp/>file.close();<sp/>this<sp/>means<sp/>we<sp/>should<sp/>potentially<sp/>implement<sp/>a<sp/>signal<sp/>for<sp/>recording<sp/>values,<sp/>or<sp/>even<sp/>just<sp/>only<sp/>record<sp/>when<sp/>the<sp/>HV<sp/>system<sp/>is<sp/>on<sp/>(not<sp/>for<sp/>testing<sp/>things<sp/>like<sp/>precharge<sp/>obv)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//or<sp/>we<sp/>just<sp/>periodically<sp/>flush<sp/>data<sp/>but<sp/>that<sp/>uses<sp/>more<sp/>resources<sp/>on<sp/>the<sp/>teensy<sp/>(this<sp/>depends<sp/>on<sp/>how<sp/>long<sp/>it<sp/>takes<sp/>+<sp/>how<sp/>fast<sp/>we<sp/>are<sp/>writing<sp/>data)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14" kindref="member">data_type</ref><sp/>{</highlight></codeline>
+<codeline lineno="68" refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a" kindref="member">INT</ref>,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" kindref="member">FLOAT</ref></highlight></codeline>
+<codeline lineno="70" refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//Represents<sp/>a<sp/>writer<sp/>to<sp/>a<sp/>CSV<sp/>log<sp/>file<sp/>on<sp/>the<sp/>sd<sp/>card</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="struct_c_s_v_writer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75" refid="struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf" kindref="member">filename</ref>;</highlight></codeline>
+<codeline lineno="76" refid="struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e" kindref="member">dataValuesLen</ref>;</highlight></codeline>
+<codeline lineno="77" refid="struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9" kindref="member">dataValues</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//array<sp/>of<sp/>pointers<sp/>to<sp/>shared<sp/>variables<sp/>(the<sp/>data<sp/>values<sp/>in<sp/>the<sp/>csv<sp/>log)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14" kindref="member">data_type</ref><sp/><ref refid="struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27" kindref="member">D_TYPE</ref>;</highlight></codeline>
+<codeline lineno="79" refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" kindref="member">open</ref>;</highlight></codeline>
+<codeline lineno="80" refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" refkind="member"><highlight class="normal"><sp/><sp/>SdFile<sp/><ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}<sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="struct_data_logging_task_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85" refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>**<ref refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" kindref="member">writers</ref>;</highlight></codeline>
+<codeline lineno="86" refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" kindref="member">writersLen</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/><ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*dlData);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" kindref="member">startSD</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827" kindref="member">closeFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a678245415389e1bbd75b088a980b008a" kindref="member">saveFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a52d8bf385131a3543793f22ee432100a" kindref="member">saveFiles</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>**writers,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>writersLen);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1a8777416fb5b01666e7b28ada9f3b552a" kindref="member">printFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1aa394fd0868d0e097f701cb3f21d9c451" kindref="member">addRecord</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sTime);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8h_1ab91616c118b701c2afd9136393d1f19b" kindref="member">startRecording</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="DataLogging.h"/>
+  </compounddef>
+</doxygen>

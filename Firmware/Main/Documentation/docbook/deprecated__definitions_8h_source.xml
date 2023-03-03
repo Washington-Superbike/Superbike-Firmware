@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_deprecated__definitions_8h_source" xml:lang="en-US">
+<title>deprecated_definitions.h</title>
+<indexterm><primary>FreeRTOS/deprecated_definitions.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_deprecated__definitions_8h_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;Kernel&#32;V10.2.0</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2019&#32;Amazon.com,&#32;Inc.&#32;or&#32;its&#32;affiliates.&#32;&#32;All&#32;Rights&#32;Reserved.</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00005"/>00005 <emphasis role="comment">&#32;*&#32;Permission&#32;is&#32;hereby&#32;granted,&#32;free&#32;of&#32;charge,&#32;to&#32;any&#32;person&#32;obtaining&#32;a&#32;copy&#32;of</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00006"/>00006 <emphasis role="comment">&#32;*&#32;this&#32;software&#32;and&#32;associated&#32;documentation&#32;files&#32;(the&#32;&quot;Software&quot;),&#32;to&#32;deal&#32;in</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00007"/>00007 <emphasis role="comment">&#32;*&#32;the&#32;Software&#32;without&#32;restriction,&#32;including&#32;without&#32;limitation&#32;the&#32;rights&#32;to</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00008"/>00008 <emphasis role="comment">&#32;*&#32;use,&#32;copy,&#32;modify,&#32;merge,&#32;publish,&#32;distribute,&#32;sublicense,&#32;and/or&#32;sell&#32;copies&#32;of</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00009"/>00009 <emphasis role="comment">&#32;*&#32;the&#32;Software,&#32;and&#32;to&#32;permit&#32;persons&#32;to&#32;whom&#32;the&#32;Software&#32;is&#32;furnished&#32;to&#32;do&#32;so,</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00010"/>00010 <emphasis role="comment">&#32;*&#32;subject&#32;to&#32;the&#32;following&#32;conditions:</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00011"/>00011 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00012"/>00012 <emphasis role="comment">&#32;*&#32;The&#32;above&#32;copyright&#32;notice&#32;and&#32;this&#32;permission&#32;notice&#32;shall&#32;be&#32;included&#32;in&#32;all</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00013"/>00013 <emphasis role="comment">&#32;*&#32;copies&#32;or&#32;substantial&#32;portions&#32;of&#32;the&#32;Software.</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00014"/>00014 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00015"/>00015 <emphasis role="comment">&#32;*&#32;THE&#32;SOFTWARE&#32;IS&#32;PROVIDED&#32;&quot;AS&#32;IS&quot;,&#32;WITHOUT&#32;WARRANTY&#32;OF&#32;ANY&#32;KIND,&#32;EXPRESS&#32;OR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00016"/>00016 <emphasis role="comment">&#32;*&#32;IMPLIED,&#32;INCLUDING&#32;BUT&#32;NOT&#32;LIMITED&#32;TO&#32;THE&#32;WARRANTIES&#32;OF&#32;MERCHANTABILITY,&#32;FITNESS</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00017"/>00017 <emphasis role="comment">&#32;*&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE&#32;AND&#32;NONINFRINGEMENT.&#32;IN&#32;NO&#32;EVENT&#32;SHALL&#32;THE&#32;AUTHORS&#32;OR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00018"/>00018 <emphasis role="comment">&#32;*&#32;COPYRIGHT&#32;HOLDERS&#32;BE&#32;LIABLE&#32;FOR&#32;ANY&#32;CLAIM,&#32;DAMAGES&#32;OR&#32;OTHER&#32;LIABILITY,&#32;WHETHER</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00019"/>00019 <emphasis role="comment">&#32;*&#32;IN&#32;AN&#32;ACTION&#32;OF&#32;CONTRACT,&#32;TORT&#32;OR&#32;OTHERWISE,&#32;ARISING&#32;FROM,&#32;OUT&#32;OF&#32;OR&#32;IN</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00020"/>00020 <emphasis role="comment">&#32;*&#32;CONNECTION&#32;WITH&#32;THE&#32;SOFTWARE&#32;OR&#32;THE&#32;USE&#32;OR&#32;OTHER&#32;DEALINGS&#32;IN&#32;THE&#32;SOFTWARE.</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00021"/>00021 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00022"/>00022 <emphasis role="comment">&#32;*&#32;http://www.FreeRTOS.org</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00023"/>00023 <emphasis role="comment">&#32;*&#32;http://aws.amazon.com/freertos</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00024"/>00024 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00025"/>00025 <emphasis role="comment">&#32;*&#32;1&#32;tab&#32;==&#32;4&#32;spaces!</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00026"/>00026 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00027"/>00027 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00028"/>00028 <emphasis role="preprocessor">#ifndef&#32;DEPRECATED_DEFINITIONS_H</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#define&#32;DEPRECATED_DEFINITIONS_H</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00030"/>00030 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00031"/>00031 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00032"/>00032 <emphasis role="comment">/*&#32;Each&#32;FreeRTOS&#32;port&#32;has&#32;a&#32;unique&#32;portmacro.h&#32;header&#32;file.&#32;&#32;Originally&#32;a</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00033"/>00033 <emphasis role="comment">pre-processor&#32;definition&#32;was&#32;used&#32;to&#32;ensure&#32;the&#32;pre-processor&#32;found&#32;the&#32;correct</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00034"/>00034 <emphasis role="comment">portmacro.h&#32;file&#32;for&#32;the&#32;port&#32;being&#32;used.&#32;&#32;That&#32;scheme&#32;was&#32;deprecated&#32;in&#32;favour</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00035"/>00035 <emphasis role="comment">of&#32;setting&#32;the&#32;compiler&apos;s&#32;include&#32;path&#32;such&#32;that&#32;it&#32;found&#32;the&#32;correct</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00036"/>00036 <emphasis role="comment">portmacro.h&#32;file&#32;-&#32;removing&#32;the&#32;need&#32;for&#32;the&#32;constant&#32;and&#32;allowing&#32;the</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00037"/>00037 <emphasis role="comment">portmacro.h&#32;file&#32;to&#32;be&#32;located&#32;anywhere&#32;in&#32;relation&#32;to&#32;the&#32;port&#32;being&#32;used.&#32;&#32;The</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00038"/>00038 <emphasis role="comment">definitions&#32;below&#32;remain&#32;in&#32;the&#32;code&#32;for&#32;backward&#32;compatibility&#32;only.&#32;&#32;New</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00039"/>00039 <emphasis role="comment">projects&#32;should&#32;not&#32;use&#32;them.&#32;*/</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00040"/>00040 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00041"/>00041 <emphasis role="preprocessor">#ifdef&#32;OPEN_WATCOM_INDUSTRIAL_PC_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00042"/>00042 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;void&#32;(&#32;__interrupt&#32;__far&#32;*pxISR&#32;)();
+<anchor xml:id="_deprecated__definitions_8h_source_1l00044"/>00044 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00045"/>00045 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00046"/>00046 <emphasis role="preprocessor">#ifdef&#32;OPEN_WATCOM_FLASH_LITE_186_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00047"/>00047 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;void&#32;(&#32;__interrupt&#32;__far&#32;*pxISR&#32;)();
+<anchor xml:id="_deprecated__definitions_8h_source_1l00049"/>00049 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00050"/>00050 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00051"/>00051 <emphasis role="preprocessor">#ifdef&#32;GCC_MEGA_AVR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00052"/>00052 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../portable/GCC/ATMega323/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00053"/>00053 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00054"/>00054 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00055"/>00055 <emphasis role="preprocessor">#ifdef&#32;IAR_MEGA_AVR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00056"/>00056 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../portable/IAR/ATMega323/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00057"/>00057 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00058"/>00058 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00059"/>00059 <emphasis role="preprocessor">#ifdef&#32;MPLAB_PIC24_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00060"/>00060 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00061"/>00061 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00062"/>00062 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00063"/>00063 <emphasis role="preprocessor">#ifdef&#32;MPLAB_DSPIC_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00064"/>00064 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00065"/>00065 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00066"/>00066 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00067"/>00067 <emphasis role="preprocessor">#ifdef&#32;MPLAB_PIC18F_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00068"/>00068 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/MPLAB/PIC18F/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00069"/>00069 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00070"/>00070 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00071"/>00071 <emphasis role="preprocessor">#ifdef&#32;MPLAB_PIC32MX_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00072"/>00072 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/MPLAB/PIC32MX/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00073"/>00073 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00074"/>00074 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00075"/>00075 <emphasis role="preprocessor">#ifdef&#32;_FEDPICC</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00076"/>00076 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;libFreeRTOS/Include/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00077"/>00077 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00078"/>00078 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00079"/>00079 <emphasis role="preprocessor">#ifdef&#32;SDCC_CYGNAL</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00080"/>00080 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/SDCC/Cygnal/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00081"/>00081 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00082"/>00082 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00083"/>00083 <emphasis role="preprocessor">#ifdef&#32;GCC_ARM7</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00084"/>00084 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM7_LPC2000/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00085"/>00085 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00086"/>00086 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00087"/>00087 <emphasis role="preprocessor">#ifdef&#32;GCC_ARM7_ECLIPSE</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00088"/>00088 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_portmacro_8h">portmacro.h</link>&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00089"/>00089 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00090"/>00090 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00091"/>00091 <emphasis role="preprocessor">#ifdef&#32;ROWLEY_LPC23xx</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00092"/>00092 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM7_LPC23xx/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00093"/>00093 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00094"/>00094 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00095"/>00095 <emphasis role="preprocessor">#ifdef&#32;IAR_MSP430</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00096"/>00096 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\MSP430\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00097"/>00097 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00098"/>00098 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00099"/>00099 <emphasis role="preprocessor">#ifdef&#32;GCC_MSP430</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00100"/>00100 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/MSP430F449/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00101"/>00101 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00102"/>00102 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00103"/>00103 <emphasis role="preprocessor">#ifdef&#32;ROWLEY_MSP430</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00104"/>00104 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/Rowley/MSP430F449/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00105"/>00105 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00106"/>00106 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00107"/>00107 <emphasis role="preprocessor">#ifdef&#32;ARM7_LPC21xx_KEIL_RVDS</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00108"/>00108 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00109"/>00109 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00110"/>00110 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00111"/>00111 <emphasis role="preprocessor">#ifdef&#32;SAM7_GCC</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00112"/>00112 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM7_AT91SAM7S/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00113"/>00113 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00114"/>00114 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00115"/>00115 <emphasis role="preprocessor">#ifdef&#32;SAM7_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00116"/>00116 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00117"/>00117 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00118"/>00118 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00119"/>00119 <emphasis role="preprocessor">#ifdef&#32;SAM9XE_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00120"/>00120 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00121"/>00121 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00122"/>00122 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00123"/>00123 <emphasis role="preprocessor">#ifdef&#32;LPC2000_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00124"/>00124 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\LPC2000\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00125"/>00125 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00126"/>00126 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00127"/>00127 <emphasis role="preprocessor">#ifdef&#32;STR71X_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00128"/>00128 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\STR71x\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00129"/>00129 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00130"/>00130 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00131"/>00131 <emphasis role="preprocessor">#ifdef&#32;STR75X_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00132"/>00132 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\STR75x\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00133"/>00133 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00134"/>00134 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00135"/>00135 <emphasis role="preprocessor">#ifdef&#32;STR75X_GCC</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00136"/>00136 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\GCC\STR75x\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00137"/>00137 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00138"/>00138 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00139"/>00139 <emphasis role="preprocessor">#ifdef&#32;STR91X_IAR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00140"/>00140 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\IAR\STR91x\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00141"/>00141 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00142"/>00142 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00143"/>00143 <emphasis role="preprocessor">#ifdef&#32;GCC_H8S</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00144"/>00144 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/H8S2329/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00145"/>00145 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00146"/>00146 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00147"/>00147 <emphasis role="preprocessor">#ifdef&#32;GCC_AT91FR40008</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00148"/>00148 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00149"/>00149 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00150"/>00150 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00151"/>00151 <emphasis role="preprocessor">#ifdef&#32;RVDS_ARMCM3_LM3S102</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00152"/>00152 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/RVDS/ARM_CM3/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00153"/>00153 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00154"/>00154 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00155"/>00155 <emphasis role="preprocessor">#ifdef&#32;GCC_ARMCM3_LM3S102</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00156"/>00156 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM_CM3/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00157"/>00157 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00158"/>00158 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00159"/>00159 <emphasis role="preprocessor">#ifdef&#32;GCC_ARMCM3</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00160"/>00160 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/ARM_CM3/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00161"/>00161 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00162"/>00162 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00163"/>00163 <emphasis role="preprocessor">#ifdef&#32;IAR_ARM_CM3</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00164"/>00164 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/ARM_CM3/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00165"/>00165 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00166"/>00166 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00167"/>00167 <emphasis role="preprocessor">#ifdef&#32;IAR_ARMCM3_LM</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00168"/>00168 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/ARM_CM3/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00169"/>00169 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00170"/>00170 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00171"/>00171 <emphasis role="preprocessor">#ifdef&#32;HCS12_CODE_WARRIOR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00172"/>00172 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/CodeWarrior/HCS12/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00173"/>00173 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00174"/>00174 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00175"/>00175 <emphasis role="preprocessor">#ifdef&#32;MICROBLAZE_GCC</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00176"/>00176 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/MicroBlaze/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00177"/>00177 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00178"/>00178 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00179"/>00179 <emphasis role="preprocessor">#ifdef&#32;TERN_EE</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00180"/>00180 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00181"/>00181 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00182"/>00182 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00183"/>00183 <emphasis role="preprocessor">#ifdef&#32;GCC_HCS12</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00184"/>00184 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/HCS12/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00185"/>00185 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00186"/>00186 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00187"/>00187 <emphasis role="preprocessor">#ifdef&#32;GCC_MCF5235</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00188"/>00188 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/MCF5235/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00189"/>00189 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00190"/>00190 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00191"/>00191 <emphasis role="preprocessor">#ifdef&#32;COLDFIRE_V2_GCC</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00192"/>00192 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../../Source/portable/GCC/ColdFire_V2/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00193"/>00193 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00194"/>00194 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00195"/>00195 <emphasis role="preprocessor">#ifdef&#32;COLDFIRE_V2_CODEWARRIOR</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00196"/>00196 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/CodeWarrior/ColdFire_V2/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00197"/>00197 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00198"/>00198 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00199"/>00199 <emphasis role="preprocessor">#ifdef&#32;GCC_PPC405</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00200"/>00200 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/PPC405_Xilinx/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00201"/>00201 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00202"/>00202 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00203"/>00203 <emphasis role="preprocessor">#ifdef&#32;GCC_PPC440</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00204"/>00204 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/GCC/PPC440_Xilinx/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00205"/>00205 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00206"/>00206 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00207"/>00207 <emphasis role="preprocessor">#ifdef&#32;_16FX_SOFTUNE</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00208"/>00208 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\..\Source\portable\Softune\MB96340\portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00209"/>00209 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00210"/>00210 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00211"/>00211 <emphasis role="preprocessor">#ifdef&#32;BCC_INDUSTRIAL_PC_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00212"/>00212 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;A&#32;short&#32;file&#32;name&#32;has&#32;to&#32;be&#32;used&#32;in&#32;place&#32;of&#32;the&#32;normal</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00213"/>00213 <emphasis role="comment">&#32;&#32;&#32;&#32;FreeRTOSConfig.h&#32;when&#32;using&#32;the&#32;Borland&#32;compiler.&#32;*/</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00214"/>00214 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;frconfig.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00215"/>00215 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\portable\BCC\16BitDOS\PC\prtmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00216"/>00216 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;void&#32;(&#32;__interrupt&#32;__far&#32;*pxISR&#32;)();
+<anchor xml:id="_deprecated__definitions_8h_source_1l00217"/>00217 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00218"/>00218 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00219"/>00219 <emphasis role="preprocessor">#ifdef&#32;BCC_FLASH_LITE_186_PORT</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00220"/>00220 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;A&#32;short&#32;file&#32;name&#32;has&#32;to&#32;be&#32;used&#32;in&#32;place&#32;of&#32;the&#32;normal</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00221"/>00221 <emphasis role="comment">&#32;&#32;&#32;&#32;FreeRTOSConfig.h&#32;when&#32;using&#32;the&#32;Borland&#32;compiler.&#32;*/</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00222"/>00222 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;frconfig.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00223"/>00223 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;..\portable\BCC\16BitDOS\flsh186\prtmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00224"/>00224 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;void&#32;(&#32;__interrupt&#32;__far&#32;*pxISR&#32;)();
+<anchor xml:id="_deprecated__definitions_8h_source_1l00225"/>00225 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00226"/>00226 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00227"/>00227 <emphasis role="preprocessor">#ifdef&#32;__GNUC__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00228"/>00228 <emphasis role="preprocessor">&#32;&#32;&#32;#ifdef&#32;__AVR32_AVR32A__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00229"/>00229 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_portmacro_8h">portmacro.h</link>&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00230"/>00230 <emphasis role="preprocessor">&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00231"/>00231 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00232"/>00232 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00233"/>00233 <emphasis role="preprocessor">#ifdef&#32;__ICCAVR32__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00234"/>00234 <emphasis role="preprocessor">&#32;&#32;&#32;#ifdef&#32;__CORE__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00235"/>00235 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;#if&#32;__CORE__&#32;==&#32;__AVR32A__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00236"/>00236 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_portmacro_8h">portmacro.h</link>&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00237"/>00237 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00238"/>00238 <emphasis role="preprocessor">&#32;&#32;&#32;#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00239"/>00239 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00240"/>00240 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00241"/>00241 <emphasis role="preprocessor">#ifdef&#32;__91467D</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00242"/>00242 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_portmacro_8h">portmacro.h</link>&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00243"/>00243 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00244"/>00244 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00245"/>00245 <emphasis role="preprocessor">#ifdef&#32;__96340</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00246"/>00246 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_portmacro_8h">portmacro.h</link>&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00247"/>00247 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00248"/>00248 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00249"/>00249 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00250"/>00250 <emphasis role="preprocessor">#ifdef&#32;__IAR_V850ES_Fx3__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00251"/>00251 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/V850ES/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00252"/>00252 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00253"/>00253 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00254"/>00254 <emphasis role="preprocessor">#ifdef&#32;__IAR_V850ES_Jx3__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00255"/>00255 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/V850ES/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00256"/>00256 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00257"/>00257 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00258"/>00258 <emphasis role="preprocessor">#ifdef&#32;__IAR_V850ES_Jx3_L__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00259"/>00259 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/V850ES/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00260"/>00260 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00261"/>00261 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00262"/>00262 <emphasis role="preprocessor">#ifdef&#32;__IAR_V850ES_Jx2__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00263"/>00263 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/V850ES/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00264"/>00264 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00265"/>00265 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00266"/>00266 <emphasis role="preprocessor">#ifdef&#32;__IAR_V850ES_Hx2__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00267"/>00267 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/V850ES/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00268"/>00268 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00269"/>00269 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00270"/>00270 <emphasis role="preprocessor">#ifdef&#32;__IAR_78K0R_Kx3__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00271"/>00271 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/78K0R/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00272"/>00272 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00273"/>00273 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00274"/>00274 <emphasis role="preprocessor">#ifdef&#32;__IAR_78K0R_Kx3L__</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00275"/>00275 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;../../Source/portable/IAR/78K0R/portmacro.h&quot;</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00276"/>00276 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00277"/>00277 
+<anchor xml:id="_deprecated__definitions_8h_source_1l00278"/>00278 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*&#32;DEPRECATED_DEFINITIONS_H&#32;*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_deprecated__definitions_8h_source_1l00279"/>00279 
+</programlisting></section>

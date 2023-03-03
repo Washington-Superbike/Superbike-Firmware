@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__v_task_resume_from_i_s_r" kind="group">
+    <compoundname>vTaskResumeFromISR</compoundname>
+    <title>vTaskResumeFromISR</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>task. h <preformatted>void <ref refid="task_8h_1aefbfd37c0661c3062fafd7334bff9aed" kindref="member">xTaskResumeFromISR( TaskHandle_t xTaskToResume )</ref>;</preformatted></para>
+<para>INCLUDE_xTaskResumeFromISR must be defined as 1 for this function to be available. See the configuration section for more information.</para>
+<para>An implementation of <ref refid="task_8h_1a84a1584f29fb7736a1aa72ad5b3e9b44" kindref="member">vTaskResume()</ref> that can be called from within an ISR.</para>
+<para>A task that has been suspended by one or more calls to vTaskSuspend () will be made available for running again by a single call to xTaskResumeFromISR ().</para>
+<para><ref refid="task_8h_1aefbfd37c0661c3062fafd7334bff9aed" kindref="member">xTaskResumeFromISR()</ref> should not be used to synchronise a task with an interrupt if there is a chance that the interrupt could arrive prior to the task being suspended - as this can lead to interrupts being missed. Use of a semaphore as a synchronisation mechanism would avoid this eventuality.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xTaskToResume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle to the task being readied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pdTRUE if resuming the task should result in a context switch, otherwise pdFALSE. This is used by the ISR to determine if a context switch may be required following the ISR. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

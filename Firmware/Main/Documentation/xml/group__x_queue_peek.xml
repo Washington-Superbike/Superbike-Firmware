@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_queue_peek" kind="group">
+    <compoundname>xQueuePeek</compoundname>
+    <title>xQueuePeek</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>queue. h <preformatted>
+BaseType_t <ref refid="queue_8h_1a3f9e430276fe5244417fd82644ec8a75" kindref="member">xQueuePeek(
+                         QueueHandle_t xQueue,
+                         void * const pvBuffer,
+                         TickType_t xTicksToWait
+                     )</ref>;</preformatted></para>
+<para>Receive an item from a queue without removing the item from the queue. The item is received by copy so a buffer of adequate size must be provided. The number of bytes copied into the buffer was defined when the queue was created.</para>
+<para>Successfully received items remain on the queue so will be returned again by the next call, or a call to <ref refid="queue_8h_1ae8364d988c6f9b63c771cc2b3dfe5df9" kindref="member">xQueueReceive()</ref>.</para>
+<para>This macro must not be used in an interrupt service routine. See <ref refid="queue_8h_1ac402adf98be1fb8ca0345f30dc11a9dc" kindref="member">xQueuePeekFromISR()</ref> for an alternative that can be called from an interrupt service routine.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xQueue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle to the queue from which the item is to be received.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pvBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the received item will be copied.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xTicksToWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call. The time is defined in tick periods so the constant portTICK_PERIOD_MS should be used to convert to real time if this is required. <ref refid="queue_8h_1a3f9e430276fe5244417fd82644ec8a75" kindref="member">xQueuePeek()</ref> will return immediately if xTicksToWait is 0 and the queue is empty.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pdTRUE if an item was successfully received from the queue, otherwise pdFALSE.</para>
+</simplesect>
+Example usage: <preformatted>
+struct AMessage
+{
+   char ucMessageID;
+   char ucData[ 20 ];
+} xMessage;
+
+QueueHandle_t xQueue;
+
+// Task to create a queue and post a value.
+void vATask( void *pvParameters )
+{
+struct AMessage *pxMessage;
+
+   // Create a queue capable of containing 10 pointers to AMessage structures.
+   // These should be passed by pointer as they contain a lot of data.
+   xQueue = xQueueCreate( 10, sizeof( struct AMessage * ) );
+   if( xQueue == 0 )
+   {
+    // Failed to create the queue.
+   }
+
+   // ...
+
+   // Send a pointer to a struct AMessage object.  Don&apos;t block if the
+   // queue is already full.
+   pxMessage = &amp; xMessage;
+   xQueueSend( xQueue, ( void * ) &amp;pxMessage, ( TickType_t ) 0 );
+
+   // ... Rest of task code.
+}
+
+// Task to peek the data from the queue.
+void vADifferentTask( void *pvParameters )
+{
+struct AMessage *pxRxedMessage;
+
+   if( xQueue != 0 )
+   {
+    // Peek a message on the created queue.  Block for 10 ticks if a
+    // message is not immediately available.
+    if( xQueuePeek( xQueue, &amp;( pxRxedMessage ), ( TickType_t ) 10 ) )
+    {
+        // pcRxedMessage now points to the struct AMessage variable posted
+        // by vATask, but the item still remains on the queue.
+    }
+   }
+
+   // ... Rest of task code.
+}
+</preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

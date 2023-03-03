@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_c_a_n_task_data" kind="struct" language="C++" prot="public">
+    <compoundname>CANTaskData</compoundname>
+    <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref></type>
+        <definition>MotorStats CANTaskData::motorStats</definition>
+        <argsstring></argsstring>
+        <name>motorStats</name>
+        <qualifiedname>CANTaskData::motorStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="111" column="14" bodyfile="CAN.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref></type>
+        <definition>MotorTemps CANTaskData::motorTemps</definition>
+        <argsstring></argsstring>
+        <name>motorTemps</name>
+        <qualifiedname>CANTaskData::motorTemps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="112" column="14" bodyfile="CAN.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref></type>
+        <definition>BMSStatus CANTaskData::bmsStatus</definition>
+        <argsstring></argsstring>
+        <name>bmsStatus</name>
+        <qualifiedname>CANTaskData::bmsStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="113" column="13" bodyfile="CAN.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref></type>
+        <definition>ThermistorTemps CANTaskData::thermistorTemps</definition>
+        <argsstring></argsstring>
+        <name>thermistorTemps</name>
+        <qualifiedname>CANTaskData::thermistorTemps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="114" column="19" bodyfile="CAN.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref></type>
+        <definition>CellVoltages CANTaskData::cellVoltages</definition>
+        <argsstring></argsstring>
+        <name>cellVoltages</name>
+        <qualifiedname>CANTaskData::cellVoltages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="115" column="16" bodyfile="CAN.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref></type>
+        <definition>ChargerStats CANTaskData::chargerStats</definition>
+        <argsstring></argsstring>
+        <name>chargerStats</name>
+        <qualifiedname>CANTaskData::chargerStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="116" column="16" bodyfile="CAN.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref></type>
+        <definition>ChargeControllerStats CANTaskData::chargeControllerStats</definition>
+        <argsstring></argsstring>
+        <name>chargeControllerStats</name>
+        <qualifiedname>CANTaskData::chargeControllerStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="117" column="25" bodyfile="CAN.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" prot="public" static="no" mutable="no">
+        <type>float *</type>
+        <definition>float* CANTaskData::seriesVoltage</definition>
+        <argsstring></argsstring>
+        <name>seriesVoltage</name>
+        <qualifiedname>CANTaskData::seriesVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CAN.h" line="118" column="9" bodyfile="CAN.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>BMSStatus</label>
+        <link refid="struct_b_m_s_status"/>
+      </node>
+      <node id="1">
+        <label>CANTaskData</label>
+        <link refid="struct_c_a_n_task_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>motorStats</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>motorTemps</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>bmsStatus</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>thermistorTemps</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>cellVoltages</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>chargerStats</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>chargeControllerStats</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CellVoltages</label>
+        <link refid="struct_cell_voltages"/>
+      </node>
+      <node id="8">
+        <label>ChargeControllerStats</label>
+        <link refid="struct_charge_controller_stats"/>
+      </node>
+      <node id="7">
+        <label>ChargerStats</label>
+        <link refid="struct_charger_stats"/>
+      </node>
+      <node id="2">
+        <label>MotorStats</label>
+        <link refid="struct_motor_stats"/>
+      </node>
+      <node id="3">
+        <label>MotorTemps</label>
+        <link refid="struct_motor_temps"/>
+      </node>
+      <node id="5">
+        <label>ThermistorTemps</label>
+        <link refid="struct_thermistor_temps"/>
+      </node>
+    </collaborationgraph>
+    <location file="CAN.h" line="110" column="1" bodyfile="CAN.h" bodystart="110" bodyend="119"/>
+    <listofallmembers>
+      <member refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>bmsStatus</name></member>
+      <member refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>cellVoltages</name></member>
+      <member refid="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>chargeControllerStats</name></member>
+      <member refid="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>chargerStats</name></member>
+      <member refid="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>motorStats</name></member>
+      <member refid="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>motorTemps</name></member>
+      <member refid="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>seriesVoltage</name></member>
+      <member refid="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>thermistorTemps</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

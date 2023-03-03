@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__data_logging_8ino" xml:lang="en-US">
+<title>DataLogging.ino File Reference</title>
+<indexterm><primary>DataLogging.ino</primary></indexterm>
+<para>
+
+<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+ 
+</para>
+<programlisting linenumbering="unnumbered">#include &quot;DataLogging.h&quot;
+#include &quot;Display.h&quot;
+#include &quot;Main.h&quot;
+#include &quot;FreeRTOS_TEENSY4.h&quot;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask</link> (void *dlData)</para>
+</listitem>
+            <listitem><para>bool <link linkend="__data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77">startSD</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> *writer)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827">closeFile</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> *writer)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a">saveFile</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> *writer)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a">saveFiles</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> **writers, int writersLen)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a">printFile</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> *writer)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451">addRecord</link> (<link linkend="_struct_c_s_v_writer">CSVWriter</link> *writer, int sTime)</para>
+</listitem>
+            <listitem><para>void <link linkend="__data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b">startRecording</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Washington Superbike </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>1-March-2023</para>
+</formalpara>
+<note><title>Note</title>
+
+<para>up all members to be able to use it without any trouble.</para>
+</note>
+<para><link linkend="_todo_1_todo000004">Todo</link> 
+<para>Goal 1. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 2. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Goal 3. 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Final Goal. </para>
+</para></para>
+<para>
+Definition in file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451"/><section>
+    <title>addRecord()</title>
+<indexterm><primary>addRecord</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>addRecord</secondary></indexterm>
+<para><computeroutput>void addRecord (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer, int sTime)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00095">95</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827"/><section>
+    <title>closeFile()</title>
+<indexterm><primary>closeFile</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>closeFile</secondary></indexterm>
+<para><computeroutput>void closeFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00071">71</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819"/><section>
+    <title>dataLoggingTask()</title>
+<indexterm><primary>dataLoggingTask</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>dataLoggingTask</secondary></indexterm>
+<para><computeroutput>void dataLoggingTask (void * dlData)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00033">33</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e"/><section>
+    <title>openFile()</title>
+<indexterm><primary>openFile</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>openFile</secondary></indexterm>
+<para><computeroutput>bool openFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00065">65</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a"/><section>
+    <title>printFile()</title>
+<indexterm><primary>printFile</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>printFile</secondary></indexterm>
+<para><computeroutput>void printFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00085">85</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a"/><section>
+    <title>saveFile()</title>
+<indexterm><primary>saveFile</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>saveFile</secondary></indexterm>
+<para><computeroutput>void saveFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00075">75</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a"/><section>
+    <title>saveFiles()</title>
+<indexterm><primary>saveFiles</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>saveFiles</secondary></indexterm>
+<para><computeroutput>void saveFiles (<link linkend="_struct_c_s_v_writer">CSVWriter</link> ** writers, int writersLen)</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00079">79</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b"/><section>
+    <title>startRecording()</title>
+<indexterm><primary>startRecording</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>startRecording</secondary></indexterm>
+<para><computeroutput>void startRecording ( )</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00136">136</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+<anchor xml:id="__data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77"/><section>
+    <title>startSD()</title>
+<indexterm><primary>startSD</primary><secondary>DataLogging.ino</secondary></indexterm>
+<indexterm><primary>DataLogging.ino</primary><secondary>startSD</secondary></indexterm>
+<para><computeroutput>bool startSD ( )</computeroutput></para><para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00059">59</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+</section>
+</section>
+</section>

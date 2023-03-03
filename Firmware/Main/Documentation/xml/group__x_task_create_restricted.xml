@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_task_create_restricted" kind="group">
+    <compoundname>xTaskCreateRestricted</compoundname>
+    <title>xTaskCreateRestricted</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>task. h <preformatted>
+ BaseType_t xTaskCreateRestricted( TaskParameters_t *pxTaskDefinition, TaskHandle_t *pxCreatedTask );</preformatted></para>
+<para>Only available when configSUPPORT_DYNAMIC_ALLOCATION is set to 1.</para>
+<para>xTaskCreateRestricted() should only be used in systems that include an MPU implementation.</para>
+<para>Create a new task and add it to the list of tasks that are ready to run. The function parameters define the memory regions and associated access permissions allocated to the task.</para>
+<para>See xTaskCreateRestrictedStatic() for a version that does not use any dynamic memory allocation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pxTaskDefinition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure that contains a member for each of the normal <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> parameters (see the <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> API documentation) plus an optional stack buffer and the memory region definitions.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pxCreatedTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Used to pass back a handle by which the created task can be referenced.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pdPASS if the task was successfully created and added to a ready list, otherwise an error code defined in the file <ref refid="projdefs_8h" kindref="compound">projdefs.h</ref></para>
+</simplesect>
+Example usage: <preformatted>
+// Create an TaskParameters_t structure that defines the task to be created.
+static const TaskParameters_t xCheckTaskParameters =
+{
+    vATask,     // pvTaskCode - the function that implements the task.
+    &quot;ATask&quot;,    // pcName - just a text name for the task to assist debugging.
+    100,        // usStackDepth - the stack size DEFINED IN WORDS.
+    NULL,       // pvParameters - passed into the task function as the function parameters.
+    ( 1UL | portPRIVILEGE_BIT ),// uxPriority - task priority, set the portPRIVILEGE_BIT if the task should run in a privileged state.
+    cStackBuffer,// puxStackBuffer - the buffer to be used as the task stack.
+
+    // xRegions - Allocate up to three separate memory regions for access by
+    // the task, with appropriate access permissions.  Different processors have
+    // different memory alignment requirements - refer to the FreeRTOS documentation
+    // for full information.
+    {
+        // Base address                 Length  Parameters
+        { cReadWriteArray,              32,     portMPU_REGION_READ_WRITE },
+        { cReadOnlyArray,               32,     portMPU_REGION_READ_ONLY },
+        { cPrivilegedOnlyAccessArray,   128,    portMPU_REGION_PRIVILEGED_READ_WRITE }
+    }
+};
+
+int main( void )
+{
+TaskHandle_t xHandle;
+
+    // Create a task from the const structure defined above.  The task handle
+    // is requested (the second parameter is not NULL) but in this case just for
+    // demonstration purposes as its not actually used.
+    xTaskCreateRestricted( &amp;xRegTest1Parameters, &amp;xHandle );
+
+    // Start the scheduler.
+    <ref refid="task_8h_1aaf9dca1065c60abdeb309d56ab7293cb" kindref="member">vTaskStartScheduler()</ref>;
+
+    // Will only get here if there was insufficient memory to create the idle
+    // and/or timer task.
+    for( ;; );
+}
+   </preformatted></para>
+<para>task. h <preformatted>
+ void <ref refid="task_8h_1ad889595baff9faf9efe02f3696825409" kindref="member">vTaskAllocateMPURegions( TaskHandle_t xTask, const MemoryRegion_t * const pxRegions )</ref>;</preformatted></para>
+<para>Memory regions are assigned to a restricted task when the task is created by a call to xTaskCreateRestricted(). These regions can be redefined using <ref refid="task_8h_1ad889595baff9faf9efe02f3696825409" kindref="member">vTaskAllocateMPURegions()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xTask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle of the task being updated.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xRegions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an MemoryRegion_t structure that contains the new memory region definitions.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Example usage: <preformatted>
+// Define an array of MemoryRegion_t structures that configures an MPU region
+// allowing read/write access for 1024 bytes starting at the beginning of the
+// ucOneKByte array.  The other two of the maximum 3 definable regions are
+// unused so set to zero.
+static const MemoryRegion_t xAltRegions[ portNUM_CONFIGURABLE_REGIONS ] =
+{
+    // Base address     Length      Parameters
+    { ucOneKByte,       1024,       portMPU_REGION_READ_WRITE },
+    { 0,                0,          0 },
+    { 0,                0,          0 }
+};
+
+void vATask( void *pvParameters )
+{
+    // This task was created such that it has access to certain regions of
+    // memory as defined by the MPU configuration.  At some point it is
+    // desired that these MPU regions are replaced with that defined in the
+    // xAltRegions const struct above.  Use a call to <ref refid="task_8h_1ad889595baff9faf9efe02f3696825409" kindref="member">vTaskAllocateMPURegions()</ref>
+    // for this purpose.  NULL is used as the task handle to indicate that this
+    // function should modify the MPU regions of the calling task.
+    vTaskAllocateMPURegions( NULL, xAltRegions );
+
+    // Now the task can continue its function, but from this point on can only
+    // access its stack and the ucOneKByte array (unless any other statically
+    // defined or shared regions have been declared elsewhere).
+}
+   </preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

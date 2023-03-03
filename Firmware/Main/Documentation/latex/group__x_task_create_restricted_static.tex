@@ -13,7 +13,7 @@ Internally, within the Free\+RTOS implementation, tasks use two blocks of memory
 
 
 \begin{DoxyParams}{Parameters}
-{\em px\+Task\+Definition} & Pointer to a structure that contains a member for each of the normal x\+Task\+Create() parameters (see the x\+Task\+Create() API documentation) plus an optional stack buffer and the memory region definitions. If config\+SUPPORT\+\_\+\+STATIC\+\_\+\+ALLOCATION is set to 1 the structure contains an additional member, which is used to point to a variable of type Static\+Task\+\_\+t -\/ which is then used to hold the task\textquotesingle{}s data structure.\\
+{\em px\+Task\+Definition} & Pointer to a structure that contains a member for each of the normal \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} parameters (see the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} API documentation) plus an optional stack buffer and the memory region definitions. If config\+SUPPORT\+\_\+\+STATIC\+\_\+\+ALLOCATION is set to 1 the structure contains an additional member, which is used to point to a variable of type Static\+Task\+\_\+t -\/ which is then used to hold the task\textquotesingle{}s data structure.\\
 \hline
 {\em px\+Created\+Task} & Used to pass back a handle by which the created task can be referenced.\\
 \hline

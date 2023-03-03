@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_event_group_create" kind="group">
+    <compoundname>xEventGroupCreate</compoundname>
+    <title>xEventGroupCreate</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+EventGroupHandle_t <ref refid="event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519" kindref="member">xEventGroupCreate( void )</ref>;
+</preformatted></para>
+<para>Create a new event group.</para>
+<para>Internally, within the FreeRTOS implementation, event groups use a [small] block of memory, in which the event group&apos;s structure is stored. If an event groups is created using xEventGropuCreate() then the required memory is automatically dynamically allocated inside the <ref refid="event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519" kindref="member">xEventGroupCreate()</ref> function. (see <ulink url="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</ulink>). If an event group is created using xEventGropuCreateStatic() then the application writer must instead provide the memory that will get used by the event group. xEventGroupCreateStatic() therefore allows an event group to be created without using any dynamic memory allocation.</para>
+<para>Although event groups are not related to ticks, for internal implementation reasons the number of bits available for use in an event group is dependent on the configUSE_16_BIT_TICKS setting in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>. If configUSE_16_BIT_TICKS is 1 then each event group contains 8 usable bits (bit 0 to bit 7). If configUSE_16_BIT_TICKS is set to 0 then each event group has 24 usable bits (bit 0 to bit 23). The EventBits_t type is used to store event bits within an event group.</para>
+<para><simplesect kind="return"><para>If the event group was created then a handle to the event group is returned. If there was insufficient FreeRTOS heap available to create the event group then NULL is returned. See <ulink url="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</ulink></para>
+</simplesect>
+Example usage: <preformatted>
+   // Declare a variable to hold the created event group.
+   EventGroupHandle_t xCreatedEventGroup;
+
+   // Attempt to create the event group.
+   xCreatedEventGroup = <ref refid="event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519" kindref="member">xEventGroupCreate()</ref>;
+
+   // Was the event group created successfully?
+   if( xCreatedEventGroup == NULL )
+   {
+    // The event group was not created because there was insufficient
+    // FreeRTOS heap available.
+   }
+   else
+   {
+    // The event group was created.
+   }
+  </preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

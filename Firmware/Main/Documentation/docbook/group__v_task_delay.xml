@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__v_task_delay" xml:lang="en-US">
+<title>vTaskDelay</title>
+<indexterm><primary>vTaskDelay</primary></indexterm>
+
+<para>task. h <literallayout>void <link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay( const TickType_t xTicksToDelay )</link>;</literallayout></para>
+
+<para>Delay a task for a given number of ticks. The actual time that the task remains blocked depends on the tick rate. The constant portTICK_PERIOD_MS can be used to calculate real time from the tick rate - with the resolution of one tick period.</para>
+
+<para>INCLUDE_vTaskDelay must be defined as 1 for this function to be available. See the configuration section for more information.</para>
+
+<para><link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay()</link> specifies a time at which the task wishes to unblock relative to the time at which <link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay()</link> is called. For example, specifying a block period of 100 ticks will cause the task to unblock 100 ticks after <link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay()</link> is called. <link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay()</link> does not therefore provide a good method of controlling the frequency of a periodic task as the path taken through the code, as well as other task and interrupt activity, will effect the frequency at which <link linkend="_task_8h_1aa154068cecd7f31446a7a84af44ab1a3">vTaskDelay()</link> gets called and therefore the time at which the task next executes. See <link linkend="_task_8h_1a067da3e949e248096ec6c01f9cb75a47">vTaskDelayUntil()</link> for an alternative API function designed to facilitate fixed frequency execution. It does this by specifying an absolute time (rather than a relative time) at which the calling task should unblock.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xTicksToDelay</entry><entry>
+<para>The amount of time, in tick periods, that the calling task should block.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Example usage:</para>
+
+<para>void vTaskFunction( void * pvParameters ) { Block for 500ms. const TickType_t xDelay = 500 / portTICK_PERIOD_MS; <literallayout><computeroutput>for( ;; )
+{
+</computeroutput></literallayout> Simply toggle the LED every 500ms, blocking between each toggle. vToggleLED(); vTaskDelay( xDelay ); } } </para>
+</section>

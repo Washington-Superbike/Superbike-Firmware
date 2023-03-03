@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__v_semaphore_delete" xml:lang="en-US">
+<title>vSemaphoreDelete</title>
+<indexterm><primary>vSemaphoreDelete</primary></indexterm>
+
+<para>semphr. h <literallayout>void <link linkend="_semphr_8h_1acd7d0eda0923d7caeeaaee9202c43eab">vSemaphoreDelete( SemaphoreHandle_t xSemaphore )</link>;</literallayout></para>
+
+<para>Delete a semaphore. This function must be used with care. For example, do not delete a mutex type semaphore if the mutex is held by a task.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xSemaphore</entry><entry>
+<para>A handle to the semaphore to be deleted. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>

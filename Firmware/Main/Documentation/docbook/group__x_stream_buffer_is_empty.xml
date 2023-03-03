@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_stream_buffer_is_empty" xml:lang="en-US">
+<title>xStreamBufferIsEmpty</title>
+<indexterm><primary>xStreamBufferIsEmpty</primary></indexterm>
+
+<para><link linkend="_stream__buffer_8h">stream_buffer.h</link></para>
+
+<para><literallayout>
+BaseType_t <link linkend="_stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19">xStreamBufferIsEmpty( StreamBufferHandle_t xStreamBuffer )</link>;
+</literallayout></para>
+
+<para>Queries a stream buffer to see if it is empty. A stream buffer is empty if it does not contain any data.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>xStreamBuffer</entry><entry>
+<para>The handle of the stream buffer being queried.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>If the stream buffer is empty then pdTRUE is returned. Otherwise pdFALSE is returned. </para>
+</formalpara>
+</para>
+</section>

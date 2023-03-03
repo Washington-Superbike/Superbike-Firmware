@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_queue_peek_from_i_s_r" kind="group">
+    <compoundname>xQueuePeekFromISR</compoundname>
+    <title>xQueuePeekFromISR</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>queue. h <preformatted>
+BaseType_t <ref refid="queue_8h_1ac402adf98be1fb8ca0345f30dc11a9dc" kindref="member">xQueuePeekFromISR(
+                                QueueHandle_t xQueue,
+                                void *pvBuffer,
+                            )</ref>;</preformatted></para>
+<para>A version of <ref refid="queue_8h_1a3f9e430276fe5244417fd82644ec8a75" kindref="member">xQueuePeek()</ref> that can be called from an interrupt service routine (ISR).</para>
+<para>Receive an item from a queue without removing the item from the queue. The item is received by copy so a buffer of adequate size must be provided. The number of bytes copied into the buffer was defined when the queue was created.</para>
+<para>Successfully received items remain on the queue so will be returned again by the next call, or a call to <ref refid="queue_8h_1ae8364d988c6f9b63c771cc2b3dfe5df9" kindref="member">xQueueReceive()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xQueue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handle to the queue from which the item is to be received.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pvBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the received item will be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pdTRUE if an item was successfully received from the queue, otherwise pdFALSE. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

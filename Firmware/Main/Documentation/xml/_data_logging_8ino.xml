@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_data_logging_8ino" kind="file" language="C++">
+    <compoundname>DataLogging.ino</compoundname>
+    <includes refid="_data_logging_8h" local="yes">DataLogging.h</includes>
+    <includes refid="_display_8h" local="yes">Display.h</includes>
+    <includes refid="_main_8h" local="yes">Main.h</includes>
+    <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>Adafruit_GFX.h</label>
+      </node>
+      <node id="5">
+        <label>Adafruit_ILI9341.h</label>
+      </node>
+      <node id="11">
+        <label>CAN.h</label>
+        <link refid="_c_a_n_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DataLogging.h</label>
+        <link refid="_data_logging_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DataLogging.ino</label>
+        <link refid="_data_logging_8ino"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FreeRTOS_TEENSY4.h</label>
+        <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
+      </node>
+      <node id="10">
+        <label>Main.h</label>
+        <link refid="_main_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Precharge.h</label>
+        <link refid="_precharge_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FlexCAN_T4.h</label>
+      </node>
+      <node id="7">
+        <label>SPI.h</label>
+      </node>
+      <node id="3">
+        <label>SdFat.h</label>
+      </node>
+      <node id="14">
+        <label>TimeLib.h</label>
+      </node>
+      <node id="8">
+        <label>XPT2046_Touchscreen.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dataLoggingTask</definition>
+        <argsstring>(void *dlData)</argsstring>
+        <name>dataLoggingTask</name>
+        <param>
+          <type>void *</type>
+          <declname>dlData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="33" column="6" bodyfile="DataLogging.ino" bodystart="33" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool startSD</definition>
+        <argsstring>()</argsstring>
+        <name>startSD</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="59" column="6" bodyfile="DataLogging.ino" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool openFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>openFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="65" column="6" bodyfile="DataLogging.ino" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void closeFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>closeFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="71" column="6" bodyfile="DataLogging.ino" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1a678245415389e1bbd75b088a980b008a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void saveFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>saveFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="75" column="6" bodyfile="DataLogging.ino" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1a52d8bf385131a3543793f22ee432100a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void saveFiles</definition>
+        <argsstring>(CSVWriter **writers, int writersLen)</argsstring>
+        <name>saveFiles</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> **</type>
+          <declname>writers</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>writersLen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="79" column="6" bodyfile="DataLogging.ino" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printFile</definition>
+        <argsstring>(CSVWriter *writer)</argsstring>
+        <name>printFile</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="85" column="6" bodyfile="DataLogging.ino" bodystart="85" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addRecord</definition>
+        <argsstring>(CSVWriter *writer, int sTime)</argsstring>
+        <name>addRecord</name>
+        <param>
+          <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
+          <declname>writer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="95" column="6" bodyfile="DataLogging.ino" bodystart="95" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="_data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startRecording</definition>
+        <argsstring>()</argsstring>
+        <name>startRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataLogging.ino" line="136" column="6" bodyfile="DataLogging.ino" bodystart="136" bodyend="138"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Washington Superbike </para>
+</simplesect>
+<simplesect kind="date"><para>1-March-2023</para>
+</simplesect>
+<simplesect kind="note"><para>up all members to be able to use it without any trouble.</para>
+</simplesect>
+<xrefsect id="todo_1_todo000004"><xreftitle>Todo</xreftitle><xrefdescription><para>Goal 1. <linebreak/>
+ <linebreak/>
+ Goal 2. <linebreak/>
+ <linebreak/>
+ Goal 3. <linebreak/>
+ <linebreak/>
+ Final Goal. </para>
+</xrefdescription></xrefsect></para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_display_8h" kindref="compound">Display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_main_8h" kindref="compound">Main.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//dataLoggingTask<sp/>processes<sp/>all<sp/>of<sp/>the<sp/>data<sp/>logs<sp/>and<sp/>formats<sp/>each<sp/>CSV<sp/>file<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*dlData)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref><sp/>dl<sp/>=<sp/>*(<ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref><sp/>*)dlData;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sTime;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lastSave<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mTime<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>sTime<sp/>=<sp/>(millis()<sp/>-<sp/><ref refid="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" kindref="member">epochTime</ref>)<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dl.<ref refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" kindref="member">writersLen</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451" kindref="member">addRecord</ref>(dl.<ref refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" kindref="member">writers</ref>[i],<sp/>sTime);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>lastSave)<sp/>&gt;<sp/>10000)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;Saving<sp/>files...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_data_logging_8ino_1a52d8bf385131a3543793f22ee432100a" kindref="member">saveFiles</ref>(dl.<ref refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" kindref="member">writers</ref>,<sp/>dl.<ref refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" kindref="member">writersLen</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;saved&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lastSave<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>delay<sp/>50ms<sp/>(change<sp/>to<sp/>modify<sp/>how<sp/>fast<sp/>records<sp/>are<sp/>saved</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>the<sp/>future,<sp/>this<sp/>&apos;writeRate&apos;<sp/>could<sp/>be<sp/>specific<sp/>to<sp/>each<sp/>data<sp/>log</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ex:<sp/>motor<sp/>current<sp/>should<sp/>write<sp/>every<sp/>5ms<sp/>but<sp/>battery<sp/>voltage<sp/>only<sp/>every<sp/>1<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>as<sp/>battery<sp/>voltage<sp/>doesn&apos;t<sp/>change<sp/>very<sp/>fast<sp/>but<sp/>current<sp/>can</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="task_8h_1aa154068cecd7f31446a7a84af44ab1a3" kindref="member">vTaskDelay</ref>((50<sp/>*<sp/><ref refid="_free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a" kindref="member">configTICK_RATE_HZ</ref>)<sp/>/<sp/>1000);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//startSD<sp/>attempts<sp/>to<sp/>begin<sp/>communication<sp/>with<sp/>the<sp/>SD<sp/>card<sp/>on<sp/>SPI<sp/>(single<sp/>bit<sp/>bus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//Returns<sp/>true<sp/>if<sp/>no<sp/>errors<sp/>exist,<sp/>returns<sp/>false<sp/>if<sp/>an<sp/>error<sp/>exists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77" kindref="member">startSD</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302" kindref="member">sd</ref>.begin(SdioConfig(FIFO_SDIO));</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//openFile<sp/>attemps<sp/>to<sp/>open<sp/>the<sp/>file<sp/>designated<sp/>at<sp/>the<sp/>filename<sp/>inside<sp/>CSVWriter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//Returns<sp/>true<sp/>if<sp/>no<sp/>errors,<sp/>returns<sp/>false<sp/>if<sp/>any<sp/>error<sp/>exists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" kindref="member">open</ref><sp/>=<sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>.open(writer-&gt;<ref refid="struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf" kindref="member">filename</ref>,<sp/>O_RDWR<sp/>|<sp/>O_CREAT);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" kindref="member">open</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//closeFile<sp/>closes<sp/>the<sp/>file<sp/>inside<sp/>the<sp/>CSVWriter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="_data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827" kindref="member">closeFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>.close();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="_data_logging_8h_1a678245415389e1bbd75b088a980b008a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a678245415389e1bbd75b088a980b008a" kindref="member">saveFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>.sync();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="_data_logging_8h_1a52d8bf385131a3543793f22ee432100a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a52d8bf385131a3543793f22ee432100a" kindref="member">saveFiles</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>**writers,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>writersLen)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>writersLen;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_data_logging_8ino_1a678245415389e1bbd75b088a980b008a" kindref="member">saveFile</ref>(writers[i]);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="_data_logging_8h_1a8777416fb5b01666e7b28ada9f3b552a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a" kindref="member">printFile</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!writer-&gt;<ref refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" kindref="member">open</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile</ref>(writer);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((data<sp/>=<sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>.read())<sp/>&gt;=<sp/>0)<sp/>Serial.write(data);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//addRecord<sp/>adds<sp/>a<sp/>record<sp/>to<sp/>the<sp/>data<sp/>log<sp/>with<sp/>the<sp/>included<sp/>time<sp/>in<sp/>seconds<sp/>since<sp/>the<sp/>recording<sp/>has<sp/>started</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//the<sp/>data<sp/>comes<sp/>from<sp/>the<sp/>dataIn<sp/>member<sp/>(shared<sp/>variable<sp/>to<sp/>other<sp/>tasks)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="_data_logging_8h_1aa394fd0868d0e097f701cb3f21d9c451" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451" kindref="member">addRecord</ref>(<ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*writer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sTime)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!writer-&gt;<ref refid="struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962" kindref="member">open</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile</ref>(writer);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>function<sp/>kinda<sp/>works<sp/>but<sp/>should<sp/>be<sp/>redone<sp/>later<sp/>to<sp/>use<sp/>(void<sp/>*)<sp/>datatype<sp/>instead<sp/>of<sp/>(float<sp/>*).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>then<sp/>cast<sp/>the<sp/>(void<sp/>*)<sp/>to<sp/>whatever<sp/>datatype<sp/>is<sp/>given<sp/>by<sp/>D_TYPE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>example:<sp/>to<sp/>print<sp/>an<sp/>int<sp/>you<sp/>would<sp/>do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/>void<sp/>*point<sp/>=<sp/>writer-&gt;dataValues;</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>for(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>writer-&gt;dataValuesLen)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>switch(writer-&gt;D_TYPE)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>FLOAT:</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]);</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/>+=<sp/>sizeof(float);<sp/>//<sp/>how<sp/>much<sp/>space<sp/>the<sp/>float<sp/>took<sp/>in<sp/>memory</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>INT:</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]);</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/>+=<sp/>sizeof(int);<sp/>//<sp/>how<sp/>much<sp/>space<sp/>the<sp/>int<sp/>took<sp/>in<sp/>memory</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>case<sp/>...<sp/>(can<sp/>be<sp/>any<sp/>other<sp/>D_TYPE<sp/>we<sp/>define)</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>...<sp/>(similar<sp/>to<sp/>previous<sp/>two<sp/>cases)</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default:<sp/>Serial.printf(&quot;Unknown<sp/>D_TYPE:<sp/>%u\n&quot;,<sp/>D_TYPE);<sp/>break;</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>I<sp/>want<sp/>to<sp/>add<sp/>it<sp/>in<sp/>now<sp/>but<sp/>it<sp/>should<sp/>be<sp/>tested<sp/>before<sp/>being<sp/>merged<sp/>obviously...<sp/>-<sp/>Chase</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>String<sp/>sRecord<sp/>=<sp/>String(sTime);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e" kindref="member">dataValuesLen</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(writer-&gt;<ref refid="struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27" kindref="member">D_TYPE</ref><sp/>==<sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" kindref="member">FLOAT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sRecord.concat(</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">).concat(writer-&gt;<ref refid="struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9" kindref="member">dataValues</ref>[i]);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(writer-&gt;<ref refid="struct_c_s_v_writer_1aa48db34eda8a982f97f2d7812fec0e27" kindref="member">D_TYPE</ref><sp/>==<sp/><ref refid="_data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a" kindref="member">INT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sRecord.concat(</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">).concat(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(writer-&gt;<ref refid="struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9" kindref="member">dataValues</ref>[i]));</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>writer-&gt;<ref refid="struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa" kindref="member">file</ref>.println(sRecord);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//startRecording<sp/>sets<sp/>the<sp/>&quot;epoch&quot;<sp/>or<sp/>beginning<sp/>time<sp/>so<sp/>that<sp/>each<sp/>data<sp/>log<sp/>is<sp/>synced<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="_data_logging_8h_1ab91616c118b701c2afd9136393d1f19b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b" kindref="member">startRecording</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" kindref="member">epochTime</ref><sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DataLogging.ino"/>
+  </compounddef>
+</doxygen>

@@ -1,66 +1,62 @@
 \hypertarget{_display_8ino}{}\doxysection{Display.\+ino File Reference}
 \label{_display_8ino}\index{Display.ino@{Display.ino}}
+
+
+The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+
+
 {\ttfamily \#include \char`\"{}Display.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Free\+RTOS\+\_\+\+TEENSY4.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task}} (void $\ast$\mbox{\hyperlink{_main_8ino_aebb1e162e2ac30616875763e56823870}{display\+Task\+Wrap}})
+void \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task}} (void $\ast$\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{display\+Task\+Wrap}})
 \item 
-void \mbox{\hyperlink{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+void \mbox{\hyperlink{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
-void \mbox{\hyperlink{_display_8ino_a55356673fc2f1fb26932f57c55156598}{display\+Task}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
-\item 
-void \mbox{\hyperlink{_display_8ino_a520d4bd047b32e94c93249cf2042dfbb}{draw\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+void \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{display\+Update}} (\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}} ms\+Data, \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
 void \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermi\+Data\+Print}} (bool thermi\+Data\+Print)
 \item 
 void \mbox{\hyperlink{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}{time\+Print}} ()
 \item 
-void \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8ino_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
+void \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen}} (\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}})
 \item 
 void \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
 \item 
 void \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{erase\+Then\+Print\+SPEEDO}} (int x\+Pos, int y\+Pos, String old\+Data, String new\+Data)
 \item 
-void \mbox{\hyperlink{_display_8ino_ac4a830d3a5355acabc259beb381b66c5}{manual\+Screen\+Updater}} ()
+void \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manual\+Screen\+Data\+Updater}} ()
 \item 
 float \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+voltage\+\_\+read}} ()
-\begin{DoxyCompactList}\small\item\em Checks for Auxiliary voltage reading from pin 13. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-Adafruit\+\_\+\+ILI9341 \mbox{\hyperlink{_display_8ino_a41c3eb6bc5901609f9f976b594e5089f}{tft}} = Adafruit\+\_\+\+ILI9341(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\+\_\+\+CS}}, \mbox{\hyperlink{_display_8h_a51529307207622c113ff0d584536be13}{TFT\+\_\+\+DC}}, \mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\+\_\+\+RST}})
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} \mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}} \mbox{[}\mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\+\_\+\+DATA}}\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a0dbb33f8e641008d67ebd4388521ab69}{battery\+Voltage}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}0\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_ab1f53d3b1963f27d117ab4846e36897e}{motor\+Controller\+Voltage}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}1\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a012dded9173d07c300ffad949e96a940}{aux\+Battery\+Voltage}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}2\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a96f08d4bf70ba395b285b8d6a352bdf9}{rpm}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}3\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_ab1eb6959a5903caaa2277b5c19bc64b8}{motor\+Temperature}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}4\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_ac5969222ac88224eb77bc5aa7dd0e2d0}{motor\+Curr}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}5\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_aec89495f1135f6268d3c23d3d89c6b05}{err\+Message}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}6\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a44fd669aa58c2b66ab018fd2df3e046a}{charger\+Volt}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}7\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_ac618dcef8a9f06e79d1cbe8cb9383aa6}{charger\+Curr}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}8\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a940677548971e0943f36dcfa95bb8b44}{bms\+Status\+Flag}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}9\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8ino_a1f928d9e961d6ef649cb8bc5d3178b8e}{evcc\+Volt}} = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}10\mbox{]}
-\item 
-\mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}} \mbox{\hyperlink{_display_8ino_a700ec86cb550fd4426014190222173ac}{thermi\+Data}}
-\item 
-\mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{_display_8ino_aa2a50ee378fcf45591eb041ee70b2368}{time\+Data}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+
+\begin{DoxyAuthor}{Author}
+Washington Superbike 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1-\/March-\/2023
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+up all members to be able to use it without any trouble.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]PLEASE remove the whole screen parameter situation. Change the whole value in the ~\newline
+ ~\newline
+ Goal 2. ~\newline
+ ~\newline
+ Goal 3. ~\newline
+ ~\newline
+ Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} Final Goal. \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -72,25 +68,27 @@ Adafruit\+\_\+\+ILI9341 \mbox{\hyperlink{_display_8ino_a41c3eb6bc5901609f9f976b5
 
 
 
-Checks for Auxiliary voltage reading from pin 13. 
-
-\mbox{\Hypertarget{_display_8ino_a55356673fc2f1fb26932f57c55156598}\label{_display_8ino_a55356673fc2f1fb26932f57c55156598}} 
-\index{Display.ino@{Display.ino}!displayTask@{displayTask}}
-\index{displayTask@{displayTask}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void display\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}\label{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}} 
 \index{Display.ino@{Display.ino}!displayTask@{displayTask}}
 \index{displayTask@{displayTask}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}}
 {\footnotesize\ttfamily void display\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{display\+Task\+Wrap }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8ino_a520d4bd047b32e94c93249cf2042dfbb}\label{_display_8ino_a520d4bd047b32e94c93249cf2042dfbb}} 
-\index{Display.ino@{Display.ino}!drawMeasurementScreen@{drawMeasurementScreen}}
-\index{drawMeasurementScreen@{drawMeasurementScreen}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{drawMeasurementScreen()}{drawMeasurementScreen()}}
-{\footnotesize\ttfamily void draw\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00045}{45}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
+\mbox{\Hypertarget{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}\label{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}} 
+\index{Display.ino@{Display.ino}!displayUpdate@{displayUpdate}}
+\index{displayUpdate@{displayUpdate}!Display.ino@{Display.ino}}
+\doxysubsubsection{\texorpdfstring{displayUpdate()}{displayUpdate()}}
+{\footnotesize\ttfamily void display\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}\label{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}} 
 \index{Display.ino@{Display.ino}!eraseThenPrint@{eraseThenPrint}}
@@ -98,17 +96,29 @@ Checks for Auxiliary voltage reading from pin 13.
 \doxysubsubsection{\texorpdfstring{eraseThenPrint()}{eraseThenPrint()}}
 {\footnotesize\ttfamily void erase\+Then\+Print (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}\label{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}} 
 \index{Display.ino@{Display.ino}!eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}}
 \index{eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}!Display.ino@{Display.ino}}
 \doxysubsubsection{\texorpdfstring{eraseThenPrintSPEEDO()}{eraseThenPrintSPEEDO()}}
 {\footnotesize\ttfamily void erase\+Then\+Print\+SPEEDO (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{_display_8ino_ac4a830d3a5355acabc259beb381b66c5}\label{_display_8ino_ac4a830d3a5355acabc259beb381b66c5}} 
-\index{Display.ino@{Display.ino}!manualScreenUpdater@{manualScreenUpdater}}
-\index{manualScreenUpdater@{manualScreenUpdater}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{manualScreenUpdater()}{manualScreenUpdater()}}
-{\footnotesize\ttfamily void manual\+Screen\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
+\mbox{\Hypertarget{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}\label{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}} 
+\index{Display.ino@{Display.ino}!manualScreenDataUpdater@{manualScreenDataUpdater}}
+\index{manualScreenDataUpdater@{manualScreenDataUpdater}!Display.ino@{Display.ino}}
+\doxysubsubsection{\texorpdfstring{manualScreenDataUpdater()}{manualScreenDataUpdater()}}
+{\footnotesize\ttfamily void manual\+Screen\+Data\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}\label{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}} 
 \index{Display.ino@{Display.ino}!setupDisplay@{setupDisplay}}
@@ -116,17 +126,29 @@ Checks for Auxiliary voltage reading from pin 13.
 \doxysubsubsection{\texorpdfstring{setupDisplay()}{setupDisplay()}}
 {\footnotesize\ttfamily void setup\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}\label{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}} 
 \index{Display.ino@{Display.ino}!setupMeasurementScreen@{setupMeasurementScreen}}
 \index{setupMeasurementScreen@{setupMeasurementScreen}!Display.ino@{Display.ino}}
 \doxysubsubsection{\texorpdfstring{setupMeasurementScreen()}{setupMeasurementScreen()}}
 {\footnotesize\ttfamily void setup\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+
 \mbox{\Hypertarget{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}\label{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}} 
 \index{Display.ino@{Display.ino}!thermiDataPrint@{thermiDataPrint}}
 \index{thermiDataPrint@{thermiDataPrint}!Display.ino@{Display.ino}}
 \doxysubsubsection{\texorpdfstring{thermiDataPrint()}{thermiDataPrint()}}
 {\footnotesize\ttfamily void thermi\+Data\+Print (\begin{DoxyParamCaption}\item[{bool}]{thermi\+Data\+Print }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}\label{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}} 
 \index{Display.ino@{Display.ino}!timePrint@{timePrint}}
@@ -136,94 +158,5 @@ Checks for Auxiliary voltage reading from pin 13.
 
 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{_display_8ino_a012dded9173d07c300ffad949e96a940}\label{_display_8ino_a012dded9173d07c300ffad949e96a940}} 
-\index{Display.ino@{Display.ino}!auxBatteryVoltage@{auxBatteryVoltage}}
-\index{auxBatteryVoltage@{auxBatteryVoltage}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{auxBatteryVoltage}{auxBatteryVoltage}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ aux\+Battery\+Voltage = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}2\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a0dbb33f8e641008d67ebd4388521ab69}\label{_display_8ino_a0dbb33f8e641008d67ebd4388521ab69}} 
-\index{Display.ino@{Display.ino}!batteryVoltage@{batteryVoltage}}
-\index{batteryVoltage@{batteryVoltage}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{batteryVoltage}{batteryVoltage}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ battery\+Voltage = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}0\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a940677548971e0943f36dcfa95bb8b44}\label{_display_8ino_a940677548971e0943f36dcfa95bb8b44}} 
-\index{Display.ino@{Display.ino}!bmsStatusFlag@{bmsStatusFlag}}
-\index{bmsStatusFlag@{bmsStatusFlag}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{bmsStatusFlag}{bmsStatusFlag}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ bms\+Status\+Flag = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}9\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_ac618dcef8a9f06e79d1cbe8cb9383aa6}\label{_display_8ino_ac618dcef8a9f06e79d1cbe8cb9383aa6}} 
-\index{Display.ino@{Display.ino}!chargerCurr@{chargerCurr}}
-\index{chargerCurr@{chargerCurr}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{chargerCurr}{chargerCurr}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ charger\+Curr = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}8\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a44fd669aa58c2b66ab018fd2df3e046a}\label{_display_8ino_a44fd669aa58c2b66ab018fd2df3e046a}} 
-\index{Display.ino@{Display.ino}!chargerVolt@{chargerVolt}}
-\index{chargerVolt@{chargerVolt}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{chargerVolt}{chargerVolt}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ charger\+Volt = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}7\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_aec89495f1135f6268d3c23d3d89c6b05}\label{_display_8ino_aec89495f1135f6268d3c23d3d89c6b05}} 
-\index{Display.ino@{Display.ino}!errMessage@{errMessage}}
-\index{errMessage@{errMessage}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{errMessage}{errMessage}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ err\+Message = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}6\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a1f928d9e961d6ef649cb8bc5d3178b8e}\label{_display_8ino_a1f928d9e961d6ef649cb8bc5d3178b8e}} 
-\index{Display.ino@{Display.ino}!evccVolt@{evccVolt}}
-\index{evccVolt@{evccVolt}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{evccVolt}{evccVolt}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ evcc\+Volt = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}10\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_ab1f53d3b1963f27d117ab4846e36897e}\label{_display_8ino_ab1f53d3b1963f27d117ab4846e36897e}} 
-\index{Display.ino@{Display.ino}!motorControllerVoltage@{motorControllerVoltage}}
-\index{motorControllerVoltage@{motorControllerVoltage}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{motorControllerVoltage}{motorControllerVoltage}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Controller\+Voltage = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}1\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_ac5969222ac88224eb77bc5aa7dd0e2d0}\label{_display_8ino_ac5969222ac88224eb77bc5aa7dd0e2d0}} 
-\index{Display.ino@{Display.ino}!motorCurr@{motorCurr}}
-\index{motorCurr@{motorCurr}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{motorCurr}{motorCurr}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Curr = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}5\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_ab1eb6959a5903caaa2277b5c19bc64b8}\label{_display_8ino_ab1eb6959a5903caaa2277b5c19bc64b8}} 
-\index{Display.ino@{Display.ino}!motorTemperature@{motorTemperature}}
-\index{motorTemperature@{motorTemperature}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{motorTemperature}{motorTemperature}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ motor\+Temperature = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}4\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}\label{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}} 
-\index{Display.ino@{Display.ino}!printedVals@{printedVals}}
-\index{printedVals@{printedVals}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{printedVals}{printedVals}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} printed\+Vals\mbox{[}\mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\+\_\+\+DATA}}\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a96f08d4bf70ba395b285b8d6a352bdf9}\label{_display_8ino_a96f08d4bf70ba395b285b8d6a352bdf9}} 
-\index{Display.ino@{Display.ino}!rpm@{rpm}}
-\index{rpm@{rpm}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{rpm}{rpm}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}$\ast$ rpm = \&\mbox{\hyperlink{_display_8ino_af49fe56d1f3147a5d156ae6bba71c22e}{printed\+Vals}}\mbox{[}3\mbox{]}}
-
-\mbox{\Hypertarget{_display_8ino_a41c3eb6bc5901609f9f976b594e5089f}\label{_display_8ino_a41c3eb6bc5901609f9f976b594e5089f}} 
-\index{Display.ino@{Display.ino}!tft@{tft}}
-\index{tft@{tft}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{tft}{tft}}
-{\footnotesize\ttfamily Adafruit\+\_\+\+ILI9341 tft = Adafruit\+\_\+\+ILI9341(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\+\_\+\+CS}}, \mbox{\hyperlink{_display_8h_a51529307207622c113ff0d584536be13}{TFT\+\_\+\+DC}}, \mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\+\_\+\+RST}})}
-
-\mbox{\Hypertarget{_display_8ino_a700ec86cb550fd4426014190222173ac}\label{_display_8ino_a700ec86cb550fd4426014190222173ac}} 
-\index{Display.ino@{Display.ino}!thermiData@{thermiData}}
-\index{thermiData@{thermiData}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{thermiData}{thermiData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}} thermi\+Data}
-
-\mbox{\Hypertarget{_display_8ino_aa2a50ee378fcf45591eb041ee70b2368}\label{_display_8ino_aa2a50ee378fcf45591eb041ee70b2368}} 
-\index{Display.ino@{Display.ino}!timeData@{timeData}}
-\index{timeData@{timeData}!Display.ino@{Display.ino}}
-\doxysubsubsection{\texorpdfstring{timeData}{timeData}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} time\+Data}
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00185}{185}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 

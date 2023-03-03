@@ -2,417 +2,417 @@
 \label{list_8h_source}\index{FreeRTOS/list.h@{FreeRTOS/list.h}}
 \mbox{\hyperlink{list_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{/*}}
-\DoxyCodeLine{2 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
-\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
-\DoxyCodeLine{4 \textcolor{comment}{ *}}
-\DoxyCodeLine{5 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
-\DoxyCodeLine{6 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
-\DoxyCodeLine{7 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
-\DoxyCodeLine{8 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
-\DoxyCodeLine{9 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
-\DoxyCodeLine{10 \textcolor{comment}{ * subject to the following conditions:}}
-\DoxyCodeLine{11 \textcolor{comment}{ *}}
-\DoxyCodeLine{12 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
-\DoxyCodeLine{13 \textcolor{comment}{ * copies or substantial portions of the Software.}}
-\DoxyCodeLine{14 \textcolor{comment}{ *}}
-\DoxyCodeLine{15 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
-\DoxyCodeLine{16 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
-\DoxyCodeLine{17 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
-\DoxyCodeLine{18 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
-\DoxyCodeLine{19 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
-\DoxyCodeLine{20 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
-\DoxyCodeLine{21 \textcolor{comment}{ *}}
-\DoxyCodeLine{22 \textcolor{comment}{ * http://www.FreeRTOS.org}}
-\DoxyCodeLine{23 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
-\DoxyCodeLine{24 \textcolor{comment}{ *}}
-\DoxyCodeLine{25 \textcolor{comment}{ * 1 tab == 4 spaces!}}
-\DoxyCodeLine{26 \textcolor{comment}{ */}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{comment}{/*}}
-\DoxyCodeLine{29 \textcolor{comment}{ * This is the list implementation used by the scheduler.  While it is tailored}}
-\DoxyCodeLine{30 \textcolor{comment}{ * heavily for the schedulers needs, it is also available for use by}}
-\DoxyCodeLine{31 \textcolor{comment}{ * application code.}}
-\DoxyCodeLine{32 \textcolor{comment}{ *}}
-\DoxyCodeLine{33 \textcolor{comment}{ * list\_ts can only store pointers to list\_item\_ts.  Each ListItem\_t contains a}}
-\DoxyCodeLine{34 \textcolor{comment}{ * numeric value (xItemValue).  Most of the time the lists are sorted in}}
-\DoxyCodeLine{35 \textcolor{comment}{ * descending item value order.}}
-\DoxyCodeLine{36 \textcolor{comment}{ *}}
-\DoxyCodeLine{37 \textcolor{comment}{ * Lists are created already containing one list item.  The value of this}}
-\DoxyCodeLine{38 \textcolor{comment}{ * item is the maximum possible that can be stored, it is therefore always at}}
-\DoxyCodeLine{39 \textcolor{comment}{ * the end of the list and acts as a marker.  The list member pxHead always}}
-\DoxyCodeLine{40 \textcolor{comment}{ * points to this marker -\/ even though it is at the tail of the list.  This}}
-\DoxyCodeLine{41 \textcolor{comment}{ * is because the tail contains a wrap back pointer to the true head of}}
-\DoxyCodeLine{42 \textcolor{comment}{ * the list.}}
-\DoxyCodeLine{43 \textcolor{comment}{ *}}
-\DoxyCodeLine{44 \textcolor{comment}{ * In addition to it's value, each list item contains a pointer to the next}}
-\DoxyCodeLine{45 \textcolor{comment}{ * item in the list (pxNext), a pointer to the list it is in (pxContainer)}}
-\DoxyCodeLine{46 \textcolor{comment}{ * and a pointer to back to the object that contains it.  These later two}}
-\DoxyCodeLine{47 \textcolor{comment}{ * pointers are included for efficiency of list manipulation.  There is}}
-\DoxyCodeLine{48 \textcolor{comment}{ * effectively a two way link between the object containing the list item and}}
-\DoxyCodeLine{49 \textcolor{comment}{ * the list item itself.}}
-\DoxyCodeLine{50 \textcolor{comment}{ *}}
-\DoxyCodeLine{51 \textcolor{comment}{ *}}
-\DoxyCodeLine{52 \textcolor{comment}{ * \(\backslash\)page ListIntroduction List Implementation}}
-\DoxyCodeLine{53 \textcolor{comment}{ * \(\backslash\)ingroup FreeRTOSIntro}}
-\DoxyCodeLine{54 \textcolor{comment}{ */}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifndef INC\_FREERTOS\_H}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{    \#error FreeRTOS.h must be included before list.h}}
-\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#ifndef LIST\_H}}
-\DoxyCodeLine{61 \textcolor{preprocessor}{\#define LIST\_H}}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{comment}{/*}}
-\DoxyCodeLine{64 \textcolor{comment}{ * The list structure members are modified from within interrupts, and therefore}}
-\DoxyCodeLine{65 \textcolor{comment}{ * by rights should be declared volatile.  However, they are only modified in a}}
-\DoxyCodeLine{66 \textcolor{comment}{ * functionally atomic way (within critical sections of with the scheduler}}
-\DoxyCodeLine{67 \textcolor{comment}{ * suspended) and are either passed by reference into a function or indexed via}}
-\DoxyCodeLine{68 \textcolor{comment}{ * a volatile variable.  Therefore, in all use cases tested so far, the volatile}}
-\DoxyCodeLine{69 \textcolor{comment}{ * qualifier can be omitted in order to provide a moderate performance}}
-\DoxyCodeLine{70 \textcolor{comment}{ * improvement without adversely affecting functional behaviour.  The assembly}}
-\DoxyCodeLine{71 \textcolor{comment}{ * instructions generated by the IAR, ARM and GCC compilers when the respective}}
-\DoxyCodeLine{72 \textcolor{comment}{ * compiler's options were set for maximum optimisation has been inspected and}}
-\DoxyCodeLine{73 \textcolor{comment}{ * deemed to be as intended.  That said, as compiler technology advances, and}}
-\DoxyCodeLine{74 \textcolor{comment}{ * especially if aggressive cross module optimisation is used (a use case that}}
-\DoxyCodeLine{75 \textcolor{comment}{ * has not been exercised to any great extend) then it is feasible that the}}
-\DoxyCodeLine{76 \textcolor{comment}{ * volatile qualifier will be needed for correct optimisation.  It is expected}}
-\DoxyCodeLine{77 \textcolor{comment}{ * that a compiler removing essential code because, without the volatile}}
-\DoxyCodeLine{78 \textcolor{comment}{ * qualifier on the list structure members and with aggressive cross module}}
-\DoxyCodeLine{79 \textcolor{comment}{ * optimisation, the compiler deemed the code unnecessary will result in}}
-\DoxyCodeLine{80 \textcolor{comment}{ * complete and obvious failure of the scheduler.  If this is ever experienced}}
-\DoxyCodeLine{81 \textcolor{comment}{ * then the volatile qualifier can be inserted in the relevant places within the}}
-\DoxyCodeLine{82 \textcolor{comment}{ * list structures by simply defining configLIST\_VOLATILE to volatile in}}
-\DoxyCodeLine{83 \textcolor{comment}{ * FreeRTOSConfig.h (as per the example at the bottom of this comment block).}}
-\DoxyCodeLine{84 \textcolor{comment}{ * If configLIST\_VOLATILE is not defined then the preprocessor directives below}}
-\DoxyCodeLine{85 \textcolor{comment}{ * will simply \#define configLIST\_VOLATILE away completely.}}
-\DoxyCodeLine{86 \textcolor{comment}{ *}}
-\DoxyCodeLine{87 \textcolor{comment}{ * To use volatile list structure members then add the following line to}}
-\DoxyCodeLine{88 \textcolor{comment}{ * FreeRTOSConfig.h (without the quotes):}}
-\DoxyCodeLine{89 \textcolor{comment}{ * "{}\#define configLIST\_VOLATILE volatile"{}}}
-\DoxyCodeLine{90 \textcolor{comment}{ */}}
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#ifndef configLIST\_VOLATILE}}
-\DoxyCodeLine{92 \textcolor{preprocessor}{    \#define configLIST\_VOLATILE}}
-\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configSUPPORT\_CROSS\_MODULE\_OPTIMISATION */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{96 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
-\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{99 \textcolor{comment}{/* Macros that can be used to place known values within the list structures,}}
-\DoxyCodeLine{100 \textcolor{comment}{then check that the known values do not get corrupted during the execution of}}
-\DoxyCodeLine{101 \textcolor{comment}{the application.   These may catch the list data structures being overwritten in}}
-\DoxyCodeLine{102 \textcolor{comment}{memory.  They will not catch data errors caused by incorrect configuration or}}
-\DoxyCodeLine{103 \textcolor{comment}{use of FreeRTOS.*/}}
-\DoxyCodeLine{104 \textcolor{preprocessor}{\#if( configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES == 0 )}}
-\DoxyCodeLine{105     \textcolor{comment}{/* Define the macros to do nothing. */}}
-\DoxyCodeLine{106 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{107 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{108 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{109 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{110 \textcolor{preprocessor}{    \#define listSET\_FIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )}}
-\DoxyCodeLine{111 \textcolor{preprocessor}{    \#define listSET\_SECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )}}
-\DoxyCodeLine{112 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_1\_VALUE( pxList )}}
-\DoxyCodeLine{113 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_2\_VALUE( pxList )}}
-\DoxyCodeLine{114 \textcolor{preprocessor}{    \#define listTEST\_LIST\_ITEM\_INTEGRITY( pxItem )}}
-\DoxyCodeLine{115 \textcolor{preprocessor}{    \#define listTEST\_LIST\_INTEGRITY( pxList )}}
-\DoxyCodeLine{116 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{117     \textcolor{comment}{/* Define macros that add new members into the list structures. */}}
-\DoxyCodeLine{118 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE               TickType\_t xListItemIntegrityValue1;}}
-\DoxyCodeLine{119 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE              TickType\_t xListItemIntegrityValue2;}}
-\DoxyCodeLine{120 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE                    TickType\_t xListIntegrityValue1;}}
-\DoxyCodeLine{121 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE                   TickType\_t xListIntegrityValue2;}}
-\DoxyCodeLine{122 }
-\DoxyCodeLine{123     \textcolor{comment}{/* Define macros that set the new structure members to known values. */}}
-\DoxyCodeLine{124 \textcolor{preprocessor}{    \#define listSET\_FIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )     ( pxItem )-\/>xListItemIntegrityValue1 = pdINTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{125 \textcolor{preprocessor}{    \#define listSET\_SECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )    ( pxItem )-\/>xListItemIntegrityValue2 = pdINTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{126 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_1\_VALUE( pxList )      ( pxList )-\/>xListIntegrityValue1 = pdINTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{127 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_2\_VALUE( pxList )      ( pxList )-\/>xListIntegrityValue2 = pdINTEGRITY\_CHECK\_VALUE}}
-\DoxyCodeLine{128 }
-\DoxyCodeLine{129     \textcolor{comment}{/* Define macros that will assert if one of the structure members does not}}
-\DoxyCodeLine{130 \textcolor{comment}{    contain its expected value. */}}
-\DoxyCodeLine{131 \textcolor{preprocessor}{    \#define listTEST\_LIST\_ITEM\_INTEGRITY( pxItem )      configASSERT( ( ( pxItem )-\/>xListItemIntegrityValue1 == pdINTEGRITY\_CHECK\_VALUE ) \&\& ( ( pxItem )-\/>xListItemIntegrityValue2 == pdINTEGRITY\_CHECK\_VALUE ) )}}
-\DoxyCodeLine{132 \textcolor{preprocessor}{    \#define listTEST\_LIST\_INTEGRITY( pxList )           configASSERT( ( ( pxList )-\/>xListIntegrityValue1 == pdINTEGRITY\_CHECK\_VALUE ) \&\& ( ( pxList )-\/>xListIntegrityValue2 == pdINTEGRITY\_CHECK\_VALUE ) )}}
-\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135 }
-\DoxyCodeLine{136 \textcolor{comment}{/*}}
-\DoxyCodeLine{137 \textcolor{comment}{ * Definition of the only type of object that a list can contain.}}
-\DoxyCodeLine{138 \textcolor{comment}{ */}}
-\DoxyCodeLine{139 \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}};}
-\DoxyCodeLine{140 \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}}}
-\DoxyCodeLine{141 \{}
-\DoxyCodeLine{142     \mbox{\hyperlink{list_8h_a3611bd5d5d87cb26ac1dc7a4852b94a0}{listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}          \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
-\DoxyCodeLine{143     \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a9b1f26de79f9da1403ca3ebc7a2e653a}{xItemValue}};           \textcolor{comment}{/*< The value being listed.  In most cases this is used to sort the list in descending order. */}}
-\DoxyCodeLine{144     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a03713c4ee953ef5ca6adbec883720c60}{pxNext}};      \textcolor{comment}{/*< Pointer to the next ListItem\_t in the list. */}}
-\DoxyCodeLine{145     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_ae8e553eae41010a8e41c66d76c94110b}{pxPrevious}};  \textcolor{comment}{/*< Pointer to the previous ListItem\_t in the list. */}}
-\DoxyCodeLine{146     \textcolor{keywordtype}{void} * \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_aeb3110b50fe0dbce826d929b27b5ddb1}{pvOwner}};                                      \textcolor{comment}{/*< Pointer to the object (normally a TCB) that contains the list item.  There is therefore a two way link between the object containing the list item and the list item itself. */}}
-\DoxyCodeLine{147     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_afb1e27a88f6b064cd0216de08009844a}{pxContainer}};      \textcolor{comment}{/*< Pointer to the list in which this list item is placed (if any). */}}
-\DoxyCodeLine{148     \mbox{\hyperlink{list_8h_abf45f853974db484cd7df434bd006e98}{listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}            \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
-\DoxyCodeLine{149 \};}
-\DoxyCodeLine{150 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}};                   \textcolor{comment}{/* For some reason lint wants this as two separate definitions. */}}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{152 \textcolor{keyword}{struct }\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{xMINI\_LIST\_ITEM}}}
-\DoxyCodeLine{153 \{}
-\DoxyCodeLine{154     \mbox{\hyperlink{list_8h_a3611bd5d5d87cb26ac1dc7a4852b94a0}{listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}          \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
-\DoxyCodeLine{155     \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_aae79c54ac1efa30959e68604cc23b29e}{xItemValue}};}
-\DoxyCodeLine{156     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_aa7ae770b0f10daeb9ac76c6f7dd5608e}{pxNext}};}
-\DoxyCodeLine{157     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_a732c666bb97560eb1b094a2c411269ab}{pxPrevious}};}
-\DoxyCodeLine{158 \};}
-\DoxyCodeLine{159 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{xMINI\_LIST\_ITEM}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{MiniListItem\_t}};}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{161 \textcolor{comment}{/*}}
-\DoxyCodeLine{162 \textcolor{comment}{ * Definition of the type of queue used by the scheduler.}}
-\DoxyCodeLine{163 \textcolor{comment}{ */}}
-\DoxyCodeLine{164 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}}}
-\DoxyCodeLine{165 \{}
-\DoxyCodeLine{166     \mbox{\hyperlink{list_8h_a3a52b5a4f70d3a07e37a5814a23ba880}{listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE}}                \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
-\DoxyCodeLine{167     \textcolor{keyword}{volatile} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{structx_l_i_s_t_aa280e17bf4e71f81c449c2444cb70378}{uxNumberOfItems}};}
-\DoxyCodeLine{168     \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t_a7bf64d87701493b4c8c5c977682500d7}{pxIndex}};           \textcolor{comment}{/*< Used to walk through the list.  Points to the last item returned by a call to listGET\_OWNER\_OF\_NEXT\_ENTRY (). */}}
-\DoxyCodeLine{169     \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{MiniListItem\_t}} \mbox{\hyperlink{structx_l_i_s_t_a49ad62fa153126e27e273811167b336a}{xListEnd}};                          \textcolor{comment}{/*< List item that contains the maximum possible item value meaning it is always at the end of the list and is therefore used as a marker. */}}
-\DoxyCodeLine{170     \mbox{\hyperlink{list_8h_a87dc70c22e3ff0eba560d6f357472634}{listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE}}              \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
-\DoxyCodeLine{171 \} \mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\_t}};}
-\DoxyCodeLine{172 }
-\DoxyCodeLine{173 \textcolor{comment}{/*}}
-\DoxyCodeLine{174 \textcolor{comment}{ * Access macro to set the owner of a list item.  The owner of a list item}}
-\DoxyCodeLine{175 \textcolor{comment}{ * is the object (usually a TCB) that contains the list item.}}
-\DoxyCodeLine{176 \textcolor{comment}{ *}}
-\DoxyCodeLine{177 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_OWNER listSET\_LIST\_ITEM\_OWNER}}
-\DoxyCodeLine{178 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{179 \textcolor{comment}{ */}}
-\DoxyCodeLine{180 \textcolor{preprocessor}{\#define listSET\_LIST\_ITEM\_OWNER( pxListItem, pxOwner )      ( ( pxListItem )-\/>pvOwner = ( void * ) ( pxOwner ) )}}
-\DoxyCodeLine{181 }
-\DoxyCodeLine{182 \textcolor{comment}{/*}}
-\DoxyCodeLine{183 \textcolor{comment}{ * Access macro to get the owner of a list item.  The owner of a list item}}
-\DoxyCodeLine{184 \textcolor{comment}{ * is the object (usually a TCB) that contains the list item.}}
-\DoxyCodeLine{185 \textcolor{comment}{ *}}
-\DoxyCodeLine{186 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_OWNER listSET\_LIST\_ITEM\_OWNER}}
-\DoxyCodeLine{187 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{188 \textcolor{comment}{ */}}
-\DoxyCodeLine{189 \textcolor{preprocessor}{\#define listGET\_LIST\_ITEM\_OWNER( pxListItem )   ( ( pxListItem )-\/>pvOwner )}}
-\DoxyCodeLine{190 }
-\DoxyCodeLine{191 \textcolor{comment}{/*}}
-\DoxyCodeLine{192 \textcolor{comment}{ * Access macro to set the value of the list item.  In most cases the value is}}
-\DoxyCodeLine{193 \textcolor{comment}{ * used to sort the list in descending order.}}
-\DoxyCodeLine{194 \textcolor{comment}{ *}}
-\DoxyCodeLine{195 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_VALUE listSET\_LIST\_ITEM\_VALUE}}
-\DoxyCodeLine{196 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{197 \textcolor{comment}{ */}}
-\DoxyCodeLine{198 \textcolor{preprocessor}{\#define listSET\_LIST\_ITEM\_VALUE( pxListItem, xValue )   ( ( pxListItem )-\/>xItemValue = ( xValue ) )}}
-\DoxyCodeLine{199 }
-\DoxyCodeLine{200 \textcolor{comment}{/*}}
-\DoxyCodeLine{201 \textcolor{comment}{ * Access macro to retrieve the value of the list item.  The value can}}
-\DoxyCodeLine{202 \textcolor{comment}{ * represent anything -\/ for example the priority of a task, or the time at}}
-\DoxyCodeLine{203 \textcolor{comment}{ * which a task should be unblocked.}}
-\DoxyCodeLine{204 \textcolor{comment}{ *}}
-\DoxyCodeLine{205 \textcolor{comment}{ * \(\backslash\)page listGET\_LIST\_ITEM\_VALUE listGET\_LIST\_ITEM\_VALUE}}
-\DoxyCodeLine{206 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{207 \textcolor{comment}{ */}}
-\DoxyCodeLine{208 \textcolor{preprocessor}{\#define listGET\_LIST\_ITEM\_VALUE( pxListItem )   ( ( pxListItem )-\/>xItemValue )}}
-\DoxyCodeLine{209 }
-\DoxyCodeLine{210 \textcolor{comment}{/*}}
-\DoxyCodeLine{211 \textcolor{comment}{ * Access macro to retrieve the value of the list item at the head of a given}}
-\DoxyCodeLine{212 \textcolor{comment}{ * list.}}
-\DoxyCodeLine{213 \textcolor{comment}{ *}}
-\DoxyCodeLine{214 \textcolor{comment}{ * \(\backslash\)page listGET\_LIST\_ITEM\_VALUE listGET\_LIST\_ITEM\_VALUE}}
-\DoxyCodeLine{215 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{216 \textcolor{comment}{ */}}
-\DoxyCodeLine{217 \textcolor{preprocessor}{\#define listGET\_ITEM\_VALUE\_OF\_HEAD\_ENTRY( pxList )  ( ( ( pxList )-\/>xListEnd ).pxNext-\/>xItemValue )}}
-\DoxyCodeLine{218 }
-\DoxyCodeLine{219 \textcolor{comment}{/*}}
-\DoxyCodeLine{220 \textcolor{comment}{ * Return the list item at the head of the list.}}
-\DoxyCodeLine{221 \textcolor{comment}{ *}}
-\DoxyCodeLine{222 \textcolor{comment}{ * \(\backslash\)page listGET\_HEAD\_ENTRY listGET\_HEAD\_ENTRY}}
-\DoxyCodeLine{223 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{224 \textcolor{comment}{ */}}
-\DoxyCodeLine{225 \textcolor{preprocessor}{\#define listGET\_HEAD\_ENTRY( pxList )    ( ( ( pxList )-\/>xListEnd ).pxNext )}}
-\DoxyCodeLine{226 }
-\DoxyCodeLine{227 \textcolor{comment}{/*}}
-\DoxyCodeLine{228 \textcolor{comment}{ * Return the list item at the head of the list.}}
-\DoxyCodeLine{229 \textcolor{comment}{ *}}
-\DoxyCodeLine{230 \textcolor{comment}{ * \(\backslash\)page listGET\_NEXT listGET\_NEXT}}
-\DoxyCodeLine{231 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{232 \textcolor{comment}{ */}}
-\DoxyCodeLine{233 \textcolor{preprocessor}{\#define listGET\_NEXT( pxListItem )  ( ( pxListItem )-\/>pxNext )}}
-\DoxyCodeLine{234 }
-\DoxyCodeLine{235 \textcolor{comment}{/*}}
-\DoxyCodeLine{236 \textcolor{comment}{ * Return the list item that marks the end of the list}}
-\DoxyCodeLine{237 \textcolor{comment}{ *}}
-\DoxyCodeLine{238 \textcolor{comment}{ * \(\backslash\)page listGET\_END\_MARKER listGET\_END\_MARKER}}
-\DoxyCodeLine{239 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{240 \textcolor{comment}{ */}}
-\DoxyCodeLine{241 \textcolor{preprocessor}{\#define listGET\_END\_MARKER( pxList )    ( ( ListItem\_t const * ) ( \&( ( pxList )-\/>xListEnd ) ) )}}
-\DoxyCodeLine{242 }
-\DoxyCodeLine{243 \textcolor{comment}{/*}}
-\DoxyCodeLine{244 \textcolor{comment}{ * Access macro to determine if a list contains any items.  The macro will}}
-\DoxyCodeLine{245 \textcolor{comment}{ * only have the value true if the list is empty.}}
-\DoxyCodeLine{246 \textcolor{comment}{ *}}
-\DoxyCodeLine{247 \textcolor{comment}{ * \(\backslash\)page listLIST\_IS\_EMPTY listLIST\_IS\_EMPTY}}
-\DoxyCodeLine{248 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{249 \textcolor{comment}{ */}}
-\DoxyCodeLine{250 \textcolor{preprocessor}{\#define listLIST\_IS\_EMPTY( pxList ) ( ( ( pxList )-\/>uxNumberOfItems == ( UBaseType\_t ) 0 ) ? pdTRUE : pdFALSE )}}
-\DoxyCodeLine{251 }
-\DoxyCodeLine{252 \textcolor{comment}{/*}}
-\DoxyCodeLine{253 \textcolor{comment}{ * Access macro to return the number of items in the list.}}
-\DoxyCodeLine{254 \textcolor{comment}{ */}}
-\DoxyCodeLine{255 \textcolor{preprocessor}{\#define listCURRENT\_LIST\_LENGTH( pxList )   ( ( pxList )-\/>uxNumberOfItems )}}
-\DoxyCodeLine{256 }
-\DoxyCodeLine{257 \textcolor{comment}{/*}}
-\DoxyCodeLine{258 \textcolor{comment}{ * Access function to obtain the owner of the next entry in a list.}}
-\DoxyCodeLine{259 \textcolor{comment}{ *}}
-\DoxyCodeLine{260 \textcolor{comment}{ * The list member pxIndex is used to walk through a list.  Calling}}
-\DoxyCodeLine{261 \textcolor{comment}{ * listGET\_OWNER\_OF\_NEXT\_ENTRY increments pxIndex to the next item in the list}}
-\DoxyCodeLine{262 \textcolor{comment}{ * and returns that entry's pxOwner parameter.  Using multiple calls to this}}
-\DoxyCodeLine{263 \textcolor{comment}{ * function it is therefore possible to move through every item contained in}}
-\DoxyCodeLine{264 \textcolor{comment}{ * a list.}}
-\DoxyCodeLine{265 \textcolor{comment}{ *}}
-\DoxyCodeLine{266 \textcolor{comment}{ * The pxOwner parameter of a list item is a pointer to the object that owns}}
-\DoxyCodeLine{267 \textcolor{comment}{ * the list item.  In the scheduler this is normally a task control block.}}
-\DoxyCodeLine{268 \textcolor{comment}{ * The pxOwner parameter effectively creates a two way link between the list}}
-\DoxyCodeLine{269 \textcolor{comment}{ * item and its owner.}}
-\DoxyCodeLine{270 \textcolor{comment}{ *}}
-\DoxyCodeLine{271 \textcolor{comment}{ * @param pxTCB pxTCB is set to the address of the owner of the next list item.}}
-\DoxyCodeLine{272 \textcolor{comment}{ * @param pxList The list from which the next item owner is to be returned.}}
-\DoxyCodeLine{273 \textcolor{comment}{ *}}
-\DoxyCodeLine{274 \textcolor{comment}{ * \(\backslash\)page listGET\_OWNER\_OF\_NEXT\_ENTRY listGET\_OWNER\_OF\_NEXT\_ENTRY}}
-\DoxyCodeLine{275 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{276 \textcolor{comment}{ */}}
-\DoxyCodeLine{277 \textcolor{preprocessor}{\#define listGET\_OWNER\_OF\_NEXT\_ENTRY( pxTCB, pxList )                                        \(\backslash\)}}
-\DoxyCodeLine{278 \textcolor{preprocessor}{\{                                                                                           \(\backslash\)}}
-\DoxyCodeLine{279 \textcolor{preprocessor}{List\_t * const pxConstList = ( pxList );                                                    \(\backslash\)}}
-\DoxyCodeLine{280 \textcolor{preprocessor}{    }\textcolor{comment}{/* Increment the index to the next item and return the item, ensuring */}\textcolor{preprocessor}{                \(\backslash\)}}
-\DoxyCodeLine{281 \textcolor{preprocessor}{    }\textcolor{comment}{/* we don't return the marker used at the end of the list.  */}\textcolor{preprocessor}{                          \(\backslash\)}}
-\DoxyCodeLine{282 \textcolor{preprocessor}{    ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                            \(\backslash\)}}
-\DoxyCodeLine{283 \textcolor{preprocessor}{    if( ( void * ) ( pxConstList )-\/>pxIndex == ( void * ) \&( ( pxConstList )-\/>xListEnd ) )  \(\backslash\)}}
-\DoxyCodeLine{284 \textcolor{preprocessor}{    \{                                                                                       \(\backslash\)}}
-\DoxyCodeLine{285 \textcolor{preprocessor}{        ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                        \(\backslash\)}}
-\DoxyCodeLine{286 \textcolor{preprocessor}{    \}                                                                                       \(\backslash\)}}
-\DoxyCodeLine{287 \textcolor{preprocessor}{    ( pxTCB ) = ( pxConstList )-\/>pxIndex-\/>pvOwner;                                          \(\backslash\)}}
-\DoxyCodeLine{288 \textcolor{preprocessor}{\}}}
-\DoxyCodeLine{289 }
-\DoxyCodeLine{290 }
-\DoxyCodeLine{291 \textcolor{comment}{/*}}
-\DoxyCodeLine{292 \textcolor{comment}{ * Access function to obtain the owner of the first entry in a list.  Lists}}
-\DoxyCodeLine{293 \textcolor{comment}{ * are normally sorted in ascending item value order.}}
-\DoxyCodeLine{294 \textcolor{comment}{ *}}
-\DoxyCodeLine{295 \textcolor{comment}{ * This function returns the pxOwner member of the first item in the list.}}
-\DoxyCodeLine{296 \textcolor{comment}{ * The pxOwner parameter of a list item is a pointer to the object that owns}}
-\DoxyCodeLine{297 \textcolor{comment}{ * the list item.  In the scheduler this is normally a task control block.}}
-\DoxyCodeLine{298 \textcolor{comment}{ * The pxOwner parameter effectively creates a two way link between the list}}
-\DoxyCodeLine{299 \textcolor{comment}{ * item and its owner.}}
-\DoxyCodeLine{300 \textcolor{comment}{ *}}
-\DoxyCodeLine{301 \textcolor{comment}{ * @param pxList The list from which the owner of the head item is to be}}
-\DoxyCodeLine{302 \textcolor{comment}{ * returned.}}
-\DoxyCodeLine{303 \textcolor{comment}{ *}}
-\DoxyCodeLine{304 \textcolor{comment}{ * \(\backslash\)page listGET\_OWNER\_OF\_HEAD\_ENTRY listGET\_OWNER\_OF\_HEAD\_ENTRY}}
-\DoxyCodeLine{305 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{306 \textcolor{comment}{ */}}
-\DoxyCodeLine{307 \textcolor{preprocessor}{\#define listGET\_OWNER\_OF\_HEAD\_ENTRY( pxList )  ( (\&( ( pxList )-\/>xListEnd ))-\/>pxNext-\/>pvOwner )}}
-\DoxyCodeLine{308 }
-\DoxyCodeLine{309 \textcolor{comment}{/*}}
-\DoxyCodeLine{310 \textcolor{comment}{ * Check to see if a list item is within a list.  The list item maintains a}}
-\DoxyCodeLine{311 \textcolor{comment}{ * "{}container"{} pointer that points to the list it is in.  All this macro does}}
-\DoxyCodeLine{312 \textcolor{comment}{ * is check to see if the container and the list match.}}
-\DoxyCodeLine{313 \textcolor{comment}{ *}}
-\DoxyCodeLine{314 \textcolor{comment}{ * @param pxList The list we want to know if the list item is within.}}
-\DoxyCodeLine{315 \textcolor{comment}{ * @param pxListItem The list item we want to know if is in the list.}}
-\DoxyCodeLine{316 \textcolor{comment}{ * @return pdTRUE if the list item is in the list, otherwise pdFALSE.}}
-\DoxyCodeLine{317 \textcolor{comment}{ */}}
-\DoxyCodeLine{318 \textcolor{preprocessor}{\#define listIS\_CONTAINED\_WITHIN( pxList, pxListItem ) ( ( ( pxListItem )-\/>pxContainer == ( pxList ) ) ? ( pdTRUE ) : ( pdFALSE ) )}}
-\DoxyCodeLine{319 }
-\DoxyCodeLine{320 \textcolor{comment}{/*}}
-\DoxyCodeLine{321 \textcolor{comment}{ * Return the list a list item is contained within (referenced from).}}
-\DoxyCodeLine{322 \textcolor{comment}{ *}}
-\DoxyCodeLine{323 \textcolor{comment}{ * @param pxListItem The list item being queried.}}
-\DoxyCodeLine{324 \textcolor{comment}{ * @return A pointer to the List\_t object that references the pxListItem}}
-\DoxyCodeLine{325 \textcolor{comment}{ */}}
-\DoxyCodeLine{326 \textcolor{preprocessor}{\#define listLIST\_ITEM\_CONTAINER( pxListItem ) ( ( pxListItem )-\/>pxContainer )}}
-\DoxyCodeLine{327 }
-\DoxyCodeLine{328 \textcolor{comment}{/*}}
-\DoxyCodeLine{329 \textcolor{comment}{ * This provides a crude means of knowing if a list has been initialised, as}}
-\DoxyCodeLine{330 \textcolor{comment}{ * pxList-\/>xListEnd.xItemValue is set to portMAX\_DELAY by the vListInitialise()}}
-\DoxyCodeLine{331 \textcolor{comment}{ * function.}}
-\DoxyCodeLine{332 \textcolor{comment}{ */}}
-\DoxyCodeLine{333 \textcolor{preprocessor}{\#define listLIST\_IS\_INITIALISED( pxList ) ( ( pxList )-\/>xListEnd.xItemValue == portMAX\_DELAY )}}
-\DoxyCodeLine{334 }
-\DoxyCodeLine{335 \textcolor{comment}{/*}}
-\DoxyCodeLine{336 \textcolor{comment}{ * Must be called before a list is used!  This initialises all the members}}
-\DoxyCodeLine{337 \textcolor{comment}{ * of the list structure and inserts the xListEnd item into the list as a}}
-\DoxyCodeLine{338 \textcolor{comment}{ * marker to the back of the list.}}
-\DoxyCodeLine{339 \textcolor{comment}{ *}}
-\DoxyCodeLine{340 \textcolor{comment}{ * @param pxList Pointer to the list being initialised.}}
-\DoxyCodeLine{341 \textcolor{comment}{ *}}
-\DoxyCodeLine{342 \textcolor{comment}{ * \(\backslash\)page vListInitialise vListInitialise}}
-\DoxyCodeLine{343 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{344 \textcolor{comment}{ */}}
-\DoxyCodeLine{345 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_adeef7734d7d6d9a3eea642a70c106919}{vListInitialise}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{346 }
-\DoxyCodeLine{347 \textcolor{comment}{/*}}
-\DoxyCodeLine{348 \textcolor{comment}{ * Must be called before a list item is used.  This sets the list container to}}
-\DoxyCodeLine{349 \textcolor{comment}{ * null so the item does not think that it is already contained in a list.}}
-\DoxyCodeLine{350 \textcolor{comment}{ *}}
-\DoxyCodeLine{351 \textcolor{comment}{ * @param pxItem Pointer to the list item being initialised.}}
-\DoxyCodeLine{352 \textcolor{comment}{ *}}
-\DoxyCodeLine{353 \textcolor{comment}{ * \(\backslash\)page vListInitialiseItem vListInitialiseItem}}
-\DoxyCodeLine{354 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{355 \textcolor{comment}{ */}}
-\DoxyCodeLine{356 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_ab91611baae53be209a05d211f55f5395}{vListInitialiseItem}}( \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{357 }
-\DoxyCodeLine{358 \textcolor{comment}{/*}}
-\DoxyCodeLine{359 \textcolor{comment}{ * Insert a list item into a list.  The item will be inserted into the list in}}
-\DoxyCodeLine{360 \textcolor{comment}{ * a position determined by its item value (descending item value order).}}
-\DoxyCodeLine{361 \textcolor{comment}{ *}}
-\DoxyCodeLine{362 \textcolor{comment}{ * @param pxList The list into which the item is to be inserted.}}
-\DoxyCodeLine{363 \textcolor{comment}{ *}}
-\DoxyCodeLine{364 \textcolor{comment}{ * @param pxNewListItem The item that is to be placed in the list.}}
-\DoxyCodeLine{365 \textcolor{comment}{ *}}
-\DoxyCodeLine{366 \textcolor{comment}{ * \(\backslash\)page vListInsert vListInsert}}
-\DoxyCodeLine{367 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{368 \textcolor{comment}{ */}}
-\DoxyCodeLine{369 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_aa129290da5cbda47dffb7bf877b2f02a}{vListInsert}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList, \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxNewListItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{370 }
-\DoxyCodeLine{371 \textcolor{comment}{/*}}
-\DoxyCodeLine{372 \textcolor{comment}{ * Insert a list item into a list.  The item will be inserted in a position}}
-\DoxyCodeLine{373 \textcolor{comment}{ * such that it will be the last item within the list returned by multiple}}
-\DoxyCodeLine{374 \textcolor{comment}{ * calls to listGET\_OWNER\_OF\_NEXT\_ENTRY.}}
-\DoxyCodeLine{375 \textcolor{comment}{ *}}
-\DoxyCodeLine{376 \textcolor{comment}{ * The list member pxIndex is used to walk through a list.  Calling}}
-\DoxyCodeLine{377 \textcolor{comment}{ * listGET\_OWNER\_OF\_NEXT\_ENTRY increments pxIndex to the next item in the list.}}
-\DoxyCodeLine{378 \textcolor{comment}{ * Placing an item in a list using vListInsertEnd effectively places the item}}
-\DoxyCodeLine{379 \textcolor{comment}{ * in the list position pointed to by pxIndex.  This means that every other}}
-\DoxyCodeLine{380 \textcolor{comment}{ * item within the list will be returned by listGET\_OWNER\_OF\_NEXT\_ENTRY before}}
-\DoxyCodeLine{381 \textcolor{comment}{ * the pxIndex parameter again points to the item being inserted.}}
-\DoxyCodeLine{382 \textcolor{comment}{ *}}
-\DoxyCodeLine{383 \textcolor{comment}{ * @param pxList The list into which the item is to be inserted.}}
-\DoxyCodeLine{384 \textcolor{comment}{ *}}
-\DoxyCodeLine{385 \textcolor{comment}{ * @param pxNewListItem The list item to be inserted into the list.}}
-\DoxyCodeLine{386 \textcolor{comment}{ *}}
-\DoxyCodeLine{387 \textcolor{comment}{ * \(\backslash\)page vListInsertEnd vListInsertEnd}}
-\DoxyCodeLine{388 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{389 \textcolor{comment}{ */}}
-\DoxyCodeLine{390 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_a71a6a6099b3cbd8f90539aabe5c9e572}{vListInsertEnd}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList, \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxNewListItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{391 }
-\DoxyCodeLine{392 \textcolor{comment}{/*}}
-\DoxyCodeLine{393 \textcolor{comment}{ * Remove an item from a list.  The list item has a pointer to the list that}}
-\DoxyCodeLine{394 \textcolor{comment}{ * it is in, so only the list item need be passed into the function.}}
-\DoxyCodeLine{395 \textcolor{comment}{ *}}
-\DoxyCodeLine{396 \textcolor{comment}{ * @param uxListRemove The item to be removed.  The item will remove itself from}}
-\DoxyCodeLine{397 \textcolor{comment}{ * the list pointed to by it's pxContainer parameter.}}
-\DoxyCodeLine{398 \textcolor{comment}{ *}}
-\DoxyCodeLine{399 \textcolor{comment}{ * @return The number of items that remain in the list after the list item has}}
-\DoxyCodeLine{400 \textcolor{comment}{ * been removed.}}
-\DoxyCodeLine{401 \textcolor{comment}{ *}}
-\DoxyCodeLine{402 \textcolor{comment}{ * \(\backslash\)page uxListRemove uxListRemove}}
-\DoxyCodeLine{403 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
-\DoxyCodeLine{404 \textcolor{comment}{ */}}
-\DoxyCodeLine{405 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{list_8h_a2eb1558482076fff8cafc63419c2d34a}{uxListRemove}}( \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxItemToRemove ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
-\DoxyCodeLine{406 }
-\DoxyCodeLine{407 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
-\DoxyCodeLine{408 \}}
-\DoxyCodeLine{409 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{410 }
-\DoxyCodeLine{411 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{412 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00002}00002 \textcolor{comment}{ * FreeRTOS Kernel V10.2.0}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00003}00003 \textcolor{comment}{ * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00004}00004 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00005}00005 \textcolor{comment}{ * Permission is hereby granted, free of charge, to any person obtaining a copy of}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00006}00006 \textcolor{comment}{ * this software and associated documentation files (the "{}Software"{}), to deal in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00007}00007 \textcolor{comment}{ * the Software without restriction, including without limitation the rights to}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00008}00008 \textcolor{comment}{ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00009}00009 \textcolor{comment}{ * the Software, and to permit persons to whom the Software is furnished to do so,}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00010}00010 \textcolor{comment}{ * subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00011}00011 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00012}00012 \textcolor{comment}{ * The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00013}00013 \textcolor{comment}{ * copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00014}00014 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00015}00015 \textcolor{comment}{ * THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00016}00016 \textcolor{comment}{ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00017}00017 \textcolor{comment}{ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00018}00018 \textcolor{comment}{ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00019}00019 \textcolor{comment}{ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00020}00020 \textcolor{comment}{ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00021}00021 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00022}00022 \textcolor{comment}{ * http://www.FreeRTOS.org}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00023}00023 \textcolor{comment}{ * http://aws.amazon.com/freertos}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00024}00024 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00025}00025 \textcolor{comment}{ * 1 tab == 4 spaces!}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00026}00026 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00028}00028 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00029}00029 \textcolor{comment}{ * This is the list implementation used by the scheduler.  While it is tailored}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00030}00030 \textcolor{comment}{ * heavily for the schedulers needs, it is also available for use by}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00031}00031 \textcolor{comment}{ * application code.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00032}00032 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00033}00033 \textcolor{comment}{ * list\_ts can only store pointers to list\_item\_ts.  Each ListItem\_t contains a}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00034}00034 \textcolor{comment}{ * numeric value (xItemValue).  Most of the time the lists are sorted in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00035}00035 \textcolor{comment}{ * descending item value order.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00036}00036 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00037}00037 \textcolor{comment}{ * Lists are created already containing one list item.  The value of this}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00038}00038 \textcolor{comment}{ * item is the maximum possible that can be stored, it is therefore always at}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00039}00039 \textcolor{comment}{ * the end of the list and acts as a marker.  The list member pxHead always}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00040}00040 \textcolor{comment}{ * points to this marker -\/ even though it is at the tail of the list.  This}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00041}00041 \textcolor{comment}{ * is because the tail contains a wrap back pointer to the true head of}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00042}00042 \textcolor{comment}{ * the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00043}00043 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00044}00044 \textcolor{comment}{ * In addition to it's value, each list item contains a pointer to the next}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00045}00045 \textcolor{comment}{ * item in the list (pxNext), a pointer to the list it is in (pxContainer)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00046}00046 \textcolor{comment}{ * and a pointer to back to the object that contains it.  These later two}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00047}00047 \textcolor{comment}{ * pointers are included for efficiency of list manipulation.  There is}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00048}00048 \textcolor{comment}{ * effectively a two way link between the object containing the list item and}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00049}00049 \textcolor{comment}{ * the list item itself.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00050}00050 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00051}00051 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00052}00052 \textcolor{comment}{ * \(\backslash\)page ListIntroduction List Implementation}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00053}00053 \textcolor{comment}{ * \(\backslash\)ingroup FreeRTOSIntro}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00054}00054 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00056}00056 \textcolor{preprocessor}{\#ifndef INC\_FREERTOS\_H}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00057}00057 \textcolor{preprocessor}{    \#error FreeRTOS.h must be included before list.h}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00058}00058 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00060}00060 \textcolor{preprocessor}{\#ifndef LIST\_H}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00061}00061 \textcolor{preprocessor}{\#define LIST\_H}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00063}00063 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00064}00064 \textcolor{comment}{ * The list structure members are modified from within interrupts, and therefore}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00065}00065 \textcolor{comment}{ * by rights should be declared volatile.  However, they are only modified in a}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00066}00066 \textcolor{comment}{ * functionally atomic way (within critical sections of with the scheduler}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00067}00067 \textcolor{comment}{ * suspended) and are either passed by reference into a function or indexed via}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00068}00068 \textcolor{comment}{ * a volatile variable.  Therefore, in all use cases tested so far, the volatile}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00069}00069 \textcolor{comment}{ * qualifier can be omitted in order to provide a moderate performance}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00070}00070 \textcolor{comment}{ * improvement without adversely affecting functional behaviour.  The assembly}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00071}00071 \textcolor{comment}{ * instructions generated by the IAR, ARM and GCC compilers when the respective}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00072}00072 \textcolor{comment}{ * compiler's options were set for maximum optimisation has been inspected and}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00073}00073 \textcolor{comment}{ * deemed to be as intended.  That said, as compiler technology advances, and}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00074}00074 \textcolor{comment}{ * especially if aggressive cross module optimisation is used (a use case that}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00075}00075 \textcolor{comment}{ * has not been exercised to any great extend) then it is feasible that the}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00076}00076 \textcolor{comment}{ * volatile qualifier will be needed for correct optimisation.  It is expected}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00077}00077 \textcolor{comment}{ * that a compiler removing essential code because, without the volatile}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00078}00078 \textcolor{comment}{ * qualifier on the list structure members and with aggressive cross module}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00079}00079 \textcolor{comment}{ * optimisation, the compiler deemed the code unnecessary will result in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00080}00080 \textcolor{comment}{ * complete and obvious failure of the scheduler.  If this is ever experienced}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00081}00081 \textcolor{comment}{ * then the volatile qualifier can be inserted in the relevant places within the}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00082}00082 \textcolor{comment}{ * list structures by simply defining configLIST\_VOLATILE to volatile in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00083}00083 \textcolor{comment}{ * FreeRTOSConfig.h (as per the example at the bottom of this comment block).}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00084}00084 \textcolor{comment}{ * If configLIST\_VOLATILE is not defined then the preprocessor directives below}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00085}00085 \textcolor{comment}{ * will simply \#define configLIST\_VOLATILE away completely.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00086}00086 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00087}00087 \textcolor{comment}{ * To use volatile list structure members then add the following line to}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00088}00088 \textcolor{comment}{ * FreeRTOSConfig.h (without the quotes):}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00089}00089 \textcolor{comment}{ * "{}\#define configLIST\_VOLATILE volatile"{}}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00090}00090 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00091}00091 \textcolor{preprocessor}{\#ifndef configLIST\_VOLATILE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00092}\mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{00092}} \textcolor{preprocessor}{    \#define configLIST\_VOLATILE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00093}00093 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configSUPPORT\_CROSS\_MODULE\_OPTIMISATION */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00095}00095 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00096}00096 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00097}00097 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00099}00099 \textcolor{comment}{/* Macros that can be used to place known values within the list structures,}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00100}00100 \textcolor{comment}{then check that the known values do not get corrupted during the execution of}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00101}00101 \textcolor{comment}{the application.   These may catch the list data structures being overwritten in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00102}00102 \textcolor{comment}{memory.  They will not catch data errors caused by incorrect configuration or}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00103}00103 \textcolor{comment}{use of FreeRTOS.*/}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00104}00104 \textcolor{preprocessor}{\#if( configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES == 0 )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00105}00105     \textcolor{comment}{/* Define the macros to do nothing. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00106}\mbox{\hyperlink{list_8h_a3611bd5d5d87cb26ac1dc7a4852b94a0}{00106}} \textcolor{preprocessor}{    \#define listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00107}\mbox{\hyperlink{list_8h_abf45f853974db484cd7df434bd006e98}{00107}} \textcolor{preprocessor}{    \#define listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00108}\mbox{\hyperlink{list_8h_a3a52b5a4f70d3a07e37a5814a23ba880}{00108}} \textcolor{preprocessor}{    \#define listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00109}\mbox{\hyperlink{list_8h_a87dc70c22e3ff0eba560d6f357472634}{00109}} \textcolor{preprocessor}{    \#define listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00110}\mbox{\hyperlink{list_8h_a0e65118e1baa7ab805cdfb37e580501d}{00110}} \textcolor{preprocessor}{    \#define listSET\_FIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00111}\mbox{\hyperlink{list_8h_ac8b9d912bdcfdb5544f373d2a94268b2}{00111}} \textcolor{preprocessor}{    \#define listSET\_SECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00112}\mbox{\hyperlink{list_8h_a5d68b1187d09c64d6ee329786cb0289b}{00112}} \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_1\_VALUE( pxList )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00113}\mbox{\hyperlink{list_8h_a83b40c6e61534ef41229bd912dacab48}{00113}} \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_2\_VALUE( pxList )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00114}\mbox{\hyperlink{list_8h_a95b994725c299cdc81c74efc16210cc6}{00114}} \textcolor{preprocessor}{    \#define listTEST\_LIST\_ITEM\_INTEGRITY( pxItem )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00115}\mbox{\hyperlink{list_8h_a337d6137e0a4d37321efc5c2f31dba22}{00115}} \textcolor{preprocessor}{    \#define listTEST\_LIST\_INTEGRITY( pxList )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00116}00116 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00117}00117     \textcolor{comment}{/* Define macros that add new members into the list structures. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00118}00118 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE               TickType\_t xListItemIntegrityValue1;}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00119}00119 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE              TickType\_t xListItemIntegrityValue2;}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00120}00120 \textcolor{preprocessor}{    \#define listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE                    TickType\_t xListIntegrityValue1;}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00121}00121 \textcolor{preprocessor}{    \#define listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE                   TickType\_t xListIntegrityValue2;}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00123}00123     \textcolor{comment}{/* Define macros that set the new structure members to known values. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00124}00124 \textcolor{preprocessor}{    \#define listSET\_FIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )     ( pxItem )-\/>xListItemIntegrityValue1 = pdINTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00125}00125 \textcolor{preprocessor}{    \#define listSET\_SECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE( pxItem )    ( pxItem )-\/>xListItemIntegrityValue2 = pdINTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00126}00126 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_1\_VALUE( pxList )      ( pxList )-\/>xListIntegrityValue1 = pdINTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00127}00127 \textcolor{preprocessor}{    \#define listSET\_LIST\_INTEGRITY\_CHECK\_2\_VALUE( pxList )      ( pxList )-\/>xListIntegrityValue2 = pdINTEGRITY\_CHECK\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00129}00129     \textcolor{comment}{/* Define macros that will assert if one of the structure members does not}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00130}00130 \textcolor{comment}{    contain its expected value. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00131}00131 \textcolor{preprocessor}{    \#define listTEST\_LIST\_ITEM\_INTEGRITY( pxItem )      configASSERT( ( ( pxItem )-\/>xListItemIntegrityValue1 == pdINTEGRITY\_CHECK\_VALUE ) \&\& ( ( pxItem )-\/>xListItemIntegrityValue2 == pdINTEGRITY\_CHECK\_VALUE ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00132}00132 \textcolor{preprocessor}{    \#define listTEST\_LIST\_INTEGRITY( pxList )           configASSERT( ( ( pxList )-\/>xListIntegrityValue1 == pdINTEGRITY\_CHECK\_VALUE ) \&\& ( ( pxList )-\/>xListIntegrityValue2 == pdINTEGRITY\_CHECK\_VALUE ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00133}00133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00136}00136 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00137}00137 \textcolor{comment}{ * Definition of the only type of object that a list can contain.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00138}00138 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00139}00139 \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00140}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{00140}} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00141}00141 \{}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00142}00142     \mbox{\hyperlink{list_8h_a3611bd5d5d87cb26ac1dc7a4852b94a0}{listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}          \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00143}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_ad87e1d441faf3341ca60b319abc07c6f}{00143}}     \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_ad87e1d441faf3341ca60b319abc07c6f}{xItemValue}};           \textcolor{comment}{/*< The value being listed.  In most cases this is used to sort the list in descending order. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00144}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_afe105a3d59c8ff0216cdf9850970ef41}{00144}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_afe105a3d59c8ff0216cdf9850970ef41}{pxNext}};      \textcolor{comment}{/*< Pointer to the next ListItem\_t in the list. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00145}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a34f101397816be79dad8e2e4ae65f9e8}{00145}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a34f101397816be79dad8e2e4ae65f9e8}{pxPrevious}};  \textcolor{comment}{/*< Pointer to the previous ListItem\_t in the list. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00146}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_aeb3110b50fe0dbce826d929b27b5ddb1}{00146}}     \textcolor{keywordtype}{void} * \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_aeb3110b50fe0dbce826d929b27b5ddb1}{pvOwner}};                                      \textcolor{comment}{/*< Pointer to the object (normally a TCB) that contains the list item.  There is therefore a two way link between the object containing the list item and the list item itself. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00147}\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a07dc4f55365dc7d44624d04290a80263}{00147}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_a07dc4f55365dc7d44624d04290a80263}{pxContainer}};      \textcolor{comment}{/*< Pointer to the list in which this list item is placed (if any). */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00148}00148     \mbox{\hyperlink{list_8h_abf45f853974db484cd7df434bd006e98}{listSECOND\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}            \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00149}00149 \};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00150}\mbox{\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{00150}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}};                   \textcolor{comment}{/* For some reason lint wants this as two separate definitions. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00152}\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{00152}} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{xMINI\_LIST\_ITEM}}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00153}00153 \{}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00154}00154     \mbox{\hyperlink{list_8h_a3611bd5d5d87cb26ac1dc7a4852b94a0}{listFIRST\_LIST\_ITEM\_INTEGRITY\_CHECK\_VALUE}}          \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00155}\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_ae8e582796ebea18d5f36740f61eface0}{00155}}     \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_ae8e582796ebea18d5f36740f61eface0}{xItemValue}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00156}\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_aa297f3eba16856d00d0d3a6cea5e9df6}{00156}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_aa297f3eba16856d00d0d3a6cea5e9df6}{pxNext}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00157}\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_ad19d1e1268e41f04c17c6c0234264116}{00157}}     \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{xLIST\_ITEM}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m_ad19d1e1268e41f04c17c6c0234264116}{pxPrevious}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00158}00158 \};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00159}\mbox{\hyperlink{list_8h_a542a8d55e98bc407593979e61f83cd02}{00159}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{xMINI\_LIST\_ITEM}} \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{MiniListItem\_t}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00160}00160 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00161}00161 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00162}00162 \textcolor{comment}{ * Definition of the type of queue used by the scheduler.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00163}00163 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00164}\mbox{\hyperlink{structx_l_i_s_t}{00164}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structx_l_i_s_t}{xLIST}}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00165}00165 \{}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00166}00166     \mbox{\hyperlink{list_8h_a3a52b5a4f70d3a07e37a5814a23ba880}{listFIRST\_LIST\_INTEGRITY\_CHECK\_VALUE}}                \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00167}\mbox{\hyperlink{structx_l_i_s_t_a2abe49a37d8c396d60ba8a752b89da9f}{00167}}     \textcolor{keyword}{volatile} \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{structx_l_i_s_t_a2abe49a37d8c396d60ba8a752b89da9f}{uxNumberOfItems}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00168}\mbox{\hyperlink{structx_l_i_s_t_aa8dbb12e54fab6a83458349c1c9eba47}{00168}}     \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \mbox{\hyperlink{list_8h_a2d5de557c5561c8980d1bf51d87d8cba}{configLIST\_VOLATILE}} \mbox{\hyperlink{structx_l_i_s_t_aa8dbb12e54fab6a83458349c1c9eba47}{pxIndex}};           \textcolor{comment}{/*< Used to walk through the list.  Points to the last item returned by a call to listGET\_OWNER\_OF\_NEXT\_ENTRY (). */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00169}\mbox{\hyperlink{structx_l_i_s_t_a49ad62fa153126e27e273811167b336a}{00169}}     \mbox{\hyperlink{structx_m_i_n_i___l_i_s_t___i_t_e_m}{MiniListItem\_t}} \mbox{\hyperlink{structx_l_i_s_t_a49ad62fa153126e27e273811167b336a}{xListEnd}};                          \textcolor{comment}{/*< List item that contains the maximum possible item value meaning it is always at the end of the list and is therefore used as a marker. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00170}00170     \mbox{\hyperlink{list_8h_a87dc70c22e3ff0eba560d6f357472634}{listSECOND\_LIST\_INTEGRITY\_CHECK\_VALUE}}              \textcolor{comment}{/*< Set to a known value if configUSE\_LIST\_DATA\_INTEGRITY\_CHECK\_BYTES is set to 1. */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00171}\mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{00171}} \} \mbox{\hyperlink{list_8h_ad14d7e3de1350e459c7c23c6f59c902a}{List\_t}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00173}00173 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00174}00174 \textcolor{comment}{ * Access macro to set the owner of a list item.  The owner of a list item}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00175}00175 \textcolor{comment}{ * is the object (usually a TCB) that contains the list item.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00176}00176 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00177}00177 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_OWNER listSET\_LIST\_ITEM\_OWNER}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00178}00178 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00179}00179 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00180}\mbox{\hyperlink{list_8h_acc01a08e534b54fe438847ef02e5060a}{00180}} \textcolor{preprocessor}{\#define listSET\_LIST\_ITEM\_OWNER( pxListItem, pxOwner )      ( ( pxListItem )-\/>pvOwner = ( void * ) ( pxOwner ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00182}00182 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00183}00183 \textcolor{comment}{ * Access macro to get the owner of a list item.  The owner of a list item}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00184}00184 \textcolor{comment}{ * is the object (usually a TCB) that contains the list item.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00185}00185 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00186}00186 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_OWNER listSET\_LIST\_ITEM\_OWNER}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00187}00187 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00188}00188 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00189}\mbox{\hyperlink{list_8h_aa9469bd061a44b4f75d30c6175f66d5c}{00189}} \textcolor{preprocessor}{\#define listGET\_LIST\_ITEM\_OWNER( pxListItem )   ( ( pxListItem )-\/>pvOwner )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00191}00191 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00192}00192 \textcolor{comment}{ * Access macro to set the value of the list item.  In most cases the value is}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00193}00193 \textcolor{comment}{ * used to sort the list in descending order.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00194}00194 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00195}00195 \textcolor{comment}{ * \(\backslash\)page listSET\_LIST\_ITEM\_VALUE listSET\_LIST\_ITEM\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00196}00196 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00197}00197 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00198}\mbox{\hyperlink{list_8h_a83e95e61652f032fdc26aa622f5e2610}{00198}} \textcolor{preprocessor}{\#define listSET\_LIST\_ITEM\_VALUE( pxListItem, xValue )   ( ( pxListItem )-\/>xItemValue = ( xValue ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00200}00200 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00201}00201 \textcolor{comment}{ * Access macro to retrieve the value of the list item.  The value can}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00202}00202 \textcolor{comment}{ * represent anything -\/ for example the priority of a task, or the time at}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00203}00203 \textcolor{comment}{ * which a task should be unblocked.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00204}00204 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00205}00205 \textcolor{comment}{ * \(\backslash\)page listGET\_LIST\_ITEM\_VALUE listGET\_LIST\_ITEM\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00206}00206 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00207}00207 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00208}\mbox{\hyperlink{list_8h_aa50d09950abc602741d7ebe8387f4e1a}{00208}} \textcolor{preprocessor}{\#define listGET\_LIST\_ITEM\_VALUE( pxListItem )   ( ( pxListItem )-\/>xItemValue )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00209}00209 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00210}00210 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00211}00211 \textcolor{comment}{ * Access macro to retrieve the value of the list item at the head of a given}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00212}00212 \textcolor{comment}{ * list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00213}00213 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00214}00214 \textcolor{comment}{ * \(\backslash\)page listGET\_LIST\_ITEM\_VALUE listGET\_LIST\_ITEM\_VALUE}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00215}00215 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00216}00216 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00217}\mbox{\hyperlink{list_8h_a63742b27958b959ac9ab69d8e9aed241}{00217}} \textcolor{preprocessor}{\#define listGET\_ITEM\_VALUE\_OF\_HEAD\_ENTRY( pxList )  ( ( ( pxList )-\/>xListEnd ).pxNext-\/>xItemValue )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00218}00218 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00219}00219 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00220}00220 \textcolor{comment}{ * Return the list item at the head of the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00221}00221 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00222}00222 \textcolor{comment}{ * \(\backslash\)page listGET\_HEAD\_ENTRY listGET\_HEAD\_ENTRY}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00223}00223 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00224}00224 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00225}\mbox{\hyperlink{list_8h_a987cb2766e509022c23b654907cea199}{00225}} \textcolor{preprocessor}{\#define listGET\_HEAD\_ENTRY( pxList )    ( ( ( pxList )-\/>xListEnd ).pxNext )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00227}00227 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00228}00228 \textcolor{comment}{ * Return the list item at the head of the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00229}00229 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00230}00230 \textcolor{comment}{ * \(\backslash\)page listGET\_NEXT listGET\_NEXT}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00231}00231 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00232}00232 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00233}\mbox{\hyperlink{list_8h_aabf78d3f24ba56ac1d0bf0179438b960}{00233}} \textcolor{preprocessor}{\#define listGET\_NEXT( pxListItem )  ( ( pxListItem )-\/>pxNext )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00234}00234 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00235}00235 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00236}00236 \textcolor{comment}{ * Return the list item that marks the end of the list}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00237}00237 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00238}00238 \textcolor{comment}{ * \(\backslash\)page listGET\_END\_MARKER listGET\_END\_MARKER}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00239}00239 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00240}00240 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00241}\mbox{\hyperlink{list_8h_a96cb0919f02e5c0d8e41ded0e65197a3}{00241}} \textcolor{preprocessor}{\#define listGET\_END\_MARKER( pxList )    ( ( ListItem\_t const * ) ( \&( ( pxList )-\/>xListEnd ) ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00242}00242 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00243}00243 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00244}00244 \textcolor{comment}{ * Access macro to determine if a list contains any items.  The macro will}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00245}00245 \textcolor{comment}{ * only have the value true if the list is empty.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00246}00246 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00247}00247 \textcolor{comment}{ * \(\backslash\)page listLIST\_IS\_EMPTY listLIST\_IS\_EMPTY}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00248}00248 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00249}00249 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00250}\mbox{\hyperlink{list_8h_aaba6eb05d67ebc8026bea29193eca28f}{00250}} \textcolor{preprocessor}{\#define listLIST\_IS\_EMPTY( pxList ) ( ( ( pxList )-\/>uxNumberOfItems == ( UBaseType\_t ) 0 ) ? pdTRUE : pdFALSE )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00251}00251 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00252}00252 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00253}00253 \textcolor{comment}{ * Access macro to return the number of items in the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00254}00254 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00255}\mbox{\hyperlink{list_8h_a18b4aded515bdc512017ea6e677a13bb}{00255}} \textcolor{preprocessor}{\#define listCURRENT\_LIST\_LENGTH( pxList )   ( ( pxList )-\/>uxNumberOfItems )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00256}00256 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00257}00257 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00258}00258 \textcolor{comment}{ * Access function to obtain the owner of the next entry in a list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00259}00259 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00260}00260 \textcolor{comment}{ * The list member pxIndex is used to walk through a list.  Calling}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00261}00261 \textcolor{comment}{ * listGET\_OWNER\_OF\_NEXT\_ENTRY increments pxIndex to the next item in the list}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00262}00262 \textcolor{comment}{ * and returns that entry's pxOwner parameter.  Using multiple calls to this}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00263}00263 \textcolor{comment}{ * function it is therefore possible to move through every item contained in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00264}00264 \textcolor{comment}{ * a list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00265}00265 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00266}00266 \textcolor{comment}{ * The pxOwner parameter of a list item is a pointer to the object that owns}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00267}00267 \textcolor{comment}{ * the list item.  In the scheduler this is normally a task control block.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00268}00268 \textcolor{comment}{ * The pxOwner parameter effectively creates a two way link between the list}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00269}00269 \textcolor{comment}{ * item and its owner.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00270}00270 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00271}00271 \textcolor{comment}{ * @param pxTCB pxTCB is set to the address of the owner of the next list item.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00272}00272 \textcolor{comment}{ * @param pxList The list from which the next item owner is to be returned.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00273}00273 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00274}00274 \textcolor{comment}{ * \(\backslash\)page listGET\_OWNER\_OF\_NEXT\_ENTRY listGET\_OWNER\_OF\_NEXT\_ENTRY}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00275}00275 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00276}00276 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00277}\mbox{\hyperlink{list_8h_a275d9855e9b71652e2b8f6e2ed62aadd}{00277}} \textcolor{preprocessor}{\#define listGET\_OWNER\_OF\_NEXT\_ENTRY( pxTCB, pxList )                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00278}00278 \textcolor{preprocessor}{\{                                                                                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00279}00279 \textcolor{preprocessor}{List\_t * const pxConstList = ( pxList );                                                    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00280}00280 \textcolor{preprocessor}{    }\textcolor{comment}{/* Increment the index to the next item and return the item, ensuring */}\textcolor{preprocessor}{                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00281}00281 \textcolor{preprocessor}{    }\textcolor{comment}{/* we don't return the marker used at the end of the list.  */}\textcolor{preprocessor}{                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00282}00282 \textcolor{preprocessor}{    ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                            \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00283}00283 \textcolor{preprocessor}{    if( ( void * ) ( pxConstList )-\/>pxIndex == ( void * ) \&( ( pxConstList )-\/>xListEnd ) )  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00284}00284 \textcolor{preprocessor}{    \{                                                                                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00285}00285 \textcolor{preprocessor}{        ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00286}00286 \textcolor{preprocessor}{    \}                                                                                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00287}00287 \textcolor{preprocessor}{    ( pxTCB ) = ( pxConstList )-\/>pxIndex-\/>pvOwner;                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00288}00288 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00289}00289 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00291}00291 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00292}00292 \textcolor{comment}{ * Access function to obtain the owner of the first entry in a list.  Lists}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00293}00293 \textcolor{comment}{ * are normally sorted in ascending item value order.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00294}00294 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00295}00295 \textcolor{comment}{ * This function returns the pxOwner member of the first item in the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00296}00296 \textcolor{comment}{ * The pxOwner parameter of a list item is a pointer to the object that owns}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00297}00297 \textcolor{comment}{ * the list item.  In the scheduler this is normally a task control block.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00298}00298 \textcolor{comment}{ * The pxOwner parameter effectively creates a two way link between the list}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00299}00299 \textcolor{comment}{ * item and its owner.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00300}00300 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00301}00301 \textcolor{comment}{ * @param pxList The list from which the owner of the head item is to be}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00302}00302 \textcolor{comment}{ * returned.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00303}00303 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00304}00304 \textcolor{comment}{ * \(\backslash\)page listGET\_OWNER\_OF\_HEAD\_ENTRY listGET\_OWNER\_OF\_HEAD\_ENTRY}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00305}00305 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00306}00306 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00307}\mbox{\hyperlink{list_8h_a715561302af8cb5b74416b23ce4e999d}{00307}} \textcolor{preprocessor}{\#define listGET\_OWNER\_OF\_HEAD\_ENTRY( pxList )  ( (\&( ( pxList )-\/>xListEnd ))-\/>pxNext-\/>pvOwner )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00308}00308 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00309}00309 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00310}00310 \textcolor{comment}{ * Check to see if a list item is within a list.  The list item maintains a}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00311}00311 \textcolor{comment}{ * "{}container"{} pointer that points to the list it is in.  All this macro does}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00312}00312 \textcolor{comment}{ * is check to see if the container and the list match.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00313}00313 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00314}00314 \textcolor{comment}{ * @param pxList The list we want to know if the list item is within.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00315}00315 \textcolor{comment}{ * @param pxListItem The list item we want to know if is in the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00316}00316 \textcolor{comment}{ * @return pdTRUE if the list item is in the list, otherwise pdFALSE.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00317}00317 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00318}\mbox{\hyperlink{list_8h_a60302b468d21f8c53d13987372acb8fa}{00318}} \textcolor{preprocessor}{\#define listIS\_CONTAINED\_WITHIN( pxList, pxListItem ) ( ( ( pxListItem )-\/>pxContainer == ( pxList ) ) ? ( pdTRUE ) : ( pdFALSE ) )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00319}00319 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00320}00320 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00321}00321 \textcolor{comment}{ * Return the list a list item is contained within (referenced from).}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00322}00322 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00323}00323 \textcolor{comment}{ * @param pxListItem The list item being queried.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00324}00324 \textcolor{comment}{ * @return A pointer to the List\_t object that references the pxListItem}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00325}00325 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00326}\mbox{\hyperlink{list_8h_a7c4dff11380cd843ed0b6a8dc065916b}{00326}} \textcolor{preprocessor}{\#define listLIST\_ITEM\_CONTAINER( pxListItem ) ( ( pxListItem )-\/>pxContainer )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00327}00327 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00328}00328 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00329}00329 \textcolor{comment}{ * This provides a crude means of knowing if a list has been initialised, as}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00330}00330 \textcolor{comment}{ * pxList-\/>xListEnd.xItemValue is set to portMAX\_DELAY by the vListInitialise()}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00331}00331 \textcolor{comment}{ * function.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00332}00332 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00333}\mbox{\hyperlink{list_8h_a7e17f81438dd0bd705714267a611ff28}{00333}} \textcolor{preprocessor}{\#define listLIST\_IS\_INITIALISED( pxList ) ( ( pxList )-\/>xListEnd.xItemValue == portMAX\_DELAY )}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00334}00334 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00335}00335 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00336}00336 \textcolor{comment}{ * Must be called before a list is used!  This initialises all the members}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00337}00337 \textcolor{comment}{ * of the list structure and inserts the xListEnd item into the list as a}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00338}00338 \textcolor{comment}{ * marker to the back of the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00339}00339 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00340}00340 \textcolor{comment}{ * @param pxList Pointer to the list being initialised.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00341}00341 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00342}00342 \textcolor{comment}{ * \(\backslash\)page vListInitialise vListInitialise}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00343}00343 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00344}00344 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00345}00345 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_adeef7734d7d6d9a3eea642a70c106919}{vListInitialise}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00346}00346 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00347}00347 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00348}00348 \textcolor{comment}{ * Must be called before a list item is used.  This sets the list container to}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00349}00349 \textcolor{comment}{ * null so the item does not think that it is already contained in a list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00350}00350 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00351}00351 \textcolor{comment}{ * @param pxItem Pointer to the list item being initialised.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00352}00352 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00353}00353 \textcolor{comment}{ * \(\backslash\)page vListInitialiseItem vListInitialiseItem}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00354}00354 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00355}00355 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00356}00356 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_ab91611baae53be209a05d211f55f5395}{vListInitialiseItem}}( \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00357}00357 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00358}00358 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00359}00359 \textcolor{comment}{ * Insert a list item into a list.  The item will be inserted into the list in}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00360}00360 \textcolor{comment}{ * a position determined by its item value (descending item value order).}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00361}00361 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00362}00362 \textcolor{comment}{ * @param pxList The list into which the item is to be inserted.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00363}00363 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00364}00364 \textcolor{comment}{ * @param pxNewListItem The item that is to be placed in the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00365}00365 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00366}00366 \textcolor{comment}{ * \(\backslash\)page vListInsert vListInsert}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00367}00367 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00368}00368 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00369}00369 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_aa129290da5cbda47dffb7bf877b2f02a}{vListInsert}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList, \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxNewListItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00370}00370 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00371}00371 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00372}00372 \textcolor{comment}{ * Insert a list item into a list.  The item will be inserted in a position}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00373}00373 \textcolor{comment}{ * such that it will be the last item within the list returned by multiple}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00374}00374 \textcolor{comment}{ * calls to listGET\_OWNER\_OF\_NEXT\_ENTRY.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00375}00375 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00376}00376 \textcolor{comment}{ * The list member pxIndex is used to walk through a list.  Calling}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00377}00377 \textcolor{comment}{ * listGET\_OWNER\_OF\_NEXT\_ENTRY increments pxIndex to the next item in the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00378}00378 \textcolor{comment}{ * Placing an item in a list using vListInsertEnd effectively places the item}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00379}00379 \textcolor{comment}{ * in the list position pointed to by pxIndex.  This means that every other}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00380}00380 \textcolor{comment}{ * item within the list will be returned by listGET\_OWNER\_OF\_NEXT\_ENTRY before}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00381}00381 \textcolor{comment}{ * the pxIndex parameter again points to the item being inserted.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00382}00382 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00383}00383 \textcolor{comment}{ * @param pxList The list into which the item is to be inserted.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00384}00384 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00385}00385 \textcolor{comment}{ * @param pxNewListItem The list item to be inserted into the list.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00386}00386 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00387}00387 \textcolor{comment}{ * \(\backslash\)page vListInsertEnd vListInsertEnd}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00388}00388 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00389}00389 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00390}00390 \textcolor{keywordtype}{void} \mbox{\hyperlink{list_8h_a71a6a6099b3cbd8f90539aabe5c9e572}{vListInsertEnd}}( \mbox{\hyperlink{structx_l_i_s_t}{List\_t}} * \textcolor{keyword}{const} pxList, \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxNewListItem ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00391}00391 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00392}00392 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00393}00393 \textcolor{comment}{ * Remove an item from a list.  The list item has a pointer to the list that}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00394}00394 \textcolor{comment}{ * it is in, so only the list item need be passed into the function.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00395}00395 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00396}00396 \textcolor{comment}{ * @param uxListRemove The item to be removed.  The item will remove itself from}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00397}00397 \textcolor{comment}{ * the list pointed to by it's pxContainer parameter.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00398}00398 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00399}00399 \textcolor{comment}{ * @return The number of items that remain in the list after the list item has}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00400}00400 \textcolor{comment}{ * been removed.}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00401}00401 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00402}00402 \textcolor{comment}{ * \(\backslash\)page uxListRemove uxListRemove}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00403}00403 \textcolor{comment}{ * \(\backslash\)ingroup LinkedList}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00404}00404 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00405}00405 \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}} \mbox{\hyperlink{list_8h_a2eb1558482076fff8cafc63419c2d34a}{uxListRemove}}( \mbox{\hyperlink{structx_l_i_s_t___i_t_e_m}{ListItem\_t}} * \textcolor{keyword}{const} pxItemToRemove ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\_FUNCTION}};}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00406}00406 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00407}00407 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00408}00408 \}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00409}00409 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00410}00410 }
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00411}00411 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{list_8h_source_l00412}00412 }
 
 \end{DoxyCode}

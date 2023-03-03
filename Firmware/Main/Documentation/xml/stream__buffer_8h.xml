@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="stream__buffer_8h" kind="file" language="C++">
+    <compoundname>stream_buffer.h</compoundname>
+    <includedby refid="message__buffer_8h" local="yes">FreeRTOS/message_buffer.h</includedby>
+    <includedby refid="stream__buffer_8c" local="yes">FreeRTOS/stream_buffer.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>FreeRTOS/message_buffer.h</label>
+        <link refid="message__buffer_8h"/>
+      </node>
+      <node id="3">
+        <label>FreeRTOS/stream_buffer.c</label>
+        <link refid="stream__buffer_8c"/>
+      </node>
+      <node id="1">
+        <label>FreeRTOS/stream_buffer.h</label>
+        <link refid="stream__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" prot="public" static="no">
+        <name>xStreamBufferCreate</name>
+        <param><defname>xBufferSizeBytes</defname></param>
+        <param><defname>xTriggerLevelBytes</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096" kindref="member">xStreamBufferGenericCreate</ref>( xBufferSizeBytes, xTriggerLevelBytes, <ref refid="projdefs_8h_1aa56260e937e7e203026707e5ba944273" kindref="member">pdFALSE</ref> )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="133" column="9" bodyfile="FreeRTOS/stream_buffer.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" prot="public" static="no">
+        <name>xStreamBufferCreateStatic</name>
+        <param><defname>xBufferSizeBytes</defname></param>
+        <param><defname>xTriggerLevelBytes</defname></param>
+        <param><defname>pucStreamBufferStorageArea</defname></param>
+        <param><defname>pxStaticStreamBuffer</defname></param>
+        <initializer><ref refid="stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c" kindref="member">xStreamBufferGenericCreateStatic</ref>( xBufferSizeBytes, xTriggerLevelBytes, <ref refid="projdefs_8h_1aa56260e937e7e203026707e5ba944273" kindref="member">pdFALSE</ref>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="214" column="9" bodyfile="FreeRTOS/stream_buffer.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" prot="public" static="no">
+        <type>struct <ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferDef_t</ref> *</type>
+        <definition>typedef struct StreamBufferDef_t* StreamBufferHandle_t</definition>
+        <argsstring></argsstring>
+        <name>StreamBufferHandle_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="65" column="33" bodyfile="FreeRTOS/stream_buffer.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferSend</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, TickType_t xTicksToWait) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferSend</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pvTxData</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xDataLengthBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref></type>
+          <declname>xTicksToWait</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="308" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="506" bodyend="607" declfile="FreeRTOS/stream_buffer.h" declline="308" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferSendFromISR</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, const void *pvTxData, size_t xDataLengthBytes, BaseType_t *const pxHigherPriorityTaskWoken) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferSendFromISR</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pvTxData</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xDataLengthBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref> *const</type>
+          <declname>pxHigherPriorityTaskWoken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="409" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="610" bodyend="658" declfile="FreeRTOS/stream_buffer.h" declline="409" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferReceive</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, TickType_t xTicksToWait) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferReceive</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pvRxData</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xBufferLengthBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref></type>
+          <declname>xTicksToWait</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="498" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="713" bodyend="814" declfile="FreeRTOS/stream_buffer.h" declline="498" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferReceiveFromISR</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, void *pvRxData, size_t xBufferLengthBytes, BaseType_t *const pxHigherPriorityTaskWoken) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferReceiveFromISR</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pvRxData</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xBufferLengthBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref> *const</type>
+          <declname>pxHigherPriorityTaskWoken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="584" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="861" bodyend="915" declfile="FreeRTOS/stream_buffer.h" declline="584" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vStreamBufferDelete</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>vStreamBufferDelete</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="609" column="6" bodyfile="FreeRTOS/stream_buffer.c" bodystart="359" bodyend="389" declfile="FreeRTOS/stream_buffer.h" declline="609" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferIsFull</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferIsFull</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="629" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="993" bodyend="1025" declfile="FreeRTOS/stream_buffer.h" declline="629" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferIsEmpty</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferIsEmpty</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="649" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="970" bodyend="990" declfile="FreeRTOS/stream_buffer.h" declline="649" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferReset</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferReset</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="672" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="392" bodyend="438" declfile="FreeRTOS/stream_buffer.h" declline="672" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferSpacesAvailable</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferSpacesAvailable</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="693" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="470" bodyend="491" declfile="FreeRTOS/stream_buffer.h" declline="693" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1af32d1737de29f24ee31ac1e3c407d9fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferBytesAvailable</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferBytesAvailable</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="714" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="494" bodyend="503" declfile="FreeRTOS/stream_buffer.h" declline="714" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferSetTriggerLevel</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, size_t xTriggerLevel) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferSetTriggerLevel</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xTriggerLevel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="751" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="441" bodyend="467" declfile="FreeRTOS/stream_buffer.h" declline="751" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferSendCompletedFromISR</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, BaseType_t *pxHigherPriorityTaskWoken) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferSendCompletedFromISR</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref> *</type>
+          <declname>pxHigherPriorityTaskWoken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="790" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="1028" bodyend="1055" declfile="FreeRTOS/stream_buffer.h" declline="790" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+        <definition>BaseType_t xStreamBufferReceiveCompletedFromISR</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer, BaseType_t *pxHigherPriorityTaskWoken) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferReceiveCompletedFromISR</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref> *</type>
+          <declname>pxHigherPriorityTaskWoken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="830" column="12" bodyfile="FreeRTOS/stream_buffer.c" bodystart="1058" bodyend="1085" declfile="FreeRTOS/stream_buffer.h" declline="830" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+        <definition>StreamBufferHandle_t xStreamBufferGenericCreate</definition>
+        <argsstring>(size_t xBufferSizeBytes, size_t xTriggerLevelBytes, BaseType_t xIsMessageBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferGenericCreate</name>
+        <param>
+          <type>size_t</type>
+          <declname>xBufferSizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xTriggerLevelBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+          <declname>xIsMessageBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="833" column="22" bodyfile="FreeRTOS/stream_buffer.c" bodystart="219" bodyend="276" declfile="FreeRTOS/stream_buffer.h" declline="833" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+        <definition>StreamBufferHandle_t xStreamBufferGenericCreateStatic</definition>
+        <argsstring>(size_t xBufferSizeBytes, size_t xTriggerLevelBytes, BaseType_t xIsMessageBuffer, uint8_t *const pucStreamBufferStorageArea, StaticStreamBuffer_t *const pxStaticStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferGenericCreateStatic</name>
+        <param>
+          <type>size_t</type>
+          <declname>xBufferSizeBytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>xTriggerLevelBytes</declname>
+        </param>
+        <param>
+          <type><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref></type>
+          <declname>xIsMessageBuffer</declname>
+        </param>
+        <param>
+          <type>uint8_t *const</type>
+          <declname>pucStreamBufferStorageArea</declname>
+        </param>
+        <param>
+          <type><ref refid="_free_r_t_o_s_8h_1a3675ce07f6d3e0e7130bc6ea01162d34" kindref="member">StaticStreamBuffer_t</ref> *const</type>
+          <declname>pxStaticStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="837" column="22" declfile="FreeRTOS/stream_buffer.h" declline="837" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t xStreamBufferNextMessageLengthBytes</definition>
+        <argsstring>(StreamBufferHandle_t xStreamBuffer) PRIVILEGED_FUNCTION</argsstring>
+        <name>xStreamBufferNextMessageLengthBytes</name>
+        <param>
+          <type><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref></type>
+          <declname>xStreamBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FreeRTOS/stream_buffer.h" line="843" column="8" bodyfile="FreeRTOS/stream_buffer.c" bodystart="817" bodyend="858" declfile="FreeRTOS/stream_buffer.h" declline="843" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>FreeRTOS<sp/>Kernel<sp/>V10.2.0</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Amazon.com,<sp/>Inc.<sp/>or<sp/>its<sp/>affiliates.<sp/><sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy<sp/>of</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is<sp/>furnished<sp/>to<sp/>do<sp/>so,</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,<sp/>FITNESS</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,<sp/>OUT<sp/>OF<sp/>OR<sp/>IN</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>http://www.FreeRTOS.org</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>http://aws.amazon.com/freertos</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>1<sp/>tab<sp/>==<sp/>4<sp/>spaces!</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>Stream<sp/>buffers<sp/>are<sp/>used<sp/>to<sp/>send<sp/>a<sp/>continuous<sp/>stream<sp/>of<sp/>data<sp/>from<sp/>one<sp/>task<sp/>or</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>to<sp/>another.<sp/><sp/>Their<sp/>implementation<sp/>is<sp/>light<sp/>weight,<sp/>making<sp/>them</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>particularly<sp/>suited<sp/>for<sp/>interrupt<sp/>to<sp/>task<sp/>and<sp/>core<sp/>to<sp/>core<sp/>communication</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>scenarios.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>***NOTE***:<sp/><sp/>Uniquely<sp/>among<sp/>FreeRTOS<sp/>objects,<sp/>the<sp/>stream<sp/>buffer</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>implementation<sp/>(so<sp/>also<sp/>the<sp/>message<sp/>buffer<sp/>implementation,<sp/>as<sp/>message<sp/>buffers</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>are<sp/>built<sp/>on<sp/>top<sp/>of<sp/>stream<sp/>buffers)<sp/>assumes<sp/>there<sp/>is<sp/>only<sp/>one<sp/>task<sp/>or</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>that<sp/>will<sp/>write<sp/>to<sp/>the<sp/>buffer<sp/>(the<sp/>writer),<sp/>and<sp/>only<sp/>one<sp/>task<sp/>or</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>interrupt<sp/>that<sp/>will<sp/>read<sp/>from<sp/>the<sp/>buffer<sp/>(the<sp/>reader).<sp/><sp/>It<sp/>is<sp/>safe<sp/>for<sp/>the</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>writer<sp/>and<sp/>reader<sp/>to<sp/>be<sp/>different<sp/>tasks<sp/>or<sp/>interrupts,<sp/>but,<sp/>unlike<sp/>other</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>FreeRTOS<sp/>objects,<sp/>it<sp/>is<sp/>not<sp/>safe<sp/>to<sp/>have<sp/>multiple<sp/>different<sp/>writers<sp/>or</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>multiple<sp/>different<sp/>readers.<sp/><sp/>If<sp/>there<sp/>are<sp/>to<sp/>be<sp/>multiple<sp/>different<sp/>writers</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>then<sp/>the<sp/>application<sp/>writer<sp/>must<sp/>place<sp/>each<sp/>call<sp/>to<sp/>a<sp/>writing<sp/>API<sp/>function</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>(such<sp/>as<sp/>xStreamBufferSend())<sp/>inside<sp/>a<sp/>critical<sp/>section<sp/>and<sp/>set<sp/>the<sp/>send</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>block<sp/>time<sp/>to<sp/>0.<sp/><sp/>Likewise,<sp/>if<sp/>there<sp/>are<sp/>to<sp/>be<sp/>multiple<sp/>different<sp/>readers</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>then<sp/>the<sp/>application<sp/>writer<sp/>must<sp/>place<sp/>each<sp/>call<sp/>to<sp/>a<sp/>reading<sp/>API<sp/>function</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>(such<sp/>as<sp/>xStreamBufferRead())<sp/>inside<sp/>a<sp/>critical<sp/>section<sp/>section<sp/>and<sp/>set<sp/>the</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>receive<sp/>block<sp/>time<sp/>to<sp/>0.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>STREAM_BUFFER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STREAM_BUFFER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>__cplusplus<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferDef_t</ref>;</highlight></codeline>
+<codeline lineno="65" refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferDef_t</ref><sp/>*<sp/><ref refid="stream__buffer_8h_1a8b80974e2278f073412293e6580ce56f" kindref="member">StreamBufferHandle_t</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xStreamBufferCreate(<sp/>xBufferSizeBytes,<sp/>xTriggerLevelBytes<sp/>)<sp/>xStreamBufferGenericCreate(<sp/>xBufferSizeBytes,<sp/>xTriggerLevelBytes,<sp/>pdFALSE<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>xStreamBufferCreateStatic(<sp/>xBufferSizeBytes,<sp/>xTriggerLevelBytes,<sp/>pucStreamBufferStorageArea,<sp/>pxStaticStreamBuffer<sp/>)<sp/>xStreamBufferGenericCreateStatic(<sp/>xBufferSizeBytes,<sp/>xTriggerLevelBytes,<sp/>pdFALSE,<sp/>pucStreamBufferStorageArea,<sp/>pxStaticStreamBuffer<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a35cdf3b6bf677086b9128782f762499d" kindref="member">xStreamBufferSend</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvTxData,</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xDataLengthBytes,</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref><sp/>xTicksToWait<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a1dab226e99230e01e79bc2b5c0605e44" kindref="member">xStreamBufferSendFromISR</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvTxData,</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xDataLengthBytes,</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pxHigherPriorityTaskWoken<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight></codeline>
+<codeline lineno="498"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a55efc144b988598d84a6087d3e20b507" kindref="member">xStreamBufferReceive</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvRxData,</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xBufferLengthBytes,</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9" kindref="member">TickType_t</ref><sp/>xTicksToWait<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"></highlight></codeline>
+<codeline lineno="584"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a6c882a1d9f26c40f93f271bd1b844b3b" kindref="member">xStreamBufferReceiveFromISR</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,</highlight></codeline>
+<codeline lineno="585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvRxData,</highlight></codeline>
+<codeline lineno="586"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xBufferLengthBytes,</highlight></codeline>
+<codeline lineno="587"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pxHigherPriorityTaskWoken<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="588"><highlight class="normal"></highlight></codeline>
+<codeline lineno="609"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a05dc9d2ae220a050526a062eddf6d7a2" kindref="member">vStreamBufferDelete</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="610"><highlight class="normal"></highlight></codeline>
+<codeline lineno="629"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1ae393d82ee06e89692248a4381f85dc86" kindref="member">xStreamBufferIsFull</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="630"><highlight class="normal"></highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1af65cd558025ddc29ca68fba1b3f5dc19" kindref="member">xStreamBufferIsEmpty</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="650"><highlight class="normal"></highlight></codeline>
+<codeline lineno="672"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1a5253429645c67902c2fc8682f8af0aac" kindref="member">xStreamBufferReset</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="673"><highlight class="normal"></highlight></codeline>
+<codeline lineno="693"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a9a78e0206cb1dc343c329f9db579208d" kindref="member">xStreamBufferSpacesAvailable</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="694"><highlight class="normal"></highlight></codeline>
+<codeline lineno="714"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1af32d1737de29f24ee31ac1e3c407d9fd" kindref="member">xStreamBufferBytesAvailable</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"></highlight></codeline>
+<codeline lineno="751"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1a28f0280587c76e71efeaa8f415ebde04" kindref="member">xStreamBufferSetTriggerLevel</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xTriggerLevel<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="752"><highlight class="normal"></highlight></codeline>
+<codeline lineno="790"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1abc37189e4eb8618f5434ae333dd50b23" kindref="member">xStreamBufferSendCompletedFromISR</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,<sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>*pxHigherPriorityTaskWoken<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="791"><highlight class="normal"></highlight></codeline>
+<codeline lineno="830"><highlight class="normal"><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/><ref refid="stream__buffer_8h_1ac12e93e96e0eafbc0e981d00e7275d32" kindref="member">xStreamBufferReceiveCompletedFromISR</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,<sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>*pxHigherPriorityTaskWoken<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="831"><highlight class="normal"></highlight></codeline>
+<codeline lineno="832"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Functions<sp/>below<sp/>here<sp/>are<sp/>not<sp/>part<sp/>of<sp/>the<sp/>public<sp/>API.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="833"><highlight class="normal"><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/><ref refid="stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096" kindref="member">xStreamBufferGenericCreate</ref>(<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xBufferSizeBytes,</highlight></codeline>
+<codeline lineno="834"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="struct_stream_buffer_def__t_1a4a7ee9b374cc0b358d049811def8d595" kindref="member">xTriggerLevelBytes</ref>,</highlight></codeline>
+<codeline lineno="835"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>xIsMessageBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="836"><highlight class="normal"></highlight></codeline>
+<codeline lineno="837" refid="stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c" refkind="member"><highlight class="normal"><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/><ref refid="stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c" kindref="member">xStreamBufferGenericCreateStatic</ref>(<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>xBufferSizeBytes,</highlight></codeline>
+<codeline lineno="838"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="struct_stream_buffer_def__t_1a4a7ee9b374cc0b358d049811def8d595" kindref="member">xTriggerLevelBytes</ref>,</highlight></codeline>
+<codeline lineno="839"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796" kindref="member">BaseType_t</ref><sp/>xIsMessageBuffer,</highlight></codeline>
+<codeline lineno="840"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pucStreamBufferStorageArea,</highlight></codeline>
+<codeline lineno="841"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structx_s_t_a_t_i_c___s_t_r_e_a_m___b_u_f_f_e_r" kindref="compound">StaticStreamBuffer_t</ref><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>pxStaticStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="842"><highlight class="normal"></highlight></codeline>
+<codeline lineno="843"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8h_1a9a952a2cffab91471ec2a3651e2160ec" kindref="member">xStreamBufferNextMessageLengthBytes</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="844"><highlight class="normal"></highlight></codeline>
+<codeline lineno="845"><highlight class="normal"></highlight><highlight class="preprocessor">#if(<sp/>configUSE_TRACE_FACILITY<sp/>==<sp/>1<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="846"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="stream__buffer_8c_1a950e5f7b820b821025cd0bc0c797653c" kindref="member">vStreamBufferSetStreamBufferNumber</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer,<sp/><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref><sp/><ref refid="struct_stream_buffer_def__t_1aee83da827fa7eb47682250297d6961b0" kindref="member">uxStreamBufferNumber</ref><sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="847"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref><sp/><ref refid="stream__buffer_8c_1a4fa4d3119b6d1b35f886f0d03a60172e" kindref="member">uxStreamBufferGetStreamBufferNumber</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="848"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="stream__buffer_8c_1ae0cd387d75e89534b6332aac4a3a03b3" kindref="member">ucStreamBufferGetStreamBufferType</ref>(<sp/><ref refid="struct_stream_buffer_def__t" kindref="compound">StreamBufferHandle_t</ref><sp/>xStreamBuffer<sp/>)<sp/><ref refid="mpu__wrappers_8h_1a4785c4f4a8c04b835139dcc2a6682078" kindref="member">PRIVILEGED_FUNCTION</ref>;</highlight></codeline>
+<codeline lineno="849"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="850"><highlight class="normal"></highlight></codeline>
+<codeline lineno="851"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(<sp/>__cplusplus<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="852"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="853"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="854"><highlight class="normal"></highlight></codeline>
+<codeline lineno="855"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>!defined(<sp/>STREAM_BUFFER_H<sp/>)<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="FreeRTOS/stream_buffer.h"/>
+  </compounddef>
+</doxygen>

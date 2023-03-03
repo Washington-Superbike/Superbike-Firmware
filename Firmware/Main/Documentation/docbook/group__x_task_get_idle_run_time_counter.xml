@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__x_task_get_idle_run_time_counter" xml:lang="en-US">
+<title>xTaskGetIdleRunTimeCounter</title>
+<indexterm><primary>xTaskGetIdleRunTimeCounter</primary></indexterm>
+
+<para>task. h <literallayout>TickType_t <link linkend="_task_8h_1adcf1216358a193db9dea4ccdccd85dfd">xTaskGetIdleRunTimeCounter( void )</link>;</literallayout></para>
+
+<para>configGENERATE_RUN_TIME_STATS and configUSE_STATS_FORMATTING_FUNCTIONS must both be defined as 1 for this function to be available. The application must also then provide definitions for <link linkend="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b">portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()</link> and portGET_RUN_TIME_COUNTER_VALUE() to configure a peripheral timer/counter and return the timers current count value respectively. The counter should be at least 10 times the frequency of the tick count.</para>
+
+<para>Setting configGENERATE_RUN_TIME_STATS to 1 will result in a total accumulated execution time being stored for each task. The resolution of the accumulated time value depends on the frequency of the timer configured by the <link linkend="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b">portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()</link> macro. While <link linkend="_task_8h_1aa4603f3de3d809e9beb18d10fbac005d">uxTaskGetSystemState()</link> and <link linkend="_task_8h_1a52da9b427041a48dc9f6802e10f151d4">vTaskGetRunTimeStats()</link> writes the total execution time of each task into a buffer, <link linkend="_task_8h_1adcf1216358a193db9dea4ccdccd85dfd">xTaskGetIdleRunTimeCounter()</link> returns the total execution time of just the idle task.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The total run time of the idle task. This is the amount of time the idle task has actually been executing. The unit of time is dependent on the frequency configured using the <link linkend="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b">portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()</link> and portGET_RUN_TIME_COUNTER_VALUE() macros. </para>
+</formalpara>
+</para>
+</section>

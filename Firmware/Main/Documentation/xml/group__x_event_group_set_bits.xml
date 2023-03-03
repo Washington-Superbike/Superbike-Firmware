@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_event_group_set_bits" kind="group">
+    <compoundname>xEventGroupSetBits</compoundname>
+    <title>xEventGroupSetBits</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+   EventBits_t <ref refid="event__groups_8h_1a02d7b3bb55f7e11d9c47116266c5fb2e" kindref="member">xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_t uxBitsToSet )</ref>;
+</preformatted></para>
+<para>Set bits within an event group. This function cannot be called from an interrupt. <ref refid="event__groups_8h_1a62b68278abac6358369ae8e390988a02" kindref="member">xEventGroupSetBitsFromISR()</ref> is a version that can be called from an interrupt.</para>
+<para>Setting bits in an event group will automatically unblock tasks that are blocked waiting for the bits.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xEventGroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event group in which the bits are to be set.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uxBitsToSet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bitwise value that indicates the bit or bits to set. For example, to set bit 3 only, set uxBitsToSet to 0x08. To set bit 3 and bit 0 set uxBitsToSet to 0x09.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the event group at the time the call to <ref refid="event__groups_8h_1a02d7b3bb55f7e11d9c47116266c5fb2e" kindref="member">xEventGroupSetBits()</ref> returns. There are two reasons why the returned value might have the bits specified by the uxBitsToSet parameter cleared. First, if setting a bit results in a task that was waiting for the bit leaving the blocked state then it is possible the bit will be cleared automatically (see the xClearBitOnExit parameter of <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref>). Second, any unblocked (or otherwise Ready state) task that has a priority above that of the task that called <ref refid="event__groups_8h_1a02d7b3bb55f7e11d9c47116266c5fb2e" kindref="member">xEventGroupSetBits()</ref> will execute and may change the event group value before the call to <ref refid="event__groups_8h_1a02d7b3bb55f7e11d9c47116266c5fb2e" kindref="member">xEventGroupSetBits()</ref> returns.</para>
+</simplesect>
+Example usage: <preformatted>
+  #define BIT_0 ( 1 &lt;&lt; 0 )
+  #define BIT_4 ( 1 &lt;&lt; 4 )
+
+  void aFunction( EventGroupHandle_t xEventGroup )
+  {
+  EventBits_t uxBits;
+
+    // Set bit 0 and bit 4 in xEventGroup.
+    uxBits = xEventGroupSetBits(
+                        xEventGroup,    // The event group being updated.
+                        BIT_0 | BIT_4 );// The bits being set.
+
+    if( ( uxBits &amp; ( BIT_0 | BIT_4 ) ) == ( BIT_0 | BIT_4 ) )
+    {
+        // Both bit 0 and bit 4 remained set when the function returned.
+    }
+    else if( ( uxBits &amp; BIT_0 ) != 0 )
+    {
+        // Bit 0 remained set when the function returned, but bit 4 was
+        // cleared.  It might be that bit 4 was cleared automatically as a
+        // task that was waiting for bit 4 was removed from the Blocked
+        // state.
+    }
+    else if( ( uxBits &amp; BIT_4 ) != 0 )
+    {
+        // Bit 4 remained set when the function returned, but bit 0 was
+        // cleared.  It might be that bit 0 was cleared automatically as a
+        // task that was waiting for bit 0 was removed from the Blocked
+        // state.
+    }
+    else
+    {
+        // Neither bit 0 nor bit 4 remained set.  It might be that a task
+        // was waiting for both of the bits to be set, and the bits were
+        // cleared as the task left the Blocked state.
+    }
+  }
+  </preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

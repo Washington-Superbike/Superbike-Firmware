@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_heap_region" xml:lang="en-US">
+<title>HeapRegion Struct Reference</title>
+<indexterm><primary>HeapRegion</primary></indexterm>
+<para>
+<computeroutput>#include &lt;portable.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>uint8_t * <link linkend="_struct_heap_region_1aab323508c34642ebfb884a68441d97fc">pucStartAddress</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_struct_heap_region_1a5933b0fd422e70a92ceef839b89a757f">xSizeInBytes</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_portable_8h_source_1l00122">122</link> of file <link linkend="_portable_8h_source">portable.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_heap_region_1aab323508c34642ebfb884a68441d97fc"/><section>
+    <title>pucStartAddress</title>
+<indexterm><primary>pucStartAddress</primary><secondary>HeapRegion</secondary></indexterm>
+<indexterm><primary>HeapRegion</primary><secondary>pucStartAddress</secondary></indexterm>
+<para><computeroutput>uint8_t* HeapRegion::pucStartAddress</computeroutput></para><para>
+Definition at line <link linkend="_portable_8h_source_1l00124">124</link> of file <link linkend="_portable_8h_source">portable.h</link>.</para>
+</section>
+<anchor xml:id="_struct_heap_region_1a5933b0fd422e70a92ceef839b89a757f"/><section>
+    <title>xSizeInBytes</title>
+<indexterm><primary>xSizeInBytes</primary><secondary>HeapRegion</secondary></indexterm>
+<indexterm><primary>HeapRegion</primary><secondary>xSizeInBytes</secondary></indexterm>
+<para><computeroutput>size_t HeapRegion::xSizeInBytes</computeroutput></para><para>
+Definition at line <link linkend="_portable_8h_source_1l00125">125</link> of file <link linkend="_portable_8h_source">portable.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+FreeRTOS/<link linkend="_portable_8h">portable.h</link></section>
+</section>

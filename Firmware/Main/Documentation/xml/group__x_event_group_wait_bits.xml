@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group__x_event_group_wait_bits" kind="group">
+    <compoundname>xEventGroupWaitBits</compoundname>
+    <title>xEventGroupWaitBits</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+EventGroupHandle_t xEventGroupCreateStatic( EventGroupHandle_t * pxEventGroupBuffer );
+</preformatted></para>
+<para>Create a new event group.</para>
+<para>Internally, within the FreeRTOS implementation, event groups use a [small] block of memory, in which the event group&apos;s structure is stored. If an event groups is created using xEventGropuCreate() then the required memory is automatically dynamically allocated inside the <ref refid="event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519" kindref="member">xEventGroupCreate()</ref> function. (see <ulink url="http://www.freertos.org/a00111.html">http://www.freertos.org/a00111.html</ulink>). If an event group is created using xEventGropuCreateStatic() then the application writer must instead provide the memory that will get used by the event group. xEventGroupCreateStatic() therefore allows an event group to be created without using any dynamic memory allocation.</para>
+<para>Although event groups are not related to ticks, for internal implementation reasons the number of bits available for use in an event group is dependent on the configUSE_16_BIT_TICKS setting in <ref refid="_free_r_t_o_s_config_8h" kindref="compound">FreeRTOSConfig.h</ref>. If configUSE_16_BIT_TICKS is 1 then each event group contains 8 usable bits (bit 0 to bit 7). If configUSE_16_BIT_TICKS is set to 0 then each event group has 24 usable bits (bit 0 to bit 23). The EventBits_t type is used to store event bits within an event group.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pxEventGroupBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pxEventGroupBuffer must point to a variable of type StaticEventGroup_t, which will be then be used to hold the event group&apos;s data structures, removing the need for the memory to be allocated dynamically.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the event group was created then a handle to the event group is returned. If pxEventGroupBuffer was NULL then NULL is returned.</para>
+</simplesect>
+Example usage: <preformatted>
+   // StaticEventGroup_t is a publicly accessible structure that has the same
+   // size and alignment requirements as the real event group structure.  It is
+   // provided as a mechanism for applications to know the size of the event
+   // group (which is dependent on the architecture and configuration file
+   // settings) without breaking the strict data hiding policy by exposing the
+   // real event group internals.  This StaticEventGroup_t variable is passed
+   // into the xSemaphoreCreateEventGroupStatic() function and is used to store
+   // the event group&apos;s data structures
+   StaticEventGroup_t xEventGroupBuffer;
+
+   // Create the event group without dynamically allocating any memory.
+   xEventGroup = xEventGroupCreateStatic( &amp;xEventGroupBuffer );
+  </preformatted> <ref refid="event__groups_8h" kindref="compound">event_groups.h</ref> <preformatted>
+   EventBits_t <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits(     EventGroupHandle_t xEventGroup,
+                                    const EventBits_t uxBitsToWaitFor,
+                                    const BaseType_t xClearOnExit,
+                                    const BaseType_t xWaitForAllBits,
+                                    const TickType_t xTicksToWait )</ref>;
+</preformatted></para>
+<para>[Potentially] block to wait for one or more bits to be set within a previously created event group.</para>
+<para>This function cannot be called from an interrupt.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>xEventGroup</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event group in which the bits are being tested. The event group must have previously been created using a call to <ref refid="event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519" kindref="member">xEventGroupCreate()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uxBitsToWaitFor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bitwise value that indicates the bit or bits to test inside the event group. For example, to wait for bit 0 and/or bit 2 set uxBitsToWaitFor to 0x05. To wait for bits 0 and/or bit 1 and/or bit 2 set uxBitsToWaitFor to 0x07. Etc.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xClearOnExit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If xClearOnExit is set to pdTRUE then any bits within uxBitsToWaitFor that are set within the event group will be cleared before <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returns if the wait condition was met (if the function returns for a reason other than a timeout). If xClearOnExit is set to pdFALSE then the bits set in the event group are not altered when the call to <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returns.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xWaitForAllBits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If xWaitForAllBits is set to pdTRUE then <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> will return when either all the bits in uxBitsToWaitFor are set or the specified block time expires. If xWaitForAllBits is set to pdFALSE then <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> will return when any one of the bits set in uxBitsToWaitFor is set or the specified block time expires. The block time is specified by the xTicksToWait parameter.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xTicksToWait</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum amount of time (specified in &apos;ticks&apos;) to wait for one/all (depending on the xWaitForAllBits value) of the bits specified by uxBitsToWaitFor to become set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the event group at the time either the bits being waited for became set, or the block time expired. Test the return value to know which bits were set. If <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because its timeout expired then not all the bits being waited for will be set. If <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because the bits it was waiting for were set then the returned value is the event group value before any bits were automatically cleared in the case that xClearOnExit parameter was set to pdTRUE.</para>
+</simplesect>
+Example usage: <preformatted>
+  #define BIT_0 ( 1 &lt;&lt; 0 )
+  #define BIT_4 ( 1 &lt;&lt; 4 )
+
+  void aFunction( EventGroupHandle_t xEventGroup )
+  {
+  EventBits_t uxBits;
+  const TickType_t xTicksToWait = 100 / portTICK_PERIOD_MS;
+
+    // Wait a maximum of 100ms for either bit 0 or bit 4 to be set within
+    // the event group.  Clear the bits before exiting.
+    uxBits = xEventGroupWaitBits(
+                xEventGroup,    // The event group being tested.
+                BIT_0 | BIT_4,  // The bits within the event group to wait for.
+                pdTRUE,         // BIT_0 and BIT_4 should be cleared before returning.
+                pdFALSE,        // Don&apos;t wait for both bits, either bit will do.
+                xTicksToWait ); // Wait a maximum of 100ms for either bit to be set.
+
+    if( ( uxBits &amp; ( BIT_0 | BIT_4 ) ) == ( BIT_0 | BIT_4 ) )
+    {
+        // <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because both bits were set.
+    }
+    else if( ( uxBits &amp; BIT_0 ) != 0 )
+    {
+        // <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because just BIT_0 was set.
+    }
+    else if( ( uxBits &amp; BIT_4 ) != 0 )
+    {
+        // <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because just BIT_4 was set.
+    }
+    else
+    {
+        // <ref refid="event__groups_8h_1aab9d5b405bc57b7624dcabe9a9a503db" kindref="member">xEventGroupWaitBits()</ref> returned because xTicksToWait ticks passed
+        // without either BIT_0 or BIT_4 becoming set.
+    }
+  }
+  </preformatted> </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
