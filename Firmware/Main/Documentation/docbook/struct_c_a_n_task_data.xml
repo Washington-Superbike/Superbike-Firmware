@@ -28,8 +28,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>A simple struct to store the CanTaskData, a combination of all the previous structs all into this one and then passing it onto the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> to be processed by the <link linkend="__c_a_n_8ino">Can.ino</link> </para>
 <para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00106">106</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00152">152</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -38,56 +40,56 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00106">106</link> of file 
 <indexterm><primary>bmsStatus</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>bmsStatus</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_b_m_s_status">BMSStatus</link> CANTaskData::bmsStatus</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00109">109</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00155">155</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad"/><section>
     <title>cellVoltages</title>
 <indexterm><primary>cellVoltages</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>cellVoltages</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_cell_voltages">CellVoltages</link> CANTaskData::cellVoltages</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00111">111</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00157">157</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41"/><section>
     <title>chargeControllerStats</title>
 <indexterm><primary>chargeControllerStats</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>chargeControllerStats</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_charge_controller_stats">ChargeControllerStats</link> CANTaskData::chargeControllerStats</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00113">113</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00159">159</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19"/><section>
     <title>chargerStats</title>
 <indexterm><primary>chargerStats</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>chargerStats</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_charger_stats">ChargerStats</link> CANTaskData::chargerStats</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00112">112</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00158">158</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471"/><section>
     <title>motorStats</title>
 <indexterm><primary>motorStats</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>motorStats</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_motor_stats">MotorStats</link> CANTaskData::motorStats</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00107">107</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00153">153</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88"/><section>
     <title>motorTemps</title>
 <indexterm><primary>motorTemps</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>motorTemps</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_motor_temps">MotorTemps</link> CANTaskData::motorTemps</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00108">108</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00154">154</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119"/><section>
     <title>seriesVoltage</title>
 <indexterm><primary>seriesVoltage</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>seriesVoltage</secondary></indexterm>
 <para><computeroutput>float* CANTaskData::seriesVoltage</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00114">114</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00160">160</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57"/><section>
     <title>thermistorTemps</title>
 <indexterm><primary>thermistorTemps</primary><secondary>CANTaskData</secondary></indexterm>
 <indexterm><primary>CANTaskData</primary><secondary>thermistorTemps</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_thermistor_temps">ThermistorTemps</link> CANTaskData::thermistorTemps</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00110">110</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00156">156</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

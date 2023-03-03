@@ -24,8 +24,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>Represents a writer to a CSV log file on the sd card. Complex struct. Keep it as it is, doesn&apos;t require changing really. Just use it. </para>
 <para>
-Definition at line <link linkend="__data_logging_8h_source_1l00081">81</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00093">93</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -34,42 +36,42 @@ Definition at line <link linkend="__data_logging_8h_source_1l00081">81</link> of
 <indexterm><primary>D_TYPE</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>D_TYPE</secondary></indexterm>
 <para><computeroutput><link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">data_type</link> CSVWriter::D_TYPE</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00085">85</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00098">98</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_s_v_writer_1ad91f08cce2e394992128d934f3e881a9"/><section>
     <title>dataValues</title>
 <indexterm><primary>dataValues</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>dataValues</secondary></indexterm>
 <para><computeroutput>float* CSVWriter::dataValues</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00084">84</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00097">97</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_s_v_writer_1a9bdd5e92c6749ab1c1d9a0ea7531315e"/><section>
     <title>dataValuesLen</title>
 <indexterm><primary>dataValuesLen</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>dataValuesLen</secondary></indexterm>
 <para><computeroutput>int CSVWriter::dataValuesLen</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00083">83</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00095">95</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_s_v_writer_1a134410cbaf84e674a0f3eb1465c37eaa"/><section>
     <title>file</title>
 <indexterm><primary>file</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>file</secondary></indexterm>
 <para><computeroutput>SdFile CSVWriter::file</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00087">87</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00100">100</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_s_v_writer_1a683c9f4868ac2665b4eb34773d1445cf"/><section>
     <title>filename</title>
 <indexterm><primary>filename</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>filename</secondary></indexterm>
 <para><computeroutput>const char* CSVWriter::filename</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00082">82</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00094">94</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_c_s_v_writer_1a84e1fe8c16267fb15806b9024353b962"/><section>
     <title>open</title>
 <indexterm><primary>open</primary><secondary>CSVWriter</secondary></indexterm>
 <indexterm><primary>CSVWriter</primary><secondary>open</secondary></indexterm>
 <para><computeroutput>bool CSVWriter::open</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00086">86</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00099">99</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

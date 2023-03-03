@@ -17,19 +17,19 @@ struct \mbox{\hyperlink{struct_pre_charge_task_data}{Pre\+Charge\+Task\+Data}}
 \#define \mbox{\hyperlink{_precharge_8h_a0ea5dd53294d533feaeeb8731cb9739a}{PRECHARGE\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE}}~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 4096
 \item 
 \#define \mbox{\hyperlink{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}{CONTACTOR}}~16
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for contactor control (closing or opening) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}{PRECHARGE}}~17
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for relay in series with precharge resistor. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a4e1dc017df18faad4234012c3e88d2f6}{HIGH\+\_\+\+VOLTAGE\+\_\+\+TOGGLE}}~15
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for starting precharge, exit precharging, exit done-\/precharging. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a6f82f95bb8a6ffac8f6998ff4e5e16ec}{CLOSE\+\_\+\+CONTACTOR\+\_\+\+BUTTON}}~14
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for closing the contactor (usable after precharging) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}{CONTACTOR\+\_\+\+PRECHARGED\+\_\+\+LED}}~18
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for LED that illuminates after precharge complete. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}{CONTACTOR\+\_\+\+CLOSED\+\_\+\+LED}}~19
-\item 
+\begin{DoxyCompactList}\small\item\em Teensy pin for LED that illuminates when the contactor is closed. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a3d7443dc1d0d423a961f907584dfd19e}{NUMBER\+\_\+\+OF\+\_\+\+LTCS}}~20
-\item 
+\begin{DoxyCompactList}\small\item\em THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_precharge_8h_a1f9513787cfe256aae379719ab26ca39}{MOTORCONTROLLER\+\_\+\+TEMP\+\_\+\+MAX}}~65
 \item 
 \#define \mbox{\hyperlink{_precharge_8h_aa39f17be3d8f2f799f7fbd0dc01963db}{MOTOR\+\_\+\+TEMP\+\_\+\+MAX}}~80
@@ -42,7 +42,7 @@ enum \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29}{HV\+\_\+\
 , \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29ab5febf14562b68ff6bdaaa86ec9b5dec}{HV\+\_\+\+ON}}
 , \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595}{HV\+\_\+\+ERROR}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enum for all the states. OFF, Precharge, ON, Error. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,7 +72,7 @@ void \mbox{\hyperlink{_precharge_8h_ade8f654468b951602d2622b34902944f}{kalman\+\
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29}{HV\+\_\+\+STATE}} \mbox{\hyperlink{_precharge_8h_a5c9b1f4b5a31b5d46c45310567595867}{hv\+\_\+state}} = \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a}{HV\+\_\+\+OFF}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The state storage variable. Used to keep track of how things are. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -90,7 +90,7 @@ This file could be way better optimized. Remove all the stupid extra vars in the
 \begin{DoxyRefDesc}{Todo}
 \item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline
  ~\newline
- Goal 2. ~\newline
+ NUMBER\+\_\+\+OF\+\_\+\+LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. MOTOR\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. ~\newline
  ~\newline
  Goal 3. ~\newline
  ~\newline
@@ -110,7 +110,11 @@ Definition in file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00036}{36}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for closing the contactor (usable after precharging) 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00040}{40}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}\label{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}} 
 \index{Precharge.h@{Precharge.h}!CONTACTOR@{CONTACTOR}}
@@ -120,7 +124,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00036}{36}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00033}{33}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for contactor control (closing or opening) 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00034}{34}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}\label{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}} 
 \index{Precharge.h@{Precharge.h}!CONTACTOR\_CLOSED\_LED@{CONTACTOR\_CLOSED\_LED}}
@@ -130,7 +138,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00033}{33}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00038}{38}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for LED that illuminates when the contactor is closed. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00044}{44}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}\label{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}} 
 \index{Precharge.h@{Precharge.h}!CONTACTOR\_PRECHARGED\_LED@{CONTACTOR\_PRECHARGED\_LED}}
@@ -140,7 +152,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00038}{38}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00037}{37}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for LED that illuminates after precharge complete. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00042}{42}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a4e1dc017df18faad4234012c3e88d2f6}\label{_precharge_8h_a4e1dc017df18faad4234012c3e88d2f6}} 
 \index{Precharge.h@{Precharge.h}!HIGH\_VOLTAGE\_TOGGLE@{HIGH\_VOLTAGE\_TOGGLE}}
@@ -150,7 +166,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00037}{37}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00035}{35}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for starting precharge, exit precharging, exit done-\/precharging. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00038}{38}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_aa39f17be3d8f2f799f7fbd0dc01963db}\label{_precharge_8h_aa39f17be3d8f2f799f7fbd0dc01963db}} 
 \index{Precharge.h@{Precharge.h}!MOTOR\_TEMP\_MAX@{MOTOR\_TEMP\_MAX}}
@@ -158,9 +178,9 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00035}{35}} of file \m
 \doxysubsubsection{\texorpdfstring{MOTOR\_TEMP\_MAX}{MOTOR\_TEMP\_MAX}}
 {\footnotesize\ttfamily \#define MOTOR\+\_\+\+TEMP\+\_\+\+MAX~80}
 
+Motor temperature max. This might need to be changed depending on how high the motor hits during operation. 
 
-
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00041}{41}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00052}{52}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a1f9513787cfe256aae379719ab26ca39}\label{_precharge_8h_a1f9513787cfe256aae379719ab26ca39}} 
 \index{Precharge.h@{Precharge.h}!MOTORCONTROLLER\_TEMP\_MAX@{MOTORCONTROLLER\_TEMP\_MAX}}
@@ -168,9 +188,9 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00041}{41}} of file \m
 \doxysubsubsection{\texorpdfstring{MOTORCONTROLLER\_TEMP\_MAX}{MOTORCONTROLLER\_TEMP\_MAX}}
 {\footnotesize\ttfamily \#define MOTORCONTROLLER\+\_\+\+TEMP\+\_\+\+MAX~65}
 
+Motor controller temperature max. This might need to be changed depending on how high the MCU hits during operation. 
 
-
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00040}{40}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00049}{49}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a3d7443dc1d0d423a961f907584dfd19e}\label{_precharge_8h_a3d7443dc1d0d423a961f907584dfd19e}} 
 \index{Precharge.h@{Precharge.h}!NUMBER\_OF\_LTCS@{NUMBER\_OF\_LTCS}}
@@ -180,7 +200,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00040}{40}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00039}{39}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00046}{46}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}\label{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}} 
 \index{Precharge.h@{Precharge.h}!PRECHARGE@{PRECHARGE}}
@@ -190,7 +214,11 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00039}{39}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00034}{34}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Teensy pin for relay in series with precharge resistor. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00036}{36}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 \mbox{\Hypertarget{_precharge_8h_a0ea5dd53294d533feaeeb8731cb9739a}\label{_precharge_8h_a0ea5dd53294d533feaeeb8731cb9739a}} 
 \index{Precharge.h@{Precharge.h}!PRECHARGE\_TASK\_STACK\_SIZE@{PRECHARGE\_TASK\_STACK\_SIZE}}
@@ -210,6 +238,10 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00031}{31}} of file \m
 \index{HV\_STATE@{HV\_STATE}!Precharge.h@{Precharge.h}}
 \doxysubsubsection{\texorpdfstring{HV\_STATE}{HV\_STATE}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29}{HV\+\_\+\+STATE}}}
+
+
+
+An enum for all the states. OFF, Precharge, ON, Error. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HV\_OFF@{HV\_OFF}!Precharge.h@{Precharge.h}}\index{Precharge.h@{Precharge.h}!HV\_OFF@{HV\_OFF}}}\mbox{\Hypertarget{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a}\label{_precharge_8h_a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a}} 
@@ -231,7 +263,7 @@ HV\+\_\+\+ERROR&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00043}{43}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00055}{55}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 
 
 
@@ -244,7 +276,7 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00043}{43}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00190}{190}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00188}{188}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad8511ef84de5112bd6beb8e3ac5fff67}\label{_precharge_8h_ad8511ef84de5112bd6beb8e3ac5fff67}} 
 \index{Precharge.h@{Precharge.h}!gyro\_signals@{gyro\_signals}}
@@ -254,7 +286,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00190}{190}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00232}{232}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00230}{230}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a65867cb936f7ef47ffd07fbfd4a91355}\label{_precharge_8h_a65867cb936f7ef47ffd07fbfd4a91355}} 
 \index{Precharge.h@{Precharge.h}!isHVSafe@{isHVSafe}}
@@ -264,7 +296,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00232}{232}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00169}{169}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00167}{167}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a42b25fa6ccd2c8d82ba24c5ed4aaa7d1}\label{_precharge_8h_a42b25fa6ccd2c8d82ba24c5ed4aaa7d1}} 
 \index{Precharge.h@{Precharge.h}!isPrecharged@{isPrecharged}}
@@ -274,7 +306,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00169}{169}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00154}{154}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00152}{152}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ade8f654468b951602d2622b34902944f}\label{_precharge_8h_ade8f654468b951602d2622b34902944f}} 
 \index{Precharge.h@{Precharge.h}!kalman\_1d@{kalman\_1d}}
@@ -284,7 +316,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00154}{154}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00321}{321}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00319}{319}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad2376a25ab645f00587791af3c89968e}\label{_precharge_8h_ad2376a25ab645f00587791af3c89968e}} 
 \index{Precharge.h@{Precharge.h}!preChargeCircuitFSMStateActions@{preChargeCircuitFSMStateActions}}
@@ -294,7 +326,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00321}{321}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00130}{130}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00128}{128}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad5e3efaa785dcd1d9143ec7e5d117277}\label{_precharge_8h_ad5e3efaa785dcd1d9143ec7e5d117277}} 
 \index{Precharge.h@{Precharge.h}!preChargeCircuitFSMTransitions@{preChargeCircuitFSMTransitions}}
@@ -304,7 +336,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00130}{130}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00070}{70}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00068}{68}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}\label{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}} 
 \index{Precharge.h@{Precharge.h}!preChargeTask@{preChargeTask}}
@@ -320,7 +352,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00070}{70}} of file
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00203}{203}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00201}{201}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a0a3e1d4e80c1320d3308a0e0bb10ac87}\label{_precharge_8h_a0a3e1d4e80c1320d3308a0e0bb10ac87}} 
 \index{Precharge.h@{Precharge.h}!state\_name@{state\_name}}
@@ -330,7 +362,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00203}{203}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00194}{194}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00192}{192}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a87184d718be6821c71e697fc1fd98d3b}\label{_precharge_8h_a87184d718be6821c71e697fc1fd98d3b}} 
 \index{Precharge.h@{Precharge.h}!updateGyroData@{updateGyroData}}
@@ -340,7 +372,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00194}{194}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00299}{299}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00297}{297}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 
 
@@ -353,5 +385,9 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00299}{299}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_precharge_8h_source_l00074}{74}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
+The state storage variable. Used to keep track of how things are. 
+
+
+
+Definition at line \mbox{\hyperlink{_precharge_8h_source_l00093}{93}} of file \mbox{\hyperlink{_precharge_8h_source}{Precharge.\+h}}.
 

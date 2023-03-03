@@ -45,7 +45,7 @@ Washington Superbike
 All members should be able to use it without any trouble. Chase made a method to process the logs data without any trouble, but they be able to use it without any trouble.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Goal 1. ~\newline
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Use the void pointer stuff in the add\+Record method. Fix it up. Not required, but preferred. ~\newline
  ~\newline
  Goal 2. ~\newline
  ~\newline
@@ -70,7 +70,7 @@ Definition in file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+i
 \begin{DoxyNote}{Note}
 NOTE\+: The function kinda works but should be redone later to use (void $\ast$) datatype instead of (float $\ast$). Then cast the (void $\ast$) to whatever datatype is given by D\+\_\+\+TYPE Example\+: to print an int you would do
 \end{DoxyNote}
-void $\ast$point = writer-\/\texorpdfstring{$>$}{>}data\+Values; for(int i = 0; i \texorpdfstring{$<$}{<} writer-\/\texorpdfstring{$>$}{>}data\+Values\+Len) \{ switch(writer-\/\texorpdfstring{$>$}{>}D\+\_\+\+TYPE) \{ case FLOAT\+: s\+Record.\+concat(\char`\"{},\char`\"{}).concat(writer-\/\texorpdfstring{$>$}{>}data\+Values\mbox{[}i\mbox{]}); point += sizeof(float); // how much space the float took in memory break; case INT\+: s\+Record.\+concat(\char`\"{},\char`\"{}).concat(writer-\/\texorpdfstring{$>$}{>}data\+Values\mbox{[}i\mbox{]}); point += sizeof(int); // how much space the int took in memory case ... (can be any other D\+\_\+\+TYPE we define) ... (similar to previous two cases) break; default\+: Serial.\+printf(\char`\"{}\+Unknown D\+\_\+\+TYPE\+: \%u\textbackslash{}n\char`\"{}, D\+\_\+\+TYPE); break; \} \}
+THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void $\ast$point = writer-\/\texorpdfstring{$>$}{>}data\+Values; for(int i = 0; i \texorpdfstring{$<$}{<} writer-\/\texorpdfstring{$>$}{>}data\+Values\+Len) \{ switch(writer-\/\texorpdfstring{$>$}{>}D\+\_\+\+TYPE) \{ case FLOAT\+: s\+Record.\+concat(\char`\"{},\char`\"{}).concat(writer-\/\texorpdfstring{$>$}{>}data\+Values\mbox{[}i\mbox{]}); point += sizeof(float); // how much space the float took in memory break; case INT\+: s\+Record.\+concat(\char`\"{},\char`\"{}).concat(writer-\/\texorpdfstring{$>$}{>}data\+Values\mbox{[}i\mbox{]}); point += sizeof(int); // how much space the int took in memory case ... (can be any other D\+\_\+\+TYPE we define) ... (similar to previous two cases) break; default\+: Serial.\+printf(\char`\"{}\+Unknown D\+\_\+\+TYPE\+: \%u\textbackslash{}n\char`\"{}, D\+\_\+\+TYPE); break; \} \}
 
 ~\newline
  ~\newline
@@ -78,7 +78,7 @@ void $\ast$point = writer-\/\texorpdfstring{$>$}{>}data\+Values; for(int i = 0; 
 
 I want to add it in now but it should be tested before being merged obviously.. Chase
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00097}{97}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00098}{98}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}\label{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}} 
 \index{DataLogging.ino@{DataLogging.ino}!closeFile@{closeFile}}
@@ -88,7 +88,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00097}{97}} of fi
 
 \mbox{\hyperlink{_data_logging_8ino_a10c88f7cc0c34cd0a584f78997f13827}{close\+File()}} closes the file inside the \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}}
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00069}{69}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00070}{70}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}\label{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}} 
 \index{DataLogging.ino@{DataLogging.ino}!dataLoggingTask@{dataLoggingTask}}
@@ -98,7 +98,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00069}{69}} of fi
 
 The \mbox{\hyperlink{_data_logging_8ino_a24f7ab7e53619e5770ad9acc25b9b819}{data\+Logging\+Task()}} processes the data, for each of the logs. Just uses sd\+Fat methods within the helper methods \mbox{\hyperlink{_data_logging_8ino_aa394fd0868d0e097f701cb3f21d9c451}{add\+Record()}}, \mbox{\hyperlink{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}{save\+Files()}} as required to process the neatly organized \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} data and then save it.
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00029}{29}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00030}{30}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}\label{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}} 
 \index{DataLogging.ino@{DataLogging.ino}!openFile@{openFile}}
@@ -108,7 +108,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00029}{29}} of fi
 
 \mbox{\hyperlink{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}{open\+File()}} attemps to open the file designated at the filename inside \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} Returns true if no errors, returns false if any error exists
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00063}{63}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a8777416fb5b01666e7b28ada9f3b552a}\label{_data_logging_8ino_a8777416fb5b01666e7b28ada9f3b552a}} 
 \index{DataLogging.ino@{DataLogging.ino}!printFile@{printFile}}
@@ -118,7 +118,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00062}{62}} of fi
 
 Opens the file using \mbox{\hyperlink{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}{open\+File()}} and then prints out what is read in from the \mbox{\hyperlink{_data_logging_8ino_ac579da51eca1f113da5d315ab23b8b1e}{open\+File()}} method to the Serial monitor
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00087}{87}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00088}{88}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}\label{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}} 
 \index{DataLogging.ino@{DataLogging.ino}!saveFile@{saveFile}}
@@ -128,7 +128,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00087}{87}} of fi
 
 \mbox{\hyperlink{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}{save\+File()}} saves the file inside the \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}}
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00074}{74}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00075}{75}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}\label{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}} 
 \index{DataLogging.ino@{DataLogging.ino}!saveFiles@{saveFiles}}
@@ -138,7 +138,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00074}{74}} of fi
 
 \mbox{\hyperlink{_data_logging_8ino_a52d8bf385131a3543793f22ee432100a}{save\+Files()}} calls on \mbox{\hyperlink{_data_logging_8ino_a678245415389e1bbd75b088a980b008a}{save\+File()}} multiple times until all the files are saved.
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00079}{79}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00080}{80}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}\label{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}} 
 \index{DataLogging.ino@{DataLogging.ino}!startRecording@{startRecording}}
@@ -148,7 +148,7 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00079}{79}} of fi
 
 \mbox{\hyperlink{_data_logging_8ino_ab91616c118b701c2afd9136393d1f19b}{start\+Recording()}} sets the \char`\"{}epoch\char`\"{} or beginning time so that each data log is synced up.
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00143}{143}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00145}{145}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 
 \mbox{\Hypertarget{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}\label{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}} 
 \index{DataLogging.ino@{DataLogging.ino}!startSD@{startSD}}
@@ -158,5 +158,5 @@ Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00143}{143}} of f
 
 \mbox{\hyperlink{_data_logging_8ino_a0d2a3a213399ec010b89dede4ba4de77}{start\+SD()}} attempts to begin communication with the SD card on SPI (single bit bus) Returns true if no errors exist, returns false if an error exists
 
-Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00056}{56}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
+Definition at line \mbox{\hyperlink{_data_logging_8ino_source_l00057}{57}} of file \mbox{\hyperlink{_data_logging_8ino_source}{Data\+Logging.\+ino}}.
 

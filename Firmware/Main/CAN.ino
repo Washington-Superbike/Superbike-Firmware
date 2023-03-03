@@ -16,7 +16,10 @@
       CAN_NODES is a non-zero number in Main.h
       before compiling.
       \n \n
-      Goal 2.
+      Potentially, check if the data is actually being updated by HIL. There is
+      no real instantiation of associating the CAN variables with the 
+      messages being read in in the canTask(), so maybe call on those methods
+      to read in those values, in case it doesnt work.
       \n \n
       Goal 3.
       \n \n

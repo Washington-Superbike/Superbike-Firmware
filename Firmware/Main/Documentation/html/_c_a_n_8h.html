@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_c_a_n_8h.html" title="The CAN.h config file for the CAN task for the bike&#39;s firmware. This defines the variables that are p...">CAN.h</a> config file for the CAN task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_c_a_n_8ino.html" title="The CAN.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables that are pa...">CAN.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_c_a_n_8ino.html" title="The CAN.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables that are pa...">CAN.ino</a>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
+<p>The <a class="el" href="_c_a_n_8h.html" title="The CAN.h config file for the CAN task for the bike&#39;s firmware. This defines the variables that are p...">CAN.h</a> config file for the CAN task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_c_a_n_8ino.html" title="The CAN.ino file operates the CAN bus for the bike&#39;s firmware. This updates all the variables in the ...">CAN.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_c_a_n_8ino.html" title="The CAN.ino file operates the CAN bus for the bike&#39;s firmware. This updates all the variables in the ...">CAN.ino</a>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;FlexCAN_T4.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_display_8h_source.html">Display.h</a>&quot;</code><br />
@@ -102,30 +102,43 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ab9d0930315055c0f1a6511c6cc3c5524"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#ab9d0930315055c0f1a6511c6cc3c5524">CAN_TASK_STACK_SIZE</a>&#160;&#160;&#160;<a class="el" href="_free_r_t_o_s_config__default_8h.html#a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</a> + 4096</td></tr>
+<tr class="memdesc:ab9d0930315055c0f1a6511c6cc3c5524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the configMINIMAL_STACK_SIZE variable in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to add up to the stack size used for the <a class="el" href="_c_a_n_8h.html#a785e095da30ce4993a186804102bf2ea">canTask()</a>  <a href="_c_a_n_8h.html#ab9d0930315055c0f1a6511c6cc3c5524">More...</a><br /></td></tr>
 <tr class="separator:ab9d0930315055c0f1a6511c6cc3c5524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b593ffe62c4590fa197331661393984"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a1b593ffe62c4590fa197331661393984">MOTOR_STATS_MSG</a>&#160;&#160;&#160;0x0CF11E05</td></tr>
+<tr class="memdesc:a1b593ffe62c4590fa197331661393984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor controller message - CAN.  <a href="_c_a_n_8h.html#a1b593ffe62c4590fa197331661393984">More...</a><br /></td></tr>
 <tr class="separator:a1b593ffe62c4590fa197331661393984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a464be4036d5c85f472f461fc987eb2da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a464be4036d5c85f472f461fc987eb2da">MOTOR_TEMPS_MSG</a>&#160;&#160;&#160;0x0CF11F05</td></tr>
+<tr class="memdesc:a464be4036d5c85f472f461fc987eb2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Motor controller message - CAN.  <a href="_c_a_n_8h.html#a464be4036d5c85f472f461fc987eb2da">More...</a><br /></td></tr>
 <tr class="separator:a464be4036d5c85f472f461fc987eb2da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7e658bcd09f49f37c7732ddc1c80fe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#ac7e658bcd09f49f37c7732ddc1c80fe2">EVCC_STATS</a>&#160;&#160;&#160;0x18e54024</td></tr>
+<tr class="memdesc:ac7e658bcd09f49f37c7732ddc1c80fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge controller status (current,volt...)  <a href="_c_a_n_8h.html#ac7e658bcd09f49f37c7732ddc1c80fe2">More...</a><br /></td></tr>
 <tr class="separator:ac7e658bcd09f49f37c7732ddc1c80fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa765e2d2381f199ed620b8d6962f60d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#aaa765e2d2381f199ed620b8d6962f60d">CHARGER_STATS</a>&#160;&#160;&#160;0x18eb2440</td></tr>
+<tr class="memdesc:aaa765e2d2381f199ed620b8d6962f60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thunderstruck Charger status (current,volt...)  <a href="_c_a_n_8h.html#aaa765e2d2381f199ed620b8d6962f60d">More...</a><br /></td></tr>
 <tr class="separator:aaa765e2d2381f199ed620b8d6962f60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44d631b0f4e7e294bc26dd9c77d3dcb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a44d631b0f4e7e294bc26dd9c77d3dcb9">DD_BMS_STATUS_IND</a>&#160;&#160;&#160;0x01dd0001</td></tr>
+<tr class="memdesc:a44d631b0f4e7e294bc26dd9c77d3dcb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">BMS cell data message (overvolt,undervolt...)  <a href="_c_a_n_8h.html#a44d631b0f4e7e294bc26dd9c77d3dcb9">More...</a><br /></td></tr>
 <tr class="separator:a44d631b0f4e7e294bc26dd9c77d3dcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a71b982a71be6bc19546f4c8fecadd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a5a71b982a71be6bc19546f4c8fecadd7">DD_BMSC_TH_STATUS_IND</a>&#160;&#160;&#160;0x01df0e00</td></tr>
+<tr class="memdesc:a5a71b982a71be6bc19546f4c8fecadd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Themistor values message.  <a href="_c_a_n_8h.html#a5a71b982a71be6bc19546f4c8fecadd7">More...</a><br /></td></tr>
 <tr class="separator:a5a71b982a71be6bc19546f4c8fecadd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a366031af35039c965b2bb3ac07dd702a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a366031af35039c965b2bb3ac07dd702a">BMSC1_LTC1_CELLS_04</a>&#160;&#160;&#160;0x01df0900</td></tr>
+<tr class="memdesc:a366031af35039c965b2bb3ac07dd702a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#a366031af35039c965b2bb3ac07dd702a">More...</a><br /></td></tr>
 <tr class="separator:a366031af35039c965b2bb3ac07dd702a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da14593c5f2bdd4bc417f9e66bc2a75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a2da14593c5f2bdd4bc417f9e66bc2a75">BMSC1_LTC1_CELLS_58</a>&#160;&#160;&#160;0x01df0a00</td></tr>
+<tr class="memdesc:a2da14593c5f2bdd4bc417f9e66bc2a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#a2da14593c5f2bdd4bc417f9e66bc2a75">More...</a><br /></td></tr>
 <tr class="separator:a2da14593c5f2bdd4bc417f9e66bc2a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1908e8612424d72ae778e43759f077f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#ac1908e8612424d72ae778e43759f077f">BMSC1_LTC1_CELLS_912</a>&#160;&#160;&#160;0x01df0b00</td></tr>
+<tr class="memdesc:ac1908e8612424d72ae778e43759f077f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#ac1908e8612424d72ae778e43759f077f">More...</a><br /></td></tr>
 <tr class="separator:ac1908e8612424d72ae778e43759f077f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c8bda430a00f369aed9309100c3107"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#a76c8bda430a00f369aed9309100c3107">BMSC1_LTC2_CELLS_04</a>&#160;&#160;&#160;0x01df0901</td></tr>
+<tr class="memdesc:a76c8bda430a00f369aed9309100c3107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#a76c8bda430a00f369aed9309100c3107">More...</a><br /></td></tr>
 <tr class="separator:a76c8bda430a00f369aed9309100c3107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa605748f6dfeb5f3ba7b8b473a2f41b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#aa605748f6dfeb5f3ba7b8b473a2f41b5">BMSC1_LTC2_CELLS_58</a>&#160;&#160;&#160;0x01df0a01</td></tr>
+<tr class="memdesc:aa605748f6dfeb5f3ba7b8b473a2f41b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#aa605748f6dfeb5f3ba7b8b473a2f41b5">More...</a><br /></td></tr>
 <tr class="separator:aa605748f6dfeb5f3ba7b8b473a2f41b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af80d69aa4a06cbc8b1137773336f74ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#af80d69aa4a06cbc8b1137773336f74ec">BMSC1_LTC2_CELLS_912</a>&#160;&#160;&#160;0x01df0b01</td></tr>
+<tr class="memdesc:af80d69aa4a06cbc8b1137773336f74ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convention: BMSC, LTC, CELL RANGE.  <a href="_c_a_n_8h.html#af80d69aa4a06cbc8b1137773336f74ec">More...</a><br /></td></tr>
 <tr class="separator:af80d69aa4a06cbc8b1137773336f74ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb50849ed846717c3096b10fb75d537"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#aedb50849ed846717c3096b10fb75d537">BMS_CELLS</a>&#160;&#160;&#160;24</td></tr>
 <tr class="separator:aedb50849ed846717c3096b10fb75d537"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,14 +177,16 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aa4303f5a4b2f41108b988f850270b2d1"><td class="memItemLeft" align="right" valign="top">FlexCAN_T4&lt; CAN2, RX_SIZE_256, TX_SIZE_16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#aa4303f5a4b2f41108b988f850270b2d1">CAN_bus</a></td></tr>
+<tr class="memdesc:aa4303f5a4b2f41108b988f850270b2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus handle.  <a href="_c_a_n_8h.html#aa4303f5a4b2f41108b988f850270b2d1">More...</a><br /></td></tr>
 <tr class="separator:aa4303f5a4b2f41108b988f850270b2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afef5641c16f897cbe9fc00682fb749ed"><td class="memItemLeft" align="right" valign="top">CAN_message_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#afef5641c16f897cbe9fc00682fb749ed">CAN_msg</a></td></tr>
+<tr class="memdesc:afef5641c16f897cbe9fc00682fb749ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to format reading/writing on the CAN bus.  <a href="_c_a_n_8h.html#afef5641c16f897cbe9fc00682fb749ed">More...</a><br /></td></tr>
 <tr class="separator:afef5641c16f897cbe9fc00682fb749ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af798cac38f8c00111b4be880f47d8020"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_c_a_n_8h.html#af798cac38f8c00111b4be880f47d8020">cellVoltagesReady</a> [24] = {false}</td></tr>
 <tr class="separator:af798cac38f8c00111b4be880f47d8020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_c_a_n_8h.html" title="The CAN.h config file for the CAN task for the bike&#39;s firmware. This defines the variables that are p...">CAN.h</a> config file for the CAN task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_c_a_n_8ino.html" title="The CAN.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables that are pa...">CAN.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_c_a_n_8ino.html" title="The CAN.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables that are pa...">CAN.ino</a>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
+<div class="textblock"><p >The <a class="el" href="_c_a_n_8h.html" title="The CAN.h config file for the CAN task for the bike&#39;s firmware. This defines the variables that are p...">CAN.h</a> config file for the CAN task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_c_a_n_8ino.html" title="The CAN.ino file operates the CAN bus for the bike&#39;s firmware. This updates all the variables in the ...">CAN.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_c_a_n_8ino.html" title="The CAN.ino file operates the CAN bus for the bike&#39;s firmware. This updates all the variables in the ...">CAN.ino</a>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.</dd></dl>
@@ -196,8 +211,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >This is set to 24 instead of 20 because the BMS sends cells in packs of 12 so it makes the decipher function simpler. This represents the number of cells connected to the main accumulator BMS </p>
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00047">47</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00060">60</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +229,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00038">38</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00045">45</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +247,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00039">39</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00047">47</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -245,7 +265,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00040">40</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00049">49</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +283,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00041">41</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00051">51</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -277,7 +301,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00042">42</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00053">53</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +319,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00043">43</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Convention: BMSC, LTC, CELL RANGE. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00055">55</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -308,6 +336,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Uses the configMINIMAL_STACK_SIZE variable in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to add up to the stack size used for the <a class="el" href="_c_a_n_8h.html#a785e095da30ce4993a186804102bf2ea">canTask()</a> </p>
 
 <p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00030">30</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
@@ -325,7 +355,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00035">35</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Thunderstruck Charger status (current,volt...) </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00039">39</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +373,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00036">36</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>BMS cell data message (overvolt,undervolt...) </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00041">41</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -357,7 +391,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00037">37</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Themistor values message. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00043">43</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -373,7 +409,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00034">34</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Charge controller status (current,volt...) </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00037">37</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -389,7 +427,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00032">32</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Motor controller message - CAN. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00033">33</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +445,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00033">33</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Motor controller message - CAN. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00035">35</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +468,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00137">137</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00135">135</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -445,8 +487,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >First <a class="el" href="_c_a_n_8ino.html#a785e095da30ce4993a186804102bf2ea">canTask()</a> checks for new incoming messages</p>
+<p >NOTE: CAN breaks if we try sending messages with 0 other nodes on the bus as there is no node to 'ACK' our message. Therefore, change CAN_NODES in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to make sure things dont break.</p>
+<p >Ask for other half of cell voltages from BMS every 2 seconds</p>
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00033">33</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00031">31</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -466,7 +511,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00147">147</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00145">145</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -496,7 +541,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00090">90</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00088">88</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -526,7 +571,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00098">98</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00096">96</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -556,7 +601,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00068">68</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00066">66</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -586,7 +631,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00062">62</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00060">60</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -616,7 +661,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00125">125</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00123">123</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -646,7 +691,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00076">76</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00074">74</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -676,7 +721,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00083">83</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00081">81</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -695,7 +740,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00192">192</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00190">190</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -715,7 +760,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00226">226</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00224">224</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -735,7 +780,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00236">236</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00234">234</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -754,7 +799,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00057">57</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8ino_source.html#l00055">55</a> of file <a class="el" href="_c_a_n_8ino_source.html">CAN.ino</a>.</p>
 
 </div>
 </div>
@@ -771,7 +816,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00050">50</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>CAN bus handle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00063">63</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -787,7 +834,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00053">53</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p>Used to format reading/writing on the CAN bus. </p>
+
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00066">66</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>
@@ -810,8 +859,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >If cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS it is false otherwise (so we know when we have collected all distinct cell voltages </p>
 
-<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00057">57</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_c_a_n_8h_source.html#l00070">70</a> of file <a class="el" href="_c_a_n_8h_source.html">CAN.h</a>.</p>
 
 </div>
 </div>

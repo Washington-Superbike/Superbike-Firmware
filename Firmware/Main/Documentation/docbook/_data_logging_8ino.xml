@@ -52,7 +52,7 @@
 <para>All members should be able to use it without any trouble. Chase made a method to process the logs data without any trouble, but they be able to use it without any trouble.</para>
 </note>
 <para><link linkend="_todo_1_todo000004">Todo</link> 
-<para>Goal 1. 
+<para>Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
@@ -82,7 +82,7 @@ Definition in file <link linkend="__data_logging_8ino_source">DataLogging.ino</l
 
 <para>NOTE: The function kinda works but should be redone later to use (void *) datatype instead of (float *). Then cast the (void *) to whatever datatype is given by D_TYPE Example: to print an int you would do</para>
 </note>
-void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
+THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
 
 <para>
 <literallayout>&#160;&#xa;</literallayout>
@@ -92,7 +92,7 @@ void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValues
 
 <para>I want to add it in now but it should be tested before being merged obviously.. Chase</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00097">97</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00098">98</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827"/><section>
     <title>closeFile()</title>
@@ -101,7 +101,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00097">97</link> 
 <para><computeroutput>void closeFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827">closeFile()</link> closes the file inside the <link linkend="_struct_c_s_v_writer">CSVWriter</link></para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00069">69</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00070">70</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819"/><section>
     <title>dataLoggingTask()</title>
@@ -110,7 +110,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00069">69</link> 
 <para><computeroutput>void dataLoggingTask (void * dlData)</computeroutput></para>
 <para>The <link linkend="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> processes the data, for each of the logs. Just uses sdFat methods within the helper methods <link linkend="__data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451">addRecord()</link>, <link linkend="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a">saveFiles()</link> as required to process the neatly organized <link linkend="_struct_c_s_v_writer">CSVWriter</link> data and then save it.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00029">29</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00030">30</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e"/><section>
     <title>openFile()</title>
@@ -119,7 +119,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00029">29</link> 
 <para><computeroutput>bool openFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> attemps to open the file designated at the filename inside <link linkend="_struct_c_s_v_writer">CSVWriter</link> Returns true if no errors, returns false if any error exists</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00062">62</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00063">63</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a"/><section>
     <title>printFile()</title>
@@ -128,7 +128,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00062">62</link> 
 <para><computeroutput>void printFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para>Opens the file using <link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> and then prints out what is read in from the <link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> method to the Serial monitor</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00087">87</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00088">88</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a"/><section>
     <title>saveFile()</title>
@@ -137,7 +137,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00087">87</link> 
 <para><computeroutput>void saveFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a">saveFile()</link> saves the file inside the <link linkend="_struct_c_s_v_writer">CSVWriter</link></para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00074">74</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00075">75</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a"/><section>
     <title>saveFiles()</title>
@@ -146,7 +146,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00074">74</link> 
 <para><computeroutput>void saveFiles (<link linkend="_struct_c_s_v_writer">CSVWriter</link> ** writers, int writersLen)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a">saveFiles()</link> calls on <link linkend="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a">saveFile()</link> multiple times until all the files are saved.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00079">79</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00080">80</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b"/><section>
     <title>startRecording()</title>
@@ -155,7 +155,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00079">79</link> 
 <para><computeroutput>void startRecording ( )</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b">startRecording()</link> sets the &quot;epoch&quot; or beginning time so that each data log is synced up.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00143">143</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00145">145</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77"/><section>
     <title>startSD()</title>
@@ -164,7 +164,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00143">143</link>
 <para><computeroutput>bool startSD ( )</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77">startSD()</link> attempts to begin communication with the SD card on SPI (single bit bus) Returns true if no errors exist, returns false if an error exists</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00056">56</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00057">57</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 </section>
 </section>

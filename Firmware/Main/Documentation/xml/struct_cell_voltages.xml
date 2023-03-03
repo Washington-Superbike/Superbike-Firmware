@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="101" column="9" bodyfile="CAN.h" bodystart="101" bodyend="-1"/>
+        <location file="CAN.h" line="142" column="9" bodyfile="CAN.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="102" column="9" bodyfile="CAN.h" bodystart="102" bodyend="-1"/>
+        <location file="CAN.h" line="143" column="9" bodyfile="CAN.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" prot="public" static="no" mutable="no">
         <type>bool *</type>
@@ -44,14 +44,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="103" column="8" bodyfile="CAN.h" bodystart="103" bodyend="-1"/>
+        <location file="CAN.h" line="144" column="8" bodyfile="CAN.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A simple struct to store the cellVoltages, the seriesVoltages of the cells and if they&apos;re ready?? Unsure. </para>
     </detaileddescription>
-    <location file="CAN.h" line="100" column="1" bodyfile="CAN.h" bodystart="100" bodyend="104"/>
+    <location file="CAN.h" line="141" column="1" bodyfile="CAN.h" bodystart="141" bodyend="145"/>
     <listofallmembers>
       <member refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" prot="public" virt="non-virtual"><scope>CellVoltages</scope><name>cellVoltages</name></member>
       <member refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" prot="public" virt="non-virtual"><scope>CellVoltages</scope><name>ready</name></member>

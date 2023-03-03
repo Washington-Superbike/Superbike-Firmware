@@ -21,20 +21,36 @@
     <title>Macros    </title>
         <itemizedlist>
             <listitem><para>#define <link linkend="__data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2">DATALOGGING_TASK_STACK_SIZE</link>   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</para>
+
+<para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99">MOTOR_TEMPERATURE_LOG</link>   &quot;motor_temperature_log.csv&quot;</para>
+
+<para>The name for the motor temperature log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f">MOTOR_CONTROLLER_TEMPERATURE_LOG</link>   &quot;motor_controller_temperature_log.csv&quot;</para>
+
+<para>The name for the motor controller temperature log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b">BMS_VOLTAGE_LOG</link>   &quot;bms_voltage_log.csv&quot;</para>
+
+<para>The name for the BMS voltage log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1a34f856128abdd56434d31edd1f4ce549">MOTOR_CONTROLLER_VOLTAGE_LOG</link>   &quot;motor_controller_voltage_log.csv&quot;</para>
+
+<para>The name for the motor controller voltage log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1aa98fafae382d16d375eeef356bf55917">MOTOR_CURRENT_LOG</link>   &quot;current_log.csv&quot;</para>
+
+<para>The name for the motor controller current log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d">THERMISTOR_LOG</link>   &quot;thermistor_log.csv&quot;</para>
+
+<para>The name for the thermistor temperature log. </para>
 </listitem>
             <listitem><para>#define <link linkend="__data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2">RPM_LOG</link>   &quot;rpm_log.csv&quot;</para>
+
+<para>The name for the motor RPM log. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -74,12 +90,18 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>const uint8_t <link linkend="__data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45">SD_CS_PIN</link> = SS</para>
+
+<para>Use built-in SD for SPI modes on Teensy 3.5/3.6. </para>
 </listitem>
             <listitem><para>const size_t <link linkend="__data_logging_8h_1a888ed23a146630d5e36a08aed19ff638">BUF_DIM</link> = 4096</para>
 </listitem>
             <listitem><para>SdFat <link linkend="__data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302">sd</link></para>
+
+<para>Represents the serial connection to the sd card and any internal buffers. </para>
 </listitem>
             <listitem><para>unsigned long <link linkend="__data_logging_8h_1a90b197693eeaad244ff381d5645b1c16">epochTime</link></para>
+
+<para>Represents the time that recording started. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -129,56 +151,88 @@ Definition in file <link linkend="__data_logging_8h_source">DataLogging.h</link>
 <indexterm><primary>BMS_VOLTAGE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>BMS_VOLTAGE_LOG</secondary></indexterm>
 <para><computeroutput>#define BMS_VOLTAGE_LOG   &quot;bms_voltage_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00048">48</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the BMS voltage log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00052">52</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2"/><section>
     <title>DATALOGGING_TASK_STACK_SIZE</title>
 <indexterm><primary>DATALOGGING_TASK_STACK_SIZE</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>DATALOGGING_TASK_STACK_SIZE</secondary></indexterm>
 <para><computeroutput>#define DATALOGGING_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00043">43</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00044">44</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f"/><section>
     <title>MOTOR_CONTROLLER_TEMPERATURE_LOG</title>
 <indexterm><primary>MOTOR_CONTROLLER_TEMPERATURE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CONTROLLER_TEMPERATURE_LOG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_CONTROLLER_TEMPERATURE_LOG   &quot;motor_controller_temperature_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00047">47</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the motor controller temperature log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00050">50</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a34f856128abdd56434d31edd1f4ce549"/><section>
     <title>MOTOR_CONTROLLER_VOLTAGE_LOG</title>
 <indexterm><primary>MOTOR_CONTROLLER_VOLTAGE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CONTROLLER_VOLTAGE_LOG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_CONTROLLER_VOLTAGE_LOG   &quot;motor_controller_voltage_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00049">49</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the motor controller voltage log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00054">54</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1aa98fafae382d16d375eeef356bf55917"/><section>
     <title>MOTOR_CURRENT_LOG</title>
 <indexterm><primary>MOTOR_CURRENT_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CURRENT_LOG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_CURRENT_LOG   &quot;current_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00050">50</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the motor controller current log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00056">56</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99"/><section>
     <title>MOTOR_TEMPERATURE_LOG</title>
 <indexterm><primary>MOTOR_TEMPERATURE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_TEMPERATURE_LOG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_TEMPERATURE_LOG   &quot;motor_temperature_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00046">46</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the motor temperature log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00048">48</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2"/><section>
     <title>RPM_LOG</title>
 <indexterm><primary>RPM_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>RPM_LOG</secondary></indexterm>
 <para><computeroutput>#define RPM_LOG   &quot;rpm_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00052">52</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the motor RPM log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00060">60</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d"/><section>
     <title>THERMISTOR_LOG</title>
 <indexterm><primary>THERMISTOR_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>THERMISTOR_LOG</secondary></indexterm>
 <para><computeroutput>#define THERMISTOR_LOG   &quot;thermistor_log.csv&quot;</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00051">51</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>The name for the thermistor temperature log. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00058">58</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 </section>
 <section>
@@ -187,7 +241,9 @@ Definition at line <link linkend="__data_logging_8h_source_1l00051">51</link> of
     <title>data_type</title>
 <indexterm><primary>data_type</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>data_type</secondary></indexterm>
-<para><computeroutput>enum <link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">data_type</link></computeroutput></para><informaltable frame="all">
+<para><computeroutput>enum <link linkend="__data_logging_8h_1ac2ad7f431e3446fddcd9b6b9f93c4c14">data_type</link></computeroutput></para>
+<para>Basic enum for data types for logging. Nothing else really. </para>
+<informaltable frame="all">
 <title>Enumerator</title>
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
       <colspec colname='c1'/>
@@ -201,7 +257,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00051">51</link> of
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="__data_logging_8h_source_1l00074">74</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00083">83</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 </section>
 <section>
@@ -217,7 +273,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00074">74</link> of
 
 <para>NOTE: The function kinda works but should be redone later to use (void *) datatype instead of (float *). Then cast the (void *) to whatever datatype is given by D_TYPE Example: to print an int you would do</para>
 </note>
-void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
+THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
 
 <para>
 <literallayout>&#160;&#xa;</literallayout>
@@ -227,7 +283,7 @@ void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValues
 
 <para>I want to add it in now but it should be tested before being merged obviously.. Chase</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00097">97</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00098">98</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827"/><section>
     <title>closeFile()</title>
@@ -236,7 +292,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00097">97</link> 
 <para><computeroutput>void closeFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827">closeFile()</link> closes the file inside the <link linkend="_struct_c_s_v_writer">CSVWriter</link></para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00069">69</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00070">70</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819"/><section>
     <title>dataLoggingTask()</title>
@@ -245,7 +301,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00069">69</link> 
 <para><computeroutput>void dataLoggingTask (void * dlData)</computeroutput></para>
 <para>The <link linkend="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> processes the data, for each of the logs. Just uses sdFat methods within the helper methods <link linkend="__data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451">addRecord()</link>, <link linkend="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a">saveFiles()</link> as required to process the neatly organized <link linkend="_struct_c_s_v_writer">CSVWriter</link> data and then save it.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00029">29</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00030">30</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e"/><section>
     <title>openFile()</title>
@@ -254,7 +310,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00029">29</link> 
 <para><computeroutput>bool openFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> attemps to open the file designated at the filename inside <link linkend="_struct_c_s_v_writer">CSVWriter</link> Returns true if no errors, returns false if any error exists</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00062">62</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00063">63</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a8777416fb5b01666e7b28ada9f3b552a"/><section>
     <title>printFile()</title>
@@ -263,7 +319,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00062">62</link> 
 <para><computeroutput>void printFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para>Opens the file using <link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> and then prints out what is read in from the <link linkend="__data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e">openFile()</link> method to the Serial monitor</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00087">87</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00088">88</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a678245415389e1bbd75b088a980b008a"/><section>
     <title>saveFile()</title>
@@ -272,7 +328,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00087">87</link> 
 <para><computeroutput>void saveFile (<link linkend="_struct_c_s_v_writer">CSVWriter</link> * writer)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a">saveFile()</link> saves the file inside the <link linkend="_struct_c_s_v_writer">CSVWriter</link></para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00074">74</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00075">75</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a52d8bf385131a3543793f22ee432100a"/><section>
     <title>saveFiles()</title>
@@ -281,7 +337,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00074">74</link> 
 <para><computeroutput>void saveFiles (<link linkend="_struct_c_s_v_writer">CSVWriter</link> ** writers, int writersLen)</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a52d8bf385131a3543793f22ee432100a">saveFiles()</link> calls on <link linkend="__data_logging_8ino_1a678245415389e1bbd75b088a980b008a">saveFile()</link> multiple times until all the files are saved.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00079">79</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00080">80</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1ab91616c118b701c2afd9136393d1f19b"/><section>
     <title>startRecording()</title>
@@ -290,7 +346,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00079">79</link> 
 <para><computeroutput>void startRecording ( )</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b">startRecording()</link> sets the &quot;epoch&quot; or beginning time so that each data log is synced up.</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00143">143</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00145">145</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77"/><section>
     <title>startSD()</title>
@@ -299,7 +355,7 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00143">143</link>
 <para><computeroutput>bool startSD ( )</computeroutput></para>
 <para><link linkend="__data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77">startSD()</link> attempts to begin communication with the SD card on SPI (single bit bus) Returns true if no errors exist, returns false if an error exists</para>
 <para>
-Definition at line <link linkend="__data_logging_8ino_source_1l00056">56</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
+Definition at line <link linkend="__data_logging_8ino_source_1l00057">57</link> of file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
 </section>
 </section>
 <section>
@@ -309,28 +365,40 @@ Definition at line <link linkend="__data_logging_8ino_source_1l00056">56</link> 
 <indexterm><primary>BUF_DIM</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>BUF_DIM</secondary></indexterm>
 <para><computeroutput>const size_t BUF_DIM = 4096</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00064">64</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00072">72</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a90b197693eeaad244ff381d5645b1c16"/><section>
     <title>epochTime</title>
 <indexterm><primary>epochTime</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>epochTime</secondary></indexterm>
 <para><computeroutput>unsigned long epochTime</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00069">69</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>Represents the time that recording started. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00078">78</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a15e6b7e1f0fb2d1e0fe1654721bb5302"/><section>
     <title>sd</title>
 <indexterm><primary>sd</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>sd</secondary></indexterm>
 <para><computeroutput>SdFat sd</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00067">67</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>Represents the serial connection to the sd card and any internal buffers. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00075">75</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="__data_logging_8h_1a587c91dc29e14d8227957fbe22af6f45"/><section>
     <title>SD_CS_PIN</title>
 <indexterm><primary>SD_CS_PIN</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>SD_CS_PIN</secondary></indexterm>
 <para><computeroutput>const uint8_t SD_CS_PIN = SS</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00058">58</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+
+<para>Use built-in SD for SPI modes on Teensy 3.5/3.6. </para>
+</para>
+<para>
+Definition at line <link linkend="__data_logging_8h_source_1l00066">66</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 </section>
 </section>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="107" column="14" bodyfile="CAN.h" bodystart="107" bodyend="-1"/>
+        <location file="CAN.h" line="153" column="14" bodyfile="CAN.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" prot="public" static="no" mutable="no">
         <type><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="108" column="14" bodyfile="CAN.h" bodystart="108" bodyend="-1"/>
+        <location file="CAN.h" line="154" column="14" bodyfile="CAN.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" prot="public" static="no" mutable="no">
         <type><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="109" column="13" bodyfile="CAN.h" bodystart="109" bodyend="-1"/>
+        <location file="CAN.h" line="155" column="13" bodyfile="CAN.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" prot="public" static="no" mutable="no">
         <type><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref></type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="110" column="19" bodyfile="CAN.h" bodystart="110" bodyend="-1"/>
+        <location file="CAN.h" line="156" column="19" bodyfile="CAN.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" prot="public" static="no" mutable="no">
         <type><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="111" column="16" bodyfile="CAN.h" bodystart="111" bodyend="-1"/>
+        <location file="CAN.h" line="157" column="16" bodyfile="CAN.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" prot="public" static="no" mutable="no">
         <type><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref></type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="112" column="16" bodyfile="CAN.h" bodystart="112" bodyend="-1"/>
+        <location file="CAN.h" line="158" column="16" bodyfile="CAN.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" prot="public" static="no" mutable="no">
         <type><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref></type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="113" column="25" bodyfile="CAN.h" bodystart="113" bodyend="-1"/>
+        <location file="CAN.h" line="159" column="25" bodyfile="CAN.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -114,12 +114,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="114" column="9" bodyfile="CAN.h" bodystart="114" bodyend="-1"/>
+        <location file="CAN.h" line="160" column="9" bodyfile="CAN.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A simple struct to store the CanTaskData, a combination of all the previous structs all into this one and then passing it onto the <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref> to be processed by the <ref refid="_c_a_n_8ino" kindref="compound">Can.ino</ref> </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="4">
@@ -176,7 +177,7 @@
         <link refid="struct_thermistor_temps"/>
       </node>
     </collaborationgraph>
-    <location file="CAN.h" line="106" column="1" bodyfile="CAN.h" bodystart="106" bodyend="115"/>
+    <location file="CAN.h" line="152" column="1" bodyfile="CAN.h" bodystart="152" bodyend="161"/>
     <listofallmembers>
       <member refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>bmsStatus</name></member>
       <member refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" prot="public" virt="non-virtual"><scope>CANTaskData</scope><name>cellVoltages</name></member>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="46" column="13" bodyfile="Precharge.h" bodystart="46" bodyend="-1"/>
+        <location file="Precharge.h" line="64" column="13" bodyfile="Precharge.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" prot="public" static="no" mutable="no">
         <type><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="47" column="14" bodyfile="Precharge.h" bodystart="47" bodyend="-1"/>
+        <location file="Precharge.h" line="65" column="14" bodyfile="Precharge.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" prot="public" static="no" mutable="no">
         <type><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="48" column="16" bodyfile="Precharge.h" bodystart="48" bodyend="-1"/>
+        <location file="Precharge.h" line="66" column="16" bodyfile="Precharge.h" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="49" column="9" bodyfile="Precharge.h" bodystart="49" bodyend="-1"/>
+        <location file="Precharge.h" line="67" column="9" bodyfile="Precharge.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="50" column="9" bodyfile="Precharge.h" bodystart="50" bodyend="-1"/>
+        <location file="Precharge.h" line="68" column="9" bodyfile="Precharge.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="51" column="9" bodyfile="Precharge.h" bodystart="51" bodyend="-1"/>
+        <location file="Precharge.h" line="69" column="9" bodyfile="Precharge.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="52" column="9" bodyfile="Precharge.h" bodystart="52" bodyend="-1"/>
+        <location file="Precharge.h" line="70" column="9" bodyfile="Precharge.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="53" column="9" bodyfile="Precharge.h" bodystart="53" bodyend="-1"/>
+        <location file="Precharge.h" line="71" column="9" bodyfile="Precharge.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="54" column="9" bodyfile="Precharge.h" bodystart="54" bodyend="-1"/>
+        <location file="Precharge.h" line="72" column="9" bodyfile="Precharge.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="56" column="9" bodyfile="Precharge.h" bodystart="56" bodyend="-1"/>
+        <location file="Precharge.h" line="74" column="9" bodyfile="Precharge.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="57" column="9" bodyfile="Precharge.h" bodystart="57" bodyend="-1"/>
+        <location file="Precharge.h" line="75" column="9" bodyfile="Precharge.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="58" column="9" bodyfile="Precharge.h" bodystart="58" bodyend="-1"/>
+        <location file="Precharge.h" line="76" column="9" bodyfile="Precharge.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="60" column="7" bodyfile="Precharge.h" bodystart="60" bodyend="-1"/>
+        <location file="Precharge.h" line="78" column="7" bodyfile="Precharge.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="61" column="9" bodyfile="Precharge.h" bodystart="61" bodyend="-1"/>
+        <location file="Precharge.h" line="79" column="9" bodyfile="Precharge.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="62" column="9" bodyfile="Precharge.h" bodystart="62" bodyend="-1"/>
+        <location file="Precharge.h" line="80" column="9" bodyfile="Precharge.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="63" column="9" bodyfile="Precharge.h" bodystart="63" bodyend="-1"/>
+        <location file="Precharge.h" line="81" column="9" bodyfile="Precharge.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="64" column="9" bodyfile="Precharge.h" bodystart="64" bodyend="-1"/>
+        <location file="Precharge.h" line="82" column="9" bodyfile="Precharge.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="65" column="9" bodyfile="Precharge.h" bodystart="65" bodyend="-1"/>
+        <location file="Precharge.h" line="83" column="9" bodyfile="Precharge.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -268,7 +268,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="67" column="9" bodyfile="Precharge.h" bodystart="67" bodyend="-1"/>
+        <location file="Precharge.h" line="85" column="9" bodyfile="Precharge.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -282,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="68" column="9" bodyfile="Precharge.h" bodystart="68" bodyend="-1"/>
+        <location file="Precharge.h" line="86" column="9" bodyfile="Precharge.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -296,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="69" column="9" bodyfile="Precharge.h" bodystart="69" bodyend="-1"/>
+        <location file="Precharge.h" line="87" column="9" bodyfile="Precharge.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="70" column="9" bodyfile="Precharge.h" bodystart="70" bodyend="-1"/>
+        <location file="Precharge.h" line="88" column="9" bodyfile="Precharge.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -324,12 +324,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="71" column="9" bodyfile="Precharge.h" bodystart="71" bodyend="-1"/>
+        <location file="Precharge.h" line="89" column="9" bodyfile="Precharge.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>Just too many things in here. The packaged struct for processing preCharge data This contains the BMS data, the motorData nad the cellVoltages, all good for processing. Then there&apos;s about 15 variables for processing gyroscope data. This can be reduced down to two: angle_X and angle_Y. </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -358,7 +359,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="Precharge.h" line="45" column="1" bodyfile="Precharge.h" bodystart="45" bodyend="72"/>
+    <location file="Precharge.h" line="63" column="1" bodyfile="Precharge.h" bodystart="63" bodyend="90"/>
     <listofallmembers>
       <member refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AccX</name></member>
       <member refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" prot="public" virt="non-virtual"><scope>PreChargeTaskData</scope><name>AccY</name></member>

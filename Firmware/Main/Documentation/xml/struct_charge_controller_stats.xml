@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="75" column="8" bodyfile="CAN.h" bodystart="75" bodyend="-1"/>
+        <location file="CAN.h" line="99" column="8" bodyfile="CAN.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="76" column="9" bodyfile="CAN.h" bodystart="76" bodyend="-1"/>
+        <location file="CAN.h" line="100" column="9" bodyfile="CAN.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -44,14 +44,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="77" column="9" bodyfile="CAN.h" bodystart="77" bodyend="-1"/>
+        <location file="CAN.h" line="101" column="9" bodyfile="CAN.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A simple struct to store all the stats from the chargeController. The charge voltage and charge current. </para>
     </detaileddescription>
-    <location file="CAN.h" line="74" column="1" bodyfile="CAN.h" bodystart="74" bodyend="78"/>
+    <location file="CAN.h" line="98" column="1" bodyfile="CAN.h" bodystart="98" bodyend="102"/>
     <listofallmembers>
       <member refid="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" prot="public" virt="non-virtual"><scope>ChargeControllerStats</scope><name>chargeCurrent</name></member>
       <member refid="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" prot="public" virt="non-virtual"><scope>ChargeControllerStats</scope><name>chargeVoltage</name></member>

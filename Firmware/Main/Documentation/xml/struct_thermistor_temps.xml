@@ -16,14 +16,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="97" column="9" bodyfile="CAN.h" bodystart="97" bodyend="-1"/>
+        <location file="CAN.h" line="134" column="9" bodyfile="CAN.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A simple struct to store all the stats from the thermistors (just the temperatures really). </para>
     </detaileddescription>
-    <location file="CAN.h" line="96" column="1" bodyfile="CAN.h" bodystart="96" bodyend="98"/>
+    <location file="CAN.h" line="133" column="1" bodyfile="CAN.h" bodystart="133" bodyend="135"/>
     <listofallmembers>
       <member refid="struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b" prot="public" virt="non-virtual"><scope>ThermistorTemps</scope><name>temps</name></member>
     </listofallmembers>

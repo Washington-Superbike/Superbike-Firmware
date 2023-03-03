@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="DataLogging.h" line="92" column="13" bodyfile="DataLogging.h" bodystart="92" bodyend="-1"/>
+        <location file="DataLogging.h" line="113" column="13" bodyfile="DataLogging.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,12 +30,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="DataLogging.h" line="93" column="7" bodyfile="DataLogging.h" bodystart="93" bodyend="-1"/>
+        <location file="DataLogging.h" line="114" column="7" bodyfile="DataLogging.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A struct for the overall dataLoggingTaskData. Stores a pointer to the pointer (array) of CSVWriters. Thus to process the logs, you have to dereference the pointer and then call on the array by index. The length just represents the number of logs and log files to generate. This would be of interest to teams that might want to add more info in the log SD card. </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -50,7 +51,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="DataLogging.h" line="91" column="1" bodyfile="DataLogging.h" bodystart="91" bodyend="94"/>
+    <location file="DataLogging.h" line="112" column="1" bodyfile="DataLogging.h" bodystart="112" bodyend="115"/>
     <listofallmembers>
       <member refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" prot="public" virt="non-virtual"><scope>DataLoggingTaskData</scope><name>writers</name></member>
       <member refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" prot="public" virt="non-virtual"><scope>DataLoggingTaskData</scope><name>writersLen</name></member>

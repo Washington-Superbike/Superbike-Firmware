@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
+<p>The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_free_r_t_o_s___t_e_e_n_s_y4_8h_source.html">FreeRTOS_TEENSY4.h</a>&quot;</code><br />
 </div>
@@ -89,18 +89,25 @@ Macros</h2></td></tr>
 <tr class="memitem:a0ea5dd53294d533feaeeb8731cb9739a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a0ea5dd53294d533feaeeb8731cb9739a">PRECHARGE_TASK_STACK_SIZE</a>&#160;&#160;&#160;<a class="el" href="_free_r_t_o_s_config__default_8h.html#a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</a> + 4096</td></tr>
 <tr class="separator:a0ea5dd53294d533feaeeb8731cb9739a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1099ac76283225ff2bbbbdc0819ba4e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#ae1099ac76283225ff2bbbbdc0819ba4e">CONTACTOR</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:ae1099ac76283225ff2bbbbdc0819ba4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for contactor control (closing or opening)  <a href="_precharge_8h.html#ae1099ac76283225ff2bbbbdc0819ba4e">More...</a><br /></td></tr>
 <tr class="separator:ae1099ac76283225ff2bbbbdc0819ba4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a093dd273c900bae9cba2b32149e30eaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a093dd273c900bae9cba2b32149e30eaa">PRECHARGE</a>&#160;&#160;&#160;17</td></tr>
+<tr class="memdesc:a093dd273c900bae9cba2b32149e30eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for relay in series with precharge resistor.  <a href="_precharge_8h.html#a093dd273c900bae9cba2b32149e30eaa">More...</a><br /></td></tr>
 <tr class="separator:a093dd273c900bae9cba2b32149e30eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e1dc017df18faad4234012c3e88d2f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a4e1dc017df18faad4234012c3e88d2f6">HIGH_VOLTAGE_TOGGLE</a>&#160;&#160;&#160;15</td></tr>
+<tr class="memdesc:a4e1dc017df18faad4234012c3e88d2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for starting precharge, exit precharging, exit done-precharging.  <a href="_precharge_8h.html#a4e1dc017df18faad4234012c3e88d2f6">More...</a><br /></td></tr>
 <tr class="separator:a4e1dc017df18faad4234012c3e88d2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f82f95bb8a6ffac8f6998ff4e5e16ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a6f82f95bb8a6ffac8f6998ff4e5e16ec">CLOSE_CONTACTOR_BUTTON</a>&#160;&#160;&#160;14</td></tr>
+<tr class="memdesc:a6f82f95bb8a6ffac8f6998ff4e5e16ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for closing the contactor (usable after precharging)  <a href="_precharge_8h.html#a6f82f95bb8a6ffac8f6998ff4e5e16ec">More...</a><br /></td></tr>
 <tr class="separator:a6f82f95bb8a6ffac8f6998ff4e5e16ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0985e25d7f0cd7e7101c2f20c1cf8e02"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a0985e25d7f0cd7e7101c2f20c1cf8e02">CONTACTOR_PRECHARGED_LED</a>&#160;&#160;&#160;18</td></tr>
+<tr class="memdesc:a0985e25d7f0cd7e7101c2f20c1cf8e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for LED that illuminates after precharge complete.  <a href="_precharge_8h.html#a0985e25d7f0cd7e7101c2f20c1cf8e02">More...</a><br /></td></tr>
 <tr class="separator:a0985e25d7f0cd7e7101c2f20c1cf8e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a606b28f262c8b6842a36e2f68cfc327a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a606b28f262c8b6842a36e2f68cfc327a">CONTACTOR_CLOSED_LED</a>&#160;&#160;&#160;19</td></tr>
+<tr class="memdesc:a606b28f262c8b6842a36e2f68cfc327a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teensy pin for LED that illuminates when the contactor is closed.  <a href="_precharge_8h.html#a606b28f262c8b6842a36e2f68cfc327a">More...</a><br /></td></tr>
 <tr class="separator:a606b28f262c8b6842a36e2f68cfc327a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d7443dc1d0d423a961f907584dfd19e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a3d7443dc1d0d423a961f907584dfd19e">NUMBER_OF_LTCS</a>&#160;&#160;&#160;20</td></tr>
+<tr class="memdesc:a3d7443dc1d0d423a961f907584dfd19e"><td class="mdescLeft">&#160;</td><td class="mdescRight">THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs.  <a href="_precharge_8h.html#a3d7443dc1d0d423a961f907584dfd19e">More...</a><br /></td></tr>
 <tr class="separator:a3d7443dc1d0d423a961f907584dfd19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f9513787cfe256aae379719ab26ca39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a1f9513787cfe256aae379719ab26ca39">MOTORCONTROLLER_TEMP_MAX</a>&#160;&#160;&#160;65</td></tr>
 <tr class="separator:a1f9513787cfe256aae379719ab26ca39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +121,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="_precharge_8h.html#a5faacefaff4b0ce77f1f8be0bf2aaf29ab5febf14562b68ff6bdaaa86ec9b5dec">HV_ON</a>
 , <a class="el" href="_precharge_8h.html#a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595">HV_ERROR</a>
  }</td></tr>
+<tr class="memdesc:a5faacefaff4b0ce77f1f8be0bf2aaf29"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum for all the states. OFF, Precharge, ON, Error.  <a href="_precharge_8h.html#a5faacefaff4b0ce77f1f8be0bf2aaf29">More...</a><br /></td></tr>
 <tr class="separator:a5faacefaff4b0ce77f1f8be0bf2aaf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -144,16 +152,17 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a5c9b1f4b5a31b5d46c45310567595867"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_precharge_8h.html#a5faacefaff4b0ce77f1f8be0bf2aaf29">HV_STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_precharge_8h.html#a5c9b1f4b5a31b5d46c45310567595867">hv_state</a> = <a class="el" href="_precharge_8h.html#a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a">HV_OFF</a></td></tr>
+<tr class="memdesc:a5c9b1f4b5a31b5d46c45310567595867"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state storage variable. Used to keep track of how things are.  <a href="_precharge_8h.html#a5c9b1f4b5a31b5d46c45310567595867">More...</a><br /></td></tr>
 <tr class="separator:a5c9b1f4b5a31b5d46c45310567595867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
+<div class="textblock"><p >The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Change the preChargeStruct data to use less floats, etc. <br  />
  <br  />
- Goal 2. <br  />
+ NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. <br  />
  <br  />
  Goal 3. <br  />
  <br  />
@@ -173,7 +182,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00036">36</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for closing the contactor (usable after precharging) </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00040">40</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +200,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00033">33</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for contactor control (closing or opening) </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00034">34</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +218,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00038">38</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for LED that illuminates when the contactor is closed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00044">44</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +236,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00037">37</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for LED that illuminates after precharge complete. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00042">42</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +254,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00035">35</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for starting precharge, exit precharging, exit done-precharging. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00038">38</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -252,8 +271,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Motor temperature max. This might need to be changed depending on how high the motor hits during operation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00041">41</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00052">52</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -268,8 +288,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Motor controller temperature max. This might need to be changed depending on how high the MCU hits during operation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00040">40</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00049">49</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +306,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00039">39</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00046">46</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +324,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00034">34</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>Teensy pin for relay in series with precharge resistor. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00036">36</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -333,6 +358,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>An enum for all the states. OFF, Precharge, ON, Error. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a" name="a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a"></a>HV_OFF&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5faacefaff4b0ce77f1f8be0bf2aaf29a2da9fa3988c31a60d94ee2a751ba32ce" name="a5faacefaff4b0ce77f1f8be0bf2aaf29a2da9fa3988c31a60d94ee2a751ba32ce"></a>HV_PRECHARGING&#160;</td><td class="fielddoc"></td></tr>
@@ -340,7 +367,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" name="a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595"></a>HV_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00043">43</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00055">55</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +387,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00190">190</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00188">188</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -380,7 +407,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00232">232</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00230">230</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -400,7 +427,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00169">169</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00167">167</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -420,7 +447,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00154">154</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00152">152</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -468,7 +495,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00321">321</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00319">319</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -488,7 +515,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00130">130</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00128">128</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -508,7 +535,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00070">70</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00068">68</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -546,7 +573,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00203">203</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00201">201</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -566,7 +593,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00194">194</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00192">192</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -586,7 +613,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00299">299</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00297">297</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -603,7 +630,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00074">74</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p>The state storage variable. Used to keep track of how things are. </p>
+
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00093">93</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>

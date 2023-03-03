@@ -16,8 +16,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>A struct for the overall dataLoggingTaskData. Stores a pointer to the pointer (array) of CSVWriters. Thus to process the logs, you have to dereference the pointer and then call on the array by index. The length just represents the number of logs and log files to generate. This would be of interest to teams that might want to add more info in the log SD card. </para>
 <para>
-Definition at line <link linkend="__data_logging_8h_source_1l00091">91</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00112">112</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -26,14 +28,14 @@ Definition at line <link linkend="__data_logging_8h_source_1l00091">91</link> of
 <indexterm><primary>writers</primary><secondary>DataLoggingTaskData</secondary></indexterm>
 <indexterm><primary>DataLoggingTaskData</primary><secondary>writers</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_c_s_v_writer">CSVWriter</link>** DataLoggingTaskData::writers</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00092">92</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00113">113</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <anchor xml:id="_struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e"/><section>
     <title>writersLen</title>
 <indexterm><primary>writersLen</primary><secondary>DataLoggingTaskData</secondary></indexterm>
 <indexterm><primary>DataLoggingTaskData</primary><secondary>writersLen</secondary></indexterm>
 <para><computeroutput>int DataLoggingTaskData::writersLen</computeroutput></para><para>
-Definition at line <link linkend="__data_logging_8h_source_1l00093">93</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
+Definition at line <link linkend="__data_logging_8h_source_1l00114">114</link> of file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

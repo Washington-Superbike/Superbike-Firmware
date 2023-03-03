@@ -2,220 +2,215 @@
 \mbox{\hyperlink{_c_a_n_8ino}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_c_a_n_8h}{CAN.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00033}\mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{00033}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{canTask}}(\textcolor{keywordtype}{void} *canData) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00034}00034   \textcolor{keywordtype}{int} iter = 0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00035}00035   \textcolor{keywordtype}{int} requestCells = 1;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00036}00036   \textcolor{keywordflow}{while} (1) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00037}00037     \textcolor{comment}{// check for new incoming messages}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00039}00039     \textcolor{comment}{// CAN breaks if we try sending messages with 0 other nodes on the bus}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00040}00040     \textcolor{comment}{// as there is no node to 'ACK' our message. Therefore,}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00041}00041     \textcolor{comment}{// change CAN\_NODES in Main.h to make sure things dont break.}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00042}00042     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a9d09068130671d9ca6bf3c9b6fac6e34}{CAN\_NODES}} !=0) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00043}00043       \mbox{\hyperlink{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(*(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} *)canData);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00044}00044       \textcolor{keywordflow}{if} (iter == (1000 / 20) * 2) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00045}00045           \textcolor{comment}{// ask for other half of cell voltages from BMS every 2 seconds}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00046}00046           \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(requestCells);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00047}00047           requestCells *= -\/1;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00048}00048           iter = 0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00049}00049         \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00050}00050         iter++;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00051}00051     \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00052}00052     \textcolor{comment}{// delay 20ms}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00053}00053     \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((20 * \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}}) / 1000);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00054}00054   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00055}00055 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00057}\mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{00057}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}() \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00058}00058   \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.begin();}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00059}00059   \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.setBaudRate(250000);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00060}00060 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00062}\mbox{\hyperlink{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}{00062}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} evccStats) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00063}00063   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{en}}) = (msg.buf[0]);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00064}00064   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{chargeVoltage}}) = ((msg.buf[2] << 8) | msg.buf[1]) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00065}00065   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{chargeCurrent}}) = (3200 -\/ ((msg.buf[4] << 8) | msg.buf[3])) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00066}00066 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00068}\mbox{\hyperlink{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}{00068}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00069}00069   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{statusFlag}}) = msg.buf[0];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00070}00070   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{chargeFlag}}) = msg.buf[1];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00071}00071   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{outputVoltage}}) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00072}00072   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{outputCurrent}}) = (3200 -\/ ((msg.buf[5] << 8) | msg.buf[4])) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00073}00073   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{chargerTemp}}) = msg.buf[6] -\/ 40;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00074}00074 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00075}00075 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00076}\mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{00076}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}} ) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00077}00077   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{RPM}}) = (\textcolor{keywordtype}{float}) ((msg.buf[1] << 8) | msg.buf[0]);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00078}00078   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{motorCurrent}}) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00079}00079   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{motorControllerBatteryVoltage}}) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00080}00080   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{errorMessage}}) = ((msg.buf[7] << 8) | msg.buf[6]);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00081}00081 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00082}00082 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00083}\mbox{\hyperlink{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}{00083}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00084}00084   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{throttle}}) = msg.buf[0] / 255.0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00085}00085   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{motorControllerTemperature}}) = msg.buf[1] -\/ 40;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00086}00086   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{motorTemperature}}) = msg.buf[2] -\/ 30;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00087}00087   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{controllerStatus}}) = msg.buf[4];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00088}00088 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00089}00089 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00090}\mbox{\hyperlink{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}{00090}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00091}00091   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{bms\_status\_flag}}) = msg.buf[0];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00092}00092   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{bms\_c\_id}}) = msg.buf[1];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00093}00093   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{bms\_c\_fault}}) = msg.buf[2];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00094}00094   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{ltc\_fault}}) = msg.buf[3];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00095}00095   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{ltc\_count}}) = msg.buf[4];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00096}00096 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00097}00097 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00098}\mbox{\hyperlink{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}{00098}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00099}00099   \textcolor{comment}{// THE FOLLOWING DATATYPE NEEDS TO BE CHANGED}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00100}00100   uint32\_t msgID = msg.id;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00101}00101   \textcolor{keywordtype}{int} totalOffset = 0; \textcolor{comment}{// totalOffset equals the index of array cellVoltages}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00102}00102   \textcolor{keywordtype}{int} cellOffset = (((msgID >> 8) \& 0xF) -\/ 0x9);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00103}00103   \textcolor{keywordtype}{int} ltcOffset = (msgID \& 0x1);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00104}00104   totalOffset = (cellOffset * 4) + (ltcOffset * 12);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00105}00105   \textcolor{keywordtype}{int} cellIndex;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00106}00106 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00107}00107   \textcolor{keywordflow}{for} (cellIndex = 0; cellIndex < 8; cellIndex += 2) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00108}00108     \textcolor{comment}{// TODO: analyze this line and find a better way to do it}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00109}00109     *(\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}} + (cellIndex / 2 + totalOffset)) = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00110}00110     \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[cellIndex / 2 + totalOffset] = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00111}00111   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00028}00028 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_c_a_n_8h}{CAN.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00029}00029 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00031}\mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{00031}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{canTask}}(\textcolor{keywordtype}{void} *canData) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00032}00032   \textcolor{keywordtype}{int} iter = 0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00033}00033   \textcolor{keywordtype}{int} requestCells = 1;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00034}00034   \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00040}00040     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a9d09068130671d9ca6bf3c9b6fac6e34}{CAN\_NODES}} !=0) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00041}00041       \mbox{\hyperlink{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(*(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} *)canData);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00042}00042       \textcolor{keywordflow}{if} (iter == (1000 / 20) * 2) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00044}00044           \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(requestCells);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00045}00045           requestCells *= -\/1;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00046}00046           iter = 0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00047}00047         \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00048}00048         iter++;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00050}00050     \textcolor{comment}{// delay 20ms}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00051}00051     \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((20 * \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}}) / 1000);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00052}00052   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00053}00053 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00055}\mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{00055}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}() \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00056}00056   \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.begin();}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00057}00057   \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.setBaudRate(250000);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00060}\mbox{\hyperlink{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}{00060}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} evccStats) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00061}00061   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{en}}) = (msg.buf[0]);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00062}00062   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{chargeVoltage}}) = ((msg.buf[2] << 8) | msg.buf[1]) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00063}00063   *(evccStats.\mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{chargeCurrent}}) = (3200 -\/ ((msg.buf[4] << 8) | msg.buf[3])) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00064}00064 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00066}\mbox{\hyperlink{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}{00066}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00067}00067   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{statusFlag}}) = msg.buf[0];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00068}00068   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{chargeFlag}}) = msg.buf[1];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00069}00069   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{outputVoltage}}) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00070}00070   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{outputCurrent}}) = (3200 -\/ ((msg.buf[5] << 8) | msg.buf[4])) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00071}00071   *(\mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}.\mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{chargerTemp}}) = msg.buf[6] -\/ 40;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00072}00072 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00074}\mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{00074}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}} ) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00075}00075   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{RPM}}) = (\textcolor{keywordtype}{float}) ((msg.buf[1] << 8) | msg.buf[0]);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00076}00076   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{motorCurrent}}) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00077}00077   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{motorControllerBatteryVoltage}}) = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00078}00078   *(\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}.\mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{errorMessage}}) = ((msg.buf[7] << 8) | msg.buf[6]);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00079}00079 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00081}\mbox{\hyperlink{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}{00081}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00082}00082   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{throttle}}) = msg.buf[0] / 255.0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00083}00083   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{motorControllerTemperature}}) = msg.buf[1] -\/ 40;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00084}00084   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{motorTemperature}}) = msg.buf[2] -\/ 30;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00085}00085   *(\mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}.\mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{controllerStatus}}) = msg.buf[4];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00088}\mbox{\hyperlink{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}{00088}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00089}00089   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{bms\_status\_flag}}) = msg.buf[0];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00090}00090   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{bms\_c\_id}}) = msg.buf[1];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00091}00091   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{bms\_c\_fault}}) = msg.buf[2];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00092}00092   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{ltc\_fault}}) = msg.buf[3];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00093}00093   *(\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}.\mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{ltc\_count}}) = msg.buf[4];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00096}\mbox{\hyperlink{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00097}00097   \textcolor{comment}{// THE FOLLOWING DATATYPE NEEDS TO BE CHANGED}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00098}00098   uint32\_t msgID = msg.id;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00099}00099   \textcolor{keywordtype}{int} totalOffset = 0; \textcolor{comment}{// totalOffset equals the index of array cellVoltages}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00100}00100   \textcolor{keywordtype}{int} cellOffset = (((msgID >> 8) \& 0xF) -\/ 0x9);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00101}00101   \textcolor{keywordtype}{int} ltcOffset = (msgID \& 0x1);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00102}00102   totalOffset = (cellOffset * 4) + (ltcOffset * 12);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00103}00103   \textcolor{keywordtype}{int} cellIndex;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00105}00105   \textcolor{keywordflow}{for} (cellIndex = 0; cellIndex < 8; cellIndex += 2) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00106}00106     \textcolor{comment}{// TODO: analyze this line and find a better way to do it}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00107}00107     *(\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}} + (cellIndex / 2 + totalOffset)) = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00108}00108     \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[cellIndex / 2 + totalOffset] = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00109}00109   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00111}00111   \mbox{\hyperlink{_c_a_n_8ino_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}});}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00112}00112 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00113}00113   \mbox{\hyperlink{_c_a_n_8ino_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00114}00114 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00115}00115   \textcolor{keywordflow}{if} (!*\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00116}00116     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}; i++ ) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00117}00117       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[i]) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00118}00118         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00119}00119       \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00120}00120     \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00121}00121     *\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00122}00122   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00123}00123 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00124}00124 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00125}\mbox{\hyperlink{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}{00125}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00126}00126   \textcolor{keywordtype}{byte} ltcID = msg.buf[0];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00127}00127   \mbox{\hyperlink{_main_8h_aefa2152d1586505d2d271edc7e9c4187}{thermistorEnabled}} = msg.buf[1];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00128}00128   \mbox{\hyperlink{_main_8h_ad2bc733f382fc4bf0379382e3a15a94e}{thermistorPresent}} = msg.buf[2];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00129}00129   \textcolor{keywordtype}{byte} *currentThermistor = \&msg.buf[3];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00130}00130   \textcolor{keywordtype}{int} thermistor;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00131}00131   \textcolor{keywordflow}{for} (thermistor = 0; thermistor < 5; thermistor++) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00132}00132     \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}.\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{temps}}[thermistor + 5 * ltcID] = currentThermistor[thermistor];}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00133}00133   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00134}00134 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00135}00135 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00136}00136 \textcolor{comment}{// sums the voltage of each cell in main accumulator}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00137}\mbox{\hyperlink{_c_a_n_8h_afd1fb5329197c4478969008e0ee42f90}{00137}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} cellVs) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00138}00138   \textcolor{keywordtype}{float} partialSeriesVoltage = 0;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00139}00139   \textcolor{keywordtype}{int} currentCell;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00140}00140   \textcolor{keywordflow}{for} (currentCell = 0; currentCell < \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}; currentCell++) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00141}00141     partialSeriesVoltage += *(cellVs.\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}} + currentCell);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00142}00142   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00143}00143   *cellVs.\mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{seriesVoltage}} = partialSeriesVoltage;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00144}00144 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00145}00145 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00146}00146 \textcolor{comment}{// checks the can bus for any new data}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00147}\mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{00147}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} canData) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00148}00148   \textcolor{keywordtype}{int} readValue = \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.read(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00149}00149   \textcolor{keywordflow}{if} (readValue != 0) \{ \textcolor{comment}{// if we read a message}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00150}00150     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00151}00151       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{MOTOR\_STATS\_MSG}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00152}00152         \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{motorStats}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00153}00153         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00154}00154       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{MOTOR\_TEMPS\_MSG}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00155}00155         \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{motorTemps}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00156}00156         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00157}00157       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{DD\_BMS\_STATUS\_IND}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00158}00158         \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{bmsStatus}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00159}00159         \textcolor{comment}{//printBMSStatus();}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00160}00160         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00161}00161       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{EVCC\_STATS}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00162}00162         \mbox{\hyperlink{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{chargeControllerStats}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00163}00163         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00164}00164       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{CHARGER\_STATS}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00165}00165         \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{chargerStats}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00166}00166       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{BMSC1\_LTC1\_CELLS\_04}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00167}00167         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00168}00168         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00169}00169       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{BMSC1\_LTC1\_CELLS\_58}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00170}00170         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00171}00171         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00172}00172       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{BMSC1\_LTC1\_CELLS\_912}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00173}00173         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00174}00174         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00175}00175       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{BMSC1\_LTC2\_CELLS\_04}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00176}00176         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00177}00177         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00178}00178       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{BMSC1\_LTC2\_CELLS\_58}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00179}00179         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00180}00180         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00181}00181       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{BMSC1\_LTC2\_CELLS\_912}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00182}00182         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00183}00183         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00184}00184       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{DD\_BMSC\_TH\_STATUS\_IND}}:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00185}00185         \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{thermistorTemps}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00186}00186         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00187}00187     \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00188}00188   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00189}00189 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00190}00190 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00191}00191 \textcolor{comment}{// unused currently but should be implemented into the current firmware}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00192}\mbox{\hyperlink{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}{00192}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}{printBMSStatus}}() \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00193}00193   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00194}00194     \textcolor{keywordflow}{case} 1:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00195}00195       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is > High Voltage Cutoff\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00196}00196       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00197}00197     \textcolor{keywordflow}{case} 2:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00198}00198       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is < Low Voltage Cutoff\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00199}00199       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00200}00200     \textcolor{keywordflow}{case} 4:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00201}00201       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is > Balance Voltage Cutoff\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00202}00202       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00203}00203   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00204}00204   Serial.printf(\textcolor{stringliteral}{"{}The BMSC ID is \%d\(\backslash\)n"{}}, \mbox{\hyperlink{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}{bms\_c\_id}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00205}00205   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_main_8h_a668e87eca74f2126136ee32a6964005e}{bms\_c\_fault}}) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00206}00206     \textcolor{keywordflow}{case} 1:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00207}00207       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: configuration not locked\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00208}00208       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00209}00209     \textcolor{keywordflow}{case} 2:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00210}00210       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: not all cells present\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00211}00211       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00212}00212     \textcolor{keywordflow}{case} 4:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00213}00213       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: thermistor overtemp\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00214}00214       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00215}00215     \textcolor{keywordflow}{case} 8:}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00216}00216       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: not all thermistors present\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00217}00217       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00218}00218   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00219}00219   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_ae21e58b785392a0951862c107609d059}{ltc\_fault}} == 1) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00220}00220     Serial.printf(\textcolor{stringliteral}{"{}LTC fault detected\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00221}00221   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00222}00222   Serial.printf(\textcolor{stringliteral}{"{}\%d LTCs detected\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00223}00223 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00224}00224 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00225}00225 \textcolor{comment}{// used to print the contents of a CAN msg}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00226}\mbox{\hyperlink{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}{00226}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}{printMessage}}(CAN\_message\_t msg) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00227}00227   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < msg.len; i++) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00228}00228     Serial.print(msg.buf[i]);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00229}00229     Serial.print(\textcolor{stringliteral}{"{}:"{}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00230}00230   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00231}00231   Serial.println();}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00232}00232 \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00233}00233 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00234}00234 \textcolor{comment}{// should only be called if there is at least one other CAN node on the bus}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00235}00235 \textcolor{comment}{// if none are on the bus when CAN\_bus.write() occurs, the Teensy will reset}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00236}\mbox{\hyperlink{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}{00236}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(\textcolor{keywordtype}{int} LTC) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00237}00237   \textcolor{keywordflow}{if} (LTC == -\/1) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00238}00238     \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id = 0x01de0800;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00239}00239     \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.write(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00240}00240   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (LTC == 1) \{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00241}00241     \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id = 0x01de0801;}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00242}00242     \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.write(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00243}00243   \}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00244}00244 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00113}00113   \textcolor{keywordflow}{if} (!*\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00114}00114     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}; i++ ) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00115}00115       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[i]) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00116}00116         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00117}00117       \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00118}00118     \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00119}00119     *\mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}.\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00120}00120   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00121}00121 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00123}\mbox{\hyperlink{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}{00123}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00124}00124   \textcolor{keywordtype}{byte} ltcID = msg.buf[0];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00125}00125   \mbox{\hyperlink{_main_8h_aefa2152d1586505d2d271edc7e9c4187}{thermistorEnabled}} = msg.buf[1];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00126}00126   \mbox{\hyperlink{_main_8h_ad2bc733f382fc4bf0379382e3a15a94e}{thermistorPresent}} = msg.buf[2];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00127}00127   \textcolor{keywordtype}{byte} *currentThermistor = \&msg.buf[3];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00128}00128   \textcolor{keywordtype}{int} thermistor;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00129}00129   \textcolor{keywordflow}{for} (thermistor = 0; thermistor < 5; thermistor++) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00130}00130     \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}.\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{temps}}[thermistor + 5 * ltcID] = currentThermistor[thermistor];}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00131}00131   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00132}00132 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00134}00134 \textcolor{comment}{// sums the voltage of each cell in main accumulator}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00135}\mbox{\hyperlink{_c_a_n_8h_afd1fb5329197c4478969008e0ee42f90}{00135}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} cellVs) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00136}00136   \textcolor{keywordtype}{float} partialSeriesVoltage = 0;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00137}00137   \textcolor{keywordtype}{int} currentCell;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00138}00138   \textcolor{keywordflow}{for} (currentCell = 0; currentCell < \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}; currentCell++) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00139}00139     partialSeriesVoltage += *(cellVs.\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}} + currentCell);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00140}00140   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00141}00141   *cellVs.\mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{seriesVoltage}} = partialSeriesVoltage;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00144}00144 \textcolor{comment}{// checks the can bus for any new data}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00145}\mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{00145}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} canData) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00146}00146   \textcolor{keywordtype}{int} readValue = \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.read(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00147}00147   \textcolor{keywordflow}{if} (readValue != 0) \{ \textcolor{comment}{// if we read a message}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00148}00148     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00149}00149       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{MOTOR\_STATS\_MSG}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00150}00150         \mbox{\hyperlink{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{motorStats}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00151}00151         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00152}00152       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{MOTOR\_TEMPS\_MSG}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00153}00153         \mbox{\hyperlink{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{motorTemps}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00154}00154         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00155}00155       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{DD\_BMS\_STATUS\_IND}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00156}00156         \mbox{\hyperlink{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{bmsStatus}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00157}00157         \textcolor{comment}{//printBMSStatus();}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00158}00158         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00159}00159       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{EVCC\_STATS}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00160}00160         \mbox{\hyperlink{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{chargeControllerStats}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00161}00161         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00162}00162       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{CHARGER\_STATS}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00163}00163         \mbox{\hyperlink{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{chargerStats}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00164}00164       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{BMSC1\_LTC1\_CELLS\_04}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00165}00165         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00166}00166         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00167}00167       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{BMSC1\_LTC1\_CELLS\_58}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00168}00168         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00169}00169         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00170}00170       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{BMSC1\_LTC1\_CELLS\_912}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00171}00171         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00172}00172         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00173}00173       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{BMSC1\_LTC2\_CELLS\_04}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00174}00174         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00175}00175         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00176}00176       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{BMSC1\_LTC2\_CELLS\_58}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00177}00177         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00178}00178         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00179}00179       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{BMSC1\_LTC2\_CELLS\_912}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00180}00180         \mbox{\hyperlink{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}},  canData.\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00181}00181         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00182}00182       \textcolor{keywordflow}{case} \mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{DD\_BMSC\_TH\_STATUS\_IND}}:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00183}00183         \mbox{\hyperlink{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}, canData.\mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{thermistorTemps}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00184}00184         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00185}00185     \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00186}00186   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00187}00187 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00189}00189 \textcolor{comment}{// unused currently but should be implemented into the current firmware}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00190}\mbox{\hyperlink{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}{00190}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}{printBMSStatus}}() \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00191}00191   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00192}00192     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00193}00193       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is > High Voltage Cutoff\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00194}00194       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00195}00195     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00196}00196       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is < Low Voltage Cutoff\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00197}00197       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00198}00198     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00199}00199       Serial.printf(\textcolor{stringliteral}{"{}at least one cell V is > Balance Voltage Cutoff\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00200}00200       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00201}00201   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00202}00202   Serial.printf(\textcolor{stringliteral}{"{}The BMSC ID is \%d\(\backslash\)n"{}}, \mbox{\hyperlink{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}{bms\_c\_id}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00203}00203   \textcolor{keywordflow}{switch} (\mbox{\hyperlink{_main_8h_a668e87eca74f2126136ee32a6964005e}{bms\_c\_fault}}) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00204}00204     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00205}00205       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: configuration not locked\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00206}00206       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00207}00207     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00208}00208       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: not all cells present\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00209}00209       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00210}00210     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00211}00211       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: thermistor overtemp\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00212}00212       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00213}00213     \textcolor{keywordflow}{case} 8:}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00214}00214       Serial.printf(\textcolor{stringliteral}{"{}BMS Fault: not all thermistors present\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00215}00215       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00216}00216   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00217}00217   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_ae21e58b785392a0951862c107609d059}{ltc\_fault}} == 1) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00218}00218     Serial.printf(\textcolor{stringliteral}{"{}LTC fault detected\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00219}00219   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00220}00220   Serial.printf(\textcolor{stringliteral}{"{}\%d LTCs detected\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00221}00221 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00222}00222 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00223}00223 \textcolor{comment}{// used to print the contents of a CAN msg}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00224}\mbox{\hyperlink{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}{00224}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}{printMessage}}(CAN\_message\_t msg) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00225}00225   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < msg.len; i++) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00226}00226     Serial.print(msg.buf[i]);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00227}00227     Serial.print(\textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00228}00228   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00229}00229   Serial.println();}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00230}00230 \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00231}00231 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00232}00232 \textcolor{comment}{// should only be called if there is at least one other CAN node on the bus}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00233}00233 \textcolor{comment}{// if none are on the bus when CAN\_bus.write() occurs, the Teensy will reset}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00234}\mbox{\hyperlink{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}{00234}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(\textcolor{keywordtype}{int} LTC) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00235}00235   \textcolor{keywordflow}{if} (LTC == -\/1) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00236}00236     \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id = 0x01de0800;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00237}00237     \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.write(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00238}00238   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (LTC == 1) \{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00239}00239     \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}}.id = 0x01de0801;}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00240}00240     \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}}.write(\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00241}00241   \}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8ino_source_l00242}00242 \}}
 
 \end{DoxyCode}

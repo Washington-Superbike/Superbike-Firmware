@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for the DataLogging task for the bike&#39;s firmware. This defines the vari...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<p>The <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a> file for the PreCharge/Controls task for the bike's firmware. This calls on the stats that are updated by CAN and then updates the state of controls (HV Off, ON, etc.) based on them. Pretty simple. This also reads in the gyroscope data to determine when to kill power to the bike.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_precharge_8h_source.html">Precharge.h</a>&quot;</code><br />
 <code>#include &lt;Wire.h&gt;</code><br />
@@ -102,7 +102,7 @@ Functions</h2></td></tr>
 <tr class="separator:ade8f654468b951602d2622b34902944f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for the DataLogging task for the bike&#39;s firmware. This defines the vari...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<div class="textblock"><p >The <a class="el" href="_pre_charge_8ino.html" title="The PreCharge.ino file for the PreCharge/Controls task for the bike&#39;s firmware. This calls on the sta...">PreCharge.ino</a> file for the PreCharge/Controls task for the bike's firmware. This calls on the stats that are updated by CAN and then updates the state of controls (HV Off, ON, etc.) based on them. Pretty simple. This also reads in the gyroscope data to determine when to kill power to the bike. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
@@ -131,7 +131,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00190">190</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00188">188</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -151,7 +151,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00232">232</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00230">230</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -171,7 +171,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00169">169</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00167">167</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -191,7 +191,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00154">154</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00152">152</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -239,7 +239,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00321">321</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00319">319</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -259,7 +259,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00130">130</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00128">128</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -279,7 +279,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00070">70</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00068">68</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -299,7 +299,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00056">56</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00054">54</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -319,7 +319,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00203">203</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00201">201</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -339,7 +339,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00194">194</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00192">192</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>
@@ -359,7 +359,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00299">299</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_pre_charge_8ino_source.html#l00297">297</a> of file <a class="el" href="_pre_charge_8ino_source.html">PreCharge.ino</a>.</p>
 
 </div>
 </div>

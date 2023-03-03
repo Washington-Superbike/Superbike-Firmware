@@ -2,7 +2,7 @@
 \label{_c_a_n_8ino}\index{CAN.ino@{CAN.ino}}
 
 
-The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+The \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}} file operates the CAN bus for the bike\textquotesingle{}s firmware. This updates all the variables in the \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} file using the various helper methods. Really simple. Just reads in the message using the CAN bus and then updates them according to the values derived from the datasheets.  
 
 
 {\ttfamily \#include \char`\"{}CAN.\+h\char`\"{}}\newline
@@ -41,21 +41,21 @@ void \mbox{\hyperlink{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}{request\+Ce
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+The \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}} file operates the CAN bus for the bike\textquotesingle{}s firmware. This updates all the variables in the \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} file using the various helper methods. Really simple. Just reads in the message using the CAN bus and then updates them according to the values derived from the datasheets. 
 
 \begin{DoxyAuthor}{Author}
 Washington Superbike 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-1-\/March-\/2023
+1-\/March-\/2023 
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-up all members to be able to use it without any trouble.
+Dont mess with this too much. It\textquotesingle{}s great.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
 \item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Change the \char`\"{}if CAN\+\_\+\+NODES != 0\char`\"{} to be an ifndef statement in the start. That means the check\+CAN and request\+Cell\+Voltages lines will not execute unless CAN\+\_\+\+NODES is a non-\/zero number in \mbox{\hyperlink{_main_8h}{Main.\+h}} before compiling. ~\newline
  ~\newline
- Goal 2. ~\newline
+ Potentially, check if the data is actually being updated by HIL. There is no real instantiation of associating the CAN variables with the messages being read in in the \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{can\+Task()}}, so maybe call on those methods to read in those values, in case it doesnt work. ~\newline
  ~\newline
  Goal 3. ~\newline
  ~\newline
@@ -75,7 +75,7 @@ Definition in file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00137}{137}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}\label{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}} 
 \index{CAN.ino@{CAN.ino}!canTask@{canTask}}
@@ -83,9 +83,13 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00137}{137}} of file \mb
 \doxysubsubsection{\texorpdfstring{canTask()}{canTask()}}
 {\footnotesize\ttfamily void can\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{can\+Data }\end{DoxyParamCaption})}
 
+First \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} checks for new incoming messages
 
+NOTE\+: CAN breaks if we try sending messages with 0 other nodes on the bus as there is no node to \textquotesingle{}ACK\textquotesingle{} our message. Therefore, change CAN\+\_\+\+NODES in \mbox{\hyperlink{_main_8h}{Main.\+h}} to make sure things dont break.
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Ask for other half of cell voltages from BMS every 2 seconds
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00031}{31}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}\label{_c_a_n_8ino_ab92f5f7e74cba4411e9f1c6f32a720a5}} 
 \index{CAN.ino@{CAN.ino}!checkCAN@{checkCAN}}
@@ -95,7 +99,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00033}{33}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00147}{147}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00145}{145}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}\label{_c_a_n_8ino_ac7f58797b08a603835f0488b5fe3fb7c}} 
 \index{CAN.ino@{CAN.ino}!decipherBMSStatus@{decipherBMSStatus}}
@@ -105,7 +109,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00147}{147}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00090}{90}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00088}{88}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}\label{_c_a_n_8ino_ac7f0128ba5279b58ce4917ff6d80264e}} 
 \index{CAN.ino@{CAN.ino}!decipherCellsVoltage@{decipherCellsVoltage}}
@@ -115,7 +119,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00090}{90}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00098}{98}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00096}{96}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}\label{_c_a_n_8ino_a3e5ce0cee4895bc07047a515ac2fa8ea}} 
 \index{CAN.ino@{CAN.ino}!decipherChargerStats@{decipherChargerStats}}
@@ -125,7 +129,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00098}{98}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00068}{68}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00066}{66}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}\label{_c_a_n_8ino_acc8ad6a9a2388c904e5c2a81e263c59d}} 
 \index{CAN.ino@{CAN.ino}!decipherEVCCStats@{decipherEVCCStats}}
@@ -135,7 +139,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00068}{68}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00060}{60}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}\label{_c_a_n_8ino_a11cd027f4ad6ca2a6b9a860a07fb8e41}} 
 \index{CAN.ino@{CAN.ino}!decipherThermistors@{decipherThermistors}}
@@ -145,7 +149,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00062}{62}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00125}{125}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00123}{123}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}\label{_c_a_n_8ino_abd98b0e43fb7330bf8964d8da390810f}} 
 \index{CAN.ino@{CAN.ino}!decodeMotorStats@{decodeMotorStats}}
@@ -155,7 +159,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00125}{125}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00076}{76}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00074}{74}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}\label{_c_a_n_8ino_a950c51dd93e1585b49156c52113ab832}} 
 \index{CAN.ino@{CAN.ino}!decodeMotorTemps@{decodeMotorTemps}}
@@ -165,7 +169,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00076}{76}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00083}{83}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00081}{81}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}\label{_c_a_n_8ino_a317708f05ea5de4b748e27c49e2a85e8}} 
 \index{CAN.ino@{CAN.ino}!printBMSStatus@{printBMSStatus}}
@@ -175,7 +179,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00083}{83}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00192}{192}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00190}{190}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}\label{_c_a_n_8ino_ad899aaa07def0c8757bea6e9a75f878d}} 
 \index{CAN.ino@{CAN.ino}!printMessage@{printMessage}}
@@ -185,7 +189,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00192}{192}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00226}{226}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00224}{224}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}\label{_c_a_n_8ino_a0953b2f37f0e637d3f5fba2148109d2a}} 
 \index{CAN.ino@{CAN.ino}!requestCellVoltages@{requestCellVoltages}}
@@ -195,7 +199,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00226}{226}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00236}{236}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00234}{234}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}\label{_c_a_n_8ino_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}} 
 \index{CAN.ino@{CAN.ino}!setupCAN@{setupCAN}}
@@ -205,5 +209,5 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00236}{236}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 

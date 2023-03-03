@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="61" column="9" bodyfile="CAN.h" bodystart="61" bodyend="-1"/>
+        <location file="CAN.h" line="77" column="9" bodyfile="CAN.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="62" column="9" bodyfile="CAN.h" bodystart="62" bodyend="-1"/>
+        <location file="CAN.h" line="78" column="9" bodyfile="CAN.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="63" column="9" bodyfile="CAN.h" bodystart="63" bodyend="-1"/>
+        <location file="CAN.h" line="79" column="9" bodyfile="CAN.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -58,14 +58,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="64" column="7" bodyfile="CAN.h" bodystart="64" bodyend="-1"/>
+        <location file="CAN.h" line="80" column="7" bodyfile="CAN.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>A simple struct to store all the stats from the motor. Current, battery voltage, RPM and an errorMessage. </para>
     </detaileddescription>
-    <location file="CAN.h" line="60" column="1" bodyfile="CAN.h" bodystart="60" bodyend="65"/>
+    <location file="CAN.h" line="76" column="1" bodyfile="CAN.h" bodystart="76" bodyend="81"/>
     <listofallmembers>
       <member refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>errorMessage</name></member>
       <member refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" prot="public" virt="non-virtual"><scope>MotorStats</scope><name>motorControllerBatteryVoltage</name></member>

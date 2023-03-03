@@ -31,31 +31,31 @@ struct \mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{CAN\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE}}~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 4096
-\item 
+\begin{DoxyCompactList}\small\item\em Uses the config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE variable in \mbox{\hyperlink{_main_8h}{Main.\+h}} to add up to the stack size used for the \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{MOTOR\+\_\+\+STATS\+\_\+\+MSG}}~0x0\+CF11\+E05
-\item 
+\begin{DoxyCompactList}\small\item\em Motor controller message -\/ CAN. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{MOTOR\+\_\+\+TEMPS\+\_\+\+MSG}}~0x0\+CF11\+F05
-\item 
+\begin{DoxyCompactList}\small\item\em Motor controller message -\/ CAN. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{EVCC\+\_\+\+STATS}}~0x18e54024
-\item 
+\begin{DoxyCompactList}\small\item\em Charge controller status (current,volt...) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{CHARGER\+\_\+\+STATS}}~0x18eb2440
-\item 
+\begin{DoxyCompactList}\small\item\em Thunderstruck Charger status (current,volt...) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{DD\+\_\+\+BMS\+\_\+\+STATUS\+\_\+\+IND}}~0x01dd0001
-\item 
+\begin{DoxyCompactList}\small\item\em BMS cell data message (overvolt,undervolt...) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{DD\+\_\+\+BMSC\+\_\+\+TH\+\_\+\+STATUS\+\_\+\+IND}}~0x01df0e00
-\item 
+\begin{DoxyCompactList}\small\item\em Themistor values message. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+04}}~0x01df0900
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+58}}~0x01df0a00
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{BMSC1\+\_\+\+LTC1\+\_\+\+CELLS\+\_\+912}}~0x01df0b00
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+04}}~0x01df0901
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+58}}~0x01df0a01
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{BMSC1\+\_\+\+LTC2\+\_\+\+CELLS\+\_\+912}}~0x01df0b01
-\item 
+\begin{DoxyCompactList}\small\item\em Convention\+: BMSC, LTC, CELL RANGE. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\+\_\+\+CELLS}}~24
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -93,9 +93,9 @@ void \mbox{\hyperlink{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}{request\+Cell
 \begin{DoxyCompactItemize}
 \item 
 Flex\+CAN\+\_\+\+T4$<$ CAN2, RX\+\_\+\+SIZE\+\_\+256, TX\+\_\+\+SIZE\+\_\+16 $>$ \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\+\_\+bus}}
-\item 
+\begin{DoxyCompactList}\small\item\em CAN bus handle. \end{DoxyCompactList}\item 
 CAN\+\_\+message\+\_\+t \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\+\_\+msg}}
-\item 
+\begin{DoxyCompactList}\small\item\em Used to format reading/writing on the CAN bus. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cell\+Voltages\+Ready}} \mbox{[}24\mbox{]} = \{false\}
 \end{DoxyCompactItemize}
 
@@ -133,9 +133,9 @@ Definition in file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 \doxysubsubsection{\texorpdfstring{BMS\_CELLS}{BMS\_CELLS}}
 {\footnotesize\ttfamily \#define BMS\+\_\+\+CELLS~24}
 
+This is set to 24 instead of 20 because the BMS sends cells in packs of 12 so it makes the decipher function simpler. This represents the number of cells connected to the main accumulator BMS 
 
-
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00060}{60}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}\label{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_04@{BMSC1\_LTC1\_CELLS\_04}}
@@ -145,7 +145,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00038}{38}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00045}{45}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}\label{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_58@{BMSC1\_LTC1\_CELLS\_58}}
@@ -155,7 +159,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00038}{38}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}\label{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_912@{BMSC1\_LTC1\_CELLS\_912}}
@@ -165,7 +173,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00040}{40}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00049}{49}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}\label{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_04@{BMSC1\_LTC2\_CELLS\_04}}
@@ -175,7 +187,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00040}{40}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00051}{51}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}\label{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_58@{BMSC1\_LTC2\_CELLS\_58}}
@@ -185,7 +201,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00042}{42}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00053}{53}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}\label{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_912@{BMSC1\_LTC2\_CELLS\_912}}
@@ -195,13 +215,21 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00042}{42}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00043}{43}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Convention\+: BMSC, LTC, CELL RANGE. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00055}{55}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}\label{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}} 
 \index{CAN.h@{CAN.h}!CAN\_TASK\_STACK\_SIZE@{CAN\_TASK\_STACK\_SIZE}}
 \index{CAN\_TASK\_STACK\_SIZE@{CAN\_TASK\_STACK\_SIZE}!CAN.h@{CAN.h}}
 \doxysubsubsection{\texorpdfstring{CAN\_TASK\_STACK\_SIZE}{CAN\_TASK\_STACK\_SIZE}}
 {\footnotesize\ttfamily \#define CAN\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 4096}
+
+
+
+Uses the config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE variable in \mbox{\hyperlink{_main_8h}{Main.\+h}} to add up to the stack size used for the \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} 
 
 
 
@@ -215,7 +243,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00030}{30}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00035}{35}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Thunderstruck Charger status (current,volt...) 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}\label{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}} 
 \index{CAN.h@{CAN.h}!DD\_BMS\_STATUS\_IND@{DD\_BMS\_STATUS\_IND}}
@@ -225,7 +257,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00035}{35}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00036}{36}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+BMS cell data message (overvolt,undervolt...) 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}\label{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}} 
 \index{CAN.h@{CAN.h}!DD\_BMSC\_TH\_STATUS\_IND@{DD\_BMSC\_TH\_STATUS\_IND}}
@@ -235,7 +271,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00036}{36}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00037}{37}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Themistor values message. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00043}{43}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}\label{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}} 
 \index{CAN.h@{CAN.h}!EVCC\_STATS@{EVCC\_STATS}}
@@ -245,7 +285,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00037}{37}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00034}{34}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Charge controller status (current,volt...) 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00037}{37}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}\label{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}} 
 \index{CAN.h@{CAN.h}!MOTOR\_STATS\_MSG@{MOTOR\_STATS\_MSG}}
@@ -255,7 +299,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00034}{34}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00032}{32}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Motor controller message -\/ CAN. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}\label{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}} 
 \index{CAN.h@{CAN.h}!MOTOR\_TEMPS\_MSG@{MOTOR\_TEMPS\_MSG}}
@@ -265,7 +313,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00032}{32}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Motor controller message -\/ CAN. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00035}{35}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 
 
@@ -278,7 +330,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00033}{33}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00137}{137}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}\label{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}} 
 \index{CAN.h@{CAN.h}!canTask@{canTask}}
@@ -286,9 +338,13 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00137}{137}} of file \mb
 \doxysubsubsection{\texorpdfstring{canTask()}{canTask()}}
 {\footnotesize\ttfamily void can\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{can\+Data }\end{DoxyParamCaption})}
 
+First \mbox{\hyperlink{_c_a_n_8ino_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} checks for new incoming messages
 
+NOTE\+: CAN breaks if we try sending messages with 0 other nodes on the bus as there is no node to \textquotesingle{}ACK\textquotesingle{} our message. Therefore, change CAN\+\_\+\+NODES in \mbox{\hyperlink{_main_8h}{Main.\+h}} to make sure things dont break.
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Ask for other half of cell voltages from BMS every 2 seconds
+
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00031}{31}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}\label{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}} 
 \index{CAN.h@{CAN.h}!checkCAN@{checkCAN}}
@@ -298,7 +354,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00033}{33}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00147}{147}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00145}{145}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}\label{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}} 
 \index{CAN.h@{CAN.h}!decipherBMSStatus@{decipherBMSStatus}}
@@ -308,7 +364,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00147}{147}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00090}{90}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00088}{88}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}\label{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}} 
 \index{CAN.h@{CAN.h}!decipherCellsVoltage@{decipherCellsVoltage}}
@@ -318,7 +374,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00090}{90}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00098}{98}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00096}{96}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}\label{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}} 
 \index{CAN.h@{CAN.h}!decipherChargerStats@{decipherChargerStats}}
@@ -328,7 +384,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00098}{98}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00068}{68}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00066}{66}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}\label{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}} 
 \index{CAN.h@{CAN.h}!decipherEVCCStats@{decipherEVCCStats}}
@@ -338,7 +394,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00068}{68}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00060}{60}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}\label{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}} 
 \index{CAN.h@{CAN.h}!decipherThermistors@{decipherThermistors}}
@@ -348,7 +404,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00062}{62}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00125}{125}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00123}{123}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}\label{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}} 
 \index{CAN.h@{CAN.h}!decodeMotorStats@{decodeMotorStats}}
@@ -358,7 +414,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00125}{125}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00076}{76}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00074}{74}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}\label{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}} 
 \index{CAN.h@{CAN.h}!decodeMotorTemps@{decodeMotorTemps}}
@@ -368,7 +424,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00076}{76}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00083}{83}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00081}{81}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}\label{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}} 
 \index{CAN.h@{CAN.h}!printBMSStatus@{printBMSStatus}}
@@ -378,7 +434,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00083}{83}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00192}{192}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00190}{190}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}\label{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}} 
 \index{CAN.h@{CAN.h}!printMessage@{printMessage}}
@@ -388,7 +444,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00192}{192}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00226}{226}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00224}{224}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}\label{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}} 
 \index{CAN.h@{CAN.h}!requestCellVoltages@{requestCellVoltages}}
@@ -398,7 +454,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00226}{226}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00236}{236}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00234}{234}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}\label{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}} 
 \index{CAN.h@{CAN.h}!setupCAN@{setupCAN}}
@@ -408,7 +464,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00236}{236}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_c_a_n_8ino_source}{CAN.\+ino}}.
 
 
 
@@ -421,7 +477,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00057}{57}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00050}{50}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+CAN bus handle. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00063}{63}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}\label{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}} 
 \index{CAN.h@{CAN.h}!CAN\_msg@{CAN\_msg}}
@@ -431,7 +491,11 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00050}{50}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00053}{53}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Used to format reading/writing on the CAN bus. 
+
+
+
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00066}{66}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}\label{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}} 
 \index{CAN.h@{CAN.h}!cellVoltagesReady@{cellVoltagesReady}}
@@ -439,7 +503,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00053}{53}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{cellVoltagesReady}{cellVoltagesReady}}
 {\footnotesize\ttfamily bool cell\+Voltages\+Ready\mbox{[}24\mbox{]} = \{false\}\hspace{0.3cm}{\ttfamily [static]}}
 
+If cell\+Voltages\+Ready\mbox{[}INDEX\mbox{]} is true, we have received that cell\textquotesingle{}s voltage from the BMS it is false otherwise (so we know when we have collected all distinct cell voltages 
 
-
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00070}{70}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
