@@ -3,13 +3,11 @@
      @author    Washington Superbike
      @date      1-March-2023
      @brief
-          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
-          all variables that are passed along to all other files as
-          pointers. Then it runs the setup methods for all those
-          files and then it sets up RTOS to run all the different files
-          as individual tasks. These tasks are: datalogging,
-          display, precharge, CAN, idle. These tasks will be further
-          described in the documentation for their individual files.
+          The PreCharge.ino file for the PreCharge/Controls task for the bike's
+          firmware. This calls on the stats that are updated
+          by CAN and then updates the state of controls (HV Off, ON, etc.)
+          based on them. Pretty simple. This also reads in the gyroscope
+          data to determine when to kill power to the bike.
 
 
     \note

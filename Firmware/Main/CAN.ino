@@ -3,17 +3,12 @@
      @author    Washington Superbike
      @date      1-March-2023
      @brief
-          The CAN.h config file for CAN bus for the bike's firmware. This initializes
-          all variables that are passed along to all other files as
-          pointers. Then it runs the setup methods for all those
-          files and then it sets up RTOS to run all the different files
-          as individual tasks. These tasks are: datalogging,
-          display, precharge, CAN, idle. These tasks will be further
-          described in the documentation for their individual files.
-
-
+          The CAN.ino file operates the CAN bus for the bike's firmware. This
+          updates all the variables in the CAN.h file using the various helper
+          methods. Really simple. Just reads in the message using the CAN bus
+          and then updates them according to the values derived from the datasheets.
     \note
-      up all members to be able to use it without any trouble.
+      Dont mess with this too much. It's great.
 
     \todo
       Change the "if CAN_NODES != 0" to be an ifndef statement in the start.
@@ -34,15 +29,15 @@ void canTask(void *canData) {
   int iter = 0;
   int requestCells = 1;
   while (1) {
-    // check for new incoming messages
+    /// First canTask() checks for new incoming messages
 
-    // CAN breaks if we try sending messages with 0 other nodes on the bus
-    // as there is no node to 'ACK' our message. Therefore,
-    // change CAN_NODES in Main.h to make sure things dont break.
+    /// NOTE: CAN breaks if we try sending messages with 0 other nodes on the bus
+    /// as there is no node to 'ACK' our message. Therefore,
+    /// change CAN_NODES in Main.h to make sure things dont break.
     if (CAN_NODES !=0) {
       checkCAN(*(CANTaskData *)canData);
       if (iter == (1000 / 20) * 2) {
-          // ask for other half of cell voltages from BMS every 2 seconds
+         /// Ask for other half of cell voltages from BMS every 2 seconds
           requestCellVoltages(requestCells);
           requestCells *= -1;
           iter = 0;

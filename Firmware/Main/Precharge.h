@@ -17,7 +17,7 @@
     \todo
       Change the preChargeStruct data to use less floats, etc.
       \n \n
-      Goal 2.
+      NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending.
       \n \n
       Goal 3.
       \n \n
@@ -30,18 +30,36 @@
 
 #define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
 
-#define CONTACTOR 16 //digital pin for contactor control (closing or opening)
-#define PRECHARGE 17 //digital pin for relay in series with precharge resistor
-#define HIGH_VOLTAGE_TOGGLE 15   // digital pin for starting precharge, exit precharging, exit done-precharging
-#define CLOSE_CONTACTOR_BUTTON 14 // digital pin for closing the contactor (usable after precharging)
-#define CONTACTOR_PRECHARGED_LED 18 // digital pin for LED that illuminates after precharge complete
-#define CONTACTOR_CLOSED_LED 19 // digital pin for LED that illuminates when the contactor is closed
-#define NUMBER_OF_LTCS 20 // THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
-#define MOTORCONTROLLER_TEMP_MAX 65 // THIS ALSO MAY NEED TO BE CHANGED
+/// Teensy pin for contactor control (closing or opening)
+#define CONTACTOR 16
+/// Teensy pin for relay in series with precharge resistor
+#define PRECHARGE 17
+/// Teensy pin for starting precharge, exit precharging, exit done-precharging
+#define HIGH_VOLTAGE_TOGGLE 15
+/// Teensy pin for closing the contactor (usable after precharging)
+#define CLOSE_CONTACTOR_BUTTON 14
+/// Teensy pin for LED that illuminates after precharge complete
+#define CONTACTOR_PRECHARGED_LED 18
+/// Teensy pin for LED that illuminates when the contactor is closed
+#define CONTACTOR_CLOSED_LED 19
+/// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
+#define NUMBER_OF_LTCS 20
+/// Motor controller temperature max. This might need to be changed
+/// depending on how high the MCU hits during operation.
+#define MOTORCONTROLLER_TEMP_MAX 65
+/// Motor temperature max. This might need to be changed
+/// depending on how high the motor hits during operation.
 #define MOTOR_TEMP_MAX 80
 
+/// An enum for all the states. OFF, Precharge, ON, Error
 enum HV_STATE {HV_OFF , HV_PRECHARGING, HV_ON, HV_ERROR};
 
+/**
+ * Just too many things in here. The packaged struct for processing preCharge data
+ * This contains the BMS data, the motorData nad the cellVoltages, all good for
+ * processing. Then there's about 15 variables for processing gyroscope data.
+ * This can be reduced down to two: angle_X and angle_Y.
+ */
 typedef struct {
   BMSStatus bmsStatus;
   MotorTemps motorTemps;
@@ -71,6 +89,7 @@ typedef struct {
   float* Kalman1DOutput;
 } PreChargeTaskData;
 
+/// The state storage variable. Used to keep track of how things are.
 HV_STATE hv_state = HV_OFF;
 
 void preChargeTask(void *taskData);

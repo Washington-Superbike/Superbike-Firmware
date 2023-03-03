@@ -144,6 +144,11 @@ typedef struct {
   bool* ready;
 } CellVoltages;
 
+/**
+ * A simple struct to store the CanTaskData, a combination
+ * of all the previous structs all into this one and then passing it onto the canTask()
+ * to be processed by the Can.ino
+ */
 typedef struct {
   MotorStats motorStats;
   MotorTemps motorTemps;

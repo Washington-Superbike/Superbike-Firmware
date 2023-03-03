@@ -80,8 +80,6 @@ unsigned long epochTime;
 /**
  * Basic enum for data types for logging. Nothing else really.
  */
-
-*/
 enum data_type {
   INT,
   FLOAT
