@@ -68,13 +68,13 @@ $(function() {
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>File <a class="el" href="_c_a_n_8h.html">CAN.h</a>  </dt>
-<dd><a class="anchor" id="_todo000001"></a> Goal 1. <br  />
+<dd><a class="anchor" id="_todo000001"></a> Nothing? <br  />
  <br  />
- Goal 2. <br  />
+ More Nothing? <br  />
  <br  />
- Goal 3. <br  />
+ Nothing supreme? <br  />
  <br  />
- Final Goal.  </dd>
+ Nothing maxima.  </dd>
 <dt>File <a class="el" href="_c_a_n_8ino.html">CAN.ino</a>  </dt>
 <dd><a class="anchor" id="_todo000002"></a> Change the "if CAN_NODES != 0" to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> before compiling. <br  />
  <br  />
@@ -84,7 +84,7 @@ $(function() {
  <br  />
  Final Goal.  </dd>
 <dt>File <a class="el" href="_data_logging_8h.html">DataLogging.h</a>  </dt>
-<dd><a class="anchor" id="_todo000003"></a> Goal 1. <br  />
+<dd><a class="anchor" id="_todo000003"></a> Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) <br  />
  <br  />
  Goal 2. <br  />
  <br  />
@@ -100,21 +100,21 @@ $(function() {
  <br  />
  Final Goal.  </dd>
 <dt>File <a class="el" href="_display_8h.html">Display.h</a>  </dt>
-<dd><a class="anchor" id="_todo000005"></a> Goal 1. <br  />
+<dd><a class="anchor" id="_todo000005"></a> Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <br  />
  <br  />
- Goal 2. <br  />
+ Make a better struct for time and integrate it in a way so that the update code isn't nasty. <br  />
  <br  />
- Goal 3. <br  />
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. <br  />
  <br  />
  Final Goal.  </dd>
 <dt>File <a class="el" href="_display_8ino.html">Display.ino</a>  </dt>
-<dd><a class="anchor" id="_todo000006"></a> PLEASE remove the whole screen parameter situation. Change the whole value in the <br  />
+<dd><a class="anchor" id="_todo000006"></a> PLEASE remove the whole screen parameter situation. Change the "screen" variable in the <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to be a #define macro and then just check the value from here by directly including <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> and finding that value. Ez. <br  />
  <br  />
- Goal 2. <br  />
+ Remove all unused vars and tighten up methods. <br  />
  <br  />
- Goal 3. <br  />
+ There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can't think of them off the top of my head, but make and use those. <br  />
  <br  />
- Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> Final Goal.  </dd>
+ Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a>  </dd>
 <dt>File <a class="el" href="_main_8h.html">Main.h</a>  </dt>
 <dd><a class="anchor" id="_todo000007"></a> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <br  />
  <br  />
@@ -132,7 +132,7 @@ $(function() {
  <br  />
  TEST  </dd>
 <dt>File <a class="el" href="_precharge_8h.html">Precharge.h</a>  </dt>
-<dd><a class="anchor" id="_todo000009"></a> Goal 1. <br  />
+<dd><a class="anchor" id="_todo000009"></a> Change the preChargeStruct data to use less floats, etc. <br  />
  <br  />
  Goal 2. <br  />
  <br  />

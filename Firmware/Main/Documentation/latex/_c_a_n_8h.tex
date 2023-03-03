@@ -2,7 +2,7 @@
 \label{_c_a_n_8h}\index{CAN.h@{CAN.h}}
 
 
-The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for the CAN task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}}. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 
 
 {\ttfamily \#include $<$Flex\+CAN\+\_\+\+T4.\+h$>$}\newline
@@ -101,7 +101,7 @@ static bool \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cell\+
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+The \mbox{\hyperlink{_c_a_n_8h}{CAN.\+h}} config file for the CAN task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_c_a_n_8ino}{CAN.\+ino}}. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. 
 
 \begin{DoxyAuthor}{Author}
 Washington Superbike 
@@ -110,16 +110,16 @@ Washington Superbike
 1-\/March-\/2023
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-up all members to be able to use it without any trouble.
+Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Goal 1. ~\newline
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Nothing? ~\newline
  ~\newline
- Goal 2. ~\newline
+ More Nothing? ~\newline
  ~\newline
- Goal 3. ~\newline
+ Nothing supreme? ~\newline
  ~\newline
- Final Goal. \end{DoxyRefDesc}
+ Nothing maxima. \end{DoxyRefDesc}
 
 
 Definition in file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
@@ -135,7 +135,7 @@ Definition in file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00051}{51}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}\label{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_04@{BMSC1\_LTC1\_CELLS\_04}}
@@ -145,7 +145,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00051}{51}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00042}{42}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00038}{38}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}\label{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_58@{BMSC1\_LTC1\_CELLS\_58}}
@@ -155,7 +155,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00042}{42}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00043}{43}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}\label{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC1\_CELLS\_912@{BMSC1\_LTC1\_CELLS\_912}}
@@ -165,7 +165,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00043}{43}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00044}{44}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00040}{40}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}\label{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_04@{BMSC1\_LTC2\_CELLS\_04}}
@@ -175,7 +175,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00044}{44}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00045}{45}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}\label{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_58@{BMSC1\_LTC2\_CELLS\_58}}
@@ -185,7 +185,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00045}{45}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00046}{46}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00042}{42}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}\label{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}} 
 \index{CAN.h@{CAN.h}!BMSC1\_LTC2\_CELLS\_912@{BMSC1\_LTC2\_CELLS\_912}}
@@ -195,7 +195,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00046}{46}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00043}{43}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}\label{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}} 
 \index{CAN.h@{CAN.h}!CAN\_TASK\_STACK\_SIZE@{CAN\_TASK\_STACK\_SIZE}}
@@ -205,7 +205,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00047}{47}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00034}{34}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00030}{30}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}\label{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}} 
 \index{CAN.h@{CAN.h}!CHARGER\_STATS@{CHARGER\_STATS}}
@@ -215,7 +215,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00034}{34}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00035}{35}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}\label{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}} 
 \index{CAN.h@{CAN.h}!DD\_BMS\_STATUS\_IND@{DD\_BMS\_STATUS\_IND}}
@@ -225,7 +225,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00039}{39}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00040}{40}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00036}{36}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}\label{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}} 
 \index{CAN.h@{CAN.h}!DD\_BMSC\_TH\_STATUS\_IND@{DD\_BMSC\_TH\_STATUS\_IND}}
@@ -235,7 +235,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00040}{40}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00037}{37}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}\label{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}} 
 \index{CAN.h@{CAN.h}!EVCC\_STATS@{EVCC\_STATS}}
@@ -245,7 +245,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00041}{41}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00038}{38}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00034}{34}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}\label{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}} 
 \index{CAN.h@{CAN.h}!MOTOR\_STATS\_MSG@{MOTOR\_STATS\_MSG}}
@@ -255,7 +255,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00038}{38}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00036}{36}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00032}{32}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}\label{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}} 
 \index{CAN.h@{CAN.h}!MOTOR\_TEMPS\_MSG@{MOTOR\_TEMPS\_MSG}}
@@ -265,7 +265,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00036}{36}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00037}{37}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00033}{33}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 
 
@@ -421,7 +421,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8ino_source_l00057}{57}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00054}{54}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00050}{50}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}\label{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}} 
 \index{CAN.h@{CAN.h}!CAN\_msg@{CAN\_msg}}
@@ -431,7 +431,7 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00054}{54}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00053}{53}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 
 \mbox{\Hypertarget{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}\label{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}} 
 \index{CAN.h@{CAN.h}!cellVoltagesReady@{cellVoltagesReady}}
@@ -441,5 +441,5 @@ Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00057}{57}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00061}{61}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
+Definition at line \mbox{\hyperlink{_c_a_n_8h_source_l00057}{57}} of file \mbox{\hyperlink{_c_a_n_8h_source}{CAN.\+h}}.
 

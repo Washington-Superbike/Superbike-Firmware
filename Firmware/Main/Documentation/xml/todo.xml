@@ -8,13 +8,13 @@
     <detaileddescription>
 <para><variablelist>
 <varlistentry><term>File <ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref>  </term></varlistentry>
-<listitem><para><anchor id="todo_1_todo000001"/> Goal 1. <linebreak/>
+<listitem><para><anchor id="todo_1_todo000001"/> Nothing? <linebreak/>
  <linebreak/>
- Goal 2. <linebreak/>
+ More Nothing? <linebreak/>
  <linebreak/>
- Goal 3. <linebreak/>
+ Nothing supreme? <linebreak/>
  <linebreak/>
- Final Goal.  </para>
+ Nothing maxima.  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_c_a_n_8ino" kindref="compound">CAN.ino</ref>  </term></varlistentry>
 <listitem><para><anchor id="todo_1_todo000002"/> Change the &quot;if CAN_NODES != 0&quot; to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <ref refid="_main_8h" kindref="compound">Main.h</ref> before compiling. <linebreak/>
@@ -26,7 +26,7 @@
  Final Goal.  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref>  </term></varlistentry>
-<listitem><para><anchor id="todo_1_todo000003"/> Goal 1. <linebreak/>
+<listitem><para><anchor id="todo_1_todo000003"/> Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) <linebreak/>
  <linebreak/>
  Goal 2. <linebreak/>
  <linebreak/>
@@ -44,22 +44,22 @@
  Final Goal.  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_display_8h" kindref="compound">Display.h</ref>  </term></varlistentry>
-<listitem><para><anchor id="todo_1_todo000005"/> Goal 1. <linebreak/>
+<listitem><para><anchor id="todo_1_todo000005"/> Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <linebreak/>
  <linebreak/>
- Goal 2. <linebreak/>
+ Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. <linebreak/>
  <linebreak/>
- Goal 3. <linebreak/>
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. <linebreak/>
  <linebreak/>
  Final Goal.  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_display_8ino" kindref="compound">Display.ino</ref>  </term></varlistentry>
-<listitem><para><anchor id="todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the whole value in the <linebreak/>
+<listitem><para><anchor id="todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the &quot;screen&quot; variable in the <ref refid="_main_8h" kindref="compound">Main.h</ref> to be a #define macro and then just check the value from here by directly including <ref refid="_main_8h" kindref="compound">Main.h</ref> and finding that value. Ez. <linebreak/>
  <linebreak/>
- Goal 2. <linebreak/>
+ Remove all unused vars and tighten up methods. <linebreak/>
  <linebreak/>
- Goal 3. <linebreak/>
+ There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. <linebreak/>
  <linebreak/>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <ref refid="_main_8h" kindref="compound">Main.h</ref> Final Goal.  </para>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <ref refid="_main_8h" kindref="compound">Main.h</ref>  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_main_8h" kindref="compound">Main.h</ref>  </term></varlistentry>
 <listitem><para><anchor id="todo_1_todo000007"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <linebreak/>
@@ -80,7 +80,7 @@
  TEST  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_precharge_8h" kindref="compound">Precharge.h</ref>  </term></varlistentry>
-<listitem><para><anchor id="todo_1_todo000009"/> Goal 1. <linebreak/>
+<listitem><para><anchor id="todo_1_todo000009"/> Change the preChargeStruct data to use less floats, etc. <linebreak/>
  <linebreak/>
  Goal 2. <linebreak/>
  <linebreak/>

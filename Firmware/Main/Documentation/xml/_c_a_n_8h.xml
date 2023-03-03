@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="34" column="9" bodyfile="CAN.h" bodystart="34" bodyend="-1"/>
+        <location file="CAN.h" line="30" column="9" bodyfile="CAN.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a1b593ffe62c4590fa197331661393984" prot="public" static="no">
         <name>MOTOR_STATS_MSG</name>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="36" column="9" bodyfile="CAN.h" bodystart="36" bodyend="-1"/>
+        <location file="CAN.h" line="32" column="9" bodyfile="CAN.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da" prot="public" static="no">
         <name>MOTOR_TEMPS_MSG</name>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="37" column="9" bodyfile="CAN.h" bodystart="37" bodyend="-1"/>
+        <location file="CAN.h" line="33" column="9" bodyfile="CAN.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2" prot="public" static="no">
         <name>EVCC_STATS</name>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="38" column="9" bodyfile="CAN.h" bodystart="38" bodyend="-1"/>
+        <location file="CAN.h" line="34" column="9" bodyfile="CAN.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d" prot="public" static="no">
         <name>CHARGER_STATS</name>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="39" column="9" bodyfile="CAN.h" bodystart="39" bodyend="-1"/>
+        <location file="CAN.h" line="35" column="9" bodyfile="CAN.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9" prot="public" static="no">
         <name>DD_BMS_STATUS_IND</name>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="40" column="9" bodyfile="CAN.h" bodystart="40" bodyend="-1"/>
+        <location file="CAN.h" line="36" column="9" bodyfile="CAN.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7" prot="public" static="no">
         <name>DD_BMSC_TH_STATUS_IND</name>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="41" column="9" bodyfile="CAN.h" bodystart="41" bodyend="-1"/>
+        <location file="CAN.h" line="37" column="9" bodyfile="CAN.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_04</name>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="42" column="9" bodyfile="CAN.h" bodystart="42" bodyend="-1"/>
+        <location file="CAN.h" line="38" column="9" bodyfile="CAN.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_58</name>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="43" column="9" bodyfile="CAN.h" bodystart="43" bodyend="-1"/>
+        <location file="CAN.h" line="39" column="9" bodyfile="CAN.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1ac1908e8612424d72ae778e43759f077f" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_912</name>
@@ -205,7 +205,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="44" column="9" bodyfile="CAN.h" bodystart="44" bodyend="-1"/>
+        <location file="CAN.h" line="40" column="9" bodyfile="CAN.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a76c8bda430a00f369aed9309100c3107" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_04</name>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="45" column="9" bodyfile="CAN.h" bodystart="45" bodyend="-1"/>
+        <location file="CAN.h" line="41" column="9" bodyfile="CAN.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_58</name>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="46" column="9" bodyfile="CAN.h" bodystart="46" bodyend="-1"/>
+        <location file="CAN.h" line="42" column="9" bodyfile="CAN.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_912</name>
@@ -238,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="47" column="9" bodyfile="CAN.h" bodystart="47" bodyend="-1"/>
+        <location file="CAN.h" line="43" column="9" bodyfile="CAN.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" prot="public" static="no">
         <name>BMS_CELLS</name>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="51" column="9" bodyfile="CAN.h" bodystart="51" bodyend="-1"/>
+        <location file="CAN.h" line="47" column="9" bodyfile="CAN.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -264,7 +264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="54" column="12" bodyfile="CAN.h" bodystart="54" bodyend="-1"/>
+        <location file="CAN.h" line="50" column="12" bodyfile="CAN.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" prot="public" static="no" mutable="no">
         <type>CAN_message_t</type>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="57" column="15" bodyfile="CAN.h" bodystart="57" bodyend="-1"/>
+        <location file="CAN.h" line="53" column="15" bodyfile="CAN.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" prot="public" static="yes" mutable="no">
         <type>bool</type>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="61" column="13" bodyfile="CAN.h" bodystart="61" bodyend="-1"/>
+        <location file="CAN.h" line="57" column="13" bodyfile="CAN.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="121" column="6" bodyfile="CAN.ino" bodystart="33" bodyend="55" declfile="CAN.h" declline="121" declcolumn="6"/>
+        <location file="CAN.h" line="117" column="6" bodyfile="CAN.ino" bodystart="33" bodyend="55" declfile="CAN.h" declline="117" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -323,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="122" column="6" bodyfile="CAN.ino" bodystart="57" bodyend="60" declfile="CAN.h" declline="122" declcolumn="6"/>
+        <location file="CAN.h" line="118" column="6" bodyfile="CAN.ino" bodystart="57" bodyend="60" declfile="CAN.h" declline="118" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1acc8ad6a9a2388c904e5c2a81e263c59d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -344,7 +344,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="123" column="6" bodyfile="CAN.ino" bodystart="62" bodyend="66" declfile="CAN.h" declline="123" declcolumn="6"/>
+        <location file="CAN.h" line="119" column="6" bodyfile="CAN.ino" bodystart="62" bodyend="66" declfile="CAN.h" declline="119" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a3e5ce0cee4895bc07047a515ac2fa8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -365,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="124" column="6" bodyfile="CAN.ino" bodystart="68" bodyend="74" declfile="CAN.h" declline="124" declcolumn="6"/>
+        <location file="CAN.h" line="120" column="6" bodyfile="CAN.ino" bodystart="68" bodyend="74" declfile="CAN.h" declline="120" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1abd98b0e43fb7330bf8964d8da390810f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -386,7 +386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="125" column="6" bodyfile="CAN.ino" bodystart="76" bodyend="81" declfile="CAN.h" declline="125" declcolumn="6"/>
+        <location file="CAN.h" line="121" column="6" bodyfile="CAN.ino" bodystart="76" bodyend="81" declfile="CAN.h" declline="121" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a950c51dd93e1585b49156c52113ab832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="126" column="6" bodyfile="CAN.ino" bodystart="83" bodyend="88" declfile="CAN.h" declline="126" declcolumn="6"/>
+        <location file="CAN.h" line="122" column="6" bodyfile="CAN.ino" bodystart="83" bodyend="88" declfile="CAN.h" declline="122" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ac7f58797b08a603835f0488b5fe3fb7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -428,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="127" column="6" bodyfile="CAN.ino" bodystart="90" bodyend="96" declfile="CAN.h" declline="127" declcolumn="6"/>
+        <location file="CAN.h" line="123" column="6" bodyfile="CAN.ino" bodystart="90" bodyend="96" declfile="CAN.h" declline="123" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ac7f0128ba5279b58ce4917ff6d80264e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -449,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="128" column="6" bodyfile="CAN.ino" bodystart="98" bodyend="123" declfile="CAN.h" declline="128" declcolumn="6"/>
+        <location file="CAN.h" line="124" column="6" bodyfile="CAN.ino" bodystart="98" bodyend="123" declfile="CAN.h" declline="124" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a11cd027f4ad6ca2a6b9a860a07fb8e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="129" column="6" bodyfile="CAN.ino" bodystart="125" bodyend="134" declfile="CAN.h" declline="129" declcolumn="6"/>
+        <location file="CAN.h" line="125" column="6" bodyfile="CAN.ino" bodystart="125" bodyend="134" declfile="CAN.h" declline="125" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1afd1fb5329197c4478969008e0ee42f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -487,7 +487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="130" column="6" bodyfile="CAN.ino" bodystart="137" bodyend="144" declfile="CAN.h" declline="130" declcolumn="6"/>
+        <location file="CAN.h" line="126" column="6" bodyfile="CAN.ino" bodystart="137" bodyend="144" declfile="CAN.h" declline="126" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ab92f5f7e74cba4411e9f1c6f32a720a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -504,7 +504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="131" column="6" bodyfile="CAN.ino" bodystart="147" bodyend="189" declfile="CAN.h" declline="131" declcolumn="6"/>
+        <location file="CAN.h" line="127" column="6" bodyfile="CAN.ino" bodystart="147" bodyend="189" declfile="CAN.h" declline="127" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a317708f05ea5de4b748e27c49e2a85e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -517,7 +517,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="132" column="6" bodyfile="CAN.ino" bodystart="192" bodyend="223" declfile="CAN.h" declline="132" declcolumn="6"/>
+        <location file="CAN.h" line="128" column="6" bodyfile="CAN.ino" bodystart="192" bodyend="223" declfile="CAN.h" declline="128" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ad899aaa07def0c8757bea6e9a75f878d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -534,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="133" column="6" bodyfile="CAN.ino" bodystart="226" bodyend="232" declfile="CAN.h" declline="133" declcolumn="6"/>
+        <location file="CAN.h" line="129" column="6" bodyfile="CAN.ino" bodystart="226" bodyend="232" declfile="CAN.h" declline="129" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a0953b2f37f0e637d3f5fba2148109d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -551,140 +551,140 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="134" column="6" bodyfile="CAN.ino" bodystart="236" bodyend="244" declfile="CAN.h" declline="134" declcolumn="6"/>
+        <location file="CAN.h" line="130" column="6" bodyfile="CAN.ino" bodystart="236" bodyend="244" declfile="CAN.h" declline="130" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref> config file for the CAN task for the bike&apos;s firmware. This defines the variables that are passed along to the <ref refid="_c_a_n_8ino" kindref="compound">CAN.ino</ref> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <ref refid="_c_a_n_8ino" kindref="compound">CAN.ino</ref>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
 <simplesect kind="date"><para>1-March-2023</para>
 </simplesect>
-<simplesect kind="note"><para>up all members to be able to use it without any trouble.</para>
+<simplesect kind="note"><para>Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Goal 1. <linebreak/>
+<xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Nothing? <linebreak/>
  <linebreak/>
- Goal 2. <linebreak/>
+ More Nothing? <linebreak/>
  <linebreak/>
- Goal 3. <linebreak/>
+ Nothing supreme? <linebreak/>
  <linebreak/>
- Final Goal. </para>
+ Nothing maxima. </para>
 </xrefdescription></xrefsect></para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_CAN_H_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CAN_H_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;FlexCAN_T4.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_display_8h" kindref="compound">Display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="_c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CAN_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>4096</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="_c_a_n_8h_1a1b593ffe62c4590fa197331661393984" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_STATS_MSG<sp/>0x0CF11E05<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//motor<sp/>controller<sp/>message<sp/>-<sp/>CAN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="_c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_TEMPS_MSG<sp/>0x0CF11F05<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>motor<sp/>controller<sp/>message<sp/>-<sp/>CAN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="_c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EVCC_STATS<sp/>0x18e54024<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Charge<sp/>controller<sp/>status<sp/>(current,volt...)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="_c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARGER_STATS<sp/>0x18eb2440<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Thunderstruck<sp/>Charger<sp/>status<sp/>(current,volt...)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="_c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DD_BMS_STATUS_IND<sp/>0x01dd0001<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>BMS<sp/>cell<sp/>data<sp/>message<sp/>(overvolt,undervolt...)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="_c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DD_BMSC_TH_STATUS_IND<sp/>0x01df0e00<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>themistor<sp/>values<sp/>message</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="_c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_04<sp/><sp/>0x01df0900<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convention:<sp/>BMSC,<sp/>LTC,<sp/>CELL<sp/>RANGE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43" refid="_c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_58<sp/><sp/>0x01df0a00</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="_c_a_n_8h_1ac1908e8612424d72ae778e43759f077f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_912<sp/>0x01df0b00</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="_c_a_n_8h_1a76c8bda430a00f369aed9309100c3107" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_04<sp/><sp/>0x01df0901<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convention:<sp/>BMSC,<sp/>LTC,<sp/>CELL<sp/>RANGE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46" refid="_c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_58<sp/><sp/>0x01df0a01</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="_c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_912<sp/>0x01df0b01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_CAN_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CAN_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;FlexCAN_T4.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_display_8h" kindref="compound">Display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="_c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CAN_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>4096</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="_c_a_n_8h_1a1b593ffe62c4590fa197331661393984" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_STATS_MSG<sp/>0x0CF11E05<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//motor<sp/>controller<sp/>message<sp/>-<sp/>CAN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_TEMPS_MSG<sp/>0x0CF11F05<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>motor<sp/>controller<sp/>message<sp/>-<sp/>CAN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="_c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EVCC_STATS<sp/>0x18e54024<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Charge<sp/>controller<sp/>status<sp/>(current,volt...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="_c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARGER_STATS<sp/>0x18eb2440<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Thunderstruck<sp/>Charger<sp/>status<sp/>(current,volt...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DD_BMS_STATUS_IND<sp/>0x01dd0001<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>BMS<sp/>cell<sp/>data<sp/>message<sp/>(overvolt,undervolt...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="_c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DD_BMSC_TH_STATUS_IND<sp/>0x01df0e00<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>themistor<sp/>values<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="_c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_04<sp/><sp/>0x01df0900<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convention:<sp/>BMSC,<sp/>LTC,<sp/>CELL<sp/>RANGE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="_c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_58<sp/><sp/>0x01df0a00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="_c_a_n_8h_1ac1908e8612424d72ae778e43759f077f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC1_CELLS_912<sp/>0x01df0b00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_c_a_n_8h_1a76c8bda430a00f369aed9309100c3107" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_04<sp/><sp/>0x01df0901<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convention:<sp/>BMSC,<sp/>LTC,<sp/>CELL<sp/>RANGE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="_c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_58<sp/><sp/>0x01df0a01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMSC1_LTC2_CELLS_912<sp/>0x01df0b01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>set<sp/>to<sp/>24<sp/>instead<sp/>of<sp/>20<sp/>because<sp/>the<sp/>BMS<sp/>sends<sp/>cells<sp/>in<sp/>packs<sp/>of<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>so<sp/>it<sp/>makes<sp/>the<sp/>decipher<sp/>function<sp/>simpler</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMS_CELLS<sp/>24<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>number<sp/>of<sp/>cells<sp/>connected<sp/>to<sp/>the<sp/>main<sp/>accumulator<sp/>BMS</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>is<sp/>set<sp/>to<sp/>24<sp/>instead<sp/>of<sp/>20<sp/>because<sp/>the<sp/>BMS<sp/>sends<sp/>cells<sp/>in<sp/>packs<sp/>of<sp/>12</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>so<sp/>it<sp/>makes<sp/>the<sp/>decipher<sp/>function<sp/>simpler</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51" refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BMS_CELLS<sp/>24<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>number<sp/>of<sp/>cells<sp/>connected<sp/>to<sp/>the<sp/>main<sp/>accumulator<sp/>BMS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CAN<sp/>bus<sp/>handle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="_c_a_n_8h_1aa4303f5a4b2f41108b988f850270b2d1" refkind="member"><highlight class="normal">FlexCAN_T4&lt;CAN2,<sp/>RX_SIZE_256,<sp/>TX_SIZE_16&gt;<sp/><ref refid="_c_a_n_8h_1aa4303f5a4b2f41108b988f850270b2d1" kindref="member">CAN_bus</ref>;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>used<sp/>to<sp/>format<sp/>reading/writing<sp/>on<sp/>the<sp/>CAN<sp/>bus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" refkind="member"><highlight class="normal">CAN_message_t<sp/><ref refid="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" kindref="member">CAN_msg</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CAN<sp/>bus<sp/>handle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="_c_a_n_8h_1aa4303f5a4b2f41108b988f850270b2d1" refkind="member"><highlight class="normal">FlexCAN_T4&lt;CAN2,<sp/>RX_SIZE_256,<sp/>TX_SIZE_16&gt;<sp/><ref refid="_c_a_n_8h_1aa4303f5a4b2f41108b988f850270b2d1" kindref="member">CAN_bus</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>used<sp/>to<sp/>format<sp/>reading/writing<sp/>on<sp/>the<sp/>CAN<sp/>bus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" refkind="member"><highlight class="normal">CAN_message_t<sp/><ref refid="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" kindref="member">CAN_msg</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>if<sp/>cellVoltagesReady[INDEX]<sp/>is<sp/>true,<sp/>we<sp/>have<sp/>received<sp/>that<sp/>cell&apos;s<sp/>voltage<sp/>from<sp/>the<sp/>BMS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it<sp/>is<sp/>false<sp/>otherwise<sp/>(so<sp/>we<sp/>know<sp/>when<sp/>we<sp/>have<sp/>collected<sp/>all<sp/>distinct<sp/>cell<sp/>voltages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" kindref="member">cellVoltagesReady</ref>[<ref refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" kindref="member">BMS_CELLS</ref>]<sp/>=<sp/>{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>if<sp/>cellVoltagesReady[INDEX]<sp/>is<sp/>true,<sp/>we<sp/>have<sp/>received<sp/>that<sp/>cell&apos;s<sp/>voltage<sp/>from<sp/>the<sp/>BMS</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it<sp/>is<sp/>false<sp/>otherwise<sp/>(so<sp/>we<sp/>know<sp/>when<sp/>we<sp/>have<sp/>collected<sp/>all<sp/>distinct<sp/>cell<sp/>voltages</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61" refid="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" kindref="member">cellVoltagesReady</ref>[<ref refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" kindref="member">BMS_CELLS</ref>]<sp/>=<sp/>{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="struct_motor_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="65" refid="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" kindref="member">RPM</ref>;</highlight></codeline>
-<codeline lineno="66" refid="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" kindref="member">motorCurrent</ref>;</highlight></codeline>
-<codeline lineno="67" refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" kindref="member">motorControllerBatteryVoltage</ref>;</highlight></codeline>
-<codeline lineno="68" refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" kindref="member">errorMessage</ref>;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref>;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="struct_motor_temps" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="72" refid="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" kindref="member">throttle</ref>;</highlight></codeline>
-<codeline lineno="73" refid="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" kindref="member">motorControllerTemperature</ref>;</highlight></codeline>
-<codeline lineno="74" refid="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" kindref="member">motorTemperature</ref>;</highlight></codeline>
-<codeline lineno="75" refid="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" kindref="member">controllerStatus</ref>;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal">}<sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref>;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="struct_charge_controller_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="79" refid="struct_charge_controller_stats_1a16a3123ac01bcd73faa3a97e6ec4a774" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1a16a3123ac01bcd73faa3a97e6ec4a774" kindref="member">en</ref>;</highlight></codeline>
-<codeline lineno="80" refid="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" kindref="member">chargeVoltage</ref>;</highlight></codeline>
-<codeline lineno="81" refid="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" kindref="member">chargeCurrent</ref>;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal">}<sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref>;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84" refid="struct_charger_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="85" refid="struct_charger_stats_1ace07d9acd921d4f06f44ff347591d32b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1ace07d9acd921d4f06f44ff347591d32b" kindref="member">statusFlag</ref>;</highlight></codeline>
-<codeline lineno="86" refid="struct_charger_stats_1a35334daccd006a7cdbb635e1ac8bed14" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1a35334daccd006a7cdbb635e1ac8bed14" kindref="member">chargeFlag</ref>;</highlight></codeline>
-<codeline lineno="87" refid="struct_charger_stats_1aae5124f4063e787f9d7b838235f66d79" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1aae5124f4063e787f9d7b838235f66d79" kindref="member">outputVoltage</ref>;</highlight></codeline>
-<codeline lineno="88" refid="struct_charger_stats_1a0bafa595413f23895c8e4c55a64da3aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1a0bafa595413f23895c8e4c55a64da3aa" kindref="member">outputCurrent</ref>;</highlight></codeline>
-<codeline lineno="89" refid="struct_charger_stats_1a404624494d0facf36c3928f337eb4e87" refkind="member"><highlight class="normal"><sp/><sp/>int8_t*<sp/><ref refid="struct_charger_stats_1a404624494d0facf36c3928f337eb4e87" kindref="member">chargerTemp</ref>;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal">}<sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref>;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92" refid="struct_b_m_s_status" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93" refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" kindref="member">bms_status_flag</ref>;</highlight></codeline>
-<codeline lineno="94" refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" kindref="member">bms_c_id</ref>;</highlight></codeline>
-<codeline lineno="95" refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" kindref="member">bms_c_fault</ref>;</highlight></codeline>
-<codeline lineno="96" refid="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" kindref="member">ltc_fault</ref>;</highlight></codeline>
-<codeline lineno="97" refid="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" kindref="member">ltc_count</ref>;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal">}<sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="struct_motor_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61" refid="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257" kindref="member">RPM</ref>;</highlight></codeline>
+<codeline lineno="62" refid="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e" kindref="member">motorCurrent</ref>;</highlight></codeline>
+<codeline lineno="63" refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa" kindref="member">motorControllerBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="64" refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_stats_1af51eb591d7b6b57838499e55d5f2828b" kindref="member">errorMessage</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}<sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_motor_temps" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68" refid="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443" kindref="member">throttle</ref>;</highlight></codeline>
+<codeline lineno="69" refid="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35" kindref="member">motorControllerTemperature</ref>;</highlight></codeline>
+<codeline lineno="70" refid="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7" kindref="member">motorTemperature</ref>;</highlight></codeline>
+<codeline lineno="71" refid="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_motor_temps_1aeb45f993f33820d44f9f4d1f02cf0f13" kindref="member">controllerStatus</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}<sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="struct_charge_controller_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75" refid="struct_charge_controller_stats_1a16a3123ac01bcd73faa3a97e6ec4a774" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1a16a3123ac01bcd73faa3a97e6ec4a774" kindref="member">en</ref>;</highlight></codeline>
+<codeline lineno="76" refid="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1a928012799250fc25ea8510f4b5a3f873" kindref="member">chargeVoltage</ref>;</highlight></codeline>
+<codeline lineno="77" refid="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charge_controller_stats_1ae130510a45203d35d88f44253b5837cb" kindref="member">chargeCurrent</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}<sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="struct_charger_stats" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81" refid="struct_charger_stats_1ace07d9acd921d4f06f44ff347591d32b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1ace07d9acd921d4f06f44ff347591d32b" kindref="member">statusFlag</ref>;</highlight></codeline>
+<codeline lineno="82" refid="struct_charger_stats_1a35334daccd006a7cdbb635e1ac8bed14" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1a35334daccd006a7cdbb635e1ac8bed14" kindref="member">chargeFlag</ref>;</highlight></codeline>
+<codeline lineno="83" refid="struct_charger_stats_1aae5124f4063e787f9d7b838235f66d79" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1aae5124f4063e787f9d7b838235f66d79" kindref="member">outputVoltage</ref>;</highlight></codeline>
+<codeline lineno="84" refid="struct_charger_stats_1a0bafa595413f23895c8e4c55a64da3aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_charger_stats_1a0bafa595413f23895c8e4c55a64da3aa" kindref="member">outputCurrent</ref>;</highlight></codeline>
+<codeline lineno="85" refid="struct_charger_stats_1a404624494d0facf36c3928f337eb4e87" refkind="member"><highlight class="normal"><sp/><sp/>int8_t*<sp/><ref refid="struct_charger_stats_1a404624494d0facf36c3928f337eb4e87" kindref="member">chargerTemp</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}<sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="struct_b_m_s_status" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89" refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" kindref="member">bms_status_flag</ref>;</highlight></codeline>
+<codeline lineno="90" refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" kindref="member">bms_c_id</ref>;</highlight></codeline>
+<codeline lineno="91" refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" kindref="member">bms_c_fault</ref>;</highlight></codeline>
+<codeline lineno="92" refid="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" kindref="member">ltc_fault</ref>;</highlight></codeline>
+<codeline lineno="93" refid="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" kindref="member">ltc_count</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}<sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="struct_thermistor_temps" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97" refid="struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b" kindref="member">temps</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref>;</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100" refid="struct_thermistor_temps" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="101" refid="struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_thermistor_temps_1a586a85cf3b40e573c835319024d7eb5b" kindref="member">temps</ref>;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">}<sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref>;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104" refid="struct_cell_voltages" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="105" refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" kindref="member">cellVoltages</ref>;</highlight></codeline>
-<codeline lineno="106" refid="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" kindref="member">seriesVoltage</ref>;</highlight></codeline>
-<codeline lineno="107" refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" kindref="member">ready</ref>;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal">}<sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref>;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110" refid="struct_c_a_n_task_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="111" refid="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" kindref="member">motorStats</ref>;</highlight></codeline>
-<codeline lineno="112" refid="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" kindref="member">motorTemps</ref>;</highlight></codeline>
-<codeline lineno="113" refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" kindref="member">bmsStatus</ref>;</highlight></codeline>
-<codeline lineno="114" refid="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" kindref="member">thermistorTemps</ref>;</highlight></codeline>
-<codeline lineno="115" refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" kindref="member">cellVoltages</ref>;</highlight></codeline>
-<codeline lineno="116" refid="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" kindref="member">chargerStats</ref>;</highlight></codeline>
-<codeline lineno="117" refid="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" kindref="member">chargeControllerStats</ref>;</highlight></codeline>
-<codeline lineno="118" refid="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" kindref="member">seriesVoltage</ref>;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal">}<sp/><ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref>;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*canData);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN</ref>();</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1acc8ad6a9a2388c904e5c2a81e263c59d" kindref="member">decipherEVCCStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/>evccStats);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a3e5ce0cee4895bc07047a515ac2fa8ea" kindref="member">decipherChargerStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" kindref="member">chargerStats</ref>);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1abd98b0e43fb7330bf8964d8da390810f" kindref="member">decodeMotorStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" kindref="member">motorStats</ref><sp/>);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a950c51dd93e1585b49156c52113ab832" kindref="member">decodeMotorTemps</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" kindref="member">motorTemps</ref>);</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ac7f58797b08a603835f0488b5fe3fb7c" kindref="member">decipherBMSStatus</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" kindref="member">bmsStatus</ref>);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ac7f0128ba5279b58ce4917ff6d80264e" kindref="member">decipherCellsVoltage</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" kindref="member">cellVoltages</ref>);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a11cd027f4ad6ca2a6b9a860a07fb8e41" kindref="member">decipherThermistors</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="_main_8h_1a18571448b101f12a60457d717dc4f953" kindref="member">thermistorTemps</ref>);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1afd1fb5329197c4478969008e0ee42f90" kindref="member">calculateSeriesVoltage</ref>(<ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/>cellVs);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ab92f5f7e74cba4411e9f1c6f32a720a5" kindref="member">checkCAN</ref>(<ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref><sp/>canData);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a317708f05ea5de4b748e27c49e2a85e8" kindref="member">printBMSStatus</ref>();</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ad899aaa07def0c8757bea6e9a75f878d" kindref="member">printMessage</ref>(CAN_message_t<sp/>msg);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a0953b2f37f0e637d3f5fba2148109d2a" kindref="member">requestCellVoltages</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LTC);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_CAN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="struct_cell_voltages" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101" refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" kindref="member">cellVoltages</ref>;</highlight></codeline>
+<codeline lineno="102" refid="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" kindref="member">seriesVoltage</ref>;</highlight></codeline>
+<codeline lineno="103" refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/><ref refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" kindref="member">ready</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}<sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="struct_c_a_n_task_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107" refid="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a47d2113927a00ff554160b7fabfc6471" kindref="member">motorStats</ref>;</highlight></codeline>
+<codeline lineno="108" refid="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="struct_c_a_n_task_data_1a28c4ff53f540fa92e730acfd0def5d88" kindref="member">motorTemps</ref>;</highlight></codeline>
+<codeline lineno="109" refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="struct_c_a_n_task_data_1a02b8e7f2fddd541dfd7b42efb7a1bbf3" kindref="member">bmsStatus</ref>;</highlight></codeline>
+<codeline lineno="110" refid="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="struct_c_a_n_task_data_1a1f1f9a7c959359030e8ab98d5ecf6a57" kindref="member">thermistorTemps</ref>;</highlight></codeline>
+<codeline lineno="111" refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="struct_c_a_n_task_data_1a3d198d3fdb7daa5117a01954825e30ad" kindref="member">cellVoltages</ref>;</highlight></codeline>
+<codeline lineno="112" refid="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a173c0fd4a49d1c2c1d01225b28d04f19" kindref="member">chargerStats</ref>;</highlight></codeline>
+<codeline lineno="113" refid="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/><ref refid="struct_c_a_n_task_data_1a541dfccdee9cf36b2252abfffbbdda41" kindref="member">chargeControllerStats</ref>;</highlight></codeline>
+<codeline lineno="114" refid="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*<ref refid="struct_c_a_n_task_data_1a3bcffb9987e3444b4e55f523b32ef119" kindref="member">seriesVoltage</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}<sp/><ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*canData);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1acc8ad6a9a2388c904e5c2a81e263c59d" kindref="member">decipherEVCCStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/>evccStats);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a3e5ce0cee4895bc07047a515ac2fa8ea" kindref="member">decipherChargerStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" kindref="member">chargerStats</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1abd98b0e43fb7330bf8964d8da390810f" kindref="member">decodeMotorStats</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" kindref="member">motorStats</ref><sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a950c51dd93e1585b49156c52113ab832" kindref="member">decodeMotorTemps</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" kindref="member">motorTemps</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ac7f58797b08a603835f0488b5fe3fb7c" kindref="member">decipherBMSStatus</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" kindref="member">bmsStatus</ref>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ac7f0128ba5279b58ce4917ff6d80264e" kindref="member">decipherCellsVoltage</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" kindref="member">cellVoltages</ref>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a11cd027f4ad6ca2a6b9a860a07fb8e41" kindref="member">decipherThermistors</ref>(CAN_message_t<sp/>msg,<sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="_main_8h_1a18571448b101f12a60457d717dc4f953" kindref="member">thermistorTemps</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1afd1fb5329197c4478969008e0ee42f90" kindref="member">calculateSeriesVoltage</ref>(<ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/>cellVs);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ab92f5f7e74cba4411e9f1c6f32a720a5" kindref="member">checkCAN</ref>(<ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref><sp/>canData);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a317708f05ea5de4b748e27c49e2a85e8" kindref="member">printBMSStatus</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1ad899aaa07def0c8757bea6e9a75f878d" kindref="member">printMessage</ref>(CAN_message_t<sp/>msg);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_c_a_n_8h_1a0953b2f37f0e637d3f5fba2148109d2a" kindref="member">requestCellVoltages</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>LTC);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_CAN_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="CAN.h"/>
   </compounddef>

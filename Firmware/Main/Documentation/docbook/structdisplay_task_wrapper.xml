@@ -16,8 +16,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>The <link linkend="_structdisplay_task_wrapper">displayTaskWrapper()</link> struct just wraps up the MeasurementScreenData and the Screen data (realistically, can be removed...) for the <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</link> </para>
 <para>
-Definition at line <link linkend="__display_8h_source_1l00119">119</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00179">179</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -26,14 +28,14 @@ Definition at line <link linkend="__display_8h_source_1l00119">119</link> of fil
 <indexterm><primary>msDataWrap</primary><secondary>displayTaskWrapper</secondary></indexterm>
 <indexterm><primary>displayTaskWrapper</primary><secondary>msDataWrap</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link>* displayTaskWrapper::msDataWrap</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00120">120</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00180">180</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22"/><section>
     <title>screenDataWrap</title>
 <indexterm><primary>screenDataWrap</primary><secondary>displayTaskWrapper</secondary></indexterm>
 <indexterm><primary>displayTaskWrapper</primary><secondary>screenDataWrap</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link>* displayTaskWrapper::screenDataWrap</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00121">121</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00181">181</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

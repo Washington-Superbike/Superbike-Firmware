@@ -21,7 +21,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00071">71</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00067">67</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -30,28 +30,28 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00071">71</link> of file <
 <indexterm><primary>controllerStatus</primary><secondary>MotorTemps</secondary></indexterm>
 <indexterm><primary>MotorTemps</primary><secondary>controllerStatus</secondary></indexterm>
 <para><computeroutput>byte* MotorTemps::controllerStatus</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00075">75</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00071">71</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_temps_1a1c8b1bb77f968573fe2d1af0a0815d35"/><section>
     <title>motorControllerTemperature</title>
 <indexterm><primary>motorControllerTemperature</primary><secondary>MotorTemps</secondary></indexterm>
 <indexterm><primary>MotorTemps</primary><secondary>motorControllerTemperature</secondary></indexterm>
 <para><computeroutput>float* MotorTemps::motorControllerTemperature</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00073">73</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00069">69</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_temps_1ad9864aa48ce76c5965919c459cc6e9b7"/><section>
     <title>motorTemperature</title>
 <indexterm><primary>motorTemperature</primary><secondary>MotorTemps</secondary></indexterm>
 <indexterm><primary>MotorTemps</primary><secondary>motorTemperature</secondary></indexterm>
 <para><computeroutput>float* MotorTemps::motorTemperature</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00074">74</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00070">70</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_temps_1acd9280e84ed18ff75d285e1377c01443"/><section>
     <title>throttle</title>
 <indexterm><primary>throttle</primary><secondary>MotorTemps</secondary></indexterm>
 <indexterm><primary>MotorTemps</primary><secondary>throttle</secondary></indexterm>
 <para><computeroutput>float* MotorTemps::throttle</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00072">72</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00068">68</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

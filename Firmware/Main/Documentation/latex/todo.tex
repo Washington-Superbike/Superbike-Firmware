@@ -2,13 +2,13 @@
 \begin{DoxyRefList}
 \item[File \mbox{\hyperlink{_c_a_n_8h}{CAN.h}} ]\label{todo__todo000001}%
 \Hypertarget{todo__todo000001}%
- Goal 1. ~\newline
+ Nothing? ~\newline
  ~\newline
- Goal 2. ~\newline
+ More Nothing? ~\newline
  ~\newline
- Goal 3. ~\newline
+ Nothing supreme? ~\newline
  ~\newline
- Final Goal.  
+ Nothing maxima.  
 \item[File \mbox{\hyperlink{_c_a_n_8ino}{CAN.ino}} ]\label{todo__todo000002}%
 \Hypertarget{todo__todo000002}%
  Change the \char`\"{}if CAN\+\_\+\+NODES != 0\char`\"{} to be an ifndef statement in the start. That means the check\+CAN and request\+Cell\+Voltages lines will not execute unless CAN\+\_\+\+NODES is a non-\/zero number in \mbox{\hyperlink{_main_8h}{Main.\+h}} before compiling. ~\newline
@@ -20,7 +20,7 @@
  Final Goal.  
 \item[File \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.h}} ]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
- Goal 1. ~\newline
+ Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) ~\newline
  ~\newline
  Goal 2. ~\newline
  ~\newline
@@ -38,22 +38,22 @@
  Final Goal.  
 \item[File \mbox{\hyperlink{_display_8h}{Display.h}} ]\label{todo__todo000005}%
 \Hypertarget{todo__todo000005}%
- Goal 1. ~\newline
+ Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-\/thermistor to be honest) ~\newline
  ~\newline
- Goal 2. ~\newline
+ Make a better struct for time and integrate it in a way so that the update code isn\textquotesingle{}t nasty. ~\newline
  ~\newline
- Goal 3. ~\newline
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. ~\newline
  ~\newline
  Final Goal.  
 \item[File \mbox{\hyperlink{_display_8ino}{Display.ino}} ]\label{todo__todo000006}%
 \Hypertarget{todo__todo000006}%
- PLEASE remove the whole screen parameter situation. Change the whole value in the ~\newline
+ PLEASE remove the whole screen parameter situation. Change the \char`\"{}screen\char`\"{} variable in the \mbox{\hyperlink{_main_8h}{Main.\+h}} to be a \#define macro and then just check the value from here by directly including \mbox{\hyperlink{_main_8h}{Main.\+h}} and finding that value. Ez. ~\newline
  ~\newline
- Goal 2. ~\newline
+ Remove all unused vars and tighten up methods. ~\newline
  ~\newline
- Goal 3. ~\newline
+ There are WAY more macros (\#define statements) that need to be written for defining some frequently used values in display. Can\textquotesingle{}t think of them off the top of my head, but make and use those. ~\newline
  ~\newline
- Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} Final Goal.  
+ Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}}  
 \item[File \mbox{\hyperlink{_main_8h}{Main.h}} ]\label{todo__todo000007}%
 \Hypertarget{todo__todo000007}%
  Based on refinements made for pre\+Charge/controls.\+ino, remove spare and redundant variables. And just generally ALL the spare variables. ~\newline
@@ -74,7 +74,7 @@
  TEST  
 \item[File \mbox{\hyperlink{_precharge_8h}{Precharge.h}} ]\label{todo__todo000009}%
 \Hypertarget{todo__todo000009}%
- Goal 1. ~\newline
+ Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline
  ~\newline
  Goal 2. ~\newline
  ~\newline

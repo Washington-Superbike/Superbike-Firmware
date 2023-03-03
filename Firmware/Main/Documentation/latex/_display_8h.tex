@@ -2,7 +2,7 @@
 \label{_display_8h}\index{Display.h@{Display.h}}
 
 
-The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_display_8ino}{Display.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_display_8ino}{Display.\+ino}}. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 
 
 {\ttfamily \#include $<$Adafruit\+\_\+\+ILI9341.\+h$>$}\newline
@@ -29,35 +29,35 @@ struct \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper}}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}{DISPLAY\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE}}~\mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE}} + 32368
-\item 
+\begin{DoxyCompactList}\small\item\em Uses the config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE variable in \mbox{\hyperlink{_main_8h}{Main.\+h}} to add up to the stack size used for the display\+Task. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}{DISPLAY\+\_\+\+UPDATE\+\_\+\+TIME\+\_\+\+MAX}}~50
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\+\_\+\+CS}}~10
-\item 
+\begin{DoxyCompactList}\small\item\em The Teensy pin used for the display\textquotesingle{}s chip select pin. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a51529307207622c113ff0d584536be13}{TFT\+\_\+\+DC}}~9
-\item 
+\begin{DoxyCompactList}\small\item\em The Teensy pin used for the display data/command pin. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\+\_\+\+RST}}~8
-\item 
+\begin{DoxyCompactList}\small\item\em The Teensy pin used for the display reset pin. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\+\_\+\+CS}}~10
 \item 
 \#define \mbox{\hyperlink{_display_8h_a5d966444a95d140572e8f999fa00f8e0}{TIRQ\+\_\+\+PIN}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em The TIRQ interrupt signal must be used for this example. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\+\_\+\+DATA}}~11
-\item 
+\begin{DoxyCompactList}\small\item\em Number of Printed\+Data values (length of the array that contains all the printed\+Data) \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\+\_\+\+FLOAT}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em The default starter value used for floats in the \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}}. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\+\_\+\+X\+\_\+\+POS}}~235
-\item 
+\begin{DoxyCompactList}\small\item\em The default x position used the data in the \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}}. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\+\_\+\+SCALER}}~16
 \item 
 \#define \mbox{\hyperlink{_display_8h_a33c25be9eca2247ac244fc928183eb55}{TS\+\_\+\+MINX}}~327
-\item 
+\begin{DoxyCompactList}\small\item\em Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}{TS\+\_\+\+MAXX}}~3903
-\item 
+\begin{DoxyCompactList}\small\item\em Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}{TS\+\_\+\+MINY}}~243
-\item 
+\begin{DoxyCompactList}\small\item\em Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_display_8h_a8037be4206d706c1077d0153db12690a}{TS\+\_\+\+MAXY}}~3842
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -110,9 +110,9 @@ float \mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\+v
 \begin{DoxyCompactItemize}
 \item 
 Adafruit\+\_\+\+ILI9341 \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}} = Adafruit\+\_\+\+ILI9341( 10 , 9 , 8 )
-\item 
+\begin{DoxyCompactList}\small\item\em The global variable used to write to the display. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}} \mbox{[}11\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em All Printed\+Value objects/structs, just stored in the array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}{battery\+Voltage}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}0\mbox{]}
 \item 
 \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}{motor\+Controller\+Voltage}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}1\mbox{]}
@@ -136,13 +136,13 @@ Adafruit\+\_\+\+ILI9341 \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594
 \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}} $\ast$ \mbox{\hyperlink{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}{evcc\+Volt}} = \&\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printed\+Vals}}\mbox{[}10\mbox{]}
 \item 
 \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}} \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermi\+Data}}
-\item 
+\begin{DoxyCompactList}\small\item\em The thermistor data. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}{time\+Data}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The time data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+The \mbox{\hyperlink{_display_8h}{Display.\+h}} config file for the Display task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_display_8ino}{Display.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_display_8ino}{Display.\+ino}}. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file. 
 
 \begin{DoxyAuthor}{Author}
 Washington Superbike 
@@ -151,14 +151,14 @@ Washington Superbike
 1-\/March-\/2023
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-up all members to be able to use it without any trouble.
+Whoever makes the struct changes. Good luck. Have fun.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Goal 1. ~\newline
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-\/thermistor to be honest) ~\newline
  ~\newline
- Goal 2. ~\newline
+ Make a better struct for time and integrate it in a way so that the update code isn\textquotesingle{}t nasty. ~\newline
  ~\newline
- Goal 3. ~\newline
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. ~\newline
  ~\newline
  Final Goal. \end{DoxyRefDesc}
 
@@ -176,7 +176,11 @@ Definition in file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00056}{56}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The default starter value used for floats in the \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}}. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00065}{65}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_accd27f9824631fc37bcb677947f1f63a}\label{_display_8h_accd27f9824631fc37bcb677947f1f63a}} 
 \index{Display.h@{Display.h}!DEFAULT\_X\_POS@{DEFAULT\_X\_POS}}
@@ -186,7 +190,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00056}{56}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00057}{57}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The default x position used the data in the \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}}. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00067}{67}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}\label{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}} 
 \index{Display.h@{Display.h}!DISPLAY\_TASK\_STACK\_SIZE@{DISPLAY\_TASK\_STACK\_SIZE}}
@@ -196,7 +204,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00057}{57}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00036}{36}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Uses the config\+MINIMAL\+\_\+\+STACK\+\_\+\+SIZE variable in \mbox{\hyperlink{_main_8h}{Main.\+h}} to add up to the stack size used for the display\+Task. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00041}{41}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}\label{_display_8h_a3bf1bf7c513d10bf1c142b6863f647bb}} 
 \index{Display.h@{Display.h}!DISPLAY\_UPDATE\_TIME\_MAX@{DISPLAY\_UPDATE\_TIME\_MAX}}
@@ -206,7 +218,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00036}{36}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00039}{39}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00043}{43}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}\label{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}} 
 \index{Display.h@{Display.h}!NUM\_DATA@{NUM\_DATA}}
@@ -216,7 +232,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00039}{39}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00053}{53}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Number of Printed\+Data values (length of the array that contains all the printed\+Data) 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00061}{61}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a5f4d46ae101b77df78010c506601c87c}\label{_display_8h_a5f4d46ae101b77df78010c506601c87c}} 
 \index{Display.h@{Display.h}!TFT\_CS@{TFT\_CS}}
@@ -226,7 +246,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00053}{53}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00041}{41}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The Teensy pin used for the display\textquotesingle{}s chip select pin. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00046}{46}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a51529307207622c113ff0d584536be13}\label{_display_8h_a51529307207622c113ff0d584536be13}} 
 \index{Display.h@{Display.h}!TFT\_DC@{TFT\_DC}}
@@ -236,7 +260,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00041}{41}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00042}{42}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The Teensy pin used for the display data/command pin. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00048}{48}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ab40e9918d9141415a47e2a979292309c}\label{_display_8h_ab40e9918d9141415a47e2a979292309c}} 
 \index{Display.h@{Display.h}!TFT\_RST@{TFT\_RST}}
@@ -246,7 +274,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00042}{42}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00043}{43}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The Teensy pin used for the display reset pin. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00050}{50}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a5d966444a95d140572e8f999fa00f8e0}\label{_display_8h_a5d966444a95d140572e8f999fa00f8e0}} 
 \index{Display.h@{Display.h}!TIRQ\_PIN@{TIRQ\_PIN}}
@@ -256,7 +288,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00043}{43}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00050}{50}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The TIRQ interrupt signal must be used for this example. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00058}{58}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_aebc2813ad338ac596f3108382916b482}\label{_display_8h_aebc2813ad338ac596f3108382916b482}} 
 \index{Display.h@{Display.h}!TS\_CS@{TS\_CS}}
@@ -264,9 +300,9 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00050}{50}} of file \mbo
 \doxysubsubsection{\texorpdfstring{TS\_CS}{TS\_CS}}
 {\footnotesize\ttfamily \#define TS\+\_\+\+CS~10}
 
+The Teensy pin used for the display touch-\/screen chip select. This is useless because we dont use the touch screen. 
 
-
-Definition at line \mbox{\hyperlink{_display_8h_source_l00046}{46}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00054}{54}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}\label{_display_8h_ae0c07334a8bec0889ce72fd7cd207000}} 
 \index{Display.h@{Display.h}!TS\_MAXX@{TS\_MAXX}}
@@ -276,7 +312,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00046}{46}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00063}{63}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00078}{78}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a8037be4206d706c1077d0153db12690a}\label{_display_8h_a8037be4206d706c1077d0153db12690a}} 
 \index{Display.h@{Display.h}!TS\_MAXY@{TS\_MAXY}}
@@ -286,7 +326,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00063}{63}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00065}{65}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00082}{82}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a33c25be9eca2247ac244fc928183eb55}\label{_display_8h_a33c25be9eca2247ac244fc928183eb55}} 
 \index{Display.h@{Display.h}!TS\_MINX@{TS\_MINX}}
@@ -296,7 +340,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00065}{65}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00062}{62}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00076}{76}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}\label{_display_8h_a221886aabcdfcc6e096414db04cfbdb9}} 
 \index{Display.h@{Display.h}!TS\_MINY@{TS\_MINY}}
@@ -306,7 +354,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00062}{62}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00064}{64}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Not sure why this is so high. Google it, but as of now it\textquotesingle{}s unused. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00080}{80}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a9705c15b04a1787116a4fbdf987e0328}\label{_display_8h_a9705c15b04a1787116a4fbdf987e0328}} 
 \index{Display.h@{Display.h}!VERTICAL\_SCALER@{VERTICAL\_SCALER}}
@@ -314,9 +366,9 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00064}{64}} of file \mbo
 \doxysubsubsection{\texorpdfstring{VERTICAL\_SCALER}{VERTICAL\_SCALER}}
 {\footnotesize\ttfamily \#define VERTICAL\+\_\+\+SCALER~16}
 
+A Scaler for moving vertical data down. Each row of data is a factor of 16 pixels away from each other, vertically. 
 
-
-Definition at line \mbox{\hyperlink{_display_8h_source_l00060}{60}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00072}{72}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 
 
@@ -327,37 +379,37 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00060}{60}} of file \mbo
 \doxysubsubsection{\texorpdfstring{displayPointer}{displayPointer}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper}} \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}}}
 
-\mbox{\Hypertarget{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}\label{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}} 
+The \mbox{\hyperlink{structdisplay_task_wrapper}{display\+Task\+Wrapper()}} struct just wraps up the Measurement\+Screen\+Data and the Screen data (realistically, can be removed...) for the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}} \mbox{\Hypertarget{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}\label{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}} 
 \index{Display.h@{Display.h}!MeasurementScreenData@{MeasurementScreenData}}
 \index{MeasurementScreenData@{MeasurementScreenData}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{MeasurementScreenData}{MeasurementScreenData}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_measurement_screen_data_struct}{Measurement\+Screen\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}
 
-\mbox{\Hypertarget{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}\label{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}} 
+The last complex struct. This just contains all the floats and integers as pointers that point to the original variables from \mbox{\hyperlink{_main_8h}{Main.\+h}}. This just packages all the data used by the \mbox{\hyperlink{struct_measurement_screen_data_struct}{Measurement\+Screen\+Data\+Struct}}. \mbox{\Hypertarget{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}\label{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}} 
 \index{Display.h@{Display.h}!PrintedData@{PrintedData}}
 \index{PrintedData@{PrintedData}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{PrintedData}{PrintedData}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}} \mbox{\hyperlink{_display_8h_a0b2eff0e3feae0c6d455436e5511e6b0}{Printed\+Data}}}
 
-\mbox{\Hypertarget{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}\label{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}} 
+The first complex struct. Stores all the info of a specific type of data we\textquotesingle{}re storing. This includes the x and y position of the label, the x and y position of the data, the data type, a pointer to the current data, a float to store the old data, the length of the data (TODO REMOVE), and a char$\ast$ (String) with the label for that data. Please look at the struct itself and how it is implemented to fully understand how it works. The gist of how it\textquotesingle{}s used is obvious, but the details can often be the frustrating part. \mbox{\Hypertarget{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}\label{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}} 
 \index{Display.h@{Display.h}!PrintedDataTherm@{PrintedDataTherm}}
 \index{PrintedDataTherm@{PrintedDataTherm}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{PrintedDataTherm}{PrintedDataTherm}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_therm_struct}{Printed\+Data\+Therm\+Struct}} \mbox{\hyperlink{_display_8h_a359bec7987d6af4301ef0554e5d65bd7}{Printed\+Data\+Therm}}}
 
-\mbox{\Hypertarget{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}\label{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}} 
+The second complex struct. Very similar to to \mbox{\hyperlink{struct_printed_data_struct}{Printed\+Data\+Struct}} and now it\textquotesingle{}s adjusted for Thermistors, using a float array as the old\+Data instead of a regular float. \mbox{\Hypertarget{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}\label{_display_8h_a9c2d0a6b6dc2051fb68c10e88f2283cd}} 
 \index{Display.h@{Display.h}!PrintedDataTimeStuct@{PrintedDataTimeStuct}}
 \index{PrintedDataTimeStuct@{PrintedDataTimeStuct}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{PrintedDataTimeStuct}{PrintedDataTimeStuct}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}} \mbox{\hyperlink{struct_printed_data_time_stuct}{Printed\+Data\+Time\+Stuct}}}
 
-\mbox{\Hypertarget{_display_8h_a412053d6576f296892a8ccc0d8510e46}\label{_display_8h_a412053d6576f296892a8ccc0d8510e46}} 
+The third complex struct. Work in progress, make this better and integrate it into the way time is updated, etc in the \mbox{\hyperlink{_display_8ino}{Display.\+ino}} file. \mbox{\Hypertarget{_display_8h_a412053d6576f296892a8ccc0d8510e46}\label{_display_8h_a412053d6576f296892a8ccc0d8510e46}} 
 \index{Display.h@{Display.h}!Screen@{Screen}}
 \index{Screen@{Screen}!Display.h@{Display.h}}
 \doxysubsubsection{\texorpdfstring{Screen}{Screen}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_screen_info}{Screen\+Info}} \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}
 
-
+Basic struct that just implements the Screen enum as a struct. Please remove this once the macro is implemented. 
 
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}} 
@@ -366,7 +418,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00060}{60}} of file \mbo
 \doxysubsubsection{\texorpdfstring{PRINT\_TYPE}{PRINT\_TYPE}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1}{PRINT\+\_\+\+TYPE}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+Just a basic enum to store the type of data being printed. C is a very basic language, so it doesn\textquotesingle{}t just have nice methods like Java and Python to determine a variable\textquotesingle{}s type. And I assume those methods are probably implemented using some sort of nice typedef or enum or something to indicate it. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{NUMBER@{NUMBER}!Display.h@{Display.h}}\index{Display.h@{Display.h}!NUMBER@{NUMBER}}}\mbox{\Hypertarget{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}\label{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}} 
 NUMBER&\\
 \hline
@@ -382,7 +434,7 @@ BOOL&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00067}{67}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00091}{91}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173f}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173f}} 
 \index{Display.h@{Display.h}!SCREEN\_TYPE@{SCREEN\_TYPE}}
@@ -390,7 +442,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00067}{67}} of file \mbo
 \doxysubsubsection{\texorpdfstring{SCREEN\_TYPE}{SCREEN\_TYPE}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173f}{SCREEN\+\_\+\+TYPE}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+Just a basic enum to store the type of Screen being printed. As stated in the todo, this should probably be replaced. No point in having it. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUG@{DEBUG}!Display.h@{Display.h}}\index{Display.h@{Display.h}!DEBUG@{DEBUG}}}\mbox{\Hypertarget{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}\label{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}} 
 DEBUG&\\
 \hline
@@ -402,7 +454,7 @@ SPEEDOMETER&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00071}{71}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00100}{100}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 
 
@@ -413,9 +465,9 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00071}{71}} of file \mbo
 \doxysubsubsection{\texorpdfstring{aux\_voltage\_read()}{aux\_voltage\_read()}}
 {\footnotesize\ttfamily float aux\+\_\+voltage\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Reads in the aux\+\_\+voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it\textquotesingle{}s here.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00282}{282}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}\label{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}} 
 \index{Display.h@{Display.h}!displayUpdate@{displayUpdate}}
@@ -425,7 +477,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00090}{90}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}\label{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}} 
 \index{Display.h@{Display.h}!eraseThenPrint@{eraseThenPrint}}
@@ -433,9 +485,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \m
 \doxysubsubsection{\texorpdfstring{eraseThenPrint()}{eraseThenPrint()}}
 {\footnotesize\ttfamily void erase\+Then\+Print (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+Erases the old value using the old\+Data parameter by writing it in white text and then setting it to black text to write the new\+Data.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}\label{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}} 
 \index{Display.h@{Display.h}!eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}}
@@ -443,9 +495,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \
 \doxysubsubsection{\texorpdfstring{eraseThenPrintSPEEDO()}{eraseThenPrintSPEEDO()}}
 {\footnotesize\ttfamily void erase\+Then\+Print\+SPEEDO (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+Just a flipped color version of \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print()}} Erases the old value using the old\+Data parameter by writing it in black text and then setting it to white text to write the new\+Data.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00249}{249}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a2fcaba5d0c64fb3389132dca04224211}\label{_display_8h_a2fcaba5d0c64fb3389132dca04224211}} 
 \index{Display.h@{Display.h}!manualScreenDataUpdater@{manualScreenDataUpdater}}
@@ -453,9 +505,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \
 \doxysubsubsection{\texorpdfstring{manualScreenDataUpdater()}{manualScreenDataUpdater()}}
 {\footnotesize\ttfamily void manual\+Screen\+Data\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Iterates through all the printed\+Vals array and then does += 1 to make sure it\textquotesingle{}s increasing. This change should be reflected in the display itself.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00267}{267}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}\label{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}} 
 \index{Display.h@{Display.h}!setupDisplay@{setupDisplay}}
@@ -463,9 +515,13 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \
 \doxysubsubsection{\texorpdfstring{setupDisplay()}{setupDisplay()}}
 {\footnotesize\ttfamily void setup\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+Calls on tft.\+begin() method and sets the orientation using tft.\+set\+Rotatio() and also sets the screen to ILI9341\+\_\+\+WHITE or ILI9341\+\_\+\+BLACK based on Debugging or Speedometer screen.
 
+Initializes all the Printed\+Data\+Structs to set their position, values, and point to the correct pointer corresponding to the correct data.
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Calls on the \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen()}} to finish up the setup.
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00051}{51}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}\label{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}} 
 \index{Display.h@{Display.h}!setupMeasurementScreen@{setupMeasurementScreen}}
@@ -473,9 +529,11 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \m
 \doxysubsubsection{\texorpdfstring{setupMeasurementScreen()}{setupMeasurementScreen()}}
 {\footnotesize\ttfamily void setup\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.
 
+If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00199}{199}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}\label{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}} 
 \index{Display.h@{Display.h}!thermiDataPrint@{thermiDataPrint}}
@@ -485,7 +543,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00138}{138}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}\label{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}} 
 \index{Display.h@{Display.h}!timePrint@{timePrint}}
@@ -495,7 +553,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00185}{185}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00188}{188}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 
 
@@ -508,7 +566,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00185}{185}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00130}{130}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00191}{191}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}\label{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}} 
 \index{Display.h@{Display.h}!batteryVoltage@{batteryVoltage}}
@@ -518,7 +576,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00130}{130}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00128}{128}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00189}{189}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a940677548971e0943f36dcfa95bb8b44}\label{_display_8h_a940677548971e0943f36dcfa95bb8b44}} 
 \index{Display.h@{Display.h}!bmsStatusFlag@{bmsStatusFlag}}
@@ -528,7 +586,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00128}{128}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00137}{137}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00198}{198}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}\label{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}} 
 \index{Display.h@{Display.h}!chargerCurr@{chargerCurr}}
@@ -538,7 +596,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00137}{137}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00136}{136}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00197}{197}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}\label{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}} 
 \index{Display.h@{Display.h}!chargerVolt@{chargerVolt}}
@@ -548,7 +606,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00136}{136}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00135}{135}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00196}{196}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}\label{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}} 
 \index{Display.h@{Display.h}!errMessage@{errMessage}}
@@ -558,7 +616,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00135}{135}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00134}{134}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00195}{195}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}\label{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}} 
 \index{Display.h@{Display.h}!evccVolt@{evccVolt}}
@@ -568,7 +626,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00134}{134}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00138}{138}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00199}{199}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}\label{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}} 
 \index{Display.h@{Display.h}!motorControllerVoltage@{motorControllerVoltage}}
@@ -578,7 +636,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00138}{138}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00129}{129}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00190}{190}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}\label{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}} 
 \index{Display.h@{Display.h}!motorCurr@{motorCurr}}
@@ -588,7 +646,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00129}{129}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00133}{133}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00194}{194}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}\label{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}} 
 \index{Display.h@{Display.h}!motorTemperature@{motorTemperature}}
@@ -598,7 +656,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00133}{133}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00132}{132}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00193}{193}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a4d31440d430c0fc247733e218f14278f}\label{_display_8h_a4d31440d430c0fc247733e218f14278f}} 
 \index{Display.h@{Display.h}!printedVals@{printedVals}}
@@ -608,7 +666,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00132}{132}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00126}{126}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+All Printed\+Value objects/structs, just stored in the array. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00187}{187}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}\label{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}} 
 \index{Display.h@{Display.h}!rpm@{rpm}}
@@ -618,7 +680,7 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00126}{126}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00131}{131}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+Definition at line \mbox{\hyperlink{_display_8h_source_l00192}{192}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}\label{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}} 
 \index{Display.h@{Display.h}!tft@{tft}}
@@ -628,7 +690,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00131}{131}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00124}{124}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The global variable used to write to the display. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00185}{185}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_a700ec86cb550fd4426014190222173ac}\label{_display_8h_a700ec86cb550fd4426014190222173ac}} 
 \index{Display.h@{Display.h}!thermiData@{thermiData}}
@@ -638,7 +704,11 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00124}{124}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00140}{140}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The thermistor data. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00202}{202}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 
 \mbox{\Hypertarget{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}\label{_display_8h_aa2a50ee378fcf45591eb041ee70b2368}} 
 \index{Display.h@{Display.h}!timeData@{timeData}}
@@ -648,5 +718,9 @@ Definition at line \mbox{\hyperlink{_display_8h_source_l00140}{140}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_display_8h_source_l00141}{141}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
+The time data. 
+
+
+
+Definition at line \mbox{\hyperlink{_display_8h_source_l00204}{204}} of file \mbox{\hyperlink{_display_8h_source}{Display.\+h}}.
 

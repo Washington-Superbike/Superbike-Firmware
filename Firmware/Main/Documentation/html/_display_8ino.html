@@ -69,7 +69,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<p>The <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a> file executes the Display task for the bike's firmware. This calls on the variables that are initialized in <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> and then calls on various methods from the ILI9341's adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it's changed and writing in the new data.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_display_8h_source.html">Display.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_main_8h_source.html">Main.h</a>&quot;</code><br />
@@ -101,17 +101,17 @@ Functions</h2></td></tr>
 <tr class="separator:ad609934bdce8f8169cc609cb7913f507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<div class="textblock"><p >The <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a> file executes the Display task for the bike's firmware. This calls on the variables that are initialized in <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> and then calls on various methods from the ILI9341's adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it's changed and writing in the new data. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>PLEASE remove the whole screen parameter situation. Change the whole value in the <br  />
+<dl class="section note"><dt>Note</dt><dd>This works. Display does slow down a bit in the speedometer screen, but that is also due to often the numbers were changing in the <a class="el" href="_display_8ino.html#a2fcaba5d0c64fb3389132dca04224211">manualScreenDataUpdater()</a>method updating data too frequently. Just consider reducing the size of the text in case it looks like it is updating too slowly at speeds of ~60-80 mph.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>PLEASE remove the whole screen parameter situation. Change the "screen" variable in the <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to be a #define macro and then just check the value from here by directly including <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> and finding that value. Ez. <br  />
  <br  />
- Goal 2. <br  />
+ Remove all unused vars and tighten up methods. <br  />
  <br  />
- Goal 3. <br  />
+ There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can't think of them off the top of my head, but make and use those. <br  />
  <br  />
- Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> Final Goal. </dd></dl>
+ Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -129,8 +129,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it's here.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00265">265</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00282">282</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -149,8 +150,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Parses the data from the void pointer to be processable? Idk if that's word. Passes the measurementScreenData form the displayTaskWrap data and the Screen data from the displayTaskWrap data to the <a class="el" href="_display_8ino.html#ad2818acb0d1eb44a804059aa40c432b3">displayUpdate()</a> method. The <a class="el" href="_display_8ino.html#ad2818acb0d1eb44a804059aa40c432b3">displayUpdate()</a> method then processes it and updates the screen accordingly.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00045">45</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00036">36</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -180,7 +182,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00087">87</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00090">90</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -221,8 +223,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00229">229</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00238">238</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -263,8 +266,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Just a flipped color version of <a class="el" href="_display_8ino.html#a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint()</a> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00238">238</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00249">249</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -282,8 +286,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Iterates through all the printedVals array and then does += 1 to make sure it's increasing. This change should be reflected in the display itself.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00253">253</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00267">267</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -312,8 +317,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Calls on tft.begin() method and sets the orientation using tft.setRotatio() and also sets the screen to ILI9341_WHITE or ILI9341_BLACK based on Debugging or Speedometer screen.</p>
+<p >Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</p>
+<p >Calls on the <a class="el" href="_display_8ino.html#a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen()</a> to finish up the setup.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00055">55</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00051">51</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -332,8 +340,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</p>
+<p >If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00196">196</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00199">199</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -353,7 +363,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00135">135</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00138">138</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -372,7 +382,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00185">185</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00188">188</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>

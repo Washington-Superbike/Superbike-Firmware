@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="32" column="9" bodyfile="Precharge.h" bodystart="32" bodyend="-1"/>
+        <location file="Precharge.h" line="31" column="9" bodyfile="Precharge.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" prot="public" static="no">
         <name>CONTACTOR</name>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="34" column="9" bodyfile="Precharge.h" bodystart="34" bodyend="-1"/>
+        <location file="Precharge.h" line="33" column="9" bodyfile="Precharge.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" prot="public" static="no">
         <name>PRECHARGE</name>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="35" column="9" bodyfile="Precharge.h" bodystart="35" bodyend="-1"/>
+        <location file="Precharge.h" line="34" column="9" bodyfile="Precharge.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" prot="public" static="no">
         <name>HIGH_VOLTAGE_TOGGLE</name>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="36" column="9" bodyfile="Precharge.h" bodystart="36" bodyend="-1"/>
+        <location file="Precharge.h" line="35" column="9" bodyfile="Precharge.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" prot="public" static="no">
         <name>CLOSE_CONTACTOR_BUTTON</name>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="37" column="9" bodyfile="Precharge.h" bodystart="37" bodyend="-1"/>
+        <location file="Precharge.h" line="36" column="9" bodyfile="Precharge.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" prot="public" static="no">
         <name>CONTACTOR_PRECHARGED_LED</name>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="38" column="9" bodyfile="Precharge.h" bodystart="38" bodyend="-1"/>
+        <location file="Precharge.h" line="37" column="9" bodyfile="Precharge.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" prot="public" static="no">
         <name>CONTACTOR_CLOSED_LED</name>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="39" column="9" bodyfile="Precharge.h" bodystart="39" bodyend="-1"/>
+        <location file="Precharge.h" line="38" column="9" bodyfile="Precharge.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e" prot="public" static="no">
         <name>NUMBER_OF_LTCS</name>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="40" column="9" bodyfile="Precharge.h" bodystart="40" bodyend="-1"/>
+        <location file="Precharge.h" line="39" column="9" bodyfile="Precharge.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a1f9513787cfe256aae379719ab26ca39" prot="public" static="no">
         <name>MOTORCONTROLLER_TEMP_MAX</name>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="41" column="9" bodyfile="Precharge.h" bodystart="41" bodyend="-1"/>
+        <location file="Precharge.h" line="40" column="9" bodyfile="Precharge.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db" prot="public" static="no">
         <name>MOTOR_TEMP_MAX</name>
@@ -163,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="42" column="9" bodyfile="Precharge.h" bodystart="42" bodyend="-1"/>
+        <location file="Precharge.h" line="41" column="9" bodyfile="Precharge.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -204,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="44" column="1" bodyfile="Precharge.h" bodystart="44" bodyend="44"/>
+        <location file="Precharge.h" line="43" column="1" bodyfile="Precharge.h" bodystart="43" bodyend="43"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -220,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="75" column="10" bodyfile="Precharge.h" bodystart="75" bodyend="-1"/>
+        <location file="Precharge.h" line="74" column="10" bodyfile="Precharge.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="77" column="6" declfile="Precharge.h" declline="77" declcolumn="6"/>
+        <location file="Precharge.h" line="76" column="6" declfile="Precharge.h" declline="76" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad5e3efaa785dcd1d9143ec7e5d117277" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="78" column="6" bodyfile="PreCharge.ino" bodystart="70" bodyend="128" declfile="Precharge.h" declline="78" declcolumn="6"/>
+        <location file="Precharge.h" line="77" column="6" bodyfile="PreCharge.ino" bodystart="70" bodyend="128" declfile="Precharge.h" declline="77" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad2376a25ab645f00587791af3c89968e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -273,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="79" column="6" bodyfile="PreCharge.ino" bodystart="130" bodyend="150" declfile="Precharge.h" declline="79" declcolumn="6"/>
+        <location file="Precharge.h" line="78" column="6" bodyfile="PreCharge.ino" bodystart="130" bodyend="150" declfile="Precharge.h" declline="78" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="80" column="6" bodyfile="PreCharge.ino" bodystart="154" bodyend="166" declfile="Precharge.h" declline="80" declcolumn="6"/>
+        <location file="Precharge.h" line="79" column="6" bodyfile="PreCharge.ino" bodystart="154" bodyend="166" declfile="Precharge.h" declline="79" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a65867cb936f7ef47ffd07fbfd4a91355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -307,7 +307,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="81" column="6" bodyfile="PreCharge.ino" bodystart="169" bodyend="188" declfile="Precharge.h" declline="81" declcolumn="6"/>
+        <location file="Precharge.h" line="80" column="6" bodyfile="PreCharge.ino" bodystart="169" bodyend="188" declfile="Precharge.h" declline="80" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a6798f4bd0a5b6353886f894b38b32473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -320,7 +320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="82" column="6" bodyfile="PreCharge.ino" bodystart="190" bodyend="192" declfile="Precharge.h" declline="82" declcolumn="6"/>
+        <location file="Precharge.h" line="81" column="6" bodyfile="PreCharge.ino" bodystart="190" bodyend="192" declfile="Precharge.h" declline="81" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a0a3e1d4e80c1320d3308a0e0bb10ac87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -337,7 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="83" column="6" bodyfile="PreCharge.ino" bodystart="194" bodyend="201" declfile="Precharge.h" declline="83" declcolumn="6"/>
+        <location file="Precharge.h" line="82" column="6" bodyfile="PreCharge.ino" bodystart="194" bodyend="201" declfile="Precharge.h" declline="82" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -354,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="85" column="6" bodyfile="PreCharge.ino" bodystart="203" bodyend="230" declfile="Precharge.h" declline="85" declcolumn="6"/>
+        <location file="Precharge.h" line="84" column="6" bodyfile="PreCharge.ino" bodystart="203" bodyend="230" declfile="Precharge.h" declline="84" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad8511ef84de5112bd6beb8e3ac5fff67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -371,7 +371,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="86" column="6" bodyfile="PreCharge.ino" bodystart="232" bodyend="297" declfile="Precharge.h" declline="86" declcolumn="6"/>
+        <location file="Precharge.h" line="85" column="6" bodyfile="PreCharge.ino" bodystart="232" bodyend="297" declfile="Precharge.h" declline="85" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a87184d718be6821c71e697fc1fd98d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -388,7 +388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="87" column="6" bodyfile="PreCharge.ino" bodystart="299" bodyend="319" declfile="Precharge.h" declline="87" declcolumn="6"/>
+        <location file="Precharge.h" line="86" column="6" bodyfile="PreCharge.ino" bodystart="299" bodyend="319" declfile="Precharge.h" declline="86" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ade8f654468b951602d2622b34902944f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -421,20 +421,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="88" column="6" bodyfile="PreCharge.ino" bodystart="321" bodyend="330" declfile="Precharge.h" declline="88" declcolumn="6"/>
+        <location file="Precharge.h" line="87" column="6" bodyfile="PreCharge.ino" bodystart="321" bodyend="330" declfile="Precharge.h" declline="87" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>The <ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <ref refid="_precharge_8h" kindref="compound">PreCharge.h</ref> config file for the PreCharge/Controls task for the bike&apos;s firmware. This defines the variables that are passed along to the <ref refid="_pre_charge_8ino" kindref="compound">PreCharge.ino</ref> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <ref refid="_pre_charge_8ino" kindref="compound">PreCharge.ino</ref>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
 <simplesect kind="date"><para>1-March-2023</para>
 </simplesect>
-<simplesect kind="note"><para>up all members to be able to use it without any trouble.</para>
+<simplesect kind="note"><para>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000009"><xreftitle>Todo</xreftitle><xrefdescription><para>Goal 1. <linebreak/>
+<xrefsect id="todo_1_todo000009"><xreftitle>Todo</xreftitle><xrefdescription><para>Change the preChargeStruct data to use less floats, etc. <linebreak/>
  <linebreak/>
  Goal 2. <linebreak/>
  <linebreak/>
@@ -445,70 +445,70 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_PRECHARGE_H_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_PRECHARGE_H_</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32" refid="_precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRECHARGE_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>4096</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR<sp/>16<sp/></highlight><highlight class="comment">//digital<sp/>pin<sp/>for<sp/>contactor<sp/>control<sp/>(closing<sp/>or<sp/>opening)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRECHARGE<sp/>17<sp/></highlight><highlight class="comment">//digital<sp/>pin<sp/>for<sp/>relay<sp/>in<sp/>series<sp/>with<sp/>precharge<sp/>resistor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIGH_VOLTAGE_TOGGLE<sp/>15<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>starting<sp/>precharge,<sp/>exit<sp/>precharging,<sp/>exit<sp/>done-precharging</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37" refid="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE_CONTACTOR_BUTTON<sp/>14<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>closing<sp/>the<sp/>contactor<sp/>(usable<sp/>after<sp/>precharging)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR_PRECHARGED_LED<sp/>18<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>LED<sp/>that<sp/>illuminates<sp/>after<sp/>precharge<sp/>complete</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR_CLOSED_LED<sp/>19<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>LED<sp/>that<sp/>illuminates<sp/>when<sp/>the<sp/>contactor<sp/>is<sp/>closed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="_precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUMBER_OF_LTCS<sp/>20<sp/></highlight><highlight class="comment">//<sp/>THIS<sp/>NEEDS<sp/>TO<sp/>BE<sp/>CHANGED<sp/>TO<sp/>OUR<sp/>ACTUAL<sp/>NUMBER<sp/>OF<sp/>LTCs</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="_precharge_8h_1a1f9513787cfe256aae379719ab26ca39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTORCONTROLLER_TEMP_MAX<sp/>65<sp/></highlight><highlight class="comment">//<sp/>THIS<sp/>ALSO<sp/>MAY<sp/>NEED<sp/>TO<sp/>BE<sp/>CHANGED</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42" refid="_precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_TEMP_MAX<sp/>80</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/>{<ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a" kindref="member">HV_OFF</ref><sp/>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2da9fa3988c31a60d94ee2a751ba32ce" kindref="member">HV_PRECHARGING</ref>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29ab5febf14562b68ff6bdaaa86ec9b5dec" kindref="member">HV_ON</ref>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" kindref="member">HV_ERROR</ref>};</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46" refid="struct_pre_charge_task_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="47" refid="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" kindref="member">bmsStatus</ref>;</highlight></codeline>
-<codeline lineno="48" refid="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" kindref="member">motorTemps</ref>;</highlight></codeline>
-<codeline lineno="49" refid="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" kindref="member">cellVoltages</ref>;<sp/></highlight><highlight class="comment">//<sp/>from<sp/>the<sp/>main<sp/>accumulator</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50" refid="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" kindref="member">motorControllerBatteryVoltage</ref>;</highlight></codeline>
-<codeline lineno="51" refid="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" kindref="member">angle_X</ref>;</highlight></codeline>
-<codeline lineno="52" refid="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" kindref="member">angle_Y</ref>;</highlight></codeline>
-<codeline lineno="53" refid="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" kindref="member">RateRoll</ref>;</highlight></codeline>
-<codeline lineno="54" refid="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" kindref="member">RatePitch</ref>;</highlight></codeline>
-<codeline lineno="55" refid="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" kindref="member">RateYaw</ref>;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" kindref="member">RateCalibrationRoll</ref>;</highlight></codeline>
-<codeline lineno="58" refid="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" kindref="member">RateCalibrationPitch</ref>;</highlight></codeline>
-<codeline lineno="59" refid="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" kindref="member">RateCalibrationYaw</ref>;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61" refid="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" kindref="member">RateCalibrationNumber</ref>;</highlight></codeline>
-<codeline lineno="62" refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" kindref="member">AccX</ref>;</highlight></codeline>
-<codeline lineno="63" refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" kindref="member">AccY</ref>;</highlight></codeline>
-<codeline lineno="64" refid="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" kindref="member">AccZ</ref>;</highlight></codeline>
-<codeline lineno="65" refid="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" kindref="member">AngleRoll</ref>;</highlight></codeline>
-<codeline lineno="66" refid="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" kindref="member">AnglePitch</ref>;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68" refid="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" kindref="member">KalmanAngleRoll</ref>;</highlight></codeline>
-<codeline lineno="69" refid="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" kindref="member">KalmanUncertaintyAngleRoll</ref>;</highlight></codeline>
-<codeline lineno="70" refid="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" kindref="member">KalmanAnglePitch</ref>;</highlight></codeline>
-<codeline lineno="71" refid="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" kindref="member">KalmanUncertaintyAnglePitch</ref>;</highlight></codeline>
-<codeline lineno="72" refid="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" kindref="member">Kalman1DOutput</ref>;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal">}<sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75" refid="_precharge_8h_1a5c9b1f4b5a31b5d46c45310567595867" refkind="member"><highlight class="normal"><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/><ref refid="_precharge_8h_1a5c9b1f4b5a31b5d46c45310567595867" kindref="member">hv_state</ref><sp/>=<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a" kindref="member">HV_OFF</ref>;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*taskData);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad5e3efaa785dcd1d9143ec7e5d117277" kindref="member">preChargeCircuitFSMTransitions</ref><sp/>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad2376a25ab645f00587791af3c89968e" kindref="member">preChargeCircuitFSMStateActions</ref><sp/>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1" kindref="member">isPrecharged</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a65867cb936f7ef47ffd07fbfd4a91355" kindref="member">isHVSafe</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a6798f4bd0a5b6353886f894b38b32473" kindref="member">check_HV_TOGGLE</ref>();</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="_precharge_8h_1a0a3e1d4e80c1320d3308a0e0bb10ac87" kindref="member">state_name</ref>(<ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/>state);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/>I2C<sp/>Accelerometer/Gyroscope<sp/>access<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad8511ef84de5112bd6beb8e3ac5fff67" kindref="member">gyro_signals</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a87184d718be6821c71e697fc1fd98d3b" kindref="member">updateGyroData</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ade8f654468b951602d2622b34902944f" kindref="member">kalman_1d</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanState,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanUncertainty,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanInput,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanMeasurement,<sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_PRECHARGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_PRECHARGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_PRECHARGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="_precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRECHARGE_TASK_STACK_SIZE<sp/>configMINIMAL_STACK_SIZE<sp/>+<sp/>4096</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR<sp/>16<sp/></highlight><highlight class="comment">//digital<sp/>pin<sp/>for<sp/>contactor<sp/>control<sp/>(closing<sp/>or<sp/>opening)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRECHARGE<sp/>17<sp/></highlight><highlight class="comment">//digital<sp/>pin<sp/>for<sp/>relay<sp/>in<sp/>series<sp/>with<sp/>precharge<sp/>resistor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HIGH_VOLTAGE_TOGGLE<sp/>15<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>starting<sp/>precharge,<sp/>exit<sp/>precharging,<sp/>exit<sp/>done-precharging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE_CONTACTOR_BUTTON<sp/>14<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>closing<sp/>the<sp/>contactor<sp/>(usable<sp/>after<sp/>precharging)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR_PRECHARGED_LED<sp/>18<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>LED<sp/>that<sp/>illuminates<sp/>after<sp/>precharge<sp/>complete</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONTACTOR_CLOSED_LED<sp/>19<sp/></highlight><highlight class="comment">//<sp/>digital<sp/>pin<sp/>for<sp/>LED<sp/>that<sp/>illuminates<sp/>when<sp/>the<sp/>contactor<sp/>is<sp/>closed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="_precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUMBER_OF_LTCS<sp/>20<sp/></highlight><highlight class="comment">//<sp/>THIS<sp/>NEEDS<sp/>TO<sp/>BE<sp/>CHANGED<sp/>TO<sp/>OUR<sp/>ACTUAL<sp/>NUMBER<sp/>OF<sp/>LTCs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="_precharge_8h_1a1f9513787cfe256aae379719ab26ca39" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTORCONTROLLER_TEMP_MAX<sp/>65<sp/></highlight><highlight class="comment">//<sp/>THIS<sp/>ALSO<sp/>MAY<sp/>NEED<sp/>TO<sp/>BE<sp/>CHANGED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTOR_TEMP_MAX<sp/>80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/>{<ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a" kindref="member">HV_OFF</ref><sp/>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2da9fa3988c31a60d94ee2a751ba32ce" kindref="member">HV_PRECHARGING</ref>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29ab5febf14562b68ff6bdaaa86ec9b5dec" kindref="member">HV_ON</ref>,<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" kindref="member">HV_ERROR</ref>};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="struct_pre_charge_task_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46" refid="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="struct_pre_charge_task_data_1a0dff65dcdc2df79dddc5bcf2ff491c2d" kindref="member">bmsStatus</ref>;</highlight></codeline>
+<codeline lineno="47" refid="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="struct_pre_charge_task_data_1a3e8e3c4386b66dbf1011082b1f8ce7aa" kindref="member">motorTemps</ref>;</highlight></codeline>
+<codeline lineno="48" refid="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="struct_pre_charge_task_data_1afdfc29c3040101593d7d298c7b432132" kindref="member">cellVoltages</ref>;<sp/></highlight><highlight class="comment">//<sp/>from<sp/>the<sp/>main<sp/>accumulator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aae4496a1b8d72f6107bdfcf81472741b" kindref="member">motorControllerBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="50" refid="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a53289d52f48c067285cb843ef7470c9a" kindref="member">angle_X</ref>;</highlight></codeline>
+<codeline lineno="51" refid="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a7a48fc6887285d4cb55bff65fca23f36" kindref="member">angle_Y</ref>;</highlight></codeline>
+<codeline lineno="52" refid="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a33b675970bf11d7e27edf3b542431997" kindref="member">RateRoll</ref>;</highlight></codeline>
+<codeline lineno="53" refid="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1afc133d30f22f7a7f72ee498b3d69be82" kindref="member">RatePitch</ref>;</highlight></codeline>
+<codeline lineno="54" refid="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aaf5cdfb5b1dd1857d4082f3a014ffb51" kindref="member">RateYaw</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4d7799e4a73f6488e3296c35f66c2e30" kindref="member">RateCalibrationRoll</ref>;</highlight></codeline>
+<codeline lineno="57" refid="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a80f6f899a8c9d6b3e7850f52350a414d" kindref="member">RateCalibrationPitch</ref>;</highlight></codeline>
+<codeline lineno="58" refid="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1aa0d6bb3b938787ae1de06d67d1e3deaf" kindref="member">RateCalibrationYaw</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1ab12a4f264d6acfdf84ce67728ecb42b2" kindref="member">RateCalibrationNumber</ref>;</highlight></codeline>
+<codeline lineno="61" refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a3c051d79159770c924eda82743ba8d81" kindref="member">AccX</ref>;</highlight></codeline>
+<codeline lineno="62" refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a80f0e6e50839ffb0fc6d04cd3d871a3f" kindref="member">AccY</ref>;</highlight></codeline>
+<codeline lineno="63" refid="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a3bb9585d2c3e9ee02ed1f98f706426b3" kindref="member">AccZ</ref>;</highlight></codeline>
+<codeline lineno="64" refid="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a99d4f80bc2e399c388039183debf146a" kindref="member">AngleRoll</ref>;</highlight></codeline>
+<codeline lineno="65" refid="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4bb0f04e326928d80e286b279ca81003" kindref="member">AnglePitch</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a6710c3c13016f4d3127232fce1782ad2" kindref="member">KalmanAngleRoll</ref>;</highlight></codeline>
+<codeline lineno="68" refid="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a56b12f35d375a77d39a5067b35701ec6" kindref="member">KalmanUncertaintyAngleRoll</ref>;</highlight></codeline>
+<codeline lineno="69" refid="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a21d75327dbefd085bb4e809b589e0dec" kindref="member">KalmanAnglePitch</ref>;</highlight></codeline>
+<codeline lineno="70" refid="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a87db2a0a7add2863f02e490544f937b2" kindref="member">KalmanUncertaintyAnglePitch</ref>;</highlight></codeline>
+<codeline lineno="71" refid="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_pre_charge_task_data_1a4ca4aeeb66f8fa86b2b33287d78f8174" kindref="member">Kalman1DOutput</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}<sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="_precharge_8h_1a5c9b1f4b5a31b5d46c45310567595867" refkind="member"><highlight class="normal"><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/><ref refid="_precharge_8h_1a5c9b1f4b5a31b5d46c45310567595867" kindref="member">hv_state</ref><sp/>=<sp/><ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a" kindref="member">HV_OFF</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*taskData);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad5e3efaa785dcd1d9143ec7e5d117277" kindref="member">preChargeCircuitFSMTransitions</ref><sp/>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad2376a25ab645f00587791af3c89968e" kindref="member">preChargeCircuitFSMStateActions</ref><sp/>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1" kindref="member">isPrecharged</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a65867cb936f7ef47ffd07fbfd4a91355" kindref="member">isHVSafe</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a6798f4bd0a5b6353886f894b38b32473" kindref="member">check_HV_TOGGLE</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="_precharge_8h_1a0a3e1d4e80c1320d3308a0e0bb10ac87" kindref="member">state_name</ref>(<ref refid="_precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29" kindref="member">HV_STATE</ref><sp/>state);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/>I2C<sp/>Accelerometer/Gyroscope<sp/>access<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ad8511ef84de5112bd6beb8e3ac5fff67" kindref="member">gyro_signals</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1a87184d718be6821c71e697fc1fd98d3b" kindref="member">updateGyroData</ref>(<ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_precharge_8h_1ade8f654468b951602d2622b34902944f" kindref="member">kalman_1d</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanState,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanUncertainty,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanInput,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>KalmanMeasurement,<sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_PRECHARGE_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="Precharge.h"/>
   </compounddef>

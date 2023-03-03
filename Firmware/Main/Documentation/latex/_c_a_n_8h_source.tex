@@ -2,115 +2,115 @@
 \mbox{\hyperlink{_c_a_n_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00027}00027 \textcolor{preprocessor}{\#ifndef \_CAN\_H\_}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00028}00028 \textcolor{preprocessor}{\#define \_CAN\_H\_}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00029}00029 \textcolor{preprocessor}{\#include <FlexCAN\_T4.h>}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_display_8h}{Display.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00034}\mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{00034}} \textcolor{preprocessor}{\#define CAN\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 4096}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00035}00035 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00036}\mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{00036}} \textcolor{preprocessor}{\#define MOTOR\_STATS\_MSG 0x0CF11E05                    }\textcolor{comment}{//motor controller message -\/ CAN}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00037}\mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{00037}} \textcolor{preprocessor}{\#define MOTOR\_TEMPS\_MSG 0x0CF11F05                    }\textcolor{comment}{// motor controller message -\/ CAN}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00038}\mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{00038}} \textcolor{preprocessor}{\#define EVCC\_STATS 0x18e54024                         }\textcolor{comment}{// Charge controller status (current,volt...)}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00039}\mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{00039}} \textcolor{preprocessor}{\#define CHARGER\_STATS 0x18eb2440                      }\textcolor{comment}{// Thunderstruck Charger status (current,volt...)}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00040}\mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{00040}} \textcolor{preprocessor}{\#define DD\_BMS\_STATUS\_IND 0x01dd0001                  }\textcolor{comment}{// BMS cell data message (overvolt,undervolt...)}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00041}\mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{00041}} \textcolor{preprocessor}{\#define DD\_BMSC\_TH\_STATUS\_IND 0x01df0e00              }\textcolor{comment}{// themistor values message}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00042}\mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{00042}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_04  0x01df0900               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00043}\mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{00043}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_58  0x01df0a00}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00044}\mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{00044}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_912 0x01df0b00}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00045}\mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{00045}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_04  0x01df0901               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00046}\mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{00046}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_58  0x01df0a01}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00047}\mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{00047}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_912 0x01df0b01}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00023}00023 \textcolor{preprocessor}{\#ifndef \_CAN\_H\_}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00024}00024 \textcolor{preprocessor}{\#define \_CAN\_H\_}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00025}00025 \textcolor{preprocessor}{\#include <FlexCAN\_T4.h>}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00026}00026 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_display_8h}{Display.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00027}00027 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00030}\mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{00030}} \textcolor{preprocessor}{\#define CAN\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 4096}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00032}\mbox{\hyperlink{_c_a_n_8h_a1b593ffe62c4590fa197331661393984}{00032}} \textcolor{preprocessor}{\#define MOTOR\_STATS\_MSG 0x0CF11E05                    }\textcolor{comment}{//motor controller message -\/ CAN}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00033}\mbox{\hyperlink{_c_a_n_8h_a464be4036d5c85f472f461fc987eb2da}{00033}} \textcolor{preprocessor}{\#define MOTOR\_TEMPS\_MSG 0x0CF11F05                    }\textcolor{comment}{// motor controller message -\/ CAN}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00034}\mbox{\hyperlink{_c_a_n_8h_ac7e658bcd09f49f37c7732ddc1c80fe2}{00034}} \textcolor{preprocessor}{\#define EVCC\_STATS 0x18e54024                         }\textcolor{comment}{// Charge controller status (current,volt...)}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00035}\mbox{\hyperlink{_c_a_n_8h_aaa765e2d2381f199ed620b8d6962f60d}{00035}} \textcolor{preprocessor}{\#define CHARGER\_STATS 0x18eb2440                      }\textcolor{comment}{// Thunderstruck Charger status (current,volt...)}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00036}\mbox{\hyperlink{_c_a_n_8h_a44d631b0f4e7e294bc26dd9c77d3dcb9}{00036}} \textcolor{preprocessor}{\#define DD\_BMS\_STATUS\_IND 0x01dd0001                  }\textcolor{comment}{// BMS cell data message (overvolt,undervolt...)}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00037}\mbox{\hyperlink{_c_a_n_8h_a5a71b982a71be6bc19546f4c8fecadd7}{00037}} \textcolor{preprocessor}{\#define DD\_BMSC\_TH\_STATUS\_IND 0x01df0e00              }\textcolor{comment}{// themistor values message}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00038}\mbox{\hyperlink{_c_a_n_8h_a366031af35039c965b2bb3ac07dd702a}{00038}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_04  0x01df0900               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00039}\mbox{\hyperlink{_c_a_n_8h_a2da14593c5f2bdd4bc417f9e66bc2a75}{00039}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_58  0x01df0a00}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00040}\mbox{\hyperlink{_c_a_n_8h_ac1908e8612424d72ae778e43759f077f}{00040}} \textcolor{preprocessor}{\#define BMSC1\_LTC1\_CELLS\_912 0x01df0b00}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00041}\mbox{\hyperlink{_c_a_n_8h_a76c8bda430a00f369aed9309100c3107}{00041}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_04  0x01df0901               }\textcolor{comment}{// convention: BMSC, LTC, CELL RANGE}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00042}\mbox{\hyperlink{_c_a_n_8h_aa605748f6dfeb5f3ba7b8b473a2f41b5}{00042}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_58  0x01df0a01}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00043}\mbox{\hyperlink{_c_a_n_8h_af80d69aa4a06cbc8b1137773336f74ec}{00043}} \textcolor{preprocessor}{\#define BMSC1\_LTC2\_CELLS\_912 0x01df0b01}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00045}00045 \textcolor{comment}{// this is set to 24 instead of 20 because the BMS sends cells in packs of 12}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00046}00046 \textcolor{comment}{// so it makes the decipher function simpler}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00047}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{00047}} \textcolor{preprocessor}{\#define BMS\_CELLS 24                                  }\textcolor{comment}{// the number of cells connected to the main accumulator BMS}}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00048}00048 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00049}00049 \textcolor{comment}{// this is set to 24 instead of 20 because the BMS sends cells in packs of 12}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00050}00050 \textcolor{comment}{// so it makes the decipher function simpler}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00051}\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{00051}} \textcolor{preprocessor}{\#define BMS\_CELLS 24                                  }\textcolor{comment}{// the number of cells connected to the main accumulator BMS}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00052}00052 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00053}00053 \textcolor{comment}{// CAN bus handle}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00054}\mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{00054}} FlexCAN\_T4<CAN2, RX\_SIZE\_256, TX\_SIZE\_16> \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00056}00056 \textcolor{comment}{// used to format reading/writing on the CAN bus}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00057}\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{00057}} CAN\_message\_t \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00049}00049 \textcolor{comment}{// CAN bus handle}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00050}\mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{00050}} FlexCAN\_T4<CAN2, RX\_SIZE\_256, TX\_SIZE\_16> \mbox{\hyperlink{_c_a_n_8h_aa4303f5a4b2f41108b988f850270b2d1}{CAN\_bus}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00052}00052 \textcolor{comment}{// used to format reading/writing on the CAN bus}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00053}\mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{00053}} CAN\_message\_t \mbox{\hyperlink{_c_a_n_8h_afef5641c16f897cbe9fc00682fb749ed}{CAN\_msg}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00055}00055 \textcolor{comment}{// if cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00056}00056 \textcolor{comment}{// it is false otherwise (so we know when we have collected all distinct cell voltages}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00057}\mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{00057}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}] = \{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00058}00058 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00059}00059 \textcolor{comment}{// if cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00060}00060 \textcolor{comment}{// it is false otherwise (so we know when we have collected all distinct cell voltages}}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00061}\mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{00061}} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{_c_a_n_8h_af798cac38f8c00111b4be880f47d8020}{cellVoltagesReady}}[\mbox{\hyperlink{_c_a_n_8h_aedb50849ed846717c3096b10fb75d537}{BMS\_CELLS}}] = \{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00062}00062 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00064}\mbox{\hyperlink{struct_motor_stats}{00064}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00065}\mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{00065}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{RPM}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00066}\mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{00066}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{motorCurrent}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00067}\mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{00067}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{motorControllerBatteryVoltage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00068}\mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{00068}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{errorMessage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00069}00069 \} \mbox{\hyperlink{struct_motor_stats}{MotorStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00070}00070 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00071}\mbox{\hyperlink{struct_motor_temps}{00071}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00072}\mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{00072}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{throttle}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00073}\mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{00073}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{motorControllerTemperature}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00074}\mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{00074}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{motorTemperature}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00075}\mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{00075}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{controllerStatus}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00076}00076 \} \mbox{\hyperlink{struct_motor_temps}{MotorTemps}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00077}00077 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00078}\mbox{\hyperlink{struct_charge_controller_stats}{00078}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00079}\mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{00079}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{en}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00080}\mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{00080}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{chargeVoltage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00081}\mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{00081}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{chargeCurrent}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00082}00082 \} \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00083}00083 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00084}\mbox{\hyperlink{struct_charger_stats}{00084}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00085}\mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{00085}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{statusFlag}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00086}\mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{00086}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{chargeFlag}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00087}\mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{00087}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{outputVoltage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00088}\mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{00088}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{outputCurrent}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00089}\mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{00089}}   int8\_t* \mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{chargerTemp}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00090}00090 \} \mbox{\hyperlink{struct_charger_stats}{ChargerStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00091}00091 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00092}\mbox{\hyperlink{struct_b_m_s_status}{00092}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00093}\mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{00093}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{bms\_status\_flag}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00094}\mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{00094}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{bms\_c\_id}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00095}\mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{00095}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{bms\_c\_fault}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00096}\mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{00096}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{ltc\_fault}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00097}\mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{00097}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{ltc\_count}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00098}00098 \} \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00060}\mbox{\hyperlink{struct_motor_stats}{00060}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00061}\mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{00061}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_a7e3450d33d8be341dea374a2fcafd257}{RPM}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00062}\mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{00062}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_ab207f3db0daa47cabc8644495bca6d4e}{motorCurrent}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00063}\mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{00063}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_stats_acf61562c6e2b1fdcdb548a04bff1f0aa}{motorControllerBatteryVoltage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00064}\mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{00064}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_motor_stats_af51eb591d7b6b57838499e55d5f2828b}{errorMessage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00065}00065 \} \mbox{\hyperlink{struct_motor_stats}{MotorStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00067}\mbox{\hyperlink{struct_motor_temps}{00067}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00068}\mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{00068}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_acd9280e84ed18ff75d285e1377c01443}{throttle}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00069}\mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{00069}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_a1c8b1bb77f968573fe2d1af0a0815d35}{motorControllerTemperature}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00070}\mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{00070}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_motor_temps_ad9864aa48ce76c5965919c459cc6e9b7}{motorTemperature}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00071}\mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{00071}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_motor_temps_aeb45f993f33820d44f9f4d1f02cf0f13}{controllerStatus}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00072}00072 \} \mbox{\hyperlink{struct_motor_temps}{MotorTemps}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00074}\mbox{\hyperlink{struct_charge_controller_stats}{00074}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00075}\mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{00075}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charge_controller_stats_a16a3123ac01bcd73faa3a97e6ec4a774}{en}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00076}\mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{00076}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_a928012799250fc25ea8510f4b5a3f873}{chargeVoltage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00077}\mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{00077}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charge_controller_stats_ae130510a45203d35d88f44253b5837cb}{chargeCurrent}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00078}00078 \} \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00080}\mbox{\hyperlink{struct_charger_stats}{00080}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00081}\mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{00081}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_ace07d9acd921d4f06f44ff347591d32b}{statusFlag}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00082}\mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{00082}}   \textcolor{keywordtype}{byte}* \mbox{\hyperlink{struct_charger_stats_a35334daccd006a7cdbb635e1ac8bed14}{chargeFlag}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00083}\mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{00083}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_aae5124f4063e787f9d7b838235f66d79}{outputVoltage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00084}\mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{00084}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_charger_stats_a0bafa595413f23895c8e4c55a64da3aa}{outputCurrent}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00085}\mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{00085}}   int8\_t* \mbox{\hyperlink{struct_charger_stats_a404624494d0facf36c3928f337eb4e87}{chargerTemp}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00086}00086 \} \mbox{\hyperlink{struct_charger_stats}{ChargerStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00088}\mbox{\hyperlink{struct_b_m_s_status}{00088}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00089}\mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{00089}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_acab09ac12be3be24bce0abc90862dacd}{bms\_status\_flag}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00090}\mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{00090}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a02b6f2e9d6f9655e47184007195c7265}{bms\_c\_id}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00091}\mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{00091}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a8b316c1509dc351897db5b5726026e3e}{bms\_c\_fault}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00092}\mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{00092}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_a53663d5549fc358f1f06927c9b2c3676}{ltc\_fault}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00093}\mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{00093}}   \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_b_m_s_status_aafe89416c934c33489db12fdce4d6f6e}{ltc\_count}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00094}00094 \} \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00096}\mbox{\hyperlink{struct_thermistor_temps}{00096}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00097}\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{00097}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{temps}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00098}00098 \} \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}};}
 \DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00099}00099 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00100}\mbox{\hyperlink{struct_thermistor_temps}{00100}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00101}\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{00101}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_thermistor_temps_a586a85cf3b40e573c835319024d7eb5b}{temps}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00102}00102 \} \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00103}00103 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00104}\mbox{\hyperlink{struct_cell_voltages}{00104}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00105}\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{00105}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00106}\mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{00106}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{seriesVoltage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00107}\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{00107}}   \textcolor{keywordtype}{bool}* \mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00108}00108 \} \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00109}00109 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00110}\mbox{\hyperlink{struct_c_a_n_task_data}{00110}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00111}\mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{00111}}   \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{motorStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00112}\mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{00112}}   \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{motorTemps}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00113}\mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{00113}}   \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{bmsStatus}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00114}\mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{00114}}   \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{thermistorTemps}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00115}\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{00115}}   \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00116}\mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{00116}}   \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{chargerStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00117}\mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{00117}}   \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{chargeControllerStats}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00118}\mbox{\hyperlink{struct_c_a_n_task_data_a3bcffb9987e3444b4e55f523b32ef119}{00118}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_a_n_task_data_a3bcffb9987e3444b4e55f523b32ef119}{seriesVoltage}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00119}00119 \} \mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}};}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00120}00120 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00121}00121 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{canTask}}(\textcolor{keywordtype}{void} *canData);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00122}00122 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}();}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00123}00123 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} evccStats);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00124}00124 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00125}00125 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}} );}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00126}00126 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00127}00127 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00128}00128 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00129}00129 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}});}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00130}00130 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} cellVs);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00131}00131 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} canData);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00132}00132 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}{printBMSStatus}}();}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00133}00133 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}{printMessage}}(CAN\_message\_t msg);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00134}00134 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(\textcolor{keywordtype}{int} LTC);}
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00135}00135 }
-\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00136}00136 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_CAN\_H}}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00100}\mbox{\hyperlink{struct_cell_voltages}{00100}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00101}\mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{00101}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a6af0d6a1dbf317365e4fa56be6c595fc}{cellVoltages}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00102}\mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{00102}}   \textcolor{keywordtype}{float}* \mbox{\hyperlink{struct_cell_voltages_a739cccc4cfe6c366e7474ae1c71097bf}{seriesVoltage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00103}\mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{00103}}   \textcolor{keywordtype}{bool}* \mbox{\hyperlink{struct_cell_voltages_a844b5b2d0bd58e1147076ab8aacc420a}{ready}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00104}00104 \} \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00106}\mbox{\hyperlink{struct_c_a_n_task_data}{00106}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00107}\mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{00107}}   \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a47d2113927a00ff554160b7fabfc6471}{motorStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00108}\mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{00108}}   \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a28c4ff53f540fa92e730acfd0def5d88}{motorTemps}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00109}\mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{00109}}   \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{struct_c_a_n_task_data_a02b8e7f2fddd541dfd7b42efb7a1bbf3}{bmsStatus}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00110}\mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{00110}}   \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{struct_c_a_n_task_data_a1f1f9a7c959359030e8ab98d5ecf6a57}{thermistorTemps}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00111}\mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{00111}}   \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{struct_c_a_n_task_data_a3d198d3fdb7daa5117a01954825e30ad}{cellVoltages}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00112}\mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{00112}}   \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a173c0fd4a49d1c2c1d01225b28d04f19}{chargerStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00113}\mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{00113}}   \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} \mbox{\hyperlink{struct_c_a_n_task_data_a541dfccdee9cf36b2252abfffbbdda41}{chargeControllerStats}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00114}\mbox{\hyperlink{struct_c_a_n_task_data_a3bcffb9987e3444b4e55f523b32ef119}{00114}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_a_n_task_data_a3bcffb9987e3444b4e55f523b32ef119}{seriesVoltage}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00115}00115 \} \mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}};}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00117}00117 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{canTask}}(\textcolor{keywordtype}{void} *canData);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00118}00118 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}();}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00119}00119 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_acc8ad6a9a2388c904e5c2a81e263c59d}{decipherEVCCStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charge_controller_stats}{ChargeControllerStats}} evccStats);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00120}00120 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a3e5ce0cee4895bc07047a515ac2fa8ea}{decipherChargerStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_charger_stats}{ChargerStats}} \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00121}00121 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_abd98b0e43fb7330bf8964d8da390810f}{decodeMotorStats}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_stats}{MotorStats}} \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}} );}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00122}00122 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a950c51dd93e1585b49156c52113ab832}{decodeMotorTemps}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_motor_temps}{MotorTemps}} \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00123}00123 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ac7f58797b08a603835f0488b5fe3fb7c}{decipherBMSStatus}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_b_m_s_status}{BMSStatus}} \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00124}00124 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ac7f0128ba5279b58ce4917ff6d80264e}{decipherCellsVoltage}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00125}00125 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a11cd027f4ad6ca2a6b9a860a07fb8e41}{decipherThermistors}}(CAN\_message\_t msg, \mbox{\hyperlink{struct_thermistor_temps}{ThermistorTemps}} \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}});}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00126}00126 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_afd1fb5329197c4478969008e0ee42f90}{calculateSeriesVoltage}}(\mbox{\hyperlink{struct_cell_voltages}{CellVoltages}} cellVs);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00127}00127 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ab92f5f7e74cba4411e9f1c6f32a720a5}{checkCAN}}(\mbox{\hyperlink{struct_c_a_n_task_data}{CANTaskData}} canData);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00128}00128 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a317708f05ea5de4b748e27c49e2a85e8}{printBMSStatus}}();}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00129}00129 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_ad899aaa07def0c8757bea6e9a75f878d}{printMessage}}(CAN\_message\_t msg);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00130}00130 \textcolor{keywordtype}{void} \mbox{\hyperlink{_c_a_n_8h_a0953b2f37f0e637d3f5fba2148109d2a}{requestCellVoltages}}(\textcolor{keywordtype}{int} LTC);}
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{_c_a_n_8h_source_l00132}00132 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_CAN\_H}}
 
 \end{DoxyCode}

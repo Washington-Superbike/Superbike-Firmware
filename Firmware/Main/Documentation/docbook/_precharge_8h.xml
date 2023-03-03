@@ -4,7 +4,7 @@
 <indexterm><primary>Precharge.h</primary></indexterm>
 <para>
 
-<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__precharge_8h">PreCharge.h</link> config file for the PreCharge/Controls task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__pre_charge_8ino">PreCharge.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__pre_charge_8ino">PreCharge.ino</link>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
 <programlisting linenumbering="unnumbered">#include &quot;FreeRTOS_TEENSY4.h&quot;
@@ -88,7 +88,7 @@
 <section>
 <title>Detailed Description</title>
 
-<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__precharge_8h">PreCharge.h</link> config file for the PreCharge/Controls task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__pre_charge_8ino">PreCharge.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__pre_charge_8ino">PreCharge.ino</link>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
 
 <para><formalpara><title>Author</title>
 
@@ -100,10 +100,10 @@
 </formalpara>
 <note><title>Note</title>
 
-<para>up all members to be able to use it without any trouble.</para>
+<para>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</para>
 </note>
 <para><link linkend="_todo_1_todo000009">Todo</link> 
-<para>Goal 1. 
+<para>Change the preChargeStruct data to use less floats, etc. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
@@ -127,70 +127,70 @@ Definition in file <link linkend="__precharge_8h_source">Precharge.h</link>.</pa
 <indexterm><primary>CLOSE_CONTACTOR_BUTTON</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CLOSE_CONTACTOR_BUTTON</secondary></indexterm>
 <para><computeroutput>#define CLOSE_CONTACTOR_BUTTON   14</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00037">37</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00036">36</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e"/><section>
     <title>CONTACTOR</title>
 <indexterm><primary>CONTACTOR</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR</secondary></indexterm>
 <para><computeroutput>#define CONTACTOR   16</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00034">34</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00033">33</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a"/><section>
     <title>CONTACTOR_CLOSED_LED</title>
 <indexterm><primary>CONTACTOR_CLOSED_LED</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR_CLOSED_LED</secondary></indexterm>
 <para><computeroutput>#define CONTACTOR_CLOSED_LED   19</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00039">39</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00038">38</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02"/><section>
     <title>CONTACTOR_PRECHARGED_LED</title>
 <indexterm><primary>CONTACTOR_PRECHARGED_LED</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR_PRECHARGED_LED</secondary></indexterm>
 <para><computeroutput>#define CONTACTOR_PRECHARGED_LED   18</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00038">38</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00037">37</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6"/><section>
     <title>HIGH_VOLTAGE_TOGGLE</title>
 <indexterm><primary>HIGH_VOLTAGE_TOGGLE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>HIGH_VOLTAGE_TOGGLE</secondary></indexterm>
 <para><computeroutput>#define HIGH_VOLTAGE_TOGGLE   15</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00036">36</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00035">35</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db"/><section>
     <title>MOTOR_TEMP_MAX</title>
 <indexterm><primary>MOTOR_TEMP_MAX</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>MOTOR_TEMP_MAX</secondary></indexterm>
 <para><computeroutput>#define MOTOR_TEMP_MAX   80</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00042">42</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00041">41</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a1f9513787cfe256aae379719ab26ca39"/><section>
     <title>MOTORCONTROLLER_TEMP_MAX</title>
 <indexterm><primary>MOTORCONTROLLER_TEMP_MAX</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>MOTORCONTROLLER_TEMP_MAX</secondary></indexterm>
 <para><computeroutput>#define MOTORCONTROLLER_TEMP_MAX   65</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00041">41</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00040">40</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e"/><section>
     <title>NUMBER_OF_LTCS</title>
 <indexterm><primary>NUMBER_OF_LTCS</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>NUMBER_OF_LTCS</secondary></indexterm>
 <para><computeroutput>#define NUMBER_OF_LTCS   20</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00040">40</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00039">39</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a093dd273c900bae9cba2b32149e30eaa"/><section>
     <title>PRECHARGE</title>
 <indexterm><primary>PRECHARGE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>PRECHARGE</secondary></indexterm>
 <para><computeroutput>#define PRECHARGE   17</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00035">35</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00034">34</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a"/><section>
     <title>PRECHARGE_TASK_STACK_SIZE</title>
 <indexterm><primary>PRECHARGE_TASK_STACK_SIZE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>PRECHARGE_TASK_STACK_SIZE</secondary></indexterm>
 <para><computeroutput>#define PRECHARGE_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00032">32</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00031">31</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 </section>
 <section>
@@ -217,7 +217,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00032">32</link> of fi
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="__precharge_8h_source_1l00044">44</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00043">43</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 </section>
 <section>
@@ -305,7 +305,7 @@ Definition at line <link linkend="__pre_charge_8ino_source_1l00299">299</link> o
 <indexterm><primary>hv_state</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>hv_state</secondary></indexterm>
 <para><computeroutput><link linkend="__precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29">HV_STATE</link> hv_state = <link linkend="__precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29abc9f85ed087d13faf9b1c463431ee66a">HV_OFF</link></computeroutput></para><para>
-Definition at line <link linkend="__precharge_8h_source_1l00075">75</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
+Definition at line <link linkend="__precharge_8h_source_1l00074">74</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 </section>
 </section>

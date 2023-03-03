@@ -2,7 +2,7 @@
 \label{_display_8ino}\index{Display.ino@{Display.ino}}
 
 
-The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+The \mbox{\hyperlink{_display_8ino}{Display.\+ino}} file executes the Display task for the bike\textquotesingle{}s firmware. This calls on the variables that are initialized in \mbox{\hyperlink{_display_8h}{Display.\+h}} and then calls on various methods from the ILI9341\textquotesingle{}s adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it\textquotesingle{}s changed and writing in the new data.  
 
 
 {\ttfamily \#include \char`\"{}Display.\+h\char`\"{}}\newline
@@ -34,7 +34,7 @@ float \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\+\_\
 
 
 \doxysubsection{Detailed Description}
-The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for CAN bus for the bike\textquotesingle{}s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. 
+The \mbox{\hyperlink{_display_8ino}{Display.\+ino}} file executes the Display task for the bike\textquotesingle{}s firmware. This calls on the variables that are initialized in \mbox{\hyperlink{_display_8h}{Display.\+h}} and then calls on various methods from the ILI9341\textquotesingle{}s adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it\textquotesingle{}s changed and writing in the new data. 
 
 \begin{DoxyAuthor}{Author}
 Washington Superbike 
@@ -43,16 +43,16 @@ Washington Superbike
 1-\/March-\/2023
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-up all members to be able to use it without any trouble.
+This works. Display does slow down a bit in the speedometer screen, but that is also due to often the numbers were changing in the \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manual\+Screen\+Data\+Updater()}}method updating data too frequently. Just consider reducing the size of the text in case it looks like it is updating too slowly at speeds of $\sim$60-\/80 mph.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]PLEASE remove the whole screen parameter situation. Change the whole value in the ~\newline
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]PLEASE remove the whole screen parameter situation. Change the \char`\"{}screen\char`\"{} variable in the \mbox{\hyperlink{_main_8h}{Main.\+h}} to be a \#define macro and then just check the value from here by directly including \mbox{\hyperlink{_main_8h}{Main.\+h}} and finding that value. Ez. ~\newline
  ~\newline
- Goal 2. ~\newline
+ Remove all unused vars and tighten up methods. ~\newline
  ~\newline
- Goal 3. ~\newline
+ There are WAY more macros (\#define statements) that need to be written for defining some frequently used values in display. Can\textquotesingle{}t think of them off the top of my head, but make and use those. ~\newline
  ~\newline
- Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} Final Goal. \end{DoxyRefDesc}
+ Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} \end{DoxyRefDesc}
 
 
 Definition in file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
@@ -66,9 +66,9 @@ Definition in file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 \doxysubsubsection{\texorpdfstring{aux\_voltage\_read()}{aux\_voltage\_read()}}
 {\footnotesize\ttfamily float aux\+\_\+voltage\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Reads in the aux\+\_\+voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it\textquotesingle{}s here.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00282}{282}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}\label{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}} 
 \index{Display.ino@{Display.ino}!displayTask@{displayTask}}
@@ -76,9 +76,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00265}{265}} of file \
 \doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}}
 {\footnotesize\ttfamily void display\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{display\+Task\+Wrap }\end{DoxyParamCaption})}
 
+Parses the data from the void pointer to be processable? Idk if that\textquotesingle{}s word. Passes the measurement\+Screen\+Data form the display\+Task\+Wrap data and the Screen data from the display\+Task\+Wrap data to the \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{display\+Update()}} method. The \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{display\+Update()}} method then processes it and updates the screen accordingly.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00045}{45}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00036}{36}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}\label{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}} 
 \index{Display.ino@{Display.ino}!displayUpdate@{displayUpdate}}
@@ -88,7 +88,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00045}{45}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00090}{90}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}\label{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}} 
 \index{Display.ino@{Display.ino}!eraseThenPrint@{eraseThenPrint}}
@@ -96,9 +96,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00087}{87}} of file \m
 \doxysubsubsection{\texorpdfstring{eraseThenPrint()}{eraseThenPrint()}}
 {\footnotesize\ttfamily void erase\+Then\+Print (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+Erases the old value using the old\+Data parameter by writing it in white text and then setting it to black text to write the new\+Data.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}\label{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}} 
 \index{Display.ino@{Display.ino}!eraseThenPrintSPEEDO@{eraseThenPrintSPEEDO}}
@@ -106,9 +106,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00229}{229}} of file \
 \doxysubsubsection{\texorpdfstring{eraseThenPrintSPEEDO()}{eraseThenPrintSPEEDO()}}
 {\footnotesize\ttfamily void erase\+Then\+Print\+SPEEDO (\begin{DoxyParamCaption}\item[{int}]{x\+Pos,  }\item[{int}]{y\+Pos,  }\item[{String}]{old\+Data,  }\item[{String}]{new\+Data }\end{DoxyParamCaption})}
 
+Just a flipped color version of \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{erase\+Then\+Print()}} Erases the old value using the old\+Data parameter by writing it in black text and then setting it to white text to write the new\+Data.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00249}{249}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}\label{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}} 
 \index{Display.ino@{Display.ino}!manualScreenDataUpdater@{manualScreenDataUpdater}}
@@ -116,9 +116,9 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00238}{238}} of file \
 \doxysubsubsection{\texorpdfstring{manualScreenDataUpdater()}{manualScreenDataUpdater()}}
 {\footnotesize\ttfamily void manual\+Screen\+Data\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Iterates through all the printed\+Vals array and then does += 1 to make sure it\textquotesingle{}s increasing. This change should be reflected in the display itself.
 
-
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00267}{267}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}\label{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}} 
 \index{Display.ino@{Display.ino}!setupDisplay@{setupDisplay}}
@@ -126,9 +126,13 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00253}{253}} of file \
 \doxysubsubsection{\texorpdfstring{setupDisplay()}{setupDisplay()}}
 {\footnotesize\ttfamily void setup\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a2dded6e25e0cb307491fd7997b66b2a4}{Measurement\+Screen\+Data}}}]{ms\+Data,  }\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+Calls on tft.\+begin() method and sets the orientation using tft.\+set\+Rotatio() and also sets the screen to ILI9341\+\_\+\+WHITE or ILI9341\+\_\+\+BLACK based on Debugging or Speedometer screen.
 
+Initializes all the Printed\+Data\+Structs to set their position, values, and point to the correct pointer corresponding to the correct data.
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Calls on the \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setup\+Measurement\+Screen()}} to finish up the setup.
+
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00051}{51}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}\label{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}} 
 \index{Display.ino@{Display.ino}!setupMeasurementScreen@{setupMeasurementScreen}}
@@ -136,9 +140,11 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00055}{55}} of file \m
 \doxysubsubsection{\texorpdfstring{setupMeasurementScreen()}{setupMeasurementScreen()}}
 {\footnotesize\ttfamily void setup\+Measurement\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}}}]{screen }\end{DoxyParamCaption})}
 
+If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.
 
+If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00199}{199}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}\label{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}} 
 \index{Display.ino@{Display.ino}!thermiDataPrint@{thermiDataPrint}}
@@ -148,7 +154,7 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00196}{196}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00138}{138}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 
 \mbox{\Hypertarget{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}\label{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}} 
 \index{Display.ino@{Display.ino}!timePrint@{timePrint}}
@@ -158,5 +164,5 @@ Definition at line \mbox{\hyperlink{_display_8ino_source_l00135}{135}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{_display_8ino_source_l00185}{185}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
+Definition at line \mbox{\hyperlink{_display_8ino_source_l00188}{188}} of file \mbox{\hyperlink{_display_8ino_source}{Display.\+ino}}.
 

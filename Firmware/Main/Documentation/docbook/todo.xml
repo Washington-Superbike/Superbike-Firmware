@@ -4,19 +4,19 @@
 <para><variablelist>
 <varlistentry><term>File <link linkend="__c_a_n_8h">CAN.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000001"/> Goal 1. 
+<para><anchor xml:id="_todo_1_todo000001"/> Nothing? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ More Nothing? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ Nothing supreme? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+ Nothing maxima.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__c_a_n_8ino">CAN.ino</link>  </term>
 <listitem>
@@ -36,7 +36,7 @@
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__data_logging_8h">DataLogging.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000003"/> Goal 1. 
+<para><anchor xml:id="_todo_1_todo000003"/> Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
@@ -68,15 +68,15 @@
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__display_8h">Display.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000005"/> Goal 1. 
+<para><anchor xml:id="_todo_1_todo000005"/> Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
@@ -84,19 +84,19 @@
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__display_8ino">Display.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the whole value in the 
+<para><anchor xml:id="_todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the &quot;screen&quot; variable in the <link linkend="__main_8h">Main.h</link> to be a #define macro and then just check the value from here by directly including <link linkend="__main_8h">Main.h</link> and finding that value. Ez. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ Remove all unused vars and tighten up methods. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> Final Goal.  </para>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link>  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__main_8h">Main.h</link>  </term>
 <listitem>
@@ -132,7 +132,7 @@
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__precharge_8h">Precharge.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000009"/> Goal 1. 
+<para><anchor xml:id="_todo_1_todo000009"/> Change the preChargeStruct data to use less floats, etc. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>

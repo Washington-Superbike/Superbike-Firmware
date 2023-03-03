@@ -2,245 +2,235 @@
 \mbox{\hyperlink{_display_8ino}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_display_8h}{Display.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_8h}{Main.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00032}00032 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00033}00033 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00034}00034 \textcolor{comment}{// TODO:}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00035}00035 \textcolor{comment}{//  Remove all vars that are completley unused}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00036}00036 \textcolor{comment}{//  Write out a header comment for this file and all other files.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00037}00037 \textcolor{comment}{//  Write out comments for big blocks that are hard to interpret.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00038}00038 \textcolor{comment}{//  Write out comments for all functions explaining them.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00039}00039 \textcolor{comment}{// 1. Remove oldData field from the printedData struct.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00040}00040 \textcolor{comment}{// 2. Add more macros for default vals that are repeated in Display.ino}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00041}00041 \textcolor{comment}{// 3. Remove all the extra macros and predefined methods}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00042}00042 \textcolor{comment}{// 4. Remove everything that corresponds to things removed from Display.ino}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00044}00044 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00045}\mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{00045}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{displayTask}}(\textcolor{keywordtype}{void} *\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00046}00046   \textcolor{keywordflow}{while} (1) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00047}00047     \mbox{\hyperlink{structdisplay_task_wrapper}{displayPointer}} displayWrapper = *(\mbox{\hyperlink{structdisplay_task_wrapper}{displayPointer}} *)\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00048}00048     \mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} test = *(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_a51bf468020bb98383d49a9e0e39422cc}{msDataWrap}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00049}00049     \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{displayUpdate}}(*(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_a51bf468020bb98383d49a9e0e39422cc}{msDataWrap}}), *(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_acaa31854e77a95332b545bc6da5c1c22}{screenDataWrap}}));}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00050}00050     \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manualScreenDataUpdater}}();}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00051}00051     \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((20 * \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}}) / 1000);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00052}00052   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00053}00053 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00054}00054 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00055}\mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{00055}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}{setupDisplay}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00056}00056   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.begin();}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00057}00057   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setRotation(1);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00058}00058   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}})\{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00059}00059     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.fillScreen(ILI9341\_WHITE);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00060}00060   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00062}00062   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00063}00063     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.fillScreen(ILI9341\_BLACK);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00064}00064   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00066}00066   \textcolor{comment}{//PrintedData *thermTemps = \&printedVals[7];}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00067}00067   \textcolor{comment}{//PrintedData *timeData = \&printedVals[11];}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00069}00069   *\mbox{\hyperlink{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}{batteryVoltage}} = \{1, 10, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_aed564048111fa898cf8de61099391863}{mainBatteryVoltage}}, 1, \textcolor{stringliteral}{"{}Main Batt Voltage: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00070}00070   *\mbox{\hyperlink{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}{motorControllerVoltage}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 1, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a1e2df8e919bbae0941ccecfa5eb62cbe}{motorControllerVoltage}}, 1, \textcolor{stringliteral}{"{}Main Batt Voltage (Motor Controller): "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00071}00071   \textcolor{keywordtype}{float} auxVolt = \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\_voltage\_read}}();}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00072}00072   *\mbox{\hyperlink{_display_8h_a012dded9173d07c300ffad949e96a940}{auxBatteryVoltage}} = \{1, 10 + 16 * 2, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, \&auxVolt, 1, \textcolor{stringliteral}{"{}Aux Batt Voltage: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00073}00073   *\mbox{\hyperlink{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}{rpm}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 3, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a032fdb5cea2670a02f48dae82cb6c5f7}{RPM}}, 1, \textcolor{stringliteral}{"{}RPM: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00074}00074   *\mbox{\hyperlink{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}{motorTemperature}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 4, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}Motor Temp: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00075}00075   *\mbox{\hyperlink{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}{motorCurr}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 5, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a9685a96c491e4d8276fea2e35bc538cd}{motorCurrent}}, 1, \textcolor{stringliteral}{"{}Motor Current: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00076}00076   *\mbox{\hyperlink{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}{errMessage}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 6, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, (\textcolor{keywordtype}{float}*) msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_aa63c57e04a22b9ff0feba3172fb46e7c}{errorMessage}}, 1, \textcolor{stringliteral}{"{}Error Message: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00077}00077   *\mbox{\hyperlink{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}{chargerVolt}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 9, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a8c456547b18cc7388d407a3fa01f770f}{chargerVoltage}}, 1, \textcolor{stringliteral}{"{}Charger Voltage: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00078}00078   *\mbox{\hyperlink{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}{chargerCurr}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 10, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ab325b90179563b0cbd69138e4faca679}{chargerCurrent}}, 1, \textcolor{stringliteral}{"{}Charger Current: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00079}00079   *\mbox{\hyperlink{_display_8h_a940677548971e0943f36dcfa95bb8b44}{bmsStatusFlag}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 11, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}BMS Status Flag: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00080}00080   *\mbox{\hyperlink{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}{evccVolt}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 12, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}EVCC Voltage: "{}}\};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00082}00082   \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 7, 180, \{ -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1\}, (\textcolor{keywordtype}{float}*) msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a246a330e1d725800363777a3a373f740}{thermistorTemps}}, \textcolor{stringliteral}{"{}Thermist Temp: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00032}00032 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_display_8h}{Display.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00033}00033 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_8h}{Main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00034}00034 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8h}{FreeRTOS\_TEENSY4.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00036}\mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{00036}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{displayTask}}(\textcolor{keywordtype}{void} *\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00037}00037   \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00043}00043     \mbox{\hyperlink{structdisplay_task_wrapper}{displayPointer}} displayWrapper = *(\mbox{\hyperlink{structdisplay_task_wrapper}{displayPointer}} *)\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00044}00044     \mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} test = *(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_a51bf468020bb98383d49a9e0e39422cc}{msDataWrap}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00045}00045     \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{displayUpdate}}(*(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_a51bf468020bb98383d49a9e0e39422cc}{msDataWrap}}), *(displayWrapper.\mbox{\hyperlink{structdisplay_task_wrapper_acaa31854e77a95332b545bc6da5c1c22}{screenDataWrap}}));}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00046}00046     \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manualScreenDataUpdater}}();}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00047}00047     \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((20 * \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}}) / 1000);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00048}00048   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00049}00049 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00051}\mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{00051}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a756efac71e8cf83b5add1ffcb9035a20}{setupDisplay}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00055}00055   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.begin();}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00056}00056   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setRotation(1);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00057}00057   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}})\{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00058}00058     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.fillScreen(ILI9341\_WHITE);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00059}00059   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00061}00061   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00062}00062     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.fillScreen(ILI9341\_BLACK);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00063}00063   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00065}00065   \textcolor{comment}{//PrintedData *thermTemps = \&printedVals[7];}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00066}00066   \textcolor{comment}{//PrintedData *timeData = \&printedVals[11];}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00071}00071   *\mbox{\hyperlink{_display_8h_a0dbb33f8e641008d67ebd4388521ab69}{batteryVoltage}} = \{1, 10, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_aed564048111fa898cf8de61099391863}{mainBatteryVoltage}}, 1, \textcolor{stringliteral}{"{}Main Batt Voltage: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00072}00072   *\mbox{\hyperlink{_display_8h_ab1f53d3b1963f27d117ab4846e36897e}{motorControllerVoltage}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 1, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a1e2df8e919bbae0941ccecfa5eb62cbe}{motorControllerVoltage}}, 1, \textcolor{stringliteral}{"{}Main Batt Voltage (Motor Controller): "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00073}00073   \textcolor{keywordtype}{float} auxVolt = \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\_voltage\_read}}();}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00074}00074   *\mbox{\hyperlink{_display_8h_a012dded9173d07c300ffad949e96a940}{auxBatteryVoltage}} = \{1, 10 + 16 * 2, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, \&auxVolt, 1, \textcolor{stringliteral}{"{}Aux Batt Voltage: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00075}00075   *\mbox{\hyperlink{_display_8h_a96f08d4bf70ba395b285b8d6a352bdf9}{rpm}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 3, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a032fdb5cea2670a02f48dae82cb6c5f7}{RPM}}, 1, \textcolor{stringliteral}{"{}RPM: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00076}00076   *\mbox{\hyperlink{_display_8h_ab1eb6959a5903caaa2277b5c19bc64b8}{motorTemperature}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 4, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}Motor Temp: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00077}00077   *\mbox{\hyperlink{_display_8h_ac5969222ac88224eb77bc5aa7dd0e2d0}{motorCurr}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 5, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a9685a96c491e4d8276fea2e35bc538cd}{motorCurrent}}, 1, \textcolor{stringliteral}{"{}Motor Current: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00078}00078   *\mbox{\hyperlink{_display_8h_aec89495f1135f6268d3c23d3d89c6b05}{errMessage}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 6, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, (\textcolor{keywordtype}{float}*) msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_aa63c57e04a22b9ff0feba3172fb46e7c}{errorMessage}}, 1, \textcolor{stringliteral}{"{}Error Message: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00079}00079   *\mbox{\hyperlink{_display_8h_a44fd669aa58c2b66ab018fd2df3e046a}{chargerVolt}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 9, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a8c456547b18cc7388d407a3fa01f770f}{chargerVoltage}}, 1, \textcolor{stringliteral}{"{}Charger Voltage: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00080}00080   *\mbox{\hyperlink{_display_8h_ac618dcef8a9f06e79d1cbe8cb9383aa6}{chargerCurr}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 10, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ab325b90179563b0cbd69138e4faca679}{chargerCurrent}}, 1, \textcolor{stringliteral}{"{}Charger Current: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00081}00081   *\mbox{\hyperlink{_display_8h_a940677548971e0943f36dcfa95bb8b44}{bmsStatusFlag}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 11, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}BMS Status Flag: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00082}00082   *\mbox{\hyperlink{_display_8h_a1f928d9e961d6ef649cb8bc5d3178b8e}{evccVolt}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 12, \mbox{\hyperlink{_display_8h_accd27f9824631fc37bcb677947f1f63a}{DEFAULT\_X\_POS}}, \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}, \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}, msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_ac41c602ffafc714ec356ea502c8ae58a}{motorTemp}}, 1, \textcolor{stringliteral}{"{}EVCC Voltage: "{}}\};}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00083}00083 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00084}00084   \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setupMeasurementScreen}}(\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00085}00085 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00086}00086 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00087}\mbox{\hyperlink{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}{00087}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{displayUpdate}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00088}00088   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00089}00089     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(1);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00090}00090     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00091}00091       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].type == \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00092}00092         \textcolor{keywordflow}{if} ((*\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].currData) != (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData) || (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData) == \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00093}00093           \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].dataX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].y, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData, *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].currData);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00094}00094           \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00095}00095         \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00096}00096       \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00097}00097     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00098}00098 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00099}00099     \textcolor{comment}{// Printing out thermistor data}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00100}00100     \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00084}00084   \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}} = \{1, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * 7, 180, \{ -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1, -\/1\}, (\textcolor{keywordtype}{float}*) msData.\mbox{\hyperlink{struct_measurement_screen_data_struct_a246a330e1d725800363777a3a373f740}{thermistorTemps}}, \textcolor{stringliteral}{"{}Thermist Temp: "{}}\};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00087}00087   \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setupMeasurementScreen}}(\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00088}00088 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00090}\mbox{\hyperlink{_display_8h_ad2818acb0d1eb44a804059aa40c432b3}{00090}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_ad2818acb0d1eb44a804059aa40c432b3}{displayUpdate}}(\mbox{\hyperlink{struct_measurement_screen_data_struct}{MeasurementScreenData}} msData, \mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00091}00091   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00092}00092     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(1);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00093}00093     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00094}00094       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].type == \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00095}00095         \textcolor{keywordflow}{if} ((*\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].currData) != (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData) || (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData) == \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00096}00096           \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].dataX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].y, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].oldData, *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].currData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00097}00097           \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00098}00098         \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00099}00099       \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00100}00100     \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00101}00101 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00102}00102     \textcolor{comment}{// Printing out time data}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00103}00103     \mbox{\hyperlink{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}{timePrint}}();}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00104}00104   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00105}00105 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00106}00106   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00107}00107     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00108}00108     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(8);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00109}00109     String newString = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00110}00110     String oldString = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00111}00111     \textcolor{keywordflow}{if} ((*\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].currData) != (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].oldData) || (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].oldData) == \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00112}00112 \textcolor{comment}{//    Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00113}00113 \textcolor{comment}{//    Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00114}00114 \textcolor{comment}{//    Speed of m/s}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00115}00115       \textcolor{keywordtype}{float} gearRatio = 48/16;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00116}00116       \textcolor{keywordtype}{float} diameterPerSecond = 0.522/60;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00117}00117       \textcolor{keywordtype}{float} pi = 3.14159;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00118}00118       \textcolor{keywordtype}{float} mphConvert = 2.2369362920544;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00119}00119 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00120}00120       \textcolor{keywordtype}{float} newSpeed = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} / gearRatio * pi * diameterPerSecond * mphConvert;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00121}00121       \textcolor{keywordtype}{float} oldSpeed = \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} / gearRatio * pi * diameterPerSecond * mphConvert;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00122}00122       newString = (String) (\textcolor{keywordtype}{int}) newSpeed;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00123}00123       oldString = (String) (\textcolor{keywordtype}{int}) oldSpeed;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00124}00124 \textcolor{comment}{//      Serial.println(newString);}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00125}00125 \textcolor{comment}{//      Serial.println(oldString);}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00126}00126       \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(175, 0, oldString, newString);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00127}00127       newString = (String) (\textcolor{keywordtype}{int}) *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00128}00128       oldString = (String) (\textcolor{keywordtype}{int}) \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00129}00129       \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(120, 180, oldString, newString);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00130}00130       \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00131}00131     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00132}00132   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00133}00133 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00134}00134 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00135}\mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{00135}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00136}00136   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00102}00102     \textcolor{comment}{// Printing out thermistor data}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00103}00103     \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00105}00105     \textcolor{comment}{// Printing out time data}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00106}00106     \mbox{\hyperlink{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}{timePrint}}();}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00107}00107   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00109}00109   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00110}00110     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00111}00111     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(8);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00112}00112     String newString = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00113}00113     String oldString = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00114}00114     \textcolor{keywordflow}{if} ((*\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].currData) != (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].oldData) || (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].oldData) == \mbox{\hyperlink{_display_8h_aa6b0be19465bc73429fbaf37ea6d7f5d}{DEFAULT\_FLOAT}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00115}00115 \textcolor{comment}{//    Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00116}00116 \textcolor{comment}{//    Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00117}00117 \textcolor{comment}{//    Speed of m/s}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00118}00118       \textcolor{keywordtype}{float} gearRatio = 48/16;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00119}00119       \textcolor{keywordtype}{float} diameterPerSecond = 0.522/60;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00120}00120       \textcolor{keywordtype}{float} pi = 3.14159;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00121}00121       \textcolor{keywordtype}{float} mphConvert = 2.2369362920544;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00123}00123       \textcolor{keywordtype}{float} newSpeed = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} / gearRatio * pi * diameterPerSecond * mphConvert;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00124}00124       \textcolor{keywordtype}{float} oldSpeed = \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} / gearRatio * pi * diameterPerSecond * mphConvert;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00125}00125       newString = (String) (\textcolor{keywordtype}{int}) newSpeed;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00126}00126       oldString = (String) (\textcolor{keywordtype}{int}) oldSpeed;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00127}00127 \textcolor{comment}{//      Serial.println(newString);}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00128}00128 \textcolor{comment}{//      Serial.println(oldString);}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00129}00129       \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(175, 0, oldString, newString);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00130}00130       newString = (String) (\textcolor{keywordtype}{int}) *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00131}00131       oldString = (String) (\textcolor{keywordtype}{int}) \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00132}00132       \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(120, 180, oldString, newString);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00133}00133       \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_ae0952f0395d23e49c6db5cbea2eca92c}{oldData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[3].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00134}00134     \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00135}00135   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00136}00136 \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00137}00137 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00138}00138     \textcolor{keywordtype}{bool} sameData = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00139}00139     String sOld, sNew;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00138}\mbox{\hyperlink{_display_8h_a48f20f2ac1788f51aaa3aefd6c8ccb96}{00138}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00139}00139   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8ino_a48f20f2ac1788f51aaa3aefd6c8ccb96}{thermiDataPrint}}) \{}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00140}00140 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00141}00141     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 5; j++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00142}00142       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j] != \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00143}00143         sameData = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00144}00144         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00145}00145         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00146}00146         \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j] = \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j];}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00147}00147       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00141}00141     \textcolor{keywordtype}{bool} sameData = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00142}00142     String sOld, sNew;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00144}00144     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 5; j++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00145}00145       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j] != \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00146}00146         sameData = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00147}00147         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]);}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00148}00148         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00149}00149         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00150}00150       \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00151}00151       \textcolor{keywordflow}{if} (j != 4) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00152}00152         sOld.append(\textcolor{stringliteral}{"{}, "{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00153}00153         sNew.append(\textcolor{stringliteral}{"{}, "{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00154}00154       \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00155}00155     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00156}00156     \textcolor{keywordflow}{if} (!sameData) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00157}00157       \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a5f4a978790b000578684d99f8e42e747}{dataX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}}, sOld, sNew);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00149}00149         \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j] = \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j];}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00150}00150       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00151}00151         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00152}00152         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00153}00153       \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00154}00154       \textcolor{keywordflow}{if} (j != 4) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00155}00155         sOld.append(\textcolor{stringliteral}{"{}, "{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00156}00156         sNew.append(\textcolor{stringliteral}{"{}, "{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00157}00157       \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00158}00158     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00159}00159     sameData = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00160}00160     sOld = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00161}00161     sNew = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00162}00162 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00163}00163     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 5; j < 10; j++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00164}00164       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j] != \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00165}00165         sameData = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00166}00166         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00167}00167         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00168}00168         \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j] = \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j];}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00169}00169       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00159}00159     \textcolor{keywordflow}{if} (!sameData) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00160}00160       \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a5f4a978790b000578684d99f8e42e747}{dataX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}}, sOld, sNew);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00161}00161     \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00162}00162     sameData = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00163}00163     sOld = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00164}00164     sNew = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00166}00166     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 5; j < 10; j++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00167}00167       \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j] != \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00168}00168         sameData = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00169}00169         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]);}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00170}00170         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00171}00171         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00172}00172       \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00173}00173       \textcolor{keywordflow}{if} (j != 9) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00174}00174         sOld.append(\textcolor{stringliteral}{"{}, "{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00175}00175         sNew.append(\textcolor{stringliteral}{"{}, "{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00176}00176       \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00177}00177     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00178}00178     \textcolor{keywordflow}{if} (!sameData) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00179}00179       \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a5f4a978790b000578684d99f8e42e747}{dataX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}} + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}}, sOld, sNew);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00171}00171         \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j] = \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j];}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00172}00172       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00173}00173         sOld.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00174}00174         sNew.append((\textcolor{keywordtype}{byte})\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a14bcd79d4f08e87c4c435ad6894f13b3}{oldData}}[j]);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00175}00175       \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00176}00176       \textcolor{keywordflow}{if} (j != 9) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00177}00177         sOld.append(\textcolor{stringliteral}{"{}, "{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00178}00178         sNew.append(\textcolor{stringliteral}{"{}, "{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00179}00179       \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00180}00180     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00181}00181 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00182}00182   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00183}00183 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00181}00181     \textcolor{keywordflow}{if} (!sameData) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00182}00182       \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_a5f4a978790b000578684d99f8e42e747}{dataX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}} + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}}, sOld, sNew);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00183}00183     \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00184}00184 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00185}\mbox{\hyperlink{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}{00185}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}{timePrint}}() \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00186}00186   \textcolor{keyword}{const} \textcolor{keywordtype}{int} bufSize = 255;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00187}00187   \textcolor{comment}{// date and time, update by erasing previous text then writing new}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00188}00188   \textcolor{keyword}{static} \textcolor{keywordtype}{char} previousTime[bufSize];}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00189}00189   \textcolor{keywordtype}{char} buf[bufSize];}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00190}00190   sprintf(buf, \textcolor{stringliteral}{"{}\%02u/\%02u/\%02u  \%02u:\%02u:\%02u"{}}, month(), day(), year(), hour(), minute(), second());}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00191}00191   \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(140, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * (\mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}} + 2), previousTime, buf);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00192}00192   memcpy(previousTime, buf, bufSize);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00193}00193 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00194}00194 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00195}00195 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00196}\mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{00196}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setupMeasurementScreen}}(\mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00197}00197   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00198}00198     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(1);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00199}00199     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00200}00200 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00201}00201     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00202}00202       \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].labelX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].y);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00203}00203       \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].labelPtr);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00204}00204     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00205}00205 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00206}00206     \textcolor{comment}{// Printing out time label}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00207}00207     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[10].labelX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[10].y + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00208}00208     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}Time: "{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00209}00209 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00210}00210     \textcolor{comment}{// Printing out thermistor temps label}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00211}00211     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_ab6d40c87b9c92abc235f3ca8d2e68f6c}{labelX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00212}00212     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_acc2d2cee759f3cc546922b2a34dae206}{labelPtr}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00213}00213   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00214}00214   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00215}00215     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00216}00216     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(5);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00217}00217 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00218}00218     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(0,0);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00219}00219     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}SPEED"{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00220}00220 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00221}00221     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(220, 62);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00222}00222     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}mph"{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00223}00223 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00224}00224     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(0, 205);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00225}00225     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}RPM"{}});}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00226}00226   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00227}00227 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00228}00228 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00229}\mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{00229}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00230}00230   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00231}00231   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00232}00232   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(oldData);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00233}00233   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00234}00234   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00235}00235   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(newData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00185}00185   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00186}00186 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00187}00187 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00188}\mbox{\hyperlink{_display_8h_a1faaa02c20faaddf6f9e78859eb3cb0c}{00188}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a1faaa02c20faaddf6f9e78859eb3cb0c}{timePrint}}() \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00189}00189   \textcolor{keyword}{const} \textcolor{keywordtype}{int} bufSize = 255;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00190}00190   \textcolor{comment}{// date and time, update by erasing previous text then writing new}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00191}00191   \textcolor{keyword}{static} \textcolor{keywordtype}{char} previousTime[bufSize];}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00192}00192   \textcolor{keywordtype}{char} buf[bufSize];}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00193}00193   sprintf(buf, \textcolor{stringliteral}{"{}\%02u/\%02u/\%02u  \%02u:\%02u:\%02u"{}}, month(), day(), year(), hour(), minute(), second());}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00194}00194   \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(140, 10 + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}} * (\mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}} + 2), previousTime, buf);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00195}00195   memcpy(previousTime, buf, bufSize);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00197}00197 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00199}\mbox{\hyperlink{_display_8h_a2b73a1c90c594f4d6e205cf19666468a}{00199}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a2b73a1c90c594f4d6e205cf19666468a}{setupMeasurementScreen}}(\mbox{\hyperlink{struct_screen_info}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00203}00203   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f}{DEBUG}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00204}00204     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(1);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00205}00205     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00206}00206 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00207}00207     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00208}00208       \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].labelX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].y);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00209}00209       \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].labelPtr);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00210}00210     \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00212}00212     \textcolor{comment}{// Printing out time label}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00213}00213     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[10].labelX, \mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[10].y + \mbox{\hyperlink{_display_8h_a9705c15b04a1787116a4fbdf987e0328}{VERTICAL\_SCALER}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00214}00214     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}Time: "{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00216}00216     \textcolor{comment}{// Printing out thermistor temps label}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00217}00217     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_ab6d40c87b9c92abc235f3ca8d2e68f6c}{labelX}}, \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa3c56195d5e129e46e6820fe69eb7193}{y}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00218}00218     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_acc2d2cee759f3cc546922b2a34dae206}{labelPtr}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00219}00219   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00223}00223   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}.\mbox{\hyperlink{struct_screen_info_abb458c47ad3635762b415e3ed4d26e97}{screenType}} == \mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}})\{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00224}00224     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00225}00225     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextSize(5);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00227}00227     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(0,0);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00228}00228     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}SPEED"{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00229}00229 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00230}00230     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(220, 62);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00231}00231     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}mph"{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00232}00232 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00233}00233     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(0, 205);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00234}00234     \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(\textcolor{stringliteral}{"{}RPM"{}});}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00235}00235   \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00236}00236 \}}
 \DoxyCodeLine{\Hypertarget{_display_8ino_source_l00237}00237 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00238}\mbox{\hyperlink{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}{00238}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00239}00239   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00240}00240   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00241}00241   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(oldData);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00242}00242   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00243}00243   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00244}00244   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(newData);}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00245}00245 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00246}00246 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00247}00247 \textcolor{comment}{//void screenEraser(int scaler, int i) \{}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00248}00248 \textcolor{comment}{//  floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00249}00249 \textcolor{comment}{//  Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00250}00250 \textcolor{comment}{//  tft.fillRect(printedVals[i].dataX, printedVals[i].y, scaler * (floor(log10(abs(*printedVals[i].currData))) + 1), 8, ILI9341\_WHITE);}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00251}00251 \textcolor{comment}{//\}}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00252}00252 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00253}\mbox{\hyperlink{_display_8h_a2fcaba5d0c64fb3389132dca04224211}{00253}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manualScreenDataUpdater}}() \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00254}00254   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00255}00255     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].type == \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00256}00256       *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} + 1;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00257}00257 \textcolor{comment}{//      Serial.println(*printedVals[i].currData);}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00258}00258     \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00259}00259   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00260}00260   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 10; j++) \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00261}00261     \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]++;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00262}00262   \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00263}00263 \}}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00264}00264 }
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00265}\mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{00265}} \textcolor{keywordtype}{float} \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\_voltage\_read}}() \{}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00266}00266   \textcolor{keywordtype}{float} aux\_voltage = 3.3 * analogRead(13) / 1024.0;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00267}00267   aux\_voltage *= 42.0 / 10.0;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00268}00268   \textcolor{keywordflow}{return}  aux\_voltage;}
-\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00269}00269 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00238}\mbox{\hyperlink{_display_8h_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{00238}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a9622e737a6a548ba9f9ffcbb6ed1bb2d}{eraseThenPrint}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00241}00241   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00242}00242   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00243}00243   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(oldData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00244}00244   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00245}00245   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00246}00246   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(newData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00247}00247 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00248}00248 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00249}\mbox{\hyperlink{_display_8h_acf63fd6f02499d20156ded2a3582fb9b}{00249}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_acf63fd6f02499d20156ded2a3582fb9b}{eraseThenPrintSPEEDO}}(\textcolor{keywordtype}{int} xPos, \textcolor{keywordtype}{int} yPos, String oldData, String newData) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00253}00253   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00254}00254   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_BLACK);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00255}00255   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(oldData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00256}00256   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setCursor(xPos, yPos);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00257}00257   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.setTextColor(ILI9341\_WHITE);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00258}00258   \mbox{\hyperlink{_display_8h_a41c3eb6bc5901609f9f976b594e5089f}{tft}}.print(newData);}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00259}00259 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00260}00260 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00261}00261 \textcolor{comment}{//void screenEraser(int scaler, int i) \{}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00262}00262 \textcolor{comment}{//  floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00263}00263 \textcolor{comment}{//  Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00264}00264 \textcolor{comment}{//  tft.fillRect(printedVals[i].dataX, printedVals[i].y, scaler * (floor(log10(abs(*printedVals[i].currData))) + 1), 8, ILI9341\_WHITE);}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00265}00265 \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00266}00266 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00267}\mbox{\hyperlink{_display_8h_a2fcaba5d0c64fb3389132dca04224211}{00267}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_display_8ino_a2fcaba5d0c64fb3389132dca04224211}{manualScreenDataUpdater}}() \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00271}00271   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{_display_8h_a3b5584bed4734b437f2ef171dfa600e2}{NUM\_DATA}}; i++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00272}00272     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].type == \mbox{\hyperlink{_display_8h_a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0}{NUMBER}}) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00273}00273       *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} = *\mbox{\hyperlink{_display_8h_a4d31440d430c0fc247733e218f14278f}{printedVals}}[i].\mbox{\hyperlink{struct_printed_data_struct_a5871bcbf6b81d6ba842d61fe62349ff4}{currData}} + 1;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00274}00274 \textcolor{comment}{//      Serial.println(*printedVals[i].currData);}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00275}00275     \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00276}00276   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00277}00277   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 10; j++) \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00278}00278     \mbox{\hyperlink{_display_8h_a700ec86cb550fd4426014190222173ac}{thermiData}}.\mbox{\hyperlink{struct_printed_data_therm_struct_aa2f24f2c6e39a25af913ff218361f691}{currData}}[j]++;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00279}00279   \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00280}00280 \}}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00281}00281 }
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00282}\mbox{\hyperlink{_display_8h_ad609934bdce8f8169cc609cb7913f507}{00282}} \textcolor{keywordtype}{float} \mbox{\hyperlink{_display_8ino_ad609934bdce8f8169cc609cb7913f507}{aux\_voltage\_read}}() \{}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00286}00286   \textcolor{keywordtype}{float} aux\_voltage = 3.3 * analogRead(13) / 1024.0;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00287}00287   aux\_voltage *= 42.0 / 10.0;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00288}00288   \textcolor{keywordflow}{return}  aux\_voltage;}
+\DoxyCodeLine{\Hypertarget{_display_8ino_source_l00289}00289 \}}
 
 \end{DoxyCode}

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="76" column="7" bodyfile="Display.h" bodystart="76" bodyend="-1"/>
+        <location file="Display.h" line="114" column="7" bodyfile="Display.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1ab2aee1187f70e33083ccb3cb27b5fb5f" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="76" column="14" bodyfile="Display.h" bodystart="76" bodyend="-1"/>
+        <location file="Display.h" line="114" column="14" bodyfile="Display.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1a18a14775ee2b7c82f96868e0c838775f" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="76" column="16" bodyfile="Display.h" bodystart="76" bodyend="-1"/>
+        <location file="Display.h" line="114" column="16" bodyfile="Display.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1ae0952f0395d23e49c6db5cbea2eca92c" prot="public" static="no" mutable="no">
         <type>volatile float</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="77" column="18" bodyfile="Display.h" bodystart="77" bodyend="-1"/>
+        <location file="Display.h" line="115" column="18" bodyfile="Display.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1aa2cdf10f001ae09777a3120515d6249d" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" kindref="member">PRINT_TYPE</ref></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="78" column="14" bodyfile="Display.h" bodystart="78" bodyend="-1"/>
+        <location file="Display.h" line="116" column="14" bodyfile="Display.h" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1a5871bcbf6b81d6ba842d61fe62349ff4" prot="public" static="no" mutable="no">
         <type>volatile float *</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="79" column="18" bodyfile="Display.h" bodystart="79" bodyend="-1"/>
+        <location file="Display.h" line="117" column="18" bodyfile="Display.h" bodystart="117" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1a0a4fa823c9a9a2eebbe501e7ec855570" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="80" column="7" bodyfile="Display.h" bodystart="80" bodyend="-1"/>
+        <location file="Display.h" line="118" column="7" bodyfile="Display.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_struct_1a9b3617ce18ad2a5b3bb27eefffd0940c" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -114,14 +114,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="81" column="8" bodyfile="Display.h" bodystart="81" bodyend="-1"/>
+        <location file="Display.h" line="119" column="8" bodyfile="Display.h" bodystart="119" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>The first complex struct. Stores all the info of a specific type of data we&apos;re storing. This includes the x and y position of the label, the x and y position of the data, the data type, a pointer to the current data, a float to store the old data, the length of the data (TODO REMOVE), and a char* (String) with the label for that data. Please look at the struct itself and how it is implemented to fully understand how it works. The gist of how it&apos;s used is obvious, but the details can often be the frustrating part. </para>
     </detaileddescription>
-    <location file="Display.h" line="75" column="1" bodyfile="Display.h" bodystart="75" bodyend="83"/>
+    <location file="Display.h" line="113" column="1" bodyfile="Display.h" bodystart="113" bodyend="121"/>
     <listofallmembers>
       <member refid="struct_printed_data_struct_1a5871bcbf6b81d6ba842d61fe62349ff4" prot="public" virt="non-virtual"><scope>PrintedDataStruct</scope><name>currData</name></member>
       <member refid="struct_printed_data_struct_1a0a4fa823c9a9a2eebbe501e7ec855570" prot="public" virt="non-virtual"><scope>PrintedDataStruct</scope><name>dataLen</name></member>

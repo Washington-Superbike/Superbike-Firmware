@@ -4,7 +4,7 @@
 <indexterm><primary>CAN.h</primary></indexterm>
 <para>
 
-<para>The <link linkend="__c_a_n_8h">CAN.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__c_a_n_8h">CAN.h</link> config file for the CAN task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__c_a_n_8ino">CAN.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__c_a_n_8ino">CAN.ino</link>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
 <programlisting linenumbering="unnumbered">#include &lt;FlexCAN_T4.h&gt;
@@ -111,7 +111,7 @@
 <section>
 <title>Detailed Description</title>
 
-<para>The <link linkend="__c_a_n_8h">CAN.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__c_a_n_8h">CAN.h</link> config file for the CAN task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__c_a_n_8ino">CAN.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__c_a_n_8ino">CAN.ino</link>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
 
 <para><formalpara><title>Author</title>
 
@@ -123,22 +123,22 @@
 </formalpara>
 <note><title>Note</title>
 
-<para>up all members to be able to use it without any trouble.</para>
+<para>Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.</para>
 </note>
 <para><link linkend="_todo_1_todo000001">Todo</link> 
-<para>Goal 1. 
+<para>Nothing? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ More Nothing? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ Nothing supreme? 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+ Nothing maxima. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
@@ -150,98 +150,98 @@ Definition in file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 <indexterm><primary>BMS_CELLS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMS_CELLS</secondary></indexterm>
 <para><computeroutput>#define BMS_CELLS   24</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00051">51</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00047">47</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a"/><section>
     <title>BMSC1_LTC1_CELLS_04</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_04</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_04</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC1_CELLS_04   0x01df0900</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00042">42</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00038">38</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75"/><section>
     <title>BMSC1_LTC1_CELLS_58</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_58</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_58</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC1_CELLS_58   0x01df0a00</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00043">43</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00039">39</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1ac1908e8612424d72ae778e43759f077f"/><section>
     <title>BMSC1_LTC1_CELLS_912</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_912</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_912</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC1_CELLS_912   0x01df0b00</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00044">44</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00040">40</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a76c8bda430a00f369aed9309100c3107"/><section>
     <title>BMSC1_LTC2_CELLS_04</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_04</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_04</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC2_CELLS_04   0x01df0901</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00045">45</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00041">41</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5"/><section>
     <title>BMSC1_LTC2_CELLS_58</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_58</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_58</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC2_CELLS_58   0x01df0a01</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00046">46</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00042">42</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec"/><section>
     <title>BMSC1_LTC2_CELLS_912</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_912</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_912</secondary></indexterm>
 <para><computeroutput>#define BMSC1_LTC2_CELLS_912   0x01df0b01</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00047">47</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00043">43</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524"/><section>
     <title>CAN_TASK_STACK_SIZE</title>
 <indexterm><primary>CAN_TASK_STACK_SIZE</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CAN_TASK_STACK_SIZE</secondary></indexterm>
 <para><computeroutput>#define CAN_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00034">34</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00030">30</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d"/><section>
     <title>CHARGER_STATS</title>
 <indexterm><primary>CHARGER_STATS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CHARGER_STATS</secondary></indexterm>
 <para><computeroutput>#define CHARGER_STATS   0x18eb2440</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00039">39</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00035">35</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9"/><section>
     <title>DD_BMS_STATUS_IND</title>
 <indexterm><primary>DD_BMS_STATUS_IND</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>DD_BMS_STATUS_IND</secondary></indexterm>
 <para><computeroutput>#define DD_BMS_STATUS_IND   0x01dd0001</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00040">40</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00036">36</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7"/><section>
     <title>DD_BMSC_TH_STATUS_IND</title>
 <indexterm><primary>DD_BMSC_TH_STATUS_IND</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>DD_BMSC_TH_STATUS_IND</secondary></indexterm>
 <para><computeroutput>#define DD_BMSC_TH_STATUS_IND   0x01df0e00</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00041">41</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00037">37</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2"/><section>
     <title>EVCC_STATS</title>
 <indexterm><primary>EVCC_STATS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>EVCC_STATS</secondary></indexterm>
 <para><computeroutput>#define EVCC_STATS   0x18e54024</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00038">38</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00034">34</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a1b593ffe62c4590fa197331661393984"/><section>
     <title>MOTOR_STATS_MSG</title>
 <indexterm><primary>MOTOR_STATS_MSG</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>MOTOR_STATS_MSG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_STATS_MSG   0x0CF11E05</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00036">36</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00032">32</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da"/><section>
     <title>MOTOR_TEMPS_MSG</title>
 <indexterm><primary>MOTOR_TEMPS_MSG</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>MOTOR_TEMPS_MSG</secondary></indexterm>
 <para><computeroutput>#define MOTOR_TEMPS_MSG   0x0CF11F05</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00037">37</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00033">33</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 </section>
 <section>
@@ -352,21 +352,21 @@ Definition at line <link linkend="__c_a_n_8ino_source_1l00057">57</link> of file
 <indexterm><primary>CAN_bus</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CAN_bus</secondary></indexterm>
 <para><computeroutput>FlexCAN_T4&lt;CAN2, RX_SIZE_256, TX_SIZE_16&gt; CAN_bus</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00054">54</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00050">50</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed"/><section>
     <title>CAN_msg</title>
 <indexterm><primary>CAN_msg</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CAN_msg</secondary></indexterm>
 <para><computeroutput>CAN_message_t CAN_msg</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00057">57</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00053">53</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="__c_a_n_8h_1af798cac38f8c00111b4be880f47d8020"/><section>
     <title>cellVoltagesReady</title>
 <indexterm><primary>cellVoltagesReady</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>cellVoltagesReady</secondary></indexterm>
 <para><computeroutput>bool cellVoltagesReady[24] = {false}<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00061">61</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00057">57</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 </section>
 </section>

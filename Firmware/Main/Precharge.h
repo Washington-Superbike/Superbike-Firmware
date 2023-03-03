@@ -1,22 +1,21 @@
 /**
    @file PreCharge.h
-   @author    Washington Superbike
+     @author    Washington Superbike
      @date      1-March-2023
      @brief
-          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
-          all variables that are passed along to all other files as
-          pointers. Then it runs the setup methods for all those
-          files and then it sets up RTOS to run all the different files
-          as individual tasks. These tasks are: datalogging,
-          display, precharge, CAN, idle. These tasks will be further
-          described in the documentation for their individual files.
+          The PreCharge.h config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the PreCharge.ino file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in PreCharge.ino. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file.
 
 
     \note
-      up all members to be able to use it without any trouble.
+      This file could be way better optimized. Remove all the stupid extra vars in
+      the preChargeStruct data and then change the gyro methods to process items
+      as parameters and not a bunch of global vars. This MIGHT require increasing
+      PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an
+      error and then fix the value, dont just increase the stack size without thinking
+      about it.
 
     \todo
-      Goal 1.
+      Change the preChargeStruct data to use less floats, etc.
       \n \n
       Goal 2.
       \n \n

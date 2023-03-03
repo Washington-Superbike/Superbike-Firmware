@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="93" column="7" bodyfile="CAN.h" bodystart="93" bodyend="-1"/>
+        <location file="CAN.h" line="89" column="7" bodyfile="CAN.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="94" column="7" bodyfile="CAN.h" bodystart="94" bodyend="-1"/>
+        <location file="CAN.h" line="90" column="7" bodyfile="CAN.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="95" column="7" bodyfile="CAN.h" bodystart="95" bodyend="-1"/>
+        <location file="CAN.h" line="91" column="7" bodyfile="CAN.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="96" column="7" bodyfile="CAN.h" bodystart="96" bodyend="-1"/>
+        <location file="CAN.h" line="92" column="7" bodyfile="CAN.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -72,14 +72,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="97" column="7" bodyfile="CAN.h" bodystart="97" bodyend="-1"/>
+        <location file="CAN.h" line="93" column="7" bodyfile="CAN.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="CAN.h" line="92" column="1" bodyfile="CAN.h" bodystart="92" bodyend="98"/>
+    <location file="CAN.h" line="88" column="1" bodyfile="CAN.h" bodystart="88" bodyend="94"/>
     <listofallmembers>
       <member refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_fault</name></member>
       <member refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_id</name></member>

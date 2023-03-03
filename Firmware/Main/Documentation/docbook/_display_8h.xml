@@ -4,7 +4,7 @@
 <indexterm><primary>Display.h</primary></indexterm>
 <para>
 
-<para>The <link linkend="__display_8h">Display.h</link> config file for the Display task for the bike&apos;s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__display_8h">Display.h</link> config file for the Display task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__display_8ino">Display.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__display_8ino">Display.ino</link>. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
 <programlisting linenumbering="unnumbered">#include &lt;Adafruit_ILI9341.h&gt;
@@ -33,34 +33,60 @@
     <title>Macros    </title>
         <itemizedlist>
             <listitem><para>#define <link linkend="__display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2">DISPLAY_TASK_STACK_SIZE</link>   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</para>
+
+<para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the displayTask. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a3bf1bf7c513d10bf1c142b6863f647bb">DISPLAY_UPDATE_TIME_MAX</link>   50</para>
+
+<para>Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a5f4d46ae101b77df78010c506601c87c">TFT_CS</link>   10</para>
+
+<para>The Teensy pin used for the display&apos;s chip select pin. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a51529307207622c113ff0d584536be13">TFT_DC</link>   9</para>
+
+<para>The Teensy pin used for the display data/command pin. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1ab40e9918d9141415a47e2a979292309c">TFT_RST</link>   8</para>
+
+<para>The Teensy pin used for the display reset pin. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1aebc2813ad338ac596f3108382916b482">TS_CS</link>   10</para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a5d966444a95d140572e8f999fa00f8e0">TIRQ_PIN</link>   -1</para>
+
+<para>The TIRQ interrupt signal must be used for this example. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a3b5584bed4734b437f2ef171dfa600e2">NUM_DATA</link>   11</para>
+
+<para>Number of PrintedData values (length of the array that contains all the printedData) </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1aa6b0be19465bc73429fbaf37ea6d7f5d">DEFAULT_FLOAT</link>   -1</para>
+
+<para>The default starter value used for floats in the <link linkend="_struct_printed_data_struct">PrintedDataStruct</link>. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1accd27f9824631fc37bcb677947f1f63a">DEFAULT_X_POS</link>   235</para>
+
+<para>The default x position used the data in the <link linkend="_struct_printed_data_struct">PrintedDataStruct</link>. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a9705c15b04a1787116a4fbdf987e0328">VERTICAL_SCALER</link>   16</para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a33c25be9eca2247ac244fc928183eb55">TS_MINX</link>   327</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1ae0c07334a8bec0889ce72fd7cd207000">TS_MAXX</link>   3903</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a221886aabcdfcc6e096414db04cfbdb9">TS_MINY</link>   243</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
 </listitem>
             <listitem><para>#define <link linkend="__display_8h_1a8037be4206d706c1077d0153db12690a">TS_MAXY</link>   3842</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -122,8 +148,12 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>Adafruit_ILI9341 <link linkend="__display_8h_1a41c3eb6bc5901609f9f976b594e5089f">tft</link> = Adafruit_ILI9341( 10 , 9 , 8 )</para>
+
+<para>The global variable used to write to the display. </para>
 </listitem>
             <listitem><para><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link> <link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link> [11]</para>
+
+<para>All PrintedValue objects/structs, just stored in the array. </para>
 </listitem>
             <listitem><para><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link> * <link linkend="__display_8h_1a0dbb33f8e641008d67ebd4388521ab69">batteryVoltage</link> = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[0]</para>
 </listitem>
@@ -148,15 +178,19 @@
             <listitem><para><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link> * <link linkend="__display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e">evccVolt</link> = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[10]</para>
 </listitem>
             <listitem><para><link linkend="__display_8h_1a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</link> <link linkend="__display_8h_1a700ec86cb550fd4426014190222173ac">thermiData</link></para>
+
+<para>The thermistor data. </para>
 </listitem>
             <listitem><para><link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link> <link linkend="__display_8h_1aa2a50ee378fcf45591eb041ee70b2368">timeData</link></para>
+
+<para>The time data. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
 
-<para>The <link linkend="__display_8h">Display.h</link> config file for the Display task for the bike&apos;s firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__display_8h">Display.h</link> config file for the Display task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__display_8ino">Display.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__display_8ino">Display.ino</link>. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
 
 <para><formalpara><title>Author</title>
 
@@ -168,18 +202,18 @@
 </formalpara>
 <note><title>Note</title>
 
-<para>up all members to be able to use it without any trouble.</para>
+<para>Whoever makes the struct changes. Good luck. Have fun.</para>
 </note>
 <para><link linkend="_todo_1_todo000005">Todo</link> 
-<para>Goal 1. 
+<para>Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
@@ -195,105 +229,161 @@ Definition in file <link linkend="__display_8h_source">Display.h</link>.</para>
 <indexterm><primary>DEFAULT_FLOAT</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>DEFAULT_FLOAT</secondary></indexterm>
 <para><computeroutput>#define DEFAULT_FLOAT   -1</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00056">56</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The default starter value used for floats in the <link linkend="_struct_printed_data_struct">PrintedDataStruct</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00065">65</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1accd27f9824631fc37bcb677947f1f63a"/><section>
     <title>DEFAULT_X_POS</title>
 <indexterm><primary>DEFAULT_X_POS</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>DEFAULT_X_POS</secondary></indexterm>
 <para><computeroutput>#define DEFAULT_X_POS   235</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00057">57</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The default x position used the data in the <link linkend="_struct_printed_data_struct">PrintedDataStruct</link>. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00067">67</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2"/><section>
     <title>DISPLAY_TASK_STACK_SIZE</title>
 <indexterm><primary>DISPLAY_TASK_STACK_SIZE</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>DISPLAY_TASK_STACK_SIZE</secondary></indexterm>
 <para><computeroutput>#define DISPLAY_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00036">36</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the displayTask. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00041">41</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a3bf1bf7c513d10bf1c142b6863f647bb"/><section>
     <title>DISPLAY_UPDATE_TIME_MAX</title>
 <indexterm><primary>DISPLAY_UPDATE_TIME_MAX</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>DISPLAY_UPDATE_TIME_MAX</secondary></indexterm>
 <para><computeroutput>#define DISPLAY_UPDATE_TIME_MAX   50</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00039">39</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00043">43</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a3b5584bed4734b437f2ef171dfa600e2"/><section>
     <title>NUM_DATA</title>
 <indexterm><primary>NUM_DATA</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>NUM_DATA</secondary></indexterm>
 <para><computeroutput>#define NUM_DATA   11</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00053">53</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Number of PrintedData values (length of the array that contains all the printedData) </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00061">61</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a5f4d46ae101b77df78010c506601c87c"/><section>
     <title>TFT_CS</title>
 <indexterm><primary>TFT_CS</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TFT_CS</secondary></indexterm>
 <para><computeroutput>#define TFT_CS   10</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00041">41</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The Teensy pin used for the display&apos;s chip select pin. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00046">46</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a51529307207622c113ff0d584536be13"/><section>
     <title>TFT_DC</title>
 <indexterm><primary>TFT_DC</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TFT_DC</secondary></indexterm>
 <para><computeroutput>#define TFT_DC   9</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00042">42</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The Teensy pin used for the display data/command pin. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00048">48</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ab40e9918d9141415a47e2a979292309c"/><section>
     <title>TFT_RST</title>
 <indexterm><primary>TFT_RST</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TFT_RST</secondary></indexterm>
 <para><computeroutput>#define TFT_RST   8</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00043">43</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The Teensy pin used for the display reset pin. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00050">50</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a5d966444a95d140572e8f999fa00f8e0"/><section>
     <title>TIRQ_PIN</title>
 <indexterm><primary>TIRQ_PIN</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TIRQ_PIN</secondary></indexterm>
 <para><computeroutput>#define TIRQ_PIN   -1</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00050">50</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The TIRQ interrupt signal must be used for this example. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00058">58</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1aebc2813ad338ac596f3108382916b482"/><section>
     <title>TS_CS</title>
 <indexterm><primary>TS_CS</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TS_CS</secondary></indexterm>
-<para><computeroutput>#define TS_CS   10</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00046">46</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+<para><computeroutput>#define TS_CS   10</computeroutput></para>
+<para>The Teensy pin used for the display touch-screen chip select. This is useless because we dont use the touch screen. </para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00054">54</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ae0c07334a8bec0889ce72fd7cd207000"/><section>
     <title>TS_MAXX</title>
 <indexterm><primary>TS_MAXX</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TS_MAXX</secondary></indexterm>
 <para><computeroutput>#define TS_MAXX   3903</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00063">63</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00078">78</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a8037be4206d706c1077d0153db12690a"/><section>
     <title>TS_MAXY</title>
 <indexterm><primary>TS_MAXY</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TS_MAXY</secondary></indexterm>
 <para><computeroutput>#define TS_MAXY   3842</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00065">65</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00082">82</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a33c25be9eca2247ac244fc928183eb55"/><section>
     <title>TS_MINX</title>
 <indexterm><primary>TS_MINX</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TS_MINX</secondary></indexterm>
 <para><computeroutput>#define TS_MINX   327</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00062">62</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00076">76</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a221886aabcdfcc6e096414db04cfbdb9"/><section>
     <title>TS_MINY</title>
 <indexterm><primary>TS_MINY</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>TS_MINY</secondary></indexterm>
 <para><computeroutput>#define TS_MINY   243</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00064">64</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>Not sure why this is so high. Google it, but as of now it&apos;s unused. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00080">80</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a9705c15b04a1787116a4fbdf987e0328"/><section>
     <title>VERTICAL_SCALER</title>
 <indexterm><primary>VERTICAL_SCALER</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>VERTICAL_SCALER</secondary></indexterm>
-<para><computeroutput>#define VERTICAL_SCALER   16</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00060">60</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+<para><computeroutput>#define VERTICAL_SCALER   16</computeroutput></para>
+<para>A Scaler for moving vertical data down. Each row of data is a factor of 16 pixels away from each other, vertically. </para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00072">72</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 </section>
 <section>
@@ -302,32 +392,44 @@ Definition at line <link linkend="__display_8h_source_1l00060">60</link> of file
     <title>displayPointer</title>
 <indexterm><primary>displayPointer</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>displayPointer</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_structdisplay_task_wrapper">displayTaskWrapper</link> <link linkend="__display_8h_1a178682b58bff3b19ffd056fb9c00dcc6">displayPointer</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_structdisplay_task_wrapper">displayTaskWrapper</link> <link linkend="__display_8h_1a178682b58bff3b19ffd056fb9c00dcc6">displayPointer</link></computeroutput></para>
+<para>The <link linkend="_structdisplay_task_wrapper">displayTaskWrapper()</link> struct just wraps up the MeasurementScreenData and the Screen data (realistically, can be removed...) for the <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</link> </para>
+</section>
 <anchor xml:id="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4"/><section>
     <title>MeasurementScreenData</title>
 <indexterm><primary>MeasurementScreenData</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>MeasurementScreenData</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_struct_measurement_screen_data_struct">MeasurementScreenDataStruct</link> <link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_struct_measurement_screen_data_struct">MeasurementScreenDataStruct</link> <link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link></computeroutput></para>
+<para>The last complex struct. This just contains all the floats and integers as pointers that point to the original variables from <link linkend="__main_8h">Main.h</link>. This just packages all the data used by the <link linkend="_struct_measurement_screen_data_struct">MeasurementScreenDataStruct</link>. </para>
+</section>
 <anchor xml:id="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0"/><section>
     <title>PrintedData</title>
 <indexterm><primary>PrintedData</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>PrintedData</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_struct_printed_data_struct">PrintedDataStruct</link> <link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_struct_printed_data_struct">PrintedDataStruct</link> <link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link></computeroutput></para>
+<para>The first complex struct. Stores all the info of a specific type of data we&apos;re storing. This includes the x and y position of the label, the x and y position of the data, the data type, a pointer to the current data, a float to store the old data, the length of the data (TODO REMOVE), and a char* (String) with the label for that data. Please look at the struct itself and how it is implemented to fully understand how it works. The gist of how it&apos;s used is obvious, but the details can often be the frustrating part. </para>
+</section>
 <anchor xml:id="__display_8h_1a359bec7987d6af4301ef0554e5d65bd7"/><section>
     <title>PrintedDataTherm</title>
 <indexterm><primary>PrintedDataTherm</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>PrintedDataTherm</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_struct_printed_data_therm_struct">PrintedDataThermStruct</link> <link linkend="__display_8h_1a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_struct_printed_data_therm_struct">PrintedDataThermStruct</link> <link linkend="__display_8h_1a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</link></computeroutput></para>
+<para>The second complex struct. Very similar to to <link linkend="_struct_printed_data_struct">PrintedDataStruct</link> and now it&apos;s adjusted for Thermistors, using a float array as the oldData instead of a regular float. </para>
+</section>
 <anchor xml:id="__display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd"/><section>
     <title>PrintedDataTimeStuct</title>
 <indexterm><primary>PrintedDataTimeStuct</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>PrintedDataTimeStuct</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link> <link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link> <link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link></computeroutput></para>
+<para>The third complex struct. Work in progress, make this better and integrate it into the way time is updated, etc in the <link linkend="__display_8ino">Display.ino</link> file. </para>
+</section>
 <anchor xml:id="__display_8h_1a412053d6576f296892a8ccc0d8510e46"/><section>
     <title>Screen</title>
 <indexterm><primary>Screen</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>Screen</secondary></indexterm>
-<para><computeroutput>typedef struct <link linkend="_struct_screen_info">ScreenInfo</link> <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link></computeroutput></para></section>
+<para><computeroutput>typedef struct <link linkend="_struct_screen_info">ScreenInfo</link> <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link></computeroutput></para>
+<para>Basic struct that just implements the Screen enum as a struct. Please remove this once the macro is implemented. </para>
+</section>
 </section>
 <section>
 <title>Enumeration Type Documentation</title>
@@ -335,7 +437,9 @@ Definition at line <link linkend="__display_8h_source_1l00060">60</link> of file
     <title>PRINT_TYPE</title>
 <indexterm><primary>PRINT_TYPE</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>PRINT_TYPE</secondary></indexterm>
-<para><computeroutput>enum <link linkend="__display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1">PRINT_TYPE</link></computeroutput></para><informaltable frame="all">
+<para><computeroutput>enum <link linkend="__display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1">PRINT_TYPE</link></computeroutput></para>
+<para>Just a basic enum to store the type of data being printed. C is a very basic language, so it doesn&apos;t just have nice methods like Java and Python to determine a variable&apos;s type. And I assume those methods are probably implemented using some sort of nice typedef or enum or something to indicate it. </para>
+<informaltable frame="all">
 <title>Enumerator</title>
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
       <colspec colname='c1'/>
@@ -351,13 +455,15 @@ Definition at line <link linkend="__display_8h_source_1l00060">60</link> of file
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="__display_8h_source_1l00067">67</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00091">91</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a9d50b8f9fd58d362446e491fe902173f"/><section>
     <title>SCREEN_TYPE</title>
 <indexterm><primary>SCREEN_TYPE</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>SCREEN_TYPE</secondary></indexterm>
-<para><computeroutput>enum <link linkend="__display_8h_1a9d50b8f9fd58d362446e491fe902173f">SCREEN_TYPE</link></computeroutput></para><informaltable frame="all">
+<para><computeroutput>enum <link linkend="__display_8h_1a9d50b8f9fd58d362446e491fe902173f">SCREEN_TYPE</link></computeroutput></para>
+<para>Just a basic enum to store the type of Screen being printed. As stated in the todo, this should probably be replaced. No point in having it. </para>
+<informaltable frame="all">
 <title>Enumerator</title>
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
       <colspec colname='c1'/>
@@ -371,7 +477,7 @@ Definition at line <link linkend="__display_8h_source_1l00067">67</link> of file
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="__display_8h_source_1l00071">71</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00100">100</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 </section>
 <section>
@@ -380,64 +486,82 @@ Definition at line <link linkend="__display_8h_source_1l00071">71</link> of file
     <title>aux_voltage_read()</title>
 <indexterm><primary>aux_voltage_read</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>aux_voltage_read</secondary></indexterm>
-<para><computeroutput>float aux_voltage_read ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00265">265</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>float aux_voltage_read ( )</computeroutput></para>
+<para>Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it&apos;s here.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00282">282</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ad2818acb0d1eb44a804059aa40c432b3"/><section>
     <title>displayUpdate()</title>
 <indexterm><primary>displayUpdate</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>displayUpdate</secondary></indexterm>
 <para><computeroutput>void displayUpdate (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00087">87</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00090">90</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d"/><section>
     <title>eraseThenPrint()</title>
 <indexterm><primary>eraseThenPrint</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>eraseThenPrint</secondary></indexterm>
-<para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00229">229</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
+<para>Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1acf63fd6f02499d20156ded2a3582fb9b"/><section>
     <title>eraseThenPrintSPEEDO()</title>
 <indexterm><primary>eraseThenPrintSPEEDO</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>eraseThenPrintSPEEDO</secondary></indexterm>
-<para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
+<para>Just a flipped color version of <link linkend="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint()</link> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00249">249</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a2fcaba5d0c64fb3389132dca04224211"/><section>
     <title>manualScreenDataUpdater()</title>
 <indexterm><primary>manualScreenDataUpdater</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>manualScreenDataUpdater</secondary></indexterm>
-<para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00253">253</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para>
+<para>Iterates through all the printedVals array and then does += 1 to make sure it&apos;s increasing. This change should be reflected in the display itself.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00267">267</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a756efac71e8cf83b5add1ffcb9035a20"/><section>
     <title>setupDisplay()</title>
 <indexterm><primary>setupDisplay</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>setupDisplay</secondary></indexterm>
-<para><computeroutput>void setupDisplay (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00055">55</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void setupDisplay (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para>
+<para>Calls on tft.begin() method and sets the orientation using tft.setRotatio() and also sets the screen to ILI9341_WHITE or ILI9341_BLACK based on Debugging or Speedometer screen.</para>
+
+<para>Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</para>
+
+<para>Calls on the <link linkend="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen()</link> to finish up the setup.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00051">51</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a2b73a1c90c594f4d6e205cf19666468a"/><section>
     <title>setupMeasurementScreen()</title>
 <indexterm><primary>setupMeasurementScreen</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>setupMeasurementScreen</secondary></indexterm>
-<para><computeroutput>void setupMeasurementScreen (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00196">196</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void setupMeasurementScreen (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para>
+<para>If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</para>
+
+<para>If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00199">199</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96"/><section>
     <title>thermiDataPrint()</title>
 <indexterm><primary>thermiDataPrint</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>thermiDataPrint</secondary></indexterm>
 <para><computeroutput>void thermiDataPrint (bool thermiDataPrint)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00135">135</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00138">138</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c"/><section>
     <title>timePrint()</title>
 <indexterm><primary>timePrint</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>timePrint</secondary></indexterm>
 <para><computeroutput>void timePrint ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00185">185</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00188">188</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 </section>
 <section>
@@ -447,105 +571,121 @@ Definition at line <link linkend="__display_8ino_source_1l00185">185</link> of f
 <indexterm><primary>auxBatteryVoltage</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>auxBatteryVoltage</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* auxBatteryVoltage = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[2]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00130">130</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00191">191</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a0dbb33f8e641008d67ebd4388521ab69"/><section>
     <title>batteryVoltage</title>
 <indexterm><primary>batteryVoltage</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>batteryVoltage</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* batteryVoltage = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[0]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00128">128</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00189">189</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a940677548971e0943f36dcfa95bb8b44"/><section>
     <title>bmsStatusFlag</title>
 <indexterm><primary>bmsStatusFlag</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>bmsStatusFlag</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* bmsStatusFlag = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[9]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00137">137</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00198">198</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6"/><section>
     <title>chargerCurr</title>
 <indexterm><primary>chargerCurr</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>chargerCurr</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* chargerCurr = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[8]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00136">136</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00197">197</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a44fd669aa58c2b66ab018fd2df3e046a"/><section>
     <title>chargerVolt</title>
 <indexterm><primary>chargerVolt</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>chargerVolt</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* chargerVolt = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[7]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00135">135</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00196">196</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1aec89495f1135f6268d3c23d3d89c6b05"/><section>
     <title>errMessage</title>
 <indexterm><primary>errMessage</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>errMessage</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* errMessage = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[6]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00134">134</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00195">195</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e"/><section>
     <title>evccVolt</title>
 <indexterm><primary>evccVolt</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>evccVolt</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* evccVolt = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[10]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00138">138</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00199">199</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ab1f53d3b1963f27d117ab4846e36897e"/><section>
     <title>motorControllerVoltage</title>
 <indexterm><primary>motorControllerVoltage</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>motorControllerVoltage</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* motorControllerVoltage = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[1]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00129">129</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00190">190</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0"/><section>
     <title>motorCurr</title>
 <indexterm><primary>motorCurr</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>motorCurr</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* motorCurr = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[5]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00133">133</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00194">194</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8"/><section>
     <title>motorTemperature</title>
 <indexterm><primary>motorTemperature</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>motorTemperature</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* motorTemperature = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[4]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00132">132</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00193">193</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a4d31440d430c0fc247733e218f14278f"/><section>
     <title>printedVals</title>
 <indexterm><primary>printedVals</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>printedVals</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link> printedVals[11]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00126">126</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>All PrintedValue objects/structs, just stored in the array. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00187">187</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9"/><section>
     <title>rpm</title>
 <indexterm><primary>rpm</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>rpm</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</link>* rpm = &amp;<link linkend="__display_8h_1a4d31440d430c0fc247733e218f14278f">printedVals</link>[3]</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00131">131</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00192">192</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a41c3eb6bc5901609f9f976b594e5089f"/><section>
     <title>tft</title>
 <indexterm><primary>tft</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>tft</secondary></indexterm>
 <para><computeroutput>Adafruit_ILI9341 tft = Adafruit_ILI9341( 10 , 9 , 8 )</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00124">124</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The global variable used to write to the display. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00185">185</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a700ec86cb550fd4426014190222173ac"/><section>
     <title>thermiData</title>
 <indexterm><primary>thermiData</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>thermiData</secondary></indexterm>
 <para><computeroutput><link linkend="__display_8h_1a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</link> thermiData</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00140">140</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The thermistor data. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00202">202</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1aa2a50ee378fcf45591eb041ee70b2368"/><section>
     <title>timeData</title>
 <indexterm><primary>timeData</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>timeData</secondary></indexterm>
 <para><computeroutput><link linkend="_struct_printed_data_time_stuct">PrintedDataTimeStuct</link> timeData</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00141">141</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+
+<para>The time data. </para>
+</para>
+<para>
+Definition at line <link linkend="__display_8h_source_1l00204">204</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 </section>
 </section>

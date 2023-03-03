@@ -3,47 +3,43 @@
      @author    Washington Superbike
      @date      1-March-2023
      @brief
-          The DataLogging.h config file for CAN bus for the bike's firmware. This initializes
-          all variables that are passed along to all other files as
-          pointers. Then it runs the setup methods for all those
-          files and then it sets up RTOS to run all the different files
-          as individual tasks. These tasks are: datalogging,
-          display, precharge, CAN, idle. These tasks will be further
-          described in the documentation for their individual files.
+          The Display.ino file executes the Display task for the bike's firmware.
+          This calls on the variables that are initialized in Display.h
+          and then calls on various methods from the ILI9341's adafruit display library to update the display. Updating the display includes comparing old and new
+          data to ensure data has changed, erasing the previous data if it's changed
+          and writing in the new data.
 
 
     \note
-      up all members to be able to use it without any trouble.
+      This works. Display does slow down a bit in the speedometer screen, but
+      that is also due to often the numbers were changing in the manualScreenDataUpdater()method updating data too frequently. Just consider reducing the size of the
+      text in case it looks like it is updating too slowly at speeds of ~60-80 mph.
 
     \todo
-      PLEASE remove the whole screen parameter situation. Change the whole
-      value in the
+      PLEASE remove the whole screen parameter situation. Change the "screen"
+      variable in the Main.h to be a #define macro and then just check
+      the value from here by directly including Main.h and finding that value. Ez.
       \n \n
-      Goal 2.
+      Remove all unused vars and tighten up methods.
       \n \n
-      Goal 3.
+      There are WAY more macros (#define statements) that need to be written
+      for defining some frequently used values in display. Can't think
+      of them off the top of my head, but make and use those.
       \n \n
       Change the thermistor code to use "NUM_THERMI" from Main.h
-      Final Goal.
 */
 
 #include "Display.h"
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
-// TODO:
-//  Remove all vars that are completley unused
-//  Write out a header comment for this file and all other files.
-//  Write out comments for big blocks that are hard to interpret.
-//  Write out comments for all functions explaining them.
-// 1. Remove oldData field from the printedData struct.
-// 2. Add more macros for default vals that are repeated in Display.ino
-// 3. Remove all the extra macros and predefined methods
-// 4. Remove everything that corresponds to things removed from Display.ino
-
-
 void displayTask(void *displayTaskWrap) {
   while (1) {
+    /// Parses the data from the void pointer to be processable? Idk if that's word.
+    /// Passes the measurementScreenData form the displayTaskWrap data and
+    /// the Screen data from the displayTaskWrap data to the displayUpdate()
+    /// method. The displayUpdate() method then processes it and updates
+    /// the screen accordingly.
     displayPointer displayWrapper = *(displayPointer *)displayTaskWrap;
     MeasurementScreenData test = *(displayWrapper.msDataWrap);
     displayUpdate(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
@@ -53,6 +49,9 @@ void displayTask(void *displayTaskWrap) {
 }
 
 void setupDisplay(MeasurementScreenData msData, Screen screen) {
+  /// Calls on tft.begin() method and sets the orientation using
+  /// tft.setRotatio() and also sets the screen to ILI9341_WHITE
+  /// or ILI9341_BLACK based on Debugging or Speedometer screen.
   tft.begin();
   tft.setRotation(1);
   if (screen.screenType == DEBUG){
@@ -65,6 +64,9 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
 
   //PrintedData *thermTemps = &printedVals[7];
   //PrintedData *timeData = &printedVals[11];
+
+  /// Initializes all the PrintedDataStructs to set their position, values,
+  /// and point to the correct pointer corresponding to the correct data.
 
   *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.mainBatteryVoltage, 1, "Main Batt Voltage: "};
   *motorControllerVoltage = {1, 10 + VERTICAL_SCALER * 1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorControllerVoltage, 1, "Main Batt Voltage (Motor Controller): "};
@@ -81,6 +83,7 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
 
   thermiData = {1, 10 + VERTICAL_SCALER * 7, 180, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
 
+  /// Calls on the setupMeasurementScreen() to finish up the setup.
   setupMeasurementScreen(screen);
 }
 
@@ -194,6 +197,9 @@ void timePrint() {
 }
 
 void setupMeasurementScreen(Screen screen) {
+  /// If the screen is debugging type, it will print out all
+  /// the data labels in their data locations as a black text
+  /// This is achieved using a bunch of tft methods. Nice.
   if (screen.screenType == DEBUG) {
     tft.setTextSize(1);
     tft.setTextColor(ILI9341_BLACK);
@@ -211,6 +217,9 @@ void setupMeasurementScreen(Screen screen) {
     tft.setCursor(thermiData.labelX, thermiData.y);
     tft.print(thermiData.labelPtr);
   }
+  /// If the screen is speedometer type, it will print out all
+  /// the data labels in their locations (SPEED up top and RPM
+  /// at the bottom). This is achieved using a bunch of tft methods. Nice.
   if (screen.screenType == SPEEDOMETER){
     tft.setTextColor(ILI9341_WHITE);
     tft.setTextSize(5);
@@ -227,6 +236,8 @@ void setupMeasurementScreen(Screen screen) {
 }
 
 void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
+  /// Erases the old value using the oldData parameter by writing it in
+  /// white text and then setting it to black text to write the newData.
   tft.setCursor(xPos, yPos);
   tft.setTextColor(ILI9341_WHITE);
   tft.print(oldData);
@@ -236,6 +247,9 @@ void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
 }
 
 void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData) {
+  /// Just a flipped color version of eraseThenPrint()
+  /// Erases the old value using the oldData parameter by writing it in
+  /// black text and then setting it to white text to write the newData.
   tft.setCursor(xPos, yPos);
   tft.setTextColor(ILI9341_BLACK);
   tft.print(oldData);
@@ -251,6 +265,9 @@ void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData) {
 //}
 
 void manualScreenDataUpdater() {
+  /// Iterates through all the printedVals array and then
+  /// does += 1 to make sure it's increasing. This change should be
+  /// reflected in the display itself.
   for (int i = 0; i < NUM_DATA; i++) {
     if (printedVals[i].type == NUMBER) {
       *printedVals[i].currData = *printedVals[i].currData + 1;
@@ -263,6 +280,9 @@ void manualScreenDataUpdater() {
 }
 
 float aux_voltage_read() {
+  /// Reads in the aux_voltage of the LV system and
+  /// reads in the values. Would be better in CAN,
+  /// but alas Chase said leave it here, it's here.
   float aux_voltage = 3.3 * analogRead(13) / 1024.0;
   aux_voltage *= 42.0 / 10.0;
   return  aux_voltage;

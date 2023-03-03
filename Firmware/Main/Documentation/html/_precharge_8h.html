@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<p>The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_free_r_t_o_s___t_e_e_n_s_y4_8h_source.html">FreeRTOS_TEENSY4.h</a>&quot;</code><br />
 </div>
@@ -147,11 +147,11 @@ Variables</h2></td></tr>
 <tr class="separator:a5c9b1f4b5a31b5d46c45310567595867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<div class="textblock"><p >The <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">PreCharge.h</a> config file for the PreCharge/Controls task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_pre_charge_8ino.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">PreCharge.ino</a>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Goal 1. <br  />
+<dl class="section note"><dt>Note</dt><dd>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Change the preChargeStruct data to use less floats, etc. <br  />
  <br  />
  Goal 2. <br  />
  <br  />
@@ -173,7 +173,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00037">37</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00036">36</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +189,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00034">34</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00033">33</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00039">39</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00038">38</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00038">38</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00037">37</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +237,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00036">36</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00035">35</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +253,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00042">42</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00041">41</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -269,7 +269,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00041">41</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00040">40</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00040">40</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00039">39</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +301,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00035">35</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00034">34</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +317,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00032">32</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00031">31</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +340,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595" name="a5faacefaff4b0ce77f1f8be0bf2aaf29a2303713b8a2ce365abb6b0de95c38595"></a>HV_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00044">44</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00043">43</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>
@@ -603,7 +603,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00075">75</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_precharge_8h_source.html#l00074">74</a> of file <a class="el" href="_precharge_8h_source.html">Precharge.h</a>.</p>
 
 </div>
 </div>

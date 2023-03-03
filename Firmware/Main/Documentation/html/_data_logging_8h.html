@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<p>The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for the DataLogging task for the bike&#39;s firmware. This defines the vari...">DataLogging.h</a> config file for the DataLogging task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_data_logging_8ino.html" title="The DataLogging.ino file is used to excecute on the DataLogging task for the bike&#39;s firmware....">DataLogging.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_data_logging_8ino.html" title="The DataLogging.ino file is used to excecute on the DataLogging task for the bike&#39;s firmware....">DataLogging.ino</a>. This file also creates two typedef structs that basically allow us to package the data in DataLogging for the task in a nice way. The other struct <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> is used to organize the data properly to be used in the SdFat framework to write to the SD card. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;SdFat.h&quot;</code><br />
 </div>
@@ -145,11 +145,13 @@ Variables</h2></td></tr>
 <tr class="separator:a90b197693eeaad244ff381d5645b1c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for CAN bus for the bike&#39;s firmware. This initializes all variables tha...">DataLogging.h</a> config file for CAN bus for the bike's firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<div class="textblock"><p >The <a class="el" href="_data_logging_8h.html" title="The DataLogging.h config file for the DataLogging task for the bike&#39;s firmware. This defines the vari...">DataLogging.h</a> config file for the DataLogging task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_data_logging_8ino.html" title="The DataLogging.ino file is used to excecute on the DataLogging task for the bike&#39;s firmware....">DataLogging.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_data_logging_8ino.html" title="The DataLogging.ino file is used to excecute on the DataLogging task for the bike&#39;s firmware....">DataLogging.ino</a>. This file also creates two typedef structs that basically allow us to package the data in DataLogging for the task in a nice way. The other struct <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> is used to organize the data properly to be used in the SdFat framework to write to the SD card. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Goal 1. <br  />
+<dl class="section note"><dt>Note</dt><dd>Honestly, I dont see any need to fix this further. The only thing I foresee, is that the State of Charge team would be more interested in tweaking the macros (#define statements) and other aspects of this file and <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to ensure that they can add more files into the DataLogging task. <br  />
+ <br  />
+ Clarification on how SD card stores data: each block is generally about 512 or bytes. SdFat stores an internal buffer of 512 and when the limit is reached only then does it save the data onto the sd card. This is an important trade off if we are less than that value and the bike suddenly turns off, those &lt;512 bytes aren't stored unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv) or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) <br  />
  <br  />
  Goal 2. <br  />
  <br  />
@@ -171,7 +173,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00038">38</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00048">48</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +189,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00033">33</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00043">43</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +205,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00037">37</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00047">47</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -219,7 +221,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00039">39</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00049">49</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +237,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00040">40</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00050">50</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +253,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00036">36</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00046">46</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +269,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00042">42</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00052">52</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -283,7 +285,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00041">41</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00051">51</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +306,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c" name="ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c"></a>FLOAT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00067">67</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00074">74</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -334,8 +336,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#aa394fd0868d0e097f701cb3f21d9c451">addRecord()</a> adds a record to the data log with the included time in seconds since the recording has started. The data comes from the dataIn member (shared variable to other tasks) As of now it converts everything into a String and then prints it to the file.</p>
+<dl class="section note"><dt>Note</dt><dd>NOTE: The function kinda works but should be redone later to use (void *) datatype instead of (float *). Then cast the (void *) to whatever datatype is given by D_TYPE Example: to print an int you would do</dd></dl>
+<p>void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(",").concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(",").concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf("Unknown D_TYPE: %u\n", D_TYPE); break; } }</p>
+<p ><br  />
+ <br  />
+</p>
+<p >I want to add it in now but it should be tested before being merged obviously.. Chase</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00095">95</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00097">97</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -354,8 +363,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#a10c88f7cc0c34cd0a584f78997f13827">closeFile()</a> closes the file inside the <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a></p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00071">71</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00069">69</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -374,8 +384,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The <a class="el" href="_data_logging_8ino.html#a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</a> processes the data, for each of the logs. Just uses sdFat methods within the helper methods <a class="el" href="_data_logging_8ino.html#aa394fd0868d0e097f701cb3f21d9c451">addRecord()</a>, <a class="el" href="_data_logging_8ino.html#a52d8bf385131a3543793f22ee432100a">saveFiles()</a> as required to process the neatly organized <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> data and then save it.</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00033">33</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00029">29</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -394,8 +405,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#ac579da51eca1f113da5d315ab23b8b1e">openFile()</a> attemps to open the file designated at the filename inside <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a> Returns true if no errors, returns false if any error exists</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00065">65</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00062">62</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -414,8 +426,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Opens the file using <a class="el" href="_data_logging_8ino.html#ac579da51eca1f113da5d315ab23b8b1e">openFile()</a> and then prints out what is read in from the <a class="el" href="_data_logging_8ino.html#ac579da51eca1f113da5d315ab23b8b1e">openFile()</a> method to the Serial monitor</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00085">85</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00087">87</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -434,8 +447,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#a678245415389e1bbd75b088a980b008a">saveFile()</a> saves the file inside the <a class="el" href="struct_c_s_v_writer.html">CSVWriter</a></p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00075">75</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00074">74</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -464,6 +478,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#a52d8bf385131a3543793f22ee432100a">saveFiles()</a> calls on <a class="el" href="_data_logging_8ino.html#a678245415389e1bbd75b088a980b008a">saveFile()</a> multiple times until all the files are saved.</p>
 
 <p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00079">79</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
@@ -483,8 +498,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#ab91616c118b701c2afd9136393d1f19b">startRecording()</a> sets the "epoch" or beginning time so that each data log is synced up.</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00136">136</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00143">143</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -502,8 +518,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="_data_logging_8ino.html#a0d2a3a213399ec010b89dede4ba4de77">startSD()</a> attempts to begin communication with the SD card on SPI (single bit bus) Returns true if no errors exist, returns false if an error exists</p>
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00059">59</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8ino_source.html#l00056">56</a> of file <a class="el" href="_data_logging_8ino_source.html">DataLogging.ino</a>.</p>
 
 </div>
 </div>
@@ -520,7 +537,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00054">54</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00064">64</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +553,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00059">59</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00069">69</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -552,7 +569,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00057">57</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00067">67</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>
@@ -568,7 +585,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00048">48</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_data_logging_8h_source.html#l00058">58</a> of file <a class="el" href="_data_logging_8h_source.html">DataLogging.h</a>.</p>
 
 </div>
 </div>

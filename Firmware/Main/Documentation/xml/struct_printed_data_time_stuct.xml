@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="93" column="7" bodyfile="Display.h" bodystart="93" bodyend="-1"/>
+        <location file="Display.h" line="140" column="7" bodyfile="Display.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_time_stuct_1abe6d041698953e871d3938f6e0de03ed" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="93" column="14" bodyfile="Display.h" bodystart="93" bodyend="-1"/>
+        <location file="Display.h" line="140" column="14" bodyfile="Display.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_time_stuct_1a332fbb876a0fa9e6221b08d74a6611a2" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="93" column="16" bodyfile="Display.h" bodystart="93" bodyend="-1"/>
+        <location file="Display.h" line="140" column="16" bodyfile="Display.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_time_stuct_1ad8c128cfd2d2717ce60876fd9206fe90" prot="public" static="no" mutable="no">
         <type>volatile float</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="94" column="18" bodyfile="Display.h" bodystart="94" bodyend="-1"/>
+        <location file="Display.h" line="141" column="18" bodyfile="Display.h" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" prot="public" static="no" mutable="no">
         <type>volatile float *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="95" column="18" bodyfile="Display.h" bodystart="95" bodyend="-1"/>
+        <location file="Display.h" line="142" column="18" bodyfile="Display.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_time_stuct_1a43ac024892cb2a1ec4233431f47d850c" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -86,14 +86,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="96" column="8" bodyfile="Display.h" bodystart="96" bodyend="-1"/>
+        <location file="Display.h" line="143" column="8" bodyfile="Display.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>The third complex struct. Work in progress, make this better and integrate it into the way time is updated, etc in the <ref refid="_display_8ino" kindref="compound">Display.ino</ref> file. </para>
     </detaileddescription>
-    <location file="Display.h" line="92" column="1" bodyfile="Display.h" bodystart="92" bodyend="97"/>
+    <location file="Display.h" line="139" column="1" bodyfile="Display.h" bodystart="139" bodyend="144"/>
     <listofallmembers>
       <member refid="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" prot="public" virt="non-virtual"><scope>PrintedDataTimeStuct</scope><name>currData</name></member>
       <member refid="struct_printed_data_time_stuct_1a332fbb876a0fa9e6221b08d74a6611a2" prot="public" virt="non-virtual"><scope>PrintedDataTimeStuct</scope><name>dataX</name></member>

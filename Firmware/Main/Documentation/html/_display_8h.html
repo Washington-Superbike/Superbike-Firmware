@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> config file for the Display task for the bike's firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
+<p>The <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> config file for the Display task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a>. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Adafruit_ILI9341.h&gt;</code><br />
 <code>#include &lt;Adafruit_GFX.h&gt;</code><br />
@@ -102,34 +102,47 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ac018fe3f2622c6da250fdcc3d1df54f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#ac018fe3f2622c6da250fdcc3d1df54f2">DISPLAY_TASK_STACK_SIZE</a>&#160;&#160;&#160;<a class="el" href="_free_r_t_o_s_config__default_8h.html#a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</a> + 32368</td></tr>
+<tr class="memdesc:ac018fe3f2622c6da250fdcc3d1df54f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the configMINIMAL_STACK_SIZE variable in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to add up to the stack size used for the displayTask.  <a href="_display_8h.html#ac018fe3f2622c6da250fdcc3d1df54f2">More...</a><br /></td></tr>
 <tr class="separator:ac018fe3f2622c6da250fdcc3d1df54f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bf1bf7c513d10bf1c142b6863f647bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a3bf1bf7c513d10bf1c142b6863f647bb">DISPLAY_UPDATE_TIME_MAX</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a3bf1bf7c513d10bf1c142b6863f647bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere.  <a href="_display_8h.html#a3bf1bf7c513d10bf1c142b6863f647bb">More...</a><br /></td></tr>
 <tr class="separator:a3bf1bf7c513d10bf1c142b6863f647bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4d46ae101b77df78010c506601c87c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a5f4d46ae101b77df78010c506601c87c">TFT_CS</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a5f4d46ae101b77df78010c506601c87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Teensy pin used for the display's chip select pin.  <a href="_display_8h.html#a5f4d46ae101b77df78010c506601c87c">More...</a><br /></td></tr>
 <tr class="separator:a5f4d46ae101b77df78010c506601c87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51529307207622c113ff0d584536be13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a51529307207622c113ff0d584536be13">TFT_DC</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:a51529307207622c113ff0d584536be13"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Teensy pin used for the display data/command pin.  <a href="_display_8h.html#a51529307207622c113ff0d584536be13">More...</a><br /></td></tr>
 <tr class="separator:a51529307207622c113ff0d584536be13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab40e9918d9141415a47e2a979292309c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#ab40e9918d9141415a47e2a979292309c">TFT_RST</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:ab40e9918d9141415a47e2a979292309c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Teensy pin used for the display reset pin.  <a href="_display_8h.html#ab40e9918d9141415a47e2a979292309c">More...</a><br /></td></tr>
 <tr class="separator:ab40e9918d9141415a47e2a979292309c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc2813ad338ac596f3108382916b482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#aebc2813ad338ac596f3108382916b482">TS_CS</a>&#160;&#160;&#160;10</td></tr>
 <tr class="separator:aebc2813ad338ac596f3108382916b482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d966444a95d140572e8f999fa00f8e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a5d966444a95d140572e8f999fa00f8e0">TIRQ_PIN</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a5d966444a95d140572e8f999fa00f8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The TIRQ interrupt signal must be used for this example.  <a href="_display_8h.html#a5d966444a95d140572e8f999fa00f8e0">More...</a><br /></td></tr>
 <tr class="separator:a5d966444a95d140572e8f999fa00f8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5584bed4734b437f2ef171dfa600e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a3b5584bed4734b437f2ef171dfa600e2">NUM_DATA</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a3b5584bed4734b437f2ef171dfa600e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of PrintedData values (length of the array that contains all the printedData)  <a href="_display_8h.html#a3b5584bed4734b437f2ef171dfa600e2">More...</a><br /></td></tr>
 <tr class="separator:a3b5584bed4734b437f2ef171dfa600e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6b0be19465bc73429fbaf37ea6d7f5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#aa6b0be19465bc73429fbaf37ea6d7f5d">DEFAULT_FLOAT</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:aa6b0be19465bc73429fbaf37ea6d7f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default starter value used for floats in the <a class="el" href="struct_printed_data_struct.html">PrintedDataStruct</a>.  <a href="_display_8h.html#aa6b0be19465bc73429fbaf37ea6d7f5d">More...</a><br /></td></tr>
 <tr class="separator:aa6b0be19465bc73429fbaf37ea6d7f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accd27f9824631fc37bcb677947f1f63a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#accd27f9824631fc37bcb677947f1f63a">DEFAULT_X_POS</a>&#160;&#160;&#160;235</td></tr>
+<tr class="memdesc:accd27f9824631fc37bcb677947f1f63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default x position used the data in the <a class="el" href="struct_printed_data_struct.html">PrintedDataStruct</a>.  <a href="_display_8h.html#accd27f9824631fc37bcb677947f1f63a">More...</a><br /></td></tr>
 <tr class="separator:accd27f9824631fc37bcb677947f1f63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9705c15b04a1787116a4fbdf987e0328"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a9705c15b04a1787116a4fbdf987e0328">VERTICAL_SCALER</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a9705c15b04a1787116a4fbdf987e0328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33c25be9eca2247ac244fc928183eb55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a33c25be9eca2247ac244fc928183eb55">TS_MINX</a>&#160;&#160;&#160;327</td></tr>
+<tr class="memdesc:a33c25be9eca2247ac244fc928183eb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not sure why this is so high. Google it, but as of now it's unused.  <a href="_display_8h.html#a33c25be9eca2247ac244fc928183eb55">More...</a><br /></td></tr>
 <tr class="separator:a33c25be9eca2247ac244fc928183eb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0c07334a8bec0889ce72fd7cd207000"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#ae0c07334a8bec0889ce72fd7cd207000">TS_MAXX</a>&#160;&#160;&#160;3903</td></tr>
+<tr class="memdesc:ae0c07334a8bec0889ce72fd7cd207000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not sure why this is so high. Google it, but as of now it's unused.  <a href="_display_8h.html#ae0c07334a8bec0889ce72fd7cd207000">More...</a><br /></td></tr>
 <tr class="separator:ae0c07334a8bec0889ce72fd7cd207000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a221886aabcdfcc6e096414db04cfbdb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a221886aabcdfcc6e096414db04cfbdb9">TS_MINY</a>&#160;&#160;&#160;243</td></tr>
+<tr class="memdesc:a221886aabcdfcc6e096414db04cfbdb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not sure why this is so high. Google it, but as of now it's unused.  <a href="_display_8h.html#a221886aabcdfcc6e096414db04cfbdb9">More...</a><br /></td></tr>
 <tr class="separator:a221886aabcdfcc6e096414db04cfbdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8037be4206d706c1077d0153db12690a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a8037be4206d706c1077d0153db12690a">TS_MAXY</a>&#160;&#160;&#160;3842</td></tr>
+<tr class="memdesc:a8037be4206d706c1077d0153db12690a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not sure why this is so high. Google it, but as of now it's unused.  <a href="_display_8h.html#a8037be4206d706c1077d0153db12690a">More...</a><br /></td></tr>
 <tr class="separator:a8037be4206d706c1077d0153db12690a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -183,8 +196,10 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a41c3eb6bc5901609f9f976b594e5089f"><td class="memItemLeft" align="right" valign="top">Adafruit_ILI9341&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a41c3eb6bc5901609f9f976b594e5089f">tft</a> = Adafruit_ILI9341( 10 , 9 , 8 )</td></tr>
+<tr class="memdesc:a41c3eb6bc5901609f9f976b594e5089f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The global variable used to write to the display.  <a href="_display_8h.html#a41c3eb6bc5901609f9f976b594e5089f">More...</a><br /></td></tr>
 <tr class="separator:a41c3eb6bc5901609f9f976b594e5089f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d31440d430c0fc247733e218f14278f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a4d31440d430c0fc247733e218f14278f">printedVals</a> [11]</td></tr>
+<tr class="memdesc:a4d31440d430c0fc247733e218f14278f"><td class="mdescLeft">&#160;</td><td class="mdescRight">All PrintedValue objects/structs, just stored in the array.  <a href="_display_8h.html#a4d31440d430c0fc247733e218f14278f">More...</a><br /></td></tr>
 <tr class="separator:a4d31440d430c0fc247733e218f14278f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dbb33f8e641008d67ebd4388521ab69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a0dbb33f8e641008d67ebd4388521ab69">batteryVoltage</a> = &amp;<a class="el" href="_display_8h.html#a4d31440d430c0fc247733e218f14278f">printedVals</a>[0]</td></tr>
 <tr class="separator:a0dbb33f8e641008d67ebd4388521ab69"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,20 +224,22 @@ Variables</h2></td></tr>
 <tr class="memitem:a1f928d9e961d6ef649cb8bc5d3178b8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a0b2eff0e3feae0c6d455436e5511e6b0">PrintedData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a1f928d9e961d6ef649cb8bc5d3178b8e">evccVolt</a> = &amp;<a class="el" href="_display_8h.html#a4d31440d430c0fc247733e218f14278f">printedVals</a>[10]</td></tr>
 <tr class="separator:a1f928d9e961d6ef649cb8bc5d3178b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700ec86cb550fd4426014190222173ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_display_8h.html#a359bec7987d6af4301ef0554e5d65bd7">PrintedDataTherm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#a700ec86cb550fd4426014190222173ac">thermiData</a></td></tr>
+<tr class="memdesc:a700ec86cb550fd4426014190222173ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The thermistor data.  <a href="_display_8h.html#a700ec86cb550fd4426014190222173ac">More...</a><br /></td></tr>
 <tr class="separator:a700ec86cb550fd4426014190222173ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a50ee378fcf45591eb041ee70b2368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_printed_data_time_stuct.html">PrintedDataTimeStuct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_display_8h.html#aa2a50ee378fcf45591eb041ee70b2368">timeData</a></td></tr>
+<tr class="memdesc:aa2a50ee378fcf45591eb041ee70b2368"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time data.  <a href="_display_8h.html#aa2a50ee378fcf45591eb041ee70b2368">More...</a><br /></td></tr>
 <tr class="separator:aa2a50ee378fcf45591eb041ee70b2368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >The <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> config file for the Display task for the bike's firmware. This defines the variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </p>
+<div class="textblock"><p >The <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> config file for the Display task for the bike's firmware. This defines the variables that are passed along to the <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a> file and others if they use it. Then it creates the initial reference (there's a proper C programming term for it) for all the methods used in <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a>. This file is also special in that it creates several typedef structs that basically allow us to package the data in display in a nice way. Most other files do not have this many structs and there will probably be more in the future. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </p>
 <dl class="section author"><dt>Author</dt><dd>Washington Superbike </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>1-March-2023</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>up all members to be able to use it without any trouble.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Goal 1. <br  />
+<dl class="section note"><dt>Note</dt><dd>Whoever makes the struct changes. Good luck. Have fun.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <br  />
  <br  />
- Goal 2. <br  />
+ Make a better struct for time and integrate it in a way so that the update code isn't nasty. <br  />
  <br  />
- Goal 3. <br  />
+ Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. <br  />
  <br  />
  Final Goal. </dd></dl>
 
@@ -240,7 +257,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00056">56</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The default starter value used for floats in the <a class="el" href="struct_printed_data_struct.html">PrintedDataStruct</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00065">65</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +275,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00057">57</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The default x position used the data in the <a class="el" href="struct_printed_data_struct.html">PrintedDataStruct</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00067">67</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +293,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00036">36</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Uses the configMINIMAL_STACK_SIZE variable in <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> to add up to the stack size used for the displayTask. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00041">41</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +311,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00039">39</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00043">43</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +329,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00053">53</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Number of PrintedData values (length of the array that contains all the printedData) </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00061">61</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -320,7 +347,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00041">41</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The Teensy pin used for the display's chip select pin. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00046">46</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +365,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00042">42</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The Teensy pin used for the display data/command pin. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00048">48</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +383,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00043">43</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The Teensy pin used for the display reset pin. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00050">50</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -368,7 +401,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00050">50</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The TIRQ interrupt signal must be used for this example. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00058">58</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -383,8 +418,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The Teensy pin used for the display touch-screen chip select. This is useless because we dont use the touch screen. </p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00046">46</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00054">54</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +436,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00063">63</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Not sure why this is so high. Google it, but as of now it's unused. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00078">78</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -416,7 +454,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00065">65</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Not sure why this is so high. Google it, but as of now it's unused. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00082">82</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -432,7 +472,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00062">62</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Not sure why this is so high. Google it, but as of now it's unused. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00076">76</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +490,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00064">64</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>Not sure why this is so high. Google it, but as of now it's unused. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00080">80</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -463,8 +507,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >A Scaler for moving vertical data down. Each row of data is a factor of 16 pixels away from each other, vertically. </p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00060">60</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00072">72</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -480,6 +525,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The <a class="el" href="structdisplay_task_wrapper.html">displayTaskWrapper()</a> struct just wraps up the MeasurementScreenData and the Screen data (realistically, can be removed...) for the <a class="el" href="_display_8ino.html#abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</a> </p>
 
 </div>
 </div>
@@ -494,6 +540,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The last complex struct. This just contains all the floats and integers as pointers that point to the original variables from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a>. This just packages all the data used by the <a class="el" href="struct_measurement_screen_data_struct.html">MeasurementScreenDataStruct</a>. </p>
 
 </div>
 </div>
@@ -508,6 +555,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The first complex struct. Stores all the info of a specific type of data we're storing. This includes the x and y position of the label, the x and y position of the data, the data type, a pointer to the current data, a float to store the old data, the length of the data (TODO REMOVE), and a char* (String) with the label for that data. Please look at the struct itself and how it is implemented to fully understand how it works. The gist of how it's used is obvious, but the details can often be the frustrating part. </p>
 
 </div>
 </div>
@@ -522,6 +570,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The second complex struct. Very similar to to <a class="el" href="struct_printed_data_struct.html">PrintedDataStruct</a> and now it's adjusted for Thermistors, using a float array as the oldData instead of a regular float. </p>
 
 </div>
 </div>
@@ -536,6 +585,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >The third complex struct. Work in progress, make this better and integrate it into the way time is updated, etc in the <a class="el" href="_display_8ino.html" title="The Display.ino file executes the Display task for the bike&#39;s firmware. This calls on the variables t...">Display.ino</a> file. </p>
 
 </div>
 </div>
@@ -550,6 +600,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Basic struct that just implements the Screen enum as a struct. Please remove this once the macro is implemented. </p>
 
 </div>
 </div>
@@ -565,13 +616,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Just a basic enum to store the type of data being printed. C is a very basic language, so it doesn't just have nice methods like Java and Python to determine a variable's type. And I assume those methods are probably implemented using some sort of nice typedef or enum or something to indicate it. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" name="a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0"></a>NUMBER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" name="a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688"></a>ARRAY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" name="a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1"></a>BOOL&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00067">67</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00091">91</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -586,12 +638,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Just a basic enum to store the type of Screen being printed. As stated in the todo, this should probably be replaced. No point in having it. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" name="a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f"></a>DEBUG&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" name="a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab"></a>SPEEDOMETER&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00071">71</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00100">100</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -610,8 +663,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it's here.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00265">265</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00282">282</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -641,7 +695,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00087">87</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00090">90</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -682,8 +736,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00229">229</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00238">238</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -724,8 +779,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Just a flipped color version of <a class="el" href="_display_8ino.html#a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint()</a> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00238">238</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00249">249</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -743,8 +799,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Iterates through all the printedVals array and then does += 1 to make sure it's increasing. This change should be reflected in the display itself.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00253">253</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00267">267</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -773,8 +830,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Calls on tft.begin() method and sets the orientation using tft.setRotatio() and also sets the screen to ILI9341_WHITE or ILI9341_BLACK based on Debugging or Speedometer screen.</p>
+<p >Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</p>
+<p >Calls on the <a class="el" href="_display_8ino.html#a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen()</a> to finish up the setup.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00055">55</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00051">51</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -793,8 +853,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</p>
+<p >If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</p>
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00196">196</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00199">199</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -814,7 +876,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00135">135</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00138">138</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -833,7 +895,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00185">185</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8ino_source.html#l00188">188</a> of file <a class="el" href="_display_8ino_source.html">Display.ino</a>.</p>
 
 </div>
 </div>
@@ -850,7 +912,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00130">130</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00191">191</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -866,7 +928,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00128">128</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00189">189</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -882,7 +944,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00137">137</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00198">198</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -898,7 +960,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00136">136</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00197">197</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -914,7 +976,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00135">135</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00196">196</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -930,7 +992,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00134">134</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00195">195</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -946,7 +1008,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00138">138</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00199">199</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -962,7 +1024,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00129">129</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00190">190</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -978,7 +1040,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00133">133</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00194">194</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -994,7 +1056,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00132">132</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00193">193</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -1010,7 +1072,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00126">126</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>All PrintedValue objects/structs, just stored in the array. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00187">187</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -1026,7 +1090,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00131">131</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00192">192</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -1042,7 +1106,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00124">124</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The global variable used to write to the display. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00185">185</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -1058,7 +1124,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00140">140</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The thermistor data. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00202">202</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>
@@ -1074,7 +1142,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00141">141</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
+<p>The time data. </p>
+
+<p class="definition">Definition at line <a class="el" href="_display_8h_source.html#l00204">204</a> of file <a class="el" href="_display_8h_source.html">Display.h</a>.</p>
 
 </div>
 </div>

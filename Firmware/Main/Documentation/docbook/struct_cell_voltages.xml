@@ -19,7 +19,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00104">104</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00100">100</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -28,21 +28,21 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00104">104</link> of file 
 <indexterm><primary>cellVoltages</primary><secondary>CellVoltages</secondary></indexterm>
 <indexterm><primary>CellVoltages</primary><secondary>cellVoltages</secondary></indexterm>
 <para><computeroutput>float* CellVoltages::cellVoltages</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00105">105</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00101">101</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a"/><section>
     <title>ready</title>
 <indexterm><primary>ready</primary><secondary>CellVoltages</secondary></indexterm>
 <indexterm><primary>CellVoltages</primary><secondary>ready</secondary></indexterm>
 <para><computeroutput>bool* CellVoltages::ready</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00107">107</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00103">103</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf"/><section>
     <title>seriesVoltage</title>
 <indexterm><primary>seriesVoltage</primary><secondary>CellVoltages</secondary></indexterm>
 <indexterm><primary>CellVoltages</primary><secondary>seriesVoltage</secondary></indexterm>
 <para><computeroutput>float* CellVoltages::seriesVoltage</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00106">106</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00102">102</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

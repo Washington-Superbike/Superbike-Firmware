@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="86" column="7" bodyfile="Display.h" bodystart="86" bodyend="-1"/>
+        <location file="Display.h" line="129" column="7" bodyfile="Display.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_therm_struct_1aa3c56195d5e129e46e6820fe69eb7193" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="86" column="14" bodyfile="Display.h" bodystart="86" bodyend="-1"/>
+        <location file="Display.h" line="129" column="14" bodyfile="Display.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_therm_struct_1a5f4a978790b000578684d99f8e42e747" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="86" column="16" bodyfile="Display.h" bodystart="86" bodyend="-1"/>
+        <location file="Display.h" line="129" column="16" bodyfile="Display.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_therm_struct_1a14bcd79d4f08e87c4c435ad6894f13b3" prot="public" static="no" mutable="no">
         <type>volatile float</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="87" column="18" bodyfile="Display.h" bodystart="87" bodyend="-1"/>
+        <location file="Display.h" line="130" column="18" bodyfile="Display.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_therm_struct_1aa2f24f2c6e39a25af913ff218361f691" prot="public" static="no" mutable="no">
         <type>volatile float *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="88" column="18" bodyfile="Display.h" bodystart="88" bodyend="-1"/>
+        <location file="Display.h" line="131" column="18" bodyfile="Display.h" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_printed_data_therm_struct_1acc2d2cee759f3cc546922b2a34dae206" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -86,14 +86,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="89" column="8" bodyfile="Display.h" bodystart="89" bodyend="-1"/>
+        <location file="Display.h" line="132" column="8" bodyfile="Display.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>The second complex struct. Very similar to to <ref refid="struct_printed_data_struct" kindref="compound">PrintedDataStruct</ref> and now it&apos;s adjusted for Thermistors, using a float array as the oldData instead of a regular float. </para>
     </detaileddescription>
-    <location file="Display.h" line="85" column="1" bodyfile="Display.h" bodystart="85" bodyend="90"/>
+    <location file="Display.h" line="128" column="1" bodyfile="Display.h" bodystart="128" bodyend="133"/>
     <listofallmembers>
       <member refid="struct_printed_data_therm_struct_1aa2f24f2c6e39a25af913ff218361f691" prot="public" virt="non-virtual"><scope>PrintedDataThermStruct</scope><name>currData</name></member>
       <member refid="struct_printed_data_therm_struct_1a5f4a978790b000578684d99f8e42e747" prot="public" virt="non-virtual"><scope>PrintedDataThermStruct</scope><name>dataX</name></member>

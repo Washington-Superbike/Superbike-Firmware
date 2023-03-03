@@ -36,8 +36,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>The last complex struct. This just contains all the floats and integers as pointers that point to the original variables from <link linkend="__main_8h">Main.h</link>. This just packages all the data used by the <link linkend="_struct_measurement_screen_data_struct">MeasurementScreenDataStruct</link>. </para>
 <para>
-Definition at line <link linkend="__display_8h_source_1l00104">104</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00160">160</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -46,84 +48,84 @@ Definition at line <link linkend="__display_8h_source_1l00104">104</link> of fil
 <indexterm><primary>auxiliaryBatteryVoltage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>auxiliaryBatteryVoltage</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::auxiliaryBatteryVoltage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00107">107</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00163">163</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996"/><section>
     <title>bmsStatusFlag</title>
 <indexterm><primary>bmsStatusFlag</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>bmsStatusFlag</secondary></indexterm>
 <para><computeroutput>int* MeasurementScreenDataStruct::bmsStatusFlag</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00114">114</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00170">170</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679"/><section>
     <title>chargerCurrent</title>
 <indexterm><primary>chargerCurrent</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>chargerCurrent</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::chargerCurrent</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00112">112</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00168">168</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f"/><section>
     <title>chargerVoltage</title>
 <indexterm><primary>chargerVoltage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>chargerVoltage</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::chargerVoltage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00113">113</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00169">169</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c"/><section>
     <title>errorMessage</title>
 <indexterm><primary>errorMessage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>errorMessage</secondary></indexterm>
 <para><computeroutput>int* MeasurementScreenDataStruct::errorMessage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00111">111</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00167">167</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503"/><section>
     <title>evccVoltage</title>
 <indexterm><primary>evccVoltage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>evccVoltage</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::evccVoltage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00115">115</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00171">171</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863"/><section>
     <title>mainBatteryVoltage</title>
 <indexterm><primary>mainBatteryVoltage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>mainBatteryVoltage</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::mainBatteryVoltage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00105">105</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00161">161</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe"/><section>
     <title>motorControllerVoltage</title>
 <indexterm><primary>motorControllerVoltage</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>motorControllerVoltage</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::motorControllerVoltage</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00106">106</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00162">162</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd"/><section>
     <title>motorCurrent</title>
 <indexterm><primary>motorCurrent</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>motorCurrent</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::motorCurrent</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00110">110</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00166">166</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a"/><section>
     <title>motorTemp</title>
 <indexterm><primary>motorTemp</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>motorTemp</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::motorTemp</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00109">109</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00165">165</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7"/><section>
     <title>RPM</title>
 <indexterm><primary>RPM</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>RPM</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::RPM</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00108">108</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00164">164</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <anchor xml:id="_struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740"/><section>
     <title>thermistorTemps</title>
 <indexterm><primary>thermistorTemps</primary><secondary>MeasurementScreenDataStruct</secondary></indexterm>
 <indexterm><primary>MeasurementScreenDataStruct</primary><secondary>thermistorTemps</secondary></indexterm>
 <para><computeroutput>float* MeasurementScreenDataStruct::thermistorTemps</computeroutput></para><para>
-Definition at line <link linkend="__display_8h_source_1l00116">116</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
+Definition at line <link linkend="__display_8h_source_1l00172">172</link> of file <link linkend="__display_8h_source">Display.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

@@ -2,76 +2,73 @@
 \mbox{\hyperlink{_data_logging_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00028}00028 \textcolor{preprocessor}{\#ifndef DATALOG\_H\_}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00029}00029 \textcolor{preprocessor}{\#define DATALOG\_H\_}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00030}00030 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00031}00031 \textcolor{preprocessor}{\#include "{}SdFat.h"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00032}00032 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00033}\mbox{\hyperlink{_data_logging_8h_af4a74cae27161ee93cd63ef70a0082e2}{00033}} \textcolor{preprocessor}{\#define DATALOGGING\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 32368}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00035}00035 \textcolor{comment}{//Names for each of the log files}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00036}\mbox{\hyperlink{_data_logging_8h_af00c3fd81cebf8f7797f97204750ba99}{00036}} \textcolor{preprocessor}{\#define MOTOR\_TEMPERATURE\_LOG "{}motor\_temperature\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00037}\mbox{\hyperlink{_data_logging_8h_ab9b2c0322cedfd8d3cd1c9dbb513b10f}{00037}} \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_TEMPERATURE\_LOG "{}motor\_controller\_temperature\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00038}\mbox{\hyperlink{_data_logging_8h_ad345eeebe4d36d151827e130e6082a1b}{00038}} \textcolor{preprocessor}{\#define BMS\_VOLTAGE\_LOG "{}bms\_voltage\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00039}\mbox{\hyperlink{_data_logging_8h_a34f856128abdd56434d31edd1f4ce549}{00039}} \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_VOLTAGE\_LOG "{}motor\_controller\_voltage\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00040}\mbox{\hyperlink{_data_logging_8h_aa98fafae382d16d375eeef356bf55917}{00040}} \textcolor{preprocessor}{\#define MOTOR\_CURRENT\_LOG "{}current\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00041}\mbox{\hyperlink{_data_logging_8h_a2665461802b5e24f2d0f9d8f1ca8351d}{00041}} \textcolor{preprocessor}{\#define THERMISTOR\_LOG "{}thermistor\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00042}\mbox{\hyperlink{_data_logging_8h_af7b33dd28efa07f171323d23a5f714d2}{00042}} \textcolor{preprocessor}{\#define RPM\_LOG "{}rpm\_log.csv"{}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00044}00044 \textcolor{comment}{// Use built-\/in SD for SPI modes on Teensy 3.5/3.6.}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00045}00045 \textcolor{comment}{// Teensy 4.0 use first SPI port.}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00046}00046 \textcolor{comment}{// SDCARD\_SS\_PIN is defined for the built-\/in SD on some boards.}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00047}00047 \textcolor{preprocessor}{\#ifndef SDCARD\_SS\_PIN}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00048}\mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{00048}} \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SS;}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00049}00049 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00050}00050 \textcolor{comment}{// Assume built-\/in SD is used.}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00051}00051 \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SDCARD\_SS\_PIN;}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00052}00052 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00038}00038 \textcolor{preprocessor}{\#ifndef DATALOG\_H\_}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00039}00039 \textcolor{preprocessor}{\#define DATALOG\_H\_}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00041}00041 \textcolor{preprocessor}{\#include "{}SdFat.h"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00043}\mbox{\hyperlink{_data_logging_8h_af4a74cae27161ee93cd63ef70a0082e2}{00043}} \textcolor{preprocessor}{\#define DATALOGGING\_TASK\_STACK\_SIZE configMINIMAL\_STACK\_SIZE + 32368}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00045}00045 \textcolor{comment}{//Names for each of the log files}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00046}\mbox{\hyperlink{_data_logging_8h_af00c3fd81cebf8f7797f97204750ba99}{00046}} \textcolor{preprocessor}{\#define MOTOR\_TEMPERATURE\_LOG "{}motor\_temperature\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00047}\mbox{\hyperlink{_data_logging_8h_ab9b2c0322cedfd8d3cd1c9dbb513b10f}{00047}} \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_TEMPERATURE\_LOG "{}motor\_controller\_temperature\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00048}\mbox{\hyperlink{_data_logging_8h_ad345eeebe4d36d151827e130e6082a1b}{00048}} \textcolor{preprocessor}{\#define BMS\_VOLTAGE\_LOG "{}bms\_voltage\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00049}\mbox{\hyperlink{_data_logging_8h_a34f856128abdd56434d31edd1f4ce549}{00049}} \textcolor{preprocessor}{\#define MOTOR\_CONTROLLER\_VOLTAGE\_LOG "{}motor\_controller\_voltage\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00050}\mbox{\hyperlink{_data_logging_8h_aa98fafae382d16d375eeef356bf55917}{00050}} \textcolor{preprocessor}{\#define MOTOR\_CURRENT\_LOG "{}current\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00051}\mbox{\hyperlink{_data_logging_8h_a2665461802b5e24f2d0f9d8f1ca8351d}{00051}} \textcolor{preprocessor}{\#define THERMISTOR\_LOG "{}thermistor\_log.csv"{}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00052}\mbox{\hyperlink{_data_logging_8h_af7b33dd28efa07f171323d23a5f714d2}{00052}} \textcolor{preprocessor}{\#define RPM\_LOG "{}rpm\_log.csv"{}}}
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00053}00053 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00054}\mbox{\hyperlink{_data_logging_8h_a888ed23a146630d5e36a08aed19ff638}{00054}} \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{_data_logging_8h_a888ed23a146630d5e36a08aed19ff638}{BUF\_DIM}} = 4096;}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00055}00055 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00056}00056 \textcolor{comment}{//Represents the serial connection to the sd card and any internal buffers}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00057}\mbox{\hyperlink{_data_logging_8h_a15e6b7e1f0fb2d1e0fe1654721bb5302}{00057}} SdFat \mbox{\hyperlink{_data_logging_8h_a15e6b7e1f0fb2d1e0fe1654721bb5302}{sd}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00058}00058 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00059}\mbox{\hyperlink{_data_logging_8h_a90b197693eeaad244ff381d5645b1c16}{00059}} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{_data_logging_8h_a90b197693eeaad244ff381d5645b1c16}{epochTime}}; \textcolor{comment}{//represents the time that recording started}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00060}00060 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00061}00061 \textcolor{comment}{//Clarification on how SD card stores data: each block is generally about 512 or 1024 bytes. SdFat stores an internal buffer of 512 and when the limit is reached}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00062}00062 \textcolor{comment}{//only then does it save the data onto the sd card. This is an important trade off. if we are less than that value and the bike suddenly turns off, those <512 bytes aren't stored}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00063}00063 \textcolor{comment}{//unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv)}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00064}00064 \textcolor{comment}{//or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00054}00054 \textcolor{comment}{// Use built-\/in SD for SPI modes on Teensy 3.5/3.6.}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00055}00055 \textcolor{comment}{// Teensy 4.0 use first SPI port.}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00056}00056 \textcolor{comment}{// SDCARD\_SS\_PIN is defined for the built-\/in SD on some boards.}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00057}00057 \textcolor{preprocessor}{\#ifndef SDCARD\_SS\_PIN}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00058}\mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{00058}} \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SS;}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00059}00059 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00060}00060 \textcolor{comment}{// Assume built-\/in SD is used.}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00061}00061 \textcolor{keyword}{const} uint8\_t \mbox{\hyperlink{_data_logging_8h_a587c91dc29e14d8227957fbe22af6f45}{SD\_CS\_PIN}} = SDCARD\_SS\_PIN;}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00062}00062 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// SDCARD\_SS\_PIN}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00064}\mbox{\hyperlink{_data_logging_8h_a888ed23a146630d5e36a08aed19ff638}{00064}} \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{_data_logging_8h_a888ed23a146630d5e36a08aed19ff638}{BUF\_DIM}} = 4096;}
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00066}00066 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00067}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{00067}} \textcolor{keyword}{enum} \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \{}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00068}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a}{00068}}   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a}{INT}},}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00069}00069   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00070}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{00070}} \};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00066}00066 \textcolor{comment}{//Represents the serial connection to the sd card and any internal buffers}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00067}\mbox{\hyperlink{_data_logging_8h_a15e6b7e1f0fb2d1e0fe1654721bb5302}{00067}} SdFat \mbox{\hyperlink{_data_logging_8h_a15e6b7e1f0fb2d1e0fe1654721bb5302}{sd}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00069}\mbox{\hyperlink{_data_logging_8h_a90b197693eeaad244ff381d5645b1c16}{00069}} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \mbox{\hyperlink{_data_logging_8h_a90b197693eeaad244ff381d5645b1c16}{epochTime}}; \textcolor{comment}{//represents the time that recording started}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00070}00070 }
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00071}00071 }
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00072}00072 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00073}00073 \textcolor{comment}{//Represents a writer to a CSV log file on the sd card}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00074}\mbox{\hyperlink{struct_c_s_v_writer}{00074}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00075}\mbox{\hyperlink{struct_c_s_v_writer_a683c9f4868ac2665b4eb34773d1445cf}{00075}}   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_c_s_v_writer_a683c9f4868ac2665b4eb34773d1445cf}{filename}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00076}\mbox{\hyperlink{struct_c_s_v_writer_a9bdd5e92c6749ab1c1d9a0ea7531315e}{00076}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_c_s_v_writer_a9bdd5e92c6749ab1c1d9a0ea7531315e}{dataValuesLen}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00077}\mbox{\hyperlink{struct_c_s_v_writer_ad91f08cce2e394992128d934f3e881a9}{00077}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_s_v_writer_ad91f08cce2e394992128d934f3e881a9}{dataValues}};             \textcolor{comment}{//array of pointers to shared variables (the data values in the csv log)}}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00078}\mbox{\hyperlink{struct_c_s_v_writer_aa48db34eda8a982f97f2d7812fec0e27}{00078}}   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \mbox{\hyperlink{struct_c_s_v_writer_aa48db34eda8a982f97f2d7812fec0e27}{D\_TYPE}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00079}\mbox{\hyperlink{struct_c_s_v_writer_a84e1fe8c16267fb15806b9024353b962}{00079}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_c_s_v_writer_a84e1fe8c16267fb15806b9024353b962}{open}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00080}\mbox{\hyperlink{struct_c_s_v_writer_a134410cbaf84e674a0f3eb1465c37eaa}{00080}}   SdFile \mbox{\hyperlink{struct_c_s_v_writer_a134410cbaf84e674a0f3eb1465c37eaa}{file}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00081}00081 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00082}00082 \} \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00083}00083 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00084}\mbox{\hyperlink{struct_data_logging_task_data}{00084}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00085}\mbox{\hyperlink{struct_data_logging_task_data_a8749861675b46b70c4cb68262d220e2a}{00085}}   \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} **\mbox{\hyperlink{struct_data_logging_task_data_a8749861675b46b70c4cb68262d220e2a}{writers}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00086}\mbox{\hyperlink{struct_data_logging_task_data_a7ae4a326c6a1c95c14fb7a3d64fbb36e}{00086}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_data_logging_task_data_a7ae4a326c6a1c95c14fb7a3d64fbb36e}{writersLen}};}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00087}00087 \} \mbox{\hyperlink{struct_data_logging_task_data}{DataLoggingTaskData}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00074}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{00074}} \textcolor{keyword}{enum} \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \{}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00075}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a}{00075}}   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14afd5a5f51ce25953f3db2c7e93eb7864a}{INT}},}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00076}00076   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00077}\mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{00077}} \};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00080}00080 \textcolor{comment}{//Represents a writer to a CSV log file on the sd card}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00081}\mbox{\hyperlink{struct_c_s_v_writer}{00081}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00082}\mbox{\hyperlink{struct_c_s_v_writer_a683c9f4868ac2665b4eb34773d1445cf}{00082}}   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{struct_c_s_v_writer_a683c9f4868ac2665b4eb34773d1445cf}{filename}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00083}\mbox{\hyperlink{struct_c_s_v_writer_a9bdd5e92c6749ab1c1d9a0ea7531315e}{00083}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_c_s_v_writer_a9bdd5e92c6749ab1c1d9a0ea7531315e}{dataValuesLen}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00084}\mbox{\hyperlink{struct_c_s_v_writer_ad91f08cce2e394992128d934f3e881a9}{00084}}   \textcolor{keywordtype}{float} *\mbox{\hyperlink{struct_c_s_v_writer_ad91f08cce2e394992128d934f3e881a9}{dataValues}};             \textcolor{comment}{//array of pointers to shared variables (the data values in the csv log)}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00085}\mbox{\hyperlink{struct_c_s_v_writer_aa48db34eda8a982f97f2d7812fec0e27}{00085}}   \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14}{data\_type}} \mbox{\hyperlink{struct_c_s_v_writer_aa48db34eda8a982f97f2d7812fec0e27}{D\_TYPE}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00086}\mbox{\hyperlink{struct_c_s_v_writer_a84e1fe8c16267fb15806b9024353b962}{00086}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_c_s_v_writer_a84e1fe8c16267fb15806b9024353b962}{open}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00087}\mbox{\hyperlink{struct_c_s_v_writer_a134410cbaf84e674a0f3eb1465c37eaa}{00087}}   SdFile \mbox{\hyperlink{struct_c_s_v_writer_a134410cbaf84e674a0f3eb1465c37eaa}{file}};}
 \DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00088}00088 }
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00089}00089 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{dataLoggingTask}}(\textcolor{keywordtype}{void} *dlData);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00090}00090 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_a0d2a3a213399ec010b89dede4ba4de77}{startSD}}();}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00091}00091 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_ac579da51eca1f113da5d315ab23b8b1e}{openFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00092}00092 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a10c88f7cc0c34cd0a584f78997f13827}{closeFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00093}00093 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a678245415389e1bbd75b088a980b008a}{saveFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00094}00094 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a52d8bf385131a3543793f22ee432100a}{saveFiles}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} **writers, \textcolor{keywordtype}{int} writersLen);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00095}00095 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a8777416fb5b01666e7b28ada9f3b552a}{printFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00096}00096 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_aa394fd0868d0e097f701cb3f21d9c451}{addRecord}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer, \textcolor{keywordtype}{int} sTime);}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00097}00097 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_ab91616c118b701c2afd9136393d1f19b}{startRecording}}();}
-\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00098}00098 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00089}00089 \} \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00091}\mbox{\hyperlink{struct_data_logging_task_data}{00091}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00092}\mbox{\hyperlink{struct_data_logging_task_data_a8749861675b46b70c4cb68262d220e2a}{00092}}   \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} **\mbox{\hyperlink{struct_data_logging_task_data_a8749861675b46b70c4cb68262d220e2a}{writers}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00093}\mbox{\hyperlink{struct_data_logging_task_data_a7ae4a326c6a1c95c14fb7a3d64fbb36e}{00093}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_data_logging_task_data_a7ae4a326c6a1c95c14fb7a3d64fbb36e}{writersLen}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00094}00094 \} \mbox{\hyperlink{struct_data_logging_task_data}{DataLoggingTaskData}};}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00096}00096 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{dataLoggingTask}}(\textcolor{keywordtype}{void} *dlData);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00097}00097 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_a0d2a3a213399ec010b89dede4ba4de77}{startSD}}();}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00098}00098 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_data_logging_8h_ac579da51eca1f113da5d315ab23b8b1e}{openFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00099}00099 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a10c88f7cc0c34cd0a584f78997f13827}{closeFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00100}00100 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a678245415389e1bbd75b088a980b008a}{saveFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00101}00101 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a52d8bf385131a3543793f22ee432100a}{saveFiles}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} **writers, \textcolor{keywordtype}{int} writersLen);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00102}00102 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_a8777416fb5b01666e7b28ada9f3b552a}{printFile}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00103}00103 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_aa394fd0868d0e097f701cb3f21d9c451}{addRecord}}(\mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} *writer, \textcolor{keywordtype}{int} sTime);}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00104}00104 \textcolor{keywordtype}{void} \mbox{\hyperlink{_data_logging_8h_ab91616c118b701c2afd9136393d1f19b}{startRecording}}();}
+\DoxyCodeLine{\Hypertarget{_data_logging_8h_source_l00105}00105 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

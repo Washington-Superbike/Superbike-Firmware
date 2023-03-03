@@ -21,7 +21,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00064">64</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00060">60</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <section>
 <title>Member Data Documentation</title>
@@ -30,28 +30,28 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00064">64</link> of file <
 <indexterm><primary>errorMessage</primary><secondary>MotorStats</secondary></indexterm>
 <indexterm><primary>MotorStats</primary><secondary>errorMessage</secondary></indexterm>
 <para><computeroutput>int* MotorStats::errorMessage</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00068">68</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00064">64</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_stats_1acf61562c6e2b1fdcdb548a04bff1f0aa"/><section>
     <title>motorControllerBatteryVoltage</title>
 <indexterm><primary>motorControllerBatteryVoltage</primary><secondary>MotorStats</secondary></indexterm>
 <indexterm><primary>MotorStats</primary><secondary>motorControllerBatteryVoltage</secondary></indexterm>
 <para><computeroutput>float* MotorStats::motorControllerBatteryVoltage</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00067">67</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00063">63</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_stats_1ab207f3db0daa47cabc8644495bca6d4e"/><section>
     <title>motorCurrent</title>
 <indexterm><primary>motorCurrent</primary><secondary>MotorStats</secondary></indexterm>
 <indexterm><primary>MotorStats</primary><secondary>motorCurrent</secondary></indexterm>
 <para><computeroutput>float* MotorStats::motorCurrent</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00066">66</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00062">62</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <anchor xml:id="_struct_motor_stats_1a7e3450d33d8be341dea374a2fcafd257"/><section>
     <title>RPM</title>
 <indexterm><primary>RPM</primary><secondary>MotorStats</secondary></indexterm>
 <indexterm><primary>MotorStats</primary><secondary>RPM</secondary></indexterm>
 <para><computeroutput>float* MotorStats::RPM</computeroutput></para><para>
-Definition at line <link linkend="__c_a_n_8h_source_1l00065">65</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
+Definition at line <link linkend="__c_a_n_8h_source_1l00061">61</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

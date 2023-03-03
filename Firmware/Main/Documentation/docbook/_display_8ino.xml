@@ -4,7 +4,7 @@
 <indexterm><primary>Display.ino</primary></indexterm>
 <para>
 
-<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__display_8ino">Display.ino</link> file executes the Display task for the bike&apos;s firmware. This calls on the variables that are initialized in <link linkend="__display_8h">Display.h</link> and then calls on various methods from the ILI9341&apos;s adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it&apos;s changed and writing in the new data. </para>
  
 </para>
 <programlisting linenumbering="unnumbered">#include &quot;Display.h&quot;
@@ -38,7 +38,7 @@
 <section>
 <title>Detailed Description</title>
 
-<para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for CAN bus for the bike&apos;s firmware. This initializes all variables that are passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files. </para>
+<para>The <link linkend="__display_8ino">Display.ino</link> file executes the Display task for the bike&apos;s firmware. This calls on the variables that are initialized in <link linkend="__display_8h">Display.h</link> and then calls on various methods from the ILI9341&apos;s adafruit display library to update the display. Updating the display includes comparing old and new data to ensure data has changed, erasing the previous data if it&apos;s changed and writing in the new data. </para>
 
 <para><formalpara><title>Author</title>
 
@@ -50,22 +50,22 @@
 </formalpara>
 <note><title>Note</title>
 
-<para>up all members to be able to use it without any trouble.</para>
+<para>This works. Display does slow down a bit in the speedometer screen, but that is also due to often the numbers were changing in the <link linkend="__display_8ino_1a2fcaba5d0c64fb3389132dca04224211">manualScreenDataUpdater()</link>method updating data too frequently. Just consider reducing the size of the text in case it looks like it is updating too slowly at speeds of ~60-80 mph.</para>
 </note>
 <para><link linkend="_todo_1_todo000006">Todo</link> 
-<para>PLEASE remove the whole screen parameter situation. Change the whole value in the 
+<para>PLEASE remove the whole screen parameter situation. Change the &quot;screen&quot; variable in the <link linkend="__main_8h">Main.h</link> to be a #define macro and then just check the value from here by directly including <link linkend="__main_8h">Main.h</link> and finding that value. Ez. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
+ Remove all unused vars and tighten up methods. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
+ There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. 
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> Final Goal. </para>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> </para>
 </para></para>
 <para>
 Definition in file <link linkend="__display_8ino_source">Display.ino</link>.</para>
@@ -76,71 +76,91 @@ Definition in file <link linkend="__display_8ino_source">Display.ino</link>.</pa
     <title>aux_voltage_read()</title>
 <indexterm><primary>aux_voltage_read</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>aux_voltage_read</secondary></indexterm>
-<para><computeroutput>float aux_voltage_read ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00265">265</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>float aux_voltage_read ( )</computeroutput></para>
+<para>Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it&apos;s here.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00282">282</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047"/><section>
     <title>displayTask()</title>
 <indexterm><primary>displayTask</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>displayTask</secondary></indexterm>
-<para><computeroutput>void displayTask (void * displayTaskWrap)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00045">45</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void displayTask (void * displayTaskWrap)</computeroutput></para>
+<para>Parses the data from the void pointer to be processable? Idk if that&apos;s word. Passes the measurementScreenData form the displayTaskWrap data and the Screen data from the displayTaskWrap data to the <link linkend="__display_8ino_1ad2818acb0d1eb44a804059aa40c432b3">displayUpdate()</link> method. The <link linkend="__display_8ino_1ad2818acb0d1eb44a804059aa40c432b3">displayUpdate()</link> method then processes it and updates the screen accordingly.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00036">36</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1ad2818acb0d1eb44a804059aa40c432b3"/><section>
     <title>displayUpdate()</title>
 <indexterm><primary>displayUpdate</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>displayUpdate</secondary></indexterm>
 <para><computeroutput>void displayUpdate (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00087">87</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00090">90</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d"/><section>
     <title>eraseThenPrint()</title>
 <indexterm><primary>eraseThenPrint</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>eraseThenPrint</secondary></indexterm>
-<para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00229">229</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
+<para>Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1acf63fd6f02499d20156ded2a3582fb9b"/><section>
     <title>eraseThenPrintSPEEDO()</title>
 <indexterm><primary>eraseThenPrintSPEEDO</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>eraseThenPrintSPEEDO</secondary></indexterm>
-<para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
+<para>Just a flipped color version of <link linkend="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint()</link> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00249">249</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a2fcaba5d0c64fb3389132dca04224211"/><section>
     <title>manualScreenDataUpdater()</title>
 <indexterm><primary>manualScreenDataUpdater</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>manualScreenDataUpdater</secondary></indexterm>
-<para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00253">253</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para>
+<para>Iterates through all the printedVals array and then does += 1 to make sure it&apos;s increasing. This change should be reflected in the display itself.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00267">267</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a756efac71e8cf83b5add1ffcb9035a20"/><section>
     <title>setupDisplay()</title>
 <indexterm><primary>setupDisplay</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>setupDisplay</secondary></indexterm>
-<para><computeroutput>void setupDisplay (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00055">55</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void setupDisplay (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para>
+<para>Calls on tft.begin() method and sets the orientation using tft.setRotatio() and also sets the screen to ILI9341_WHITE or ILI9341_BLACK based on Debugging or Speedometer screen.</para>
+
+<para>Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</para>
+
+<para>Calls on the <link linkend="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen()</link> to finish up the setup.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00051">51</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a"/><section>
     <title>setupMeasurementScreen()</title>
 <indexterm><primary>setupMeasurementScreen</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>setupMeasurementScreen</secondary></indexterm>
-<para><computeroutput>void setupMeasurementScreen (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00196">196</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+<para><computeroutput>void setupMeasurementScreen (<link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para>
+<para>If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</para>
+
+<para>If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</para>
+<para>
+Definition at line <link linkend="__display_8ino_source_1l00199">199</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a48f20f2ac1788f51aaa3aefd6c8ccb96"/><section>
     <title>thermiDataPrint()</title>
 <indexterm><primary>thermiDataPrint</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>thermiDataPrint</secondary></indexterm>
 <para><computeroutput>void thermiDataPrint (bool thermiDataPrint)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00135">135</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00138">138</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8ino_1a1faaa02c20faaddf6f9e78859eb3cb0c"/><section>
     <title>timePrint()</title>
 <indexterm><primary>timePrint</primary><secondary>Display.ino</secondary></indexterm>
 <indexterm><primary>Display.ino</primary><secondary>timePrint</secondary></indexterm>
 <para><computeroutput>void timePrint ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00185">185</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00188">188</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 </section>
 </section>
