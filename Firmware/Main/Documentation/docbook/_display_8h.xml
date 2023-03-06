@@ -489,14 +489,14 @@ Definition at line <link linkend="__display_8h_source_1l00100">100</link> of fil
 <para><computeroutput>float aux_voltage_read ( )</computeroutput></para>
 <para>Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it&apos;s here.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00282">282</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00290">290</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1ad2818acb0d1eb44a804059aa40c432b3"/><section>
     <title>displayUpdate()</title>
 <indexterm><primary>displayUpdate</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>displayUpdate</secondary></indexterm>
 <para><computeroutput>void displayUpdate (<link linkend="__display_8h_1a2dded6e25e0cb307491fd7997b66b2a4">MeasurementScreenData</link> msData, <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00090">90</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00098">98</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d"/><section>
     <title>eraseThenPrint()</title>
@@ -505,7 +505,7 @@ Definition at line <link linkend="__display_8ino_source_1l00090">90</link> of fi
 <para><computeroutput>void eraseThenPrint (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
 <para>Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00246">246</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1acf63fd6f02499d20156ded2a3582fb9b"/><section>
     <title>eraseThenPrintSPEEDO()</title>
@@ -514,7 +514,7 @@ Definition at line <link linkend="__display_8ino_source_1l00238">238</link> of f
 <para><computeroutput>void eraseThenPrintSPEEDO (int xPos, int yPos, String oldData, String newData)</computeroutput></para>
 <para>Just a flipped color version of <link linkend="__display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d">eraseThenPrint()</link> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00249">249</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00257">257</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a2fcaba5d0c64fb3389132dca04224211"/><section>
     <title>manualScreenDataUpdater()</title>
@@ -523,7 +523,7 @@ Definition at line <link linkend="__display_8ino_source_1l00249">249</link> of f
 <para><computeroutput>void manualScreenDataUpdater ( )</computeroutput></para>
 <para>Iterates through all the printedVals array and then does += 1 to make sure it&apos;s increasing. This change should be reflected in the display itself.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00267">267</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00275">275</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a756efac71e8cf83b5add1ffcb9035a20"/><section>
     <title>setupDisplay()</title>
@@ -536,7 +536,7 @@ Definition at line <link linkend="__display_8ino_source_1l00267">267</link> of f
 
 <para>Calls on the <link linkend="__display_8ino_1a2b73a1c90c594f4d6e205cf19666468a">setupMeasurementScreen()</link> to finish up the setup.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00051">51</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00059">59</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a2b73a1c90c594f4d6e205cf19666468a"/><section>
     <title>setupMeasurementScreen()</title>
@@ -547,21 +547,21 @@ Definition at line <link linkend="__display_8ino_source_1l00051">51</link> of fi
 
 <para>If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</para>
 <para>
-Definition at line <link linkend="__display_8ino_source_1l00199">199</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00207">207</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96"/><section>
     <title>thermiDataPrint()</title>
 <indexterm><primary>thermiDataPrint</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>thermiDataPrint</secondary></indexterm>
 <para><computeroutput>void thermiDataPrint (bool thermiDataPrint)</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00138">138</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00146">146</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 <anchor xml:id="__display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c"/><section>
     <title>timePrint()</title>
 <indexterm><primary>timePrint</primary><secondary>Display.h</secondary></indexterm>
 <indexterm><primary>Display.h</primary><secondary>timePrint</secondary></indexterm>
 <para><computeroutput>void timePrint ( )</computeroutput></para><para>
-Definition at line <link linkend="__display_8ino_source_1l00188">188</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
+Definition at line <link linkend="__display_8ino_source_1l00196">196</link> of file <link linkend="__display_8ino_source">Display.ino</link>.</para>
 </section>
 </section>
 <section>

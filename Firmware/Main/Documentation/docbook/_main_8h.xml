@@ -415,7 +415,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00235">235</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00237">237</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a3e0781915a9e0f2045e892efe59f9fdc"/><section>
     <title>getTeensy3Time()</title>
@@ -428,7 +428,7 @@ Definition at line <link linkend="__main_8ino_source_1l00235">235</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00243">243</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00245">245</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e"/><section>
     <title>idleTask()</title>
@@ -441,7 +441,7 @@ Definition at line <link linkend="__main_8ino_source_1l00243">243</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00248">248</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00250">250</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ab91267714bdf99d7b3d177f95f484157"/><section>
     <title>initializeCANStructs()</title>
@@ -458,7 +458,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00216">216</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00218">218</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba"/><section>
     <title>initializeDisplayStructs()</title>
@@ -471,7 +471,7 @@ Definition at line <link linkend="__main_8ino_source_1l00216">216</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00196">196</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00198">198</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de"/><section>
     <title>initializeLogStructs()</title>
@@ -488,7 +488,7 @@ This will be handy to the SOC team later as they implement more changes. </para>
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00205">205</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00207">207</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a32469c898d757b2b30c00d0546f91802"/><section>
     <title>initializePreChargeStruct()</title>
@@ -501,7 +501,7 @@ Definition at line <link linkend="__main_8ino_source_1l00205">205</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00227">227</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00229">229</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1afe461d27b9c48d5921c00d521181f12f"/><section>
     <title>loop()</title>
@@ -514,7 +514,7 @@ Definition at line <link linkend="__main_8ino_source_1l00227">227</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00254">254</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00256">256</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a966fda2bc617e020cb78f814bb5514c1"/><section>
     <title>release_SPI_control()</title>
@@ -535,7 +535,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00239">239</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00241">241</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d"/><section>
     <title>setup()</title>
@@ -608,7 +608,7 @@ Then this method starts the SD Card and prints the status if that works.</para>
 
 <para>If this fails, the method prints out insufficient RAM and breaks.</para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00062">62</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00064">64</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a31d554847ae8fdeaba2460e0395cb75f"/><section>
     <title>setupPins()</title>
@@ -643,7 +643,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
 
 <para>Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00159">159</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00161">161</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 </section>
 <section>

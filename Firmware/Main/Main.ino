@@ -53,7 +53,9 @@
       variables. It doesn't need everything globalized, it can pass them as parameters and eventually
       output to global variables *preCharge.angle_X and *preCharge.angle_Y.
       \n \n
-      TEST
+      Github tutorial:
+      \n \n
+      Syed Yasir
 */
 
 // Includes the Main.h file which in includes all other files and interconnects all other files together.

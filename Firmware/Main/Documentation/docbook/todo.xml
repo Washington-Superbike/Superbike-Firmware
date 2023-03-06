@@ -96,7 +96,11 @@
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link>  </para>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ In the speedometer screen, add code to show angles. If the angle is near the threshold (&gt; ~30 degrees), show it in red. If the angle is near safe (&lt; ~30 degrees), show it in green. Add an indicator that prints out preCharge statuses This variable is called hv_state in <link linkend="__precharge_8h">preCharge.h</link> basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__main_8h">Main.h</link>  </term>
 <listitem>
@@ -128,7 +132,11 @@
 <literallayout>&#160;&#xa;</literallayout>
  
 <literallayout>&#160;&#xa;</literallayout>
- TEST  </para>
+ Github tutorial: 
+<literallayout>&#160;&#xa;</literallayout>
+ 
+<literallayout>&#160;&#xa;</literallayout>
+ Syed Yasir  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__precharge_8h">Precharge.h</link>  </term>
 <listitem>

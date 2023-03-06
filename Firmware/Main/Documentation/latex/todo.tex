@@ -53,7 +53,9 @@
  ~\newline
  There are WAY more macros (\#define statements) that need to be written for defining some frequently used values in display. Can\textquotesingle{}t think of them off the top of my head, but make and use those. ~\newline
  ~\newline
- Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}}  
+ Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} ~\newline
+ ~\newline
+ In the speedometer screen, add code to show angles. If the angle is near the threshold (\texorpdfstring{$>$}{>} $\sim$30 degrees), show it in red. If the angle is near safe (\texorpdfstring{$<$}{<} $\sim$30 degrees), show it in green. Add an indicator that prints out pre\+Charge statuses This variable is called hv\+\_\+state in \mbox{\hyperlink{_precharge_8h}{pre\+Charge.\+h}} basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  
 \item[File \mbox{\hyperlink{_main_8h}{Main.h}} ]\label{todo__todo000007}%
 \Hypertarget{todo__todo000007}%
  Based on refinements made for pre\+Charge/controls.\+ino, remove spare and redundant variables. And just generally ALL the spare variables. ~\newline
@@ -71,7 +73,9 @@
  ~\newline
  Change the name of pre\+Charge. It\textquotesingle{}s not just pre\+Charge now, I personally like the name \char`\"{}controls.\+ino\char`\"{} and \char`\"{}controls.\+h\char`\"{}. Make sure you change the \#includes as well if you do that. Please Please change \char`\"{}pre\+Charge\char`\"{} or whatever it\textquotesingle{}s called to not use this many global/struct variables. It doesn\textquotesingle{}t need everything globalized, it can pass them as parameters and eventually output to global variables $\ast$pre\+Charge.angle\+\_\+X and $\ast$pre\+Charge.angle\+\_\+Y. ~\newline
  ~\newline
- TEST  
+ Github tutorial\+: ~\newline
+ ~\newline
+ Syed Yasir  
 \item[File \mbox{\hyperlink{_precharge_8h}{Precharge.h}} ]\label{todo__todo000009}%
 \Hypertarget{todo__todo000009}%
  Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline

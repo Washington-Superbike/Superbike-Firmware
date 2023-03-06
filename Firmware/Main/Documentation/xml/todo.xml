@@ -59,7 +59,9 @@
  <linebreak/>
  There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. <linebreak/>
  <linebreak/>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <ref refid="_main_8h" kindref="compound">Main.h</ref>  </para>
+ Change the thermistor code to use &quot;NUM_THERMI&quot; from <ref refid="_main_8h" kindref="compound">Main.h</ref> <linebreak/>
+ <linebreak/>
+ In the speedometer screen, add code to show angles. If the angle is near the threshold (&gt; ~30 degrees), show it in red. If the angle is near safe (&lt; ~30 degrees), show it in green. Add an indicator that prints out preCharge statuses This variable is called hv_state in <ref refid="_precharge_8h" kindref="compound">preCharge.h</ref> basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_main_8h" kindref="compound">Main.h</ref>  </term></varlistentry>
 <listitem><para><anchor id="todo_1_todo000007"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <linebreak/>
@@ -77,7 +79,9 @@
  <linebreak/>
  Change the name of preCharge. It&apos;s not just preCharge now, I personally like the name &quot;controls.ino&quot; and &quot;controls.h&quot;. Make sure you change the #includes as well if you do that. Please Please change &quot;preCharge&quot; or whatever it&apos;s called to not use this many global/struct variables. It doesn&apos;t need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. <linebreak/>
  <linebreak/>
- TEST  </para>
+ Github tutorial: <linebreak/>
+ <linebreak/>
+ Syed Yasir  </para>
 </listitem>
 <varlistentry><term>File <ref refid="_precharge_8h" kindref="compound">Precharge.h</ref>  </term></varlistentry>
 <listitem><para><anchor id="todo_1_todo000009"/> Change the preChargeStruct data to use less floats, etc. <linebreak/>

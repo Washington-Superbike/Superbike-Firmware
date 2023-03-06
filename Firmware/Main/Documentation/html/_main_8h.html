@@ -404,7 +404,7 @@ The purpose of a mutex is to create a sort of indication to the RTOS that there 
  <br  />
 Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00235">235</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00237">237</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -424,7 +424,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>Just a basic helper method that returns the time variable that is stored in the teensy's RTC. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00243">243</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00245">245</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -445,7 +445,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>Just a basic IDLE task that seems to do nothing. If triggered it blocks out for 50 CPU cycles. Doing nothing. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00248">248</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00250">250</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -467,7 +467,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
  <br  />
 Update this accordingly as we add more CAN items to the bike (if we ever do). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00216">216</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00218">218</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -487,7 +487,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="_main_8h.html#a128d10ba9e06eb69d1dfc91ffef935ba">initializeDisplayStructs()</a> uses the variables: seriesVoltage, motorControllerBatteryVoltage, auxiliaryBatteryVoltage, RPM, motorControllerTemp, motorCurrent, errorMessage, chargerCurrent, chargerVoltage, bms_status_flag, evccVoltage, thTempshe and then packages them into a variable called measurementData which is taken from <a class="el" href="_display_8h.html" title="The Display.h config file for the Display task for the bike&#39;s firmware. This defines the variables th...">Display.h</a> Then the measurement data and screen variable are packaged into the displayTaskWrap variable which is passed to the displayTask as the void pointer for the task's data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00196">196</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00198">198</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -509,7 +509,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
  <br  />
 This will be handy to the SOC team later as they implement more changes. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00205">205</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00207">207</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -529,7 +529,7 @@ This will be handy to the SOC team later as they implement more changes. </dd></
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="_main_8h.html#a32469c898d757b2b30c00d0546f91802">initializePreChargeStruct()</a> uses too many variables... It is primarily composed of the cellVoltages, bmsStatus, etc. which are used to shutdown or startup to bike depending on the situation it is in. The rest of the variables correspond to the bloated method we use for gyroscope reading. It is good for racing and is efficient enough, but if we ever run out of stuff to do please make it less bloated as described in the TODO at the top of the file. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00227">227</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00229">229</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -549,7 +549,7 @@ This will be handy to the SOC team later as they implement more changes. </dd></
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>Arduino framework classic. <a class="el" href="_main_8h.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a> should run once. <a class="el" href="_main_8h.html#afe461d27b9c48d5921c00d521181f12f">loop()</a> should run forever. Doesn't work in our case because we run RTOS via <a class="el" href="_main_8h.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00254">254</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00256">256</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -574,7 +574,7 @@ The purpose of a mutex is to create a sort of indication to the RTOS that there 
  <br  />
 Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00239">239</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00241">241</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -623,7 +623,7 @@ File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will s
 <p >Lastly the method prints out that it will attempt to start the scheduler. If this succeeds, only lines from the task methods should know execute.</p>
 <p >If this fails, the method prints out insufficient RAM and breaks.</p>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00062">62</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00064">64</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>
@@ -653,7 +653,7 @@ File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will s
 <p >Initializes the pin corresponding to the Contactor Precharge-Read LED as output and then outputs LOW to that pin.</p>
 <p >Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</p>
 
-<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00159">159</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_8ino_source.html#l00161">161</a> of file <a class="el" href="_main_8ino_source.html">Main.ino</a>.</p>
 
 </div>
 </div>

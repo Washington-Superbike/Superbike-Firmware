@@ -1284,7 +1284,7 @@ Then this method starts the SD Card and prints the status if that works.</para>
 <para>Lastly the method prints out that it will attempt to start the scheduler. If this succeeds, only lines from the task methods should know execute.</para>
 <para>If this fails, the method prints out insufficient RAM and breaks.</para>
         </inbodydescription>
-        <location file="Main.h" line="282" column="6" bodyfile="Main.ino" bodystart="62" bodyend="157" declfile="Main.h" declline="282" declcolumn="6"/>
+        <location file="Main.h" line="282" column="6" bodyfile="Main.ino" bodystart="64" bodyend="159" declfile="Main.h" declline="282" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1311,7 +1311,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
 <para>Initializes the pin corresponding to the Contactor Precharge-Read LED as output and then outputs LOW to that pin.</para>
 <para>Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</para>
         </inbodydescription>
-        <location file="Main.h" line="289" column="6" bodyfile="Main.ino" bodystart="159" bodyend="194" declfile="Main.h" declline="289" declcolumn="6"/>
+        <location file="Main.h" line="289" column="6" bodyfile="Main.ino" bodystart="161" bodyend="196" declfile="Main.h" declline="289" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1327,7 +1327,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="299" column="6" bodyfile="Main.ino" bodystart="196" bodyend="203" declfile="Main.h" declline="299" declcolumn="6"/>
+        <location file="Main.h" line="299" column="6" bodyfile="Main.ino" bodystart="198" bodyend="205" declfile="Main.h" declline="299" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1345,7 +1345,7 @@ This will be handy to the SOC team later as they implement more changes. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="310" column="6" bodyfile="Main.ino" bodystart="205" bodyend="214" declfile="Main.h" declline="310" declcolumn="6"/>
+        <location file="Main.h" line="310" column="6" bodyfile="Main.ino" bodystart="207" bodyend="216" declfile="Main.h" declline="310" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1ab91267714bdf99d7b3d177f95f484157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1363,7 +1363,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="323" column="6" bodyfile="Main.ino" bodystart="216" bodyend="225" declfile="Main.h" declline="323" declcolumn="6"/>
+        <location file="Main.h" line="323" column="6" bodyfile="Main.ino" bodystart="218" bodyend="227" declfile="Main.h" declline="323" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a32469c898d757b2b30c00d0546f91802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1379,7 +1379,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="333" column="6" bodyfile="Main.ino" bodystart="227" bodyend="233" declfile="Main.h" declline="333" declcolumn="6"/>
+        <location file="Main.h" line="333" column="6" bodyfile="Main.ino" bodystart="229" bodyend="235" declfile="Main.h" declline="333" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1aafd615bc53c2f27720d792a6a2968209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1403,7 +1403,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="348" column="6" bodyfile="Main.ino" bodystart="235" bodyend="237" declfile="Main.h" declline="348" declcolumn="6"/>
+        <location file="Main.h" line="348" column="6" bodyfile="Main.ino" bodystart="237" bodyend="239" declfile="Main.h" declline="348" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a966fda2bc617e020cb78f814bb5514c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1426,7 +1426,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="363" column="6" bodyfile="Main.ino" bodystart="239" bodyend="241" declfile="Main.h" declline="363" declcolumn="6"/>
+        <location file="Main.h" line="363" column="6" bodyfile="Main.ino" bodystart="241" bodyend="243" declfile="Main.h" declline="363" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a3e0781915a9e0f2045e892efe59f9fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>time_t</type>
@@ -1442,7 +1442,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="368" column="8" bodyfile="Main.ino" bodystart="243" bodyend="246" declfile="Main.h" declline="368" declcolumn="8"/>
+        <location file="Main.h" line="368" column="8" bodyfile="Main.ino" bodystart="245" bodyend="248" declfile="Main.h" declline="368" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1462,7 +1462,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="374" column="6" bodyfile="Main.ino" bodystart="248" bodyend="252" declfile="Main.h" declline="374" declcolumn="6"/>
+        <location file="Main.h" line="374" column="6" bodyfile="Main.ino" bodystart="250" bodyend="254" declfile="Main.h" declline="374" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1afe461d27b9c48d5921c00d521181f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1478,7 +1478,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="380" column="6" bodyfile="Main.ino" bodystart="254" bodyend="255" declfile="Main.h" declline="380" declcolumn="6"/>
+        <location file="Main.h" line="380" column="6" bodyfile="Main.ino" bodystart="256" bodyend="257" declfile="Main.h" declline="380" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

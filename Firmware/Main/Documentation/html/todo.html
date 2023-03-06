@@ -114,7 +114,9 @@ $(function() {
  <br  />
  There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can't think of them off the top of my head, but make and use those. <br  />
  <br  />
- Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a>  </dd>
+ Change the thermistor code to use "NUM_THERMI" from <a class="el" href="_main_8h.html" title="The main config file for bike firmware. This initializes all variables that are passed along to all o...">Main.h</a> <br  />
+ <br  />
+ In the speedometer screen, add code to show angles. If the angle is near the threshold (&gt; ~30 degrees), show it in red. If the angle is near safe (&lt; ~30 degrees), show it in green. Add an indicator that prints out preCharge statuses This variable is called hv_state in <a class="el" href="_precharge_8h.html" title="The PreCharge.h config file for the PreCharge/Controls task for the bike&#39;s firmware....">preCharge.h</a> basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  </dd>
 <dt>File <a class="el" href="_main_8h.html">Main.h</a>  </dt>
 <dd><a class="anchor" id="_todo000007"></a> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <br  />
  <br  />
@@ -130,7 +132,9 @@ $(function() {
  <br  />
  Change the name of preCharge. It's not just preCharge now, I personally like the name "controls.ino" and "controls.h". Make sure you change the #includes as well if you do that. Please Please change "preCharge" or whatever it's called to not use this many global/struct variables. It doesn't need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. <br  />
  <br  />
- TEST  </dd>
+ Github tutorial: <br  />
+ <br  />
+ Syed Yasir  </dd>
 <dt>File <a class="el" href="_precharge_8h.html">Precharge.h</a>  </dt>
 <dd><a class="anchor" id="_todo000009"></a> Change the preChargeStruct data to use less floats, etc. <br  />
  <br  />

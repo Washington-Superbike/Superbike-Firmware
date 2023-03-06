@@ -54,7 +54,9 @@ As of 3/1/2023, I think this firmware is fully race-\/ready and meeting all requ
  ~\newline
  Change the name of pre\+Charge. It\textquotesingle{}s not just pre\+Charge now, I personally like the name \char`\"{}controls.\+ino\char`\"{} and \char`\"{}controls.\+h\char`\"{}. Make sure you change the \#includes as well if you do that. Please Please change \char`\"{}pre\+Charge\char`\"{} or whatever it\textquotesingle{}s called to not use this many global/struct variables. It doesn\textquotesingle{}t need everything globalized, it can pass them as parameters and eventually output to global variables $\ast$pre\+Charge.angle\+\_\+X and $\ast$pre\+Charge.angle\+\_\+Y. ~\newline
  ~\newline
- TEST \end{DoxyRefDesc}
+ Github tutorial\+: ~\newline
+ ~\newline
+ Syed Yasir \end{DoxyRefDesc}
 
 
 Definition in file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
@@ -77,7 +79,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00235}{235}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00237}{237}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}\label{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}} 
 \index{Main.ino@{Main.ino}!getTeensy3Time@{getTeensy3Time}}
@@ -90,7 +92,7 @@ Just a basic helper method that returns the time variable that is stored in the 
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00243}{243}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00245}{245}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}\label{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}} 
 \index{Main.ino@{Main.ino}!idleTask@{idleTask}}
@@ -103,7 +105,7 @@ Just a basic IDLE task that seems to do nothing. If triggered it blocks out for 
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00248}{248}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00250}{250}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_ab91267714bdf99d7b3d177f95f484157}\label{_main_8ino_ab91267714bdf99d7b3d177f95f484157}} 
 \index{Main.ino@{Main.ino}!initializeCANStructs@{initializeCANStructs}}
@@ -118,7 +120,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do).
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00216}{216}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00218}{218}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}\label{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}} 
 \index{Main.ino@{Main.ino}!initializeDisplayStructs@{initializeDisplayStructs}}
@@ -131,7 +133,7 @@ Definition at line \mbox{\hyperlink{_main_8ino_source_l00216}{216}} of file \mbo
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00196}{196}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00198}{198}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}\label{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}} 
 \index{Main.ino@{Main.ino}!initializeLogStructs@{initializeLogStructs}}
@@ -146,7 +148,7 @@ This will be handy to the SOC team later as they implement more changes.
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00205}{205}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00207}{207}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a32469c898d757b2b30c00d0546f91802}\label{_main_8ino_a32469c898d757b2b30c00d0546f91802}} 
 \index{Main.ino@{Main.ino}!initializePreChargeStruct@{initializePreChargeStruct}}
@@ -159,7 +161,7 @@ Definition at line \mbox{\hyperlink{_main_8ino_source_l00205}{205}} of file \mbo
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00227}{227}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00229}{229}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_main_8ino_afe461d27b9c48d5921c00d521181f12f}} 
 \index{Main.ino@{Main.ino}!loop@{loop}}
@@ -172,7 +174,7 @@ Arduino framework classic. \mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b6
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00254}{254}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00256}{256}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}\label{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}} 
 \index{Main.ino@{Main.ino}!release\_SPI\_control@{release\_SPI\_control}}
@@ -189,7 +191,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00239}{239}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00241}{241}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
 \index{Main.ino@{Main.ino}!setup@{setup}}
@@ -245,7 +247,7 @@ Lastly the method prints out that it will attempt to start the scheduler. If thi
 
 If this fails, the method prints out insufficient RAM and breaks.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00062}{62}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00064}{64}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}\label{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}} 
 \index{Main.ino@{Main.ino}!setupPins@{setupPins}}
@@ -277,5 +279,5 @@ Initializes the pin corresponding to the Contactor Precharge-\/\+Read LED as out
 
 Initializes the pin corresponding to the Contactor-\/\+Closed LED as output and then outputs LOW to that pin.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00159}{159}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00161}{161}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 

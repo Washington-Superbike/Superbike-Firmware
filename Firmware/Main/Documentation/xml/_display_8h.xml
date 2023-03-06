@@ -662,7 +662,7 @@
 <para>Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</para>
 <para>Calls on the <ref refid="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" kindref="member">setupMeasurementScreen()</ref> to finish up the setup.</para>
         </inbodydescription>
-        <location file="Display.h" line="208" column="6" bodyfile="Display.ino" bodystart="51" bodyend="88" declfile="Display.h" declline="208" declcolumn="6"/>
+        <location file="Display.h" line="208" column="6" bodyfile="Display.ino" bodystart="59" bodyend="96" declfile="Display.h" declline="208" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -683,7 +683,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="209" column="6" bodyfile="Display.ino" bodystart="90" bodyend="136" declfile="Display.h" declline="209" declcolumn="6"/>
+        <location file="Display.h" line="209" column="6" bodyfile="Display.ino" bodystart="98" bodyend="144" declfile="Display.h" declline="209" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -700,7 +700,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="210" column="6" bodyfile="Display.ino" bodystart="138" bodyend="186" declfile="Display.h" declline="210" declcolumn="6"/>
+        <location file="Display.h" line="210" column="6" bodyfile="Display.ino" bodystart="146" bodyend="194" declfile="Display.h" declline="210" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -713,7 +713,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="211" column="6" bodyfile="Display.ino" bodystart="188" bodyend="197" declfile="Display.h" declline="211" declcolumn="6"/>
+        <location file="Display.h" line="211" column="6" bodyfile="Display.ino" bodystart="196" bodyend="205" declfile="Display.h" declline="211" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -732,7 +732,7 @@
 <para>If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</para>
 <para>If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</para>
         </inbodydescription>
-        <location file="Display.h" line="212" column="6" bodyfile="Display.ino" bodystart="199" bodyend="236" declfile="Display.h" declline="212" declcolumn="6"/>
+        <location file="Display.h" line="212" column="6" bodyfile="Display.ino" bodystart="207" bodyend="244" declfile="Display.h" declline="212" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -762,7 +762,7 @@
         <inbodydescription>
 <para>Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</para>
         </inbodydescription>
-        <location file="Display.h" line="213" column="6" bodyfile="Display.ino" bodystart="238" bodyend="247" declfile="Display.h" declline="213" declcolumn="6"/>
+        <location file="Display.h" line="213" column="6" bodyfile="Display.ino" bodystart="246" bodyend="255" declfile="Display.h" declline="213" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -792,7 +792,7 @@
         <inbodydescription>
 <para>Just a flipped color version of <ref refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kindref="member">eraseThenPrint()</ref> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</para>
         </inbodydescription>
-        <location file="Display.h" line="214" column="6" bodyfile="Display.ino" bodystart="249" bodyend="259" declfile="Display.h" declline="214" declcolumn="6"/>
+        <location file="Display.h" line="214" column="6" bodyfile="Display.ino" bodystart="257" bodyend="267" declfile="Display.h" declline="214" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -806,7 +806,7 @@
         <inbodydescription>
 <para>Iterates through all the printedVals array and then does += 1 to make sure it&apos;s increasing. This change should be reflected in the display itself.</para>
         </inbodydescription>
-        <location file="Display.h" line="216" column="6" bodyfile="Display.ino" bodystart="267" bodyend="280" declfile="Display.h" declline="216" declcolumn="6"/>
+        <location file="Display.h" line="216" column="6" bodyfile="Display.ino" bodystart="275" bodyend="288" declfile="Display.h" declline="216" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1ad609934bdce8f8169cc609cb7913f507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -820,7 +820,7 @@
         <inbodydescription>
 <para>Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it&apos;s here.</para>
         </inbodydescription>
-        <location file="Display.h" line="217" column="7" bodyfile="Display.ino" bodystart="282" bodyend="289" declfile="Display.h" declline="217" declcolumn="7"/>
+        <location file="Display.h" line="217" column="7" bodyfile="Display.ino" bodystart="290" bodyend="297" declfile="Display.h" declline="217" declcolumn="7"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

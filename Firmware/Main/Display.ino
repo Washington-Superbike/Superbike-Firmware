@@ -27,6 +27,14 @@
       of them off the top of my head, but make and use those.
       \n \n
       Change the thermistor code to use "NUM_THERMI" from Main.h
+      \n \n
+      In the speedometer screen, add code to show angles.
+      If the angle is near the threshold (> ~30 degrees), show it in red.
+      If the angle is near safe (< ~30 degrees), show it in green.
+      Add an indicator that prints out preCharge statuses
+        This variable is called hv_state in preCharge.h
+        basically print out this variable if possbie.
+        This is similar to how cars print out engine flags, etc.
 */
 
 #include "Display.h"
