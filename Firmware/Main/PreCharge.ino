@@ -56,6 +56,8 @@ void prechargeTask(void *taskData) {
   while (1) {
     preChargeCircuitFSMStateActions(prechargeData);
     preChargeCircuitFSMTransitions(prechargeData);
+    Serial.println(*preChargeData.angle_X);
+    Serial.println(*preChargeData.angle_Y);
     updateGyroData(preChargeData);
 
     // 100 ms should be unnoticeable compared to other task updates

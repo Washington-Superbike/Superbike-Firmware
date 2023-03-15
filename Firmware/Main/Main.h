@@ -74,7 +74,7 @@
 /// A screen enum that defines the type of screen to generate
 /// in Display.ino.
 /// \note NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE!
-static Screen screen = {SPEEDOMETER};
+static Screen screen = {DEBUG};
 
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.
