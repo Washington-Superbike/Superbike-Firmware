@@ -57,7 +57,6 @@
       \n \n
       Syed Yasir
       \n \n 
-      Jaden Le
 */
 
 // Includes the Main.h file which in includes all other files and interconnects all other files together.
