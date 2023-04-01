@@ -37,9 +37,6 @@
       by being passed their address and changing their value using that address.
       Instead of creating 10 copies when passing variables around, there's just
       one global copy.
-      ALSO, if you are looking to change configurations for the overall
-      firmware this is the place to do it. Changing the number of CAN devices connected,
-      the Screen type used, etc. All can be done from here.
 
     \todo
       Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables.
@@ -53,23 +50,13 @@
 */
 
 #pragma once
+#include "config.h"
 #include "CAN.h"
 #include "Display.h"
 #include "Precharge.h"
 #include "DataLogging.h"
 #include "FreeRTOS_TEENSY4.h"
 #include <TimeLib.h>
-
-
-/// This primarily exists to debug the changes made in the FlexCAN library.
-/// If there are no devices connected on the CAN bus, the firmware crashes
-/// This line can be set to 0 to ensure that the CAN bus does not bother
-/// to check the CAN bus if there are 0 nodes connected.
-#define CAN_NODES 0
-
-/// This exists to be changed based on the final number of thermistors
-/// we settle on having in the code later.
-#define NUM_THERMI 10
 
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.

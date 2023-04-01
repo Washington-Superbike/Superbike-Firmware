@@ -42,10 +42,6 @@
 /// Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
 #define DISPLAY_UPDATE_TIME_MAX 50
 
-/// Defines the type of screen to generate in Display.ino.
-/// \note NOTE: COMMENT OUT THIS DEFINE STATEMENT TO CHANGE DISPLAY TYPE TO SPEEDOMETER!
-#define USE_DEBUGGING_SCREEN
-
 /// The Teensy pin used for the display's chip select pin
 #define TFT_CS 10
 /// The Teensy pin used for the display data/command pin
