@@ -71,10 +71,9 @@
 /// we settle on having in the code later.
 #define NUM_THERMI 10
 
-/// A screen enum that defines the type of screen to generate
-/// in Display.ino.
-/// \note NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE!
-static Screen screen = {DEBUG};
+/// Defines the type of screen to generate in Display.ino.
+/// \note NOTE: COMMENT OUT THIS DEFINE STATEMENT TO CHANGE DISPLAY TYPE TO SPEEDOMETER!
+#define USE_DEBUGGING_SCREEN
 
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.
@@ -204,8 +203,6 @@ static ChargeControllerStats chargeControllerStats = {};
 // These variables store all the task data for all 4 tasks (except IDLE)
 /// An instance of a struct to store all CAN data, then pass it as a void pointer.
 static CANTaskData canTaskData;
-/// An instance of a struct to store all display data, then pass it as a void pointer.
-static displayPointer displayTaskWrap = {};
 /// An instance of a struct to store all dataLogging data, then pass it as a void pointer.
 static DataLoggingTaskData dataLoggingTaskData;
 /// An instance of a struct to store all preCharge data, then pass it as a void pointer.

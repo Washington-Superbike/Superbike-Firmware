@@ -111,7 +111,7 @@ void setup() {
 
   /// Then this method calls on the setupDisplay() method which just initializes variables that are used
   /// by the displayTask()
-  setupDisplay(measurementData, screen);
+  setupDisplay(measurementData);
 
   /// Then this method calls on the setupCAN() method which just initializes the CAN bus at a baud rate
   /// of 250000. And then begins the CAN bus.
@@ -140,7 +140,7 @@ void setup() {
   // make sure to set CAN_NODES in config.h
   s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&displayTaskWrap, 2, NULL);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
 
   /// Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error
@@ -202,7 +202,6 @@ void initializeDisplayStructs() {
     &RPM, &motorControllerTemp, &motorCurrent, &errorMessage,
     &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage, thTemps
   };
-  displayTaskWrap = {&measurementData, &screen};
 }
 
 void initializeLogStructs() {

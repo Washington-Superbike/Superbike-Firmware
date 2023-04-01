@@ -93,15 +93,6 @@ typedef enum {
 } PRINT_TYPE;
 
 /**
- * Just a basic enum to store the type of Screen being printed.
- * As stated in the todo, this should probably be replaced. No point
- * in having it.
- */
-typedef enum {
-  DEBUG, SPEEDOMETER
-} SCREEN_TYPE;
-
-/**
  * The first complex struct. Stores all the info of a specific type of data we're
  * storing. This includes the x and y position of the label, the x and y position
  * of the data, the data type, a pointer to the current data, a float to store the
@@ -144,15 +135,6 @@ typedef struct PrintedDataTimeStuct {
 } PrintedDataTimeStuct;
 
 /**
- * Basic struct that just implements the Screen enum
- * as a struct. Please remove this once the macro
- * is implemented.
- */
-typedef struct ScreenInfo {
-  SCREEN_TYPE screenType;
-} Screen;
-
-/**
  * The last complex struct. This just contains all the floats and integers
  * as pointers that point to the original variables from Main.h. This just packages
  * all the data used by the MeasurementScreenDataStruct.
@@ -171,15 +153,6 @@ typedef struct MeasurementScreenDataStruct {
   float* evccVoltage;
   float* thermistorTemps;
 } MeasurementScreenData;
-
-/**
- * The displayTaskWrapper() struct just wraps up the MeasurementScreenData
- * and the Screen data (realistically, can be removed...) for the displayTask()
- */
-typedef struct displayTaskWrapper {
-  MeasurementScreenData* msDataWrap;
-  Screen* screenDataWrap;
-} displayPointer;
 
 /// The global variable used to write to the display.
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
@@ -205,13 +178,12 @@ PrintedDataTimeStuct timeData;
 
 // These methods are not documented here because the internal documentation in
 // Display.ino covers it properly.
-void setupDisplay(MeasurementScreenData msData, Screen screen);
-void displayUpdate(MeasurementScreenData msData, Screen screen);
+void setupDisplay(MeasurementScreenData msData);
+void displayUpdate(MeasurementScreenData msData);
 void thermiDataPrint(bool thermiDataPrint);
 void timePrint();
-void setupMeasurementScreen(Screen screen);
+void setupMeasurementScreen();
 void eraseThenPrint(int xPos, int yPos, String oldData, String newData);
-void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData);
 //void screenEraser(int scaler, int i);
 void manualScreenDataUpdater();
 float aux_voltage_read();

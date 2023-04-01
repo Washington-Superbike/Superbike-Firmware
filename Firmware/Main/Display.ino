@@ -16,10 +16,6 @@
       text in case it looks like it is updating too slowly at speeds of ~60-80 mph.
 
     \todo
-      PLEASE remove the whole screen parameter situation. Change the "screen"
-      variable in the Main.h to be a #define macro and then just check
-      the value from here by directly including Main.h and finding that value. Ez.
-      \n \n
       Remove all unused vars and tighten up methods.
       \n \n
       There are WAY more macros (#define statements) that need to be written
@@ -41,41 +37,42 @@
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
-void displayTask(void *displayTaskWrap) {
+/// Sets a default erasing(background)/writing(print) color based on screen type
+#ifdef USE_DEBUGGING_SCREEN
+  #define BACKGROUND_COLOR ILI9341_WHITE
+  #define PRINT_COLOR ILI9341_BLACK
+#else // (if speedometer screen)
+  #define BACKGROUND_COLOR ILI9341_BLACK
+  #define PRINT_COLOR ILI9341_WHITE
+#endif
+
+void displayTask(void *measurementDataPtr) {
   while (1) {
     /// Parses the data from the void pointer to be processable? Idk if that's word.
-    /// Passes the measurementScreenData form the displayTaskWrap data and
-    /// the Screen data from the displayTaskWrap data to the displayUpdate()
+    /// Passes the measurementScreenData to the displayUpdate()
     /// method. The displayUpdate() method then processes it and updates
     /// the screen accordingly.
-    displayPointer displayWrapper = *(displayPointer *)displayTaskWrap;
-    MeasurementScreenData test = *(displayWrapper.msDataWrap);
-    displayUpdate(*(displayWrapper.msDataWrap), *(displayWrapper.screenDataWrap));
+    MeasurementScreenData msData = *(MeasurementScreenData *)measurementDataPtr;
+    displayUpdate(msData);
     manualScreenDataUpdater();
     vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
   }
 }
 
-void setupDisplay(MeasurementScreenData msData, Screen screen) {
+void setupDisplay(MeasurementScreenData msData) {
   /// Calls on tft.begin() method and sets the orientation using
   /// tft.setRotatio() and also sets the screen to ILI9341_WHITE
   /// or ILI9341_BLACK based on Debugging or Speedometer screen.
   tft.begin();
   tft.setRotation(1);
-  if (screen.screenType == DEBUG){
-    tft.fillScreen(ILI9341_WHITE);
-  }
-
-  if (screen.screenType == SPEEDOMETER){
-    tft.fillScreen(ILI9341_BLACK);
-  }
+  tft.fillScreen(BACKGROUND_COLOR);
+  tft.setTextColor(PRINT_COLOR);
 
   //PrintedData *thermTemps = &printedVals[7];
   //PrintedData *timeData = &printedVals[11];
 
   /// Initializes all the PrintedDataStructs to set their position, values,
   /// and point to the correct pointer corresponding to the correct data.
-
   *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.mainBatteryVoltage, 1, "Main Batt Voltage: "};
   *motorControllerVoltage = {1, 10 + VERTICAL_SCALER * 1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorControllerVoltage, 1, "Main Batt Voltage (Motor Controller): "};
   float auxVolt = aux_voltage_read();
@@ -92,11 +89,11 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
   thermiData = {1, 10 + VERTICAL_SCALER * 7, 180, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
 
   /// Calls on the setupMeasurementScreen() to finish up the setup.
-  setupMeasurementScreen(screen);
+  setupMeasurementScreen();
 }
 
-void displayUpdate(MeasurementScreenData msData, Screen screen) {
-  if (screen.screenType == DEBUG) {
+void displayUpdate(MeasurementScreenData msData) {
+  #ifdef USE_DEBUGGING_SCREEN
     tft.setTextSize(1);
     for (int i = 0; i < NUM_DATA; i++) {
       if (printedVals[i].type == NUMBER) {
@@ -112,10 +109,8 @@ void displayUpdate(MeasurementScreenData msData, Screen screen) {
 
     // Printing out time data
     timePrint();
-  }
-
-  if (screen.screenType == SPEEDOMETER){
-    tft.setTextColor(ILI9341_WHITE);
+    
+  #else // (if speedometer screen)
     tft.setTextSize(8);
     String newString = "";
     String oldString = "";
@@ -134,13 +129,13 @@ void displayUpdate(MeasurementScreenData msData, Screen screen) {
       oldString = (String) (int) oldSpeed;
 //      Serial.println(newString);
 //      Serial.println(oldString);
-      eraseThenPrintSPEEDO(175, 0, oldString, newString);
+      eraseThenPrint(175, 0, oldString, newString);
       newString = (String) (int) *printedVals[3].currData;
       oldString = (String) (int) printedVals[3].oldData;
-      eraseThenPrintSPEEDO(120, 180, oldString, newString);
+      eraseThenPrint(120, 180, oldString, newString);
       printedVals[3].oldData = *printedVals[3].currData;
     }
-  }
+  #endif
 }
 
 void thermiDataPrint(bool thermiDataPrint) {
@@ -189,7 +184,6 @@ void thermiDataPrint(bool thermiDataPrint) {
     if (!sameData) {
       eraseThenPrint(thermiData.dataX, thermiData.y + VERTICAL_SCALER, sOld, sNew);
     }
-
   }
 }
 
@@ -204,13 +198,12 @@ void timePrint() {
 
 }
 
-void setupMeasurementScreen(Screen screen) {
+void setupMeasurementScreen() {
   /// If the screen is debugging type, it will print out all
   /// the data labels in their data locations as a black text
   /// This is achieved using a bunch of tft methods. Nice.
-  if (screen.screenType == DEBUG) {
+  #ifdef USE_DEBUGGING_SCREEN
     tft.setTextSize(1);
-    tft.setTextColor(ILI9341_BLACK);
 
     for (int i = 0; i < NUM_DATA; i++) {
       tft.setCursor(printedVals[i].labelX, printedVals[i].y);
@@ -224,12 +217,11 @@ void setupMeasurementScreen(Screen screen) {
     // Printing out thermistor temps label
     tft.setCursor(thermiData.labelX, thermiData.y);
     tft.print(thermiData.labelPtr);
-  }
+    
   /// If the screen is speedometer type, it will print out all
   /// the data labels in their locations (SPEED up top and RPM
   /// at the bottom). This is achieved using a bunch of tft methods. Nice.
-  if (screen.screenType == SPEEDOMETER){
-    tft.setTextColor(ILI9341_WHITE);
+  #else
     tft.setTextSize(5);
 
     tft.setCursor(0,0);
@@ -240,29 +232,17 @@ void setupMeasurementScreen(Screen screen) {
 
     tft.setCursor(0, 205);
     tft.print("RPM");
-  }
+  #endif
 }
 
 void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
   /// Erases the old value using the oldData parameter by writing it in
-  /// white text and then setting it to black text to write the newData.
+  /// the background color and then setting it back to the printing color to write the newData.
   tft.setCursor(xPos, yPos);
-  tft.setTextColor(ILI9341_WHITE);
+  tft.setTextColor(BACKGROUND_COLOR);
   tft.print(oldData);
   tft.setCursor(xPos, yPos);
-  tft.setTextColor(ILI9341_BLACK);
-  tft.print(newData);
-}
-
-void eraseThenPrintSPEEDO(int xPos, int yPos, String oldData, String newData) {
-  /// Just a flipped color version of eraseThenPrint()
-  /// Erases the old value using the oldData parameter by writing it in
-  /// black text and then setting it to white text to write the newData.
-  tft.setCursor(xPos, yPos);
-  tft.setTextColor(ILI9341_BLACK);
-  tft.print(oldData);
-  tft.setCursor(xPos, yPos);
-  tft.setTextColor(ILI9341_WHITE);
+  tft.setTextColor(PRINT_COLOR);
   tft.print(newData);
 }
 
