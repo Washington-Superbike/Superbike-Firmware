@@ -71,10 +71,6 @@
 /// we settle on having in the code later.
 #define NUM_THERMI 10
 
-/// Defines the type of screen to generate in Display.ino.
-/// \note NOTE: COMMENT OUT THIS DEFINE STATEMENT TO CHANGE DISPLAY TYPE TO SPEEDOMETER!
-#define USE_DEBUGGING_SCREEN
-
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.
 /// Self explanatory. Read datasheet if more info needed.

@@ -42,6 +42,10 @@
 /// Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
 #define DISPLAY_UPDATE_TIME_MAX 50
 
+/// Defines the type of screen to generate in Display.ino.
+/// \note NOTE: COMMENT OUT THIS DEFINE STATEMENT TO CHANGE DISPLAY TYPE TO SPEEDOMETER!
+#define USE_DEBUGGING_SCREEN
+
 /// The Teensy pin used for the display's chip select pin
 #define TFT_CS 10
 /// The Teensy pin used for the display data/command pin
@@ -70,6 +74,15 @@
 /// A Scaler for moving vertical data down. Each row of data is a factor of
 /// 16 pixels away from each other, vertically.
 #define VERTICAL_SCALER 16
+
+/// Sets a default erasing(background)/writing(print) color based on screen type
+#ifdef USE_DEBUGGING_SCREEN
+  #define BACKGROUND_COLOR ILI9341_WHITE
+  #define PRINT_COLOR ILI9341_BLACK
+#else // (if speedometer screen)
+  #define BACKGROUND_COLOR ILI9341_BLACK
+  #define PRINT_COLOR ILI9341_WHITE
+#endif
 
 // Touch screen parameters.
 /// Not sure why this is so high. Google it, but as of now it's unused.
@@ -180,7 +193,7 @@ PrintedDataTimeStuct timeData;
 // Display.ino covers it properly.
 void setupDisplay(MeasurementScreenData msData);
 void displayUpdate(MeasurementScreenData msData);
-void thermiDataPrint(bool thermiDataPrint);
+void thermiDataPrint(int numberOfLines);
 void timePrint();
 void setupMeasurementScreen();
 void eraseThenPrint(int xPos, int yPos, String oldData, String newData);

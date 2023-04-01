@@ -37,15 +37,6 @@
 #include "Main.h"
 #include "FreeRTOS_TEENSY4.h"
 
-/// Sets a default erasing(background)/writing(print) color based on screen type
-#ifdef USE_DEBUGGING_SCREEN
-  #define BACKGROUND_COLOR ILI9341_WHITE
-  #define PRINT_COLOR ILI9341_BLACK
-#else // (if speedometer screen)
-  #define BACKGROUND_COLOR ILI9341_BLACK
-  #define PRINT_COLOR ILI9341_WHITE
-#endif
-
 void displayTask(void *measurementDataPtr) {
   while (1) {
     /// Parses the data from the void pointer to be processable? Idk if that's word.
@@ -104,8 +95,8 @@ void displayUpdate(MeasurementScreenData msData) {
       }
     }
 
-    // Printing out thermistor data
-    thermiDataPrint(true);
+    // Printing out thermistor data over 2 lines
+    thermiDataPrint(2);
 
     // Printing out time data
     timePrint();
@@ -138,13 +129,14 @@ void displayUpdate(MeasurementScreenData msData) {
   #endif
 }
 
-void thermiDataPrint(bool thermiDataPrint) {
-  if (thermiDataPrint) {
-
+void thermiDataPrint(int numberOfLines) {
+  // number of thermistor values printed per line
+  int incr = NUM_THERMI / numberOfLines;
+  for (int i = 0; i < numberOfLines; i++) {
     bool sameData = true;
     String sOld, sNew;
-
-    for (int j = 0; j < 5; j++) {
+    // process data/update display one line of therm values at a time
+    for (int j = i * incr; j < incr + (i * incr); j++) {
       if (thermiData.currData[j] != thermiData.oldData[j]) {
         sameData = false;
         sNew.append((byte)thermiData.currData[j]);
@@ -154,35 +146,15 @@ void thermiDataPrint(bool thermiDataPrint) {
         sOld.append((byte)thermiData.oldData[j]);
         sNew.append((byte)thermiData.oldData[j]);
       }
-      if (j != 4) {
+      // if not the last value on a line, add a comma
+      if (j != (incr + (i * incr)) - 1) {
         sOld.append(", ");
         sNew.append(", ");
       }
     }
+    // if therm data has changed since the last print, update the display
     if (!sameData) {
-      eraseThenPrint(thermiData.dataX, thermiData.y, sOld, sNew);
-    }
-    sameData = true;
-    sOld = "";
-    sNew = "";
-
-    for (int j = 5; j < 10; j++) {
-      if (thermiData.currData[j] != thermiData.oldData[j]) {
-        sameData = false;
-        sNew.append((byte)thermiData.currData[j]);
-        sOld.append((byte)thermiData.oldData[j]);
-        thermiData.oldData[j] = thermiData.currData[j];
-      } else {
-        sOld.append((byte)thermiData.oldData[j]);
-        sNew.append((byte)thermiData.oldData[j]);
-      }
-      if (j != 9) {
-        sOld.append(", ");
-        sNew.append(", ");
-      }
-    }
-    if (!sameData) {
-      eraseThenPrint(thermiData.dataX, thermiData.y + VERTICAL_SCALER, sOld, sNew);
+      eraseThenPrint(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew);
     }
   }
 }
