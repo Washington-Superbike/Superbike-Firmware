@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_display_8h" kind="file" language="C++">
     <compoundname>Display.h</compoundname>
     <includes local="no">Adafruit_ILI9341.h</includes>
@@ -7,10 +7,10 @@
     <includes local="no">SPI.h</includes>
     <includes local="no">XPT2046_Touchscreen.h</includes>
     <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
-    <includedby refid="_c_a_n_8h" local="yes">CAN.h</includedby>
-    <includedby refid="_data_logging_8ino" local="yes">DataLogging.ino</includedby>
-    <includedby refid="_display_8ino" local="yes">Display.ino</includedby>
-    <includedby refid="_main_8h" local="yes">Main.h</includedby>
+    <includedby refid="_c_a_n_8h" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h</includedby>
+    <includedby refid="_data_logging_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</includedby>
+    <includedby refid="_display_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</includedby>
+    <includedby refid="_main_8h" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</includedby>
     <incdepgraph>
       <node id="3">
         <label>Adafruit_GFX.h</label>
@@ -19,7 +19,7 @@
         <label>Adafruit_ILI9341.h</label>
       </node>
       <node id="1">
-        <label>Display.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h</label>
         <link refid="_display_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -45,7 +45,7 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
-        <label>CAN.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h</label>
         <link refid="_c_a_n_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -53,15 +53,15 @@
         </childnode>
       </node>
       <node id="3">
-        <label>CAN.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino</label>
         <link refid="_c_a_n_8ino"/>
       </node>
       <node id="5">
-        <label>DataLogging.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
         <link refid="_data_logging_8ino"/>
       </node>
       <node id="1">
-        <label>Display.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h</label>
         <link refid="_display_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -73,11 +73,11 @@
         </childnode>
       </node>
       <node id="6">
-        <label>Display.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</label>
         <link refid="_display_8ino"/>
       </node>
       <node id="4">
-        <label>Main.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
         <link refid="_main_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
@@ -87,16 +87,14 @@
         </childnode>
       </node>
       <node id="7">
-        <label>Main.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
       </node>
     </invincdepgraph>
     <innerclass refid="struct_printed_data_struct" prot="public">PrintedDataStruct</innerclass>
     <innerclass refid="struct_printed_data_therm_struct" prot="public">PrintedDataThermStruct</innerclass>
     <innerclass refid="struct_printed_data_time_stuct" prot="public">PrintedDataTimeStuct</innerclass>
-    <innerclass refid="struct_screen_info" prot="public">ScreenInfo</innerclass>
     <innerclass refid="struct_measurement_screen_data_struct" prot="public">MeasurementScreenDataStruct</innerclass>
-    <innerclass refid="structdisplay_task_wrapper" prot="public">displayTaskWrapper</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="_display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2" prot="public" static="no">
         <name>DISPLAY_TASK_STACK_SIZE</name>
@@ -108,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="41" column="9" bodyfile="Display.h" bodystart="41" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="41" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a3bf1bf7c513d10bf1c142b6863f647bb" prot="public" static="no">
         <name>DISPLAY_UPDATE_TIME_MAX</name>
@@ -120,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="43" column="9" bodyfile="Display.h" bodystart="43" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="43" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a5f4d46ae101b77df78010c506601c87c" prot="public" static="no">
         <name>TFT_CS</name>
@@ -132,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="46" column="9" bodyfile="Display.h" bodystart="46" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="46" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a51529307207622c113ff0d584536be13" prot="public" static="no">
         <name>TFT_DC</name>
@@ -144,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="48" column="9" bodyfile="Display.h" bodystart="48" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="48" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1ab40e9918d9141415a47e2a979292309c" prot="public" static="no">
         <name>TFT_RST</name>
@@ -156,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="50" column="9" bodyfile="Display.h" bodystart="50" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="50" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1aebc2813ad338ac596f3108382916b482" prot="public" static="no">
         <name>TS_CS</name>
@@ -168,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="54" column="9" bodyfile="Display.h" bodystart="54" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="54" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a5d966444a95d140572e8f999fa00f8e0" prot="public" static="no">
         <name>TIRQ_PIN</name>
@@ -180,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="58" column="9" bodyfile="Display.h" bodystart="58" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="58" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" prot="public" static="no">
         <name>NUM_DATA</name>
@@ -192,7 +190,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="61" column="9" bodyfile="Display.h" bodystart="61" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="61" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1aa6b0be19465bc73429fbaf37ea6d7f5d" prot="public" static="no">
         <name>DEFAULT_FLOAT</name>
@@ -204,7 +202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="65" column="9" bodyfile="Display.h" bodystart="65" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="65" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1accd27f9824631fc37bcb677947f1f63a" prot="public" static="no">
         <name>DEFAULT_X_POS</name>
@@ -216,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="67" column="9" bodyfile="Display.h" bodystart="67" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="67" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a9705c15b04a1787116a4fbdf987e0328" prot="public" static="no">
         <name>VERTICAL_SCALER</name>
@@ -228,7 +226,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="72" column="9" bodyfile="Display.h" bodystart="72" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="72" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a61ae6f1ae401c962137f2ae1d2a158df" prot="public" static="no">
+        <name>BACKGROUND_COLOR</name>
+        <initializer>ILI9341_BLACK</initializer>
+        <briefdescription>
+<para>Sets a default erasing(background)/writing(print) color based on screen type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="79" column="11" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_display_8h_1a761b36c5e7be7b06b38d2b1e38dcf213" prot="public" static="no">
+        <name>PRINT_COLOR</name>
+        <initializer>ILI9341_WHITE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="80" column="11" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a33c25be9eca2247ac244fc928183eb55" prot="public" static="no">
         <name>TS_MINX</name>
@@ -240,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="76" column="9" bodyfile="Display.h" bodystart="76" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="85" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" prot="public" static="no">
         <name>TS_MAXX</name>
@@ -252,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="78" column="9" bodyfile="Display.h" bodystart="78" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="87" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" prot="public" static="no">
         <name>TS_MINY</name>
@@ -264,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="80" column="9" bodyfile="Display.h" bodystart="80" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="89" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_display_8h_1a8037be4206d706c1077d0153db12690a" prot="public" static="no">
         <name>TS_MAXY</name>
@@ -276,7 +297,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="82" column="9" bodyfile="Display.h" bodystart="82" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="91" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -311,33 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="91" column="1" bodyfile="Display.h" bodystart="91" bodyend="93"/>
-      </memberdef>
-      <memberdef kind="enum" id="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" prot="public" static="no" strong="no">
-        <type></type>
-        <name>SCREEN_TYPE</name>
-        <enumvalue id="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" prot="public">
-          <name>DEBUG</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" prot="public">
-          <name>SPEEDOMETER</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Just a basic enum to store the type of Screen being printed. As stated in the todo, this should probably be replaced. No point in having it. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Display.h" line="100" column="1" bodyfile="Display.h" bodystart="100" bodyend="102"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="100" column="1" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="100" bodyend="102"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -353,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="121" column="13"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="121" column="13"/>
       </memberdef>
       <memberdef kind="typedef" id="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" prot="public" static="no">
         <type>struct <ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataThermStruct</ref></type>
@@ -367,7 +362,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="133" column="18"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="133" column="18"/>
       </memberdef>
       <memberdef kind="typedef" id="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" prot="public" static="no">
         <type>struct <ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref></type>
@@ -381,21 +376,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="144" column="22"/>
-      </memberdef>
-      <memberdef kind="typedef" id="_display_8h_1a412053d6576f296892a8ccc0d8510e46" prot="public" static="no">
-        <type>struct <ref refid="struct_screen_info" kindref="compound">ScreenInfo</ref></type>
-        <definition>typedef struct ScreenInfo Screen</definition>
-        <argsstring></argsstring>
-        <name>Screen</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Basic struct that just implements the Screen enum as a struct. Please remove this once the macro is implemented. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Display.h" line="153" column="8"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="144" column="22"/>
       </memberdef>
       <memberdef kind="typedef" id="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" prot="public" static="no">
         <type>struct <ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenDataStruct</ref></type>
@@ -409,21 +390,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="173" column="23"/>
-      </memberdef>
-      <memberdef kind="typedef" id="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" prot="public" static="no">
-        <type>struct <ref refid="structdisplay_task_wrapper" kindref="compound">displayTaskWrapper</ref></type>
-        <definition>typedef struct displayTaskWrapper displayPointer</definition>
-        <argsstring></argsstring>
-        <name>displayPointer</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>The <ref refid="structdisplay_task_wrapper" kindref="compound">displayTaskWrapper()</ref> struct just wraps up the MeasurementScreenData and the Screen data (realistically, can be removed...) for the <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref> </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Display.h" line="182" column="16"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="164" column="23"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -440,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="185" column="18" bodyfile="Display.h" bodystart="185" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="167" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a4d31440d430c0fc247733e218f14278f" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref></type>
@@ -454,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="187" column="13" bodyfile="Display.h" bodystart="187" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="169" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -468,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="189" column="13" bodyfile="Display.h" bodystart="189" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="171" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -482,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="190" column="13" bodyfile="Display.h" bodystart="190" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="172" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a012dded9173d07c300ffad949e96a940" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -496,7 +463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="191" column="13" bodyfile="Display.h" bodystart="191" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="173" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -510,7 +477,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="192" column="13" bodyfile="Display.h" bodystart="192" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="174" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -524,7 +491,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="193" column="13" bodyfile="Display.h" bodystart="193" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="175" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -538,7 +505,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="194" column="13" bodyfile="Display.h" bodystart="194" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="176" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -552,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="195" column="13" bodyfile="Display.h" bodystart="195" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="177" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -566,7 +533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="196" column="13" bodyfile="Display.h" bodystart="196" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="178" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -580,7 +547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="197" column="13" bodyfile="Display.h" bodystart="197" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="179" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a940677548971e0943f36dcfa95bb8b44" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -594,7 +561,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="198" column="13" bodyfile="Display.h" bodystart="198" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="180" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kindref="member">PrintedData</ref> *</type>
@@ -608,7 +575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="199" column="13" bodyfile="Display.h" bodystart="199" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="181" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1a700ec86cb550fd4426014190222173ac" prot="public" static="no" mutable="no">
         <type><ref refid="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" kindref="member">PrintedDataTherm</ref></type>
@@ -622,7 +589,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="202" column="18" bodyfile="Display.h" bodystart="202" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="184" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="184" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" prot="public" static="no" mutable="no">
         <type><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref></type>
@@ -636,22 +603,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="204" column="22" bodyfile="Display.h" bodystart="204" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="186" column="22" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" bodystart="186" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void setupDisplay</definition>
-        <argsstring>(MeasurementScreenData msData, Screen screen)</argsstring>
+        <argsstring>(MeasurementScreenData msData)</argsstring>
         <name>setupDisplay</name>
         <param>
           <type><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref></type>
           <declname>msData</declname>
-        </param>
-        <param>
-          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
-          <declname>screen</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -660,39 +623,35 @@
         <inbodydescription>
 <para>Calls on tft.begin() method and sets the orientation using tft.setRotatio() and also sets the screen to ILI9341_WHITE or ILI9341_BLACK based on Debugging or Speedometer screen.</para>
 <para>Initializes all the PrintedDataStructs to set their position, values, and point to the correct pointer corresponding to the correct data.</para>
-<para>Calls on the <ref refid="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" kindref="member">setupMeasurementScreen()</ref> to finish up the setup.</para>
+<para>Calls on the <ref refid="_display_8h_1ae5303e677c439d26296656ed10d656cc" kindref="member">setupMeasurementScreen()</ref> to finish up the setup.</para>
         </inbodydescription>
-        <location file="Display.h" line="208" column="6" bodyfile="Display.ino" bodystart="59" bodyend="96" declfile="Display.h" declline="208" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="190" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="51" bodyend="82" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="190" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_display_8h_1a2af0d27bbe0bf5e4e4b8207139104c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void displayUpdate</definition>
-        <argsstring>(MeasurementScreenData msData, Screen screen)</argsstring>
+        <argsstring>(MeasurementScreenData msData)</argsstring>
         <name>displayUpdate</name>
         <param>
           <type><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref></type>
           <declname>msData</declname>
         </param>
-        <param>
-          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
-          <declname>screen</declname>
-        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="209" column="6" bodyfile="Display.ino" bodystart="98" bodyend="144" declfile="Display.h" declline="209" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="191" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="84" bodyend="128" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="191" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_display_8h_1a255d71bb7f36b2056059bd579af11f3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void thermiDataPrint</definition>
-        <argsstring>(bool thermiDataPrint)</argsstring>
+        <argsstring>(int numberOfLines)</argsstring>
         <name>thermiDataPrint</name>
         <param>
-          <type>bool</type>
-          <declname>thermiDataPrint</declname>
+          <type>int</type>
+          <declname>numberOfLines</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -700,7 +659,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="210" column="6" bodyfile="Display.ino" bodystart="146" bodyend="194" declfile="Display.h" declline="210" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="192" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="130" bodyend="158" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="192" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -713,17 +672,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Display.h" line="211" column="6" bodyfile="Display.ino" bodystart="196" bodyend="205" declfile="Display.h" declline="211" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="193" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="160" bodyend="169" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="193" declcolumn="6"/>
       </memberdef>
-      <memberdef kind="function" id="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_display_8h_1ae5303e677c439d26296656ed10d656cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void setupMeasurementScreen</definition>
-        <argsstring>(Screen screen)</argsstring>
+        <argsstring>()</argsstring>
         <name>setupMeasurementScreen</name>
-        <param>
-          <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
-          <declname>screen</declname>
-        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -732,7 +687,7 @@
 <para>If the screen is debugging type, it will print out all the data labels in their data locations as a black text This is achieved using a bunch of tft methods. Nice.</para>
 <para>If the screen is speedometer type, it will print out all the data labels in their locations (SPEED up top and RPM at the bottom). This is achieved using a bunch of tft methods. Nice.</para>
         </inbodydescription>
-        <location file="Display.h" line="212" column="6" bodyfile="Display.ino" bodystart="207" bodyend="244" declfile="Display.h" declline="212" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="194" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="171" bodyend="206" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="194" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -760,39 +715,9 @@
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
-<para>Erases the old value using the oldData parameter by writing it in white text and then setting it to black text to write the newData.</para>
+<para>Erases the old value using the oldData parameter by writing it in the background color and then setting it back to the printing color to write the newData.</para>
         </inbodydescription>
-        <location file="Display.h" line="213" column="6" bodyfile="Display.ino" bodystart="246" bodyend="255" declfile="Display.h" declline="213" declcolumn="6"/>
-      </memberdef>
-      <memberdef kind="function" id="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void eraseThenPrintSPEEDO</definition>
-        <argsstring>(int xPos, int yPos, String oldData, String newData)</argsstring>
-        <name>eraseThenPrintSPEEDO</name>
-        <param>
-          <type>int</type>
-          <declname>xPos</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>yPos</declname>
-        </param>
-        <param>
-          <type>String</type>
-          <declname>oldData</declname>
-        </param>
-        <param>
-          <type>String</type>
-          <declname>newData</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-<para>Just a flipped color version of <ref refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kindref="member">eraseThenPrint()</ref> Erases the old value using the oldData parameter by writing it in black text and then setting it to white text to write the newData.</para>
-        </inbodydescription>
-        <location file="Display.h" line="214" column="6" bodyfile="Display.ino" bodystart="257" bodyend="267" declfile="Display.h" declline="214" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="195" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="208" bodyend="217" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="195" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -806,7 +731,7 @@
         <inbodydescription>
 <para>Iterates through all the printedVals array and then does += 1 to make sure it&apos;s increasing. This change should be reflected in the display itself.</para>
         </inbodydescription>
-        <location file="Display.h" line="216" column="6" bodyfile="Display.ino" bodystart="275" bodyend="288" declfile="Display.h" declline="216" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="197" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="225" bodyend="238" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="197" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_display_8h_1ad609934bdce8f8169cc609cb7913f507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -820,7 +745,7 @@
         <inbodydescription>
 <para>Reads in the aux_voltage of the LV system and reads in the values. Would be better in CAN, but alas Chase said leave it here, it&apos;s here.</para>
         </inbodydescription>
-        <location file="Display.h" line="217" column="7" bodyfile="Display.ino" bodystart="290" bodyend="297" declfile="Display.h" declline="217" declcolumn="7"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" line="198" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino" bodystart="240" bodyend="247" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h" declline="198" declcolumn="7"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -829,11 +754,11 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
 <simplesect kind="note"><para>Whoever makes the struct changes. Good luck. Have fun.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000005"><xreftitle>Todo</xreftitle><xrefdescription><para>Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <linebreak/>
+<xrefsect id="todo_1_todo000006"><xreftitle>Todo</xreftitle><xrefdescription><para>Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <linebreak/>
  <linebreak/>
  Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. <linebreak/>
  <linebreak/>
@@ -874,19 +799,23 @@
 <codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Multipliers<sp/>and<sp/>Formula<sp/>Constants:</highlight></codeline>
 <codeline lineno="72" refid="_display_8h_1a9705c15b04a1787116a4fbdf987e0328" refkind="member"><highlight class="comment"></highlight><highlight class="preprocessor">#define<sp/>VERTICAL_SCALER<sp/>16</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Touch<sp/>screen<sp/>parameters.</highlight></codeline>
-<codeline lineno="76" refid="_display_8h_1a33c25be9eca2247ac244fc928183eb55" refkind="member"><highlight class="comment"></highlight><highlight class="preprocessor">#define<sp/>TS_MINX<sp/><sp/>327</highlight></codeline>
-<codeline lineno="78" refid="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MAXX<sp/><sp/>3903</highlight></codeline>
-<codeline lineno="80" refid="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MINY<sp/><sp/>243</highlight></codeline>
-<codeline lineno="82" refid="_display_8h_1a8037be4206d706c1077d0153db12690a" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MAXY<sp/><sp/>3842</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="92" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" kindref="member">NUMBER</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" kindref="member">ARRAY</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" kindref="member">BOOL</ref></highlight></codeline>
-<codeline lineno="93" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" kindref="member">PRINT_TYPE</ref>;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="101" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" kindref="member">DEBUG</ref>,<sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" kindref="member">SPEEDOMETER</ref></highlight></codeline>
-<codeline lineno="102" refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" kindref="member">SCREEN_TYPE</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="preprocessor">#ifdef<sp/>USE_DEBUGGING_SCREEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>BACKGROUND_COLOR<sp/>ILI9341_WHITE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>PRINT_COLOR<sp/>ILI9341_BLACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">//<sp/>(if<sp/>speedometer<sp/>screen)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="_display_8h_1a61ae6f1ae401c962137f2ae1d2a158df" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>BACKGROUND_COLOR<sp/>ILI9341_BLACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="_display_8h_1a761b36c5e7be7b06b38d2b1e38dcf213" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>PRINT_COLOR<sp/>ILI9341_WHITE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Touch<sp/>screen<sp/>parameters.</highlight></codeline>
+<codeline lineno="85" refid="_display_8h_1a33c25be9eca2247ac244fc928183eb55" refkind="member"><highlight class="comment"></highlight><highlight class="preprocessor">#define<sp/>TS_MINX<sp/><sp/>327</highlight></codeline>
+<codeline lineno="87" refid="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MAXX<sp/><sp/>3903</highlight></codeline>
+<codeline lineno="89" refid="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MINY<sp/><sp/>243</highlight></codeline>
+<codeline lineno="91" refid="_display_8h_1a8037be4206d706c1077d0153db12690a" refkind="member"><highlight class="preprocessor">#define<sp/>TS_MAXY<sp/><sp/>3842</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="101" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" kindref="member">NUMBER</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" kindref="member">ARRAY</ref>,<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" kindref="member">BOOL</ref></highlight></codeline>
+<codeline lineno="102" refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1" kindref="member">PRINT_TYPE</ref>;</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
 <codeline lineno="113" refid="struct_printed_data_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedDataStruct</ref><sp/>{</highlight></codeline>
 <codeline lineno="114" refid="struct_printed_data_struct_1a18a14775ee2b7c82f96868e0c838775f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_struct_1a51a548c1d85da64d917d3309648d3158" kindref="member">labelX</ref>,<sp/><ref refid="struct_printed_data_struct_1ab2aee1187f70e33083ccb3cb27b5fb5f" kindref="member">y</ref>,<sp/><ref refid="struct_printed_data_struct_1a18a14775ee2b7c82f96868e0c838775f" kindref="member">dataX</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>is<sp/>the<sp/>same<sp/>for<sp/>data<sp/>and<sp/>label,<sp/>but<sp/>X<sp/>isnt</highlight><highlight class="normal"></highlight></codeline>
@@ -910,65 +839,55 @@
 <codeline lineno="141" refid="struct_printed_data_time_stuct_1ad8c128cfd2d2717ce60876fd9206fe90" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_printed_data_time_stuct_1ad8c128cfd2d2717ce60876fd9206fe90" kindref="member">oldData</ref>[10];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="142" refid="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_time_stuct_1a26d7c4491749d3553721107fa95b5767" kindref="member">currData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>volatile<sp/>for<sp/>some<sp/>printed<sp/>data,<sp/>not<sp/>all</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="143" refid="struct_printed_data_time_stuct_1a43ac024892cb2a1ec4233431f47d850c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_printed_data_time_stuct_1a43ac024892cb2a1ec4233431f47d850c" kindref="member">labelPtr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;labelPtr&quot;<sp/>is<sp/>just<sp/>the<sp/>label<sp/>itself.<sp/>No<sp/>String<sp/>in<sp/>C/.ino,<sp/>so<sp/>this<sp/>is<sp/>our<sp/>best<sp/>option.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144" refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" kindref="member">PrintedDataTimeStuct</ref>;</highlight></codeline>
+<codeline lineno="144" refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" refkind="member"><highlight class="normal">}<sp/><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref>;</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151" refid="struct_screen_info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_screen_info" kindref="compound">ScreenInfo</ref><sp/>{</highlight></codeline>
-<codeline lineno="152" refid="struct_screen_info_1abb458c47ad3635762b415e3ed4d26e97" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" kindref="member">SCREEN_TYPE</ref><sp/><ref refid="struct_screen_info_1abb458c47ad3635762b415e3ed4d26e97" kindref="member">screenType</ref>;</highlight></codeline>
-<codeline lineno="153" refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref>;</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="160" refid="struct_measurement_screen_data_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenDataStruct</ref><sp/>{</highlight></codeline>
-<codeline lineno="161" refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" kindref="member">mainBatteryVoltage</ref>;</highlight></codeline>
-<codeline lineno="162" refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" kindref="member">motorControllerVoltage</ref>;</highlight></codeline>
-<codeline lineno="163" refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" kindref="member">auxiliaryBatteryVoltage</ref>;</highlight></codeline>
-<codeline lineno="164" refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" kindref="member">RPM</ref>;</highlight></codeline>
-<codeline lineno="165" refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" kindref="member">motorTemp</ref>;</highlight></codeline>
-<codeline lineno="166" refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" kindref="member">motorCurrent</ref>;</highlight></codeline>
-<codeline lineno="167" refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" kindref="member">errorMessage</ref>;</highlight></codeline>
-<codeline lineno="168" refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" kindref="member">chargerCurrent</ref>;</highlight></codeline>
-<codeline lineno="169" refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" kindref="member">chargerVoltage</ref>;</highlight></codeline>
-<codeline lineno="170" refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" kindref="member">bmsStatusFlag</ref>;</highlight></codeline>
-<codeline lineno="171" refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" kindref="member">evccVoltage</ref>;</highlight></codeline>
-<codeline lineno="172" refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" kindref="member">thermistorTemps</ref>;</highlight></codeline>
-<codeline lineno="173" refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref>;</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179" refid="structdisplay_task_wrapper" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structdisplay_task_wrapper" kindref="compound">displayTaskWrapper</ref><sp/>{</highlight></codeline>
-<codeline lineno="180" refid="structdisplay_task_wrapper_1a51bf468020bb98383d49a9e0e39422cc" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref>*<sp/><ref refid="structdisplay_task_wrapper_1a51bf468020bb98383d49a9e0e39422cc" kindref="member">msDataWrap</ref>;</highlight></codeline>
-<codeline lineno="181" refid="structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref>*<sp/><ref refid="structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22" kindref="member">screenDataWrap</ref>;</highlight></codeline>
-<codeline lineno="182" refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" kindref="member">displayPointer</ref>;</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185" refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" refkind="member"><highlight class="normal">Adafruit_ILI9341<sp/><ref refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" kindref="member">tft</ref><sp/>=<sp/>Adafruit_ILI9341(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/><ref refid="_display_8h_1a51529307207622c113ff0d584536be13" kindref="member">TFT_DC</ref>,<sp/><ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>);<sp/></highlight><highlight class="comment">//the<sp/>display<sp/>controller</highlight></codeline>
-<codeline lineno="187" refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/><ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[<ref refid="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" kindref="member">NUM_DATA</ref>];</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189" refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" kindref="member">batteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[0];</highlight></codeline>
-<codeline lineno="190" refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" kindref="member">motorControllerVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[1];</highlight></codeline>
-<codeline lineno="191" refid="_display_8h_1a012dded9173d07c300ffad949e96a940" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a012dded9173d07c300ffad949e96a940" kindref="member">auxBatteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[2];</highlight></codeline>
-<codeline lineno="192" refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" kindref="member">rpm</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[3];</highlight></codeline>
-<codeline lineno="193" refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" kindref="member">motorTemperature</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[4];</highlight></codeline>
-<codeline lineno="194" refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" kindref="member">motorCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[5];</highlight></codeline>
-<codeline lineno="195" refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" kindref="member">errMessage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[6];</highlight></codeline>
-<codeline lineno="196" refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" kindref="member">chargerVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[7];</highlight></codeline>
-<codeline lineno="197" refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" kindref="member">chargerCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[8];</highlight></codeline>
-<codeline lineno="198" refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" kindref="member">bmsStatusFlag</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[9];</highlight></codeline>
-<codeline lineno="199" refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" kindref="member">evccVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[10];</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"></highlight></codeline>
-<codeline lineno="202" refid="_display_8h_1a700ec86cb550fd4426014190222173ac" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataTherm</ref><sp/><ref refid="_display_8h_1a700ec86cb550fd4426014190222173ac" kindref="member">thermiData</ref>;</highlight></codeline>
-<codeline lineno="204" refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref><sp/><ref refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" kindref="member">timeData</ref>;</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>methods<sp/>are<sp/>not<sp/>documented<sp/>here<sp/>because<sp/>the<sp/>internal<sp/>documentation<sp/>in</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Display.ino<sp/>covers<sp/>it<sp/>properly.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kindref="member">setupDisplay</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData,<sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" kindref="member">displayUpdate</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData,<sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kindref="member">thermiDataPrint</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kindref="member">thermiDataPrint</ref>);</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" kindref="member">timePrint</ref>();</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" kindref="member">setupMeasurementScreen</ref>(<ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kindref="member">eraseThenPrint</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xPos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yPos,<sp/>String<sp/>oldData,<sp/>String<sp/>newData);</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" kindref="member">eraseThenPrintSPEEDO</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xPos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yPos,<sp/>String<sp/>oldData,<sp/>String<sp/>newData);</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>screenEraser(int<sp/>scaler,<sp/>int<sp/>i);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" kindref="member">manualScreenDataUpdater</ref>();</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ad609934bdce8f8169cc609cb7913f507" kindref="member">aux_voltage_read</ref>();</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"></highlight></codeline>
-<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="151" refid="struct_measurement_screen_data_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenDataStruct</ref><sp/>{</highlight></codeline>
+<codeline lineno="152" refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aed564048111fa898cf8de61099391863" kindref="member">mainBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="153" refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a1e2df8e919bbae0941ccecfa5eb62cbe" kindref="member">motorControllerVoltage</ref>;</highlight></codeline>
+<codeline lineno="154" refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a0e86959ed67c6c891e1890ef530d3596" kindref="member">auxiliaryBatteryVoltage</ref>;</highlight></codeline>
+<codeline lineno="155" refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a032fdb5cea2670a02f48dae82cb6c5f7" kindref="member">RPM</ref>;</highlight></codeline>
+<codeline lineno="156" refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac41c602ffafc714ec356ea502c8ae58a" kindref="member">motorTemp</ref>;</highlight></codeline>
+<codeline lineno="157" refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a9685a96c491e4d8276fea2e35bc538cd" kindref="member">motorCurrent</ref>;</highlight></codeline>
+<codeline lineno="158" refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1aa63c57e04a22b9ff0feba3172fb46e7c" kindref="member">errorMessage</ref>;</highlight></codeline>
+<codeline lineno="159" refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ab325b90179563b0cbd69138e4faca679" kindref="member">chargerCurrent</ref>;</highlight></codeline>
+<codeline lineno="160" refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a8c456547b18cc7388d407a3fa01f770f" kindref="member">chargerVoltage</ref>;</highlight></codeline>
+<codeline lineno="161" refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1abe94dff3f4030a2fc46a67d0949fd996" kindref="member">bmsStatusFlag</ref>;</highlight></codeline>
+<codeline lineno="162" refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1ac394f8f84cc46925da59ab710da90503" kindref="member">evccVoltage</ref>;</highlight></codeline>
+<codeline lineno="163" refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/><ref refid="struct_measurement_screen_data_struct_1a246a330e1d725800363777a3a373f740" kindref="member">thermistorTemps</ref>;</highlight></codeline>
+<codeline lineno="164" refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" refkind="member"><highlight class="normal">}<sp/><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" refkind="member"><highlight class="normal">Adafruit_ILI9341<sp/><ref refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" kindref="member">tft</ref><sp/>=<sp/>Adafruit_ILI9341(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/><ref refid="_display_8h_1a51529307207622c113ff0d584536be13" kindref="member">TFT_DC</ref>,<sp/><ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>);<sp/></highlight><highlight class="comment">//the<sp/>display<sp/>controller</highlight></codeline>
+<codeline lineno="169" refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/><ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[<ref refid="_display_8h_1a3b5584bed4734b437f2ef171dfa600e2" kindref="member">NUM_DATA</ref>];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" kindref="member">batteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[0];</highlight></codeline>
+<codeline lineno="172" refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1f53d3b1963f27d117ab4846e36897e" kindref="member">motorControllerVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[1];</highlight></codeline>
+<codeline lineno="173" refid="_display_8h_1a012dded9173d07c300ffad949e96a940" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a012dded9173d07c300ffad949e96a940" kindref="member">auxBatteryVoltage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[2];</highlight></codeline>
+<codeline lineno="174" refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a96f08d4bf70ba395b285b8d6a352bdf9" kindref="member">rpm</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[3];</highlight></codeline>
+<codeline lineno="175" refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ab1eb6959a5903caaa2277b5c19bc64b8" kindref="member">motorTemperature</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[4];</highlight></codeline>
+<codeline lineno="176" refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac5969222ac88224eb77bc5aa7dd0e2d0" kindref="member">motorCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[5];</highlight></codeline>
+<codeline lineno="177" refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1aec89495f1135f6268d3c23d3d89c6b05" kindref="member">errMessage</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[6];</highlight></codeline>
+<codeline lineno="178" refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a44fd669aa58c2b66ab018fd2df3e046a" kindref="member">chargerVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[7];</highlight></codeline>
+<codeline lineno="179" refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1ac618dcef8a9f06e79d1cbe8cb9383aa6" kindref="member">chargerCurr</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[8];</highlight></codeline>
+<codeline lineno="180" refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a940677548971e0943f36dcfa95bb8b44" kindref="member">bmsStatusFlag</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[9];</highlight></codeline>
+<codeline lineno="181" refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_struct" kindref="compound">PrintedData</ref><sp/>*<ref refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" kindref="member">evccVolt</ref><sp/>=<sp/>&amp;<ref refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kindref="member">printedVals</ref>[10];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184" refid="_display_8h_1a700ec86cb550fd4426014190222173ac" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_therm_struct" kindref="compound">PrintedDataTherm</ref><sp/><ref refid="_display_8h_1a700ec86cb550fd4426014190222173ac" kindref="member">thermiData</ref>;</highlight></codeline>
+<codeline lineno="186" refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" refkind="member"><highlight class="normal"><ref refid="struct_printed_data_time_stuct" kindref="compound">PrintedDataTimeStuct</ref><sp/><ref refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" kindref="member">timeData</ref>;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>methods<sp/>are<sp/>not<sp/>documented<sp/>here<sp/>because<sp/>the<sp/>internal<sp/>documentation<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Display.ino<sp/>covers<sp/>it<sp/>properly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" kindref="member">setupDisplay</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2af0d27bbe0bf5e4e4b8207139104c78" kindref="member">displayUpdate</ref>(<ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/>msData);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a255d71bb7f36b2056059bd579af11f3a" kindref="member">thermiDataPrint</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfLines);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" kindref="member">timePrint</ref>();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ae5303e677c439d26296656ed10d656cc" kindref="member">setupMeasurementScreen</ref>();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kindref="member">eraseThenPrint</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xPos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yPos,<sp/>String<sp/>oldData,<sp/>String<sp/>newData);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>screenEraser(int<sp/>scaler,<sp/>int<sp/>i);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" kindref="member">manualScreenDataUpdater</ref>();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_display_8h_1ad609934bdce8f8169cc609cb7913f507" kindref="member">aux_voltage_read</ref>();</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="Display.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Display.h"/>
   </compounddef>
 </doxygen>

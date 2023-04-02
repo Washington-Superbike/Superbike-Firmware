@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_event__groups_8c_source" xml:lang="en-US">
 <title>event_groups.c</title>
-<indexterm><primary>FreeRTOS/event_groups.c</primary></indexterm>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c</primary></indexterm>
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_event__groups_8c_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
 <anchor xml:id="_event__groups_8c_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;Kernel&#32;V10.2.0</emphasis>
 <anchor xml:id="_event__groups_8c_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2019&#32;Amazon.com,&#32;Inc.&#32;or&#32;its&#32;affiliates.&#32;&#32;All&#32;Rights&#32;Reserved.</emphasis>
@@ -491,7 +491,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_event__groups_8c_source_1l00487"/>00487 
 <anchor xml:id="_event__groups_8c_source_1l00488"/>00488 <emphasis role="preprocessor">#if&#32;(&#32;(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;INCLUDE_xTimerPendFunctionCall&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configUSE_TIMERS&#32;==&#32;1&#32;)&#32;)</emphasis>
 <anchor xml:id="_event__groups_8c_source_1l00489"/>00489 
-<anchor xml:id="_event__groups_8c_source_1l00490"/><link linkend="_event__groups_8c_1ad3307f09bd0c4cd72ea21d84b4f4f33d">00490</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;<link linkend="_event__groups_8c_1ad3307f09bd0c4cd72ea21d84b4f4f33d">xEventGroupClearBitsFromISR</link>(&#32;<link linkend="_struct_event_group_def__t">EventGroupHandle_t</link>&#32;xEventGroup,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link>&#32;uxBitsToClear&#32;)
+<anchor xml:id="_event__groups_8c_source_1l00490"/><link linkend="_event__groups_8c_1ad3307f09bd0c4cd72ea21d84b4f4f33d">00490</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;<link linkend="_event__groups_8h_1a3d7de214a697f33fe7b914e26a93f33a">xEventGroupClearBitsFromISR</link>(&#32;<link linkend="_struct_event_group_def__t">EventGroupHandle_t</link>&#32;xEventGroup,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link>&#32;uxBitsToClear&#32;)
 <anchor xml:id="_event__groups_8c_source_1l00491"/>00491 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_event__groups_8c_source_1l00492"/>00492 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;xReturn;
 <anchor xml:id="_event__groups_8c_source_1l00493"/>00493 
@@ -709,7 +709,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_event__groups_8c_source_1l00705"/>00705 
 <anchor xml:id="_event__groups_8c_source_1l00706"/>00706 <emphasis role="preprocessor">#if&#32;(&#32;(&#32;configUSE_TRACE_FACILITY&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;INCLUDE_xTimerPendFunctionCall&#32;==&#32;1&#32;)&#32;&amp;&amp;&#32;(&#32;configUSE_TIMERS&#32;==&#32;1&#32;)&#32;)</emphasis>
 <anchor xml:id="_event__groups_8c_source_1l00707"/>00707 
-<anchor xml:id="_event__groups_8c_source_1l00708"/><link linkend="_event__groups_8c_1adf701822b780cba9cd5976288aae5a07">00708</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;<link linkend="_event__groups_8c_1adf701822b780cba9cd5976288aae5a07">xEventGroupSetBitsFromISR</link>(&#32;<link linkend="_struct_event_group_def__t">EventGroupHandle_t</link>&#32;xEventGroup,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link>&#32;uxBitsToSet,&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;*pxHigherPriorityTaskWoken&#32;)
+<anchor xml:id="_event__groups_8c_source_1l00708"/><link linkend="_event__groups_8c_1adf701822b780cba9cd5976288aae5a07">00708</link> &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;<link linkend="_event__groups_8h_1a62b68278abac6358369ae8e390988a02">xEventGroupSetBitsFromISR</link>(&#32;<link linkend="_struct_event_group_def__t">EventGroupHandle_t</link>&#32;xEventGroup,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_event__groups_8h_1ab2f21b93db0b2a0ab64d7a81ff32ac2e">EventBits_t</link>&#32;uxBitsToSet,&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;*pxHigherPriorityTaskWoken&#32;)
 <anchor xml:id="_event__groups_8c_source_1l00709"/>00709 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_event__groups_8c_source_1l00710"/>00710 &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link>&#32;xReturn;
 <anchor xml:id="_event__groups_8c_source_1l00711"/>00711 

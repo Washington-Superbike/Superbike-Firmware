@@ -12,15 +12,6 @@
           requirements. Like all other header files, it exists
           as the skeleton on which the .ino file is built.
 
-    The main config file for bike firmware. This initializes
-    all variables that are passed along to all other files as
-    pointers. Then it creates the initial reference (there's a proper
-    C programming term for it) for all the methods used in Main.ino.
-    This file exists as an overall configuration for the
-    bike firmware as all these variables can be changed to meet
-    requirements. Like all other header files, it exists
-    as the skeleton on which the .ino file is built.
-
     \note
       Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C.
       It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351.
@@ -43,8 +34,6 @@
       \n \n
       Based on the changes implemented for SoC, I would add another variable for the low-voltage
       current sneors or any other current sensors you add
-      \n \n
-      CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on.
       \n \n
       Final Goal.
 */

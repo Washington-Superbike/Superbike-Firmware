@@ -11,9 +11,9 @@
 </listitem>
             <listitem><para>union {</para>
         <itemizedlist>
-            <listitem><para>   <link linkend="_queue_8c_1afa576747932ccf4c923633fc6a46a0d8">QueuePointers_t</link> <link linkend="_struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0">xQueue</link></para>
+            <listitem><para>&#160;&#160;&#160;<link linkend="_queue_8c_1afa576747932ccf4c923633fc6a46a0d8">QueuePointers_t</link> <link linkend="_struct_queue_definition_1aea4a2daf33054ff6b535f158bd4007f0">xQueue</link></para>
 </listitem>
-            <listitem><para>   <link linkend="_queue_8c_1a8806dcfc511df585a0b4daf54a9a909a">SemaphoreData_t</link> <link linkend="_struct_queue_definition_1adb2c0818274974553c619ff953b6f477">xSemaphore</link></para>
+            <listitem><para>&#160;&#160;&#160;<link linkend="_queue_8c_1a8806dcfc511df585a0b4daf54a9a909a">SemaphoreData_t</link> <link linkend="_struct_queue_definition_1adb2c0818274974553c619ff953b6f477">xSemaphore</link></para>
 </listitem>
         </itemizedlist>
 </listitem>
@@ -144,5 +144,5 @@ Definition at line <link linkend="_queue_8c_source_1l00108">108</link> of file <
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>
-FreeRTOS/<link linkend="_queue_8c">queue.c</link></section>
+C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/<link linkend="_queue_8c">queue.c</link></section>
 </section>

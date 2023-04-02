@@ -1,14 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__data_logging_8h" xml:lang="en-US">
-<title>DataLogging.h File Reference</title>
-<indexterm><primary>DataLogging.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.h</primary></indexterm>
 <para>
 
 <para>The <link linkend="__data_logging_8h">DataLogging.h</link> config file for the DataLogging task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__data_logging_8ino">DataLogging.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__data_logging_8ino">DataLogging.ino</link>. This file also creates two typedef structs that basically allow us to package the data in DataLogging for the task in a nice way. The other struct <link linkend="_struct_c_s_v_writer">CSVWriter</link> is used to organize the data properly to be used in the SdFat framework to write to the SD card. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;SdFat.h&quot;
-</programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;SdFat.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_c_s_v_writer">CSVWriter</link></para>
@@ -20,35 +19,35 @@
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="__data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2">DATALOGGING_TASK_STACK_SIZE</link>   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2">DATALOGGING_TASK_STACK_SIZE</link>&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</para>
 
 <para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99">MOTOR_TEMPERATURE_LOG</link>   &quot;motor_temperature_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99">MOTOR_TEMPERATURE_LOG</link>&#160;&#160;&#160;&quot;motor_temperature_log.csv&quot;</para>
 
 <para>The name for the motor temperature log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f">MOTOR_CONTROLLER_TEMPERATURE_LOG</link>   &quot;motor_controller_temperature_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1ab9b2c0322cedfd8d3cd1c9dbb513b10f">MOTOR_CONTROLLER_TEMPERATURE_LOG</link>&#160;&#160;&#160;&quot;motor_controller_temperature_log.csv&quot;</para>
 
 <para>The name for the motor controller temperature log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b">BMS_VOLTAGE_LOG</link>   &quot;bms_voltage_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1ad345eeebe4d36d151827e130e6082a1b">BMS_VOLTAGE_LOG</link>&#160;&#160;&#160;&quot;bms_voltage_log.csv&quot;</para>
 
 <para>The name for the BMS voltage log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1a34f856128abdd56434d31edd1f4ce549">MOTOR_CONTROLLER_VOLTAGE_LOG</link>   &quot;motor_controller_voltage_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1a34f856128abdd56434d31edd1f4ce549">MOTOR_CONTROLLER_VOLTAGE_LOG</link>&#160;&#160;&#160;&quot;motor_controller_voltage_log.csv&quot;</para>
 
 <para>The name for the motor controller voltage log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1aa98fafae382d16d375eeef356bf55917">MOTOR_CURRENT_LOG</link>   &quot;current_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1aa98fafae382d16d375eeef356bf55917">MOTOR_CURRENT_LOG</link>&#160;&#160;&#160;&quot;current_log.csv&quot;</para>
 
 <para>The name for the motor controller current log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d">THERMISTOR_LOG</link>   &quot;thermistor_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1a2665461802b5e24f2d0f9d8f1ca8351d">THERMISTOR_LOG</link>&#160;&#160;&#160;&quot;thermistor_log.csv&quot;</para>
 
 <para>The name for the thermistor temperature log. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2">RPM_LOG</link>   &quot;rpm_log.csv&quot;</para>
+            <listitem><para>#define <link linkend="__data_logging_8h_1af7b33dd28efa07f171323d23a5f714d2">RPM_LOG</link>&#160;&#160;&#160;&quot;rpm_log.csv&quot;</para>
 
 <para>The name for the motor RPM log. </para>
 </listitem>
@@ -116,30 +115,14 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
 <note><title>Note</title>
 
-<para>Honestly, I dont see any need to fix this further. The only thing I foresee, is that the State of Charge team would be more interested in tweaking the macros (#define statements) and other aspects of this file and <link linkend="__main_8h">Main.h</link> to ensure that they can add more files into the DataLogging task. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Clarification on how SD card stores data: each block is generally about 512 or bytes. SdFat stores an internal buffer of 512 and when the limit is reached only then does it save the data onto the sd card. This is an important trade off if we are less than that value and the bike suddenly turns off, those &lt;512 bytes aren&apos;t stored unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv) or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)</para>
+<para>Honestly, I dont see any need to fix this further. The only thing I foresee, is that the State of Charge team would be more interested in tweaking the macros (#define statements) and other aspects of this file and <link linkend="__main_8h">Main.h</link> to ensure that they can add more files into the DataLogging task. <?linebreak?> <?linebreak?> Clarification on how SD card stores data: each block is generally about 512 or bytes. SdFat stores an internal buffer of 512 and when the limit is reached only then does it save the data onto the sd card. This is an important trade off if we are less than that value and the bike suddenly turns off, those &lt;512 bytes aren&apos;t stored unless we somehow flush the data or use file.close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv) or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)</para>
 </note>
-<para><link linkend="_todo_1_todo000003">Todo</link> 
-<para>Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><link linkend="_todo_1_todo000004">Todo</link> 
+<para>Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__data_logging_8h_source">DataLogging.h</link>.</para>
@@ -150,7 +133,7 @@ Definition in file <link linkend="__data_logging_8h_source">DataLogging.h</link>
     <title>BMS_VOLTAGE_LOG</title>
 <indexterm><primary>BMS_VOLTAGE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>BMS_VOLTAGE_LOG</secondary></indexterm>
-<para><computeroutput>#define BMS_VOLTAGE_LOG   &quot;bms_voltage_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define BMS_VOLTAGE_LOG&#160;&#160;&#160;&quot;bms_voltage_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the BMS voltage log. </para>
 </para>
@@ -161,7 +144,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00052">52</link> of
     <title>DATALOGGING_TASK_STACK_SIZE</title>
 <indexterm><primary>DATALOGGING_TASK_STACK_SIZE</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>DATALOGGING_TASK_STACK_SIZE</secondary></indexterm>
-<para><computeroutput>#define DATALOGGING_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</computeroutput></para><para>
+<para><computeroutput>#define DATALOGGING_TASK_STACK_SIZE&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 32368</computeroutput></para><para>
 
 <para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link> </para>
 </para>
@@ -172,7 +155,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00044">44</link> of
     <title>MOTOR_CONTROLLER_TEMPERATURE_LOG</title>
 <indexterm><primary>MOTOR_CONTROLLER_TEMPERATURE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CONTROLLER_TEMPERATURE_LOG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_CONTROLLER_TEMPERATURE_LOG   &quot;motor_controller_temperature_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_CONTROLLER_TEMPERATURE_LOG&#160;&#160;&#160;&quot;motor_controller_temperature_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the motor controller temperature log. </para>
 </para>
@@ -183,7 +166,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00050">50</link> of
     <title>MOTOR_CONTROLLER_VOLTAGE_LOG</title>
 <indexterm><primary>MOTOR_CONTROLLER_VOLTAGE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CONTROLLER_VOLTAGE_LOG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_CONTROLLER_VOLTAGE_LOG   &quot;motor_controller_voltage_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_CONTROLLER_VOLTAGE_LOG&#160;&#160;&#160;&quot;motor_controller_voltage_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the motor controller voltage log. </para>
 </para>
@@ -194,7 +177,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00054">54</link> of
     <title>MOTOR_CURRENT_LOG</title>
 <indexterm><primary>MOTOR_CURRENT_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_CURRENT_LOG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_CURRENT_LOG   &quot;current_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_CURRENT_LOG&#160;&#160;&#160;&quot;current_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the motor controller current log. </para>
 </para>
@@ -205,7 +188,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00056">56</link> of
     <title>MOTOR_TEMPERATURE_LOG</title>
 <indexterm><primary>MOTOR_TEMPERATURE_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>MOTOR_TEMPERATURE_LOG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_TEMPERATURE_LOG   &quot;motor_temperature_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_TEMPERATURE_LOG&#160;&#160;&#160;&quot;motor_temperature_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the motor temperature log. </para>
 </para>
@@ -216,7 +199,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00048">48</link> of
     <title>RPM_LOG</title>
 <indexterm><primary>RPM_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>RPM_LOG</secondary></indexterm>
-<para><computeroutput>#define RPM_LOG   &quot;rpm_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define RPM_LOG&#160;&#160;&#160;&quot;rpm_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the motor RPM log. </para>
 </para>
@@ -227,7 +210,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00060">60</link> of
     <title>THERMISTOR_LOG</title>
 <indexterm><primary>THERMISTOR_LOG</primary><secondary>DataLogging.h</secondary></indexterm>
 <indexterm><primary>DataLogging.h</primary><secondary>THERMISTOR_LOG</secondary></indexterm>
-<para><computeroutput>#define THERMISTOR_LOG   &quot;thermistor_log.csv&quot;</computeroutput></para><para>
+<para><computeroutput>#define THERMISTOR_LOG&#160;&#160;&#160;&quot;thermistor_log.csv&quot;</computeroutput></para><para>
 
 <para>The name for the thermistor temperature log. </para>
 </para>
@@ -275,11 +258,7 @@ Definition at line <link linkend="__data_logging_8h_source_1l00083">83</link> of
 </note>
 THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
 
-<para>
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-</para>
+<para><?linebreak?> <?linebreak?></para>
 
 <para>I want to add it in now but it should be tested before being merged obviously.. Chase</para>
 <para>

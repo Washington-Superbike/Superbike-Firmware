@@ -1,44 +1,43 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_main_8h" kind="file" language="C++">
     <compoundname>Main.h</compoundname>
+    <includes refid="config_8h" local="yes">config.h</includes>
     <includes refid="_c_a_n_8h" local="yes">CAN.h</includes>
     <includes refid="_display_8h" local="yes">Display.h</includes>
     <includes refid="_precharge_8h" local="yes">Precharge.h</includes>
     <includes refid="_data_logging_8h" local="yes">DataLogging.h</includes>
     <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
     <includes local="no">TimeLib.h</includes>
-    <includedby refid="_data_logging_8ino" local="yes">DataLogging.ino</includedby>
-    <includedby refid="_display_8ino" local="yes">Display.ino</includedby>
-    <includedby refid="_main_8ino" local="yes">Main.ino</includedby>
+    <includedby refid="_data_logging_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</includedby>
+    <includedby refid="_display_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</includedby>
+    <includedby refid="_main_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</includedby>
     <incdepgraph>
-      <node id="6">
+      <node id="7">
         <label>Adafruit_GFX.h</label>
       </node>
-      <node id="5">
+      <node id="6">
         <label>Adafruit_ILI9341.h</label>
       </node>
-      <node id="2">
+      <node id="3">
         <label>CAN.h</label>
         <link refid="_c_a_n_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>DataLogging.h</label>
-        <link refid="_data_logging_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>Display.h</label>
-        <link refid="_display_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DataLogging.h</label>
+        <link refid="_data_logging_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
@@ -47,60 +46,68 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
-      <node id="9">
+      <node id="10">
         <label>FreeRTOS_TEENSY4.h</label>
         <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
       </node>
       <node id="1">
-        <label>Main.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
         <link refid="_main_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>Precharge.h</label>
         <link refid="_precharge_8h"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="3">
+      <node id="2">
+        <label>config.h</label>
+        <link refid="config_8h"/>
+      </node>
+      <node id="4">
         <label>FlexCAN_T4.h</label>
       </node>
-      <node id="7">
+      <node id="8">
         <label>SPI.h</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>SdFat.h</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>TimeLib.h</label>
       </node>
-      <node id="8">
+      <node id="9">
         <label>XPT2046_Touchscreen.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
-        <label>DataLogging.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
         <link refid="_data_logging_8ino"/>
       </node>
       <node id="3">
-        <label>Display.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</label>
         <link refid="_display_8ino"/>
       </node>
       <node id="1">
-        <label>Main.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
         <link refid="_main_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -110,54 +117,11 @@
         </childnode>
       </node>
       <node id="4">
-        <label>Main.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
       </node>
     </invincdepgraph>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="_main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" prot="public" static="no">
-        <name>CAN_NODES</name>
-        <initializer>0</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>This primarily exists to debug the changes made in the FlexCAN library. If there are no devices connected on the CAN bus, the firmware crashes This line can be set to 0 to ensure that the CAN bus does not bother to check the CAN bus if there are 0 nodes connected. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Main.h" line="68" column="9" bodyfile="Main.h" bodystart="68" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="_main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" prot="public" static="no">
-        <name>NUM_THERMI</name>
-        <initializer>10</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>This exists to be changed based on the final number of thermistors we settle on having in the code later. </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Main.h" line="72" column="9" bodyfile="Main.h" bodystart="72" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" prot="public" static="yes" mutable="no">
-        <type><ref refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kindref="member">Screen</ref></type>
-        <definition>Screen screen</definition>
-        <argsstring></argsstring>
-        <name>screen</name>
-        <initializer>= {<ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" kindref="member">SPEEDOMETER</ref>}</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>A screen enum that defines the type of screen to generate in <ref refid="_display_8ino" kindref="compound">Display.ino</ref>. <simplesect kind="note"><para>NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE! </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Main.h" line="77" column="15" bodyfile="Main.h" bodystart="77" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" prot="public" static="yes" mutable="no">
         <type>int</type>
         <definition>int bms_status_flag</definition>
@@ -171,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="82" column="12" bodyfile="Main.h" bodystart="82" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="53" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -186,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="84" column="12" bodyfile="Main.h" bodystart="84" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="55" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a668e87eca74f2126136ee32a6964005e" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -201,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="86" column="12" bodyfile="Main.h" bodystart="86" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="57" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae21e58b785392a0951862c107609d059" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -216,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="88" column="12" bodyfile="Main.h" bodystart="88" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="59" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -231,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="90" column="12" bodyfile="Main.h" bodystart="90" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="61" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1aad0824db126321851b9f0c49a3115de5" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -245,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="92" column="14" bodyfile="Main.h" bodystart="92" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="63" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -259,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="94" column="14" bodyfile="Main.h" bodystart="94" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="65" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a006c7981abf25c0944f67d017aa5fe1f" prot="public" static="yes" mutable="no">
         <type>bool</type>
@@ -273,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="96" column="13" bodyfile="Main.h" bodystart="96" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="67" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -287,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="98" column="14" bodyfile="Main.h" bodystart="98" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="69" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1aefa2152d1586505d2d271edc7e9c4187" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -301,7 +265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="100" column="12" bodyfile="Main.h" bodystart="100" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="71" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ad2bc733f382fc4bf0379382e3a15a94e" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -315,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="102" column="12" bodyfile="Main.h" bodystart="102" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="73" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -330,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="104" column="14" bodyfile="Main.h" bodystart="104" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="75" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -345,7 +309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="108" column="14" bodyfile="Main.h" bodystart="108" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="79" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a89aa0714a95ede6f4c623dbeb38ff019" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -360,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="110" column="14" bodyfile="Main.h" bodystart="110" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="81" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -375,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="112" column="14" bodyfile="Main.h" bodystart="112" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="83" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -390,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="114" column="14" bodyfile="Main.h" bodystart="114" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="85" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -405,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="116" column="14" bodyfile="Main.h" bodystart="116" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="87" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -420,7 +384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="118" column="14" bodyfile="Main.h" bodystart="118" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="89" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -435,7 +399,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="120" column="14" bodyfile="Main.h" bodystart="120" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="91" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1af1c993c5e41ee4d2e881139640989c1a" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -450,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="122" column="14" bodyfile="Main.h" bodystart="122" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="93" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a94bbee6853ba61e7fa11539e15174888" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -465,7 +429,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="124" column="12" bodyfile="Main.h" bodystart="124" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="95" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a93a21521d3b3e91006f1957dabab890b" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -480,7 +444,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="127" column="14" bodyfile="Main.h" bodystart="127" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="98" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a3b4304cff5611528af473a1dfb86c345" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -495,7 +459,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="129" column="14" bodyfile="Main.h" bodystart="129" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="100" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a68e2313572725be66b8d99950942dfb4" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -510,7 +474,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="131" column="14" bodyfile="Main.h" bodystart="131" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="102" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -525,7 +489,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="133" column="14" bodyfile="Main.h" bodystart="133" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="104" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1acbed8fcd71fbc60a2452c5e5e9433903" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -540,7 +504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="135" column="14" bodyfile="Main.h" bodystart="135" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="106" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ac2f400fd7d3933dbf70df179a012817a" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -555,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="139" column="14" bodyfile="Main.h" bodystart="139" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="110" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -570,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="141" column="14" bodyfile="Main.h" bodystart="141" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="112" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1afb2a04d0a4be86d47607dea17db62631" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -585,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="143" column="14" bodyfile="Main.h" bodystart="143" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="114" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae5ea9a8add204eed975816b032f4db3b" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -600,7 +564,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="145" column="14" bodyfile="Main.h" bodystart="145" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="116" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a077d47652e49b1a9d682fd58ae94ba46" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -615,7 +579,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="147" column="14" bodyfile="Main.h" bodystart="147" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="118" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -630,7 +594,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="151" column="14" bodyfile="Main.h" bodystart="151" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="122" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -645,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="153" column="14" bodyfile="Main.h" bodystart="153" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="124" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -660,7 +624,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="155" column="14" bodyfile="Main.h" bodystart="155" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="126" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1adca97acc6b0ff71f782f9c8a484a47b8" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -675,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="157" column="14" bodyfile="Main.h" bodystart="157" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="128" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a45af45f80ded31266ad90143957a4e5e" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -690,7 +654,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="159" column="14" bodyfile="Main.h" bodystart="159" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="130" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1adf4cca4e15700419969edf3ce2ffe6e6" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -705,7 +669,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="161" column="14" bodyfile="Main.h" bodystart="161" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="132" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" prot="public" static="yes" mutable="no">
         <type>int</type>
@@ -720,7 +684,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="163" column="12" bodyfile="Main.h" bodystart="163" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="134" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae40c5f8677bda4442f02f482f3b50d33" prot="public" static="yes" mutable="no">
         <type>byte</type>
@@ -735,7 +699,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="165" column="13" bodyfile="Main.h" bodystart="165" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="136" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a" prot="public" static="yes" mutable="no">
         <type>byte</type>
@@ -750,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="169" column="13" bodyfile="Main.h" bodystart="169" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="140" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -765,7 +729,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="171" column="14" bodyfile="Main.h" bodystart="171" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="142" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -780,7 +744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="173" column="14" bodyfile="Main.h" bodystart="173" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="144" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a1e4f6826343fcd16576ce3c411fb2287" prot="public" static="yes" mutable="no">
         <type>byte</type>
@@ -795,7 +759,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="177" column="13" bodyfile="Main.h" bodystart="177" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="148" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a5613c4060f829f65acaac2bc064ae063" prot="public" static="yes" mutable="no">
         <type>byte</type>
@@ -810,7 +774,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="179" column="13" bodyfile="Main.h" bodystart="179" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="150" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ab11fffe9a473928798422de66fcde502" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -825,7 +789,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="181" column="14" bodyfile="Main.h" bodystart="181" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="152" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" prot="public" static="yes" mutable="no">
         <type>float</type>
@@ -840,7 +804,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="183" column="14" bodyfile="Main.h" bodystart="183" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="154" column="14" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a85ede348554a838fb67a3ceb3313be5b" prot="public" static="yes" mutable="no">
         <type>int8_t</type>
@@ -855,7 +819,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="185" column="15" bodyfile="Main.h" bodystart="185" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="156" column="15" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" prot="public" static="yes" mutable="no">
         <type><ref refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kindref="member">MeasurementScreenData</ref></type>
@@ -870,7 +834,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="188" column="30" bodyfile="Main.h" bodystart="188" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="159" column="30" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a9eeb128a9907154869e9ffa78e065039" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref></type>
@@ -885,7 +849,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="190" column="19" bodyfile="Main.h" bodystart="190" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="161" column="19" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref></type>
@@ -900,7 +864,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="192" column="19" bodyfile="Main.h" bodystart="192" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="163" column="19" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref></type>
@@ -915,7 +879,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="194" column="21" bodyfile="Main.h" bodystart="194" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="165" column="21" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="165" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae0522609134711f92c96ffa8ed05e582" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref></type>
@@ -930,7 +894,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="196" column="18" bodyfile="Main.h" bodystart="196" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="167" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a18571448b101f12a60457d717dc4f953" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref></type>
@@ -945,7 +909,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="198" column="24" bodyfile="Main.h" bodystart="198" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="169" column="24" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref></type>
@@ -960,7 +924,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="200" column="21" bodyfile="Main.h" bodystart="200" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="171" column="21" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref></type>
@@ -975,7 +939,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="202" column="30" bodyfile="Main.h" bodystart="202" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="173" column="30" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref></type>
@@ -989,22 +953,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="206" column="20" bodyfile="Main.h" bodystart="206" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="_main_8h_1aebb1e162e2ac30616875763e56823870" prot="public" static="yes" mutable="no">
-        <type><ref refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" kindref="member">displayPointer</ref></type>
-        <definition>displayPointer displayTaskWrap</definition>
-        <argsstring></argsstring>
-        <name>displayTaskWrap</name>
-        <initializer>= {}</initializer>
-        <briefdescription>
-<para>An instance of a struct to store all display data, then pass it as a void pointer. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="Main.h" line="208" column="23" bodyfile="Main.h" bodystart="208" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="177" column="20" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1af74b66e7d389be76470292071c65f556" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref></type>
@@ -1018,7 +967,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="210" column="28" bodyfile="Main.h" bodystart="210" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="179" column="28" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref></type>
@@ -1033,7 +982,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="212" column="26" bodyfile="Main.h" bodystart="212" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="181" column="26" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1048,7 +997,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="217" column="18" bodyfile="Main.h" bodystart="217" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="186" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1063,7 +1012,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="219" column="18" bodyfile="Main.h" bodystart="219" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="188" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="188" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1078,7 +1027,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="221" column="18" bodyfile="Main.h" bodystart="221" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="190" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1093,7 +1042,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="223" column="18" bodyfile="Main.h" bodystart="223" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="192" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="192" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a60f914a71f12f33ed914208fbf5be838" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1108,7 +1057,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="225" column="18" bodyfile="Main.h" bodystart="225" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="194" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1123,7 +1072,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="227" column="18" bodyfile="Main.h" bodystart="227" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="196" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="196" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ade498aeeb82732f18af609faa0b323cb" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></type>
@@ -1138,7 +1087,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="229" column="18" bodyfile="Main.h" bodystart="229" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="198" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a9462b5ab9931c29422982609bceb3fad" prot="public" static="yes" mutable="no">
         <type><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> *</type>
@@ -1153,7 +1102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="231" column="18" bodyfile="Main.h" bodystart="231" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="200" column="18" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a61d9ef65d75b66821896182b133b31de" prot="public" static="no" mutable="no">
         <type>unsigned long</type>
@@ -1167,7 +1116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="234" column="15" bodyfile="Main.h" bodystart="234" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="203" column="15" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="203" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a40646f0d9308996b7d391cb8e0d95905" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -1181,7 +1130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="235" column="5" bodyfile="Main.h" bodystart="235" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="204" column="5" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="204" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1ad817dda0a86c980182765da5a3cafec8" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -1195,7 +1144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="237" column="5" bodyfile="Main.h" bodystart="237" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="206" column="5" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="206" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" prot="public" static="no" mutable="no">
         <type>unsigned long</type>
@@ -1209,7 +1158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="238" column="15" bodyfile="Main.h" bodystart="238" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="207" column="15" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="207" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" prot="public" static="no" mutable="no">
         <type>byte</type>
@@ -1223,7 +1172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="239" column="6" bodyfile="Main.h" bodystart="239" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="208" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="208" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_main_8h_1a76c0525d646735793add25b18043e600" prot="public" static="no" mutable="no">
         <type><ref refid="semphr_8h_1ad88c6df4a04beedeac782918c8a332f5" kindref="member">SemaphoreHandle_t</ref></type>
@@ -1236,7 +1185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="241" column="19" bodyfile="Main.h" bodystart="241" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="210" column="19" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" bodystart="210" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -1266,7 +1215,7 @@ pxCreatedTask is a variable that is used to pass a handle to the created task ou
         </detaileddescription>
         <inbodydescription>
 <para>First this method calls on <ref refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins()</ref> to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.</para>
-<para>Then this method calls on <ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref></para>
+<para>Then this method calls on <ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3" kindref="member">prechargeTask()</ref></para>
@@ -1276,15 +1225,15 @@ pxCreatedTask is a variable that is used to pass a handle to the created task ou
 File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will set the internal time to the time on the laptop I believe, or connects to the internet somehow to determine the &quot;current&quot; time. This next line calls with the statement setTime(Teensy3Clock.get()) sets the current stored time to the time stored in the internal RTC in the Teensy, allowing for Teensy time from the internal RTC (powered by the coin cell).</para>
 </simplesect>
 Then this method starts the SD Card and prints the status if that works.</para>
-<para>Then this method calls on the <ref refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kindref="member">setupDisplay()</ref> method which just initializes variables that are used by the <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref></para>
+<para>Then this method calls on the <ref refid="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" kindref="member">setupDisplay()</ref> method which just initializes variables that are used by the <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref></para>
 <para>Then this method calls on the <ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN()</ref> method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.</para>
 <para>Then this method calls on the <ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C()</ref> method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking ~2 seconds worth of data to calibrate.</para>
-<para>The main and most important function of setup is initializing the tasks using <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref>. The details of parameters are explained in the Note at the start of <ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref>. The stack sizes are edited in <ref refid="_main_8h" kindref="compound">Main.h</ref> and the priorities are logically assigned for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref> with highest priority 5, <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref> with second highest priority 4 since it contains data that can be used to trigger Off states for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref> is a 2 because see aforementioned reasoning for dataLogging(). <ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask()</ref> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
+<para>The main and most important function of setup is initializing the tasks using <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref>. The details of parameters are explained in the Note at the start of <ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref>. The stack sizes are edited in <ref refid="_main_8h" kindref="compound">Main.h</ref> and the priorities are logically assigned for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref> with highest priority 5, <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref> with second highest priority 4 since it contains data that can be used to trigger Off states for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref> is a 2 because see aforementioned reasoning for dataLogging(). <ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask()</ref> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
 <para>Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.</para>
 <para>Lastly the method prints out that it will attempt to start the scheduler. If this succeeds, only lines from the task methods should know execute.</para>
 <para>If this fails, the method prints out insufficient RAM and breaks.</para>
         </inbodydescription>
-        <location file="Main.h" line="282" column="6" bodyfile="Main.ino" bodystart="64" bodyend="159" declfile="Main.h" declline="282" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="251" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="65" bodyend="160" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="251" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1311,7 +1260,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
 <para>Initializes the pin corresponding to the Contactor Precharge-Read LED as output and then outputs LOW to that pin.</para>
 <para>Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</para>
         </inbodydescription>
-        <location file="Main.h" line="289" column="6" bodyfile="Main.ino" bodystart="161" bodyend="196" declfile="Main.h" declline="289" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="258" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="162" bodyend="197" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="258" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1327,7 +1276,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="299" column="6" bodyfile="Main.ino" bodystart="198" bodyend="205" declfile="Main.h" declline="299" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="268" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="199" bodyend="205" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="268" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1345,7 +1294,7 @@ This will be handy to the SOC team later as they implement more changes. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="310" column="6" bodyfile="Main.ino" bodystart="207" bodyend="216" declfile="Main.h" declline="310" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="279" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="207" bodyend="216" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="279" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1ab91267714bdf99d7b3d177f95f484157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1363,7 +1312,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="323" column="6" bodyfile="Main.ino" bodystart="218" bodyend="227" declfile="Main.h" declline="323" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="292" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="218" bodyend="227" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="292" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a32469c898d757b2b30c00d0546f91802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1379,7 +1328,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="333" column="6" bodyfile="Main.ino" bodystart="229" bodyend="235" declfile="Main.h" declline="333" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="302" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="229" bodyend="235" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="302" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1aafd615bc53c2f27720d792a6a2968209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1403,7 +1352,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="348" column="6" bodyfile="Main.ino" bodystart="237" bodyend="239" declfile="Main.h" declline="348" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="317" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="237" bodyend="239" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="317" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a966fda2bc617e020cb78f814bb5514c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1426,7 +1375,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="363" column="6" bodyfile="Main.ino" bodystart="241" bodyend="243" declfile="Main.h" declline="363" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="332" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="241" bodyend="243" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="332" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a3e0781915a9e0f2045e892efe59f9fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>time_t</type>
@@ -1442,7 +1391,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="368" column="8" bodyfile="Main.ino" bodystart="245" bodyend="248" declfile="Main.h" declline="368" declcolumn="8"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="337" column="8" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="245" bodyend="248" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="337" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1462,7 +1411,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="374" column="6" bodyfile="Main.ino" bodystart="250" bodyend="254" declfile="Main.h" declline="374" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="343" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="250" bodyend="254" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="343" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_main_8h_1afe461d27b9c48d5921c00d521181f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1478,7 +1427,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.h" line="380" column="6" bodyfile="Main.ino" bodystart="256" bodyend="257" declfile="Main.h" declline="380" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" line="349" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="256" bodyend="257" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h" declline="349" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1487,145 +1436,135 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
-The main config file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <ref refid="_main_8ino" kindref="compound">Main.ino</ref>. This file exists as an overall configuration for the bike firmware as all these variables can be changed to meet requirements. Like all other header files, it exists as the skeleton on which the .ino file is built.</para>
-<para><simplesect kind="note"><para>Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a #pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a #include <ref refid="_main_8h" kindref="compound">Main.h</ref> and if every other file does that, the #pragma once command ensures that the first time the <ref refid="_main_8h" kindref="compound">Main.h</ref> is #included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn&apos;t make sense, dont worry, CSE 351, CSE 374. Please take them. They&apos;re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there&apos;s just one global copy. ALSO, if you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here.</para>
+<simplesect kind="note"><para>Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a #pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a #include <ref refid="_main_8h" kindref="compound">Main.h</ref> and if every other file does that, the #pragma once command ensures that the first time the <ref refid="_main_8h" kindref="compound">Main.h</ref> is #included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn&apos;t make sense, dont worry, CSE 351, CSE 374. Please take them. They&apos;re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there&apos;s just one global copy.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000007"><xreftitle>Todo</xreftitle><xrefdescription><para>Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <linebreak/>
+<xrefsect id="todo_1_todo000008"><xreftitle>Todo</xreftitle><xrefdescription><para>Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <linebreak/>
  <linebreak/>
  Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add <linebreak/>
- <linebreak/>
- CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. <linebreak/>
  <linebreak/>
  Final Goal. </para>
 </xrefdescription></xrefsect></para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_display_8h" kindref="compound">Display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_precharge_8h" kindref="compound">Precharge.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;TimeLib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68" refid="_main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" refkind="member"><highlight class="preprocessor">#define<sp/>CAN_NODES<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="_main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" refkind="member"><highlight class="preprocessor">#define<sp/>NUM_THERMI<sp/>10</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_screen_info" kindref="compound">Screen</ref><sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref><sp/>=<sp/>{<ref refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" kindref="member">SPEEDOMETER</ref>};</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BMS<sp/>and<sp/>Battery<sp/>values.<sp/>Determined<sp/>via<sp/>CAN<sp/>and<sp/>other<sp/>protocols.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>PROBABLY<sp/>ADD<sp/>THE<sp/>LV<sp/>System<sp/>current<sp/>here.</highlight></codeline>
-<codeline lineno="82" refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" kindref="member">bms_status_flag</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="84" refid="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" kindref="member">bms_c_id</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="86" refid="_main_8h_1a668e87eca74f2126136ee32a6964005e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a668e87eca74f2126136ee32a6964005e" kindref="member">bms_c_fault</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="88" refid="_main_8h_1ae21e58b785392a0951862c107609d059" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae21e58b785392a0951862c107609d059" kindref="member">ltc_fault</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="90" refid="_main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c" kindref="member">ltc_count</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="92" refid="_main_8h_1aad0824db126321851b9f0c49a3115de5" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aad0824db126321851b9f0c49a3115de5" kindref="member">cellVoltagesArr</ref>[<ref refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" kindref="member">BMS_CELLS</ref>];<sp/><sp/></highlight><highlight class="comment">//<sp/>voltages<sp/>starting<sp/>with<sp/>the<sp/>first<sp/>LTC</highlight></codeline>
-<codeline lineno="94" refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" kindref="member">seriesVoltage</ref>;</highlight></codeline>
-<codeline lineno="96" refid="_main_8h_1a006c7981abf25c0944f67d017aa5fe1f" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a006c7981abf25c0944f67d017aa5fe1f" kindref="member">cellsReady</ref>;</highlight></codeline>
-<codeline lineno="98" refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" kindref="member">thTemps</ref>[<ref refid="_main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" kindref="member">NUM_THERMI</ref>];</highlight></codeline>
-<codeline lineno="100" refid="_main_8h_1aefa2152d1586505d2d271edc7e9c4187" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aefa2152d1586505d2d271edc7e9c4187" kindref="member">thermistorEnabled</ref>;</highlight></codeline>
-<codeline lineno="102" refid="_main_8h_1ad2bc733f382fc4bf0379382e3a15a94e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad2bc733f382fc4bf0379382e3a15a94e" kindref="member">thermistorPresent</ref>;</highlight></codeline>
-<codeline lineno="104" refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" kindref="member">auxiliaryBatteryVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>used<sp/>to<sp/>read<sp/>in<sp/>the<sp/>data<sp/>from<sp/>the<sp/>gyroscope.</highlight></codeline>
-<codeline lineno="108" refid="_main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c" kindref="member">angle_X</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="110" refid="_main_8h_1a89aa0714a95ede6f4c623dbeb38ff019" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a89aa0714a95ede6f4c623dbeb38ff019" kindref="member">angle_Y</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="112" refid="_main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa" kindref="member">Rate_Roll</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="114" refid="_main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe" kindref="member">Rate_Pitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="116" refid="_main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0" kindref="member">Rate_Yaw</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="118" refid="_main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf" kindref="member">Rate_CalibrationRoll</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="120" refid="_main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a" kindref="member">Rate_CalibrationPitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="122" refid="_main_8h_1af1c993c5e41ee4d2e881139640989c1a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1af1c993c5e41ee4d2e881139640989c1a" kindref="member">Rate_CalibrationYaw</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="124" refid="_main_8h_1a94bbee6853ba61e7fa11539e15174888" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a94bbee6853ba61e7fa11539e15174888" kindref="member">Rate_CalibrationNumber</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127" refid="_main_8h_1a93a21521d3b3e91006f1957dabab890b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a93a21521d3b3e91006f1957dabab890b" kindref="member">Acc_X</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="129" refid="_main_8h_1a3b4304cff5611528af473a1dfb86c345" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a3b4304cff5611528af473a1dfb86c345" kindref="member">Acc_Y</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="131" refid="_main_8h_1a68e2313572725be66b8d99950942dfb4" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a68e2313572725be66b8d99950942dfb4" kindref="member">Acc_Z</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="133" refid="_main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb" kindref="member">Angle_Roll</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="135" refid="_main_8h_1acbed8fcd71fbc60a2452c5e5e9433903" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1acbed8fcd71fbc60a2452c5e5e9433903" kindref="member">Angle_Pitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>used<sp/>to<sp/>filter<sp/>the<sp/>gyroscope<sp/>angles<sp/>using<sp/>the<sp/>Kalman<sp/>filter.</highlight></codeline>
-<codeline lineno="139" refid="_main_8h_1ac2f400fd7d3933dbf70df179a012817a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ac2f400fd7d3933dbf70df179a012817a" kindref="member">Kalman_AngleRoll</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="141" refid="_main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d" kindref="member">Kalman_UncertaintyAngleRoll</ref><sp/>=<sp/>2<sp/>*<sp/>2;</highlight></codeline>
-<codeline lineno="143" refid="_main_8h_1afb2a04d0a4be86d47607dea17db62631" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1afb2a04d0a4be86d47607dea17db62631" kindref="member">Kalman_AnglePitch</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="145" refid="_main_8h_1ae5ea9a8add204eed975816b032f4db3b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae5ea9a8add204eed975816b032f4db3b" kindref="member">Kalman_UncertaintyAnglePitch</ref><sp/>=<sp/>2<sp/>*<sp/>2;</highlight></codeline>
-<codeline lineno="147" refid="_main_8h_1a077d47652e49b1a9d682fd58ae94ba46" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a077d47652e49b1a9d682fd58ae94ba46" kindref="member">Kalman_1DOutput</ref>[]<sp/>=<sp/>{0,<sp/>0};</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>can<sp/>values<sp/>derived<sp/>from<sp/>the<sp/>motor<sp/>controller.</highlight></codeline>
-<codeline lineno="151" refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" kindref="member">RPM</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="153" refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" kindref="member">motorCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="155" refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" kindref="member">motorControllerBatteryVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="157" refid="_main_8h_1adca97acc6b0ff71f782f9c8a484a47b8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1adca97acc6b0ff71f782f9c8a484a47b8" kindref="member">throttle</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="159" refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" kindref="member">motorControllerTemp</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="161" refid="_main_8h_1adf4cca4e15700419969edf3ce2ffe6e6" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1adf4cca4e15700419969edf3ce2ffe6e6" kindref="member">motorTemp</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="163" refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" kindref="member">errorMessage</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="165" refid="_main_8h_1ae40c5f8677bda4442f02f482f3b50d33" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae40c5f8677bda4442f02f482f3b50d33" kindref="member">controllerStatus</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Charge<sp/>controller<sp/>variables</highlight></codeline>
-<codeline lineno="169" refid="_main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a" kindref="member">evccEnable</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="171" refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" kindref="member">evccVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="173" refid="_main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0" kindref="member">evccCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_8h" kindref="compound">config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_c_a_n_8h" kindref="compound">CAN.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_display_8h" kindref="compound">Display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_precharge_8h" kindref="compound">Precharge.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_logging_8h" kindref="compound">DataLogging.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" kindref="compound">FreeRTOS_TEENSY4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;TimeLib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BMS<sp/>and<sp/>Battery<sp/>values.<sp/>Determined<sp/>via<sp/>CAN<sp/>and<sp/>other<sp/>protocols.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>PROBABLY<sp/>ADD<sp/>THE<sp/>LV<sp/>System<sp/>current<sp/>here.</highlight></codeline>
+<codeline lineno="53" refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" kindref="member">bms_status_flag</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="55" refid="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" kindref="member">bms_c_id</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57" refid="_main_8h_1a668e87eca74f2126136ee32a6964005e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a668e87eca74f2126136ee32a6964005e" kindref="member">bms_c_fault</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59" refid="_main_8h_1ae21e58b785392a0951862c107609d059" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae21e58b785392a0951862c107609d059" kindref="member">ltc_fault</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="61" refid="_main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c" kindref="member">ltc_count</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63" refid="_main_8h_1aad0824db126321851b9f0c49a3115de5" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aad0824db126321851b9f0c49a3115de5" kindref="member">cellVoltagesArr</ref>[<ref refid="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" kindref="member">BMS_CELLS</ref>];<sp/><sp/></highlight><highlight class="comment">//<sp/>voltages<sp/>starting<sp/>with<sp/>the<sp/>first<sp/>LTC</highlight></codeline>
+<codeline lineno="65" refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" kindref="member">seriesVoltage</ref>;</highlight></codeline>
+<codeline lineno="67" refid="_main_8h_1a006c7981abf25c0944f67d017aa5fe1f" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a006c7981abf25c0944f67d017aa5fe1f" kindref="member">cellsReady</ref>;</highlight></codeline>
+<codeline lineno="69" refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" kindref="member">thTemps</ref>[<ref refid="config_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" kindref="member">NUM_THERMI</ref>];</highlight></codeline>
+<codeline lineno="71" refid="_main_8h_1aefa2152d1586505d2d271edc7e9c4187" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aefa2152d1586505d2d271edc7e9c4187" kindref="member">thermistorEnabled</ref>;</highlight></codeline>
+<codeline lineno="73" refid="_main_8h_1ad2bc733f382fc4bf0379382e3a15a94e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad2bc733f382fc4bf0379382e3a15a94e" kindref="member">thermistorPresent</ref>;</highlight></codeline>
+<codeline lineno="75" refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" kindref="member">auxiliaryBatteryVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>used<sp/>to<sp/>read<sp/>in<sp/>the<sp/>data<sp/>from<sp/>the<sp/>gyroscope.</highlight></codeline>
+<codeline lineno="79" refid="_main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c" kindref="member">angle_X</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="81" refid="_main_8h_1a89aa0714a95ede6f4c623dbeb38ff019" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a89aa0714a95ede6f4c623dbeb38ff019" kindref="member">angle_Y</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="83" refid="_main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa" kindref="member">Rate_Roll</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="85" refid="_main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe" kindref="member">Rate_Pitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="87" refid="_main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0" kindref="member">Rate_Yaw</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="89" refid="_main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf" kindref="member">Rate_CalibrationRoll</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="91" refid="_main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a" kindref="member">Rate_CalibrationPitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="93" refid="_main_8h_1af1c993c5e41ee4d2e881139640989c1a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1af1c993c5e41ee4d2e881139640989c1a" kindref="member">Rate_CalibrationYaw</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="95" refid="_main_8h_1a94bbee6853ba61e7fa11539e15174888" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a94bbee6853ba61e7fa11539e15174888" kindref="member">Rate_CalibrationNumber</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="_main_8h_1a93a21521d3b3e91006f1957dabab890b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a93a21521d3b3e91006f1957dabab890b" kindref="member">Acc_X</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="100" refid="_main_8h_1a3b4304cff5611528af473a1dfb86c345" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a3b4304cff5611528af473a1dfb86c345" kindref="member">Acc_Y</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="102" refid="_main_8h_1a68e2313572725be66b8d99950942dfb4" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a68e2313572725be66b8d99950942dfb4" kindref="member">Acc_Z</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="104" refid="_main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb" kindref="member">Angle_Roll</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="106" refid="_main_8h_1acbed8fcd71fbc60a2452c5e5e9433903" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1acbed8fcd71fbc60a2452c5e5e9433903" kindref="member">Angle_Pitch</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>used<sp/>to<sp/>filter<sp/>the<sp/>gyroscope<sp/>angles<sp/>using<sp/>the<sp/>Kalman<sp/>filter.</highlight></codeline>
+<codeline lineno="110" refid="_main_8h_1ac2f400fd7d3933dbf70df179a012817a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ac2f400fd7d3933dbf70df179a012817a" kindref="member">Kalman_AngleRoll</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="112" refid="_main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d" kindref="member">Kalman_UncertaintyAngleRoll</ref><sp/>=<sp/>2<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="114" refid="_main_8h_1afb2a04d0a4be86d47607dea17db62631" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1afb2a04d0a4be86d47607dea17db62631" kindref="member">Kalman_AnglePitch</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116" refid="_main_8h_1ae5ea9a8add204eed975816b032f4db3b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae5ea9a8add204eed975816b032f4db3b" kindref="member">Kalman_UncertaintyAnglePitch</ref><sp/>=<sp/>2<sp/>*<sp/>2;</highlight></codeline>
+<codeline lineno="118" refid="_main_8h_1a077d47652e49b1a9d682fd58ae94ba46" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a077d47652e49b1a9d682fd58ae94ba46" kindref="member">Kalman_1DOutput</ref>[]<sp/>=<sp/>{0,<sp/>0};</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//<sp/>All<sp/>these<sp/>variables<sp/>are<sp/>can<sp/>values<sp/>derived<sp/>from<sp/>the<sp/>motor<sp/>controller.</highlight></codeline>
+<codeline lineno="122" refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" kindref="member">RPM</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124" refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" kindref="member">motorCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="126" refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" kindref="member">motorControllerBatteryVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="128" refid="_main_8h_1adca97acc6b0ff71f782f9c8a484a47b8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1adca97acc6b0ff71f782f9c8a484a47b8" kindref="member">throttle</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="130" refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" kindref="member">motorControllerTemp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132" refid="_main_8h_1adf4cca4e15700419969edf3ce2ffe6e6" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1adf4cca4e15700419969edf3ce2ffe6e6" kindref="member">motorTemp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="134" refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" kindref="member">errorMessage</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="136" refid="_main_8h_1ae40c5f8677bda4442f02f482f3b50d33" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ae40c5f8677bda4442f02f482f3b50d33" kindref="member">controllerStatus</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Charge<sp/>controller<sp/>variables</highlight></codeline>
+<codeline lineno="140" refid="_main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a" kindref="member">evccEnable</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="142" refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" kindref="member">evccVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="144" refid="_main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0" kindref="member">evccCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Charger<sp/>variables</highlight></codeline>
+<codeline lineno="148" refid="_main_8h_1a1e4f6826343fcd16576ce3c411fb2287" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1e4f6826343fcd16576ce3c411fb2287" kindref="member">chargeFlag</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="150" refid="_main_8h_1a5613c4060f829f65acaac2bc064ae063" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a5613c4060f829f65acaac2bc064ae063" kindref="member">chargerStatusFlag</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="152" refid="_main_8h_1ab11fffe9a473928798422de66fcde502" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ab11fffe9a473928798422de66fcde502" kindref="member">chargerVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="154" refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" kindref="member">chargerCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="156" refid="_main_8h_1a85ede348554a838fb67a3ceb3313be5b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int8_t<sp/><ref refid="_main_8h_1a85ede348554a838fb67a3ceb3313be5b" kindref="member">chargerTemp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/><ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="161" refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" kindref="member">motorStats</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="163" refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" kindref="member">motorTemps</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="165" refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" kindref="member">cellVoltages</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="167" refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" kindref="member">bmsStatus</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="169" refid="_main_8h_1a18571448b101f12a60457d717dc4f953" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="_main_8h_1a18571448b101f12a60457d717dc4f953" kindref="member">thermistorTemps</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="171" refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" kindref="member">chargerStats</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="173" refid="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/><ref refid="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" kindref="member">chargeControllerStats</ref><sp/>=<sp/>{};</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Charger<sp/>variables</highlight></codeline>
-<codeline lineno="177" refid="_main_8h_1a1e4f6826343fcd16576ce3c411fb2287" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a1e4f6826343fcd16576ce3c411fb2287" kindref="member">chargeFlag</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="179" refid="_main_8h_1a5613c4060f829f65acaac2bc064ae063" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a5613c4060f829f65acaac2bc064ae063" kindref="member">chargerStatusFlag</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="181" refid="_main_8h_1ab11fffe9a473928798422de66fcde502" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ab11fffe9a473928798422de66fcde502" kindref="member">chargerVoltage</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="183" refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" kindref="member">chargerCurrent</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="185" refid="_main_8h_1a85ede348554a838fb67a3ceb3313be5b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int8_t<sp/><ref refid="_main_8h_1a85ede348554a838fb67a3ceb3313be5b" kindref="member">chargerTemp</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188" refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_measurement_screen_data_struct" kindref="compound">MeasurementScreenData</ref><sp/><ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="190" refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_motor_stats" kindref="compound">MotorStats</ref><sp/><ref refid="_main_8h_1a9eeb128a9907154869e9ffa78e065039" kindref="member">motorStats</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="192" refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_motor_temps" kindref="compound">MotorTemps</ref><sp/><ref refid="_main_8h_1abb61c6dc61d12b31aad7bdadd495b70a" kindref="member">motorTemps</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="194" refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_cell_voltages" kindref="compound">CellVoltages</ref><sp/><ref refid="_main_8h_1afca6798677cebeeb7599ea00e1e243dd" kindref="member">cellVoltages</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="196" refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_b_m_s_status" kindref="compound">BMSStatus</ref><sp/><ref refid="_main_8h_1ae0522609134711f92c96ffa8ed05e582" kindref="member">bmsStatus</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="198" refid="_main_8h_1a18571448b101f12a60457d717dc4f953" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_thermistor_temps" kindref="compound">ThermistorTemps</ref><sp/><ref refid="_main_8h_1a18571448b101f12a60457d717dc4f953" kindref="member">thermistorTemps</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="200" refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_charger_stats" kindref="compound">ChargerStats</ref><sp/><ref refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" kindref="member">chargerStats</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="202" refid="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_charge_controller_stats" kindref="compound">ChargeControllerStats</ref><sp/><ref refid="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" kindref="member">chargeControllerStats</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>variables<sp/>store<sp/>all<sp/>the<sp/>task<sp/>data<sp/>for<sp/>all<sp/>4<sp/>tasks<sp/>(except<sp/>IDLE)</highlight></codeline>
-<codeline lineno="206" refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref><sp/><ref refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" kindref="member">canTaskData</ref>;</highlight></codeline>
-<codeline lineno="208" refid="_main_8h_1aebb1e162e2ac30616875763e56823870" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structdisplay_task_wrapper" kindref="compound">displayPointer</ref><sp/><ref refid="_main_8h_1aebb1e162e2ac30616875763e56823870" kindref="member">displayTaskWrap</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="210" refid="_main_8h_1af74b66e7d389be76470292071c65f556" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref><sp/><ref refid="_main_8h_1af74b66e7d389be76470292071c65f556" kindref="member">dataLoggingTaskData</ref>;</highlight></codeline>
-<codeline lineno="212" refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Log<sp/>variables<sp/>used<sp/>for<sp/>dataLogging<sp/>task.<sp/>Change<sp/>things<sp/>here<sp/>if<sp/>you<sp/>want<sp/>to</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>more<sp/>variables<sp/>to<sp/>logging.</highlight></codeline>
-<codeline lineno="217" refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" kindref="member">motorTemperatureLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="219" refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" kindref="member">motorControllerTemperatureLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="221" refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" kindref="member">motorControllerVoltageLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="223" refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" kindref="member">motorCurrentLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="225" refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" kindref="member">rpmLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="227" refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" kindref="member">thermistorLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="229" refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" kindref="member">bmsVoltageLog</ref><sp/>=<sp/>{};</highlight></codeline>
-<codeline lineno="231" refid="_main_8h_1a9462b5ab9931c29422982609bceb3fad" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*<ref refid="_main_8h_1a9462b5ab9931c29422982609bceb3fad" kindref="member">logs</ref>[]<sp/>=<sp/>{&amp;<ref refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" kindref="member">motorTemperatureLog</ref>,<sp/>&amp;<ref refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" kindref="member">motorControllerTemperatureLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" kindref="member">motorControllerVoltageLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" kindref="member">motorCurrentLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" kindref="member">rpmLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" kindref="member">thermistorLog</ref>,<sp/>&amp;<ref refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" kindref="member">bmsVoltageLog</ref>};</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="234" refid="_main_8h_1a61d9ef65d75b66821896182b133b31de" refkind="member"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a61d9ef65d75b66821896182b133b31de" kindref="member">timer</ref><sp/>=<sp/>millis();</highlight></codeline>
-<codeline lineno="235" refid="_main_8h_1a40646f0d9308996b7d391cb8e0d95905" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a40646f0d9308996b7d391cb8e0d95905" kindref="member">cycleCount</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"></highlight></codeline>
-<codeline lineno="237" refid="_main_8h_1ad817dda0a86c980182765da5a3cafec8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad817dda0a86c980182765da5a3cafec8" kindref="member">lowerUpperCells</ref><sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="238" refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" kindref="member">ms</ref><sp/>=<sp/>millis();</highlight></codeline>
-<codeline lineno="239" refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"></highlight></codeline>
-<codeline lineno="241" refid="_main_8h_1a76c0525d646735793add25b18043e600" refkind="member"><highlight class="normal"><ref refid="struct_queue_definition" kindref="compound">SemaphoreHandle_t</ref><sp/><ref refid="_main_8h_1a76c0525d646735793add25b18043e600" kindref="member">spi_mutex</ref>;</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"></highlight></codeline>
-<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup</ref>();</highlight></codeline>
-<codeline lineno="289"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>();</highlight></codeline>
-<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>();</highlight></codeline>
-<codeline lineno="310"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs</ref>();</highlight></codeline>
-<codeline lineno="323"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs</ref>();</highlight></codeline>
-<codeline lineno="333"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct</ref>();</highlight></codeline>
-<codeline lineno="348"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aafd615bc53c2f27720d792a6a2968209" kindref="member">get_SPI_control</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" kindref="member">ms</ref>);</highlight></codeline>
-<codeline lineno="363"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a966fda2bc617e020cb78f814bb5514c1" kindref="member">release_SPI_control</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="368"><highlight class="normal">time_t<sp/><ref refid="_main_8h_1a3e0781915a9e0f2045e892efe59f9fdc" kindref="member">getTeensy3Time</ref>();</highlight></codeline>
-<codeline lineno="374"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*taskData);</highlight></codeline>
-<codeline lineno="380"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>variables<sp/>store<sp/>all<sp/>the<sp/>task<sp/>data<sp/>for<sp/>all<sp/>4<sp/>tasks<sp/>(except<sp/>IDLE)</highlight></codeline>
+<codeline lineno="177" refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_a_n_task_data" kindref="compound">CANTaskData</ref><sp/><ref refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" kindref="member">canTaskData</ref>;</highlight></codeline>
+<codeline lineno="179" refid="_main_8h_1af74b66e7d389be76470292071c65f556" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_data_logging_task_data" kindref="compound">DataLoggingTaskData</ref><sp/><ref refid="_main_8h_1af74b66e7d389be76470292071c65f556" kindref="member">dataLoggingTaskData</ref>;</highlight></codeline>
+<codeline lineno="181" refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_pre_charge_task_data" kindref="compound">PreChargeTaskData</ref><sp/><ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Log<sp/>variables<sp/>used<sp/>for<sp/>dataLogging<sp/>task.<sp/>Change<sp/>things<sp/>here<sp/>if<sp/>you<sp/>want<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>more<sp/>variables<sp/>to<sp/>logging.</highlight></codeline>
+<codeline lineno="186" refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" refkind="member"><highlight class="comment"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" kindref="member">motorTemperatureLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="188" refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" kindref="member">motorControllerTemperatureLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="190" refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" kindref="member">motorControllerVoltageLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="192" refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" kindref="member">motorCurrentLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="194" refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" kindref="member">rpmLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="196" refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" kindref="member">thermistorLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="198" refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/><ref refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" kindref="member">bmsVoltageLog</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="200" refid="_main_8h_1a9462b5ab9931c29422982609bceb3fad" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref><sp/>*<ref refid="_main_8h_1a9462b5ab9931c29422982609bceb3fad" kindref="member">logs</ref>[]<sp/>=<sp/>{&amp;<ref refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" kindref="member">motorTemperatureLog</ref>,<sp/>&amp;<ref refid="_main_8h_1ae230e041b8d09151f97b07151fdaf38c" kindref="member">motorControllerTemperatureLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a" kindref="member">motorControllerVoltageLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0" kindref="member">motorCurrentLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a60f914a71f12f33ed914208fbf5be838" kindref="member">rpmLog</ref>,<sp/>&amp;<ref refid="_main_8h_1a8941dbd7f821806a7a6f4eb705b1472b" kindref="member">thermistorLog</ref>,<sp/>&amp;<ref refid="_main_8h_1ade498aeeb82732f18af609faa0b323cb" kindref="member">bmsVoltageLog</ref>};</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="_main_8h_1a61d9ef65d75b66821896182b133b31de" refkind="member"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a61d9ef65d75b66821896182b133b31de" kindref="member">timer</ref><sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="204" refid="_main_8h_1a40646f0d9308996b7d391cb8e0d95905" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a40646f0d9308996b7d391cb8e0d95905" kindref="member">cycleCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="_main_8h_1ad817dda0a86c980182765da5a3cafec8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ad817dda0a86c980182765da5a3cafec8" kindref="member">lowerUpperCells</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="207" refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" kindref="member">ms</ref><sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="208" refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="_main_8h_1a76c0525d646735793add25b18043e600" refkind="member"><highlight class="normal"><ref refid="struct_queue_definition" kindref="compound">SemaphoreHandle_t</ref><sp/><ref refid="_main_8h_1a76c0525d646735793add25b18043e600" kindref="member">spi_mutex</ref>;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>();</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>();</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs</ref>();</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs</ref>();</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct</ref>();</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1aafd615bc53c2f27720d792a6a2968209" kindref="member">get_SPI_control</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070" kindref="member">ms</ref>);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a966fda2bc617e020cb78f814bb5514c1" kindref="member">release_SPI_control</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">time_t<sp/><ref refid="_main_8h_1a3e0781915a9e0f2045e892efe59f9fdc" kindref="member">getTeensy3Time</ref>();</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*taskData);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8h_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>();</highlight></codeline>
     </programlisting>
-    <location file="Main.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h"/>
   </compounddef>
 </doxygen>

@@ -9,6 +9,6 @@ var searchData=
   ['decodemotorstats_6',['decodeMotorStats',['../_c_a_n_8h.html#abd98b0e43fb7330bf8964d8da390810f',1,'decodeMotorStats(CAN_message_t msg, MotorStats motorStats):&#160;CAN.ino'],['../_c_a_n_8ino.html#abd98b0e43fb7330bf8964d8da390810f',1,'decodeMotorStats(CAN_message_t msg, MotorStats motorStats):&#160;CAN.ino']]],
   ['decodemotortemps_7',['decodeMotorTemps',['../_c_a_n_8h.html#a950c51dd93e1585b49156c52113ab832',1,'decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps):&#160;CAN.ino'],['../_c_a_n_8ino.html#a950c51dd93e1585b49156c52113ab832',1,'decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps):&#160;CAN.ino']]],
   ['delayms_8',['delayMS',['../_free_r_t_o_s___t_e_e_n_s_y4_8c.html#a4d5e82901421218561290929a1b12548',1,'FreeRTOS_TEENSY4.c']]],
-  ['displaytask_9',['displayTask',['../_display_8ino.html#abbc2dd9c7d8fc4714a0379f70d919047',1,'Display.ino']]],
-  ['displayupdate_10',['displayUpdate',['../_display_8h.html#ad2818acb0d1eb44a804059aa40c432b3',1,'displayUpdate(MeasurementScreenData msData, Screen screen):&#160;Display.ino'],['../_display_8ino.html#ad2818acb0d1eb44a804059aa40c432b3',1,'displayUpdate(MeasurementScreenData msData, Screen screen):&#160;Display.ino']]]
+  ['displaytask_9',['displayTask',['../_display_8ino.html#a7121972a969d5d8bd9c96626cfd61b11',1,'Display.ino']]],
+  ['displayupdate_10',['displayUpdate',['../_display_8h.html#a2af0d27bbe0bf5e4e4b8207139104c78',1,'displayUpdate(MeasurementScreenData msData):&#160;Display.ino'],['../_display_8ino.html#a2af0d27bbe0bf5e4e4b8207139104c78',1,'displayUpdate(MeasurementScreenData msData):&#160;Display.ino']]]
 ];

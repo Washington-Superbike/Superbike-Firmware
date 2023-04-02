@@ -1,10 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_config_8h_source" xml:lang="en-US">
-<title>config.h</title>
-Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_config_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_CONFIG_H</emphasis>
-<anchor xml:id="_config_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_CONFIG_H</emphasis>
-<anchor xml:id="_config_8h_source_1l00003"/>00003 
-<anchor xml:id="_config_8h_source_1l00004"/>00004 
-<anchor xml:id="_config_8h_source_1l00005"/>00005 
-<anchor xml:id="_config_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;_CONFIG_H</emphasis>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/config.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_config_8h_source_1l00001"/>00001 
+<anchor xml:id="_config_8h_source_1l00015"/>00015 <emphasis role="preprocessor">#ifndef&#32;_CONFIG_H</emphasis>
+<anchor xml:id="_config_8h_source_1l00016"/>00016 <emphasis role="preprocessor">#define&#32;_CONFIG_H</emphasis>
+<anchor xml:id="_config_8h_source_1l00017"/>00017 
+<anchor xml:id="_config_8h_source_1l00022"/><link linkend="_config_8h_1a9d09068130671d9ca6bf3c9b6fac6e34">00022</link> <emphasis role="preprocessor">#define&#32;CAN_NODES&#32;0</emphasis>
+<anchor xml:id="_config_8h_source_1l00023"/>00023 
+<anchor xml:id="_config_8h_source_1l00026"/><link linkend="_config_8h_1a1b567b3caf8487eccf2110567e8a2fb8">00026</link> <emphasis role="preprocessor">#define&#32;USE_DEBUGGING_SCREEN</emphasis>
+<anchor xml:id="_config_8h_source_1l00027"/>00027 
+<anchor xml:id="_config_8h_source_1l00030"/><link linkend="_config_8h_1a9e9f6a6f679efeb38325e7474a2e4c85">00030</link> <emphasis role="preprocessor">#define&#32;NUM_THERMI&#32;10</emphasis>
+<anchor xml:id="_config_8h_source_1l00031"/>00031 
+<anchor xml:id="_config_8h_source_1l00032"/>00032 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;_CONFIG_H</emphasis>
 </programlisting></section>

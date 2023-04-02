@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_precharge_8h" kind="file" language="C++">
     <compoundname>Precharge.h</compoundname>
     <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
-    <includedby refid="_main_8h" local="yes">Main.h</includedby>
-    <includedby refid="_pre_charge_8ino" local="yes">PreCharge.ino</includedby>
+    <includedby refid="_main_8h" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</includedby>
+    <includedby refid="_pre_charge_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino</includedby>
     <incdepgraph>
       <node id="2">
         <label>FreeRTOS_TEENSY4.h</label>
         <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
       </node>
       <node id="1">
-        <label>Precharge.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h</label>
         <link refid="_precharge_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -19,15 +19,15 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="3">
-        <label>DataLogging.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
         <link refid="_data_logging_8ino"/>
       </node>
       <node id="4">
-        <label>Display.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</label>
         <link refid="_display_8ino"/>
       </node>
       <node id="2">
-        <label>Main.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
         <link refid="_main_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -37,15 +37,15 @@
         </childnode>
       </node>
       <node id="5">
-        <label>Main.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
       </node>
       <node id="6">
-        <label>PreCharge.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino</label>
         <link refid="_pre_charge_8ino"/>
       </node>
       <node id="1">
-        <label>Precharge.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h</label>
         <link refid="_precharge_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="31" column="9" bodyfile="Precharge.h" bodystart="31" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="31" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" prot="public" static="no">
         <name>CONTACTOR</name>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="34" column="9" bodyfile="Precharge.h" bodystart="34" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="34" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" prot="public" static="no">
         <name>PRECHARGE</name>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="36" column="9" bodyfile="Precharge.h" bodystart="36" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="36" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" prot="public" static="no">
         <name>HIGH_VOLTAGE_TOGGLE</name>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="38" column="9" bodyfile="Precharge.h" bodystart="38" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="38" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" prot="public" static="no">
         <name>CLOSE_CONTACTOR_BUTTON</name>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="40" column="9" bodyfile="Precharge.h" bodystart="40" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="40" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" prot="public" static="no">
         <name>CONTACTOR_PRECHARGED_LED</name>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="42" column="9" bodyfile="Precharge.h" bodystart="42" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="42" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" prot="public" static="no">
         <name>CONTACTOR_CLOSED_LED</name>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="44" column="9" bodyfile="Precharge.h" bodystart="44" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="44" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e" prot="public" static="no">
         <name>NUMBER_OF_LTCS</name>
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="46" column="9" bodyfile="Precharge.h" bodystart="46" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="46" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1a1f9513787cfe256aae379719ab26ca39" prot="public" static="no">
         <name>MOTORCONTROLLER_TEMP_MAX</name>
@@ -160,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="49" column="9" bodyfile="Precharge.h" bodystart="49" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="49" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db" prot="public" static="no">
         <name>MOTOR_TEMP_MAX</name>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="52" column="9" bodyfile="Precharge.h" bodystart="52" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="52" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="55" column="1" bodyfile="Precharge.h" bodystart="55" bodyend="55"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="55" column="1" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="55" bodyend="55"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -231,7 +231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="93" column="10" bodyfile="Precharge.h" bodystart="93" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="93" column="10" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -250,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="95" column="6" declfile="Precharge.h" declline="95" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="95" column="6" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="95" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad5e3efaa785dcd1d9143ec7e5d117277" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="96" column="6" bodyfile="PreCharge.ino" bodystart="68" bodyend="126" declfile="Precharge.h" declline="96" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="96" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="70" bodyend="128" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="96" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad2376a25ab645f00587791af3c89968e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -284,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="97" column="6" bodyfile="PreCharge.ino" bodystart="128" bodyend="148" declfile="Precharge.h" declline="97" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="97" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="130" bodyend="150" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="97" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="98" column="6" bodyfile="PreCharge.ino" bodystart="152" bodyend="164" declfile="Precharge.h" declline="98" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="98" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="154" bodyend="166" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="98" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a65867cb936f7ef47ffd07fbfd4a91355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -318,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="99" column="6" bodyfile="PreCharge.ino" bodystart="167" bodyend="186" declfile="Precharge.h" declline="99" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="99" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="169" bodyend="188" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="99" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a6798f4bd0a5b6353886f894b38b32473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -331,7 +331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="100" column="6" bodyfile="PreCharge.ino" bodystart="188" bodyend="190" declfile="Precharge.h" declline="100" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="100" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="190" bodyend="192" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="100" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a0a3e1d4e80c1320d3308a0e0bb10ac87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -348,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="101" column="6" bodyfile="PreCharge.ino" bodystart="192" bodyend="199" declfile="Precharge.h" declline="101" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="101" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="194" bodyend="201" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="101" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -365,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="103" column="6" bodyfile="PreCharge.ino" bodystart="201" bodyend="228" declfile="Precharge.h" declline="103" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="103" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="203" bodyend="230" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="103" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ad8511ef84de5112bd6beb8e3ac5fff67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -382,7 +382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="104" column="6" bodyfile="PreCharge.ino" bodystart="230" bodyend="295" declfile="Precharge.h" declline="104" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="104" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="232" bodyend="297" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="104" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1a87184d718be6821c71e697fc1fd98d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -399,7 +399,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="105" column="6" bodyfile="PreCharge.ino" bodystart="297" bodyend="317" declfile="Precharge.h" declline="105" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="105" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="299" bodyend="319" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="105" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_precharge_8h_1ade8f654468b951602d2622b34902944f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -432,7 +432,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Precharge.h" line="106" column="6" bodyfile="PreCharge.ino" bodystart="319" bodyend="328" declfile="Precharge.h" declline="106" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" line="106" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino" bodystart="321" bodyend="330" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h" declline="106" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -441,11 +441,11 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
 <simplesect kind="note"><para>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000009"><xreftitle>Todo</xreftitle><xrefdescription><para>Change the preChargeStruct data to use less floats, etc. <linebreak/>
+<xrefsect id="todo_1_todo000010"><xreftitle>Todo</xreftitle><xrefdescription><para>Change the preChargeStruct data to use less floats, etc. <linebreak/>
  <linebreak/>
  NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. <linebreak/>
  <linebreak/>
@@ -521,6 +521,6 @@
 <codeline lineno="107"><highlight class="normal"></highlight></codeline>
 <codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_PRECHARGE_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="Precharge.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h"/>
   </compounddef>
 </doxygen>

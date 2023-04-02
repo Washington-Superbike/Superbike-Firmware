@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.4" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
   <compound refid="struct_b_m_s_status" kind="struct"><name>BMSStatus</name>
     <member refid="struct_b_m_s_status_1acab09ac12be3be24bce0abc90862dacd" kind="variable"><name>bms_status_flag</name></member>
     <member refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" kind="variable"><name>bms_c_id</name></member>
@@ -53,10 +53,6 @@
   <compound refid="struct_data_logging_task_data" kind="struct"><name>DataLoggingTaskData</name>
     <member refid="struct_data_logging_task_data_1a8749861675b46b70c4cb68262d220e2a" kind="variable"><name>writers</name></member>
     <member refid="struct_data_logging_task_data_1a7ae4a326c6a1c95c14fb7a3d64fbb36e" kind="variable"><name>writersLen</name></member>
-  </compound>
-  <compound refid="structdisplay_task_wrapper" kind="struct"><name>displayTaskWrapper</name>
-    <member refid="structdisplay_task_wrapper_1a51bf468020bb98383d49a9e0e39422cc" kind="variable"><name>msDataWrap</name></member>
-    <member refid="structdisplay_task_wrapper_1acaa31854e77a95332b545bc6da5c1c22" kind="variable"><name>screenDataWrap</name></member>
   </compound>
   <compound refid="struct_event_group_def__t" kind="struct"><name>EventGroupDef_t</name>
     <member refid="struct_event_group_def__t_1ab1bcd95a3330b71c55198b2352926643" kind="variable"><name>uxEventBits</name></member>
@@ -171,9 +167,6 @@
   <compound refid="struct_queue_pointers" kind="struct"><name>QueuePointers</name>
     <member refid="struct_queue_pointers_1acbbdc8eb47b348a824c7bced41512a38" kind="variable"><name>pcTail</name></member>
     <member refid="struct_queue_pointers_1af381d02bbe6bc4a77934c6fd97598913" kind="variable"><name>pcReadFrom</name></member>
-  </compound>
-  <compound refid="struct_screen_info" kind="struct"><name>ScreenInfo</name>
-    <member refid="struct_screen_info_1abb458c47ad3635762b415e3ed4d26e97" kind="variable"><name>screenType</name></member>
   </compound>
   <compound refid="struct_semaphore_data" kind="struct"><name>SemaphoreData</name>
     <member refid="struct_semaphore_data_1ab1ed54c7b39dc45b3c310fae7ad08693" kind="variable"><name>xMutexHolder</name></member>
@@ -383,6 +376,11 @@
     <member refid="_c_a_n_8ino_1ad899aaa07def0c8757bea6e9a75f878d" kind="function"><name>printMessage</name></member>
     <member refid="_c_a_n_8ino_1a0953b2f37f0e637d3f5fba2148109d2a" kind="function"><name>requestCellVoltages</name></member>
   </compound>
+  <compound refid="config_8h" kind="file"><name>config.h</name>
+    <member refid="config_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" kind="define"><name>CAN_NODES</name></member>
+    <member refid="config_8h_1a1b567b3caf8487eccf2110567e8a2fb8" kind="define"><name>USE_DEBUGGING_SCREEN</name></member>
+    <member refid="config_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" kind="define"><name>NUM_THERMI</name></member>
+  </compound>
   <compound refid="_data_logging_8h" kind="file"><name>DataLogging.h</name>
     <member refid="_data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2" kind="define"><name>DATALOGGING_TASK_STACK_SIZE</name></member>
     <member refid="_data_logging_8h_1af00c3fd81cebf8f7797f97204750ba99" kind="define"><name>MOTOR_TEMPERATURE_LOG</name></member>
@@ -432,6 +430,8 @@
     <member refid="_display_8h_1aa6b0be19465bc73429fbaf37ea6d7f5d" kind="define"><name>DEFAULT_FLOAT</name></member>
     <member refid="_display_8h_1accd27f9824631fc37bcb677947f1f63a" kind="define"><name>DEFAULT_X_POS</name></member>
     <member refid="_display_8h_1a9705c15b04a1787116a4fbdf987e0328" kind="define"><name>VERTICAL_SCALER</name></member>
+    <member refid="_display_8h_1a61ae6f1ae401c962137f2ae1d2a158df" kind="define"><name>BACKGROUND_COLOR</name></member>
+    <member refid="_display_8h_1a761b36c5e7be7b06b38d2b1e38dcf213" kind="define"><name>PRINT_COLOR</name></member>
     <member refid="_display_8h_1a33c25be9eca2247ac244fc928183eb55" kind="define"><name>TS_MINX</name></member>
     <member refid="_display_8h_1ae0c07334a8bec0889ce72fd7cd207000" kind="define"><name>TS_MAXX</name></member>
     <member refid="_display_8h_1a221886aabcdfcc6e096414db04cfbdb9" kind="define"><name>TS_MINY</name></member>
@@ -440,15 +440,10 @@
     <member refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a12a90dfe20486bbe3e075afcd19ef2d0" kind="enumvalue"><name>NUMBER</name></member>
     <member refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1a1e029fbf0c881b85d80fc8e89b753688" kind="enumvalue"><name>ARRAY</name></member>
     <member refid="_display_8h_1a0d9a05d88ef681f9a1e7d362f6f20ac1ae663dbb8f8244e122acb5bd6b2c216e1" kind="enumvalue"><name>BOOL</name></member>
-    <member refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173f" kind="enum"><name>SCREEN_TYPE</name></member>
-    <member refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fa0593585da9181e972974c1274d8f2b4f" kind="enumvalue"><name>DEBUG</name></member>
-    <member refid="_display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab" kind="enumvalue"><name>SPEEDOMETER</name></member>
     <member refid="_display_8h_1a0b2eff0e3feae0c6d455436e5511e6b0" kind="typedef"><name>PrintedData</name></member>
     <member refid="_display_8h_1a359bec7987d6af4301ef0554e5d65bd7" kind="typedef"><name>PrintedDataTherm</name></member>
     <member refid="_display_8h_1a9c2d0a6b6dc2051fb68c10e88f2283cd" kind="typedef"><name>PrintedDataTimeStuct</name></member>
-    <member refid="_display_8h_1a412053d6576f296892a8ccc0d8510e46" kind="typedef"><name>Screen</name></member>
     <member refid="_display_8h_1a2dded6e25e0cb307491fd7997b66b2a4" kind="typedef"><name>MeasurementScreenData</name></member>
-    <member refid="_display_8h_1a178682b58bff3b19ffd056fb9c00dcc6" kind="typedef"><name>displayPointer</name></member>
     <member refid="_display_8h_1a41c3eb6bc5901609f9f976b594e5089f" kind="variable"><name>tft</name></member>
     <member refid="_display_8h_1a4d31440d430c0fc247733e218f14278f" kind="variable"><name>printedVals</name></member>
     <member refid="_display_8h_1a0dbb33f8e641008d67ebd4388521ab69" kind="variable"><name>batteryVoltage</name></member>
@@ -464,25 +459,23 @@
     <member refid="_display_8h_1a1f928d9e961d6ef649cb8bc5d3178b8e" kind="variable"><name>evccVolt</name></member>
     <member refid="_display_8h_1a700ec86cb550fd4426014190222173ac" kind="variable"><name>thermiData</name></member>
     <member refid="_display_8h_1aa2a50ee378fcf45591eb041ee70b2368" kind="variable"><name>timeData</name></member>
-    <member refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kind="function"><name>setupDisplay</name></member>
-    <member refid="_display_8h_1ad2818acb0d1eb44a804059aa40c432b3" kind="function"><name>displayUpdate</name></member>
-    <member refid="_display_8h_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kind="function"><name>thermiDataPrint</name></member>
+    <member refid="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" kind="function"><name>setupDisplay</name></member>
+    <member refid="_display_8h_1a2af0d27bbe0bf5e4e4b8207139104c78" kind="function"><name>displayUpdate</name></member>
+    <member refid="_display_8h_1a255d71bb7f36b2056059bd579af11f3a" kind="function"><name>thermiDataPrint</name></member>
     <member refid="_display_8h_1a1faaa02c20faaddf6f9e78859eb3cb0c" kind="function"><name>timePrint</name></member>
-    <member refid="_display_8h_1a2b73a1c90c594f4d6e205cf19666468a" kind="function"><name>setupMeasurementScreen</name></member>
+    <member refid="_display_8h_1ae5303e677c439d26296656ed10d656cc" kind="function"><name>setupMeasurementScreen</name></member>
     <member refid="_display_8h_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kind="function"><name>eraseThenPrint</name></member>
-    <member refid="_display_8h_1acf63fd6f02499d20156ded2a3582fb9b" kind="function"><name>eraseThenPrintSPEEDO</name></member>
     <member refid="_display_8h_1a2fcaba5d0c64fb3389132dca04224211" kind="function"><name>manualScreenDataUpdater</name></member>
     <member refid="_display_8h_1ad609934bdce8f8169cc609cb7913f507" kind="function"><name>aux_voltage_read</name></member>
   </compound>
   <compound refid="_display_8ino" kind="file"><name>Display.ino</name>
-    <member refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kind="function"><name>displayTask</name></member>
-    <member refid="_display_8ino_1a756efac71e8cf83b5add1ffcb9035a20" kind="function"><name>setupDisplay</name></member>
-    <member refid="_display_8ino_1ad2818acb0d1eb44a804059aa40c432b3" kind="function"><name>displayUpdate</name></member>
-    <member refid="_display_8ino_1a48f20f2ac1788f51aaa3aefd6c8ccb96" kind="function"><name>thermiDataPrint</name></member>
+    <member refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kind="function"><name>displayTask</name></member>
+    <member refid="_display_8ino_1a79b84de3ddc4f88db07ac708452e4467" kind="function"><name>setupDisplay</name></member>
+    <member refid="_display_8ino_1a2af0d27bbe0bf5e4e4b8207139104c78" kind="function"><name>displayUpdate</name></member>
+    <member refid="_display_8ino_1a255d71bb7f36b2056059bd579af11f3a" kind="function"><name>thermiDataPrint</name></member>
     <member refid="_display_8ino_1a1faaa02c20faaddf6f9e78859eb3cb0c" kind="function"><name>timePrint</name></member>
-    <member refid="_display_8ino_1a2b73a1c90c594f4d6e205cf19666468a" kind="function"><name>setupMeasurementScreen</name></member>
+    <member refid="_display_8ino_1ae5303e677c439d26296656ed10d656cc" kind="function"><name>setupMeasurementScreen</name></member>
     <member refid="_display_8ino_1a9622e737a6a548ba9f9ffcbb6ed1bb2d" kind="function"><name>eraseThenPrint</name></member>
-    <member refid="_display_8ino_1acf63fd6f02499d20156ded2a3582fb9b" kind="function"><name>eraseThenPrintSPEEDO</name></member>
     <member refid="_display_8ino_1a2fcaba5d0c64fb3389132dca04224211" kind="function"><name>manualScreenDataUpdater</name></member>
     <member refid="_display_8ino_1ad609934bdce8f8169cc609cb7913f507" kind="function"><name>aux_voltage_read</name></member>
   </compound>
@@ -1633,9 +1626,6 @@
     <member refid="timers_8h_1a1ee4da95d99c4e81bfa14c0350fbd594" kind="function"><name>xTimerGenericCommand</name></member>
   </compound>
   <compound refid="_main_8h" kind="file"><name>Main.h</name>
-    <member refid="_main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" kind="define"><name>CAN_NODES</name></member>
-    <member refid="_main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" kind="define"><name>NUM_THERMI</name></member>
-    <member refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kind="variable"><name>screen</name></member>
     <member refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" kind="variable"><name>bms_status_flag</name></member>
     <member refid="_main_8h_1a54619d6c6a00d3268f764c33bd352ebf" kind="variable"><name>bms_c_id</name></member>
     <member refid="_main_8h_1a668e87eca74f2126136ee32a6964005e" kind="variable"><name>bms_c_fault</name></member>
@@ -1692,7 +1682,6 @@
     <member refid="_main_8h_1aa249f1d073086c27682168bbd7dc77ee" kind="variable"><name>chargerStats</name></member>
     <member refid="_main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c" kind="variable"><name>chargeControllerStats</name></member>
     <member refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" kind="variable"><name>canTaskData</name></member>
-    <member refid="_main_8h_1aebb1e162e2ac30616875763e56823870" kind="variable"><name>displayTaskWrap</name></member>
     <member refid="_main_8h_1af74b66e7d389be76470292071c65f556" kind="variable"><name>dataLoggingTaskData</name></member>
     <member refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kind="variable"><name>preChargeData</name></member>
     <member refid="_main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a" kind="variable"><name>motorTemperatureLog</name></member>
@@ -1996,6 +1985,6 @@
   </compound>
   <compound refid="todo" kind="page"><name>todo</name>
   </compound>
-  <compound refid="dir_d7118de178bfbe920ee67df3a72c5a10" kind="dir"><name>FreeRTOS</name>
+  <compound refid="dir_d7118de178bfbe920ee67df3a72c5a10" kind="dir"><name>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS</name>
   </compound>
 </doxygenindex>

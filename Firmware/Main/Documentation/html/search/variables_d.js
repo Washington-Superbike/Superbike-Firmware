@@ -15,8 +15,7 @@ var searchData=
   ['rateroll_12',['RateRoll',['../struct_pre_charge_task_data.html#a33b675970bf11d7e27edf3b542431997',1,'PreChargeTaskData']]],
   ['rateyaw_13',['RateYaw',['../struct_pre_charge_task_data.html#aaf5cdfb5b1dd1857d4082f3a014ffb51',1,'PreChargeTaskData']]],
   ['ready_14',['ready',['../struct_cell_voltages.html#a844b5b2d0bd58e1147076ab8aacc420a',1,'CellVoltages']]],
-  ['rpm_15',['RPM',['../struct_motor_stats.html#a7e3450d33d8be341dea374a2fcafd257',1,'MotorStats::RPM()'],['../struct_measurement_screen_data_struct.html#a032fdb5cea2670a02f48dae82cb6c5f7',1,'MeasurementScreenDataStruct::RPM()']]],
+  ['rpm_15',['RPM',['../struct_motor_stats.html#a7e3450d33d8be341dea374a2fcafd257',1,'MotorStats::RPM()'],['../struct_measurement_screen_data_struct.html#a032fdb5cea2670a02f48dae82cb6c5f7',1,'MeasurementScreenDataStruct::RPM()'],['../_main_8h.html#ade4e42cdef2d4a9d50b3184100ad8cba',1,'RPM():&#160;Main.h']]],
   ['rpm_16',['rpm',['../_display_8h.html#a96f08d4bf70ba395b285b8d6a352bdf9',1,'Display.h']]],
-  ['rpm_17',['RPM',['../_main_8h.html#ade4e42cdef2d4a9d50b3184100ad8cba',1,'Main.h']]],
-  ['rpmlog_18',['rpmLog',['../_main_8h.html#a60f914a71f12f33ed914208fbf5be838',1,'Main.h']]]
+  ['rpmlog_17',['rpmLog',['../_main_8h.html#a60f914a71f12f33ed914208fbf5be838',1,'Main.h']]]
 ];

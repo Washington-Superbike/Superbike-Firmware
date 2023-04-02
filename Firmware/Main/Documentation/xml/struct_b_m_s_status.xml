@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="struct_b_m_s_status" kind="struct" language="C++" prot="public">
     <compoundname>BMSStatus</compoundname>
     <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="122" column="7" bodyfile="CAN.h" bodystart="122" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="122" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="123" column="7" bodyfile="CAN.h" bodystart="123" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="123" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="124" column="7" bodyfile="CAN.h" bodystart="124" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="124" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1a53663d5549fc358f1f06927c9b2c3676" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="125" column="7" bodyfile="CAN.h" bodystart="125" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="125" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_b_m_s_status_1aafe89416c934c33489db12fdce4d6f6e" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="126" column="7" bodyfile="CAN.h" bodystart="126" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="126" column="7" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -80,7 +80,7 @@
     <detaileddescription>
 <para>A simple struct to store all the stats from the BMS. The BMS flags, the BMS_id?, the BMS_fault?, the ltc_fault?, the ltc_count? I would read through the datasheets for the bms. </para>
     </detaileddescription>
-    <location file="CAN.h" line="121" column="1" bodyfile="CAN.h" bodystart="121" bodyend="127"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="121" column="1" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="121" bodyend="127"/>
     <listofallmembers>
       <member refid="struct_b_m_s_status_1a8b316c1509dc351897db5b5726026e3e" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_fault</name></member>
       <member refid="struct_b_m_s_status_1a02b6f2e9d6f9655e47184007195c7265" prot="public" virt="non-virtual"><scope>BMSStatus</scope><name>bms_c_id</name></member>

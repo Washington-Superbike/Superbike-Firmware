@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_data_logging_8ino" kind="file" language="C++">
     <compoundname>DataLogging.ino</compoundname>
     <includes refid="_data_logging_8h" local="yes">DataLogging.h</includes>
@@ -13,10 +13,10 @@
       <node id="5">
         <label>Adafruit_ILI9341.h</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>CAN.h</label>
         <link refid="_c_a_n_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
@@ -30,7 +30,7 @@
         </childnode>
       </node>
       <node id="1">
-        <label>DataLogging.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
         <link refid="_data_logging_8ino"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -64,24 +64,30 @@
         <link refid="_main_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="14">
         <label>Precharge.h</label>
         <link refid="_precharge_8h"/>
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="11">
+        <label>config.h</label>
+        <link refid="config_8h"/>
+      </node>
+      <node id="13">
         <label>FlexCAN_T4.h</label>
       </node>
       <node id="7">
@@ -90,7 +96,7 @@
       <node id="3">
         <label>SdFat.h</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>TimeLib.h</label>
       </node>
       <node id="8">
@@ -114,7 +120,7 @@
         <inbodydescription>
 <para>The <ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask()</ref> processes the data, for each of the logs. Just uses sdFat methods within the helper methods <ref refid="_data_logging_8h_1aa394fd0868d0e097f701cb3f21d9c451" kindref="member">addRecord()</ref>, <ref refid="_data_logging_8h_1a52d8bf385131a3543793f22ee432100a" kindref="member">saveFiles()</ref> as required to process the neatly organized <ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> data and then save it.</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="30" column="6" bodyfile="DataLogging.ino" bodystart="30" bodyend="55"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="30" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="30" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1a0d2a3a213399ec010b89dede4ba4de77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -128,7 +134,7 @@
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" kindref="member">startSD()</ref> attempts to begin communication with the SD card on SPI (single bit bus) Returns true if no errors exist, returns false if an error exists</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="57" column="6" bodyfile="DataLogging.ino" bodystart="57" bodyend="61"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="57" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="57" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1ac579da51eca1f113da5d315ab23b8b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -146,7 +152,7 @@
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile()</ref> attemps to open the file designated at the filename inside <ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref> Returns true if no errors, returns false if any error exists</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="63" column="6" bodyfile="DataLogging.ino" bodystart="63" bodyend="68"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="63" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="63" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1a10c88f7cc0c34cd0a584f78997f13827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -164,7 +170,7 @@
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1a10c88f7cc0c34cd0a584f78997f13827" kindref="member">closeFile()</ref> closes the file inside the <ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="70" column="6" bodyfile="DataLogging.ino" bodystart="70" bodyend="73"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="70" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="70" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1a678245415389e1bbd75b088a980b008a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -182,7 +188,7 @@
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1a678245415389e1bbd75b088a980b008a" kindref="member">saveFile()</ref> saves the file inside the <ref refid="struct_c_s_v_writer" kindref="compound">CSVWriter</ref></para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="75" column="6" bodyfile="DataLogging.ino" bodystart="75" bodyend="78"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="75" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="75" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1a52d8bf385131a3543793f22ee432100a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -204,7 +210,7 @@
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1a52d8bf385131a3543793f22ee432100a" kindref="member">saveFiles()</ref> calls on <ref refid="_data_logging_8h_1a678245415389e1bbd75b088a980b008a" kindref="member">saveFile()</ref> multiple times until all the files are saved.</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="80" column="6" bodyfile="DataLogging.ino" bodystart="80" bodyend="86"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="80" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="80" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1a8777416fb5b01666e7b28ada9f3b552a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,7 +228,7 @@
         <inbodydescription>
 <para>Opens the file using <ref refid="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile()</ref> and then prints out what is read in from the <ref refid="_data_logging_8h_1ac579da51eca1f113da5d315ab23b8b1e" kindref="member">openFile()</ref> method to the Serial monitor</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="88" column="6" bodyfile="DataLogging.ino" bodystart="88" bodyend="96"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="88" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="88" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1aa394fd0868d0e097f701cb3f21d9c451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -251,7 +257,7 @@ THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;
 </para>
 <para>I want to add it in now but it should be tested before being merged obviously.. Chase</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="98" column="6" bodyfile="DataLogging.ino" bodystart="98" bodyend="143"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="98" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="98" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="_data_logging_8ino_1ab91616c118b701c2afd9136393d1f19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -265,7 +271,7 @@ THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;
         <inbodydescription>
 <para><ref refid="_data_logging_8h_1ab91616c118b701c2afd9136393d1f19b" kindref="member">startRecording()</ref> sets the &quot;epoch&quot; or beginning time so that each data log is synced up.</para>
         </inbodydescription>
-        <location file="DataLogging.ino" line="145" column="6" bodyfile="DataLogging.ino" bodystart="145" bodyend="149"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" line="145" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino" bodystart="145" bodyend="149"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -274,11 +280,11 @@ THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
 <simplesect kind="note"><para>All members should be able to use it without any trouble. Chase made a method to process the logs data without any trouble, but they be able to use it without any trouble.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000004"><xreftitle>Todo</xreftitle><xrefdescription><para>Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. <linebreak/>
+<xrefsect id="todo_1_todo000005"><xreftitle>Todo</xreftitle><xrefdescription><para>Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. <linebreak/>
  <linebreak/>
  Goal 2. <linebreak/>
  <linebreak/>
@@ -373,6 +379,6 @@ THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><ref refid="_data_logging_8h_1a90b197693eeaad244ff381d5645b1c16" kindref="member">epochTime</ref><sp/>=<sp/>millis();</highlight></codeline>
 <codeline lineno="149"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="DataLogging.ino"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino"/>
   </compounddef>
 </doxygen>

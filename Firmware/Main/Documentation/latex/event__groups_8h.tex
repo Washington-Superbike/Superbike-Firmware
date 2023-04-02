@@ -1,14 +1,14 @@
-\hypertarget{event__groups_8h}{}\doxysection{Free\+RTOS/event\+\_\+groups.h File Reference}
-\label{event__groups_8h}\index{FreeRTOS/event\_groups.h@{FreeRTOS/event\_groups.h}}
+\hypertarget{event__groups_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/event\+\_\+groups.h File Reference}
+\label{event__groups_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event\_groups.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event\_groups.h}}
 {\ttfamily \#include \char`\"{}timers.\+h\char`\"{}}\newline
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{event__groups_8h_a3d7de214a697f33fe7b914e26a93f33a}{x\+Event\+Group\+Clear\+Bits\+From\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Clear)~\mbox{\hyperlink{timers_8h_ae0d9338933037e6feebe6437763fa299}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8h_a9187a137998183178320167de254cce9}{v\+Event\+Group\+Clear\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Clear, NULL )
+\#define \mbox{\hyperlink{event__groups_8h_a3d7de214a697f33fe7b914e26a93f33a}{x\+Event\+Group\+Clear\+Bits\+From\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Clear)~\mbox{\hyperlink{timers_8c_af4444b6b1a4e8d7db156e6aaccdf66fa}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8c_a3bce459038e87064109c8462b1174c29}{v\+Event\+Group\+Clear\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Clear, NULL )
 \item 
-\#define \mbox{\hyperlink{event__groups_8h_a62b68278abac6358369ae8e390988a02}{x\+Event\+Group\+Set\+Bits\+From\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Set,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{timers_8h_ae0d9338933037e6feebe6437763fa299}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8h_abe76a301815525eb5e03f331e5e51ae3}{v\+Event\+Group\+Set\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Set, px\+Higher\+Priority\+Task\+Woken )
+\#define \mbox{\hyperlink{event__groups_8h_a62b68278abac6358369ae8e390988a02}{x\+Event\+Group\+Set\+Bits\+From\+ISR}}(x\+Event\+Group,  ux\+Bits\+To\+Set,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{timers_8c_af4444b6b1a4e8d7db156e6aaccdf66fa}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8c_a54db6cc97bbb926aa4b78d5affc257d9}{v\+Event\+Group\+Set\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Set, px\+Higher\+Priority\+Task\+Woken )
 \item 
-\#define \mbox{\hyperlink{event__groups_8h_a0ae86f092fb07ccb475ae938f9a12584}{x\+Event\+Group\+Get\+Bits}}(x\+Event\+Group)~\mbox{\hyperlink{event__groups_8h_a0fb72cfdd4f0d5f86d955fc3af448f2a}{x\+Event\+Group\+Clear\+Bits}}( x\+Event\+Group, 0 )
+\#define \mbox{\hyperlink{event__groups_8h_a0ae86f092fb07ccb475ae938f9a12584}{x\+Event\+Group\+Get\+Bits}}(x\+Event\+Group)~\mbox{\hyperlink{event__groups_8c_a71dd2680fdfbdde7d6b10db203e266ba}{x\+Event\+Group\+Clear\+Bits}}( x\+Event\+Group, 0 )
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -43,7 +43,7 @@ void \mbox{\hyperlink{event__groups_8h_a9187a137998183178320167de254cce9}{v\+Eve
 \index{event\_groups.h@{event\_groups.h}!xEventGroupClearBitsFromISR@{xEventGroupClearBitsFromISR}}
 \index{xEventGroupClearBitsFromISR@{xEventGroupClearBitsFromISR}!event\_groups.h@{event\_groups.h}}
 \doxysubsubsection{\texorpdfstring{xEventGroupClearBitsFromISR}{xEventGroupClearBitsFromISR}}
-{\footnotesize\ttfamily \#define x\+Event\+Group\+Clear\+Bits\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Clear }\end{DoxyParamCaption})~\mbox{\hyperlink{timers_8h_ae0d9338933037e6feebe6437763fa299}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8h_a9187a137998183178320167de254cce9}{v\+Event\+Group\+Clear\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Clear, NULL )}
+{\footnotesize\ttfamily \#define x\+Event\+Group\+Clear\+Bits\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Clear }\end{DoxyParamCaption})~\mbox{\hyperlink{timers_8c_af4444b6b1a4e8d7db156e6aaccdf66fa}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8c_a3bce459038e87064109c8462b1174c29}{v\+Event\+Group\+Clear\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Clear, NULL )}
 
 
 
@@ -53,7 +53,7 @@ Definition at line \mbox{\hyperlink{event__groups_8h_source_l00410}{410}} of fil
 \index{event\_groups.h@{event\_groups.h}!xEventGroupGetBits@{xEventGroupGetBits}}
 \index{xEventGroupGetBits@{xEventGroupGetBits}!event\_groups.h@{event\_groups.h}}
 \doxysubsubsection{\texorpdfstring{xEventGroupGetBits}{xEventGroupGetBits}}
-{\footnotesize\ttfamily \#define x\+Event\+Group\+Get\+Bits(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group }\end{DoxyParamCaption})~\mbox{\hyperlink{event__groups_8h_a0fb72cfdd4f0d5f86d955fc3af448f2a}{x\+Event\+Group\+Clear\+Bits}}( x\+Event\+Group, 0 )}
+{\footnotesize\ttfamily \#define x\+Event\+Group\+Get\+Bits(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group }\end{DoxyParamCaption})~\mbox{\hyperlink{event__groups_8c_a71dd2680fdfbdde7d6b10db203e266ba}{x\+Event\+Group\+Clear\+Bits}}( x\+Event\+Group, 0 )}
 
 
 
@@ -63,7 +63,7 @@ Definition at line \mbox{\hyperlink{event__groups_8h_source_l00708}{708}} of fil
 \index{event\_groups.h@{event\_groups.h}!xEventGroupSetBitsFromISR@{xEventGroupSetBitsFromISR}}
 \index{xEventGroupSetBitsFromISR@{xEventGroupSetBitsFromISR}!event\_groups.h@{event\_groups.h}}
 \doxysubsubsection{\texorpdfstring{xEventGroupSetBitsFromISR}{xEventGroupSetBitsFromISR}}
-{\footnotesize\ttfamily \#define x\+Event\+Group\+Set\+Bits\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{timers_8h_ae0d9338933037e6feebe6437763fa299}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8h_abe76a301815525eb5e03f331e5e51ae3}{v\+Event\+Group\+Set\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Set, px\+Higher\+Priority\+Task\+Woken )}
+{\footnotesize\ttfamily \#define x\+Event\+Group\+Set\+Bits\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Event\+Group,  }\item[{}]{ux\+Bits\+To\+Set,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{timers_8c_af4444b6b1a4e8d7db156e6aaccdf66fa}{x\+Timer\+Pend\+Function\+Call\+From\+ISR}}( \mbox{\hyperlink{event__groups_8c_a54db6cc97bbb926aa4b78d5affc257d9}{v\+Event\+Group\+Set\+Bits\+Callback}}, ( void $\ast$ ) x\+Event\+Group, ( uint32\+\_\+t ) ux\+Bits\+To\+Set, px\+Higher\+Priority\+Task\+Woken )}
 
 
 

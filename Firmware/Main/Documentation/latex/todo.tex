@@ -18,8 +18,13 @@
  Goal 3. ~\newline
  ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.h}} ]\label{todo__todo000003}%
+\item[File \mbox{\hyperlink{config_8h}{config.h}} ]\label{todo__todo000003}%
 \Hypertarget{todo__todo000003}%
+ CHANGE THE NUM\+\_\+\+THERMI based on the number of thermistors that Powertain settles on. ~\newline
+ ~\newline
+  
+\item[File \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.h}} ]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
  Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) ~\newline
  ~\newline
  Goal 2. ~\newline
@@ -27,8 +32,8 @@
  Goal 3. ~\newline
  ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_data_logging_8ino}{Data\+Logging.ino}} ]\label{todo__todo000004}%
-\Hypertarget{todo__todo000004}%
+\item[File \mbox{\hyperlink{_data_logging_8ino}{Data\+Logging.ino}} ]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
  Use the void pointer stuff in the add\+Record method. Fix it up. Not required, but preferred. ~\newline
  ~\newline
  Goal 2. ~\newline
@@ -36,8 +41,8 @@
  Goal 3. ~\newline
  ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_display_8h}{Display.h}} ]\label{todo__todo000005}%
-\Hypertarget{todo__todo000005}%
+\item[File \mbox{\hyperlink{_display_8h}{Display.h}} ]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
  Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-\/thermistor to be honest) ~\newline
  ~\newline
  Make a better struct for time and integrate it in a way so that the update code isn\textquotesingle{}t nasty. ~\newline
@@ -45,28 +50,22 @@
  Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. ~\newline
  ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_display_8ino}{Display.ino}} ]\label{todo__todo000006}%
-\Hypertarget{todo__todo000006}%
- PLEASE remove the whole screen parameter situation. Change the \char`\"{}screen\char`\"{} variable in the \mbox{\hyperlink{_main_8h}{Main.\+h}} to be a \#define macro and then just check the value from here by directly including \mbox{\hyperlink{_main_8h}{Main.\+h}} and finding that value. Ez. ~\newline
- ~\newline
+\item[File \mbox{\hyperlink{_display_8ino}{Display.ino}} ]\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
  Remove all unused vars and tighten up methods. ~\newline
  ~\newline
  There are WAY more macros (\#define statements) that need to be written for defining some frequently used values in display. Can\textquotesingle{}t think of them off the top of my head, but make and use those. ~\newline
  ~\newline
- Change the thermistor code to use \char`\"{}\+NUM\+\_\+\+THERMI\char`\"{} from \mbox{\hyperlink{_main_8h}{Main.\+h}} ~\newline
- ~\newline
  In the speedometer screen, add code to show angles. If the angle is near the threshold (\texorpdfstring{$>$}{>} $\sim$30 degrees), show it in red. If the angle is near safe (\texorpdfstring{$<$}{<} $\sim$30 degrees), show it in green. Add an indicator that prints out pre\+Charge statuses This variable is called hv\+\_\+state in \mbox{\hyperlink{_precharge_8h}{pre\+Charge.\+h}} basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  
-\item[File \mbox{\hyperlink{_main_8h}{Main.h}} ]\label{todo__todo000007}%
-\Hypertarget{todo__todo000007}%
+\item[File \mbox{\hyperlink{_main_8h}{Main.h}} ]\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
  Based on refinements made for pre\+Charge/controls.\+ino, remove spare and redundant variables. And just generally ALL the spare variables. ~\newline
  ~\newline
  Based on the changes implemented for SoC, I would add another variable for the low-\/voltage current sneors or any other current sensors you add ~\newline
  ~\newline
- CHANGE THE NUM\+\_\+\+THERMI based on the number of thermistors that Powertain settles on. ~\newline
- ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_main_8ino}{Main.ino}} ]\label{todo__todo000008}%
-\Hypertarget{todo__todo000008}%
+\item[File \mbox{\hyperlink{_main_8ino}{Main.ino}} ]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
  Refine further. ~\newline
  ~\newline
  Look for redundant variables, pins, etc and remove. ~\newline
@@ -75,9 +74,11 @@
  ~\newline
  Github tutorial\+: ~\newline
  ~\newline
- Syed Yasir  
-\item[File \mbox{\hyperlink{_precharge_8h}{Precharge.h}} ]\label{todo__todo000009}%
-\Hypertarget{todo__todo000009}%
+ Syed Yasir ~\newline
+ ~\newline
+  
+\item[File \mbox{\hyperlink{_precharge_8h}{Precharge.h}} ]\label{todo__todo000010}%
+\Hypertarget{todo__todo000010}%
  Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline
  ~\newline
  NUMBER\+\_\+\+OF\+\_\+\+LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. MOTOR\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. ~\newline
@@ -85,8 +86,8 @@
  Goal 3. ~\newline
  ~\newline
  Final Goal.  
-\item[File \mbox{\hyperlink{_pre_charge_8ino}{Pre\+Charge.ino}} ]\label{todo__todo000010}%
-\Hypertarget{todo__todo000010}%
+\item[File \mbox{\hyperlink{_pre_charge_8ino}{Pre\+Charge.ino}} ]\label{todo__todo000011}%
+\Hypertarget{todo__todo000011}%
  Goal 1. ~\newline
  ~\newline
  Goal 2. ~\newline

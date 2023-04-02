@@ -22,8 +22,6 @@
       for defining some frequently used values in display. Can't think
       of them off the top of my head, but make and use those.
       \n \n
-      Change the thermistor code to use "NUM_THERMI" from Main.h
-      \n \n
       In the speedometer screen, add code to show angles.
       If the angle is near the threshold (> ~30 degrees), show it in red.
       If the angle is near safe (< ~30 degrees), show it in green.
@@ -130,7 +128,7 @@ void displayUpdate(MeasurementScreenData msData) {
 }
 
 void thermiDataPrint(int numberOfLines) {
-  // number of thermistor values printed per line
+  // number of thermistor values to print per line
   int incr = NUM_THERMI / numberOfLines;
   for (int i = 0; i < numberOfLines; i++) {
     bool sameData = true;

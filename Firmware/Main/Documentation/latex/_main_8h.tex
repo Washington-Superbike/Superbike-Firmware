@@ -1,23 +1,17 @@
-\hypertarget{_main_8h}{}\doxysection{Main.\+h File Reference}
-\label{_main_8h}\index{Main.h@{Main.h}}
+\hypertarget{_main_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Main.h File Reference}
+\label{_main_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h}}
 
 
 The main config file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_main_8ino}{Main.\+ino}}. This file exists as an overall configuration for the bike firmware as all these variables can be changed to meet requirements. Like all other header files, it exists as the skeleton on which the .ino file is built.  
 
 
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}CAN.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Display.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Precharge.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Data\+Logging.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Free\+RTOS\+\_\+\+TEENSY4.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$Time\+Lib.\+h$>$}\newline
-\doxysubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{_main_8h_a9d09068130671d9ca6bf3c9b6fac6e34}{CAN\+\_\+\+NODES}}~0
-\item 
-\#define \mbox{\hyperlink{_main_8h_a9e9f6a6f679efeb38325e7474a2e4c85}{NUM\+\_\+\+THERMI}}~10
-\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,8 +39,6 @@ void \mbox{\hyperlink{_main_8h_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
-\item 
-static \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}} = \{\mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}\}
 \item 
 static int \mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\+\_\+status\+\_\+flag}} = 0
 \begin{DoxyCompactList}\small\item\em Self explanatory. Read datasheet if more info needed. \end{DoxyCompactList}\item 
@@ -160,8 +152,6 @@ static \mbox{\hyperlink{struct_charge_controller_stats}{Charge\+Controller\+Stat
 \begin{DoxyCompactList}\small\item\em An instance of a struct to store all charge controller stats data. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{struct_c_a_n_task_data}{CANTask\+Data}} \mbox{\hyperlink{_main_8h_ab1d006bdd632ad57598689186c8ce63a}{can\+Task\+Data}}
 \begin{DoxyCompactList}\small\item\em An instance of a struct to store all CAN data, then pass it as a void pointer. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}} \mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{display\+Task\+Wrap}} = \{\}
-\begin{DoxyCompactList}\small\item\em An instance of a struct to store all display data, then pass it as a void pointer. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{struct_data_logging_task_data}{Data\+Logging\+Task\+Data}} \mbox{\hyperlink{_main_8h_af74b66e7d389be76470292071c65f556}{data\+Logging\+Task\+Data}}
 \begin{DoxyCompactList}\small\item\em An instance of a struct to store all data\+Logging data, then pass it as a void pointer. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{struct_pre_charge_task_data}{Pre\+Charge\+Task\+Data}} \mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{pre\+Charge\+Data}} = \{\}
@@ -203,47 +193,20 @@ The main config file for bike firmware. This initializes all variables that are 
 Washington Superbike 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-1-\/March-\/2023
+1-\/March-\/2023 
 \end{DoxyDate}
-The main config file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_main_8ino}{Main.\+ino}}. This file exists as an overall configuration for the bike firmware as all these variables can be changed to meet requirements. Like all other header files, it exists as the skeleton on which the .ino file is built.
-
 \begin{DoxyNote}{Note}
-Main thing to note. The statement \#pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a \#pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a \#include \mbox{\hyperlink{_main_8h}{Main.\+h}} and if every other file does that, the \#pragma once command ensures that the first time the \mbox{\hyperlink{_main_8h}{Main.\+h}} is \#included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn\textquotesingle{}t make sense, dont worry, CSE 351, CSE 374. Please take them. They\textquotesingle{}re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there\textquotesingle{}s just one global copy. ALSO, if you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here.
+Main thing to note. The statement \#pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a \#pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a \#include \mbox{\hyperlink{_main_8h}{Main.\+h}} and if every other file does that, the \#pragma once command ensures that the first time the \mbox{\hyperlink{_main_8h}{Main.\+h}} is \#included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn\textquotesingle{}t make sense, dont worry, CSE 351, CSE 374. Please take them. They\textquotesingle{}re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there\textquotesingle{}s just one global copy.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Based on refinements made for pre\+Charge/controls.\+ino, remove spare and redundant variables. And just generally ALL the spare variables. ~\newline
+\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Based on refinements made for pre\+Charge/controls.\+ino, remove spare and redundant variables. And just generally ALL the spare variables. ~\newline
  ~\newline
  Based on the changes implemented for SoC, I would add another variable for the low-\/voltage current sneors or any other current sensors you add ~\newline
- ~\newline
- CHANGE THE NUM\+\_\+\+THERMI based on the number of thermistors that Powertain settles on. ~\newline
  ~\newline
  Final Goal. \end{DoxyRefDesc}
 
 
 Definition in file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
-
-
-
-\doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_main_8h_a9d09068130671d9ca6bf3c9b6fac6e34}\label{_main_8h_a9d09068130671d9ca6bf3c9b6fac6e34}} 
-\index{Main.h@{Main.h}!CAN\_NODES@{CAN\_NODES}}
-\index{CAN\_NODES@{CAN\_NODES}!Main.h@{Main.h}}
-\doxysubsubsection{\texorpdfstring{CAN\_NODES}{CAN\_NODES}}
-{\footnotesize\ttfamily \#define CAN\+\_\+\+NODES~0}
-
-This primarily exists to debug the changes made in the Flex\+CAN library. If there are no devices connected on the CAN bus, the firmware crashes This line can be set to 0 to ensure that the CAN bus does not bother to check the CAN bus if there are 0 nodes connected. 
-
-Definition at line \mbox{\hyperlink{_main_8h_source_l00068}{68}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
-
-\mbox{\Hypertarget{_main_8h_a9e9f6a6f679efeb38325e7474a2e4c85}\label{_main_8h_a9e9f6a6f679efeb38325e7474a2e4c85}} 
-\index{Main.h@{Main.h}!NUM\_THERMI@{NUM\_THERMI}}
-\index{NUM\_THERMI@{NUM\_THERMI}!Main.h@{Main.h}}
-\doxysubsubsection{\texorpdfstring{NUM\_THERMI}{NUM\_THERMI}}
-{\footnotesize\ttfamily \#define NUM\+\_\+\+THERMI~10}
-
-This exists to be changed based on the final number of thermistors we settle on having in the code later. 
-
-Definition at line \mbox{\hyperlink{_main_8h_source_l00072}{72}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 
 
@@ -317,7 +280,7 @@ Definition at line \mbox{\hyperlink{_main_8ino_source_l00218}{218}} of file \mbo
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00198}{198}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00199}{199}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}\label{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}} 
 \index{Main.h@{Main.h}!initializeLogStructs@{initializeLogStructs}}
@@ -400,7 +363,7 @@ px\+Created\+Task is a variable that is used to pass a handle to the created tas
 \end{DoxyNote}
 First this method calls on \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setup\+Pins()}} to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.
 
-Then this method calls on \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
+Then this method calls on \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}}
 
 Then this method calls on \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initialize\+CANStructs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}}
 
@@ -417,13 +380,13 @@ File-\/\texorpdfstring{$>$}{>}Examples-\/\texorpdfstring{$>$}{>}Time-\/\texorpdf
 \end{DoxyNote}
 Then this method starts the SD Card and prints the status if that works.
 
-Then this method calls on the \mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display()}} method which just initializes variables that are used by the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
+Then this method calls on the \mbox{\hyperlink{_display_8h_a79b84de3ddc4f88db07ac708452e4467}{setup\+Display()}} method which just initializes variables that are used by the \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}}
 
 Then this method calls on the \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setup\+CAN()}} method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.
 
 Then this method calls on the \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setup\+I2\+C()}} method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking $\sim$2 seconds worth of data to calibrate.
 
-The main and most important function of setup is initializing the tasks using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}}. The details of parameters are explained in the Note at the start of \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. The stack sizes are edited in \mbox{\hyperlink{_main_8h}{Main.\+h}} and the priorities are logically assigned for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}} with highest priority 5, \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} with second highest priority 4 since it contains data that can be used to trigger Off states for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}}. data\+Logging() is 3, it\textquotesingle{}s important to update the stored data from the race, but it\textquotesingle{}s more important to shutdown the bike if batteries are dying. \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}} is a 2 because see aforementioned reasoning for data\+Logging(). \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task()}} is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.
+The main and most important function of setup is initializing the tasks using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}}. The details of parameters are explained in the Note at the start of \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. The stack sizes are edited in \mbox{\hyperlink{_main_8h}{Main.\+h}} and the priorities are logically assigned for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}} with highest priority 5, \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} with second highest priority 4 since it contains data that can be used to trigger Off states for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}}. data\+Logging() is 3, it\textquotesingle{}s important to update the stored data from the race, but it\textquotesingle{}s more important to shutdown the bike if batteries are dying. \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}} is a 2 because see aforementioned reasoning for data\+Logging(). \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task()}} is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.
 
 Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.
 
@@ -431,7 +394,7 @@ Lastly the method prints out that it will attempt to start the scheduler. If thi
 
 If this fails, the method prints out insufficient RAM and breaks.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00064}{64}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00065}{65}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8h_a31d554847ae8fdeaba2460e0395cb75f}\label{_main_8h_a31d554847ae8fdeaba2460e0395cb75f}} 
 \index{Main.h@{Main.h}!setupPins@{setupPins}}
@@ -463,7 +426,7 @@ Initializes the pin corresponding to the Contactor Precharge-\/\+Read LED as out
 
 Initializes the pin corresponding to the Contactor-\/\+Closed LED as output and then outputs LOW to that pin.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00161}{161}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00162}{162}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 
 
@@ -480,7 +443,7 @@ USELESS REMOVE LATER\+: Acc\+\_\+X stores the acceleration along the x-\/axis.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00127}{127}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00098}{98}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a3b4304cff5611528af473a1dfb86c345}\label{_main_8h_a3b4304cff5611528af473a1dfb86c345}} 
 \index{Main.h@{Main.h}!Acc\_Y@{Acc\_Y}}
@@ -494,7 +457,7 @@ USELESS REMOVE LATER\+: Acc\+\_\+Y stores the acceleration along the y-\/axis.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00129}{129}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00100}{100}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a68e2313572725be66b8d99950942dfb4}\label{_main_8h_a68e2313572725be66b8d99950942dfb4}} 
 \index{Main.h@{Main.h}!Acc\_Z@{Acc\_Z}}
@@ -508,7 +471,7 @@ USELESS REMOVE LATER\+: Acc\+\_\+Z stores the acceleration along the z-\/axis.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00131}{131}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00102}{102}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_acbed8fcd71fbc60a2452c5e5e9433903}\label{_main_8h_acbed8fcd71fbc60a2452c5e5e9433903}} 
 \index{Main.h@{Main.h}!Angle\_Pitch@{Angle\_Pitch}}
@@ -522,7 +485,7 @@ USELESS REMOVE LATER\+: Angle\+\_\+\+Pitch stores essentially angle\+\_\+Y.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00135}{135}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00106}{106}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a6514f0d80926dc8e4aea4c92bd86c9eb}\label{_main_8h_a6514f0d80926dc8e4aea4c92bd86c9eb}} 
 \index{Main.h@{Main.h}!Angle\_Roll@{Angle\_Roll}}
@@ -536,7 +499,7 @@ USELESS REMOVE LATER\+: Angle\+\_\+\+Roll stores essentially angle\+\_\+X.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00133}{133}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00104}{104}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a6cb6d63c8afdc45f4ef149e6d3750a1c}\label{_main_8h_a6cb6d63c8afdc45f4ef149e6d3750a1c}} 
 \index{Main.h@{Main.h}!angle\_X@{angle\_X}}
@@ -550,7 +513,7 @@ angle\+\_\+X is the variable used for measuring the \char`\"{}x-\/axis angle\cha
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00108}{108}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00079}{79}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a89aa0714a95ede6f4c623dbeb38ff019}\label{_main_8h_a89aa0714a95ede6f4c623dbeb38ff019}} 
 \index{Main.h@{Main.h}!angle\_Y@{angle\_Y}}
@@ -564,7 +527,7 @@ angle\+\_\+Y is the variable used for measuring the \char`\"{}y-\/axis angle\cha
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00110}{110}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00081}{81}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a68edb5124f79f990fb79a9e5b7a7f1e8}\label{_main_8h_a68edb5124f79f990fb79a9e5b7a7f1e8}} 
 \index{Main.h@{Main.h}!auxiliaryBatteryVoltage@{auxiliaryBatteryVoltage}}
@@ -578,7 +541,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00104}{104}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00075}{75}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a668e87eca74f2126136ee32a6964005e}\label{_main_8h_a668e87eca74f2126136ee32a6964005e}} 
 \index{Main.h@{Main.h}!bms\_c\_fault@{bms\_c\_fault}}
@@ -592,7 +555,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00086}{86}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00057}{57}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}\label{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}} 
 \index{Main.h@{Main.h}!bms\_c\_id@{bms\_c\_id}}
@@ -606,7 +569,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00084}{84}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00055}{55}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a04c234659b28f92e2eab7998b586bb4c}\label{_main_8h_a04c234659b28f92e2eab7998b586bb4c}} 
 \index{Main.h@{Main.h}!bms\_status\_flag@{bms\_status\_flag}}
@@ -620,7 +583,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00082}{82}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00053}{53}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae0522609134711f92c96ffa8ed05e582}\label{_main_8h_ae0522609134711f92c96ffa8ed05e582}} 
 \index{Main.h@{Main.h}!bmsStatus@{bmsStatus}}
@@ -634,7 +597,7 @@ An instance of a struct to store all bms status data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00196}{196}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00167}{167}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ade498aeeb82732f18af609faa0b323cb}\label{_main_8h_ade498aeeb82732f18af609faa0b323cb}} 
 \index{Main.h@{Main.h}!bmsVoltageLog@{bmsVoltageLog}}
@@ -648,7 +611,7 @@ An instance of the logging struct for BMS voltages.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00229}{229}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00198}{198}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ab1d006bdd632ad57598689186c8ce63a}\label{_main_8h_ab1d006bdd632ad57598689186c8ce63a}} 
 \index{Main.h@{Main.h}!canTaskData@{canTaskData}}
@@ -662,7 +625,7 @@ An instance of a struct to store all CAN data, then pass it as a void pointer.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00206}{206}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00177}{177}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a006c7981abf25c0944f67d017aa5fe1f}\label{_main_8h_a006c7981abf25c0944f67d017aa5fe1f}} 
 \index{Main.h@{Main.h}!cellsReady@{cellsReady}}
@@ -676,7 +639,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00096}{96}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00067}{67}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_afca6798677cebeeb7599ea00e1e243dd}\label{_main_8h_afca6798677cebeeb7599ea00e1e243dd}} 
 \index{Main.h@{Main.h}!cellVoltages@{cellVoltages}}
@@ -690,7 +653,7 @@ An instance of a struct to store all cell voltage data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00194}{194}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00165}{165}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_aad0824db126321851b9f0c49a3115de5}\label{_main_8h_aad0824db126321851b9f0c49a3115de5}} 
 \index{Main.h@{Main.h}!cellVoltagesArr@{cellVoltagesArr}}
@@ -704,7 +667,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00092}{92}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00063}{63}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}\label{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}} 
 \index{Main.h@{Main.h}!chargeControllerStats@{chargeControllerStats}}
@@ -718,7 +681,7 @@ An instance of a struct to store all charge controller stats data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00202}{202}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00173}{173}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a1e4f6826343fcd16576ce3c411fb2287}\label{_main_8h_a1e4f6826343fcd16576ce3c411fb2287}} 
 \index{Main.h@{Main.h}!chargeFlag@{chargeFlag}}
@@ -732,7 +695,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00177}{177}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00148}{148}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}\label{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}} 
 \index{Main.h@{Main.h}!chargerCurrent@{chargerCurrent}}
@@ -746,7 +709,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00183}{183}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00154}{154}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_aa249f1d073086c27682168bbd7dc77ee}\label{_main_8h_aa249f1d073086c27682168bbd7dc77ee}} 
 \index{Main.h@{Main.h}!chargerStats@{chargerStats}}
@@ -760,7 +723,7 @@ An instance of a struct to store all charger stats data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00200}{200}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00171}{171}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a5613c4060f829f65acaac2bc064ae063}\label{_main_8h_a5613c4060f829f65acaac2bc064ae063}} 
 \index{Main.h@{Main.h}!chargerStatusFlag@{chargerStatusFlag}}
@@ -774,7 +737,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00179}{179}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00150}{150}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a85ede348554a838fb67a3ceb3313be5b}\label{_main_8h_a85ede348554a838fb67a3ceb3313be5b}} 
 \index{Main.h@{Main.h}!chargerTemp@{chargerTemp}}
@@ -788,7 +751,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00185}{185}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00156}{156}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ab11fffe9a473928798422de66fcde502}\label{_main_8h_ab11fffe9a473928798422de66fcde502}} 
 \index{Main.h@{Main.h}!chargerVoltage@{chargerVoltage}}
@@ -802,7 +765,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00181}{181}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00152}{152}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae40c5f8677bda4442f02f482f3b50d33}\label{_main_8h_ae40c5f8677bda4442f02f482f3b50d33}} 
 \index{Main.h@{Main.h}!controllerStatus@{controllerStatus}}
@@ -816,7 +779,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00165}{165}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00136}{136}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a40646f0d9308996b7d391cb8e0d95905}\label{_main_8h_a40646f0d9308996b7d391cb8e0d95905}} 
 \index{Main.h@{Main.h}!cycleCount@{cycleCount}}
@@ -826,7 +789,7 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00165}{165}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00235}{235}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00204}{204}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_af74b66e7d389be76470292071c65f556}\label{_main_8h_af74b66e7d389be76470292071c65f556}} 
 \index{Main.h@{Main.h}!dataLoggingTaskData@{dataLoggingTaskData}}
@@ -840,21 +803,7 @@ An instance of a struct to store all data\+Logging data, then pass it as a void 
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00210}{210}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
-
-\mbox{\Hypertarget{_main_8h_aebb1e162e2ac30616875763e56823870}\label{_main_8h_aebb1e162e2ac30616875763e56823870}} 
-\index{Main.h@{Main.h}!displayTaskWrap@{displayTaskWrap}}
-\index{displayTaskWrap@{displayTaskWrap}!Main.h@{Main.h}}
-\doxysubsubsection{\texorpdfstring{displayTaskWrap}{displayTaskWrap}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a178682b58bff3b19ffd056fb9c00dcc6}{display\+Pointer}} display\+Task\+Wrap = \{\}\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-An instance of a struct to store all display data, then pass it as a void pointer. 
-
-
-
-Definition at line \mbox{\hyperlink{_main_8h_source_l00208}{208}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00179}{179}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}\label{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}} 
 \index{Main.h@{Main.h}!errorMessage@{errorMessage}}
@@ -868,7 +817,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00163}{163}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00134}{134}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a283f91fe8cbd45a92dda13dd793bbbe0}\label{_main_8h_a283f91fe8cbd45a92dda13dd793bbbe0}} 
 \index{Main.h@{Main.h}!evccCurrent@{evccCurrent}}
@@ -882,7 +831,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00173}{173}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00144}{144}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}\label{_main_8h_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}} 
 \index{Main.h@{Main.h}!evccEnable@{evccEnable}}
@@ -896,7 +845,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00169}{169}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00140}{140}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}\label{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}} 
 \index{Main.h@{Main.h}!evccVoltage@{evccVoltage}}
@@ -910,7 +859,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00171}{171}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00142}{142}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a077d47652e49b1a9d682fd58ae94ba46}\label{_main_8h_a077d47652e49b1a9d682fd58ae94ba46}} 
 \index{Main.h@{Main.h}!Kalman\_1DOutput@{Kalman\_1DOutput}}
@@ -924,7 +873,7 @@ USELESS REMOVE LATER\+: Output of the filter \mbox{[}0\mbox{]} is angle\+\_\+x, 
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00147}{147}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00118}{118}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_afb2a04d0a4be86d47607dea17db62631}\label{_main_8h_afb2a04d0a4be86d47607dea17db62631}} 
 \index{Main.h@{Main.h}!Kalman\_AnglePitch@{Kalman\_AnglePitch}}
@@ -938,7 +887,7 @@ USELESS REMOVE LATER\+:
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00143}{143}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00114}{114}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ac2f400fd7d3933dbf70df179a012817a}\label{_main_8h_ac2f400fd7d3933dbf70df179a012817a}} 
 \index{Main.h@{Main.h}!Kalman\_AngleRoll@{Kalman\_AngleRoll}}
@@ -952,7 +901,7 @@ USELESS REMOVE LATER\+: Kalman\+\_\+\+Angle\+Roll is the Kalman filter processed
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00139}{139}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00110}{110}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae5ea9a8add204eed975816b032f4db3b}\label{_main_8h_ae5ea9a8add204eed975816b032f4db3b}} 
 \index{Main.h@{Main.h}!Kalman\_UncertaintyAnglePitch@{Kalman\_UncertaintyAnglePitch}}
@@ -966,7 +915,7 @@ USELESS REMOVE LATER\+:
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00145}{145}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00116}{116}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a2896dd40967cce4e4f8b65e93cc2fb9d}\label{_main_8h_a2896dd40967cce4e4f8b65e93cc2fb9d}} 
 \index{Main.h@{Main.h}!Kalman\_UncertaintyAngleRoll@{Kalman\_UncertaintyAngleRoll}}
@@ -980,7 +929,7 @@ USELESS REMOVE LATER\+:
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00141}{141}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00112}{112}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a9462b5ab9931c29422982609bceb3fad}\label{_main_8h_a9462b5ab9931c29422982609bceb3fad}} 
 \index{Main.h@{Main.h}!logs@{logs}}
@@ -994,7 +943,7 @@ An instance of the logging struct for storing all the above logs to pass onto da
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00231}{231}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00200}{200}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ad817dda0a86c980182765da5a3cafec8}\label{_main_8h_ad817dda0a86c980182765da5a3cafec8}} 
 \index{Main.h@{Main.h}!lowerUpperCells@{lowerUpperCells}}
@@ -1004,7 +953,7 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00231}{231}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00237}{237}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00206}{206}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a0de2096b0657dfd13ffeb3d18ae5d65c}\label{_main_8h_a0de2096b0657dfd13ffeb3d18ae5d65c}} 
 \index{Main.h@{Main.h}!ltc\_count@{ltc\_count}}
@@ -1018,7 +967,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00090}{90}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00061}{61}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae21e58b785392a0951862c107609d059}\label{_main_8h_ae21e58b785392a0951862c107609d059}} 
 \index{Main.h@{Main.h}!ltc\_fault@{ltc\_fault}}
@@ -1032,7 +981,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00088}{88}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00059}{59}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}\label{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}} 
 \index{Main.h@{Main.h}!measurementData@{measurementData}}
@@ -1046,7 +995,7 @@ An instance of a struct to store all display data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00188}{188}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00159}{159}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}\label{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}} 
 \index{Main.h@{Main.h}!motorControllerBatteryVoltage@{motorControllerBatteryVoltage}}
@@ -1060,7 +1009,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00155}{155}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00126}{126}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a45af45f80ded31266ad90143957a4e5e}\label{_main_8h_a45af45f80ded31266ad90143957a4e5e}} 
 \index{Main.h@{Main.h}!motorControllerTemp@{motorControllerTemp}}
@@ -1074,7 +1023,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00159}{159}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00130}{130}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae230e041b8d09151f97b07151fdaf38c}\label{_main_8h_ae230e041b8d09151f97b07151fdaf38c}} 
 \index{Main.h@{Main.h}!motorControllerTemperatureLog@{motorControllerTemperatureLog}}
@@ -1088,7 +1037,7 @@ An instance of the logging struct for motor controller temperatures.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00219}{219}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00188}{188}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a4ca34bc3c27d808ebe3480bfed4b997a}\label{_main_8h_a4ca34bc3c27d808ebe3480bfed4b997a}} 
 \index{Main.h@{Main.h}!motorControllerVoltageLog@{motorControllerVoltageLog}}
@@ -1102,7 +1051,7 @@ An instance of the logging struct for motor controller voltage.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00221}{221}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00190}{190}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}\label{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}} 
 \index{Main.h@{Main.h}!motorCurrent@{motorCurrent}}
@@ -1116,7 +1065,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00153}{153}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00124}{124}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}\label{_main_8h_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}} 
 \index{Main.h@{Main.h}!motorCurrentLog@{motorCurrentLog}}
@@ -1130,7 +1079,7 @@ An instance of the logging struct for motor controller current.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00223}{223}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00192}{192}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a9eeb128a9907154869e9ffa78e065039}\label{_main_8h_a9eeb128a9907154869e9ffa78e065039}} 
 \index{Main.h@{Main.h}!motorStats@{motorStats}}
@@ -1144,7 +1093,7 @@ An instance of a struct to store all motor data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00190}{190}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00161}{161}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}\label{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}} 
 \index{Main.h@{Main.h}!motorTemp@{motorTemp}}
@@ -1158,7 +1107,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00161}{161}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00132}{132}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a74a7fab0bce9e95dfced1f40d1764e9a}\label{_main_8h_a74a7fab0bce9e95dfced1f40d1764e9a}} 
 \index{Main.h@{Main.h}!motorTemperatureLog@{motorTemperatureLog}}
@@ -1172,7 +1121,7 @@ An instance of the logging struct for motor temperatures.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00217}{217}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00186}{186}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}\label{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}} 
 \index{Main.h@{Main.h}!motorTemps@{motorTemps}}
@@ -1186,7 +1135,7 @@ An instance of a struct to store all motor temperature data.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00192}{192}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00163}{163}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}\label{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}} 
 \index{Main.h@{Main.h}!ms@{ms}}
@@ -1196,7 +1145,7 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00192}{192}} of file \mbox{
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00238}{238}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00207}{207}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a695dccac97a0f45cf570237e981b2b5d}\label{_main_8h_a695dccac97a0f45cf570237e981b2b5d}} 
 \index{Main.h@{Main.h}!preChargeData@{preChargeData}}
@@ -1210,7 +1159,7 @@ An instance of a struct to store all pre\+Charge data, then pass it as a void po
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00212}{212}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00181}{181}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a94bbee6853ba61e7fa11539e15174888}\label{_main_8h_a94bbee6853ba61e7fa11539e15174888}} 
 \index{Main.h@{Main.h}!Rate\_CalibrationNumber@{Rate\_CalibrationNumber}}
@@ -1224,7 +1173,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Calibration\+Number stores the rate calibrat
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00124}{124}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00095}{95}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a474d53e2608e3f1b00990ca9a7ccc64a}\label{_main_8h_a474d53e2608e3f1b00990ca9a7ccc64a}} 
 \index{Main.h@{Main.h}!Rate\_CalibrationPitch@{Rate\_CalibrationPitch}}
@@ -1238,7 +1187,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Calibration\+Pitch stores the rate calibrati
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00120}{120}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00091}{91}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a1fde90bfdfb774d5f83e5fea79c17caf}\label{_main_8h_a1fde90bfdfb774d5f83e5fea79c17caf}} 
 \index{Main.h@{Main.h}!Rate\_CalibrationRoll@{Rate\_CalibrationRoll}}
@@ -1252,7 +1201,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Calibration\+Roll stores the rate calibratio
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00118}{118}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00089}{89}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_af1c993c5e41ee4d2e881139640989c1a}\label{_main_8h_af1c993c5e41ee4d2e881139640989c1a}} 
 \index{Main.h@{Main.h}!Rate\_CalibrationYaw@{Rate\_CalibrationYaw}}
@@ -1266,7 +1215,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Calibration\+Yaw stores the rate calibration
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00122}{122}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00093}{93}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ae4de7890b46aeb807d61f0b71efc9ffe}\label{_main_8h_ae4de7890b46aeb807d61f0b71efc9ffe}} 
 \index{Main.h@{Main.h}!Rate\_Pitch@{Rate\_Pitch}}
@@ -1280,7 +1229,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Pitch stores the rate of the pitch angle (y-
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00114}{114}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00085}{85}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a5ac66e09e5f95b02b3a99a4a2a33f0aa}\label{_main_8h_a5ac66e09e5f95b02b3a99a4a2a33f0aa}} 
 \index{Main.h@{Main.h}!Rate\_Roll@{Rate\_Roll}}
@@ -1294,7 +1243,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Roll stores the rate of the roll angle (x-\/
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00112}{112}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00083}{83}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a537fbd46985b9026ec7d6d0360d1d4d0}\label{_main_8h_a537fbd46985b9026ec7d6d0360d1d4d0}} 
 \index{Main.h@{Main.h}!Rate\_Yaw@{Rate\_Yaw}}
@@ -1308,7 +1257,7 @@ USELESS REMOVE LATER\+: Rate\+\_\+\+Yaw stores the rate of the yaw angle (z-\/ax
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00116}{116}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00087}{87}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}\label{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}} 
 \index{Main.h@{Main.h}!RPM@{RPM}}
@@ -1322,7 +1271,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00151}{151}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00122}{122}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a60f914a71f12f33ed914208fbf5be838}\label{_main_8h_a60f914a71f12f33ed914208fbf5be838}} 
 \index{Main.h@{Main.h}!rpmLog@{rpmLog}}
@@ -1336,20 +1285,7 @@ An instance of the logging struct for motor RPM.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00225}{225}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
-
-\mbox{\Hypertarget{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}\label{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}} 
-\index{Main.h@{Main.h}!screen@{screen}}
-\index{screen@{screen}!Main.h@{Main.h}}
-\doxysubsubsection{\texorpdfstring{screen}{screen}}
-{\footnotesize\ttfamily \mbox{\hyperlink{_display_8h_a412053d6576f296892a8ccc0d8510e46}{Screen}} screen = \{\mbox{\hyperlink{_display_8h_a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab}{SPEEDOMETER}}\}\hspace{0.3cm}{\ttfamily [static]}}
-
-A screen enum that defines the type of screen to generate in \mbox{\hyperlink{_display_8ino}{Display.\+ino}}. \begin{DoxyNote}{Note}
-NOTE\+: CHANGE THIS LINE TO CHANGE DISPLAY TYPE! 
-\end{DoxyNote}
-
-
-Definition at line \mbox{\hyperlink{_main_8h_source_l00077}{77}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00194}{194}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}\label{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}} 
 \index{Main.h@{Main.h}!sdStarted@{sdStarted}}
@@ -1359,7 +1295,7 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00077}{77}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00239}{239}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00208}{208}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}\label{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}} 
 \index{Main.h@{Main.h}!seriesVoltage@{seriesVoltage}}
@@ -1373,7 +1309,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00094}{94}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00065}{65}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a76c0525d646735793add25b18043e600}\label{_main_8h_a76c0525d646735793add25b18043e600}} 
 \index{Main.h@{Main.h}!spi\_mutex@{spi\_mutex}}
@@ -1383,7 +1319,7 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00094}{94}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00241}{241}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00210}{210}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_aefa2152d1586505d2d271edc7e9c4187}\label{_main_8h_aefa2152d1586505d2d271edc7e9c4187}} 
 \index{Main.h@{Main.h}!thermistorEnabled@{thermistorEnabled}}
@@ -1397,7 +1333,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00100}{100}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00071}{71}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a8941dbd7f821806a7a6f4eb705b1472b}\label{_main_8h_a8941dbd7f821806a7a6f4eb705b1472b}} 
 \index{Main.h@{Main.h}!thermistorLog@{thermistorLog}}
@@ -1411,7 +1347,7 @@ An instance of the logging struct for thermistor temperatures.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00227}{227}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00196}{196}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_ad2bc733f382fc4bf0379382e3a15a94e}\label{_main_8h_ad2bc733f382fc4bf0379382e3a15a94e}} 
 \index{Main.h@{Main.h}!thermistorPresent@{thermistorPresent}}
@@ -1425,7 +1361,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00102}{102}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00073}{73}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a18571448b101f12a60457d717dc4f953}\label{_main_8h_a18571448b101f12a60457d717dc4f953}} 
 \index{Main.h@{Main.h}!thermistorTemps@{thermistorTemps}}
@@ -1439,7 +1375,7 @@ An instance of a struct to store all thermistor\+Temperatures.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00198}{198}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00169}{169}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_adca97acc6b0ff71f782f9c8a484a47b8}\label{_main_8h_adca97acc6b0ff71f782f9c8a484a47b8}} 
 \index{Main.h@{Main.h}!throttle@{throttle}}
@@ -1453,7 +1389,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00157}{157}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00128}{128}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}\label{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}} 
 \index{Main.h@{Main.h}!thTemps@{thTemps}}
@@ -1467,7 +1403,7 @@ Self explanatory. Read datasheet if more info needed.
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00098}{98}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00069}{69}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 
 \mbox{\Hypertarget{_main_8h_a61d9ef65d75b66821896182b133b31de}\label{_main_8h_a61d9ef65d75b66821896182b133b31de}} 
 \index{Main.h@{Main.h}!timer@{timer}}
@@ -1477,5 +1413,5 @@ Definition at line \mbox{\hyperlink{_main_8h_source_l00098}{98}} of file \mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{_main_8h_source_l00234}{234}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
+Definition at line \mbox{\hyperlink{_main_8h_source_l00203}{203}} of file \mbox{\hyperlink{_main_8h_source}{Main.\+h}}.
 

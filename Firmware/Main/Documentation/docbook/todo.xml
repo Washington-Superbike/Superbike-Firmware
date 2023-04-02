@@ -4,171 +4,47 @@
 <para><variablelist>
 <varlistentry><term>File <link linkend="__c_a_n_8h">CAN.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000001"/> Nothing? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- More Nothing? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Nothing supreme? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Nothing maxima.  </para>
+<para><anchor xml:id="_todo_1_todo000001"/> Nothing? <?linebreak?> <?linebreak?> More Nothing? <?linebreak?> <?linebreak?> Nothing supreme? <?linebreak?> <?linebreak?> Nothing maxima.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__c_a_n_8ino">CAN.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000002"/> Change the &quot;if CAN_NODES != 0&quot; to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <link linkend="__main_8h">Main.h</link> before compiling. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Potentially, check if the data is actually being updated by HIL. There is no real instantiation of associating the CAN variables with the messages being read in in the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link>, so maybe call on those methods to read in those values, in case it doesnt work. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000002"/> Change the &quot;if CAN_NODES != 0&quot; to be an ifndef statement in the start. That means the checkCAN and requestCellVoltages lines will not execute unless CAN_NODES is a non-zero number in <link linkend="__main_8h">Main.h</link> before compiling. <?linebreak?> <?linebreak?> Potentially, check if the data is actually being updated by HIL. There is no real instantiation of associating the CAN variables with the messages being read in in the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link>, so maybe call on those methods to read in those values, in case it doesnt work. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal.  </para>
+</listitem></varlistentry>
+<varlistentry><term>File <link linkend="_config_8h">config.h</link>  </term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000003"/> CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. <?linebreak?> <?linebreak?>  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__data_logging_8h">DataLogging.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000003"/> Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000004"/> Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__data_logging_8ino">DataLogging.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000004"/> Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000005"/> Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__display_8h">Display.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000005"/> Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000006"/> Make better structs for all the datatypes passed through and integrate it properly (mainly just thermistor vs non-thermistor to be honest) <?linebreak?> <?linebreak?> Make a better struct for time and integrate it in a way so that the update code isn&apos;t nasty. <?linebreak?> <?linebreak?> Once the above stuff is implemented, please remove all extra methods, variables, etc. that are declared. <?linebreak?> <?linebreak?> Final Goal.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__display_8ino">Display.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000006"/> PLEASE remove the whole screen parameter situation. Change the &quot;screen&quot; variable in the <link linkend="__main_8h">Main.h</link> to be a #define macro and then just check the value from here by directly including <link linkend="__main_8h">Main.h</link> and finding that value. Ez. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Remove all unused vars and tighten up methods. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Change the thermistor code to use &quot;NUM_THERMI&quot; from <link linkend="__main_8h">Main.h</link> 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- In the speedometer screen, add code to show angles. If the angle is near the threshold (&gt; ~30 degrees), show it in red. If the angle is near safe (&lt; ~30 degrees), show it in green. Add an indicator that prints out preCharge statuses This variable is called hv_state in <link linkend="__precharge_8h">preCharge.h</link> basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  </para>
+<para><anchor xml:id="_todo_1_todo000007"/> Remove all unused vars and tighten up methods. <?linebreak?> <?linebreak?> There are WAY more macros (#define statements) that need to be written for defining some frequently used values in display. Can&apos;t think of them off the top of my head, but make and use those. <?linebreak?> <?linebreak?> In the speedometer screen, add code to show angles. If the angle is near the threshold (&gt; ~30 degrees), show it in red. If the angle is near safe (&lt; ~30 degrees), show it in green. Add an indicator that prints out preCharge statuses This variable is called hv_state in <link linkend="__precharge_8h">preCharge.h</link> basically print out this variable if possbie. This is similar to how cars print out engine flags, etc.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__main_8h">Main.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000007"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000008"/> Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <?linebreak?> <?linebreak?> Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add <?linebreak?> <?linebreak?> Final Goal.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__main_8ino">Main.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000008"/> Refine further. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Look for redundant variables, pins, etc and remove. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Change the name of preCharge. It&apos;s not just preCharge now, I personally like the name &quot;controls.ino&quot; and &quot;controls.h&quot;. Make sure you change the #includes as well if you do that. Please Please change &quot;preCharge&quot; or whatever it&apos;s called to not use this many global/struct variables. It doesn&apos;t need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Github tutorial: 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Syed Yasir  </para>
+<para><anchor xml:id="_todo_1_todo000009"/> Refine further. <?linebreak?> <?linebreak?> Look for redundant variables, pins, etc and remove. <?linebreak?> <?linebreak?> Change the name of preCharge. It&apos;s not just preCharge now, I personally like the name &quot;controls.ino&quot; and &quot;controls.h&quot;. Make sure you change the #includes as well if you do that. Please Please change &quot;preCharge&quot; or whatever it&apos;s called to not use this many global/struct variables. It doesn&apos;t need everything globalized, it can pass them as parameters and eventually output to global variables *preCharge.angle_X and *preCharge.angle_Y. <?linebreak?> <?linebreak?> Github tutorial: <?linebreak?> <?linebreak?> Syed Yasir <?linebreak?> <?linebreak?>  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__precharge_8h">Precharge.h</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000009"/> Change the preChargeStruct data to use less floats, etc. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal.  </para>
+<para><anchor xml:id="_todo_1_todo000010"/> Change the preChargeStruct data to use less floats, etc. <?linebreak?> <?linebreak?> NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal.  </para>
 </listitem></varlistentry>
 <varlistentry><term>File <link linkend="__pre_charge_8ino">PreCharge.ino</link>  </term>
 <listitem>
-<para><anchor xml:id="_todo_1_todo000010"/> Goal 1. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><anchor xml:id="_todo_1_todo000011"/> Goal 1. <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal. </para>
 </listitem></varlistentry>
 </variablelist>
 </para>

@@ -34,7 +34,7 @@ var searchData=
   ['tft_5fdc_31',['TFT_DC',['../_display_8h.html#a51529307207622c113ff0d584536be13',1,'Display.h']]],
   ['tft_5frst_32',['TFT_RST',['../_display_8h.html#ab40e9918d9141415a47e2a979292309c',1,'Display.h']]],
   ['thermidata_33',['thermiData',['../_display_8h.html#a700ec86cb550fd4426014190222173ac',1,'Display.h']]],
-  ['thermidataprint_34',['thermiDataPrint',['../_display_8h.html#a48f20f2ac1788f51aaa3aefd6c8ccb96',1,'thermiDataPrint(bool thermiDataPrint):&#160;Display.ino'],['../_display_8ino.html#a48f20f2ac1788f51aaa3aefd6c8ccb96',1,'thermiDataPrint(bool thermiDataPrint):&#160;Display.ino']]],
+  ['thermidataprint_34',['thermiDataPrint',['../_display_8h.html#a255d71bb7f36b2056059bd579af11f3a',1,'thermiDataPrint(int numberOfLines):&#160;Display.ino'],['../_display_8ino.html#a255d71bb7f36b2056059bd579af11f3a',1,'thermiDataPrint(int numberOfLines):&#160;Display.ino']]],
   ['thermistor_5flog_35',['THERMISTOR_LOG',['../_data_logging_8h.html#a2665461802b5e24f2d0f9d8f1ca8351d',1,'DataLogging.h']]],
   ['thermistorenabled_36',['thermistorEnabled',['../_main_8h.html#aefa2152d1586505d2d271edc7e9c4187',1,'Main.h']]],
   ['thermistorlog_37',['thermistorLog',['../_main_8h.html#a8941dbd7f821806a7a6f4eb705b1472b',1,'Main.h']]],

@@ -1,62 +1,103 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="config_8h" kind="file" language="C++">
     <compoundname>config.h</compoundname>
-    <includedby refid="_c_a_n_8h" local="yes">CAN.h</includedby>
+    <includedby refid="_main_8h" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</includedby>
     <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
+        <link refid="_data_logging_8ino"/>
+      </node>
+      <node id="4">
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</label>
+        <link refid="_display_8ino"/>
+      </node>
       <node id="2">
-        <label>CAN.h</label>
-        <link refid="_c_a_n_8h"/>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
+        <link refid="_main_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>CAN.ino</label>
-        <link refid="_c_a_n_8ino"/>
-      </node>
-      <node id="5">
-        <label>DataLogging.ino</label>
-        <link refid="_data_logging_8ino"/>
-      </node>
-      <node id="6">
-        <label>Display.ino</label>
-        <link refid="_display_8ino"/>
-      </node>
-      <node id="4">
-        <label>Main.h</label>
-        <link refid="_main_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
-      <node id="7">
-        <label>Main.ino</label>
+      <node id="5">
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
       </node>
       <node id="1">
-        <label>config.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/config.h</label>
         <link refid="config_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="config_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" prot="public" static="no">
+        <name>CAN_NODES</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This primarily exists to debug the changes made in the FlexCAN library. If there are no devices connected on the CAN bus, the firmware crashes This line can be set to 0 to ensure that the CAN bus does not bother to check the CAN bus if there are 0 nodes connected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" line="22" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_8h_1a1b567b3caf8487eccf2110567e8a2fb8" prot="public" static="no">
+        <name>USE_DEBUGGING_SCREEN</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the type of screen to generate in <ref refid="_display_8ino" kindref="compound">Display.ino</ref>. <simplesect kind="note"><para>NOTE: COMMENT THIS OUT TO CHANGE DISPLAY TYPE TO SPEEDOMETER! </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" line="26" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="config_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" prot="public" static="no">
+        <name>NUM_THERMI</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This exists to be changed based on the final number of thermistors we settle on having in the code later. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" line="30" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
+<para>If you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here. </para>
     </briefdescription>
     <detaileddescription>
+<para><simplesect kind="author"><para>Washington Superbike </para>
+</simplesect>
+<simplesect kind="date"><para>1-March-2023 </para>
+</simplesect>
+<xrefsect id="todo_1_todo000003"><xreftitle>Todo</xreftitle><xrefdescription><para>CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. <linebreak/>
+ <linebreak/>
+ </para>
+</xrefdescription></xrefsect></para>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="config_8h_1a9d09068130671d9ca6bf3c9b6fac6e34" refkind="member"><highlight class="preprocessor">#define<sp/>CAN_NODES<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="config_8h_1a1b567b3caf8487eccf2110567e8a2fb8" refkind="member"><highlight class="preprocessor">#define<sp/>USE_DEBUGGING_SCREEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="config_8h_1a9e9f6a6f679efeb38325e7474a2e4c85" refkind="member"><highlight class="preprocessor">#define<sp/>NUM_THERMI<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_CONFIG_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="config.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/config.h"/>
   </compounddef>
 </doxygen>

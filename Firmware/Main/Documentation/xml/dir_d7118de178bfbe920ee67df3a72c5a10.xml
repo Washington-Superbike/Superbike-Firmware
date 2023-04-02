@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="dir_d7118de178bfbe920ee67df3a72c5a10" kind="dir">
-    <compoundname>FreeRTOS</compoundname>
+    <compoundname>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS</compoundname>
     <innerfile refid="croutine_8c">croutine.c</innerfile>
     <innerfile refid="croutine_8h">croutine.h</innerfile>
     <innerfile refid="deprecated__definitions_8h">deprecated_definitions.h</innerfile>
@@ -38,6 +38,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="FreeRTOS/"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/"/>
   </compounddef>
 </doxygen>

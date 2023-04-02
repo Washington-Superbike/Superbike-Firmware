@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="struct_cell_voltages" kind="struct" language="C++" prot="public">
     <compoundname>CellVoltages</compoundname>
     <includes refid="_c_a_n_8h" local="no">CAN.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="142" column="9" bodyfile="CAN.h" bodystart="142" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="142" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_cell_voltages_1a739cccc4cfe6c366e7474ae1c71097bf" prot="public" static="no" mutable="no">
         <type>float *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="143" column="9" bodyfile="CAN.h" bodystart="143" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="143" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" prot="public" static="no" mutable="no">
         <type>bool *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="144" column="8" bodyfile="CAN.h" bodystart="144" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="144" column="8" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
     <detaileddescription>
 <para>A simple struct to store the cellVoltages, the seriesVoltages of the cells and if they&apos;re ready?? Unsure. </para>
     </detaileddescription>
-    <location file="CAN.h" line="141" column="1" bodyfile="CAN.h" bodystart="141" bodyend="145"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="141" column="1" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="141" bodyend="145"/>
     <listofallmembers>
       <member refid="struct_cell_voltages_1a6af0d6a1dbf317365e4fa56be6c595fc" prot="public" virt="non-virtual"><scope>CellVoltages</scope><name>cellVoltages</name></member>
       <member refid="struct_cell_voltages_1a844b5b2d0bd58e1147076ab8aacc420a" prot="public" virt="non-virtual"><scope>CellVoltages</scope><name>ready</name></member>

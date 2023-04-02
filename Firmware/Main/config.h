@@ -6,6 +6,10 @@
         If you are looking to change configurations for the overall
         firmware this is the place to do it. Changing the number of CAN devices connected,
         the Screen type used, etc. All can be done from here.
+     
+     \todo
+        CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on.
+        \n \n
 */
 
 #ifndef _CONFIG_H

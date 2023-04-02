@@ -1,5 +1,5 @@
-\hypertarget{_data_logging_8h}{}\doxysection{Data\+Logging.\+h File Reference}
-\label{_data_logging_8h}\index{DataLogging.h@{DataLogging.h}}
+\hypertarget{_data_logging_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Data\+Logging.h File Reference}
+\label{_data_logging_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.h}}
 
 
 The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for the Data\+Logging task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_data_logging_8ino}{Data\+Logging.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_data_logging_8ino}{Data\+Logging.\+ino}}. This file also creates two typedef structs that basically allow us to package the data in Data\+Logging for the task in a nice way. The other struct \mbox{\hyperlink{struct_c_s_v_writer}{CSVWriter}} is used to organize the data properly to be used in the Sd\+Fat framework to write to the SD card. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
@@ -80,7 +80,7 @@ The \mbox{\hyperlink{_data_logging_8h}{Data\+Logging.\+h}} config file for the D
 Washington Superbike 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-1-\/March-\/2023
+1-\/March-\/2023 
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
 Honestly, I dont see any need to fix this further. The only thing I foresee, is that the State of Charge team would be more interested in tweaking the macros (\#define statements) and other aspects of this file and \mbox{\hyperlink{_main_8h}{Main.\+h}} to ensure that they can add more files into the Data\+Logging task. ~\newline
@@ -88,7 +88,7 @@ Honestly, I dont see any need to fix this further. The only thing I foresee, is 
  Clarification on how SD card stores data\+: each block is generally about 512 or bytes. Sd\+Fat stores an internal buffer of 512 and when the limit is reached only then does it save the data onto the sd card. This is an important trade off if we are less than that value and the bike suddenly turns off, those \texorpdfstring{$<$}{<}512 bytes aren\textquotesingle{}t stored unless we somehow flush the data or use file.\+close(); this means we should potentially implement a signal for recording values, or even just only record when the HV system is on (not for testing things like precharge obv) or we just periodically flush data but that uses more resources on the teensy (this depends on how long it takes + how fast we are writing data)
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) ~\newline
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Just add the LV current or the added up current to the current logging situation. Could be useful in future if we want to be tryhards and use a neural network to process currents or just to log our current and see what went wrong in the race. (Latter is way more likely) ~\newline
  ~\newline
  Goal 2. ~\newline
  ~\newline

@@ -1,145 +1,144 @@
-\hypertarget{_main_8ino_source}{}\doxysection{Main.\+ino}
+\hypertarget{_main_8ino_source}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Main.ino}
 \mbox{\hyperlink{_main_8ino}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00061}00061 \textcolor{comment}{// Includes the Main.h file which in includes all other files and interconnects all other files together.}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00062}00062 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_8h}{Main.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00064}\mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{00064}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00065}00065 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00068}00068   \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setupPins}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00069}00069 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00072}00072   \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initializeDisplayStructs}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00075}00075   \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initializeCANStructs}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00078}00078   \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initializeLogStructs}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00081}00081   \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initializePreChargeStruct}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00082}00082 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00083}00083 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00086}00086   Serial.begin(115200);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00087}00087 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00099}00099   setTime(Teensy3Clock.get());}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00100}00100 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00102}00102   Serial.print(\textcolor{stringliteral}{"{}Starting SD: "{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00103}00103   \textcolor{keywordflow}{if} (\mbox{\hyperlink{_data_logging_8h_a0d2a3a213399ec010b89dede4ba4de77}{startSD}}()) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00104}00104     Serial.println(\textcolor{stringliteral}{"{}SD successfully started"{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00105}00105     \mbox{\hyperlink{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}{sdStarted}} = 1;}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00106}00106   \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00107}00107     \mbox{\hyperlink{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}{sdStarted}} = 0;}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00108}00108     Serial.println(\textcolor{stringliteral}{"{}Error starting SD card"{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00109}00109   \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00110}00110 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00113}00113   \mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{setupDisplay}}(\mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}}, \mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00114}00114 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00117}00117   \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00118}00118 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00122}00122   \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setupI2C}}(\mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00123}00123 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00124}00124   \textcolor{comment}{// unused but left as a reminder for how you can use it}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00125}00125   \mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}} = xSemaphoreCreateMutex();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00126}00126 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00136}00136 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00137}00137   \mbox{\hyperlink{portmacro_8h_a1ebe82d24d764ae4e352f7c3a9f92c01}{portBASE\_TYPE}} s1, s2, s3, s4, s5;}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00138}00138   s1 = \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_pre_charge_8ino_a2cd6f5c27d7667dbd0b6a0bc756340a3}{prechargeTask}}, \textcolor{stringliteral}{"{}PRECHARGE TASK"{}}, \mbox{\hyperlink{_precharge_8h_a0ea5dd53294d533feaeeb8731cb9739a}{PRECHARGE\_TASK\_STACK\_SIZE}}, (\textcolor{keywordtype}{void} *)\&\mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}}, 5, NULL);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00139}00139   \textcolor{comment}{// make sure to set CAN\_NODES in config.h}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00140}00140   s2 = \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{canTask}}, \textcolor{stringliteral}{"{}CAN TASK"{}}, \mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{CAN\_TASK\_STACK\_SIZE}}, (\textcolor{keywordtype}{void} *)\&\mbox{\hyperlink{_main_8h_ab1d006bdd632ad57598689186c8ce63a}{canTaskData}}, 4, NULL);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00141}00141   s3 = \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idleTask}}, \textcolor{stringliteral}{"{}IDLE\_TASK"{}}, \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}}, NULL, 1, NULL);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00142}00142   s4 = \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{displayTask}}, \textcolor{stringliteral}{"{}DISPLAY TASK"{}}, \mbox{\hyperlink{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}{DISPLAY\_TASK\_STACK\_SIZE}}, (\textcolor{keywordtype}{void}*)\&\mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}}, 2, NULL);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00143}00143   s5 = \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{dataLoggingTask}}, \textcolor{stringliteral}{"{}DATA LOGGING TASK"{}}, \mbox{\hyperlink{_data_logging_8h_af4a74cae27161ee93cd63ef70a0082e2}{DATALOGGING\_TASK\_STACK\_SIZE}}, (\textcolor{keywordtype}{void}*)\&\mbox{\hyperlink{_main_8h_af74b66e7d389be76470292071c65f556}{dataLoggingTaskData}}, 3, NULL);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00144}00144 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00147}00147   \textcolor{keywordflow}{if} (s1 != \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}} || s2 != \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}} || s3 != \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}} || s4 != \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}} || s5 != \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}}) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00148}00148     Serial.println(\textcolor{stringliteral}{"{}Error creating tasks"{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00149}00149     \textcolor{keywordflow}{while} (1);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00150}00150   \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00151}00151 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00154}00154   Serial.println(\textcolor{stringliteral}{"{}Starting the scheduler"{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00155}00155   \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00156}00156 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00158}00158   Serial.println(\textcolor{stringliteral}{"{}Insufficient RAM"{}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00159}00159 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00160}00160 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00161}\mbox{\hyperlink{_main_8h_a31d554847ae8fdeaba2460e0395cb75f}{00161}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setupPins}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00165}00165 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00167}00167   pinMode(\mbox{\hyperlink{_precharge_8h_a4e1dc017df18faad4234012c3e88d2f6}{HIGH\_VOLTAGE\_TOGGLE}}, INPUT\_PULLUP);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00169}00169   pinMode(\mbox{\hyperlink{_precharge_8h_a6f82f95bb8a6ffac8f6998ff4e5e16ec}{CLOSE\_CONTACTOR\_BUTTON}}, INPUT\_PULLUP);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00171}00171   pinMode(\mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\_RST}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00172}00172   digitalWrite(\mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\_RST}}, HIGH);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00174}00174   pinMode(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\_CS}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00175}00175   digitalWrite(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\_CS}}, HIGH);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00176}00176 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00178}00178   pinMode(\mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\_CS}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00179}00179   digitalWrite(\mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\_CS}}, HIGH);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00180}00180 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00182}00182   pinMode(\mbox{\hyperlink{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}{PRECHARGE}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00183}00183   digitalWrite(\mbox{\hyperlink{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}{PRECHARGE}}, LOW);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00185}00185   pinMode(\mbox{\hyperlink{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}{CONTACTOR}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00186}00186   digitalWrite(\mbox{\hyperlink{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}{CONTACTOR}}, LOW);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00187}00187 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00190}00190   pinMode(\mbox{\hyperlink{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}{CONTACTOR\_PRECHARGED\_LED}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00191}00191   digitalWrite(\mbox{\hyperlink{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}{CONTACTOR\_PRECHARGED\_LED}}, LOW);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00192}00192 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00194}00194   pinMode(\mbox{\hyperlink{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}{CONTACTOR\_CLOSED\_LED}}, OUTPUT);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00195}00195   digitalWrite(\mbox{\hyperlink{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}{CONTACTOR\_CLOSED\_LED}}, LOW);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00196}00196 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00197}00197 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00198}\mbox{\hyperlink{_main_8h_a128d10ba9e06eb69d1dfc91ffef935ba}{00198}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initializeDisplayStructs}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00199}00199   \mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}} = \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00200}00200     \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}}, \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}}, \&\mbox{\hyperlink{_main_8h_a68edb5124f79f990fb79a9e5b7a7f1e8}{auxiliaryBatteryVoltage}},}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00201}00201     \&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}}, \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}}, \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}}, \&\mbox{\hyperlink{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}{errorMessage}},}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00202}00202     \&\mbox{\hyperlink{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}{chargerCurrent}}, \&\mbox{\hyperlink{_main_8h_ab11fffe9a473928798422de66fcde502}{chargerVoltage}}, \&\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}}, \&\mbox{\hyperlink{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}{evccVoltage}}, \mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00203}00203   \};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00204}00204   \mbox{\hyperlink{_main_8h_aebb1e162e2ac30616875763e56823870}{displayTaskWrap}} = \{\&\mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}}, \&\mbox{\hyperlink{_main_8h_a25cab1c2dd63e90138b14fec27cecc4b}{screen}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00205}00205 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00206}00206 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00207}\mbox{\hyperlink{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}{00207}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initializeLogStructs}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00208}00208   \mbox{\hyperlink{_main_8h_a74a7fab0bce9e95dfced1f40d1764e9a}{motorTemperatureLog}} = \{\mbox{\hyperlink{_data_logging_8h_af00c3fd81cebf8f7797f97204750ba99}{MOTOR\_TEMPERATURE\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}{motorTemp}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00209}00209   \mbox{\hyperlink{_main_8h_ae230e041b8d09151f97b07151fdaf38c}{motorControllerTemperatureLog}} = \{\mbox{\hyperlink{_data_logging_8h_ab9b2c0322cedfd8d3cd1c9dbb513b10f}{MOTOR\_CONTROLLER\_TEMPERATURE\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00210}00210   \mbox{\hyperlink{_main_8h_a4ca34bc3c27d808ebe3480bfed4b997a}{motorControllerVoltageLog}} = \{\mbox{\hyperlink{_data_logging_8h_a34f856128abdd56434d31edd1f4ce549}{MOTOR\_CONTROLLER\_VOLTAGE\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00211}00211   \mbox{\hyperlink{_main_8h_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}{motorCurrentLog}} = \{\mbox{\hyperlink{_data_logging_8h_aa98fafae382d16d375eeef356bf55917}{MOTOR\_CURRENT\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00212}00212   \mbox{\hyperlink{_main_8h_a60f914a71f12f33ed914208fbf5be838}{rpmLog}} = \{\mbox{\hyperlink{_data_logging_8h_af7b33dd28efa07f171323d23a5f714d2}{RPM\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00213}00213   \mbox{\hyperlink{_main_8h_a8941dbd7f821806a7a6f4eb705b1472b}{thermistorLog}} = \{\mbox{\hyperlink{_data_logging_8h_a2665461802b5e24f2d0f9d8f1ca8351d}{THERMISTOR\_LOG}}, 10, \&\mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}[0], \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00214}00214   \mbox{\hyperlink{_main_8h_ade498aeeb82732f18af609faa0b323cb}{bmsVoltageLog}} = \{\mbox{\hyperlink{_data_logging_8h_ad345eeebe4d36d151827e130e6082a1b}{BMS\_VOLTAGE\_LOG}}, 1, \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}}, \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00215}00215   \mbox{\hyperlink{_main_8h_af74b66e7d389be76470292071c65f556}{dataLoggingTaskData}} = \{\mbox{\hyperlink{_main_8h_a9462b5ab9931c29422982609bceb3fad}{logs}}, 7\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00216}00216 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00217}00217 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00218}\mbox{\hyperlink{_main_8h_ab91267714bdf99d7b3d177f95f484157}{00218}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initializeCANStructs}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00219}00219   \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}} = \{\&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}}, \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}}, \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}}, \&\mbox{\hyperlink{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}{errorMessage}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00220}00220   \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}} = \{\&\mbox{\hyperlink{_main_8h_adca97acc6b0ff71f782f9c8a484a47b8}{throttle}}, \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}}, \&\mbox{\hyperlink{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}{motorTemp}}, \&\mbox{\hyperlink{_main_8h_ae40c5f8677bda4442f02f482f3b50d33}{controllerStatus}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00221}00221   \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}} = \{\&\mbox{\hyperlink{_main_8h_aad0824db126321851b9f0c49a3115de5}{cellVoltagesArr}}[0], \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}}, \&\mbox{\hyperlink{_main_8h_a006c7981abf25c0944f67d017aa5fe1f}{cellsReady}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00222}00222   \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}} = \{ \&\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}}, \&\mbox{\hyperlink{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}{bms\_c\_id}}, \&\mbox{\hyperlink{_main_8h_a668e87eca74f2126136ee32a6964005e}{bms\_c\_fault}}, \&\mbox{\hyperlink{_main_8h_ae21e58b785392a0951862c107609d059}{ltc\_fault}}, \&\mbox{\hyperlink{_main_8h_a0de2096b0657dfd13ffeb3d18ae5d65c}{ltc\_count}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00223}00223   \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}} = \{\mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00224}00224   \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}} = \{\&\mbox{\hyperlink{_main_8h_a1e4f6826343fcd16576ce3c411fb2287}{chargeFlag}}, \&\mbox{\hyperlink{_main_8h_a5613c4060f829f65acaac2bc064ae063}{chargerStatusFlag}}, \&\mbox{\hyperlink{_main_8h_ab11fffe9a473928798422de66fcde502}{chargerVoltage}}, \&\mbox{\hyperlink{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}{chargerCurrent}}, \&\mbox{\hyperlink{_main_8h_a85ede348554a838fb67a3ceb3313be5b}{chargerTemp}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00225}00225   \mbox{\hyperlink{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}{chargeControllerStats}} = \{\&\mbox{\hyperlink{_main_8h_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}{evccEnable}}, \&\mbox{\hyperlink{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}{evccVoltage}}, \&\mbox{\hyperlink{_main_8h_a283f91fe8cbd45a92dda13dd793bbbe0}{evccCurrent}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00226}00226   \mbox{\hyperlink{_main_8h_ab1d006bdd632ad57598689186c8ce63a}{canTaskData}} = \{\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}, \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}, \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}, \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}, \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}, \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}, \mbox{\hyperlink{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}{chargeControllerStats}}, \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}}\};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00227}00227 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00228}00228 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00229}\mbox{\hyperlink{_main_8h_a32469c898d757b2b30c00d0546f91802}{00229}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initializePreChargeStruct}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00230}00230   \mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}} = \{\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}, \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}, \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}, \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}}, \&\mbox{\hyperlink{_main_8h_a6cb6d63c8afdc45f4ef149e6d3750a1c}{angle\_X}}, \&\mbox{\hyperlink{_main_8h_a89aa0714a95ede6f4c623dbeb38ff019}{angle\_Y}},}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00231}00231                    \&\mbox{\hyperlink{_main_8h_a5ac66e09e5f95b02b3a99a4a2a33f0aa}{Rate\_Roll}}, \&\mbox{\hyperlink{_main_8h_ae4de7890b46aeb807d61f0b71efc9ffe}{Rate\_Pitch}}, \&\mbox{\hyperlink{_main_8h_a537fbd46985b9026ec7d6d0360d1d4d0}{Rate\_Yaw}}, \&\mbox{\hyperlink{_main_8h_a1fde90bfdfb774d5f83e5fea79c17caf}{Rate\_CalibrationRoll}}, \&\mbox{\hyperlink{_main_8h_a474d53e2608e3f1b00990ca9a7ccc64a}{Rate\_CalibrationPitch}}, \&\mbox{\hyperlink{_main_8h_af1c993c5e41ee4d2e881139640989c1a}{Rate\_CalibrationYaw}},}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00232}00232                    \&\mbox{\hyperlink{_main_8h_a94bbee6853ba61e7fa11539e15174888}{Rate\_CalibrationNumber}}, \&\mbox{\hyperlink{_main_8h_a93a21521d3b3e91006f1957dabab890b}{Acc\_X}}, \&\mbox{\hyperlink{_main_8h_a3b4304cff5611528af473a1dfb86c345}{Acc\_Y}}, \&\mbox{\hyperlink{_main_8h_a68e2313572725be66b8d99950942dfb4}{Acc\_Z}}, \&\mbox{\hyperlink{_main_8h_a6514f0d80926dc8e4aea4c92bd86c9eb}{Angle\_Roll}}, \&\mbox{\hyperlink{_main_8h_acbed8fcd71fbc60a2452c5e5e9433903}{Angle\_Pitch}}, \&\mbox{\hyperlink{_main_8h_ac2f400fd7d3933dbf70df179a012817a}{Kalman\_AngleRoll}},}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00233}00233                    \&\mbox{\hyperlink{_main_8h_a2896dd40967cce4e4f8b65e93cc2fb9d}{Kalman\_UncertaintyAngleRoll}}, \&\mbox{\hyperlink{_main_8h_afb2a04d0a4be86d47607dea17db62631}{Kalman\_AnglePitch}}, \&\mbox{\hyperlink{_main_8h_ae5ea9a8add204eed975816b032f4db3b}{Kalman\_UncertaintyAnglePitch}}, \mbox{\hyperlink{_main_8h_a077d47652e49b1a9d682fd58ae94ba46}{Kalman\_1DOutput}}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00234}00234                   \};}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00235}00235 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00236}00236 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00237}\mbox{\hyperlink{_main_8h_aafd615bc53c2f27720d792a6a2968209}{00237}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{_main_8ino_aafd615bc53c2f27720d792a6a2968209}{get\_SPI\_control}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}}) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00238}00238   \textcolor{keywordflow}{return} \mbox{\hyperlink{semphr_8h_af116e436d2a5ae5bd72dbade2b5ea930}{xSemaphoreTake}}(\mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}}, \mbox{\hyperlink{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00239}00239 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00240}00240 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00241}\mbox{\hyperlink{_main_8h_a966fda2bc617e020cb78f814bb5514c1}{00241}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}{release\_SPI\_control}}(\textcolor{keywordtype}{void}) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00242}00242   \mbox{\hyperlink{semphr_8h_aae55761cabfa9bf85c8f4430f78c0953}{xSemaphoreGive}}(\mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}});}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00243}00243 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00244}00244 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00245}\mbox{\hyperlink{_main_8h_a3e0781915a9e0f2045e892efe59f9fdc}{00245}} time\_t \mbox{\hyperlink{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}{getTeensy3Time}}()}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00246}00246 \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00247}00247   \textcolor{keywordflow}{return} Teensy3Clock.get();}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00248}00248 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00249}00249 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00250}\mbox{\hyperlink{_main_8h_a0d7297755c0775a9b0e4f7eeeafd7c7e}{00250}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idleTask}}(\textcolor{keywordtype}{void} *taskData) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00251}00251   \textcolor{keywordflow}{while} (1) \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00252}00252     \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((50 * \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}}) / 1000);}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00253}00253   \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00254}00254 \}}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00255}00255 }
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00256}\mbox{\hyperlink{_main_8h_afe461d27b9c48d5921c00d521181f12f}{00256}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}() \{}
-\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00257}00257 \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00062}00062\ \textcolor{comment}{//\ Includes\ the\ Main.h\ file\ which\ in\ includes\ all\ other\ files\ and\ interconnects\ all\ other\ files\ together.}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00063}00063\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_main_8h}{Main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00065}\mbox{\hyperlink{_main_8h_a4fc01d736fe50cf5b977f755b675f11d}{00065}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00069}00069\ \ \ \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setupPins}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00073}00073\ \ \ \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initializeDisplayStructs}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00076}00076\ \ \ \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initializeCANStructs}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00079}00079\ \ \ \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initializeLogStructs}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00082}00082\ \ \ \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initializePreChargeStruct}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00087}00087\ \ \ Serial.begin(115200);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00100}00100\ \ \ setTime(Teensy3Clock.get());}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00103}00103\ \ \ Serial.print(\textcolor{stringliteral}{"{}Starting\ SD:\ "{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00104}00104\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{_data_logging_8h_a0d2a3a213399ec010b89dede4ba4de77}{startSD}}())\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00105}00105\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}SD\ successfully\ started"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}{sdStarted}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00107}00107\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{_main_8h_acdca7f14bb24f1cb2aa9d0be982560b2}{sdStarted}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00109}00109\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Error\ starting\ SD\ card"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00110}00110\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00114}00114\ \ \ \mbox{\hyperlink{_display_8h_a79b84de3ddc4f88db07ac708452e4467}{setupDisplay}}(\mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00118}00118\ \ \ \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setupCAN}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00123}00123\ \ \ \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setupI2C}}(\mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00125}00125\ \ \ \textcolor{comment}{//\ unused\ but\ left\ as\ a\ reminder\ for\ how\ you\ can\ use\ it}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00126}00126\ \ \ \mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}}\ =\ xSemaphoreCreateMutex();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00138}00138\ \ \ \mbox{\hyperlink{portmacro_8h_a1ebe82d24d764ae4e352f7c3a9f92c01}{portBASE\_TYPE}}\ s1,\ s2,\ s3,\ s4,\ s5;}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00139}00139\ \ \ s1\ =\ \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_pre_charge_8ino_a2cd6f5c27d7667dbd0b6a0bc756340a3}{prechargeTask}},\ \textcolor{stringliteral}{"{}PRECHARGE\ TASK"{}},\ \mbox{\hyperlink{_precharge_8h_a0ea5dd53294d533feaeeb8731cb9739a}{PRECHARGE\_TASK\_STACK\_SIZE}},\ (\textcolor{keywordtype}{void}\ *)\&\mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}},\ 5,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00140}00140\ \ \ \textcolor{comment}{//\ make\ sure\ to\ set\ CAN\_NODES\ in\ config.h}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00141}00141\ \ \ s2\ =\ \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{canTask}},\ \textcolor{stringliteral}{"{}CAN\ TASK"{}},\ \mbox{\hyperlink{_c_a_n_8h_ab9d0930315055c0f1a6511c6cc3c5524}{CAN\_TASK\_STACK\_SIZE}},\ (\textcolor{keywordtype}{void}\ *)\&\mbox{\hyperlink{_main_8h_ab1d006bdd632ad57598689186c8ce63a}{canTaskData}},\ 4,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00142}00142\ \ \ s3\ =\ \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idleTask}},\ \textcolor{stringliteral}{"{}IDLE\_TASK"{}},\ \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}},\ NULL,\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00143}00143\ \ \ s4\ =\ \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{displayTask}},\ \textcolor{stringliteral}{"{}DISPLAY\ TASK"{}},\ \mbox{\hyperlink{_display_8h_ac018fe3f2622c6da250fdcc3d1df54f2}{DISPLAY\_TASK\_STACK\_SIZE}},\ (\textcolor{keywordtype}{void}*)\&\mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}},\ 2,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00144}00144\ \ \ s5\ =\ \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{xTaskCreate}}(\mbox{\hyperlink{_data_logging_8h_a24f7ab7e53619e5770ad9acc25b9b819}{dataLoggingTask}},\ \textcolor{stringliteral}{"{}DATA\ LOGGING\ TASK"{}},\ \mbox{\hyperlink{_data_logging_8h_af4a74cae27161ee93cd63ef70a0082e2}{DATALOGGING\_TASK\_STACK\_SIZE}},\ (\textcolor{keywordtype}{void}*)\&\mbox{\hyperlink{_main_8h_af74b66e7d389be76470292071c65f556}{dataLoggingTaskData}},\ 3,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00148}00148\ \ \ \textcolor{keywordflow}{if}\ (s1\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}}\ ||\ s2\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}}\ ||\ s3\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}}\ ||\ s4\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}}\ ||\ s5\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}})\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00149}00149\ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Error\ creating\ tasks"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00151}00151\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00155}00155\ \ \ Serial.println(\textcolor{stringliteral}{"{}Starting\ the\ scheduler"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00156}00156\ \ \ \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00159}00159\ \ \ Serial.println(\textcolor{stringliteral}{"{}Insufficient\ RAM"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00160}00160\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00162}\mbox{\hyperlink{_main_8h_a31d554847ae8fdeaba2460e0395cb75f}{00162}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setupPins}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00168}00168\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_a4e1dc017df18faad4234012c3e88d2f6}{HIGH\_VOLTAGE\_TOGGLE}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00170}00170\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_a6f82f95bb8a6ffac8f6998ff4e5e16ec}{CLOSE\_CONTACTOR\_BUTTON}},\ INPUT\_PULLUP);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00172}00172\ \ \ pinMode(\mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\_RST}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00173}00173\ \ \ digitalWrite(\mbox{\hyperlink{_display_8h_ab40e9918d9141415a47e2a979292309c}{TFT\_RST}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00175}00175\ \ \ pinMode(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\_CS}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00176}00176\ \ \ digitalWrite(\mbox{\hyperlink{_display_8h_a5f4d46ae101b77df78010c506601c87c}{TFT\_CS}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00179}00179\ \ \ pinMode(\mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\_CS}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00180}00180\ \ \ digitalWrite(\mbox{\hyperlink{_display_8h_aebc2813ad338ac596f3108382916b482}{TS\_CS}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00183}00183\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}{PRECHARGE}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00184}00184\ \ \ digitalWrite(\mbox{\hyperlink{_precharge_8h_a093dd273c900bae9cba2b32149e30eaa}{PRECHARGE}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00186}00186\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}{CONTACTOR}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00187}00187\ \ \ digitalWrite(\mbox{\hyperlink{_precharge_8h_ae1099ac76283225ff2bbbbdc0819ba4e}{CONTACTOR}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00191}00191\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}{CONTACTOR\_PRECHARGED\_LED}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00192}00192\ \ \ digitalWrite(\mbox{\hyperlink{_precharge_8h_a0985e25d7f0cd7e7101c2f20c1cf8e02}{CONTACTOR\_PRECHARGED\_LED}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00195}00195\ \ \ pinMode(\mbox{\hyperlink{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}{CONTACTOR\_CLOSED\_LED}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00196}00196\ \ \ digitalWrite(\mbox{\hyperlink{_precharge_8h_a606b28f262c8b6842a36e2f68cfc327a}{CONTACTOR\_CLOSED\_LED}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00199}\mbox{\hyperlink{_main_8h_a128d10ba9e06eb69d1dfc91ffef935ba}{00199}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initializeDisplayStructs}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00200}00200\ \ \ \mbox{\hyperlink{_main_8h_a962a20f8dc1ba6934fdc04e44bde53a8}{measurementData}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00201}00201\ \ \ \ \ \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}},\ \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}},\ \&\mbox{\hyperlink{_main_8h_a68edb5124f79f990fb79a9e5b7a7f1e8}{auxiliaryBatteryVoltage}},}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00202}00202\ \ \ \ \ \&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}},\ \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}},\ \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}},\ \&\mbox{\hyperlink{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}{errorMessage}},}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00203}00203\ \ \ \ \ \&\mbox{\hyperlink{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}{chargerCurrent}},\ \&\mbox{\hyperlink{_main_8h_ab11fffe9a473928798422de66fcde502}{chargerVoltage}},\ \&\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}},\ \&\mbox{\hyperlink{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}{evccVoltage}},\ \mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00204}00204\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00205}00205\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00207}\mbox{\hyperlink{_main_8h_a797cf3c70ce7ae02bba9bfd3f6d886de}{00207}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}{initializeLogStructs}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00208}00208\ \ \ \mbox{\hyperlink{_main_8h_a74a7fab0bce9e95dfced1f40d1764e9a}{motorTemperatureLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_af00c3fd81cebf8f7797f97204750ba99}{MOTOR\_TEMPERATURE\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}{motorTemp}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00209}00209\ \ \ \mbox{\hyperlink{_main_8h_ae230e041b8d09151f97b07151fdaf38c}{motorControllerTemperatureLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_ab9b2c0322cedfd8d3cd1c9dbb513b10f}{MOTOR\_CONTROLLER\_TEMPERATURE\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00210}00210\ \ \ \mbox{\hyperlink{_main_8h_a4ca34bc3c27d808ebe3480bfed4b997a}{motorControllerVoltageLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_a34f856128abdd56434d31edd1f4ce549}{MOTOR\_CONTROLLER\_VOLTAGE\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00211}00211\ \ \ \mbox{\hyperlink{_main_8h_a3ed95fd1ffa6f914d3bb19bbb59d2cd0}{motorCurrentLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_aa98fafae382d16d375eeef356bf55917}{MOTOR\_CURRENT\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00212}00212\ \ \ \mbox{\hyperlink{_main_8h_a60f914a71f12f33ed914208fbf5be838}{rpmLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_af7b33dd28efa07f171323d23a5f714d2}{RPM\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00213}00213\ \ \ \mbox{\hyperlink{_main_8h_a8941dbd7f821806a7a6f4eb705b1472b}{thermistorLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_a2665461802b5e24f2d0f9d8f1ca8351d}{THERMISTOR\_LOG}},\ 10,\ \&\mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}[0],\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00214}00214\ \ \ \mbox{\hyperlink{_main_8h_ade498aeeb82732f18af609faa0b323cb}{bmsVoltageLog}}\ =\ \{\mbox{\hyperlink{_data_logging_8h_ad345eeebe4d36d151827e130e6082a1b}{BMS\_VOLTAGE\_LOG}},\ 1,\ \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}},\ \mbox{\hyperlink{_data_logging_8h_ac2ad7f431e3446fddcd9b6b9f93c4c14a9cf4a0866224b0bb4a7a895da27c9c4c}{FLOAT}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00215}00215\ \ \ \mbox{\hyperlink{_main_8h_af74b66e7d389be76470292071c65f556}{dataLoggingTaskData}}\ =\ \{\mbox{\hyperlink{_main_8h_a9462b5ab9931c29422982609bceb3fad}{logs}},\ 7\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00216}00216\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00218}\mbox{\hyperlink{_main_8h_ab91267714bdf99d7b3d177f95f484157}{00218}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initializeCANStructs}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00219}00219\ \ \ \mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}}\ =\ \{\&\mbox{\hyperlink{_main_8h_ade4e42cdef2d4a9d50b3184100ad8cba}{RPM}},\ \&\mbox{\hyperlink{_main_8h_a7facdac5aec018a06fc1443c2f90a66d}{motorCurrent}},\ \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}},\ \&\mbox{\hyperlink{_main_8h_a9e20c92d5e427acd66b85b1451d23a6b}{errorMessage}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00220}00220\ \ \ \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}}\ =\ \{\&\mbox{\hyperlink{_main_8h_adca97acc6b0ff71f782f9c8a484a47b8}{throttle}},\ \&\mbox{\hyperlink{_main_8h_a45af45f80ded31266ad90143957a4e5e}{motorControllerTemp}},\ \&\mbox{\hyperlink{_main_8h_adf4cca4e15700419969edf3ce2ffe6e6}{motorTemp}},\ \&\mbox{\hyperlink{_main_8h_ae40c5f8677bda4442f02f482f3b50d33}{controllerStatus}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00221}00221\ \ \ \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}}\ =\ \{\&\mbox{\hyperlink{_main_8h_aad0824db126321851b9f0c49a3115de5}{cellVoltagesArr}}[0],\ \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}},\ \&\mbox{\hyperlink{_main_8h_a006c7981abf25c0944f67d017aa5fe1f}{cellsReady}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00222}00222\ \ \ \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}}\ =\ \{\ \&\mbox{\hyperlink{_main_8h_a04c234659b28f92e2eab7998b586bb4c}{bms\_status\_flag}},\ \&\mbox{\hyperlink{_main_8h_a54619d6c6a00d3268f764c33bd352ebf}{bms\_c\_id}},\ \&\mbox{\hyperlink{_main_8h_a668e87eca74f2126136ee32a6964005e}{bms\_c\_fault}},\ \&\mbox{\hyperlink{_main_8h_ae21e58b785392a0951862c107609d059}{ltc\_fault}},\ \&\mbox{\hyperlink{_main_8h_a0de2096b0657dfd13ffeb3d18ae5d65c}{ltc\_count}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00223}00223\ \ \ \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}}\ =\ \{\mbox{\hyperlink{_main_8h_a283b736b2bddfc8cbec62fe0759a9cd3}{thTemps}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00224}00224\ \ \ \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}}\ =\ \{\&\mbox{\hyperlink{_main_8h_a1e4f6826343fcd16576ce3c411fb2287}{chargeFlag}},\ \&\mbox{\hyperlink{_main_8h_a5613c4060f829f65acaac2bc064ae063}{chargerStatusFlag}},\ \&\mbox{\hyperlink{_main_8h_ab11fffe9a473928798422de66fcde502}{chargerVoltage}},\ \&\mbox{\hyperlink{_main_8h_a8b27b4284d9d4039618e5da068c2bc7f}{chargerCurrent}},\ \&\mbox{\hyperlink{_main_8h_a85ede348554a838fb67a3ceb3313be5b}{chargerTemp}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00225}00225\ \ \ \mbox{\hyperlink{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}{chargeControllerStats}}\ =\ \{\&\mbox{\hyperlink{_main_8h_a1e5e5db4f4b03ea34fcc2aaf5a334f2a}{evccEnable}},\ \&\mbox{\hyperlink{_main_8h_a10823f3996ecbd5481190d44baa7fd8e}{evccVoltage}},\ \&\mbox{\hyperlink{_main_8h_a283f91fe8cbd45a92dda13dd793bbbe0}{evccCurrent}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00226}00226\ \ \ \mbox{\hyperlink{_main_8h_ab1d006bdd632ad57598689186c8ce63a}{canTaskData}}\ =\ \{\mbox{\hyperlink{_main_8h_a9eeb128a9907154869e9ffa78e065039}{motorStats}},\ \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}},\ \mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}},\ \mbox{\hyperlink{_main_8h_a18571448b101f12a60457d717dc4f953}{thermistorTemps}},\ \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}},\ \mbox{\hyperlink{_main_8h_aa249f1d073086c27682168bbd7dc77ee}{chargerStats}},\ \mbox{\hyperlink{_main_8h_a566a5d391bca1611a2bfd1d97a1aa24c}{chargeControllerStats}},\ \&\mbox{\hyperlink{_main_8h_ad2b91d0118e98c42f7d552fd5d3056ed}{seriesVoltage}}\};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00229}\mbox{\hyperlink{_main_8h_a32469c898d757b2b30c00d0546f91802}{00229}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a32469c898d757b2b30c00d0546f91802}{initializePreChargeStruct}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00230}00230\ \ \ \mbox{\hyperlink{_main_8h_a695dccac97a0f45cf570237e981b2b5d}{preChargeData}}\ =\ \{\mbox{\hyperlink{_main_8h_ae0522609134711f92c96ffa8ed05e582}{bmsStatus}},\ \mbox{\hyperlink{_main_8h_abb61c6dc61d12b31aad7bdadd495b70a}{motorTemps}},\ \mbox{\hyperlink{_main_8h_afca6798677cebeeb7599ea00e1e243dd}{cellVoltages}},\ \&\mbox{\hyperlink{_main_8h_aca95a5d67296e1cf7fd5d05296cefc5a}{motorControllerBatteryVoltage}},\ \&\mbox{\hyperlink{_main_8h_a6cb6d63c8afdc45f4ef149e6d3750a1c}{angle\_X}},\ \&\mbox{\hyperlink{_main_8h_a89aa0714a95ede6f4c623dbeb38ff019}{angle\_Y}},}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{_main_8h_a5ac66e09e5f95b02b3a99a4a2a33f0aa}{Rate\_Roll}},\ \&\mbox{\hyperlink{_main_8h_ae4de7890b46aeb807d61f0b71efc9ffe}{Rate\_Pitch}},\ \&\mbox{\hyperlink{_main_8h_a537fbd46985b9026ec7d6d0360d1d4d0}{Rate\_Yaw}},\ \&\mbox{\hyperlink{_main_8h_a1fde90bfdfb774d5f83e5fea79c17caf}{Rate\_CalibrationRoll}},\ \&\mbox{\hyperlink{_main_8h_a474d53e2608e3f1b00990ca9a7ccc64a}{Rate\_CalibrationPitch}},\ \&\mbox{\hyperlink{_main_8h_af1c993c5e41ee4d2e881139640989c1a}{Rate\_CalibrationYaw}},}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{_main_8h_a94bbee6853ba61e7fa11539e15174888}{Rate\_CalibrationNumber}},\ \&\mbox{\hyperlink{_main_8h_a93a21521d3b3e91006f1957dabab890b}{Acc\_X}},\ \&\mbox{\hyperlink{_main_8h_a3b4304cff5611528af473a1dfb86c345}{Acc\_Y}},\ \&\mbox{\hyperlink{_main_8h_a68e2313572725be66b8d99950942dfb4}{Acc\_Z}},\ \&\mbox{\hyperlink{_main_8h_a6514f0d80926dc8e4aea4c92bd86c9eb}{Angle\_Roll}},\ \&\mbox{\hyperlink{_main_8h_acbed8fcd71fbc60a2452c5e5e9433903}{Angle\_Pitch}},\ \&\mbox{\hyperlink{_main_8h_ac2f400fd7d3933dbf70df179a012817a}{Kalman\_AngleRoll}},}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{_main_8h_a2896dd40967cce4e4f8b65e93cc2fb9d}{Kalman\_UncertaintyAngleRoll}},\ \&\mbox{\hyperlink{_main_8h_afb2a04d0a4be86d47607dea17db62631}{Kalman\_AnglePitch}},\ \&\mbox{\hyperlink{_main_8h_ae5ea9a8add204eed975816b032f4db3b}{Kalman\_UncertaintyAnglePitch}},\ \mbox{\hyperlink{_main_8h_a077d47652e49b1a9d682fd58ae94ba46}{Kalman\_1DOutput}}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00235}00235\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00237}\mbox{\hyperlink{_main_8h_aafd615bc53c2f27720d792a6a2968209}{00237}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_main_8ino_aafd615bc53c2f27720d792a6a2968209}{get\_SPI\_control}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}})\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00238}00238\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{semphr_8h_af116e436d2a5ae5bd72dbade2b5ea930}{xSemaphoreTake}}(\mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}},\ \mbox{\hyperlink{_main_8h_a548fbf99c23fe3ef17f2e1a7b0992070}{ms}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00239}00239\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00241}\mbox{\hyperlink{_main_8h_a966fda2bc617e020cb78f814bb5514c1}{00241}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a966fda2bc617e020cb78f814bb5514c1}{release\_SPI\_control}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00242}00242\ \ \ \mbox{\hyperlink{semphr_8h_aae55761cabfa9bf85c8f4430f78c0953}{xSemaphoreGive}}(\mbox{\hyperlink{_main_8h_a76c0525d646735793add25b18043e600}{spi\_mutex}});}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00243}00243\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00245}\mbox{\hyperlink{_main_8h_a3e0781915a9e0f2045e892efe59f9fdc}{00245}}\ time\_t\ \mbox{\hyperlink{_main_8ino_a3e0781915a9e0f2045e892efe59f9fdc}{getTeensy3Time}}()}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00246}00246\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00247}00247\ \ \ \textcolor{keywordflow}{return}\ Teensy3Clock.get();}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00248}00248\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00250}\mbox{\hyperlink{_main_8h_a0d7297755c0775a9b0e4f7eeeafd7c7e}{00250}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idleTask}}(\textcolor{keywordtype}{void}\ *taskData)\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00251}00251\ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00252}00252\ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}((50\ *\ \mbox{\hyperlink{_free_r_t_o_s_config__default_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{configTICK\_RATE\_HZ}})\ /\ 1000);}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00253}00253\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00254}00254\ \}}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00256}\mbox{\hyperlink{_main_8h_afe461d27b9c48d5921c00d521181f12f}{00256}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_main_8ino_source_l00257}00257\ \}}
 
 \end{DoxyCode}

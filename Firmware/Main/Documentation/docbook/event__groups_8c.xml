@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_event__groups_8c" xml:lang="en-US">
-<title>FreeRTOS/event_groups.c File Reference</title>
-<indexterm><primary>FreeRTOS/event_groups.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
-#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &quot;timers.h&quot;
-#include &quot;event_groups.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &quot;timers.h&quot;<?linebreak?>#include &quot;event_groups.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_event_group_def__t">EventGroupDef_t</link></para>
@@ -19,13 +14,13 @@
         <itemizedlist>
             <listitem><para>#define <link linkend="_event__groups_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8c_1a1404686af7c8070fa57675707c817abc">eventCLEAR_EVENTS_ON_EXIT_BIT</link>   0x01000000UL</para>
+            <listitem><para>#define <link linkend="_event__groups_8c_1a1404686af7c8070fa57675707c817abc">eventCLEAR_EVENTS_ON_EXIT_BIT</link>&#160;&#160;&#160;0x01000000UL</para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8c_1ab451d5ad95813d5ec7ff1784d69e9ec3">eventUNBLOCKED_DUE_TO_BIT_SET</link>   0x02000000UL</para>
+            <listitem><para>#define <link linkend="_event__groups_8c_1ab451d5ad95813d5ec7ff1784d69e9ec3">eventUNBLOCKED_DUE_TO_BIT_SET</link>&#160;&#160;&#160;0x02000000UL</para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8c_1ae98d5f1271845ad42742aef9659e1568">eventWAIT_FOR_ALL_BITS</link>   0x04000000UL</para>
+            <listitem><para>#define <link linkend="_event__groups_8c_1ae98d5f1271845ad42742aef9659e1568">eventWAIT_FOR_ALL_BITS</link>&#160;&#160;&#160;0x04000000UL</para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8c_1a46c8292a6ba88b017cca402f5baf670b">eventEVENT_BITS_CONTROL_BYTES</link>   0xff000000UL</para>
+            <listitem><para>#define <link linkend="_event__groups_8c_1a46c8292a6ba88b017cca402f5baf670b">eventEVENT_BITS_CONTROL_BYTES</link>&#160;&#160;&#160;0xff000000UL</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -75,28 +70,28 @@
     <title>eventCLEAR_EVENTS_ON_EXIT_BIT</title>
 <indexterm><primary>eventCLEAR_EVENTS_ON_EXIT_BIT</primary><secondary>event_groups.c</secondary></indexterm>
 <indexterm><primary>event_groups.c</primary><secondary>eventCLEAR_EVENTS_ON_EXIT_BIT</secondary></indexterm>
-<para><computeroutput>#define eventCLEAR_EVENTS_ON_EXIT_BIT   0x01000000UL</computeroutput></para><para>
+<para><computeroutput>#define eventCLEAR_EVENTS_ON_EXIT_BIT&#160;&#160;&#160;0x01000000UL</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8c_source_1l00057">57</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8c_1a46c8292a6ba88b017cca402f5baf670b"/><section>
     <title>eventEVENT_BITS_CONTROL_BYTES</title>
 <indexterm><primary>eventEVENT_BITS_CONTROL_BYTES</primary><secondary>event_groups.c</secondary></indexterm>
 <indexterm><primary>event_groups.c</primary><secondary>eventEVENT_BITS_CONTROL_BYTES</secondary></indexterm>
-<para><computeroutput>#define eventEVENT_BITS_CONTROL_BYTES   0xff000000UL</computeroutput></para><para>
+<para><computeroutput>#define eventEVENT_BITS_CONTROL_BYTES&#160;&#160;&#160;0xff000000UL</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8c_source_1l00060">60</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8c_1ab451d5ad95813d5ec7ff1784d69e9ec3"/><section>
     <title>eventUNBLOCKED_DUE_TO_BIT_SET</title>
 <indexterm><primary>eventUNBLOCKED_DUE_TO_BIT_SET</primary><secondary>event_groups.c</secondary></indexterm>
 <indexterm><primary>event_groups.c</primary><secondary>eventUNBLOCKED_DUE_TO_BIT_SET</secondary></indexterm>
-<para><computeroutput>#define eventUNBLOCKED_DUE_TO_BIT_SET   0x02000000UL</computeroutput></para><para>
+<para><computeroutput>#define eventUNBLOCKED_DUE_TO_BIT_SET&#160;&#160;&#160;0x02000000UL</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8c_source_1l00058">58</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8c_1ae98d5f1271845ad42742aef9659e1568"/><section>
     <title>eventWAIT_FOR_ALL_BITS</title>
 <indexterm><primary>eventWAIT_FOR_ALL_BITS</primary><secondary>event_groups.c</secondary></indexterm>
 <indexterm><primary>event_groups.c</primary><secondary>eventWAIT_FOR_ALL_BITS</secondary></indexterm>
-<para><computeroutput>#define eventWAIT_FOR_ALL_BITS   0x04000000UL</computeroutput></para><para>
+<para><computeroutput>#define eventWAIT_FOR_ALL_BITS&#160;&#160;&#160;0x04000000UL</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8c_source_1l00059">59</link> of file <link linkend="_event__groups_8c_source">event_groups.c</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8c_1ab622d8c674f2a417a666a7ed89109e79"/><section>

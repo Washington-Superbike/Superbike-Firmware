@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="struct_event_group_def__t" kind="struct" language="C++" prot="public">
     <compoundname>EventGroupDef_t</compoundname>
       <sectiondef kind="public-attrib">
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="FreeRTOS/event_groups.c" line="65" column="13" bodyfile="FreeRTOS/event_groups.c" bodystart="65" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" line="65" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_event_group_def__t_1a3dd347560456bfe452415efb52760dc3" prot="public" static="no" mutable="no">
         <type><ref refid="list_8h_1ad14d7e3de1350e459c7c23c6f59c902a" kindref="member">List_t</ref></type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="FreeRTOS/event_groups.c" line="66" column="8" bodyfile="FreeRTOS/event_groups.c" bodystart="66" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" line="66" column="8" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_event_group_def__t_1ac251eb462a51430b7691ba14e35c9ffc" prot="public" static="no" mutable="no">
         <type><ref refid="portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6" kindref="member">UBaseType_t</ref></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="FreeRTOS/event_groups.c" line="69" column="13" bodyfile="FreeRTOS/event_groups.c" bodystart="69" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" line="69" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" bodystart="69" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -88,7 +88,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="FreeRTOS/event_groups.c" line="63" column="1" bodyfile="FreeRTOS/event_groups.c" bodystart="64" bodyend="75"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" line="63" column="1" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.c" bodystart="64" bodyend="75"/>
     <listofallmembers>
       <member refid="struct_event_group_def__t_1ab1bcd95a3330b71c55198b2352926643" prot="public" virt="non-virtual"><scope>EventGroupDef_t</scope><name>uxEventBits</name></member>
       <member refid="struct_event_group_def__t_1ac251eb462a51430b7691ba14e35c9ffc" prot="public" virt="non-virtual"><scope>EventGroupDef_t</scope><name>uxEventGroupNumber</name></member>

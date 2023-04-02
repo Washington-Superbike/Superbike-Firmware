@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_queue_8c" xml:lang="en-US">
-<title>FreeRTOS/queue.c File Reference</title>
-<indexterm><primary>FreeRTOS/queue.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &quot;queue.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/queue.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/queue.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &quot;queue.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_queue_pointers">QueuePointers</link></para>
@@ -25,19 +20,19 @@
         <itemizedlist>
             <listitem><para>#define <link linkend="_queue_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1acdb781ba6b38714cf41f7417de8fe6bf">queueUNLOCKED</link>   ( ( int8_t ) -1 )</para>
+            <listitem><para>#define <link linkend="_queue_8c_1acdb781ba6b38714cf41f7417de8fe6bf">queueUNLOCKED</link>&#160;&#160;&#160;( ( int8_t ) -1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1a60a95aa91f84782416755f38616231fd">queueLOCKED_UNMODIFIED</link>   ( ( int8_t ) 0 )</para>
+            <listitem><para>#define <link linkend="_queue_8c_1a60a95aa91f84782416755f38616231fd">queueLOCKED_UNMODIFIED</link>&#160;&#160;&#160;( ( int8_t ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1afe3f7afb2a02c085f2d634003902cbc0">uxQueueType</link>   pcHead</para>
+            <listitem><para>#define <link linkend="_queue_8c_1afe3f7afb2a02c085f2d634003902cbc0">uxQueueType</link>&#160;&#160;&#160;pcHead</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1a0799077a434aea43f5cca3cda3625aa8">queueQUEUE_IS_MUTEX</link>   NULL</para>
+            <listitem><para>#define <link linkend="_queue_8c_1a0799077a434aea43f5cca3cda3625aa8">queueQUEUE_IS_MUTEX</link>&#160;&#160;&#160;NULL</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1adfb14d07644ad4da4bd2303105884227">queueSEMAPHORE_QUEUE_ITEM_LENGTH</link>   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 )</para>
+            <listitem><para>#define <link linkend="_queue_8c_1adfb14d07644ad4da4bd2303105884227">queueSEMAPHORE_QUEUE_ITEM_LENGTH</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1a166c89c5c3a213c7e52283e024bb1d50">queueMUTEX_GIVE_BLOCK_TIME</link>   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U )</para>
+            <listitem><para>#define <link linkend="_queue_8c_1a166c89c5c3a213c7e52283e024bb1d50">queueMUTEX_GIVE_BLOCK_TIME</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_queue_8c_1adb4472163ac5b0e8ad72183d69387b81">queueYIELD_IF_USING_PREEMPTION</link>()   <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</para>
+            <listitem><para>#define <link linkend="_queue_8c_1adb4472163ac5b0e8ad72183d69387b81">queueYIELD_IF_USING_PREEMPTION</link>()&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</para>
 </listitem>
             <listitem><para>#define <link linkend="_queue_8c_1ae4efd14c0f4dee7f189ef2e4d9ce1f1b">prvLockQueue</link>(pxQueue)</para>
 </listitem>
@@ -174,49 +169,49 @@ Definition at line <link linkend="_queue_8c_source_1l00240">240</link> of file <
     <title>queueLOCKED_UNMODIFIED</title>
 <indexterm><primary>queueLOCKED_UNMODIFIED</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueLOCKED_UNMODIFIED</secondary></indexterm>
-<para><computeroutput>#define queueLOCKED_UNMODIFIED   ( ( int8_t ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define queueLOCKED_UNMODIFIED&#160;&#160;&#160;( ( int8_t ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00053">53</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1a166c89c5c3a213c7e52283e024bb1d50"/><section>
     <title>queueMUTEX_GIVE_BLOCK_TIME</title>
 <indexterm><primary>queueMUTEX_GIVE_BLOCK_TIME</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueMUTEX_GIVE_BLOCK_TIME</secondary></indexterm>
-<para><computeroutput>#define queueMUTEX_GIVE_BLOCK_TIME   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U )</computeroutput></para><para>
+<para><computeroutput>#define queueMUTEX_GIVE_BLOCK_TIME&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U )</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00082">82</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1a0799077a434aea43f5cca3cda3625aa8"/><section>
     <title>queueQUEUE_IS_MUTEX</title>
 <indexterm><primary>queueQUEUE_IS_MUTEX</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueQUEUE_IS_MUTEX</secondary></indexterm>
-<para><computeroutput>#define queueQUEUE_IS_MUTEX   NULL</computeroutput></para><para>
+<para><computeroutput>#define queueQUEUE_IS_MUTEX&#160;&#160;&#160;NULL</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00065">65</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1adfb14d07644ad4da4bd2303105884227"/><section>
     <title>queueSEMAPHORE_QUEUE_ITEM_LENGTH</title>
 <indexterm><primary>queueSEMAPHORE_QUEUE_ITEM_LENGTH</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueSEMAPHORE_QUEUE_ITEM_LENGTH</secondary></indexterm>
-<para><computeroutput>#define queueSEMAPHORE_QUEUE_ITEM_LENGTH   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define queueSEMAPHORE_QUEUE_ITEM_LENGTH&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00081">81</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1acdb781ba6b38714cf41f7417de8fe6bf"/><section>
     <title>queueUNLOCKED</title>
 <indexterm><primary>queueUNLOCKED</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueUNLOCKED</secondary></indexterm>
-<para><computeroutput>#define queueUNLOCKED   ( ( int8_t ) -1 )</computeroutput></para><para>
+<para><computeroutput>#define queueUNLOCKED&#160;&#160;&#160;( ( int8_t ) -1 )</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00052">52</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1adb4472163ac5b0e8ad72183d69387b81"/><section>
     <title>queueYIELD_IF_USING_PREEMPTION</title>
 <indexterm><primary>queueYIELD_IF_USING_PREEMPTION</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>queueYIELD_IF_USING_PREEMPTION</secondary></indexterm>
-<para><computeroutput>#define queueYIELD_IF_USING_PREEMPTION( )   <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</computeroutput></para><para>
+<para><computeroutput>#define queueYIELD_IF_USING_PREEMPTION( )&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00089">89</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 <anchor xml:id="_queue_8c_1afe3f7afb2a02c085f2d634003902cbc0"/><section>
     <title>uxQueueType</title>
 <indexterm><primary>uxQueueType</primary><secondary>queue.c</secondary></indexterm>
 <indexterm><primary>queue.c</primary><secondary>uxQueueType</secondary></indexterm>
-<para><computeroutput>#define uxQueueType   pcHead</computeroutput></para><para>
+<para><computeroutput>#define uxQueueType&#160;&#160;&#160;pcHead</computeroutput></para><para>
 Definition at line <link linkend="_queue_8c_source_1l00064">64</link> of file <link linkend="_queue_8c_source">queue.c</link>.</para>
 </section>
 </section>

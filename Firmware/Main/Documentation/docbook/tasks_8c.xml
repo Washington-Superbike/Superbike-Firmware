@@ -1,14 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tasks_8c" xml:lang="en-US">
-<title>FreeRTOS/tasks.c File Reference</title>
-<indexterm><primary>FreeRTOS/tasks.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &quot;timers.h&quot;
-#include &quot;stack_macros.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/tasks.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/tasks.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &quot;timers.h&quot;<?linebreak?>#include &quot;stack_macros.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structtsk_task_control_block">tskTaskControlBlock</link></para>
@@ -20,37 +14,37 @@
         <itemizedlist>
             <listitem><para>#define <link linkend="_tasks_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1acd0c920e40647de517ac633965b52273">taskYIELD_IF_USING_PREEMPTION</link>()   <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1acd0c920e40647de517ac633965b52273">taskYIELD_IF_USING_PREEMPTION</link>()&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a4f2f023143b2cd2367a441e104f8cf2c">taskNOT_WAITING_NOTIFICATION</link>   ( ( uint8_t ) 0 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a4f2f023143b2cd2367a441e104f8cf2c">taskNOT_WAITING_NOTIFICATION</link>&#160;&#160;&#160;( ( uint8_t ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1acee66205293e253c13626e74798a0cf0">taskWAITING_NOTIFICATION</link>   ( ( uint8_t ) 1 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1acee66205293e253c13626e74798a0cf0">taskWAITING_NOTIFICATION</link>&#160;&#160;&#160;( ( uint8_t ) 1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1aa62ac91d5f644c98b5459c28ae4f689e">taskNOTIFICATION_RECEIVED</link>   ( ( uint8_t ) 2 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1aa62ac91d5f644c98b5459c28ae4f689e">taskNOTIFICATION_RECEIVED</link>&#160;&#160;&#160;( ( uint8_t ) 2 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1ad3b1c99066f14855be098ccca1685fac">tskSTACK_FILL_BYTE</link>   ( 0xa5U )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1ad3b1c99066f14855be098ccca1685fac">tskSTACK_FILL_BYTE</link>&#160;&#160;&#160;( 0xa5U )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1af06a1633d2fb92f67712e62f3d1c3777">tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB</link>   ( ( uint8_t ) 0 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1af06a1633d2fb92f67712e62f3d1c3777">tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB</link>&#160;&#160;&#160;( ( uint8_t ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1ad65be2320d426aca4e0e72d29ccd04de">tskSTATICALLY_ALLOCATED_STACK_ONLY</link>   ( ( uint8_t ) 1 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1ad65be2320d426aca4e0e72d29ccd04de">tskSTATICALLY_ALLOCATED_STACK_ONLY</link>&#160;&#160;&#160;( ( uint8_t ) 1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a9851e50775136d536fed623e1ac598aa">tskSTATICALLY_ALLOCATED_STACK_AND_TCB</link>   ( ( uint8_t ) 2 )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a9851e50775136d536fed623e1ac598aa">tskSTATICALLY_ALLOCATED_STACK_AND_TCB</link>&#160;&#160;&#160;( ( uint8_t ) 2 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a95d95c8702f95db8a8a446e1d083245a">tskSET_NEW_STACKS_TO_KNOWN_VALUE</link>   1</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a95d95c8702f95db8a8a446e1d083245a">tskSET_NEW_STACKS_TO_KNOWN_VALUE</link>&#160;&#160;&#160;1</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a13f2f32dab5dee7a9b2c848c88ef9bcc">tskRUNNING_CHAR</link>   ( &apos;X&apos; )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a13f2f32dab5dee7a9b2c848c88ef9bcc">tskRUNNING_CHAR</link>&#160;&#160;&#160;( &apos;X&apos; )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a4cd87df39bdffff557d06f4ff15a30b0">tskBLOCKED_CHAR</link>   ( &apos;B&apos; )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a4cd87df39bdffff557d06f4ff15a30b0">tskBLOCKED_CHAR</link>&#160;&#160;&#160;( &apos;B&apos; )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a2fd6c7a58ad28dd1f2c1e322b1ab3fcb">tskREADY_CHAR</link>   ( &apos;R&apos; )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a2fd6c7a58ad28dd1f2c1e322b1ab3fcb">tskREADY_CHAR</link>&#160;&#160;&#160;( &apos;R&apos; )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a9aba572191d065741f5a3e94c416d455">tskDELETED_CHAR</link>   ( &apos;D&apos; )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a9aba572191d065741f5a3e94c416d455">tskDELETED_CHAR</link>&#160;&#160;&#160;( &apos;D&apos; )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a3613b4b66406c8f6cc73e5c3e9f208db">tskSUSPENDED_CHAR</link>   ( &apos;S&apos; )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a3613b4b66406c8f6cc73e5c3e9f208db">tskSUSPENDED_CHAR</link>&#160;&#160;&#160;( &apos;S&apos; )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1aa637612832bcdd420acc9e6cc4361071">configIDLE_TASK_NAME</link>   &quot;IDLE&quot;</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1aa637612832bcdd420acc9e6cc4361071">configIDLE_TASK_NAME</link>&#160;&#160;&#160;&quot;IDLE&quot;</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a80c883536b1faef436fcd47b16a10f98">taskRECORD_READY_PRIORITY</link>(uxPriority)   <link linkend="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</link>( uxPriority, <link linkend="_tasks_8c_1a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</link> )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a80c883536b1faef436fcd47b16a10f98">taskRECORD_READY_PRIORITY</link>(uxPriority)&#160;&#160;&#160;<link linkend="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</link>( uxPriority, <link linkend="_tasks_8c_1a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</link> )</para>
 </listitem>
             <listitem><para>#define <link linkend="_tasks_8c_1adace394d56a7fe7a8f8ee83edba3537c">taskSELECT_HIGHEST_PRIORITY_TASK</link>()</para>
 </listitem>
@@ -60,9 +54,9 @@
 </listitem>
             <listitem><para>#define <link linkend="_tasks_8c_1a94afc7269fff7c906c5eb0d9d315624b">prvAddTaskToReadyList</link>(pxTCB)</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1ad910f5e908283f1dfabd642fe1b11c6b">prvGetTCBFromHandle</link>(pxHandle)   ( ( ( pxHandle ) == NULL ) ? <link linkend="_tasks_8c_1a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</link> : ( pxHandle ) )</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1ad910f5e908283f1dfabd642fe1b11c6b">prvGetTCBFromHandle</link>(pxHandle)&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <link linkend="_tasks_8c_1a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</link> : ( pxHandle ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_tasks_8c_1a3e36f3eda563e810a24ab36ee7c978d4">taskEVENT_LIST_ITEM_VALUE_IN_USE</link>   0x80000000UL</para>
+            <listitem><para>#define <link linkend="_tasks_8c_1a3e36f3eda563e810a24ab36ee7c978d4">taskEVENT_LIST_ITEM_VALUE_IN_USE</link>&#160;&#160;&#160;0x80000000UL</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -257,7 +251,7 @@
     <title>configIDLE_TASK_NAME</title>
 <indexterm><primary>configIDLE_TASK_NAME</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>configIDLE_TASK_NAME</secondary></indexterm>
-<para><computeroutput>#define configIDLE_TASK_NAME   &quot;IDLE&quot;</computeroutput></para><para>
+<para><computeroutput>#define configIDLE_TASK_NAME&#160;&#160;&#160;&quot;IDLE&quot;</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00112">112</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1ab622d8c674f2a417a666a7ed89109e79"/><section>
@@ -282,35 +276,35 @@ Definition at line <link linkend="_tasks_8c_source_1l00218">218</link> of file <
     <title>prvGetTCBFromHandle</title>
 <indexterm><primary>prvGetTCBFromHandle</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>prvGetTCBFromHandle</secondary></indexterm>
-<para><computeroutput>#define prvGetTCBFromHandle( pxHandle)   ( ( ( pxHandle ) == NULL ) ? <link linkend="_tasks_8c_1a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</link> : ( pxHandle ) )</computeroutput></para><para>
+<para><computeroutput>#define prvGetTCBFromHandle( pxHandle)&#160;&#160;&#160;( ( ( pxHandle ) == NULL ) ? <link linkend="_tasks_8c_1a1f2284b749c9706d04510853bd8e8f91">pxCurrentTCB</link> : ( pxHandle ) )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00231">231</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a3e36f3eda563e810a24ab36ee7c978d4"/><section>
     <title>taskEVENT_LIST_ITEM_VALUE_IN_USE</title>
 <indexterm><primary>taskEVENT_LIST_ITEM_VALUE_IN_USE</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskEVENT_LIST_ITEM_VALUE_IN_USE</secondary></indexterm>
-<para><computeroutput>#define taskEVENT_LIST_ITEM_VALUE_IN_USE   0x80000000UL</computeroutput></para><para>
+<para><computeroutput>#define taskEVENT_LIST_ITEM_VALUE_IN_USE&#160;&#160;&#160;0x80000000UL</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00244">244</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a4f2f023143b2cd2367a441e104f8cf2c"/><section>
     <title>taskNOT_WAITING_NOTIFICATION</title>
 <indexterm><primary>taskNOT_WAITING_NOTIFICATION</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskNOT_WAITING_NOTIFICATION</secondary></indexterm>
-<para><computeroutput>#define taskNOT_WAITING_NOTIFICATION   ( ( uint8_t ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define taskNOT_WAITING_NOTIFICATION&#160;&#160;&#160;( ( uint8_t ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00068">68</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1aa62ac91d5f644c98b5459c28ae4f689e"/><section>
     <title>taskNOTIFICATION_RECEIVED</title>
 <indexterm><primary>taskNOTIFICATION_RECEIVED</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskNOTIFICATION_RECEIVED</secondary></indexterm>
-<para><computeroutput>#define taskNOTIFICATION_RECEIVED   ( ( uint8_t ) 2 )</computeroutput></para><para>
+<para><computeroutput>#define taskNOTIFICATION_RECEIVED&#160;&#160;&#160;( ( uint8_t ) 2 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00070">70</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a80c883536b1faef436fcd47b16a10f98"/><section>
     <title>taskRECORD_READY_PRIORITY</title>
 <indexterm><primary>taskRECORD_READY_PRIORITY</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskRECORD_READY_PRIORITY</secondary></indexterm>
-<para><computeroutput>#define taskRECORD_READY_PRIORITY( uxPriority)   <link linkend="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</link>( uxPriority, <link linkend="_tasks_8c_1a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</link> )</computeroutput></para><para>
+<para><computeroutput>#define taskRECORD_READY_PRIORITY( uxPriority)&#160;&#160;&#160;<link linkend="_portmacro_8h_1a113cd9b8401284194da8ddc4569aa484">portRECORD_READY_PRIORITY</link>( uxPriority, <link linkend="_tasks_8c_1a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</link> )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00165">165</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a9517fc40d713aff9dd8182223948f9c8"/><section>
@@ -331,7 +325,7 @@ Definition at line <link linkend="_tasks_8c_source_1l00184">184</link> of file <
 <indexterm><primary>taskSELECT_HIGHEST_PRIORITY_TASK</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskSELECT_HIGHEST_PRIORITY_TASK</secondary></indexterm>
 <para><computeroutput>#define taskSELECT_HIGHEST_PRIORITY_TASK( )</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;UBaseType_t&#32;uxTopPriority;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;uxTopPriority;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Find&#32;the&#32;highest&#32;priority&#32;list&#32;that&#32;contains&#32;ready&#32;tasks.&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;portGET_HIGHEST_PRIORITY(&#32;uxTopPriority,&#32;<link linkend="_tasks_8c_1a3fffd96ac9ae0d8b352ae10896ed4531">uxTopReadyPriority</link>&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
@@ -346,15 +340,15 @@ Definition at line <link linkend="_tasks_8c_source_1l00169">169</link> of file <
 <indexterm><primary>taskSWITCH_DELAYED_LISTS</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskSWITCH_DELAYED_LISTS</secondary></indexterm>
 <para><computeroutput>#define taskSWITCH_DELAYED_LISTS( )</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;List_t&#32;*pxTemp;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_structx_l_i_s_t">List_t</link>&#32;*pxTemp;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;The&#32;delayed&#32;tasks&#32;list&#32;should&#32;be&#32;empty&#32;when&#32;the&#32;lists&#32;are&#32;switched.&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;configASSERT(&#32;(&#32;<link linkend="_list_8h_1aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</link>(&#32;<link linkend="_tasks_8c_1a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</link>&#32;)&#32;)&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;pxTemp&#32;=&#32;<link linkend="_tasks_8c_1a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;pxDelayedTaskList&#32;=&#32;<link linkend="_tasks_8c_1aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;pxOverflowDelayedTaskList&#32;=&#32;pxTemp;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;xNumOfOverflows++;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_tasks_8c_1a30b4b716a99940e93fc9d4a13c1f81db">pxDelayedTaskList</link>&#32;=&#32;<link linkend="_tasks_8c_1aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_tasks_8c_1aae5cac9860aec54036f49920561a9705">pxOverflowDelayedTaskList</link>&#32;=&#32;pxTemp;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_tasks_8c_1ab278ffe04bd2e0cdf4acdabdd7692306">xNumOfOverflows</link>++;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;prvResetNextTaskUnblockTime();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 }
 </programlisting><para>
@@ -364,84 +358,84 @@ Definition at line <link linkend="_tasks_8c_source_1l00198">198</link> of file <
     <title>taskWAITING_NOTIFICATION</title>
 <indexterm><primary>taskWAITING_NOTIFICATION</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskWAITING_NOTIFICATION</secondary></indexterm>
-<para><computeroutput>#define taskWAITING_NOTIFICATION   ( ( uint8_t ) 1 )</computeroutput></para><para>
+<para><computeroutput>#define taskWAITING_NOTIFICATION&#160;&#160;&#160;( ( uint8_t ) 1 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00069">69</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1acd0c920e40647de517ac633965b52273"/><section>
     <title>taskYIELD_IF_USING_PREEMPTION</title>
 <indexterm><primary>taskYIELD_IF_USING_PREEMPTION</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>taskYIELD_IF_USING_PREEMPTION</secondary></indexterm>
-<para><computeroutput>#define taskYIELD_IF_USING_PREEMPTION( )   <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskYIELD_IF_USING_PREEMPTION( )&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>()</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00064">64</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a4cd87df39bdffff557d06f4ff15a30b0"/><section>
     <title>tskBLOCKED_CHAR</title>
 <indexterm><primary>tskBLOCKED_CHAR</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskBLOCKED_CHAR</secondary></indexterm>
-<para><computeroutput>#define tskBLOCKED_CHAR   ( &apos;B&apos; )</computeroutput></para><para>
+<para><computeroutput>#define tskBLOCKED_CHAR&#160;&#160;&#160;( &apos;B&apos; )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00096">96</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a9aba572191d065741f5a3e94c416d455"/><section>
     <title>tskDELETED_CHAR</title>
 <indexterm><primary>tskDELETED_CHAR</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskDELETED_CHAR</secondary></indexterm>
-<para><computeroutput>#define tskDELETED_CHAR   ( &apos;D&apos; )</computeroutput></para><para>
+<para><computeroutput>#define tskDELETED_CHAR&#160;&#160;&#160;( &apos;D&apos; )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00098">98</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1af06a1633d2fb92f67712e62f3d1c3777"/><section>
     <title>tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB</title>
 <indexterm><primary>tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB</secondary></indexterm>
-<para><computeroutput>#define tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB   ( ( uint8_t ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB&#160;&#160;&#160;( ( uint8_t ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00079">79</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a2fd6c7a58ad28dd1f2c1e322b1ab3fcb"/><section>
     <title>tskREADY_CHAR</title>
 <indexterm><primary>tskREADY_CHAR</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskREADY_CHAR</secondary></indexterm>
-<para><computeroutput>#define tskREADY_CHAR   ( &apos;R&apos; )</computeroutput></para><para>
+<para><computeroutput>#define tskREADY_CHAR&#160;&#160;&#160;( &apos;R&apos; )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00097">97</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a13f2f32dab5dee7a9b2c848c88ef9bcc"/><section>
     <title>tskRUNNING_CHAR</title>
 <indexterm><primary>tskRUNNING_CHAR</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskRUNNING_CHAR</secondary></indexterm>
-<para><computeroutput>#define tskRUNNING_CHAR   ( &apos;X&apos; )</computeroutput></para><para>
+<para><computeroutput>#define tskRUNNING_CHAR&#160;&#160;&#160;( &apos;X&apos; )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00095">95</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a95d95c8702f95db8a8a446e1d083245a"/><section>
     <title>tskSET_NEW_STACKS_TO_KNOWN_VALUE</title>
 <indexterm><primary>tskSET_NEW_STACKS_TO_KNOWN_VALUE</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskSET_NEW_STACKS_TO_KNOWN_VALUE</secondary></indexterm>
-<para><computeroutput>#define tskSET_NEW_STACKS_TO_KNOWN_VALUE   1</computeroutput></para><para>
+<para><computeroutput>#define tskSET_NEW_STACKS_TO_KNOWN_VALUE&#160;&#160;&#160;1</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00087">87</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1ad3b1c99066f14855be098ccca1685fac"/><section>
     <title>tskSTACK_FILL_BYTE</title>
 <indexterm><primary>tskSTACK_FILL_BYTE</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskSTACK_FILL_BYTE</secondary></indexterm>
-<para><computeroutput>#define tskSTACK_FILL_BYTE   ( 0xa5U )</computeroutput></para><para>
+<para><computeroutput>#define tskSTACK_FILL_BYTE&#160;&#160;&#160;( 0xa5U )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00076">76</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a9851e50775136d536fed623e1ac598aa"/><section>
     <title>tskSTATICALLY_ALLOCATED_STACK_AND_TCB</title>
 <indexterm><primary>tskSTATICALLY_ALLOCATED_STACK_AND_TCB</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskSTATICALLY_ALLOCATED_STACK_AND_TCB</secondary></indexterm>
-<para><computeroutput>#define tskSTATICALLY_ALLOCATED_STACK_AND_TCB   ( ( uint8_t ) 2 )</computeroutput></para><para>
+<para><computeroutput>#define tskSTATICALLY_ALLOCATED_STACK_AND_TCB&#160;&#160;&#160;( ( uint8_t ) 2 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00081">81</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1ad65be2320d426aca4e0e72d29ccd04de"/><section>
     <title>tskSTATICALLY_ALLOCATED_STACK_ONLY</title>
 <indexterm><primary>tskSTATICALLY_ALLOCATED_STACK_ONLY</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskSTATICALLY_ALLOCATED_STACK_ONLY</secondary></indexterm>
-<para><computeroutput>#define tskSTATICALLY_ALLOCATED_STACK_ONLY   ( ( uint8_t ) 1 )</computeroutput></para><para>
+<para><computeroutput>#define tskSTATICALLY_ALLOCATED_STACK_ONLY&#160;&#160;&#160;( ( uint8_t ) 1 )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00080">80</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 <anchor xml:id="_tasks_8c_1a3613b4b66406c8f6cc73e5c3e9f208db"/><section>
     <title>tskSUSPENDED_CHAR</title>
 <indexterm><primary>tskSUSPENDED_CHAR</primary><secondary>tasks.c</secondary></indexterm>
 <indexterm><primary>tasks.c</primary><secondary>tskSUSPENDED_CHAR</secondary></indexterm>
-<para><computeroutput>#define tskSUSPENDED_CHAR   ( &apos;S&apos; )</computeroutput></para><para>
+<para><computeroutput>#define tskSUSPENDED_CHAR&#160;&#160;&#160;( &apos;S&apos; )</computeroutput></para><para>
 Definition at line <link linkend="_tasks_8c_source_1l00099">99</link> of file <link linkend="_tasks_8c_source">tasks.c</link>.</para>
 </section>
 </section>

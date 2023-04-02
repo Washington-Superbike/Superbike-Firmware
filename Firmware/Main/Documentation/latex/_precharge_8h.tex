@@ -1,5 +1,5 @@
-\hypertarget{_precharge_8h}{}\doxysection{Precharge.\+h File Reference}
-\label{_precharge_8h}\index{Precharge.h@{Precharge.h}}
+\hypertarget{_precharge_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Precharge.h File Reference}
+\label{_precharge_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h}}
 
 
 The \mbox{\hyperlink{_precharge_8h}{Pre\+Charge.\+h}} config file for the Pre\+Charge/\+Controls task for the bike\textquotesingle{}s firmware. This defines the variables that are passed along to the \mbox{\hyperlink{_pre_charge_8ino}{Pre\+Charge.\+ino}} file and others if they use it. Then it creates the initial reference (there\textquotesingle{}s a proper C programming term for it) for all the methods used in \mbox{\hyperlink{_pre_charge_8ino}{Pre\+Charge.\+ino}}. This file also creates two typedef structs that basically allow us to package the data in Pre\+Charge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file.  
@@ -82,13 +82,13 @@ The \mbox{\hyperlink{_precharge_8h}{Pre\+Charge.\+h}} config file for the Pre\+C
 Washington Superbike 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-1-\/March-\/2023
+1-\/March-\/2023 
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
 This file could be way better optimized. Remove all the stupid extra vars in the pre\+Charge\+Struct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE\+\_\+\+TASK\+\_\+\+STACK\+\_\+\+SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline
+\item[\mbox{\hyperlink{todo__todo000010}{Todo}}]Change the pre\+Charge\+Struct data to use less floats, etc. ~\newline
  ~\newline
  NUMBER\+\_\+\+OF\+\_\+\+LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. MOTOR\+\_\+\+TEMP\+\_\+\+MAX might need to be changed depending. ~\newline
  ~\newline
@@ -276,7 +276,7 @@ Definition at line \mbox{\hyperlink{_precharge_8h_source_l00055}{55}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00188}{188}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00190}{190}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad8511ef84de5112bd6beb8e3ac5fff67}\label{_precharge_8h_ad8511ef84de5112bd6beb8e3ac5fff67}} 
 \index{Precharge.h@{Precharge.h}!gyro\_signals@{gyro\_signals}}
@@ -286,7 +286,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00188}{188}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00230}{230}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00232}{232}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a65867cb936f7ef47ffd07fbfd4a91355}\label{_precharge_8h_a65867cb936f7ef47ffd07fbfd4a91355}} 
 \index{Precharge.h@{Precharge.h}!isHVSafe@{isHVSafe}}
@@ -296,7 +296,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00230}{230}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00167}{167}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00169}{169}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a42b25fa6ccd2c8d82ba24c5ed4aaa7d1}\label{_precharge_8h_a42b25fa6ccd2c8d82ba24c5ed4aaa7d1}} 
 \index{Precharge.h@{Precharge.h}!isPrecharged@{isPrecharged}}
@@ -306,7 +306,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00167}{167}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00152}{152}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00154}{154}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ade8f654468b951602d2622b34902944f}\label{_precharge_8h_ade8f654468b951602d2622b34902944f}} 
 \index{Precharge.h@{Precharge.h}!kalman\_1d@{kalman\_1d}}
@@ -316,7 +316,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00152}{152}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00319}{319}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00321}{321}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad2376a25ab645f00587791af3c89968e}\label{_precharge_8h_ad2376a25ab645f00587791af3c89968e}} 
 \index{Precharge.h@{Precharge.h}!preChargeCircuitFSMStateActions@{preChargeCircuitFSMStateActions}}
@@ -326,7 +326,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00319}{319}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00128}{128}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00130}{130}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_ad5e3efaa785dcd1d9143ec7e5d117277}\label{_precharge_8h_ad5e3efaa785dcd1d9143ec7e5d117277}} 
 \index{Precharge.h@{Precharge.h}!preChargeCircuitFSMTransitions@{preChargeCircuitFSMTransitions}}
@@ -336,7 +336,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00128}{128}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00068}{68}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00070}{70}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}\label{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}} 
 \index{Precharge.h@{Precharge.h}!preChargeTask@{preChargeTask}}
@@ -352,7 +352,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00068}{68}} of file
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00201}{201}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00203}{203}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a0a3e1d4e80c1320d3308a0e0bb10ac87}\label{_precharge_8h_a0a3e1d4e80c1320d3308a0e0bb10ac87}} 
 \index{Precharge.h@{Precharge.h}!state\_name@{state\_name}}
@@ -362,7 +362,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00201}{201}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00192}{192}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00194}{194}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 \mbox{\Hypertarget{_precharge_8h_a87184d718be6821c71e697fc1fd98d3b}\label{_precharge_8h_a87184d718be6821c71e697fc1fd98d3b}} 
 \index{Precharge.h@{Precharge.h}!updateGyroData@{updateGyroData}}
@@ -372,7 +372,7 @@ Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00192}{192}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00297}{297}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
+Definition at line \mbox{\hyperlink{_pre_charge_8ino_source_l00299}{299}} of file \mbox{\hyperlink{_pre_charge_8ino_source}{Pre\+Charge.\+ino}}.
 
 
 

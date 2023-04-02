@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__free_r_t_o_s_8h" xml:lang="en-US">
-<title>FreeRTOS/FreeRTOS.h File Reference</title>
-<indexterm><primary>FreeRTOS/FreeRTOS.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stddef.h&gt;
-#include &lt;stdint.h&gt;
-#include &quot;FreeRTOSConfig.h&quot;
-#include &quot;projdefs.h&quot;
-#include &quot;portable.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/FreeRTOS.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/FreeRTOS.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stddef.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &quot;FreeRTOSConfig.h&quot;<?linebreak?>#include &quot;projdefs.h&quot;<?linebreak?>#include &quot;portable.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structx_s_t_a_t_i_c___l_i_s_t___i_t_e_m">xSTATIC_LIST_ITEM</link></para>
@@ -31,23 +26,23 @@
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad221128595137414579be33cf8e446d8">INCLUDE_xSemaphoreGetMutexHolder</link>   <link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad221128595137414579be33cf8e446d8">INCLUDE_xSemaphoreGetMutexHolder</link>&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a4088d4f41bae06c9e871b918888ce7e6">portCRITICAL_NESTING_IN_TCB</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a4088d4f41bae06c9e871b918888ce7e6">portCRITICAL_NESTING_IN_TCB</link>&#160;&#160;&#160;0</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a228c70cd48927d6ab730ed1a6dfbe35f">configASSERT</link>(x)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7c1502a6fbffa00b3e2350e86e8bff06">configASSERT_DEFINED</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7c1502a6fbffa00b3e2350e86e8bff06">configASSERT_DEFINED</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a3c506bf351102047fb5a75491287fe69">portCLEAN_UP_TCB</link>(pxTCB)   ( void ) pxTCB</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a3c506bf351102047fb5a75491287fe69">portCLEAN_UP_TCB</link>(pxTCB)&#160;&#160;&#160;( void ) pxTCB</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a712f8cbd5ce7b049ef6a92dbb0da0215">portPRE_TASK_DELETE_HOOK</link>(pvTaskToDelete,  pxYieldPending)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aca0e7403a160318f5c216fc40c95e294">portSETUP_TCB</link>(pxTCB)   ( void ) pxTCB</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aca0e7403a160318f5c216fc40c95e294">portSETUP_TCB</link>(pxTCB)&#160;&#160;&#160;( void ) pxTCB</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a53bae25f223b7156dce0fc6e6b1b2295">portPOINTER_SIZE_TYPE</link>   uint32_t</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a53bae25f223b7156dce0fc6e6b1b2295">portPOINTER_SIZE_TYPE</link>&#160;&#160;&#160;uint32_t</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ac0d88fb803a85b6afd2a2c20de0ddcd0">traceSTART</link>()</para>
 </listitem>
@@ -73,9 +68,9 @@
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a9484f4523e4bec2ab2dc233f2556c3c5">traceBLOCKING_ON_QUEUE_SEND</link>(pxQueue)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8299719d9fd640db65e6e59a4e5b0204">configRECORD_STACK_HIGH_ADDRESS</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8299719d9fd640db65e6e59a4e5b0204">configRECORD_STACK_HIGH_ADDRESS</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a90fad7fe3febe486b110f10635404469">configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a90fad7fe3febe486b110f10635404469">configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</link>&#160;&#160;&#160;0</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8c5050de556ff7e7cdbc7de55f46709d">traceMOVED_TASK_TO_READY_STATE</link>(pxTCB)</para>
 </listitem>
@@ -167,11 +162,11 @@
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a898ead658f344a0475a9f2ed3bf8f407">traceEVENT_GROUP_SYNC_BLOCK</link>(xEventGroup,  uxBitsToSet,  uxBitsToWaitFor)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af0cb50e5a1402163cd29e638c6140a2e">traceEVENT_GROUP_SYNC_END</link>(xEventGroup,  uxBitsToSet,  uxBitsToWaitFor,  xTimeoutOccurred)   ( void ) xTimeoutOccurred</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af0cb50e5a1402163cd29e638c6140a2e">traceEVENT_GROUP_SYNC_END</link>(xEventGroup,  uxBitsToSet,  uxBitsToWaitFor,  xTimeoutOccurred)&#160;&#160;&#160;( void ) xTimeoutOccurred</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aeb8953a9be153986d0e830acdf60445a">traceEVENT_GROUP_WAIT_BITS_BLOCK</link>(xEventGroup,  uxBitsToWaitFor)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad7a6b7684053a41690cac487ccf4d927">traceEVENT_GROUP_WAIT_BITS_END</link>(xEventGroup,  uxBitsToWaitFor,  xTimeoutOccurred)   ( void ) xTimeoutOccurred</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad7a6b7684053a41690cac487ccf4d927">traceEVENT_GROUP_WAIT_BITS_END</link>(xEventGroup,  uxBitsToWaitFor,  xTimeoutOccurred)&#160;&#160;&#160;( void ) xTimeoutOccurred</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad929200fa50e5a1ae2c5894ffeea2ef6">traceEVENT_GROUP_CLEAR_BITS</link>(xEventGroup,  uxBitsToClear)</para>
 </listitem>
@@ -231,11 +226,11 @@
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b">portCONFIGURE_TIMER_FOR_RUN_TIME_STATS</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a27b7e11718b2ec5b5217e60f3b9e8aec">portPRIVILEGE_BIT</link>   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0x00 )</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a27b7e11718b2ec5b5217e60f3b9e8aec">portPRIVILEGE_BIT</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0x00 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>   <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e">portYIELD_WITHIN_API</link>&#160;&#160;&#160;<link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aff3d7f6e5b38283f5214880d8086bb57">configEXPECTED_IDLE_TIME_BEFORE_SLEEP</link>   2</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aff3d7f6e5b38283f5214880d8086bb57">configEXPECTED_IDLE_TIME_BEFORE_SLEEP</link>&#160;&#160;&#160;2</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a506860f45e7b8f14ee85c09db15eed7a">configPRE_SUPPRESS_TICKS_AND_SLEEP_PROCESSING</link>(x)</para>
 </listitem>
@@ -247,7 +242,7 @@
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a401e0f8194560d5f27f5844ba82009b5">portTASK_CALLS_SECURE_FUNCTIONS</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7990cb1664418797a8aad3917b665116">configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7990cb1664418797a8aad3917b665116">configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</link>&#160;&#160;&#160;0</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a10f75d20c71c4289f96d1b89cb6c62e2">portASSERT_IF_INTERRUPT_PRIORITY_INVALID</link>()</para>
 </listitem>
@@ -257,73 +252,73 @@
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a24a48f166f347e5201a72efcc73d0202">portASSERT_IF_IN_ISR</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ae4e85bffd36d76cf2796092f0ccd784a">configSTACK_DEPTH_TYPE</link>   uint16_t</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ae4e85bffd36d76cf2796092f0ccd784a">configSTACK_DEPTH_TYPE</link>&#160;&#160;&#160;uint16_t</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link>   size_t</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link>&#160;&#160;&#160;size_t</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ae52c1acd13b26e8758dc66b60b0e3417">configINITIAL_TICK_COUNT</link>   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ae52c1acd13b26e8758dc66b60b0e3417">configINITIAL_TICK_COUNT</link>&#160;&#160;&#160;0</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a5ada85b405891061cad280c1e35213ee">portTICK_TYPE_ENTER_CRITICAL</link>()</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a3a24fff82b123ddc7cf8195a466733dd">portTICK_TYPE_EXIT_CRITICAL</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7b53d0f5d4ae09f599f92fb5cd546e6b">portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR</link>()   0</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a7b53d0f5d4ae09f599f92fb5cd546e6b">portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR</link>()&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a506f401396abd44a8dbe31edac713f8b">portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR</link>(x)   ( void ) x</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a506f401396abd44a8dbe31edac713f8b">portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR</link>(x)&#160;&#160;&#160;( void ) x</para>
 </listitem>
             <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a560d79b61f78ade80659b321586ab7b4">configPRINTF</link>(X)</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1adaad2ada6c5242c3b68ae936d60a66b9">configMAX</link>(a,  b)   ( ( ( a ) &gt; ( b ) ) ? ( a ) : ( b ) )</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1adaad2ada6c5242c3b68ae936d60a66b9">configMAX</link>(a,  b)&#160;&#160;&#160;( ( ( a ) &gt; ( b ) ) ? ( a ) : ( b ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a101a57cef3f76ec13110cec59ce49edf">configMIN</link>(a,  b)   ( ( ( a ) &lt; ( b ) ) ? ( a ) : ( b ) )</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a101a57cef3f76ec13110cec59ce49edf">configMIN</link>(a,  b)&#160;&#160;&#160;( ( ( a ) &lt; ( b ) ) ? ( a ) : ( b ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad1bc0e8a3c68c90d6711ec4a9ac1a516">eTaskStateGet</link>   <link linkend="_tasks_8c_1aab948efa7e3b657465cd06196b259ed7">eTaskGetState</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ad1bc0e8a3c68c90d6711ec4a9ac1a516">eTaskStateGet</link>&#160;&#160;&#160;<link linkend="_task_8h_1a954df77397d616484edb7c58c7760b10">eTaskGetState</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a324d7087026e1e9dfe6b7567d5bf63c8">portTickType</link>   <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a324d7087026e1e9dfe6b7567d5bf63c8">portTickType</link>&#160;&#160;&#160;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af7cd8f53b62f0c497b442b504c30f2ec">xTaskHandle</link>   <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af7cd8f53b62f0c497b442b504c30f2ec">xTaskHandle</link>&#160;&#160;&#160;<link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a2b4ea2af4cc24db3cbd458722e96fa2f">xQueueHandle</link>   <link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a2b4ea2af4cc24db3cbd458722e96fa2f">xQueueHandle</link>&#160;&#160;&#160;<link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a520d8cf032327581ece00e5bd8e03a75">xSemaphoreHandle</link>   <link linkend="_semphr_8h_1ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a520d8cf032327581ece00e5bd8e03a75">xSemaphoreHandle</link>&#160;&#160;&#160;<link linkend="_semphr_8h_1ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ab8d6acee206b02a6a4cf4e63d035b3fd">xQueueSetHandle</link>   <link linkend="_queue_8h_1a1ae056fb02b2467993003b85111dde16">QueueSetHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ab8d6acee206b02a6a4cf4e63d035b3fd">xQueueSetHandle</link>&#160;&#160;&#160;<link linkend="_queue_8h_1a1ae056fb02b2467993003b85111dde16">QueueSetHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a009d2d6ce8ab8635eaf9f3e507866f6c">xQueueSetMemberHandle</link>   <link linkend="_queue_8h_1afac7ec7649e5c57381315eb011c36ef5">QueueSetMemberHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a009d2d6ce8ab8635eaf9f3e507866f6c">xQueueSetMemberHandle</link>&#160;&#160;&#160;<link linkend="_queue_8h_1afac7ec7649e5c57381315eb011c36ef5">QueueSetMemberHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a819785230f5d9368aec050ac661d12e0">xTimeOutType</link>   <link linkend="_task_8h_1a558b407b5433bee1696535e3c4816bdf">TimeOut_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a819785230f5d9368aec050ac661d12e0">xTimeOutType</link>&#160;&#160;&#160;<link linkend="_task_8h_1a558b407b5433bee1696535e3c4816bdf">TimeOut_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a5971b85d409766aa17def6cc275c15cd">xMemoryRegion</link>   <link linkend="_task_8h_1abc1e4d1b3f52e2a9101487e1831b992a">MemoryRegion_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a5971b85d409766aa17def6cc275c15cd">xMemoryRegion</link>&#160;&#160;&#160;<link linkend="_task_8h_1abc1e4d1b3f52e2a9101487e1831b992a">MemoryRegion_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aba476594b7c76708495313b143d7edde">xTaskParameters</link>   <link linkend="_task_8h_1a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aba476594b7c76708495313b143d7edde">xTaskParameters</link>&#160;&#160;&#160;<link linkend="_task_8h_1a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a86ae1e476b7df91b0b58f7cc0f1ce7ea">xTaskStatusType</link>   <link linkend="_task_8h_1ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a86ae1e476b7df91b0b58f7cc0f1ce7ea">xTaskStatusType</link>&#160;&#160;&#160;<link linkend="_task_8h_1ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a9fa57c444af781c3b6286f5cc9e4982d">xTimerHandle</link>   <link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a9fa57c444af781c3b6286f5cc9e4982d">xTimerHandle</link>&#160;&#160;&#160;<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ac6d7ef270d5c85eb91906683157ffc13">xCoRoutineHandle</link>   <link linkend="_croutine_8h_1a33b9d058688c92258155b5756d9936dd">CoRoutineHandle_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ac6d7ef270d5c85eb91906683157ffc13">xCoRoutineHandle</link>&#160;&#160;&#160;<link linkend="_croutine_8h_1a33b9d058688c92258155b5756d9936dd">CoRoutineHandle_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ac53ab0d2f78148433574898386aeb5f4">pdTASK_HOOK_CODE</link>   <link linkend="_task_8h_1af984026250bf8fece2e0068874d4661d">TaskHookFunction_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1ac53ab0d2f78148433574898386aeb5f4">pdTASK_HOOK_CODE</link>&#160;&#160;&#160;<link linkend="_task_8h_1af984026250bf8fece2e0068874d4661d">TaskHookFunction_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8689cad2afb0c5f65d866e2c356378bf">portTICK_RATE_MS</link>   <link linkend="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd">portTICK_PERIOD_MS</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8689cad2afb0c5f65d866e2c356378bf">portTICK_RATE_MS</link>&#160;&#160;&#160;<link linkend="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd">portTICK_PERIOD_MS</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a626c65afa49005d067495a6cdaace885">pcTaskGetTaskName</link>   <link linkend="_tasks_8c_1acb1be57d03f6f1a3161b69e98df6ccb9">pcTaskGetName</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a626c65afa49005d067495a6cdaace885">pcTaskGetTaskName</link>&#160;&#160;&#160;<link linkend="_task_8h_1aedab278c23c41dcbfdf312d383bdb342">pcTaskGetName</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a870358d5faa01a5290705b073de220ca">pcTimerGetTimerName</link>   <link linkend="_timers_8h_1a5007aef53e4cc6aea1aadcdcc72aa9da">pcTimerGetName</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a870358d5faa01a5290705b073de220ca">pcTimerGetTimerName</link>&#160;&#160;&#160;<link linkend="_timers_8c_1a6967093b6b936d267d5d332490f61f67">pcTimerGetName</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8363e9859059888726caa268e1816e54">pcQueueGetQueueName</link>   <link linkend="_queue_8c_1a6cd1431e6d0f46927d6260d49f0d6df3">pcQueueGetName</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a8363e9859059888726caa268e1816e54">pcQueueGetQueueName</link>&#160;&#160;&#160;<link linkend="_queue_8c_1a6cd1431e6d0f46927d6260d49f0d6df3">pcQueueGetName</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af91a84ee7fcd1c03bba33c0c86c9a493">vTaskGetTaskInfo</link>   <link linkend="_tasks_8c_1a24b033eee266bdc8c3de63171a543f65">vTaskGetInfo</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1af91a84ee7fcd1c03bba33c0c86c9a493">vTaskGetTaskInfo</link>&#160;&#160;&#160;<link linkend="_task_8h_1ac08c26d037d0dc685740eec9b2028715">vTaskGetInfo</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a0da0e4db75906783854965b3cb9db214">tmrTIMER_CALLBACK</link>   <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a0da0e4db75906783854965b3cb9db214">tmrTIMER_CALLBACK</link>&#160;&#160;&#160;<link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a74cee96c96792dab96bdc57ba9007b24">pdTASK_CODE</link>   <link linkend="_projdefs_8h_1a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a74cee96c96792dab96bdc57ba9007b24">pdTASK_CODE</link>&#160;&#160;&#160;<link linkend="_projdefs_8h_1a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a62b284ca8496de2faf0157e6c8be94b6">xListItem</link>   <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a62b284ca8496de2faf0157e6c8be94b6">xListItem</link>&#160;&#160;&#160;<link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a990e46a268202dae9f09ca56c35cc17c">xList</link>   <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link></para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1a990e46a268202dae9f09ca56c35cc17c">xList</link>&#160;&#160;&#160;<link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aec0ba4af7bdd0e0acba26902a496de6c">configUSE_TASK_FPU_SUPPORT</link>   1</para>
+            <listitem><para>#define <link linkend="__free_r_t_o_s_8h_1aec0ba4af7bdd0e0acba26902a496de6c">configUSE_TASK_FPU_SUPPORT</link>&#160;&#160;&#160;1</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -365,56 +360,56 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00234">234</link> o
     <title>configASSERT_DEFINED</title>
 <indexterm><primary>configASSERT_DEFINED</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configASSERT_DEFINED</secondary></indexterm>
-<para><computeroutput>#define configASSERT_DEFINED   0</computeroutput></para><para>
+<para><computeroutput>#define configASSERT_DEFINED&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00235">235</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1aff3d7f6e5b38283f5214880d8086bb57"/><section>
     <title>configEXPECTED_IDLE_TIME_BEFORE_SLEEP</title>
 <indexterm><primary>configEXPECTED_IDLE_TIME_BEFORE_SLEEP</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configEXPECTED_IDLE_TIME_BEFORE_SLEEP</secondary></indexterm>
-<para><computeroutput>#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP   2</computeroutput></para><para>
+<para><computeroutput>#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP&#160;&#160;&#160;2</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00730">730</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a7990cb1664418797a8aad3917b665116"/><section>
     <title>configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</title>
 <indexterm><primary>configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS</secondary></indexterm>
-<para><computeroutput>#define configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS   0</computeroutput></para><para>
+<para><computeroutput>#define configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00770">770</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a90fad7fe3febe486b110f10635404469"/><section>
     <title>configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</title>
 <indexterm><primary>configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H</secondary></indexterm>
-<para><computeroutput>#define configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H   0</computeroutput></para><para>
+<para><computeroutput>#define configINCLUDE_FREERTOS_TASK_C_ADDITIONS_H&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00382">382</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ae52c1acd13b26e8758dc66b60b0e3417"/><section>
     <title>configINITIAL_TICK_COUNT</title>
 <indexterm><primary>configINITIAL_TICK_COUNT</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configINITIAL_TICK_COUNT</secondary></indexterm>
-<para><computeroutput>#define configINITIAL_TICK_COUNT   0</computeroutput></para><para>
+<para><computeroutput>#define configINITIAL_TICK_COUNT&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00852">852</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1adaad2ada6c5242c3b68ae936d60a66b9"/><section>
     <title>configMAX</title>
 <indexterm><primary>configMAX</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configMAX</secondary></indexterm>
-<para><computeroutput>#define configMAX( a,  b)   ( ( ( a ) &gt; ( b ) ) ? ( a ) : ( b ) )</computeroutput></para><para>
+<para><computeroutput>#define configMAX( a,  b)&#160;&#160;&#160;( ( ( a ) &gt; ( b ) ) ? ( a ) : ( b ) )</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00895">895</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967"/><section>
     <title>configMESSAGE_BUFFER_LENGTH_TYPE</title>
 <indexterm><primary>configMESSAGE_BUFFER_LENGTH_TYPE</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configMESSAGE_BUFFER_LENGTH_TYPE</secondary></indexterm>
-<para><computeroutput>#define configMESSAGE_BUFFER_LENGTH_TYPE   size_t</computeroutput></para><para>
+<para><computeroutput>#define configMESSAGE_BUFFER_LENGTH_TYPE&#160;&#160;&#160;size_t</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00833">833</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a101a57cef3f76ec13110cec59ce49edf"/><section>
     <title>configMIN</title>
 <indexterm><primary>configMIN</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configMIN</secondary></indexterm>
-<para><computeroutput>#define configMIN( a,  b)   ( ( ( a ) &lt; ( b ) ) ? ( a ) : ( b ) )</computeroutput></para><para>
+<para><computeroutput>#define configMIN( a,  b)&#160;&#160;&#160;( ( ( a ) &lt; ( b ) ) ? ( a ) : ( b ) )</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00901">901</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a55f848c10319c953bfcc456fc724cee1"/><section>
@@ -449,42 +444,42 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00889">889</link> o
     <title>configRECORD_STACK_HIGH_ADDRESS</title>
 <indexterm><primary>configRECORD_STACK_HIGH_ADDRESS</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configRECORD_STACK_HIGH_ADDRESS</secondary></indexterm>
-<para><computeroutput>#define configRECORD_STACK_HIGH_ADDRESS   0</computeroutput></para><para>
+<para><computeroutput>#define configRECORD_STACK_HIGH_ADDRESS&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00378">378</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ae4e85bffd36d76cf2796092f0ccd784a"/><section>
     <title>configSTACK_DEPTH_TYPE</title>
 <indexterm><primary>configSTACK_DEPTH_TYPE</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configSTACK_DEPTH_TYPE</secondary></indexterm>
-<para><computeroutput>#define configSTACK_DEPTH_TYPE   uint16_t</computeroutput></para><para>
+<para><computeroutput>#define configSTACK_DEPTH_TYPE&#160;&#160;&#160;uint16_t</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00826">826</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1aec0ba4af7bdd0e0acba26902a496de6c"/><section>
     <title>configUSE_TASK_FPU_SUPPORT</title>
 <indexterm><primary>configUSE_TASK_FPU_SUPPORT</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>configUSE_TASK_FPU_SUPPORT</secondary></indexterm>
-<para><computeroutput>#define configUSE_TASK_FPU_SUPPORT   1</computeroutput></para><para>
+<para><computeroutput>#define configUSE_TASK_FPU_SUPPORT&#160;&#160;&#160;1</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00942">942</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ad1bc0e8a3c68c90d6711ec4a9ac1a516"/><section>
     <title>eTaskStateGet</title>
 <indexterm><primary>eTaskStateGet</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>eTaskStateGet</secondary></indexterm>
-<para><computeroutput>#define eTaskStateGet   <link linkend="_tasks_8c_1aab948efa7e3b657465cd06196b259ed7">eTaskGetState</link></computeroutput></para><para>
+<para><computeroutput>#define eTaskStateGet&#160;&#160;&#160;<link linkend="_task_8h_1a954df77397d616484edb7c58c7760b10">eTaskGetState</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00905">905</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911"/><section>
     <title>INCLUDE_xQueueGetMutexHolder</title>
 <indexterm><primary>INCLUDE_xQueueGetMutexHolder</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>INCLUDE_xQueueGetMutexHolder</secondary></indexterm>
-<para><computeroutput>#define INCLUDE_xQueueGetMutexHolder   0</computeroutput></para><para>
+<para><computeroutput>#define INCLUDE_xQueueGetMutexHolder&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00144">144</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ad221128595137414579be33cf8e446d8"/><section>
     <title>INCLUDE_xSemaphoreGetMutexHolder</title>
 <indexterm><primary>INCLUDE_xSemaphoreGetMutexHolder</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>INCLUDE_xSemaphoreGetMutexHolder</secondary></indexterm>
-<para><computeroutput>#define INCLUDE_xSemaphoreGetMutexHolder   <link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link></computeroutput></para><para>
+<para><computeroutput>#define INCLUDE_xSemaphoreGetMutexHolder&#160;&#160;&#160;<link linkend="__free_r_t_o_s_8h_1a4e2902143b6abf777065c15940321911">INCLUDE_xQueueGetMutexHolder</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00148">148</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a2ddaee9013b02cfbfe2773ec4257375c"/><section>
@@ -505,35 +500,35 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00786">786</link> o
     <title>pcQueueGetQueueName</title>
 <indexterm><primary>pcQueueGetQueueName</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>pcQueueGetQueueName</secondary></indexterm>
-<para><computeroutput>#define pcQueueGetQueueName   <link linkend="_queue_8c_1a6cd1431e6d0f46927d6260d49f0d6df3">pcQueueGetName</link></computeroutput></para><para>
+<para><computeroutput>#define pcQueueGetQueueName&#160;&#160;&#160;<link linkend="_queue_8c_1a6cd1431e6d0f46927d6260d49f0d6df3">pcQueueGetName</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00922">922</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a626c65afa49005d067495a6cdaace885"/><section>
     <title>pcTaskGetTaskName</title>
 <indexterm><primary>pcTaskGetTaskName</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>pcTaskGetTaskName</secondary></indexterm>
-<para><computeroutput>#define pcTaskGetTaskName   <link linkend="_tasks_8c_1acb1be57d03f6f1a3161b69e98df6ccb9">pcTaskGetName</link></computeroutput></para><para>
+<para><computeroutput>#define pcTaskGetTaskName&#160;&#160;&#160;<link linkend="_task_8h_1aedab278c23c41dcbfdf312d383bdb342">pcTaskGetName</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00920">920</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a870358d5faa01a5290705b073de220ca"/><section>
     <title>pcTimerGetTimerName</title>
 <indexterm><primary>pcTimerGetTimerName</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>pcTimerGetTimerName</secondary></indexterm>
-<para><computeroutput>#define pcTimerGetTimerName   <link linkend="_timers_8h_1a5007aef53e4cc6aea1aadcdcc72aa9da">pcTimerGetName</link></computeroutput></para><para>
+<para><computeroutput>#define pcTimerGetTimerName&#160;&#160;&#160;<link linkend="_timers_8c_1a6967093b6b936d267d5d332490f61f67">pcTimerGetName</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00921">921</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a74cee96c96792dab96bdc57ba9007b24"/><section>
     <title>pdTASK_CODE</title>
 <indexterm><primary>pdTASK_CODE</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>pdTASK_CODE</secondary></indexterm>
-<para><computeroutput>#define pdTASK_CODE   <link linkend="_projdefs_8h_1a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</link></computeroutput></para><para>
+<para><computeroutput>#define pdTASK_CODE&#160;&#160;&#160;<link linkend="_projdefs_8h_1a9b32502ff92c255c686dacde53c1cba0">TaskFunction_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00928">928</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ac53ab0d2f78148433574898386aeb5f4"/><section>
     <title>pdTASK_HOOK_CODE</title>
 <indexterm><primary>pdTASK_HOOK_CODE</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>pdTASK_HOOK_CODE</secondary></indexterm>
-<para><computeroutput>#define pdTASK_HOOK_CODE   <link linkend="_task_8h_1af984026250bf8fece2e0068874d4661d">TaskHookFunction_t</link></computeroutput></para><para>
+<para><computeroutput>#define pdTASK_HOOK_CODE&#160;&#160;&#160;<link linkend="_task_8h_1af984026250bf8fece2e0068874d4661d">TaskHookFunction_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00918">918</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a24a48f166f347e5201a72efcc73d0202"/><section>
@@ -554,7 +549,7 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00778">778</link> o
     <title>portCLEAN_UP_TCB</title>
 <indexterm><primary>portCLEAN_UP_TCB</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portCLEAN_UP_TCB</secondary></indexterm>
-<para><computeroutput>#define portCLEAN_UP_TCB( pxTCB)   ( void ) pxTCB</computeroutput></para><para>
+<para><computeroutput>#define portCLEAN_UP_TCB( pxTCB)&#160;&#160;&#160;( void ) pxTCB</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00266">266</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a727939bcdb98501e0eba0ec8a1841e1b"/><section>
@@ -568,14 +563,14 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00710">710</link> o
     <title>portCRITICAL_NESTING_IN_TCB</title>
 <indexterm><primary>portCRITICAL_NESTING_IN_TCB</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portCRITICAL_NESTING_IN_TCB</secondary></indexterm>
-<para><computeroutput>#define portCRITICAL_NESTING_IN_TCB   0</computeroutput></para><para>
+<para><computeroutput>#define portCRITICAL_NESTING_IN_TCB&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00218">218</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a53bae25f223b7156dce0fc6e6b1b2295"/><section>
     <title>portPOINTER_SIZE_TYPE</title>
 <indexterm><primary>portPOINTER_SIZE_TYPE</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portPOINTER_SIZE_TYPE</secondary></indexterm>
-<para><computeroutput>#define portPOINTER_SIZE_TYPE   uint32_t</computeroutput></para><para>
+<para><computeroutput>#define portPOINTER_SIZE_TYPE&#160;&#160;&#160;uint32_t</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00288">288</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a712f8cbd5ce7b049ef6a92dbb0da0215"/><section>
@@ -589,14 +584,14 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00270">270</link> o
     <title>portPRIVILEGE_BIT</title>
 <indexterm><primary>portPRIVILEGE_BIT</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portPRIVILEGE_BIT</secondary></indexterm>
-<para><computeroutput>#define portPRIVILEGE_BIT   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0x00 )</computeroutput></para><para>
+<para><computeroutput>#define portPRIVILEGE_BIT&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0x00 )</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00718">718</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1aca0e7403a160318f5c216fc40c95e294"/><section>
     <title>portSETUP_TCB</title>
 <indexterm><primary>portSETUP_TCB</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portSETUP_TCB</secondary></indexterm>
-<para><computeroutput>#define portSETUP_TCB( pxTCB)   ( void ) pxTCB</computeroutput></para><para>
+<para><computeroutput>#define portSETUP_TCB( pxTCB)&#160;&#160;&#160;( void ) pxTCB</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00274">274</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a401e0f8194560d5f27f5844ba82009b5"/><section>
@@ -617,14 +612,14 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00758">758</link> o
     <title>portTICK_RATE_MS</title>
 <indexterm><primary>portTICK_RATE_MS</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portTICK_RATE_MS</secondary></indexterm>
-<para><computeroutput>#define portTICK_RATE_MS   <link linkend="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd">portTICK_PERIOD_MS</link></computeroutput></para><para>
+<para><computeroutput>#define portTICK_RATE_MS&#160;&#160;&#160;<link linkend="_portmacro_8h_1a554d9322ce7f698a86a22b21234bd8cd">portTICK_PERIOD_MS</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00919">919</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a506f401396abd44a8dbe31edac713f8b"/><section>
     <title>portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR</title>
 <indexterm><primary>portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR</secondary></indexterm>
-<para><computeroutput>#define portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR( x)   ( void ) x</computeroutput></para><para>
+<para><computeroutput>#define portTICK_TYPE_CLEAR_INTERRUPT_MASK_FROM_ISR( x)&#160;&#160;&#160;( void ) x</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00869">869</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a5ada85b405891061cad280c1e35213ee"/><section>
@@ -645,28 +640,28 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00867">867</link> o
     <title>portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR</title>
 <indexterm><primary>portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR</secondary></indexterm>
-<para><computeroutput>#define portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR( )   0</computeroutput></para><para>
+<para><computeroutput>#define portTICK_TYPE_SET_INTERRUPT_MASK_FROM_ISR( )&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00868">868</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a324d7087026e1e9dfe6b7567d5bf63c8"/><section>
     <title>portTickType</title>
 <indexterm><primary>portTickType</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portTickType</secondary></indexterm>
-<para><computeroutput>#define portTickType   <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></computeroutput></para><para>
+<para><computeroutput>#define portTickType&#160;&#160;&#160;<link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00906">906</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1af4484fc07631a16e45ac5f29a3f0556e"/><section>
     <title>portYIELD_WITHIN_API</title>
 <indexterm><primary>portYIELD_WITHIN_API</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>portYIELD_WITHIN_API</secondary></indexterm>
-<para><computeroutput>#define portYIELD_WITHIN_API   <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link></computeroutput></para><para>
+<para><computeroutput>#define portYIELD_WITHIN_API&#160;&#160;&#160;<link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00722">722</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a0da0e4db75906783854965b3cb9db214"/><section>
     <title>tmrTIMER_CALLBACK</title>
 <indexterm><primary>tmrTIMER_CALLBACK</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>tmrTIMER_CALLBACK</secondary></indexterm>
-<para><computeroutput>#define tmrTIMER_CALLBACK   <link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link></computeroutput></para><para>
+<para><computeroutput>#define tmrTIMER_CALLBACK&#160;&#160;&#160;<link linkend="_timers_8h_1a5cf6d1f61ccd4871022ed8ad454c6027">TimerCallbackFunction_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00927">927</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a186c66f73c470500e556ec0f2fd3994f"/><section>
@@ -799,7 +794,7 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00564">564</link> o
     <title>traceEVENT_GROUP_SYNC_END</title>
 <indexterm><primary>traceEVENT_GROUP_SYNC_END</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>traceEVENT_GROUP_SYNC_END</secondary></indexterm>
-<para><computeroutput>#define traceEVENT_GROUP_SYNC_END( xEventGroup,  uxBitsToSet,  uxBitsToWaitFor,  xTimeoutOccurred)   ( void ) xTimeoutOccurred</computeroutput></para><para>
+<para><computeroutput>#define traceEVENT_GROUP_SYNC_END( xEventGroup,  uxBitsToSet,  uxBitsToWaitFor,  xTimeoutOccurred)&#160;&#160;&#160;( void ) xTimeoutOccurred</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00568">568</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1aeb8953a9be153986d0e830acdf60445a"/><section>
@@ -813,7 +808,7 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00572">572</link> o
     <title>traceEVENT_GROUP_WAIT_BITS_END</title>
 <indexterm><primary>traceEVENT_GROUP_WAIT_BITS_END</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>traceEVENT_GROUP_WAIT_BITS_END</secondary></indexterm>
-<para><computeroutput>#define traceEVENT_GROUP_WAIT_BITS_END( xEventGroup,  uxBitsToWaitFor,  xTimeoutOccurred)   ( void ) xTimeoutOccurred</computeroutput></para><para>
+<para><computeroutput>#define traceEVENT_GROUP_WAIT_BITS_END( xEventGroup,  uxBitsToWaitFor,  xTimeoutOccurred)&#160;&#160;&#160;( void ) xTimeoutOccurred</computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00576">576</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a941bb09090b5788f0c27d9690118eed2"/><section>
@@ -1289,98 +1284,98 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00540">540</link> o
     <title>vTaskGetTaskInfo</title>
 <indexterm><primary>vTaskGetTaskInfo</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>vTaskGetTaskInfo</secondary></indexterm>
-<para><computeroutput>#define vTaskGetTaskInfo   <link linkend="_tasks_8c_1a24b033eee266bdc8c3de63171a543f65">vTaskGetInfo</link></computeroutput></para><para>
+<para><computeroutput>#define vTaskGetTaskInfo&#160;&#160;&#160;<link linkend="_task_8h_1ac08c26d037d0dc685740eec9b2028715">vTaskGetInfo</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00923">923</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ac6d7ef270d5c85eb91906683157ffc13"/><section>
     <title>xCoRoutineHandle</title>
 <indexterm><primary>xCoRoutineHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xCoRoutineHandle</secondary></indexterm>
-<para><computeroutput>#define xCoRoutineHandle   <link linkend="_croutine_8h_1a33b9d058688c92258155b5756d9936dd">CoRoutineHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xCoRoutineHandle&#160;&#160;&#160;<link linkend="_croutine_8h_1a33b9d058688c92258155b5756d9936dd">CoRoutineHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00917">917</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a990e46a268202dae9f09ca56c35cc17c"/><section>
     <title>xList</title>
 <indexterm><primary>xList</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xList</secondary></indexterm>
-<para><computeroutput>#define xList   <link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link></computeroutput></para><para>
+<para><computeroutput>#define xList&#160;&#160;&#160;<link linkend="_list_8h_1ad14d7e3de1350e459c7c23c6f59c902a">List_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00930">930</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a62b284ca8496de2faf0157e6c8be94b6"/><section>
     <title>xListItem</title>
 <indexterm><primary>xListItem</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xListItem</secondary></indexterm>
-<para><computeroutput>#define xListItem   <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link></computeroutput></para><para>
+<para><computeroutput>#define xListItem&#160;&#160;&#160;<link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00929">929</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a5971b85d409766aa17def6cc275c15cd"/><section>
     <title>xMemoryRegion</title>
 <indexterm><primary>xMemoryRegion</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xMemoryRegion</secondary></indexterm>
-<para><computeroutput>#define xMemoryRegion   <link linkend="_task_8h_1abc1e4d1b3f52e2a9101487e1831b992a">MemoryRegion_t</link></computeroutput></para><para>
+<para><computeroutput>#define xMemoryRegion&#160;&#160;&#160;<link linkend="_task_8h_1abc1e4d1b3f52e2a9101487e1831b992a">MemoryRegion_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00913">913</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a2b4ea2af4cc24db3cbd458722e96fa2f"/><section>
     <title>xQueueHandle</title>
 <indexterm><primary>xQueueHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xQueueHandle</secondary></indexterm>
-<para><computeroutput>#define xQueueHandle   <link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xQueueHandle&#160;&#160;&#160;<link linkend="_queue_8h_1a57349603001f8ddf51c888c49e2804d7">QueueHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00908">908</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1ab8d6acee206b02a6a4cf4e63d035b3fd"/><section>
     <title>xQueueSetHandle</title>
 <indexterm><primary>xQueueSetHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xQueueSetHandle</secondary></indexterm>
-<para><computeroutput>#define xQueueSetHandle   <link linkend="_queue_8h_1a1ae056fb02b2467993003b85111dde16">QueueSetHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xQueueSetHandle&#160;&#160;&#160;<link linkend="_queue_8h_1a1ae056fb02b2467993003b85111dde16">QueueSetHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00910">910</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a009d2d6ce8ab8635eaf9f3e507866f6c"/><section>
     <title>xQueueSetMemberHandle</title>
 <indexterm><primary>xQueueSetMemberHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xQueueSetMemberHandle</secondary></indexterm>
-<para><computeroutput>#define xQueueSetMemberHandle   <link linkend="_queue_8h_1afac7ec7649e5c57381315eb011c36ef5">QueueSetMemberHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xQueueSetMemberHandle&#160;&#160;&#160;<link linkend="_queue_8h_1afac7ec7649e5c57381315eb011c36ef5">QueueSetMemberHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00911">911</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a520d8cf032327581ece00e5bd8e03a75"/><section>
     <title>xSemaphoreHandle</title>
 <indexterm><primary>xSemaphoreHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xSemaphoreHandle</secondary></indexterm>
-<para><computeroutput>#define xSemaphoreHandle   <link linkend="_semphr_8h_1ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xSemaphoreHandle&#160;&#160;&#160;<link linkend="_semphr_8h_1ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00909">909</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1af7cd8f53b62f0c497b442b504c30f2ec"/><section>
     <title>xTaskHandle</title>
 <indexterm><primary>xTaskHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xTaskHandle</secondary></indexterm>
-<para><computeroutput>#define xTaskHandle   <link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xTaskHandle&#160;&#160;&#160;<link linkend="_task_8h_1a25b35e6e19ecf894173e7ff95edb96ef">TaskHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00907">907</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1aba476594b7c76708495313b143d7edde"/><section>
     <title>xTaskParameters</title>
 <indexterm><primary>xTaskParameters</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xTaskParameters</secondary></indexterm>
-<para><computeroutput>#define xTaskParameters   <link linkend="_task_8h_1a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</link></computeroutput></para><para>
+<para><computeroutput>#define xTaskParameters&#160;&#160;&#160;<link linkend="_task_8h_1a388dc3e95bc2a93a2841a8d1e49634f3">TaskParameters_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00914">914</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a86ae1e476b7df91b0b58f7cc0f1ce7ea"/><section>
     <title>xTaskStatusType</title>
 <indexterm><primary>xTaskStatusType</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xTaskStatusType</secondary></indexterm>
-<para><computeroutput>#define xTaskStatusType   <link linkend="_task_8h_1ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</link></computeroutput></para><para>
+<para><computeroutput>#define xTaskStatusType&#160;&#160;&#160;<link linkend="_task_8h_1ae5c0c4b9b2c8af5836583b2984ef5b6e">TaskStatus_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00915">915</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a819785230f5d9368aec050ac661d12e0"/><section>
     <title>xTimeOutType</title>
 <indexterm><primary>xTimeOutType</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xTimeOutType</secondary></indexterm>
-<para><computeroutput>#define xTimeOutType   <link linkend="_task_8h_1a558b407b5433bee1696535e3c4816bdf">TimeOut_t</link></computeroutput></para><para>
+<para><computeroutput>#define xTimeOutType&#160;&#160;&#160;<link linkend="_task_8h_1a558b407b5433bee1696535e3c4816bdf">TimeOut_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00912">912</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 <anchor xml:id="__free_r_t_o_s_8h_1a9fa57c444af781c3b6286f5cc9e4982d"/><section>
     <title>xTimerHandle</title>
 <indexterm><primary>xTimerHandle</primary><secondary>FreeRTOS.h</secondary></indexterm>
 <indexterm><primary>FreeRTOS.h</primary><secondary>xTimerHandle</secondary></indexterm>
-<para><computeroutput>#define xTimerHandle   <link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link></computeroutput></para><para>
+<para><computeroutput>#define xTimerHandle&#160;&#160;&#160;<link linkend="_timers_8h_1ae2aa96927b4806e5dcfd264ba7bc8bf6">TimerHandle_t</link></computeroutput></para><para>
 Definition at line <link linkend="__free_r_t_o_s_8h_source_1l00916">916</link> of file <link linkend="__free_r_t_o_s_8h_source">FreeRTOS.h</link>.</para>
 </section>
 </section>

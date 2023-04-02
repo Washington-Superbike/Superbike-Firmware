@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cal_5ffactor_0',['CAL_FACTOR',['../_free_r_t_o_s___t_e_e_n_s_y4_8c.html#a232ceee9e10a97b8ec8f14503861e699',1,'FreeRTOS_TEENSY4.c']]],
-  ['can_5fnodes_1',['CAN_NODES',['../_main_8h.html#a9d09068130671d9ca6bf3c9b6fac6e34',1,'Main.h']]],
+  ['can_5fnodes_1',['CAN_NODES',['../config_8h.html#a9d09068130671d9ca6bf3c9b6fac6e34',1,'config.h']]],
   ['can_5ftask_5fstack_5fsize_2',['CAN_TASK_STACK_SIZE',['../_c_a_n_8h.html#ab9d0930315055c0f1a6511c6cc3c5524',1,'CAN.h']]],
   ['charger_5fstats_3',['CHARGER_STATS',['../_c_a_n_8h.html#aaa765e2d2381f199ed620b8d6962f60d',1,'CAN.h']]],
   ['close_5fcontactor_5fbutton_4',['CLOSE_CONTACTOR_BUTTON',['../_precharge_8h.html#a6f82f95bb8a6ffac8f6998ff4e5e16ec',1,'Precharge.h']]],

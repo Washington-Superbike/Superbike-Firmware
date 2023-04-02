@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stream__buffer_8c" xml:lang="en-US">
-<title>FreeRTOS/stream_buffer.c File Reference</title>
-<indexterm><primary>FreeRTOS/stream_buffer.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;
-#include &lt;string.h&gt;
-#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &quot;stream_buffer.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/stream_buffer.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/stream_buffer.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &quot;stream_buffer.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_stream_buffer_def__t">StreamBufferDef_t</link></para>
@@ -27,11 +22,11 @@
 </listitem>
             <listitem><para>#define <link linkend="_stream__buffer_8c_1aadd3cf567c5086402552c463c55dda7c">sbSEND_COMPLETE_FROM_ISR</link>(pxStreamBuffer,  pxHigherPriorityTaskWoken)</para>
 </listitem>
-            <listitem><para>#define <link linkend="_stream__buffer_8c_1aaa21967227eb06d02cdd038047b836f6">sbBYTES_TO_STORE_MESSAGE_LENGTH</link>   ( sizeof( <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link> ) )</para>
+            <listitem><para>#define <link linkend="_stream__buffer_8c_1aaa21967227eb06d02cdd038047b836f6">sbBYTES_TO_STORE_MESSAGE_LENGTH</link>&#160;&#160;&#160;( sizeof( <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link> ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_stream__buffer_8c_1a4954c04e3f9f6b0d4a98b9441b35d896">sbFLAGS_IS_MESSAGE_BUFFER</link>   ( ( uint8_t ) 1 ) /* Set if the stream buffer was created as a message buffer, in which case it holds discrete messages rather than a stream. */</para>
+            <listitem><para>#define <link linkend="_stream__buffer_8c_1a4954c04e3f9f6b0d4a98b9441b35d896">sbFLAGS_IS_MESSAGE_BUFFER</link>&#160;&#160;&#160;( ( uint8_t ) 1 ) /* Set if the stream buffer was created as a message buffer, in which case it holds discrete messages rather than a stream. */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_stream__buffer_8c_1a80943e49aae8a493f02d78527b3fc01e">sbFLAGS_IS_STATICALLY_ALLOCATED</link>   ( ( uint8_t ) 2 ) /* Set if the stream buffer was created using statically allocated memory. */</para>
+            <listitem><para>#define <link linkend="_stream__buffer_8c_1a80943e49aae8a493f02d78527b3fc01e">sbFLAGS_IS_STATICALLY_ALLOCATED</link>&#160;&#160;&#160;( ( uint8_t ) 2 ) /* Set if the stream buffer was created using statically allocated memory. */</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -108,21 +103,21 @@ Definition at line <link linkend="_stream__buffer_8c_source_1l00035">35</link> o
     <title>sbBYTES_TO_STORE_MESSAGE_LENGTH</title>
 <indexterm><primary>sbBYTES_TO_STORE_MESSAGE_LENGTH</primary><secondary>stream_buffer.c</secondary></indexterm>
 <indexterm><primary>stream_buffer.c</primary><secondary>sbBYTES_TO_STORE_MESSAGE_LENGTH</secondary></indexterm>
-<para><computeroutput>#define sbBYTES_TO_STORE_MESSAGE_LENGTH   ( sizeof( <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link> ) )</computeroutput></para><para>
+<para><computeroutput>#define sbBYTES_TO_STORE_MESSAGE_LENGTH&#160;&#160;&#160;( sizeof( <link linkend="__free_r_t_o_s_8h_1a019c8bfcdd8eca676c7b9993bda95967">configMESSAGE_BUFFER_LENGTH_TYPE</link> ) )</computeroutput></para><para>
 Definition at line <link linkend="_stream__buffer_8c_source_1l00132">132</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
 </section>
 <anchor xml:id="_stream__buffer_8c_1a4954c04e3f9f6b0d4a98b9441b35d896"/><section>
     <title>sbFLAGS_IS_MESSAGE_BUFFER</title>
 <indexterm><primary>sbFLAGS_IS_MESSAGE_BUFFER</primary><secondary>stream_buffer.c</secondary></indexterm>
 <indexterm><primary>stream_buffer.c</primary><secondary>sbFLAGS_IS_MESSAGE_BUFFER</secondary></indexterm>
-<para><computeroutput>#define sbFLAGS_IS_MESSAGE_BUFFER   ( ( uint8_t ) 1 ) /* Set if the stream buffer was created as a message buffer, in which case it holds discrete messages rather than a stream. */</computeroutput></para><para>
+<para><computeroutput>#define sbFLAGS_IS_MESSAGE_BUFFER&#160;&#160;&#160;( ( uint8_t ) 1 ) /* Set if the stream buffer was created as a message buffer, in which case it holds discrete messages rather than a stream. */</computeroutput></para><para>
 Definition at line <link linkend="_stream__buffer_8c_source_1l00135">135</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
 </section>
 <anchor xml:id="_stream__buffer_8c_1a80943e49aae8a493f02d78527b3fc01e"/><section>
     <title>sbFLAGS_IS_STATICALLY_ALLOCATED</title>
 <indexterm><primary>sbFLAGS_IS_STATICALLY_ALLOCATED</primary><secondary>stream_buffer.c</secondary></indexterm>
 <indexterm><primary>stream_buffer.c</primary><secondary>sbFLAGS_IS_STATICALLY_ALLOCATED</secondary></indexterm>
-<para><computeroutput>#define sbFLAGS_IS_STATICALLY_ALLOCATED   ( ( uint8_t ) 2 ) /* Set if the stream buffer was created using statically allocated memory. */</computeroutput></para><para>
+<para><computeroutput>#define sbFLAGS_IS_STATICALLY_ALLOCATED&#160;&#160;&#160;( ( uint8_t ) 2 ) /* Set if the stream buffer was created using statically allocated memory. */</computeroutput></para><para>
 Definition at line <link linkend="_stream__buffer_8c_source_1l00136">136</link> of file <link linkend="_stream__buffer_8c_source">stream_buffer.c</link>.</para>
 </section>
 <anchor xml:id="_stream__buffer_8c_1a4d6a29d283acfa2d4ef576476eedc789"/><section>
@@ -148,7 +143,7 @@ Definition at line <link linkend="_stream__buffer_8c_source_1l00057">57</link> o
 <indexterm><primary>sbRECEIVE_COMPLETED_FROM_ISR</primary><secondary>stream_buffer.c</secondary></indexterm>
 <indexterm><primary>stream_buffer.c</primary><secondary>sbRECEIVE_COMPLETED_FROM_ISR</secondary></indexterm>
 <para><computeroutput>#define sbRECEIVE_COMPLETED_FROM_ISR( pxStreamBuffer,  pxHigherPriorityTaskWoken)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;UBaseType_t&#32;uxSavedInterruptStatus;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;uxSavedInterruptStatus;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uxSavedInterruptStatus&#32;=&#32;(&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;)&#32;<link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>();&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
@@ -171,7 +166,7 @@ Definition at line <link linkend="_stream__buffer_8c_source_1l00072">72</link> o
 <indexterm><primary>sbSEND_COMPLETE_FROM_ISR</primary><secondary>stream_buffer.c</secondary></indexterm>
 <indexterm><primary>stream_buffer.c</primary><secondary>sbSEND_COMPLETE_FROM_ISR</secondary></indexterm>
 <para><computeroutput>#define sbSEND_COMPLETE_FROM_ISR( pxStreamBuffer,  pxHigherPriorityTaskWoken)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;UBaseType_t&#32;uxSavedInterruptStatus;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;uxSavedInterruptStatus;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;uxSavedInterruptStatus&#32;=&#32;(&#32;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link>&#32;)&#32;<link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>();&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\

@@ -1,5 +1,5 @@
-\hypertarget{portmacro_8h}{}\doxysection{Free\+RTOS/portmacro.h File Reference}
-\label{portmacro_8h}\index{FreeRTOS/portmacro.h@{FreeRTOS/portmacro.h}}
+\hypertarget{portmacro_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/portmacro.h File Reference}
+\label{portmacro_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/portmacro.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/portmacro.h}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,9 +45,9 @@
 \item 
 \#define \mbox{\hyperlink{portmacro_8h_abc47e85a6befbb47961ad5ee7aa57173}{port\+ENABLE\+\_\+\+INTERRUPTS}}()~v\+Port\+Set\+BASEPRI(0)
 \item 
-\#define \mbox{\hyperlink{portmacro_8h_a8a09321ad004019f3c8d0f2e4d7224c7}{port\+ENTER\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{portmacro_8h_a2ed3554a3de09a3bd09d396ee081ab69}{v\+Port\+Enter\+Critical}}()
+\#define \mbox{\hyperlink{portmacro_8h_a8a09321ad004019f3c8d0f2e4d7224c7}{port\+ENTER\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{port_8c_a2ed3554a3de09a3bd09d396ee081ab69}{v\+Port\+Enter\+Critical}}()
 \item 
-\#define \mbox{\hyperlink{portmacro_8h_a529358e6147881dd881c890ade21c9bd}{port\+EXIT\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{portmacro_8h_aed20ada05b957181a0de042802a82a5b}{v\+Port\+Exit\+Critical}}()
+\#define \mbox{\hyperlink{portmacro_8h_a529358e6147881dd881c890ade21c9bd}{port\+EXIT\+\_\+\+CRITICAL}}()~\mbox{\hyperlink{port_8c_aed20ada05b957181a0de042802a82a5b}{v\+Port\+Exit\+Critical}}()
 \item 
 \#define \mbox{\hyperlink{portmacro_8h_a2921e1c5a1f974dfa01ae44d1f665f14}{port\+TASK\+\_\+\+FUNCTION\+\_\+\+PROTO}}(v\+Function,  pv\+Parameters)~void v\+Function( void $\ast$pv\+Parameters )
 \item 
@@ -67,7 +67,7 @@
 \item 
 \#define \mbox{\hyperlink{portmacro_8h_a73448585c9c9e96500c2f0c9ea824601}{port\+INLINE}}~\+\_\+\+\_\+inline
 \item 
-\#define \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{port\+FORCE\+\_\+\+INLINE}}~inline \mbox{\hyperlink{portmacro_8h_ac864e333c11a6614eab8e8542ba01ed0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}(( always\+\_\+inline))
+\#define \mbox{\hyperlink{portmacro_8h_aaa356ca7932487d20a42d6839842d308}{port\+FORCE\+\_\+\+INLINE}}~inline \mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8c_a201468129b483039afc5a619e2d31097}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}(( always\+\_\+inline))
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -188,7 +188,7 @@ Definition at line \mbox{\hyperlink{portmacro_8h_source_l00091}{91}} of file \mb
 \index{portmacro.h@{portmacro.h}!portENTER\_CRITICAL@{portENTER\_CRITICAL}}
 \index{portENTER\_CRITICAL@{portENTER\_CRITICAL}!portmacro.h@{portmacro.h}}
 \doxysubsubsection{\texorpdfstring{portENTER\_CRITICAL}{portENTER\_CRITICAL}}
-{\footnotesize\ttfamily \#define port\+ENTER\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{portmacro_8h_a2ed3554a3de09a3bd09d396ee081ab69}{v\+Port\+Enter\+Critical}}()}
+{\footnotesize\ttfamily \#define port\+ENTER\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{port_8c_a2ed3554a3de09a3bd09d396ee081ab69}{v\+Port\+Enter\+Critical}}()}
 
 
 
@@ -198,7 +198,7 @@ Definition at line \mbox{\hyperlink{portmacro_8h_source_l00102}{102}} of file \m
 \index{portmacro.h@{portmacro.h}!portEXIT\_CRITICAL@{portEXIT\_CRITICAL}}
 \index{portEXIT\_CRITICAL@{portEXIT\_CRITICAL}!portmacro.h@{portmacro.h}}
 \doxysubsubsection{\texorpdfstring{portEXIT\_CRITICAL}{portEXIT\_CRITICAL}}
-{\footnotesize\ttfamily \#define port\+EXIT\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{portmacro_8h_aed20ada05b957181a0de042802a82a5b}{v\+Port\+Exit\+Critical}}()}
+{\footnotesize\ttfamily \#define port\+EXIT\+\_\+\+CRITICAL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{port_8c_aed20ada05b957181a0de042802a82a5b}{v\+Port\+Exit\+Critical}}()}
 
 
 
@@ -218,7 +218,7 @@ Definition at line \mbox{\hyperlink{portmacro_8h_source_l00048}{48}} of file \mb
 \index{portmacro.h@{portmacro.h}!portFORCE\_INLINE@{portFORCE\_INLINE}}
 \index{portFORCE\_INLINE@{portFORCE\_INLINE}!portmacro.h@{portmacro.h}}
 \doxysubsubsection{\texorpdfstring{portFORCE\_INLINE}{portFORCE\_INLINE}}
-{\footnotesize\ttfamily \#define port\+FORCE\+\_\+\+INLINE~inline \mbox{\hyperlink{portmacro_8h_ac864e333c11a6614eab8e8542ba01ed0}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}(( always\+\_\+inline))}
+{\footnotesize\ttfamily \#define port\+FORCE\+\_\+\+INLINE~inline \mbox{\hyperlink{_free_r_t_o_s___t_e_e_n_s_y4_8c_a201468129b483039afc5a619e2d31097}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}(( always\+\_\+inline))}
 
 
 
@@ -412,14 +412,14 @@ Definition at line \mbox{\hyperlink{portmacro_8h_source_l00068}{68}} of file \mb
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\{                                                                               \(\backslash\)}
-\DoxyCodeLine{    \textcolor{comment}{/* Set a PendSV to request a context switch. */}                             \(\backslash\)}
-\DoxyCodeLine{    portNVIC\_INT\_CTRL\_REG = \mbox{\hyperlink{portmacro_8h_a16830bf8349e14cdeed05193af234d5e}{portNVIC\_PENDSVSET\_BIT}};                               \(\backslash\)}
-\DoxyCodeLine{                                                                                \(\backslash\)}
-\DoxyCodeLine{    \textcolor{comment}{/* Barriers are normally not required but do ensure the code is completely  \(\backslash\)}}
-\DoxyCodeLine{\textcolor{comment}{    within the specified behaviour for the architecture. */}                     \(\backslash\)}
-\DoxyCodeLine{    \_\_asm \textcolor{keyword}{volatile}( \textcolor{stringliteral}{"{}dsb"{}} ::: \textcolor{stringliteral}{"{}memory"{}} );                                       \(\backslash\)}
-\DoxyCodeLine{    \_\_asm \textcolor{keyword}{volatile}( \textcolor{stringliteral}{"{}isb"{}} );                                                    \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Set\ a\ PendSV\ to\ request\ a\ context\ switch.\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{portmacro_8h_ae42817ecbd6fe76d846a89cc0fcd0d95}{portNVIC\_INT\_CTRL\_REG}}\ =\ \mbox{\hyperlink{portmacro_8h_a16830bf8349e14cdeed05193af234d5e}{portNVIC\_PENDSVSET\_BIT}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Barriers\ are\ normally\ not\ required\ but\ do\ ensure\ the\ code\ is\ completely\ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ within\ the\ specified\ behaviour\ for\ the\ architecture.\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \_\_asm\ \textcolor{keyword}{volatile}(\ \textcolor{stringliteral}{"{}dsb"{}}\ :::\ \textcolor{stringliteral}{"{}memory"{}}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \_\_asm\ \textcolor{keyword}{volatile}(\ \textcolor{stringliteral}{"{}isb"{}}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
