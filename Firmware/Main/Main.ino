@@ -205,6 +205,8 @@ void initializeDisplayStructs() {
   displayTaskWrap = {&measurementData, &screen};
 }
 
+//NEW
+// Added SOC Log to the task in order to track
 void initializeLogStructs() {
   motorTemperatureLog = {MOTOR_TEMPERATURE_LOG, 1, &motorTemp, FLOAT};
   motorControllerTemperatureLog = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &motorControllerTemp, FLOAT};
@@ -213,7 +215,8 @@ void initializeLogStructs() {
   rpmLog = {RPM_LOG, 1, &RPM, FLOAT};
   thermistorLog = {THERMISTOR_LOG, 10, &thTemps[0], FLOAT};
   bmsVoltageLog = {BMS_VOLTAGE_LOG, 1, &seriesVoltage, FLOAT};
-  dataLoggingTaskData = {logs, 7};
+  //socLog = {SOC_LOG, 1, &SOC, FLOAT};
+  dataLoggingTaskData = {logs, 7}; //8
 }
 
 void initializeCANStructs() {

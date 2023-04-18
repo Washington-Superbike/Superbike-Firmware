@@ -53,6 +53,7 @@
 */
 
 #pragma once
+#include "SOC.h"
 #include "CAN.h"
 #include "Display.h"
 #include "Precharge.h"
@@ -75,6 +76,11 @@
 /// in Display.ino.
 /// \note NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE!
 static Screen screen = {DEBUG};
+
+//NEW
+// Added a variable to represent the current SOC
+static float SOC = 0;
+
 
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.
@@ -227,8 +233,15 @@ static CSVWriter rpmLog = {};
 static CSVWriter thermistorLog = {};
 /// An instance of the logging struct for BMS voltages.
 static CSVWriter bmsVoltageLog = {};
+
+//NEW
+// An instance of the logging structure for SOC
+static CSVWriter socLog = {};
+
+//NEW
+// Added the new socLog to the logs here
 /// An instance of the logging struct for storing all the above logs to pass onto dataLogging.
-static CSVWriter *logs[] = {&motorTemperatureLog, &motorControllerTemperatureLog, &motorControllerVoltageLog, &motorCurrentLog, &rpmLog, &thermistorLog, &bmsVoltageLog};
+static CSVWriter *logs[] = {&motorTemperatureLog, &motorControllerTemperatureLog, &motorControllerVoltageLog, &motorCurrentLog, &rpmLog, &thermistorLog, &bmsVoltageLog, &socLog};
 
 /// @brief
 unsigned long timer = millis();

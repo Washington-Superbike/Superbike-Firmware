@@ -94,6 +94,7 @@ typedef struct {
   const char *filename;
   int dataValuesLen;
   //array of pointers to shared variables (the data values in the csv log)
+  // Dereferences the values
   float *dataValues;
   data_type D_TYPE;
   bool open;
