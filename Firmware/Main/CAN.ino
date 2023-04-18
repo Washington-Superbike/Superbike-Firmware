@@ -71,6 +71,9 @@ void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats) {
   *(chargerStats.chargerTemp) = msg.buf[6] - 40;
 }
 
+// Put the soc method here?
+// Uses * to set the value of the global variable of the stats
+// Has the address of the variable, and changes the pointer to reflect the new value at the same address.
 void decodeMotorStats(CAN_message_t msg, MotorStats motorStats ) {
   *(motorStats.RPM) = (float) ((msg.buf[1] << 8) | msg.buf[0]);
   *(motorStats.motorCurrent) = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
@@ -148,6 +151,7 @@ void checkCAN(CANTaskData canData) {
     switch (CAN_msg.id) {
       case MOTOR_STATS_MSG:
         decodeMotorStats(CAN_msg, canData.motorStats);
+        stateOfChargeCalculation();
         break;
       case MOTOR_TEMPS_MSG:
         decodeMotorTemps(CAN_msg, canData.motorTemps);
@@ -184,6 +188,13 @@ void checkCAN(CANTaskData canData) {
         break;
     }
   }
+}
+
+void stateOfChargeCalculation() {
+  currTime = millis() - lastSave;
+  integralOfCharge += *(motorStats.motorCurrent) * (currTime - lastSave);
+  *(SOC_ptr) += (1/ratedCapacity) * integralOfCharge;
+  lastSave = currTime;
 }
 
 // unused currently but should be implemented into the current firmware

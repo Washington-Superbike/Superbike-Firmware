@@ -80,6 +80,7 @@ void setup() {
   /// Then this method calls on initializePreChargeStruct() to map the static variables from Main.h from
   /// to a struct that is used for the prechargeTask()
   initializePreChargeStruct();
+  SOC_ptr = &SOC;
 
 
   /// Then this method initializes Serial communication using Serial.begin() initializing Serial at a

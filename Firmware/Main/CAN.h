@@ -69,10 +69,23 @@ CAN_message_t CAN_msg;
 /// it is false otherwise (so we know when we have collected all distinct cell voltages
 static bool cellVoltagesReady[BMS_CELLS] = {false};
 
+//Initializing the SOC values
+//Battery is 90Ah
+int ratedCapacity - 90 * 1000;
+float integralOfCharge = 0; //Represents the total integral of the current
+int lastSavedTime = 0; //Represents the last time the integral was added to
+float initDOD = 0; //Represents the initial depth of Discharge of the bike (how much battery has been used)
+float initSOC; // Represents the initial SOC of the bike (usually 100%)
+float* SOC_ptr;
+int lastSavedTime = 0;
+int currTime = 0;
+
+
 /**
  * A simple struct to store all the stats from the motor. Current, battery voltage,
  * RPM and an errorMessage.
  */
+ // Is given the address of the variable from main, then has a pointer to that adfress
 typedef struct {
   float* RPM;
   float* motorCurrent;

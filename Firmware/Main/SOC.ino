@@ -38,9 +38,28 @@ Task 4: initialize constant to represent Capacity
 // is not that long) We then have a the total integral of the current out of the battery over the running timer interval
 // Updates the SOC in main for the current percentage of battery left
 
+
+
+/*
+All the addresses of the variables from main are to canbus structs
+they hold the pointer to that address (the value)
+we need to update one of the structs with the address of SOC
+allows us to update that value through the canbus file.
+
+
+
+*/
+
+
+
+
+
+
+
+
 // Should probably return as a percentage, or if an int, 0-100
 void stateOfChargeCalculation() {
-  int currTime = millis() - lastSave;
+  currTime = millis() - lastSave;
   integralOfCharge += motorCurrent * (currTime - lastSave);
   SOC += (1/ratedCapacity) * integralOfCharge;
   lastSave = currTime - epochTime;
