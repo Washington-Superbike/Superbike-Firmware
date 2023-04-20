@@ -75,68 +75,67 @@ void setupDisplay(MeasurementScreenData msData) {
   *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "BMS Status Flag: "};
   *evccVolt = {1, 10 + VERTICAL_SCALER * 12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "EVCC Voltage: "};
 
-  thermiData = {1, 10 + VERTICAL_SCALER * 7, 180, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
+  thermiData = {1, 10 + VERTICAL_SCALER * 7, 90, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
 
   /// Calls on the setupMeasurementScreen() to finish up the setup.
   setupMeasurementScreen();
 }
 
 void displayUpdate(MeasurementScreenData msData) {
-  #ifdef USE_DEBUGGING_SCREEN
-    tft.setTextSize(1);
-    for (int i = 0; i < NUM_DATA; i++) {
-      if (printedVals[i].type == NUMBER) {
-        if ((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
-          eraseThenPrint(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, *printedVals[i].currData);
-          printedVals[i].oldData = *printedVals[i].currData;
-        }
+#ifdef USE_DEBUGGING_SCREEN
+  tft.setTextSize(1);
+  for (int i = 0; i < NUM_DATA; i++) {
+    if (printedVals[i].type == NUMBER) {
+      if ((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
+        float newData = *printedVals[i].currData;
+        eraseThenPrintIfDiff(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, newData);
+        printedVals[i].oldData = newData;
       }
     }
+  }
+  
+  // Printing out thermistor data over 2 lines
+  thermiDataPrint(2);
+  
+  // Printing out time data
+  timePrint();
 
-    // Printing out thermistor data over 2 lines
-    thermiDataPrint(2);
-
-    // Printing out time data
-    timePrint();
+#else // (if speedometer screen)
+  tft.setTextSize(8);
+  // update screen if RPM changed
+  if ((*printedVals[3].currData) != (printedVals[3].oldData) || (printedVals[3].oldData) == DEFAULT_FLOAT) {
+    static int oldSpeed = -1;
+    float newRPM = (*printedVals[3].currData);
     
-  #else // (if speedometer screen)
-    tft.setTextSize(8);
-    String newString = "";
-    String oldString = "";
-    if ((*printedVals[3].currData) != (printedVals[3].oldData) || (printedVals[3].oldData) == DEFAULT_FLOAT) {
-//    Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
-//    Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
-//    Speed of m/s
-      float gearRatio = 48/16;
-      float diameterPerSecond = 0.522/60;
-      float pi = 3.14159;
-      float mphConvert = 2.2369362920544;
-
-      float newSpeed = *printedVals[3].currData / gearRatio * pi * diameterPerSecond * mphConvert;
-      float oldSpeed = printedVals[3].oldData / gearRatio * pi * diameterPerSecond * mphConvert;
-      newString = (String) (int) newSpeed;
-      oldString = (String) (int) oldSpeed;
-//      Serial.println(newString);
-//      Serial.println(oldString);
-      eraseThenPrint(175, 0, oldString, newString);
-      newString = (String) (int) *printedVals[3].currData;
-      oldString = (String) (int) printedVals[3].oldData;
-      eraseThenPrint(120, 180, oldString, newString);
-      printedVals[3].oldData = *printedVals[3].currData;
+    // Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
+    // Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
+    // Speed of m/s
+    int newSpeed = (int)(newRPM / GEAR_RATIO * PI * DIAMETER / 60 * MPH_CONVERT);
+    if (eraseThenPrintIfDiff(175, 0, oldSpeed, newSpeed)) {
+      oldSpeed = newSpeed;
     }
-  #endif
+    tft.setTextSize(3);
+    eraseThenPrintIfDiff(70, 180, (int)printedVals[3].oldData, (int)newRPM);
+    printedVals[3].oldData = newRPM;
+  }
+  // update screen if main battery voltage changed
+  if ((*printedVals[0].currData) != (printedVals[0].oldData) || (printedVals[0].oldData) == DEFAULT_FLOAT) {
+     tft.setTextSize(3);
+     float newVoltage = *printedVals[0].currData;
+     eraseThenPrintIfDiff(0, 215, (String)printedVals[0].oldData + " V", (String)newVoltage + " V");
+     printedVals[0].oldData = newVoltage;
+  }
+#endif
 }
 
 void thermiDataPrint(int numberOfLines) {
   // number of thermistor values to print per line
-  int incr = NUM_THERMI / numberOfLines;
+  int incr = 16 / numberOfLines; // ok there is really only room for 16 right now
   for (int i = 0; i < numberOfLines; i++) {
-    bool sameData = true;
     String sOld, sNew;
     // process data/update display one line of therm values at a time
     for (int j = i * incr; j < incr + (i * incr); j++) {
       if (thermiData.currData[j] != thermiData.oldData[j]) {
-        sameData = false;
         sNew.append((byte)thermiData.currData[j]);
         sOld.append((byte)thermiData.oldData[j]);
         thermiData.oldData[j] = thermiData.currData[j];
@@ -151,9 +150,7 @@ void thermiDataPrint(int numberOfLines) {
       }
     }
     // if therm data has changed since the last print, update the display
-    if (!sameData) {
-      eraseThenPrint(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew);
-    }
+    eraseThenPrintIfDiff(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew);
   }
 }
 
@@ -163,57 +160,62 @@ void timePrint() {
   static char previousTime[bufSize];
   char buf[bufSize];
   sprintf(buf, "%02u/%02u/%02u  %02u:%02u:%02u", month(), day(), year(), hour(), minute(), second());
-  eraseThenPrint(140, 10 + VERTICAL_SCALER * (NUM_DATA + 2), previousTime, buf);
-  memcpy(previousTime, buf, bufSize);
-
+  if (eraseThenPrintIfDiff(140, 10 + VERTICAL_SCALER * (NUM_DATA + 2), previousTime, buf)) {
+    memcpy(previousTime, buf, bufSize);
+  }
 }
 
 void setupMeasurementScreen() {
-  /// If the screen is debugging type, it will print out all
-  /// the data labels in their data locations as a black text
-  /// This is achieved using a bunch of tft methods. Nice.
-  #ifdef USE_DEBUGGING_SCREEN
-    tft.setTextSize(1);
+/// If the screen is debugging type, it will print out all
+/// the data labels in their data locations as a black text
+/// This is achieved using a bunch of tft methods. Nice.
+#ifdef USE_DEBUGGING_SCREEN
+  tft.setTextSize(1);
 
-    for (int i = 0; i < NUM_DATA; i++) {
-      tft.setCursor(printedVals[i].labelX, printedVals[i].y);
-      tft.print(printedVals[i].labelPtr);
-    }
+  for (int i = 0; i < NUM_DATA; i++) {
+    tft.setCursor(printedVals[i].labelX, printedVals[i].y);
+    tft.print(printedVals[i].labelPtr);
+  }
 
-    // Printing out time label
-    tft.setCursor(printedVals[10].labelX, printedVals[10].y + VERTICAL_SCALER);
-    tft.print("Time: ");
+  // Printing out time label
+  tft.setCursor(printedVals[10].labelX, printedVals[10].y + VERTICAL_SCALER);
+  tft.print("Time: ");
 
-    // Printing out thermistor temps label
-    tft.setCursor(thermiData.labelX, thermiData.y);
-    tft.print(thermiData.labelPtr);
-    
-  /// If the screen is speedometer type, it will print out all
-  /// the data labels in their locations (SPEED up top and RPM
-  /// at the bottom). This is achieved using a bunch of tft methods. Nice.
-  #else
-    tft.setTextSize(5);
+  // Printing out thermistor temps label
+  tft.setCursor(thermiData.labelX, thermiData.y);
+  tft.print(thermiData.labelPtr);
+  
+/// If the screen is speedometer type, it will print out all
+/// the data labels in their locations (SPEED up top and RPM
+/// at the bottom). This is achieved using a bunch of tft methods. Nice.
+#else
+  tft.setTextSize(5);
 
-    tft.setCursor(0,0);
-    tft.print("SPEED");
+  tft.setCursor(0,0);
+  tft.print("SPEED");
 
-    tft.setCursor(220, 62);
-    tft.print("mph");
+  tft.setCursor(220, 62);
+  tft.print("mph");
 
-    tft.setCursor(0, 205);
-    tft.print("RPM");
-  #endif
+  tft.setTextSize(3);
+  tft.setCursor(0, 180);
+  tft.print("RPM");
+#endif
 }
 
-void eraseThenPrint(int xPos, int yPos, String oldData, String newData) {
+bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData) {
   /// Erases the old value using the oldData parameter by writing it in
   /// the background color and then setting it back to the printing color to write the newData.
-  tft.setCursor(xPos, yPos);
-  tft.setTextColor(BACKGROUND_COLOR);
-  tft.print(oldData);
-  tft.setCursor(xPos, yPos);
-  tft.setTextColor(PRINT_COLOR);
-  tft.print(newData);
+  if (oldData != newData) {
+    tft.setCursor(xPos, yPos);
+    tft.setTextColor(BACKGROUND_COLOR);
+    tft.print(oldData);
+    tft.setCursor(xPos, yPos);
+    tft.setTextColor(PRINT_COLOR);
+    tft.print(newData);
+    return true;
+  }
+  return false;
 }
 
 //void screenEraser(int scaler, int i) {
@@ -232,7 +234,7 @@ void manualScreenDataUpdater() {
 //      Serial.println(*printedVals[i].currData);
     }
   }
-  for (int j = 0; j < 10; j++) {
+  for (int j = 0; j < 16; j++) {
     thermiData.currData[j]++;
   }
 }

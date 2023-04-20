@@ -73,12 +73,19 @@
 
 /// Sets a default erasing(background)/writing(print) color based on screen type
 #ifdef USE_DEBUGGING_SCREEN
-  #define BACKGROUND_COLOR ILI9341_WHITE
-  #define PRINT_COLOR ILI9341_BLACK
+#  define BACKGROUND_COLOR ILI9341_WHITE
+#  define PRINT_COLOR ILI9341_BLACK
 #else // (if speedometer screen)
-  #define BACKGROUND_COLOR ILI9341_BLACK
-  #define PRINT_COLOR ILI9341_WHITE
+#  define BACKGROUND_COLOR ILI9341_BLACK
+#  define PRINT_COLOR ILI9341_WHITE
 #endif
+
+// Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
+// Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
+// Speed of m/s
+#define GEAR_RATIO (48.0 / 16.0)
+#define DIAMETER 0.522
+#define MPH_CONVERT 2.2369362920544
 
 // Touch screen parameters.
 /// Not sure why this is so high. Google it, but as of now it's unused.
@@ -127,7 +134,7 @@ typedef struct PrintedDataStruct {
  */
 typedef struct PrintedDataThermStruct {
   int labelX, y, dataX;          // y is the same for data and label, but X isnt
-  volatile float oldData[10];               // volatile for some printed data, not all
+  volatile float oldData[16];               // volatile for some printed data, not all
   volatile float* currData;           // volatile for some printed data, not all
   char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
 } PrintedDataTherm;
@@ -192,7 +199,7 @@ void displayUpdate(MeasurementScreenData msData);
 void thermiDataPrint(int numberOfLines);
 void timePrint();
 void setupMeasurementScreen();
-void eraseThenPrint(int xPos, int yPos, String oldData, String newData);
+bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData);
 //void screenEraser(int scaler, int i);
 void manualScreenDataUpdater();
 float aux_voltage_read();
