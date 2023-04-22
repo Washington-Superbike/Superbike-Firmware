@@ -80,6 +80,8 @@ void setup() {
   /// Then this method calls on initializePreChargeStruct() to map the static variables from Main.h from
   /// to a struct that is used for the prechargeTask()
   initializePreChargeStruct();
+
+  // Adds the adress of the SOC
   SOC_ptr = &SOC;
 
 
@@ -228,6 +230,7 @@ void initializeCANStructs() {
   thermistorTemps = {thTemps};
   chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
   chargeControllerStats = {&evccEnable, &evccVoltage, &evccCurrent};
+  // Can add adress of the SOC stuff
   canTaskData = {motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage};
 }
 

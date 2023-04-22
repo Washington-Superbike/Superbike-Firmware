@@ -4,18 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c217cc3-8ff4-4662-b4d6-c8b3f6de1e58" name="Changes" comment="" />
+    <list default="true" id="0c217cc3-8ff4-4662-b4d6-c8b3f6de1e58" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Firmware/Main/CAN.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Firmware/Main/CAN.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Firmware/Main/Main.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Firmware/Main/Main.ino" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OnXv1vlju6bpW7eKzH3ZjWhIxD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/taylo/OneDrive/Documents/GithubDevelopment/ARHMA2021/Firmware"
   }
 }]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c217cc3-8ff4-4662-b4d6-c8b3f6de1e58" name="Changes" comment="" />
+      <created>1682197552022</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682197552022</updated>
+    </task>
     <servers />
   </component>
 </project>

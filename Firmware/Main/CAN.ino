@@ -189,7 +189,7 @@ void checkCAN(CANTaskData canData) {
     }
   }
 }
-
+// Need to make SOC a global variable
 void stateOfChargeCalculation() {
   currTime = millis() - lastSave;
   integralOfCharge += *(motorStats.motorCurrent) * (currTime - lastSave);
