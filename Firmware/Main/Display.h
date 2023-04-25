@@ -58,7 +58,7 @@
 #define TIRQ_PIN  -1
 
 /// Number of PrintedData values (length of the array that contains all the printedData)
-#define NUM_DATA 11
+#define NUM_DATA 12
 
 // Default Values:
 /// The default starter value used for floats in the PrintedDataStruct
@@ -170,6 +170,7 @@ typedef struct MeasurementScreenDataStruct {
   int* bmsStatusFlag;
   float* evccVoltage;
   float* thermistorTemps;
+  float* SOC;
 } MeasurementScreenData;
 
 /**
@@ -197,6 +198,7 @@ PrintedData *chargerVolt = &printedVals[7];
 PrintedData *chargerCurr = &printedVals[8];
 PrintedData *bmsStatusFlag = &printedVals[9];
 PrintedData *evccVolt = &printedVals[10];
+PrintedData *SOC_display = &printedVals[11];
 
 /// The thermistor data.
 PrintedDataTherm thermiData;

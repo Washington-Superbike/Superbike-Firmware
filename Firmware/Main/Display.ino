@@ -88,6 +88,16 @@ void setupDisplay(MeasurementScreenData msData, Screen screen) {
   *chargerCurr = {1, 10 + VERTICAL_SCALER * 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerCurrent, 1, "Charger Current: "};
   *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "BMS Status Flag: "};
   *evccVolt = {1, 10 + VERTICAL_SCALER * 12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "EVCC Voltage: "};
+  *SOC_display = {1, 10 + VERTICAL_SCALER * 13, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.SOC, 1, "SOC: "};
+  /*
+  int labelX, y, dataX;          // y is the same for data and label, but X isnt
+    volatile float oldData;               // volatile for some printed data, not all
+    PRINT_TYPE type;
+    volatile float* currData;           // volatile for some printed data, not all
+    int dataLen;
+    char* labelPtr;
+
+  */
 
   thermiData = {1, 10 + VERTICAL_SCALER * 7, 180, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
 
@@ -139,6 +149,14 @@ void displayUpdate(MeasurementScreenData msData, Screen screen) {
       oldString = (String) (int) printedVals[3].oldData;
       eraseThenPrintSPEEDO(120, 180, oldString, newString);
       printedVals[3].oldData = *printedVals[3].currData;
+
+      float oldSOC = (String) (int) *printedVals[11].oldData;
+      float newSOC = (String) (int) *printedVals[11].currData;
+      eraseThenPrintSPEEDO(0, 50, oldSOC, newSOC);
+      printedVals[11].oldData = *printedVals[11].currData;
+      //Add some SOC stuff here
+
+
     }
   }
 }

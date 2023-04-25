@@ -203,7 +203,7 @@ void initializeDisplayStructs() {
   measurementData = {
     &seriesVoltage, &motorControllerBatteryVoltage, &auxiliaryBatteryVoltage,
     &RPM, &motorControllerTemp, &motorCurrent, &errorMessage,
-    &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage, thTemps
+    &chargerCurrent, &chargerVoltage, &bms_status_flag, &evccVoltage, thTemps, &SOC
   };
   displayTaskWrap = {&measurementData, &screen};
 }
