@@ -1,5 +1,5 @@
-\hypertarget{list_8h}{}\doxysection{Free\+RTOS/list.h File Reference}
-\label{list_8h}\index{FreeRTOS/list.h@{FreeRTOS/list.h}}
+\hypertarget{list_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/list.h File Reference}
+\label{list_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/list.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/list.h}}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -207,16 +207,16 @@ Definition at line \mbox{\hyperlink{list_8h_source_l00307}{307}} of file \mbox{\
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\{                                                                                           \(\backslash\)}
-\DoxyCodeLine{List\_t * \textcolor{keyword}{const} pxConstList = ( pxList );                                                    \(\backslash\)}
-\DoxyCodeLine{    \textcolor{comment}{/* Increment the index to the next item and return the item, ensuring */}                \(\backslash\)}
-\DoxyCodeLine{    \textcolor{comment}{/* we don't return the marker used at the end of the list.  */}                          \(\backslash\)}
-\DoxyCodeLine{    ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                            \(\backslash\)}
-\DoxyCodeLine{    if( ( \textcolor{keywordtype}{void} * ) ( pxConstList )-\/>pxIndex == ( \textcolor{keywordtype}{void} * ) \&( ( pxConstList )-\/>xListEnd ) )  \(\backslash\)}
-\DoxyCodeLine{    \{                                                                                       \(\backslash\)}
-\DoxyCodeLine{        ( pxConstList )-\/>pxIndex = ( pxConstList )-\/>pxIndex-\/>pxNext;                        \(\backslash\)}
-\DoxyCodeLine{    \}                                                                                       \(\backslash\)}
-\DoxyCodeLine{    ( pxTCB ) = ( pxConstList )-\/>pxIndex-\/>pvOwner;                                          \(\backslash\)}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\mbox{\hyperlink{structx_l_i_s_t}{List\_t}}\ *\ \textcolor{keyword}{const}\ pxConstList\ =\ (\ pxList\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Increment\ the\ index\ to\ the\ next\ item\ and\ return\ the\ item,\ ensuring\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ we\ don't\ return\ the\ marker\ used\ at\ the\ end\ of\ the\ list.\ \ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (\ pxConstList\ )-\/>pxIndex\ =\ (\ pxConstList\ )-\/>\mbox{\hyperlink{structx_l_i_s_t_aa8dbb12e54fab6a83458349c1c9eba47}{pxIndex}}-\/>\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_afe105a3d59c8ff0216cdf9850970ef41}{pxNext}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if(\ (\ \textcolor{keywordtype}{void}\ *\ )\ (\ pxConstList\ )-\/>pxIndex\ ==\ (\ \textcolor{keywordtype}{void}\ *\ )\ \&(\ (\ pxConstList\ )-\/>xListEnd\ )\ )\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (\ pxConstList\ )-\/>pxIndex\ =\ (\ pxConstList\ )-\/>pxIndex-\/>\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_afe105a3d59c8ff0216cdf9850970ef41}{pxNext}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (\ pxTCB\ )\ =\ (\ pxConstList\ )-\/>pxIndex-\/>\mbox{\hyperlink{structx_l_i_s_t___i_t_e_m_aeb3110b50fe0dbce826d929b27b5ddb1}{pvOwner}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

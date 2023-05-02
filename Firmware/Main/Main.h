@@ -12,15 +12,6 @@
           requirements. Like all other header files, it exists
           as the skeleton on which the .ino file is built.
 
-    The main config file for bike firmware. This initializes
-    all variables that are passed along to all other files as
-    pointers. Then it creates the initial reference (there's a proper
-    C programming term for it) for all the methods used in Main.ino.
-    This file exists as an overall configuration for the
-    bike firmware as all these variables can be changed to meet
-    requirements. Like all other header files, it exists
-    as the skeleton on which the .ino file is built.
-
     \note
       Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C.
       It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351.
@@ -37,9 +28,6 @@
       by being passed their address and changing their value using that address.
       Instead of creating 10 copies when passing variables around, there's just
       one global copy.
-      ALSO, if you are looking to change configurations for the overall
-      firmware this is the place to do it. Changing the number of CAN devices connected,
-      the Screen type used, etc. All can be done from here.
 
     \todo
       Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables.
@@ -47,34 +35,17 @@
       Based on the changes implemented for SoC, I would add another variable for the low-voltage
       current sneors or any other current sensors you add
       \n \n
-      CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on.
-      \n \n
       Final Goal.
 */
 
 #pragma once
+#include "config.h"
 #include "CAN.h"
 #include "Display.h"
 #include "Precharge.h"
 #include "DataLogging.h"
 #include "FreeRTOS_TEENSY4.h"
 #include <TimeLib.h>
-
-
-/// This primarily exists to debug the changes made in the FlexCAN library.
-/// If there are no devices connected on the CAN bus, the firmware crashes
-/// This line can be set to 0 to ensure that the CAN bus does not bother
-/// to check the CAN bus if there are 0 nodes connected.
-#define CAN_NODES 0
-
-/// This exists to be changed based on the final number of thermistors
-/// we settle on having in the code later.
-#define NUM_THERMI 10
-
-/// A screen enum that defines the type of screen to generate
-/// in Display.ino.
-/// \note NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE!
-static Screen screen = {DEBUG};
 
 // BMS and Battery values. Determined via CAN and other protocols.
 // TODO: PROBABLY ADD THE LV System current here.
@@ -204,8 +175,6 @@ static ChargeControllerStats chargeControllerStats = {};
 // These variables store all the task data for all 4 tasks (except IDLE)
 /// An instance of a struct to store all CAN data, then pass it as a void pointer.
 static CANTaskData canTaskData;
-/// An instance of a struct to store all display data, then pass it as a void pointer.
-static displayPointer displayTaskWrap = {};
 /// An instance of a struct to store all dataLogging data, then pass it as a void pointer.
 static DataLoggingTaskData dataLoggingTaskData;
 /// An instance of a struct to store all preCharge data, then pass it as a void pointer.

@@ -1,121 +1,121 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_projdefs_8h" xml:lang="en-US">
-<title>FreeRTOS/projdefs.h File Reference</title>
-<indexterm><primary>FreeRTOS/projdefs.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/projdefs.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/projdefs.h</primary></indexterm>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS</link>(xTimeInMs)   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( xTimeInMs ) * ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> ) / ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 ) )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f">pdMS_TO_TICKS</link>(xTimeInMs)&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( xTimeInMs ) * ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> ) / ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a07848d3078849bd32353c69d30a479b3">pdPASS</link>   ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a07848d3078849bd32353c69d30a479b3">pdPASS</link>&#160;&#160;&#160;( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a99e2866c8cf4fe86db87dab62e7d6aa6">pdFAIL</link>   ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a99e2866c8cf4fe86db87dab62e7d6aa6">pdFAIL</link>&#160;&#160;&#160;( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a4d79b09954b1efa73ad8d87a36b4a575">errQUEUE_EMPTY</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a4d79b09954b1efa73ad8d87a36b4a575">errQUEUE_EMPTY</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ae40de11e4044a83a97d2cb5d00ce608b">errQUEUE_FULL</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ae40de11e4044a83a97d2cb5d00ce608b">errQUEUE_FULL</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a0b024e12cbca6f5018f5f1a43818b03d">errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY</link>   ( -1 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a0b024e12cbca6f5018f5f1a43818b03d">errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY</link>&#160;&#160;&#160;( -1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a4a7ca54ee5527cd7a14830956e05ea55">errQUEUE_BLOCKED</link>   ( -4 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a4a7ca54ee5527cd7a14830956e05ea55">errQUEUE_BLOCKED</link>&#160;&#160;&#160;( -4 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a3b2e2afaa2851576dfc2779a7fea59b4">errQUEUE_YIELD</link>   ( -5 )</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a3b2e2afaa2851576dfc2779a7fea59b4">errQUEUE_YIELD</link>&#160;&#160;&#160;( -5 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a28e14ad7e9d0b2045897446f72558d7f">configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES</link>   0</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a28e14ad7e9d0b2045897446f72558d7f">configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a692e23284a1eff2b98132042b0c2c99d">pdINTEGRITY_CHECK_VALUE</link>   0x5a5a5a5aUL</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a692e23284a1eff2b98132042b0c2c99d">pdINTEGRITY_CHECK_VALUE</link>&#160;&#160;&#160;0x5a5a5a5aUL</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ad836dd7abef3eced71f4ce24d39debd9">pdFREERTOS_ERRNO_NONE</link>   0	/* No errors */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ad836dd7abef3eced71f4ce24d39debd9">pdFREERTOS_ERRNO_NONE</link>&#160;&#160;&#160;0	/* No errors */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ada626b9e09610adf001a0d78c21ed754">pdFREERTOS_ERRNO_ENOENT</link>   2	/* No such file or directory */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ada626b9e09610adf001a0d78c21ed754">pdFREERTOS_ERRNO_ENOENT</link>&#160;&#160;&#160;2	/* No such file or directory */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a48cbefbca1a9ad5fd3f014580e294c8e">pdFREERTOS_ERRNO_EINTR</link>   4	/* Interrupted system call */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a48cbefbca1a9ad5fd3f014580e294c8e">pdFREERTOS_ERRNO_EINTR</link>&#160;&#160;&#160;4	/* Interrupted system call */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a7bb52f7cee93081fcd871ced9cbf86a6">pdFREERTOS_ERRNO_EIO</link>   5	/* I/O error */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a7bb52f7cee93081fcd871ced9cbf86a6">pdFREERTOS_ERRNO_EIO</link>&#160;&#160;&#160;5	/* I/O error */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a84867230ed86089284031935cab091a5">pdFREERTOS_ERRNO_ENXIO</link>   6	/* No such device or address */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a84867230ed86089284031935cab091a5">pdFREERTOS_ERRNO_ENXIO</link>&#160;&#160;&#160;6	/* No such device or address */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a242052c4e8decc6757bf2d1f0f9dde41">pdFREERTOS_ERRNO_EBADF</link>   9	/* Bad file number */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a242052c4e8decc6757bf2d1f0f9dde41">pdFREERTOS_ERRNO_EBADF</link>&#160;&#160;&#160;9	/* Bad file number */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a19316c64bd0788538b164b6241e4c49b">pdFREERTOS_ERRNO_EAGAIN</link>   11	/* No more processes */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a19316c64bd0788538b164b6241e4c49b">pdFREERTOS_ERRNO_EAGAIN</link>&#160;&#160;&#160;11	/* No more processes */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a4cbad67c49bf49adbd0c9c1917a0e5e6">pdFREERTOS_ERRNO_EWOULDBLOCK</link>   11	/* Operation would block */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a4cbad67c49bf49adbd0c9c1917a0e5e6">pdFREERTOS_ERRNO_EWOULDBLOCK</link>&#160;&#160;&#160;11	/* Operation would block */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a5efcf687f972542033358c1a24510aee">pdFREERTOS_ERRNO_ENOMEM</link>   12	/* Not enough memory */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a5efcf687f972542033358c1a24510aee">pdFREERTOS_ERRNO_ENOMEM</link>&#160;&#160;&#160;12	/* Not enough memory */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ad5b2326f6a7eb09257f78f587f43e187">pdFREERTOS_ERRNO_EACCES</link>   13	/* Permission denied */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ad5b2326f6a7eb09257f78f587f43e187">pdFREERTOS_ERRNO_EACCES</link>&#160;&#160;&#160;13	/* Permission denied */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a1b3f9dd5c52d752b70357ed51b38c7f4">pdFREERTOS_ERRNO_EFAULT</link>   14	/* Bad address */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a1b3f9dd5c52d752b70357ed51b38c7f4">pdFREERTOS_ERRNO_EFAULT</link>&#160;&#160;&#160;14	/* Bad address */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1aa367bb36d26bc86c9346916fc7c5792c">pdFREERTOS_ERRNO_EBUSY</link>   16	/* Mount device busy */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1aa367bb36d26bc86c9346916fc7c5792c">pdFREERTOS_ERRNO_EBUSY</link>&#160;&#160;&#160;16	/* Mount device busy */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1aaf394d4b1eedda0075836a98138e2e82">pdFREERTOS_ERRNO_EEXIST</link>   17	/* File exists */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1aaf394d4b1eedda0075836a98138e2e82">pdFREERTOS_ERRNO_EEXIST</link>&#160;&#160;&#160;17	/* File exists */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a75aadb287c3f7089edb7f1c85319b105">pdFREERTOS_ERRNO_EXDEV</link>   18	/* Cross-device link */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a75aadb287c3f7089edb7f1c85319b105">pdFREERTOS_ERRNO_EXDEV</link>&#160;&#160;&#160;18	/* Cross-device link */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a0a8f4a6b857f6c64e9c2d887bbc26beb">pdFREERTOS_ERRNO_ENODEV</link>   19	/* No such device */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a0a8f4a6b857f6c64e9c2d887bbc26beb">pdFREERTOS_ERRNO_ENODEV</link>&#160;&#160;&#160;19	/* No such device */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a664d5546ffc5cfbd7c28c02ee704030f">pdFREERTOS_ERRNO_ENOTDIR</link>   20	/* Not a directory */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a664d5546ffc5cfbd7c28c02ee704030f">pdFREERTOS_ERRNO_ENOTDIR</link>&#160;&#160;&#160;20	/* Not a directory */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ac85e69368d9755a4e1b5121eb3a81979">pdFREERTOS_ERRNO_EISDIR</link>   21	/* Is a directory */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ac85e69368d9755a4e1b5121eb3a81979">pdFREERTOS_ERRNO_EISDIR</link>&#160;&#160;&#160;21	/* Is a directory */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a684b79fd72418beaf37e423323131ca7">pdFREERTOS_ERRNO_EINVAL</link>   22	/* Invalid argument */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a684b79fd72418beaf37e423323131ca7">pdFREERTOS_ERRNO_EINVAL</link>&#160;&#160;&#160;22	/* Invalid argument */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ada91bb26e0b830b169433aae5ce857cc">pdFREERTOS_ERRNO_ENOSPC</link>   28	/* No space left on device */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ada91bb26e0b830b169433aae5ce857cc">pdFREERTOS_ERRNO_ENOSPC</link>&#160;&#160;&#160;28	/* No space left on device */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a441a754724ed5708ac0d31d10e97dbec">pdFREERTOS_ERRNO_ESPIPE</link>   29	/* Illegal seek */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a441a754724ed5708ac0d31d10e97dbec">pdFREERTOS_ERRNO_ESPIPE</link>&#160;&#160;&#160;29	/* Illegal seek */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a83094f3620b1d91ed85f98347b481c29">pdFREERTOS_ERRNO_EROFS</link>   30	/* Read only file system */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a83094f3620b1d91ed85f98347b481c29">pdFREERTOS_ERRNO_EROFS</link>&#160;&#160;&#160;30	/* Read only file system */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ab32e968fc64c5ddcd1f2b1de9debd576">pdFREERTOS_ERRNO_EUNATCH</link>   42	/* Protocol driver not attached */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ab32e968fc64c5ddcd1f2b1de9debd576">pdFREERTOS_ERRNO_EUNATCH</link>&#160;&#160;&#160;42	/* Protocol driver not attached */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1acdf56904272b8eaec505400e0e13ca87">pdFREERTOS_ERRNO_EBADE</link>   50	/* Invalid exchange */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1acdf56904272b8eaec505400e0e13ca87">pdFREERTOS_ERRNO_EBADE</link>&#160;&#160;&#160;50	/* Invalid exchange */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1ae603b5c76827b60243bd8f12718c1a41">pdFREERTOS_ERRNO_EFTYPE</link>   79	/* Inappropriate file type or format */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1ae603b5c76827b60243bd8f12718c1a41">pdFREERTOS_ERRNO_EFTYPE</link>&#160;&#160;&#160;79	/* Inappropriate file type or format */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a3dba13bfcdeb497752d19139ba2f463f">pdFREERTOS_ERRNO_ENMFILE</link>   89	/* No more files */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a3dba13bfcdeb497752d19139ba2f463f">pdFREERTOS_ERRNO_ENMFILE</link>&#160;&#160;&#160;89	/* No more files */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a01a1dbf74da4d89538fdd9d424404808">pdFREERTOS_ERRNO_ENOTEMPTY</link>   90	/* Directory not empty */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a01a1dbf74da4d89538fdd9d424404808">pdFREERTOS_ERRNO_ENOTEMPTY</link>&#160;&#160;&#160;90	/* Directory not empty */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1aca50b0cb0218ab93d38e387ca7740c92">pdFREERTOS_ERRNO_ENAMETOOLONG</link>   91	/* File or path name too long */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1aca50b0cb0218ab93d38e387ca7740c92">pdFREERTOS_ERRNO_ENAMETOOLONG</link>&#160;&#160;&#160;91	/* File or path name too long */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a583344ca8f038153e0c988559064b6b6">pdFREERTOS_ERRNO_EOPNOTSUPP</link>   95	/* Operation not supported on transport endpoint */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a583344ca8f038153e0c988559064b6b6">pdFREERTOS_ERRNO_EOPNOTSUPP</link>&#160;&#160;&#160;95	/* Operation not supported on transport endpoint */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a311c6d46f86eb3f6e029473e34a4b290">pdFREERTOS_ERRNO_ENOBUFS</link>   105	/* No buffer space available */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a311c6d46f86eb3f6e029473e34a4b290">pdFREERTOS_ERRNO_ENOBUFS</link>&#160;&#160;&#160;105	/* No buffer space available */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a3260d6cafcdb3971622605ac4d3bf3d2">pdFREERTOS_ERRNO_ENOPROTOOPT</link>   109	/* Protocol not available */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a3260d6cafcdb3971622605ac4d3bf3d2">pdFREERTOS_ERRNO_ENOPROTOOPT</link>&#160;&#160;&#160;109	/* Protocol not available */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a0c4f8236084d1cabcbff216e1b8fac7b">pdFREERTOS_ERRNO_EADDRINUSE</link>   112	/* Address already in use */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a0c4f8236084d1cabcbff216e1b8fac7b">pdFREERTOS_ERRNO_EADDRINUSE</link>&#160;&#160;&#160;112	/* Address already in use */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1addf14e54d85281da325711c219b6f0e7">pdFREERTOS_ERRNO_ETIMEDOUT</link>   116	/* Connection timed out */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1addf14e54d85281da325711c219b6f0e7">pdFREERTOS_ERRNO_ETIMEDOUT</link>&#160;&#160;&#160;116	/* Connection timed out */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a6f713f2c3c90756396311337496a80b2">pdFREERTOS_ERRNO_EINPROGRESS</link>   119	/* Connection already in progress */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a6f713f2c3c90756396311337496a80b2">pdFREERTOS_ERRNO_EINPROGRESS</link>&#160;&#160;&#160;119	/* Connection already in progress */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1af2407a2a0cbe16241a81bf2c1b63ff24">pdFREERTOS_ERRNO_EALREADY</link>   120	/* Socket already connected */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1af2407a2a0cbe16241a81bf2c1b63ff24">pdFREERTOS_ERRNO_EALREADY</link>&#160;&#160;&#160;120	/* Socket already connected */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a85d8fca5d9fb100e674ebd9b6b29e08d">pdFREERTOS_ERRNO_EADDRNOTAVAIL</link>   125	/* Address not available */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a85d8fca5d9fb100e674ebd9b6b29e08d">pdFREERTOS_ERRNO_EADDRNOTAVAIL</link>&#160;&#160;&#160;125	/* Address not available */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a5ebe20f940ba0710bfc993cd98895360">pdFREERTOS_ERRNO_EISCONN</link>   127	/* Socket is already connected */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a5ebe20f940ba0710bfc993cd98895360">pdFREERTOS_ERRNO_EISCONN</link>&#160;&#160;&#160;127	/* Socket is already connected */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a2038d432f2a030e1c3ecdeb68676f920">pdFREERTOS_ERRNO_ENOTCONN</link>   128	/* Socket is not connected */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a2038d432f2a030e1c3ecdeb68676f920">pdFREERTOS_ERRNO_ENOTCONN</link>&#160;&#160;&#160;128	/* Socket is not connected */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a232fc23c4f0ff1aa323b38c3cc7a25fb">pdFREERTOS_ERRNO_ENOMEDIUM</link>   135	/* No medium inserted */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a232fc23c4f0ff1aa323b38c3cc7a25fb">pdFREERTOS_ERRNO_ENOMEDIUM</link>&#160;&#160;&#160;135	/* No medium inserted */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1afcb862c20a4c9641dd537770e969b8b1">pdFREERTOS_ERRNO_EILSEQ</link>   138	/* An invalid UTF-16 sequence was encountered. */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1afcb862c20a4c9641dd537770e969b8b1">pdFREERTOS_ERRNO_EILSEQ</link>&#160;&#160;&#160;138	/* An invalid UTF-16 sequence was encountered. */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a354147f9f9a35e025af5f660ff7be0bf">pdFREERTOS_ERRNO_ECANCELED</link>   140	/* Operation canceled. */</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a354147f9f9a35e025af5f660ff7be0bf">pdFREERTOS_ERRNO_ECANCELED</link>&#160;&#160;&#160;140	/* Operation canceled. */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link>   0</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link>   1</para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link>&#160;&#160;&#160;1</para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a4599a4d1e3c89bcce5301f82028561c1">pdLITTLE_ENDIAN</link>   <link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link></para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a4599a4d1e3c89bcce5301f82028561c1">pdLITTLE_ENDIAN</link>&#160;&#160;&#160;<link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_projdefs_8h_1a1ec99243cefac216db217f0d2ba20cd5">pdBIG_ENDIAN</link>   <link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link></para>
+            <listitem><para>#define <link linkend="_projdefs_8h_1a1ec99243cefac216db217f0d2ba20cd5">pdBIG_ENDIAN</link>&#160;&#160;&#160;<link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -132,392 +132,392 @@
     <title>configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES</title>
 <indexterm><primary>configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES</secondary></indexterm>
-<para><computeroutput>#define configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES   0</computeroutput></para><para>
+<para><computeroutput>#define configUSE_LIST_DATA_INTEGRITY_CHECK_BYTES&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00059">59</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a0b024e12cbca6f5018f5f1a43818b03d"/><section>
     <title>errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY</title>
 <indexterm><primary>errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY</secondary></indexterm>
-<para><computeroutput>#define errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY   ( -1 )</computeroutput></para><para>
+<para><computeroutput>#define errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY&#160;&#160;&#160;( -1 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00053">53</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a4a7ca54ee5527cd7a14830956e05ea55"/><section>
     <title>errQUEUE_BLOCKED</title>
 <indexterm><primary>errQUEUE_BLOCKED</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>errQUEUE_BLOCKED</secondary></indexterm>
-<para><computeroutput>#define errQUEUE_BLOCKED   ( -4 )</computeroutput></para><para>
+<para><computeroutput>#define errQUEUE_BLOCKED&#160;&#160;&#160;( -4 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00054">54</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a4d79b09954b1efa73ad8d87a36b4a575"/><section>
     <title>errQUEUE_EMPTY</title>
 <indexterm><primary>errQUEUE_EMPTY</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>errQUEUE_EMPTY</secondary></indexterm>
-<para><computeroutput>#define errQUEUE_EMPTY   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define errQUEUE_EMPTY&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00049">49</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ae40de11e4044a83a97d2cb5d00ce608b"/><section>
     <title>errQUEUE_FULL</title>
 <indexterm><primary>errQUEUE_FULL</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>errQUEUE_FULL</secondary></indexterm>
-<para><computeroutput>#define errQUEUE_FULL   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define errQUEUE_FULL&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00050">50</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a3b2e2afaa2851576dfc2779a7fea59b4"/><section>
     <title>errQUEUE_YIELD</title>
 <indexterm><primary>errQUEUE_YIELD</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>errQUEUE_YIELD</secondary></indexterm>
-<para><computeroutput>#define errQUEUE_YIELD   ( -5 )</computeroutput></para><para>
+<para><computeroutput>#define errQUEUE_YIELD&#160;&#160;&#160;( -5 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00055">55</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a1ec99243cefac216db217f0d2ba20cd5"/><section>
     <title>pdBIG_ENDIAN</title>
 <indexterm><primary>pdBIG_ENDIAN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdBIG_ENDIAN</secondary></indexterm>
-<para><computeroutput>#define pdBIG_ENDIAN   <link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link></computeroutput></para><para>
+<para><computeroutput>#define pdBIG_ENDIAN&#160;&#160;&#160;<link linkend="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59">pdFREERTOS_BIG_ENDIAN</link></computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00118">118</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a99e2866c8cf4fe86db87dab62e7d6aa6"/><section>
     <title>pdFAIL</title>
 <indexterm><primary>pdFAIL</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFAIL</secondary></indexterm>
-<para><computeroutput>#define pdFAIL   ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
+<para><computeroutput>#define pdFAIL&#160;&#160;&#160;( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00048">48</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1aa56260e937e7e203026707e5ba944273"/><section>
     <title>pdFALSE</title>
 <indexterm><primary>pdFALSE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFALSE</secondary></indexterm>
-<para><computeroutput>#define pdFALSE   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define pdFALSE&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00044">44</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1abe2dcfba890834ec10e4d8a25dac7c59"/><section>
     <title>pdFREERTOS_BIG_ENDIAN</title>
 <indexterm><primary>pdFREERTOS_BIG_ENDIAN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_BIG_ENDIAN</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_BIG_ENDIAN   1</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_BIG_ENDIAN&#160;&#160;&#160;1</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00114">114</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ad5b2326f6a7eb09257f78f587f43e187"/><section>
     <title>pdFREERTOS_ERRNO_EACCES</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EACCES</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EACCES</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EACCES   13	/* Permission denied */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EACCES&#160;&#160;&#160;13	/* Permission denied */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00079">79</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a0c4f8236084d1cabcbff216e1b8fac7b"/><section>
     <title>pdFREERTOS_ERRNO_EADDRINUSE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EADDRINUSE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EADDRINUSE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EADDRINUSE   112	/* Address already in use */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EADDRINUSE&#160;&#160;&#160;112	/* Address already in use */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00100">100</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a85d8fca5d9fb100e674ebd9b6b29e08d"/><section>
     <title>pdFREERTOS_ERRNO_EADDRNOTAVAIL</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EADDRNOTAVAIL</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EADDRNOTAVAIL</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EADDRNOTAVAIL   125	/* Address not available */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EADDRNOTAVAIL&#160;&#160;&#160;125	/* Address not available */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00104">104</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a19316c64bd0788538b164b6241e4c49b"/><section>
     <title>pdFREERTOS_ERRNO_EAGAIN</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EAGAIN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EAGAIN</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EAGAIN   11	/* No more processes */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EAGAIN&#160;&#160;&#160;11	/* No more processes */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00076">76</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1af2407a2a0cbe16241a81bf2c1b63ff24"/><section>
     <title>pdFREERTOS_ERRNO_EALREADY</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EALREADY</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EALREADY</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EALREADY   120	/* Socket already connected */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EALREADY&#160;&#160;&#160;120	/* Socket already connected */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00103">103</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1acdf56904272b8eaec505400e0e13ca87"/><section>
     <title>pdFREERTOS_ERRNO_EBADE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EBADE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EBADE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EBADE   50	/* Invalid exchange */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EBADE&#160;&#160;&#160;50	/* Invalid exchange */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00092">92</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a242052c4e8decc6757bf2d1f0f9dde41"/><section>
     <title>pdFREERTOS_ERRNO_EBADF</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EBADF</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EBADF</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EBADF   9	/* Bad file number */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EBADF&#160;&#160;&#160;9	/* Bad file number */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00075">75</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1aa367bb36d26bc86c9346916fc7c5792c"/><section>
     <title>pdFREERTOS_ERRNO_EBUSY</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EBUSY</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EBUSY</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EBUSY   16	/* Mount device busy */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EBUSY&#160;&#160;&#160;16	/* Mount device busy */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00081">81</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a354147f9f9a35e025af5f660ff7be0bf"/><section>
     <title>pdFREERTOS_ERRNO_ECANCELED</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ECANCELED</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ECANCELED</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ECANCELED   140	/* Operation canceled. */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ECANCELED&#160;&#160;&#160;140	/* Operation canceled. */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00109">109</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1aaf394d4b1eedda0075836a98138e2e82"/><section>
     <title>pdFREERTOS_ERRNO_EEXIST</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EEXIST</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EEXIST</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EEXIST   17	/* File exists */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EEXIST&#160;&#160;&#160;17	/* File exists */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00082">82</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a1b3f9dd5c52d752b70357ed51b38c7f4"/><section>
     <title>pdFREERTOS_ERRNO_EFAULT</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EFAULT</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EFAULT</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EFAULT   14	/* Bad address */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EFAULT&#160;&#160;&#160;14	/* Bad address */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00080">80</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ae603b5c76827b60243bd8f12718c1a41"/><section>
     <title>pdFREERTOS_ERRNO_EFTYPE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EFTYPE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EFTYPE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EFTYPE   79	/* Inappropriate file type or format */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EFTYPE&#160;&#160;&#160;79	/* Inappropriate file type or format */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00093">93</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1afcb862c20a4c9641dd537770e969b8b1"/><section>
     <title>pdFREERTOS_ERRNO_EILSEQ</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EILSEQ</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EILSEQ</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EILSEQ   138	/* An invalid UTF-16 sequence was encountered. */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EILSEQ&#160;&#160;&#160;138	/* An invalid UTF-16 sequence was encountered. */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00108">108</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a6f713f2c3c90756396311337496a80b2"/><section>
     <title>pdFREERTOS_ERRNO_EINPROGRESS</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EINPROGRESS</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EINPROGRESS</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EINPROGRESS   119	/* Connection already in progress */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EINPROGRESS&#160;&#160;&#160;119	/* Connection already in progress */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00102">102</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a48cbefbca1a9ad5fd3f014580e294c8e"/><section>
     <title>pdFREERTOS_ERRNO_EINTR</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EINTR</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EINTR</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EINTR   4	/* Interrupted system call */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EINTR&#160;&#160;&#160;4	/* Interrupted system call */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00072">72</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a684b79fd72418beaf37e423323131ca7"/><section>
     <title>pdFREERTOS_ERRNO_EINVAL</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EINVAL</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EINVAL</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EINVAL   22	/* Invalid argument */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EINVAL&#160;&#160;&#160;22	/* Invalid argument */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00087">87</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a7bb52f7cee93081fcd871ced9cbf86a6"/><section>
     <title>pdFREERTOS_ERRNO_EIO</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EIO</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EIO</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EIO   5	/* I/O error */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EIO&#160;&#160;&#160;5	/* I/O error */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00073">73</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a5ebe20f940ba0710bfc993cd98895360"/><section>
     <title>pdFREERTOS_ERRNO_EISCONN</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EISCONN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EISCONN</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EISCONN   127	/* Socket is already connected */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EISCONN&#160;&#160;&#160;127	/* Socket is already connected */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00105">105</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ac85e69368d9755a4e1b5121eb3a81979"/><section>
     <title>pdFREERTOS_ERRNO_EISDIR</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EISDIR</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EISDIR</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EISDIR   21	/* Is a directory */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EISDIR&#160;&#160;&#160;21	/* Is a directory */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00086">86</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1aca50b0cb0218ab93d38e387ca7740c92"/><section>
     <title>pdFREERTOS_ERRNO_ENAMETOOLONG</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENAMETOOLONG</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENAMETOOLONG</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENAMETOOLONG   91	/* File or path name too long */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENAMETOOLONG&#160;&#160;&#160;91	/* File or path name too long */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00096">96</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a3dba13bfcdeb497752d19139ba2f463f"/><section>
     <title>pdFREERTOS_ERRNO_ENMFILE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENMFILE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENMFILE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENMFILE   89	/* No more files */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENMFILE&#160;&#160;&#160;89	/* No more files */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00094">94</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a311c6d46f86eb3f6e029473e34a4b290"/><section>
     <title>pdFREERTOS_ERRNO_ENOBUFS</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOBUFS</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOBUFS</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOBUFS   105	/* No buffer space available */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOBUFS&#160;&#160;&#160;105	/* No buffer space available */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00098">98</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a0a8f4a6b857f6c64e9c2d887bbc26beb"/><section>
     <title>pdFREERTOS_ERRNO_ENODEV</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENODEV</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENODEV</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENODEV   19	/* No such device */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENODEV&#160;&#160;&#160;19	/* No such device */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00084">84</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ada626b9e09610adf001a0d78c21ed754"/><section>
     <title>pdFREERTOS_ERRNO_ENOENT</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOENT</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOENT</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOENT   2	/* No such file or directory */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOENT&#160;&#160;&#160;2	/* No such file or directory */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00071">71</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a232fc23c4f0ff1aa323b38c3cc7a25fb"/><section>
     <title>pdFREERTOS_ERRNO_ENOMEDIUM</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOMEDIUM</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOMEDIUM</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOMEDIUM   135	/* No medium inserted */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOMEDIUM&#160;&#160;&#160;135	/* No medium inserted */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00107">107</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a5efcf687f972542033358c1a24510aee"/><section>
     <title>pdFREERTOS_ERRNO_ENOMEM</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOMEM</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOMEM</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOMEM   12	/* Not enough memory */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOMEM&#160;&#160;&#160;12	/* Not enough memory */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00078">78</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a3260d6cafcdb3971622605ac4d3bf3d2"/><section>
     <title>pdFREERTOS_ERRNO_ENOPROTOOPT</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOPROTOOPT</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOPROTOOPT</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOPROTOOPT   109	/* Protocol not available */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOPROTOOPT&#160;&#160;&#160;109	/* Protocol not available */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00099">99</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ada91bb26e0b830b169433aae5ce857cc"/><section>
     <title>pdFREERTOS_ERRNO_ENOSPC</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOSPC</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOSPC</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOSPC   28	/* No space left on device */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOSPC&#160;&#160;&#160;28	/* No space left on device */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00088">88</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a2038d432f2a030e1c3ecdeb68676f920"/><section>
     <title>pdFREERTOS_ERRNO_ENOTCONN</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOTCONN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOTCONN</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTCONN   128	/* Socket is not connected */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTCONN&#160;&#160;&#160;128	/* Socket is not connected */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00106">106</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a664d5546ffc5cfbd7c28c02ee704030f"/><section>
     <title>pdFREERTOS_ERRNO_ENOTDIR</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOTDIR</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOTDIR</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTDIR   20	/* Not a directory */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTDIR&#160;&#160;&#160;20	/* Not a directory */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00085">85</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a01a1dbf74da4d89538fdd9d424404808"/><section>
     <title>pdFREERTOS_ERRNO_ENOTEMPTY</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENOTEMPTY</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENOTEMPTY</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTEMPTY   90	/* Directory not empty */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENOTEMPTY&#160;&#160;&#160;90	/* Directory not empty */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00095">95</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a84867230ed86089284031935cab091a5"/><section>
     <title>pdFREERTOS_ERRNO_ENXIO</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ENXIO</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ENXIO</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ENXIO   6	/* No such device or address */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ENXIO&#160;&#160;&#160;6	/* No such device or address */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00074">74</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a583344ca8f038153e0c988559064b6b6"/><section>
     <title>pdFREERTOS_ERRNO_EOPNOTSUPP</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EOPNOTSUPP</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EOPNOTSUPP</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EOPNOTSUPP   95	/* Operation not supported on transport endpoint */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EOPNOTSUPP&#160;&#160;&#160;95	/* Operation not supported on transport endpoint */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00097">97</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a83094f3620b1d91ed85f98347b481c29"/><section>
     <title>pdFREERTOS_ERRNO_EROFS</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EROFS</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EROFS</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EROFS   30	/* Read only file system */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EROFS&#160;&#160;&#160;30	/* Read only file system */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00090">90</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a441a754724ed5708ac0d31d10e97dbec"/><section>
     <title>pdFREERTOS_ERRNO_ESPIPE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ESPIPE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ESPIPE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ESPIPE   29	/* Illegal seek */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ESPIPE&#160;&#160;&#160;29	/* Illegal seek */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00089">89</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1addf14e54d85281da325711c219b6f0e7"/><section>
     <title>pdFREERTOS_ERRNO_ETIMEDOUT</title>
 <indexterm><primary>pdFREERTOS_ERRNO_ETIMEDOUT</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_ETIMEDOUT</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_ETIMEDOUT   116	/* Connection timed out */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_ETIMEDOUT&#160;&#160;&#160;116	/* Connection timed out */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00101">101</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ab32e968fc64c5ddcd1f2b1de9debd576"/><section>
     <title>pdFREERTOS_ERRNO_EUNATCH</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EUNATCH</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EUNATCH</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EUNATCH   42	/* Protocol driver not attached */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EUNATCH&#160;&#160;&#160;42	/* Protocol driver not attached */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00091">91</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a4cbad67c49bf49adbd0c9c1917a0e5e6"/><section>
     <title>pdFREERTOS_ERRNO_EWOULDBLOCK</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EWOULDBLOCK</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EWOULDBLOCK</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EWOULDBLOCK   11	/* Operation would block */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EWOULDBLOCK&#160;&#160;&#160;11	/* Operation would block */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00077">77</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a75aadb287c3f7089edb7f1c85319b105"/><section>
     <title>pdFREERTOS_ERRNO_EXDEV</title>
 <indexterm><primary>pdFREERTOS_ERRNO_EXDEV</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_EXDEV</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_EXDEV   18	/* Cross-device link */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_EXDEV&#160;&#160;&#160;18	/* Cross-device link */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00083">83</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1ad836dd7abef3eced71f4ce24d39debd9"/><section>
     <title>pdFREERTOS_ERRNO_NONE</title>
 <indexterm><primary>pdFREERTOS_ERRNO_NONE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_ERRNO_NONE</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_ERRNO_NONE   0	/* No errors */</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_ERRNO_NONE&#160;&#160;&#160;0	/* No errors */</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00070">70</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10"/><section>
     <title>pdFREERTOS_LITTLE_ENDIAN</title>
 <indexterm><primary>pdFREERTOS_LITTLE_ENDIAN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdFREERTOS_LITTLE_ENDIAN</secondary></indexterm>
-<para><computeroutput>#define pdFREERTOS_LITTLE_ENDIAN   0</computeroutput></para><para>
+<para><computeroutput>#define pdFREERTOS_LITTLE_ENDIAN&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00113">113</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a692e23284a1eff2b98132042b0c2c99d"/><section>
     <title>pdINTEGRITY_CHECK_VALUE</title>
 <indexterm><primary>pdINTEGRITY_CHECK_VALUE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdINTEGRITY_CHECK_VALUE</secondary></indexterm>
-<para><computeroutput>#define pdINTEGRITY_CHECK_VALUE   0x5a5a5a5aUL</computeroutput></para><para>
+<para><computeroutput>#define pdINTEGRITY_CHECK_VALUE&#160;&#160;&#160;0x5a5a5a5aUL</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00065">65</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a4599a4d1e3c89bcce5301f82028561c1"/><section>
     <title>pdLITTLE_ENDIAN</title>
 <indexterm><primary>pdLITTLE_ENDIAN</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdLITTLE_ENDIAN</secondary></indexterm>
-<para><computeroutput>#define pdLITTLE_ENDIAN   <link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link></computeroutput></para><para>
+<para><computeroutput>#define pdLITTLE_ENDIAN&#160;&#160;&#160;<link linkend="_projdefs_8h_1a2677d93f2de37bcd907c6967c583fd10">pdFREERTOS_LITTLE_ENDIAN</link></computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00117">117</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a353d0f62b82a402cb3db63706c81ec3f"/><section>
     <title>pdMS_TO_TICKS</title>
 <indexterm><primary>pdMS_TO_TICKS</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdMS_TO_TICKS</secondary></indexterm>
-<para><computeroutput>#define pdMS_TO_TICKS( xTimeInMs)   ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( xTimeInMs ) * ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> ) / ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 ) )</computeroutput></para><para>
+<para><computeroutput>#define pdMS_TO_TICKS( xTimeInMs)&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( ( ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) ( xTimeInMs ) * ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) <link linkend="__free_r_t_o_s_config__default_8h_1a2f0258dd1e3b877e5bc013be54c2db6a">configTICK_RATE_HZ</link> ) / ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 1000 ) )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00041">41</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1a07848d3078849bd32353c69d30a479b3"/><section>
     <title>pdPASS</title>
 <indexterm><primary>pdPASS</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdPASS</secondary></indexterm>
-<para><computeroutput>#define pdPASS   ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</computeroutput></para><para>
+<para><computeroutput>#define pdPASS&#160;&#160;&#160;( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00047">47</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 <anchor xml:id="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe"/><section>
     <title>pdTRUE</title>
 <indexterm><primary>pdTRUE</primary><secondary>projdefs.h</secondary></indexterm>
 <indexterm><primary>projdefs.h</primary><secondary>pdTRUE</secondary></indexterm>
-<para><computeroutput>#define pdTRUE   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</computeroutput></para><para>
+<para><computeroutput>#define pdTRUE&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</computeroutput></para><para>
 Definition at line <link linkend="_projdefs_8h_source_1l00045">45</link> of file <link linkend="_projdefs_8h_source">projdefs.h</link>.</para>
 </section>
 </section>

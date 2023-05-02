@@ -17,6 +17,5 @@ var searchData=
   ['motortemperaturelog_14',['motorTemperatureLog',['../_main_8h.html#a74a7fab0bce9e95dfced1f40d1764e9a',1,'Main.h']]],
   ['motortemps_15',['motorTemps',['../struct_c_a_n_task_data.html#a28c4ff53f540fa92e730acfd0def5d88',1,'CANTaskData::motorTemps()'],['../struct_pre_charge_task_data.html#a3e8e3c4386b66dbf1011082b1f8ce7aa',1,'PreChargeTaskData::motorTemps()'],['../_main_8h.html#abb61c6dc61d12b31aad7bdadd495b70a',1,'motorTemps():&#160;Main.h']]],
   ['ms_16',['ms',['../_main_8h.html#a548fbf99c23fe3ef17f2e1a7b0992070',1,'Main.h']]],
-  ['msdatawrap_17',['msDataWrap',['../structdisplay_task_wrapper.html#a51bf468020bb98383d49a9e0e39422cc',1,'displayTaskWrapper']]],
-  ['mutex_18',['mutex',['../structmbedtls__threading__mutex__t.html#a65e31070213d56dca105a6727dce9ada',1,'mbedtls_threading_mutex_t']]]
+  ['mutex_17',['mutex',['../structmbedtls__threading__mutex__t.html#a65e31070213d56dca105a6727dce9ada',1,'mbedtls_threading_mutex_t']]]
 ];

@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_timers_8c" xml:lang="en-US">
-<title>FreeRTOS/timers.c File Reference</title>
-<indexterm><primary>FreeRTOS/timers.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;
-#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &quot;queue.h&quot;
-#include &quot;timers.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/timers.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/timers.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdlib.h&gt;<?linebreak?>#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &quot;queue.h&quot;<?linebreak?>#include &quot;timers.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structtmr_timer_control">tmrTimerControl</link></para>
@@ -25,15 +20,15 @@
         <itemizedlist>
             <listitem><para>#define <link linkend="_timers_8c_1ab622d8c674f2a417a666a7ed89109e79">MPU_WRAPPERS_INCLUDED_FROM_API_FILE</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_timers_8c_1af5b629ff23c10e8664d5e898b7ac3c7c">tmrNO_DELAY</link>   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</para>
+            <listitem><para>#define <link linkend="_timers_8c_1af5b629ff23c10e8664d5e898b7ac3c7c">tmrNO_DELAY</link>&#160;&#160;&#160;( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</para>
 </listitem>
-            <listitem><para>#define <link linkend="_timers_8c_1a2489265c98974dc76c4f783495d8f83b">configTIMER_SERVICE_TASK_NAME</link>   &quot;Tmr Svc&quot;</para>
+            <listitem><para>#define <link linkend="_timers_8c_1a2489265c98974dc76c4f783495d8f83b">configTIMER_SERVICE_TASK_NAME</link>&#160;&#160;&#160;&quot;Tmr Svc&quot;</para>
 </listitem>
-            <listitem><para>#define <link linkend="_timers_8c_1ad0ccafec754ad5deda7e133778901ca6">tmrSTATUS_IS_ACTIVE</link>   ( ( uint8_t ) 0x01 )</para>
+            <listitem><para>#define <link linkend="_timers_8c_1ad0ccafec754ad5deda7e133778901ca6">tmrSTATUS_IS_ACTIVE</link>&#160;&#160;&#160;( ( uint8_t ) 0x01 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_timers_8c_1a6f3ee5de8599edb425c892d7be35079d">tmrSTATUS_IS_STATICALLY_ALLOCATED</link>   ( ( uint8_t ) 0x02 )</para>
+            <listitem><para>#define <link linkend="_timers_8c_1a6f3ee5de8599edb425c892d7be35079d">tmrSTATUS_IS_STATICALLY_ALLOCATED</link>&#160;&#160;&#160;( ( uint8_t ) 0x02 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_timers_8c_1a183834e21d7d97a36cc3fd78d297c674">tmrSTATUS_IS_AUTORELOAD</link>   ( ( uint8_t ) 0x04 )</para>
+            <listitem><para>#define <link linkend="_timers_8c_1a183834e21d7d97a36cc3fd78d297c674">tmrSTATUS_IS_AUTORELOAD</link>&#160;&#160;&#160;( ( uint8_t ) 0x04 )</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -130,7 +125,7 @@
     <title>configTIMER_SERVICE_TASK_NAME</title>
 <indexterm><primary>configTIMER_SERVICE_TASK_NAME</primary><secondary>timers.c</secondary></indexterm>
 <indexterm><primary>timers.c</primary><secondary>configTIMER_SERVICE_TASK_NAME</secondary></indexterm>
-<para><computeroutput>#define configTIMER_SERVICE_TASK_NAME   &quot;Tmr Svc&quot;</computeroutput></para><para>
+<para><computeroutput>#define configTIMER_SERVICE_TASK_NAME&#160;&#160;&#160;&quot;Tmr Svc&quot;</computeroutput></para><para>
 Definition at line <link linkend="_timers_8c_source_1l00064">64</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
 </section>
 <anchor xml:id="_timers_8c_1ab622d8c674f2a417a666a7ed89109e79"/><section>
@@ -144,28 +139,28 @@ Definition at line <link linkend="_timers_8c_source_1l00034">34</link> of file <
     <title>tmrNO_DELAY</title>
 <indexterm><primary>tmrNO_DELAY</primary><secondary>timers.c</secondary></indexterm>
 <indexterm><primary>timers.c</primary><secondary>tmrNO_DELAY</secondary></indexterm>
-<para><computeroutput>#define tmrNO_DELAY   ( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</computeroutput></para><para>
+<para><computeroutput>#define tmrNO_DELAY&#160;&#160;&#160;( <link linkend="_portmacro_8h_1aa69c48c6e902ce54f70886e6573c92a9">TickType_t</link> ) 0U</computeroutput></para><para>
 Definition at line <link linkend="_timers_8c_source_1l00059">59</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
 </section>
 <anchor xml:id="_timers_8c_1ad0ccafec754ad5deda7e133778901ca6"/><section>
     <title>tmrSTATUS_IS_ACTIVE</title>
 <indexterm><primary>tmrSTATUS_IS_ACTIVE</primary><secondary>timers.c</secondary></indexterm>
 <indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_ACTIVE</secondary></indexterm>
-<para><computeroutput>#define tmrSTATUS_IS_ACTIVE   ( ( uint8_t ) 0x01 )</computeroutput></para><para>
+<para><computeroutput>#define tmrSTATUS_IS_ACTIVE&#160;&#160;&#160;( ( uint8_t ) 0x01 )</computeroutput></para><para>
 Definition at line <link linkend="_timers_8c_source_1l00068">68</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
 </section>
 <anchor xml:id="_timers_8c_1a183834e21d7d97a36cc3fd78d297c674"/><section>
     <title>tmrSTATUS_IS_AUTORELOAD</title>
 <indexterm><primary>tmrSTATUS_IS_AUTORELOAD</primary><secondary>timers.c</secondary></indexterm>
 <indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_AUTORELOAD</secondary></indexterm>
-<para><computeroutput>#define tmrSTATUS_IS_AUTORELOAD   ( ( uint8_t ) 0x04 )</computeroutput></para><para>
+<para><computeroutput>#define tmrSTATUS_IS_AUTORELOAD&#160;&#160;&#160;( ( uint8_t ) 0x04 )</computeroutput></para><para>
 Definition at line <link linkend="_timers_8c_source_1l00070">70</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
 </section>
 <anchor xml:id="_timers_8c_1a6f3ee5de8599edb425c892d7be35079d"/><section>
     <title>tmrSTATUS_IS_STATICALLY_ALLOCATED</title>
 <indexterm><primary>tmrSTATUS_IS_STATICALLY_ALLOCATED</primary><secondary>timers.c</secondary></indexterm>
 <indexterm><primary>timers.c</primary><secondary>tmrSTATUS_IS_STATICALLY_ALLOCATED</secondary></indexterm>
-<para><computeroutput>#define tmrSTATUS_IS_STATICALLY_ALLOCATED   ( ( uint8_t ) 0x02 )</computeroutput></para><para>
+<para><computeroutput>#define tmrSTATUS_IS_STATICALLY_ALLOCATED&#160;&#160;&#160;( ( uint8_t ) 0x02 )</computeroutput></para><para>
 Definition at line <link linkend="_timers_8c_source_1l00069">69</link> of file <link linkend="_timers_8c_source">timers.c</link>.</para>
 </section>
 </section>

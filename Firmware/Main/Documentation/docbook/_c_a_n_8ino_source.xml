@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__c_a_n_8ino_source" xml:lang="en-US">
-<title>CAN.ino</title>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino</title>
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__c_a_n_8ino_source_1l00001"/>00001 
 <anchor xml:id="__c_a_n_8ino_source_1l00028"/>00028 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__c_a_n_8h">CAN.h</link>&quot;</emphasis>
 <anchor xml:id="__c_a_n_8ino_source_1l00029"/>00029 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__free_r_t_o_s___t_e_e_n_s_y4_8h">FreeRTOS_TEENSY4.h</link>&quot;</emphasis>
@@ -10,7 +10,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="__c_a_n_8ino_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;requestCells&#32;=&#32;1;
 <anchor xml:id="__c_a_n_8ino_source_1l00034"/>00034 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(1)&#32;{
 <anchor xml:id="__c_a_n_8ino_source_1l00036"/>00036 
-<anchor xml:id="__c_a_n_8ino_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="__main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34">CAN_NODES</link>&#32;!=0)&#32;{
+<anchor xml:id="__c_a_n_8ino_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_config_8h_1a9d09068130671d9ca6bf3c9b6fac6e34">CAN_NODES</link>&#32;!=0)&#32;{
 <anchor xml:id="__c_a_n_8ino_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__c_a_n_8ino_1ab92f5f7e74cba4411e9f1c6f32a720a5">checkCAN</link>(*(<link linkend="_struct_c_a_n_task_data">CANTaskData</link>&#32;*)canData);
 <anchor xml:id="__c_a_n_8ino_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(iter&#32;==&#32;(1000&#32;/&#32;20)&#32;*&#32;2)&#32;{
 <anchor xml:id="__c_a_n_8ino_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="__c_a_n_8ino_1a0953b2f37f0e637d3f5fba2148109d2a">requestCellVoltages</link>(requestCells);

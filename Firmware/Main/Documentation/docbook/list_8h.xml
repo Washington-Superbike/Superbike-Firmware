@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_list_8h" xml:lang="en-US">
-<title>FreeRTOS/list.h File Reference</title>
-<indexterm><primary>FreeRTOS/list.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/list.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/list.h</primary></indexterm>
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
@@ -38,35 +38,35 @@
 </listitem>
             <listitem><para>#define <link linkend="_list_8h_1a337d6137e0a4d37321efc5c2f31dba22">listTEST_LIST_INTEGRITY</link>(pxList)</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1acc01a08e534b54fe438847ef02e5060a">listSET_LIST_ITEM_OWNER</link>(pxListItem,  pxOwner)   ( ( pxListItem )-&gt;pvOwner = ( void * ) ( pxOwner ) )</para>
+            <listitem><para>#define <link linkend="_list_8h_1acc01a08e534b54fe438847ef02e5060a">listSET_LIST_ITEM_OWNER</link>(pxListItem,  pxOwner)&#160;&#160;&#160;( ( pxListItem )-&gt;pvOwner = ( void * ) ( pxOwner ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1aa9469bd061a44b4f75d30c6175f66d5c">listGET_LIST_ITEM_OWNER</link>(pxListItem)   ( ( pxListItem )-&gt;pvOwner )</para>
+            <listitem><para>#define <link linkend="_list_8h_1aa9469bd061a44b4f75d30c6175f66d5c">listGET_LIST_ITEM_OWNER</link>(pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pvOwner )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a83e95e61652f032fdc26aa622f5e2610">listSET_LIST_ITEM_VALUE</link>(pxListItem,  xValue)   ( ( pxListItem )-&gt;xItemValue = ( xValue ) )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a83e95e61652f032fdc26aa622f5e2610">listSET_LIST_ITEM_VALUE</link>(pxListItem,  xValue)&#160;&#160;&#160;( ( pxListItem )-&gt;xItemValue = ( xValue ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1aa50d09950abc602741d7ebe8387f4e1a">listGET_LIST_ITEM_VALUE</link>(pxListItem)   ( ( pxListItem )-&gt;xItemValue )</para>
+            <listitem><para>#define <link linkend="_list_8h_1aa50d09950abc602741d7ebe8387f4e1a">listGET_LIST_ITEM_VALUE</link>(pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;xItemValue )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a63742b27958b959ac9ab69d8e9aed241">listGET_ITEM_VALUE_OF_HEAD_ENTRY</link>(pxList)   ( ( ( pxList )-&gt;xListEnd ).pxNext-&gt;xItemValue )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a63742b27958b959ac9ab69d8e9aed241">listGET_ITEM_VALUE_OF_HEAD_ENTRY</link>(pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;xListEnd ).pxNext-&gt;xItemValue )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a987cb2766e509022c23b654907cea199">listGET_HEAD_ENTRY</link>(pxList)   ( ( ( pxList )-&gt;xListEnd ).pxNext )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a987cb2766e509022c23b654907cea199">listGET_HEAD_ENTRY</link>(pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;xListEnd ).pxNext )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1aabf78d3f24ba56ac1d0bf0179438b960">listGET_NEXT</link>(pxListItem)   ( ( pxListItem )-&gt;pxNext )</para>
+            <listitem><para>#define <link linkend="_list_8h_1aabf78d3f24ba56ac1d0bf0179438b960">listGET_NEXT</link>(pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pxNext )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a96cb0919f02e5c0d8e41ded0e65197a3">listGET_END_MARKER</link>(pxList)   ( ( <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> const * ) ( &amp;( ( pxList )-&gt;xListEnd ) ) )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a96cb0919f02e5c0d8e41ded0e65197a3">listGET_END_MARKER</link>(pxList)&#160;&#160;&#160;( ( <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> const * ) ( &amp;( ( pxList )-&gt;xListEnd ) ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</link>(pxList)   ( ( ( pxList )-&gt;uxNumberOfItems == ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 ) ? <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> : <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
+            <listitem><para>#define <link linkend="_list_8h_1aaba6eb05d67ebc8026bea29193eca28f">listLIST_IS_EMPTY</link>(pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;uxNumberOfItems == ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 ) ? <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> : <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</link>(pxList)   ( ( pxList )-&gt;uxNumberOfItems )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a18b4aded515bdc512017ea6e677a13bb">listCURRENT_LIST_LENGTH</link>(pxList)&#160;&#160;&#160;( ( pxList )-&gt;uxNumberOfItems )</para>
 </listitem>
             <listitem><para>#define <link linkend="_list_8h_1a275d9855e9b71652e2b8f6e2ed62aadd">listGET_OWNER_OF_NEXT_ENTRY</link>(pxTCB,  pxList)</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a715561302af8cb5b74416b23ce4e999d">listGET_OWNER_OF_HEAD_ENTRY</link>(pxList)   ( (&amp;( ( pxList )-&gt;xListEnd ))-&gt;pxNext-&gt;pvOwner )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a715561302af8cb5b74416b23ce4e999d">listGET_OWNER_OF_HEAD_ENTRY</link>(pxList)&#160;&#160;&#160;( (&amp;( ( pxList )-&gt;xListEnd ))-&gt;pxNext-&gt;pvOwner )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a60302b468d21f8c53d13987372acb8fa">listIS_CONTAINED_WITHIN</link>(pxList,  pxListItem)   ( ( ( pxListItem )-&gt;pxContainer == ( pxList ) ) ? ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> ) : ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a60302b468d21f8c53d13987372acb8fa">listIS_CONTAINED_WITHIN</link>(pxList,  pxListItem)&#160;&#160;&#160;( ( ( pxListItem )-&gt;pxContainer == ( pxList ) ) ? ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> ) : ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a7c4dff11380cd843ed0b6a8dc065916b">listLIST_ITEM_CONTAINER</link>(pxListItem)   ( ( pxListItem )-&gt;pxContainer )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a7c4dff11380cd843ed0b6a8dc065916b">listLIST_ITEM_CONTAINER</link>(pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pxContainer )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_list_8h_1a7e17f81438dd0bd705714267a611ff28">listLIST_IS_INITIALISED</link>(pxList)   ( ( pxList )-&gt;xListEnd.xItemValue == <link linkend="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</link> )</para>
+            <listitem><para>#define <link linkend="_list_8h_1a7e17f81438dd0bd705714267a611ff28">listLIST_IS_INITIALISED</link>(pxList)&#160;&#160;&#160;( ( pxList )-&gt;xListEnd.xItemValue == <link linkend="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</link> )</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -109,7 +109,7 @@ Definition at line <link linkend="_list_8h_source_1l00092">92</link> of file <li
     <title>listCURRENT_LIST_LENGTH</title>
 <indexterm><primary>listCURRENT_LIST_LENGTH</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listCURRENT_LIST_LENGTH</secondary></indexterm>
-<para><computeroutput>#define listCURRENT_LIST_LENGTH( pxList)   ( ( pxList )-&gt;uxNumberOfItems )</computeroutput></para><para>
+<para><computeroutput>#define listCURRENT_LIST_LENGTH( pxList)&#160;&#160;&#160;( ( pxList )-&gt;uxNumberOfItems )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00255">255</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a3a52b5a4f70d3a07e37a5814a23ba880"/><section>
@@ -130,49 +130,49 @@ Definition at line <link linkend="_list_8h_source_1l00106">106</link> of file <l
     <title>listGET_END_MARKER</title>
 <indexterm><primary>listGET_END_MARKER</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_END_MARKER</secondary></indexterm>
-<para><computeroutput>#define listGET_END_MARKER( pxList)   ( ( <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> const * ) ( &amp;( ( pxList )-&gt;xListEnd ) ) )</computeroutput></para><para>
+<para><computeroutput>#define listGET_END_MARKER( pxList)&#160;&#160;&#160;( ( <link linkend="_list_8h_1a1a62d469392f9bfe2443e7efab9c8398">ListItem_t</link> const * ) ( &amp;( ( pxList )-&gt;xListEnd ) ) )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00241">241</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a987cb2766e509022c23b654907cea199"/><section>
     <title>listGET_HEAD_ENTRY</title>
 <indexterm><primary>listGET_HEAD_ENTRY</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_HEAD_ENTRY</secondary></indexterm>
-<para><computeroutput>#define listGET_HEAD_ENTRY( pxList)   ( ( ( pxList )-&gt;xListEnd ).pxNext )</computeroutput></para><para>
+<para><computeroutput>#define listGET_HEAD_ENTRY( pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;xListEnd ).pxNext )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00225">225</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a63742b27958b959ac9ab69d8e9aed241"/><section>
     <title>listGET_ITEM_VALUE_OF_HEAD_ENTRY</title>
 <indexterm><primary>listGET_ITEM_VALUE_OF_HEAD_ENTRY</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_ITEM_VALUE_OF_HEAD_ENTRY</secondary></indexterm>
-<para><computeroutput>#define listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxList)   ( ( ( pxList )-&gt;xListEnd ).pxNext-&gt;xItemValue )</computeroutput></para><para>
+<para><computeroutput>#define listGET_ITEM_VALUE_OF_HEAD_ENTRY( pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;xListEnd ).pxNext-&gt;xItemValue )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00217">217</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1aa9469bd061a44b4f75d30c6175f66d5c"/><section>
     <title>listGET_LIST_ITEM_OWNER</title>
 <indexterm><primary>listGET_LIST_ITEM_OWNER</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_LIST_ITEM_OWNER</secondary></indexterm>
-<para><computeroutput>#define listGET_LIST_ITEM_OWNER( pxListItem)   ( ( pxListItem )-&gt;pvOwner )</computeroutput></para><para>
+<para><computeroutput>#define listGET_LIST_ITEM_OWNER( pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pvOwner )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00189">189</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1aa50d09950abc602741d7ebe8387f4e1a"/><section>
     <title>listGET_LIST_ITEM_VALUE</title>
 <indexterm><primary>listGET_LIST_ITEM_VALUE</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_LIST_ITEM_VALUE</secondary></indexterm>
-<para><computeroutput>#define listGET_LIST_ITEM_VALUE( pxListItem)   ( ( pxListItem )-&gt;xItemValue )</computeroutput></para><para>
+<para><computeroutput>#define listGET_LIST_ITEM_VALUE( pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;xItemValue )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00208">208</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1aabf78d3f24ba56ac1d0bf0179438b960"/><section>
     <title>listGET_NEXT</title>
 <indexterm><primary>listGET_NEXT</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_NEXT</secondary></indexterm>
-<para><computeroutput>#define listGET_NEXT( pxListItem)   ( ( pxListItem )-&gt;pxNext )</computeroutput></para><para>
+<para><computeroutput>#define listGET_NEXT( pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pxNext )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00233">233</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a715561302af8cb5b74416b23ce4e999d"/><section>
     <title>listGET_OWNER_OF_HEAD_ENTRY</title>
 <indexterm><primary>listGET_OWNER_OF_HEAD_ENTRY</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_OWNER_OF_HEAD_ENTRY</secondary></indexterm>
-<para><computeroutput>#define listGET_OWNER_OF_HEAD_ENTRY( pxList)   ( (&amp;( ( pxList )-&gt;xListEnd ))-&gt;pxNext-&gt;pvOwner )</computeroutput></para><para>
+<para><computeroutput>#define listGET_OWNER_OF_HEAD_ENTRY( pxList)&#160;&#160;&#160;( (&amp;( ( pxList )-&gt;xListEnd ))-&gt;pxNext-&gt;pvOwner )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00307">307</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a275d9855e9b71652e2b8f6e2ed62aadd"/><section>
@@ -180,15 +180,15 @@ Definition at line <link linkend="_list_8h_source_1l00307">307</link> of file <l
 <indexterm><primary>listGET_OWNER_OF_NEXT_ENTRY</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listGET_OWNER_OF_NEXT_ENTRY</secondary></indexterm>
 <para><computeroutput>#define listGET_OWNER_OF_NEXT_ENTRY( pxTCB,  pxList)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-List_t&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;pxConstList&#32;=&#32;(&#32;pxList&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+<link linkend="_structx_l_i_s_t">List_t</link>&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;pxConstList&#32;=&#32;(&#32;pxList&#32;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;Increment&#32;the&#32;index&#32;to&#32;the&#32;next&#32;item&#32;and&#32;return&#32;the&#32;item,&#32;ensuring&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;we&#32;don&apos;t&#32;return&#32;the&#32;marker&#32;used&#32;at&#32;the&#32;end&#32;of&#32;the&#32;list.&#32;&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;(&#32;pxConstList&#32;)-&gt;pxIndex&#32;=&#32;(&#32;pxConstList&#32;)-&gt;pxIndex-&gt;pxNext;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;(&#32;pxConstList&#32;)-&gt;pxIndex&#32;=&#32;(&#32;pxConstList&#32;)-&gt;<link linkend="_structx_l_i_s_t_1aa8dbb12e54fab6a83458349c1c9eba47">pxIndex</link>-&gt;<link linkend="_structx_l_i_s_t___i_t_e_m_1afe105a3d59c8ff0216cdf9850970ef41">pxNext</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;if(&#32;(&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;)&#32;(&#32;pxConstList&#32;)-&gt;pxIndex&#32;==&#32;(&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;)&#32;&amp;(&#32;(&#32;pxConstList&#32;)-&gt;xListEnd&#32;)&#32;)&#32;&#32;\
 &#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(&#32;pxConstList&#32;)-&gt;pxIndex&#32;=&#32;(&#32;pxConstList&#32;)-&gt;pxIndex-&gt;pxNext;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(&#32;pxConstList&#32;)-&gt;pxIndex&#32;=&#32;(&#32;pxConstList&#32;)-&gt;pxIndex-&gt;<link linkend="_structx_l_i_s_t___i_t_e_m_1afe105a3d59c8ff0216cdf9850970ef41">pxNext</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 &#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
-&#32;&#32;&#32;&#32;(&#32;pxTCB&#32;)&#32;=&#32;(&#32;pxConstList&#32;)-&gt;pxIndex-&gt;pvOwner;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;(&#32;pxTCB&#32;)&#32;=&#32;(&#32;pxConstList&#32;)-&gt;pxIndex-&gt;<link linkend="_structx_l_i_s_t___i_t_e_m_1aeb3110b50fe0dbce826d929b27b5ddb1">pvOwner</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
 }
 </programlisting><para>
 Definition at line <link linkend="_list_8h_source_1l00277">277</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
@@ -197,28 +197,28 @@ Definition at line <link linkend="_list_8h_source_1l00277">277</link> of file <l
     <title>listIS_CONTAINED_WITHIN</title>
 <indexterm><primary>listIS_CONTAINED_WITHIN</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listIS_CONTAINED_WITHIN</secondary></indexterm>
-<para><computeroutput>#define listIS_CONTAINED_WITHIN( pxList,  pxListItem)   ( ( ( pxListItem )-&gt;pxContainer == ( pxList ) ) ? ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> ) : ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) )</computeroutput></para><para>
+<para><computeroutput>#define listIS_CONTAINED_WITHIN( pxList,  pxListItem)&#160;&#160;&#160;( ( ( pxListItem )-&gt;pxContainer == ( pxList ) ) ? ( <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> ) : ( <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> ) )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00318">318</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1aaba6eb05d67ebc8026bea29193eca28f"/><section>
     <title>listLIST_IS_EMPTY</title>
 <indexterm><primary>listLIST_IS_EMPTY</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listLIST_IS_EMPTY</secondary></indexterm>
-<para><computeroutput>#define listLIST_IS_EMPTY( pxList)   ( ( ( pxList )-&gt;uxNumberOfItems == ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 ) ? <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> : <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
+<para><computeroutput>#define listLIST_IS_EMPTY( pxList)&#160;&#160;&#160;( ( ( pxList )-&gt;uxNumberOfItems == ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0 ) ? <link linkend="_projdefs_8h_1af268cf937960eb029256bd9c4d949fbe">pdTRUE</link> : <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00250">250</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a7e17f81438dd0bd705714267a611ff28"/><section>
     <title>listLIST_IS_INITIALISED</title>
 <indexterm><primary>listLIST_IS_INITIALISED</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listLIST_IS_INITIALISED</secondary></indexterm>
-<para><computeroutput>#define listLIST_IS_INITIALISED( pxList)   ( ( pxList )-&gt;xListEnd.xItemValue == <link linkend="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</link> )</computeroutput></para><para>
+<para><computeroutput>#define listLIST_IS_INITIALISED( pxList)&#160;&#160;&#160;( ( pxList )-&gt;xListEnd.xItemValue == <link linkend="_portmacro_8h_1a72723ba1e4a85ca14f25c2b9e066613d">portMAX_DELAY</link> )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00333">333</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a7c4dff11380cd843ed0b6a8dc065916b"/><section>
     <title>listLIST_ITEM_CONTAINER</title>
 <indexterm><primary>listLIST_ITEM_CONTAINER</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listLIST_ITEM_CONTAINER</secondary></indexterm>
-<para><computeroutput>#define listLIST_ITEM_CONTAINER( pxListItem)   ( ( pxListItem )-&gt;pxContainer )</computeroutput></para><para>
+<para><computeroutput>#define listLIST_ITEM_CONTAINER( pxListItem)&#160;&#160;&#160;( ( pxListItem )-&gt;pxContainer )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00326">326</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a87dc70c22e3ff0eba560d6f357472634"/><section>
@@ -260,14 +260,14 @@ Definition at line <link linkend="_list_8h_source_1l00113">113</link> of file <l
     <title>listSET_LIST_ITEM_OWNER</title>
 <indexterm><primary>listSET_LIST_ITEM_OWNER</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listSET_LIST_ITEM_OWNER</secondary></indexterm>
-<para><computeroutput>#define listSET_LIST_ITEM_OWNER( pxListItem,  pxOwner)   ( ( pxListItem )-&gt;pvOwner = ( void * ) ( pxOwner ) )</computeroutput></para><para>
+<para><computeroutput>#define listSET_LIST_ITEM_OWNER( pxListItem,  pxOwner)&#160;&#160;&#160;( ( pxListItem )-&gt;pvOwner = ( void * ) ( pxOwner ) )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00180">180</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1a83e95e61652f032fdc26aa622f5e2610"/><section>
     <title>listSET_LIST_ITEM_VALUE</title>
 <indexterm><primary>listSET_LIST_ITEM_VALUE</primary><secondary>list.h</secondary></indexterm>
 <indexterm><primary>list.h</primary><secondary>listSET_LIST_ITEM_VALUE</secondary></indexterm>
-<para><computeroutput>#define listSET_LIST_ITEM_VALUE( pxListItem,  xValue)   ( ( pxListItem )-&gt;xItemValue = ( xValue ) )</computeroutput></para><para>
+<para><computeroutput>#define listSET_LIST_ITEM_VALUE( pxListItem,  xValue)&#160;&#160;&#160;( ( pxListItem )-&gt;xItemValue = ( xValue ) )</computeroutput></para><para>
 Definition at line <link linkend="_list_8h_source_1l00198">198</link> of file <link linkend="_list_8h_source">list.h</link>.</para>
 </section>
 <anchor xml:id="_list_8h_1ac8b9d912bdcfdb5544f373d2a94268b2"/><section>

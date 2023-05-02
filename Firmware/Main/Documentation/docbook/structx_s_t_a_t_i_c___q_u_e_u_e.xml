@@ -12,9 +12,9 @@
 </listitem>
             <listitem><para>union {</para>
         <itemizedlist>
-            <listitem><para>   void * <link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1adb72a02b22a558f6fad381d65af5ac68">pvDummy2</link></para>
+            <listitem><para>&#160;&#160;&#160;void * <link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1adb72a02b22a558f6fad381d65af5ac68">pvDummy2</link></para>
 </listitem>
-            <listitem><para>   <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1ab4e6a2a0bb59ba54d05927e99afd553f">uxDummy2</link></para>
+            <listitem><para>&#160;&#160;&#160;<link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> <link linkend="_structx_s_t_a_t_i_c___q_u_e_u_e_1ab4e6a2a0bb59ba54d05927e99afd553f">uxDummy2</link></para>
 </listitem>
         </itemizedlist>
 </listitem>
@@ -102,5 +102,5 @@ Definition at line <link linkend="__free_r_t_o_s_8h_source_1l01063">1063</link> 
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>
-FreeRTOS/<link linkend="__free_r_t_o_s_8h">FreeRTOS.h</link></section>
+C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/<link linkend="__free_r_t_o_s_8h">FreeRTOS.h</link></section>
 </section>

@@ -144,9 +144,10 @@ var searchData=
   ['portyield_5fwithin_5fapi_141',['portYIELD_WITHIN_API',['../_free_r_t_o_s_8h.html#af4484fc07631a16e45ac5f29a3f0556e',1,'FreeRTOS.h']]],
   ['precharge_142',['PRECHARGE',['../_precharge_8h.html#a093dd273c900bae9cba2b32149e30eaa',1,'Precharge.h']]],
   ['precharge_5ftask_5fstack_5fsize_143',['PRECHARGE_TASK_STACK_SIZE',['../_precharge_8h.html#a0ea5dd53294d533feaeeb8731cb9739a',1,'Precharge.h']]],
-  ['privileged_5fdata_144',['PRIVILEGED_DATA',['../mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5',1,'mpu_wrappers.h']]],
-  ['privileged_5ffunction_145',['PRIVILEGED_FUNCTION',['../mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078',1,'mpu_wrappers.h']]],
-  ['prvaddtasktoreadylist_146',['prvAddTaskToReadyList',['../tasks_8c.html#a94afc7269fff7c906c5eb0d9d315624b',1,'tasks.c']]],
-  ['prvgettcbfromhandle_147',['prvGetTCBFromHandle',['../tasks_8c.html#ad910f5e908283f1dfabd642fe1b11c6b',1,'tasks.c']]],
-  ['prvlockqueue_148',['prvLockQueue',['../queue_8c.html#ae4efd14c0f4dee7f189ef2e4d9ce1f1b',1,'queue.c']]]
+  ['print_5fcolor_144',['PRINT_COLOR',['../_display_8h.html#a761b36c5e7be7b06b38d2b1e38dcf213',1,'Display.h']]],
+  ['privileged_5fdata_145',['PRIVILEGED_DATA',['../mpu__wrappers_8h.html#a56a0b54ca924c56d192d4389ba585ed5',1,'mpu_wrappers.h']]],
+  ['privileged_5ffunction_146',['PRIVILEGED_FUNCTION',['../mpu__wrappers_8h.html#a4785c4f4a8c04b835139dcc2a6682078',1,'mpu_wrappers.h']]],
+  ['prvaddtasktoreadylist_147',['prvAddTaskToReadyList',['../tasks_8c.html#a94afc7269fff7c906c5eb0d9d315624b',1,'tasks.c']]],
+  ['prvgettcbfromhandle_148',['prvGetTCBFromHandle',['../tasks_8c.html#ad910f5e908283f1dfabd642fe1b11c6b',1,'tasks.c']]],
+  ['prvlockqueue_149',['prvLockQueue',['../queue_8c.html#ae4efd14c0f4dee7f189ef2e4d9ce1f1b',1,'queue.c']]]
 ];

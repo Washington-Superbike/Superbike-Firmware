@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_c_a_n_8h" kind="file" language="C++">
     <compoundname>CAN.h</compoundname>
     <includes local="no">FlexCAN_T4.h</includes>
     <includes refid="_display_8h" local="yes">Display.h</includes>
     <includes refid="_free_r_t_o_s___t_e_e_n_s_y4_8h" local="yes">FreeRTOS_TEENSY4.h</includes>
-    <includedby refid="_c_a_n_8ino" local="yes">CAN.ino</includedby>
-    <includedby refid="_main_8h" local="yes">Main.h</includedby>
+    <includedby refid="_c_a_n_8ino" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino</includedby>
+    <includedby refid="_main_8h" local="yes">C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</includedby>
     <incdepgraph>
       <node id="5">
         <label>Adafruit_GFX.h</label>
@@ -15,7 +15,7 @@
         <label>Adafruit_ILI9341.h</label>
       </node>
       <node id="1">
-        <label>CAN.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h</label>
         <link refid="_c_a_n_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -54,7 +54,7 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="1">
-        <label>CAN.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h</label>
         <link refid="_c_a_n_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
@@ -62,19 +62,19 @@
         </childnode>
       </node>
       <node id="2">
-        <label>CAN.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino</label>
         <link refid="_c_a_n_8ino"/>
       </node>
       <node id="4">
-        <label>DataLogging.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</label>
         <link refid="_data_logging_8ino"/>
       </node>
       <node id="5">
-        <label>Display.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Display.ino</label>
         <link refid="_display_8ino"/>
       </node>
       <node id="3">
-        <label>Main.h</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</label>
         <link refid="_main_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
@@ -84,7 +84,7 @@
         </childnode>
       </node>
       <node id="6">
-        <label>Main.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
       </node>
     </invincdepgraph>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="30" column="9" bodyfile="CAN.h" bodystart="30" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="30" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a1b593ffe62c4590fa197331661393984" prot="public" static="no">
         <name>MOTOR_STATS_MSG</name>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="33" column="9" bodyfile="CAN.h" bodystart="33" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="33" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da" prot="public" static="no">
         <name>MOTOR_TEMPS_MSG</name>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="35" column="9" bodyfile="CAN.h" bodystart="35" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="35" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2" prot="public" static="no">
         <name>EVCC_STATS</name>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="37" column="9" bodyfile="CAN.h" bodystart="37" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="37" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d" prot="public" static="no">
         <name>CHARGER_STATS</name>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="39" column="9" bodyfile="CAN.h" bodystart="39" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="39" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9" prot="public" static="no">
         <name>DD_BMS_STATUS_IND</name>
@@ -167,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="41" column="9" bodyfile="CAN.h" bodystart="41" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="41" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7" prot="public" static="no">
         <name>DD_BMSC_TH_STATUS_IND</name>
@@ -179,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="43" column="9" bodyfile="CAN.h" bodystart="43" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="43" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_04</name>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="45" column="9" bodyfile="CAN.h" bodystart="45" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="45" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_58</name>
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="47" column="9" bodyfile="CAN.h" bodystart="47" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="47" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1ac1908e8612424d72ae778e43759f077f" prot="public" static="no">
         <name>BMSC1_LTC1_CELLS_912</name>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="49" column="9" bodyfile="CAN.h" bodystart="49" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="49" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1a76c8bda430a00f369aed9309100c3107" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_04</name>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="51" column="9" bodyfile="CAN.h" bodystart="51" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="51" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_58</name>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="53" column="9" bodyfile="CAN.h" bodystart="53" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="53" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec" prot="public" static="no">
         <name>BMSC1_LTC2_CELLS_912</name>
@@ -251,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="55" column="9" bodyfile="CAN.h" bodystart="55" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="55" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="_c_a_n_8h_1aedb50849ed846717c3096b10fb75d537" prot="public" static="no">
         <name>BMS_CELLS</name>
@@ -263,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="60" column="9" bodyfile="CAN.h" bodystart="60" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="60" column="9" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="63" column="12" bodyfile="CAN.h" bodystart="63" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="63" column="12" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_c_a_n_8h_1afef5641c16f897cbe9fc00682fb749ed" prot="public" static="no" mutable="no">
         <type>CAN_message_t</type>
@@ -293,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="66" column="15" bodyfile="CAN.h" bodystart="66" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="66" column="15" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="_c_a_n_8h_1af798cac38f8c00111b4be880f47d8020" prot="public" static="yes" mutable="no">
         <type>bool</type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="70" column="13" bodyfile="CAN.h" bodystart="70" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="70" column="13" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -330,7 +330,7 @@
 <para>NOTE: CAN breaks if we try sending messages with 0 other nodes on the bus as there is no node to &apos;ACK&apos; our message. Therefore, change CAN_NODES in <ref refid="_main_8h" kindref="compound">Main.h</ref> to make sure things dont break.</para>
 <para>Ask for other half of cell voltages from BMS every 2 seconds</para>
         </inbodydescription>
-        <location file="CAN.h" line="163" column="6" bodyfile="CAN.ino" bodystart="31" bodyend="53" declfile="CAN.h" declline="163" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="163" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="31" bodyend="53" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="163" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="164" column="6" bodyfile="CAN.ino" bodystart="55" bodyend="58" declfile="CAN.h" declline="164" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="164" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="55" bodyend="58" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="164" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1acc8ad6a9a2388c904e5c2a81e263c59d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -364,7 +364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="165" column="6" bodyfile="CAN.ino" bodystart="60" bodyend="64" declfile="CAN.h" declline="165" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="165" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="60" bodyend="64" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="165" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a3e5ce0cee4895bc07047a515ac2fa8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -385,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="166" column="6" bodyfile="CAN.ino" bodystart="66" bodyend="72" declfile="CAN.h" declline="166" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="166" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="66" bodyend="72" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="166" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1abd98b0e43fb7330bf8964d8da390810f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -406,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="167" column="6" bodyfile="CAN.ino" bodystart="74" bodyend="79" declfile="CAN.h" declline="167" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="167" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="74" bodyend="79" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="167" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a950c51dd93e1585b49156c52113ab832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -427,7 +427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="168" column="6" bodyfile="CAN.ino" bodystart="81" bodyend="86" declfile="CAN.h" declline="168" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="168" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="81" bodyend="86" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="168" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ac7f58797b08a603835f0488b5fe3fb7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -448,7 +448,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="169" column="6" bodyfile="CAN.ino" bodystart="88" bodyend="94" declfile="CAN.h" declline="169" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="169" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="88" bodyend="94" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="169" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ac7f0128ba5279b58ce4917ff6d80264e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -469,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="170" column="6" bodyfile="CAN.ino" bodystart="96" bodyend="121" declfile="CAN.h" declline="170" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="170" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="96" bodyend="121" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="170" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a11cd027f4ad6ca2a6b9a860a07fb8e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -490,7 +490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="171" column="6" bodyfile="CAN.ino" bodystart="123" bodyend="132" declfile="CAN.h" declline="171" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="171" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="123" bodyend="132" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="171" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1afd1fb5329197c4478969008e0ee42f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -507,7 +507,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="172" column="6" bodyfile="CAN.ino" bodystart="135" bodyend="142" declfile="CAN.h" declline="172" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="172" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="135" bodyend="142" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="172" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ab92f5f7e74cba4411e9f1c6f32a720a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -524,7 +524,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="173" column="6" bodyfile="CAN.ino" bodystart="145" bodyend="187" declfile="CAN.h" declline="173" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="173" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="145" bodyend="187" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="173" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a317708f05ea5de4b748e27c49e2a85e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -537,7 +537,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="174" column="6" bodyfile="CAN.ino" bodystart="190" bodyend="221" declfile="CAN.h" declline="174" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="174" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="190" bodyend="221" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="174" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1ad899aaa07def0c8757bea6e9a75f878d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -554,7 +554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="175" column="6" bodyfile="CAN.ino" bodystart="224" bodyend="230" declfile="CAN.h" declline="175" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="175" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="224" bodyend="230" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="175" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_c_a_n_8h_1a0953b2f37f0e637d3f5fba2148109d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -571,7 +571,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="CAN.h" line="176" column="6" bodyfile="CAN.ino" bodystart="234" bodyend="242" declfile="CAN.h" declline="176" declcolumn="6"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" line="176" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.ino" bodystart="234" bodyend="242" declfile="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h" declline="176" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -580,7 +580,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
 <simplesect kind="note"><para>Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.</para>
 </simplesect>
@@ -698,6 +698,6 @@
 <codeline lineno="177"><highlight class="normal"></highlight></codeline>
 <codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_CAN_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="CAN.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h"/>
   </compounddef>
 </doxygen>

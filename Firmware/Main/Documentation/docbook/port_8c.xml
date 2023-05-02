@@ -1,79 +1,75 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_port_8c" xml:lang="en-US">
-<title>FreeRTOS/port.c File Reference</title>
-<indexterm><primary>FreeRTOS/port.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;FreeRTOS.h&quot;
-#include &quot;task.h&quot;
-#include &lt;Arduino.h&gt;
-#include &lt;imxrt.h&gt;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/port.c File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/port.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;FreeRTOS.h&quot;<?linebreak?>#include &quot;task.h&quot;<?linebreak?>#include &lt;Arduino.h&gt;<?linebreak?>#include &lt;imxrt.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_port_8c_1aa6c52b1b434ca2a708c56fdee02e7946">configSYSTICK_CLOCK_HZ</link>   <link linkend="__free_r_t_o_s_config__default_8h_1aa68082df879e6fc96bcb9b26513639e7">configCPU_CLOCK_HZ</link></para>
+            <listitem><para>#define <link linkend="_port_8c_1aa6c52b1b434ca2a708c56fdee02e7946">configSYSTICK_CLOCK_HZ</link>&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1aa68082df879e6fc96bcb9b26513639e7">configCPU_CLOCK_HZ</link></para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a94a387a85f1ebbd3d23feceb63d995c5">portNVIC_SYSTICK_CLK_BIT</link>   ( 1UL &lt;&lt; 2UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a94a387a85f1ebbd3d23feceb63d995c5">portNVIC_SYSTICK_CLK_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1adad03b75dbce86018cd8f77724f5f89a">portNVIC_SYSTICK_CTRL_REG</link>   ( * ( ( volatile uint32_t * ) 0xe000e010 ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1adad03b75dbce86018cd8f77724f5f89a">portNVIC_SYSTICK_CTRL_REG</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e010 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a6fb185b6f87a37fcb11be7f5f7f74c3c">portNVIC_SYSTICK_LOAD_REG</link>   ( * ( ( volatile uint32_t * ) 0xe000e014 ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a6fb185b6f87a37fcb11be7f5f7f74c3c">portNVIC_SYSTICK_LOAD_REG</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e014 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a840264c4ada33651c41921488329f127">portNVIC_SYSTICK_CURRENT_VALUE_REG</link>   ( * ( ( volatile uint32_t * ) 0xe000e018 ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a840264c4ada33651c41921488329f127">portNVIC_SYSTICK_CURRENT_VALUE_REG</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e018 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a9d076b8b45d4ab187668bb7b0c1f8d31">portNVIC_SYSPRI2_REG</link>   ( * ( ( volatile uint32_t * ) 0xe000ed20 ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a9d076b8b45d4ab187668bb7b0c1f8d31">portNVIC_SYSPRI2_REG</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000ed20 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1aeb00c00ae5a1b5c39ef0d008cdc2aabe">portNVIC_SYSTICK_INT_BIT</link>   ( 1UL &lt;&lt; 1UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1aeb00c00ae5a1b5c39ef0d008cdc2aabe">portNVIC_SYSTICK_INT_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a4c9342fc3940bcd756f344e3489a030e">portNVIC_SYSTICK_ENABLE_BIT</link>   ( 1UL &lt;&lt; 0UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a4c9342fc3940bcd756f344e3489a030e">portNVIC_SYSTICK_ENABLE_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a1774a206db4e93668b7508965338893f">portNVIC_SYSTICK_COUNT_FLAG_BIT</link>   ( 1UL &lt;&lt; 16UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a1774a206db4e93668b7508965338893f">portNVIC_SYSTICK_COUNT_FLAG_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 16UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a786050ea368d9645ca097b3b8a51af2e">portNVIC_PENDSVCLEAR_BIT</link>   ( 1UL &lt;&lt; 27UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a786050ea368d9645ca097b3b8a51af2e">portNVIC_PENDSVCLEAR_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 27UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a8c6cabffb5fdea8c959c2025f1e0488f">portNVIC_PEND_SYSTICK_CLEAR_BIT</link>   ( 1UL &lt;&lt; 25UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a8c6cabffb5fdea8c959c2025f1e0488f">portNVIC_PEND_SYSTICK_CLEAR_BIT</link>&#160;&#160;&#160;( 1UL &lt;&lt; 25UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a6c5290885b276bfcff1a8b11fdbc7922">portCPUID</link>   ( * ( ( volatile uint32_t * ) 0xE000ed00 ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a6c5290885b276bfcff1a8b11fdbc7922">portCPUID</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xE000ed00 ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a886265a9e68a1d7f89a6e8175ea5afbe">portCORTEX_M7_r0p1_ID</link>   ( 0x410FC271UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a886265a9e68a1d7f89a6e8175ea5afbe">portCORTEX_M7_r0p1_ID</link>&#160;&#160;&#160;( 0x410FC271UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1ac5ff711f46f557286695d23f48ccd8c1">portCORTEX_M7_r0p0_ID</link>   ( 0x410FC270UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1ac5ff711f46f557286695d23f48ccd8c1">portCORTEX_M7_r0p0_ID</link>&#160;&#160;&#160;( 0x410FC270UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a71a0b2492ed73217b5864c1e3ba8c9be">portNVIC_PENDSV_PRI</link>   ( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 16UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a71a0b2492ed73217b5864c1e3ba8c9be">portNVIC_PENDSV_PRI</link>&#160;&#160;&#160;( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 16UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1ae4ddaa528bc05260d1a5a607c8a00d9f">portNVIC_SYSTICK_PRI</link>   ( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 24UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1ae4ddaa528bc05260d1a5a607c8a00d9f">portNVIC_SYSTICK_PRI</link>&#160;&#160;&#160;( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 24UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a9bf7ad0c574222fbbf0ad6ac5a387a11">portFIRST_USER_INTERRUPT_NUMBER</link>   ( 16 )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a9bf7ad0c574222fbbf0ad6ac5a387a11">portFIRST_USER_INTERRUPT_NUMBER</link>&#160;&#160;&#160;( 16 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a72b5f375744da7a3ec890dd573dddc77">portNVIC_IP_REGISTERS_OFFSET_16</link>   ( 0xE000E3F0 )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a72b5f375744da7a3ec890dd573dddc77">portNVIC_IP_REGISTERS_OFFSET_16</link>&#160;&#160;&#160;( 0xE000E3F0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1ad4e191d3886fa6ba91bb7cd11cdc665e">portAIRCR_REG</link>   ( * ( ( volatile uint32_t * ) 0xE000ED0C ) )</para>
+            <listitem><para>#define <link linkend="_port_8c_1ad4e191d3886fa6ba91bb7cd11cdc665e">portAIRCR_REG</link>&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xE000ED0C ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a6a8cc3be38f6a681ffcf3a895970853f">portMAX_8_BIT_VALUE</link>   ( ( uint8_t ) 0xff )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a6a8cc3be38f6a681ffcf3a895970853f">portMAX_8_BIT_VALUE</link>&#160;&#160;&#160;( ( uint8_t ) 0xff )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a046cc13f73dad0c8a9cdd0504bc35a88">portTOP_BIT_OF_BYTE</link>   ( ( uint8_t ) 0x80 )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a046cc13f73dad0c8a9cdd0504bc35a88">portTOP_BIT_OF_BYTE</link>&#160;&#160;&#160;( ( uint8_t ) 0x80 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1abbfa60faa2116dee71c1923a4ec3aa4a">portMAX_PRIGROUP_BITS</link>   ( ( uint8_t ) 7 )</para>
+            <listitem><para>#define <link linkend="_port_8c_1abbfa60faa2116dee71c1923a4ec3aa4a">portMAX_PRIGROUP_BITS</link>&#160;&#160;&#160;( ( uint8_t ) 7 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a3de9530f5de675c37a0195cda9e272d0">portPRIORITY_GROUP_MASK</link>   ( 0x07UL &lt;&lt; 8UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a3de9530f5de675c37a0195cda9e272d0">portPRIORITY_GROUP_MASK</link>&#160;&#160;&#160;( 0x07UL &lt;&lt; 8UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a31e85c2138ccee8dc7a8397f0c5cf44c">portPRIGROUP_SHIFT</link>   ( 8UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a31e85c2138ccee8dc7a8397f0c5cf44c">portPRIGROUP_SHIFT</link>&#160;&#160;&#160;( 8UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a9a481ef8434703c3834dd1e701805853">portVECTACTIVE_MASK</link>   ( 0xFFUL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a9a481ef8434703c3834dd1e701805853">portVECTACTIVE_MASK</link>&#160;&#160;&#160;( 0xFFUL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a45273dc9a093bf983ce3797ca3a3b58e">portFPCCR</link>   ( ( volatile uint32_t * ) 0xe000ef34 ) /* Floating point context control register. */</para>
+            <listitem><para>#define <link linkend="_port_8c_1a45273dc9a093bf983ce3797ca3a3b58e">portFPCCR</link>&#160;&#160;&#160;( ( volatile uint32_t * ) 0xe000ef34 ) /* Floating point context control register. */</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1aba967c75b3173a502d99d274da0f6757">portASPEN_AND_LSPEN_BITS</link>   ( 0x3UL &lt;&lt; 30UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1aba967c75b3173a502d99d274da0f6757">portASPEN_AND_LSPEN_BITS</link>&#160;&#160;&#160;( 0x3UL &lt;&lt; 30UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a062d03aca8ae932b4552a2aa19853b44">portINITIAL_XPSR</link>   ( 0x01000000 )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a062d03aca8ae932b4552a2aa19853b44">portINITIAL_XPSR</link>&#160;&#160;&#160;( 0x01000000 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a372d1affad9d6424b60dac6c513e97f0">portINITIAL_EXC_RETURN</link>   ( 0xfffffffd )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a372d1affad9d6424b60dac6c513e97f0">portINITIAL_EXC_RETURN</link>&#160;&#160;&#160;( 0xfffffffd )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a14e81b7d3d94bf8d192c05c06f82c8d8">portMAX_24_BIT_NUMBER</link>   ( 0xffffffUL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a14e81b7d3d94bf8d192c05c06f82c8d8">portMAX_24_BIT_NUMBER</link>&#160;&#160;&#160;( 0xffffffUL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1ac4d0dccf5f3a96cf955bd2cf5ff987a2">portSTART_ADDRESS_MASK</link>   ( ( <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> ) 0xfffffffeUL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1ac4d0dccf5f3a96cf955bd2cf5ff987a2">portSTART_ADDRESS_MASK</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> ) 0xfffffffeUL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a5ee932503b5ba9d5a6125df7e7fc459b">portMISSED_COUNTS_FACTOR</link>   ( 45UL )</para>
+            <listitem><para>#define <link linkend="_port_8c_1a5ee932503b5ba9d5a6125df7e7fc459b">portMISSED_COUNTS_FACTOR</link>&#160;&#160;&#160;( 45UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_port_8c_1a254a1ddd7499c6ec36b38e2fc3486b80">portTASK_RETURN_ADDRESS</link>   <link linkend="_port_8c_1a813e8227aedfc6bd83c66c4a9b8e4f41">prvTaskExitError</link></para>
+            <listitem><para>#define <link linkend="_port_8c_1a254a1ddd7499c6ec36b38e2fc3486b80">portTASK_RETURN_ADDRESS</link>&#160;&#160;&#160;<link linkend="_port_8c_1a813e8227aedfc6bd83c66c4a9b8e4f41">prvTaskExitError</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -125,231 +121,231 @@
     <title>configSYSTICK_CLOCK_HZ</title>
 <indexterm><primary>configSYSTICK_CLOCK_HZ</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>configSYSTICK_CLOCK_HZ</secondary></indexterm>
-<para><computeroutput>#define configSYSTICK_CLOCK_HZ   <link linkend="__free_r_t_o_s_config__default_8h_1aa68082df879e6fc96bcb9b26513639e7">configCPU_CLOCK_HZ</link></computeroutput></para><para>
+<para><computeroutput>#define configSYSTICK_CLOCK_HZ&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1aa68082df879e6fc96bcb9b26513639e7">configCPU_CLOCK_HZ</link></computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00045">45</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1ad4e191d3886fa6ba91bb7cd11cdc665e"/><section>
     <title>portAIRCR_REG</title>
 <indexterm><primary>portAIRCR_REG</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portAIRCR_REG</secondary></indexterm>
-<para><computeroutput>#define portAIRCR_REG   ( * ( ( volatile uint32_t * ) 0xE000ED0C ) )</computeroutput></para><para>
+<para><computeroutput>#define portAIRCR_REG&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xE000ED0C ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00078">78</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1aba967c75b3173a502d99d274da0f6757"/><section>
     <title>portASPEN_AND_LSPEN_BITS</title>
 <indexterm><primary>portASPEN_AND_LSPEN_BITS</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portASPEN_AND_LSPEN_BITS</secondary></indexterm>
-<para><computeroutput>#define portASPEN_AND_LSPEN_BITS   ( 0x3UL &lt;&lt; 30UL )</computeroutput></para><para>
+<para><computeroutput>#define portASPEN_AND_LSPEN_BITS&#160;&#160;&#160;( 0x3UL &lt;&lt; 30UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00090">90</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1ac5ff711f46f557286695d23f48ccd8c1"/><section>
     <title>portCORTEX_M7_r0p0_ID</title>
 <indexterm><primary>portCORTEX_M7_r0p0_ID</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portCORTEX_M7_r0p0_ID</secondary></indexterm>
-<para><computeroutput>#define portCORTEX_M7_r0p0_ID   ( 0x410FC270UL )</computeroutput></para><para>
+<para><computeroutput>#define portCORTEX_M7_r0p0_ID&#160;&#160;&#160;( 0x410FC270UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00070">70</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a886265a9e68a1d7f89a6e8175ea5afbe"/><section>
     <title>portCORTEX_M7_r0p1_ID</title>
 <indexterm><primary>portCORTEX_M7_r0p1_ID</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portCORTEX_M7_r0p1_ID</secondary></indexterm>
-<para><computeroutput>#define portCORTEX_M7_r0p1_ID   ( 0x410FC271UL )</computeroutput></para><para>
+<para><computeroutput>#define portCORTEX_M7_r0p1_ID&#160;&#160;&#160;( 0x410FC271UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00069">69</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a6c5290885b276bfcff1a8b11fdbc7922"/><section>
     <title>portCPUID</title>
 <indexterm><primary>portCPUID</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portCPUID</secondary></indexterm>
-<para><computeroutput>#define portCPUID   ( * ( ( volatile uint32_t * ) 0xE000ed00 ) )</computeroutput></para><para>
+<para><computeroutput>#define portCPUID&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xE000ed00 ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00068">68</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a9bf7ad0c574222fbbf0ad6ac5a387a11"/><section>
     <title>portFIRST_USER_INTERRUPT_NUMBER</title>
 <indexterm><primary>portFIRST_USER_INTERRUPT_NUMBER</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portFIRST_USER_INTERRUPT_NUMBER</secondary></indexterm>
-<para><computeroutput>#define portFIRST_USER_INTERRUPT_NUMBER   ( 16 )</computeroutput></para><para>
+<para><computeroutput>#define portFIRST_USER_INTERRUPT_NUMBER&#160;&#160;&#160;( 16 )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00076">76</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a45273dc9a093bf983ce3797ca3a3b58e"/><section>
     <title>portFPCCR</title>
 <indexterm><primary>portFPCCR</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portFPCCR</secondary></indexterm>
-<para><computeroutput>#define portFPCCR   ( ( volatile uint32_t * ) 0xe000ef34 ) /* Floating point context control register. */</computeroutput></para><para>
+<para><computeroutput>#define portFPCCR&#160;&#160;&#160;( ( volatile uint32_t * ) 0xe000ef34 ) /* Floating point context control register. */</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00089">89</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a372d1affad9d6424b60dac6c513e97f0"/><section>
     <title>portINITIAL_EXC_RETURN</title>
 <indexterm><primary>portINITIAL_EXC_RETURN</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portINITIAL_EXC_RETURN</secondary></indexterm>
-<para><computeroutput>#define portINITIAL_EXC_RETURN   ( 0xfffffffd )</computeroutput></para><para>
+<para><computeroutput>#define portINITIAL_EXC_RETURN&#160;&#160;&#160;( 0xfffffffd )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00094">94</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a062d03aca8ae932b4552a2aa19853b44"/><section>
     <title>portINITIAL_XPSR</title>
 <indexterm><primary>portINITIAL_XPSR</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portINITIAL_XPSR</secondary></indexterm>
-<para><computeroutput>#define portINITIAL_XPSR   ( 0x01000000 )</computeroutput></para><para>
+<para><computeroutput>#define portINITIAL_XPSR&#160;&#160;&#160;( 0x01000000 )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00093">93</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a14e81b7d3d94bf8d192c05c06f82c8d8"/><section>
     <title>portMAX_24_BIT_NUMBER</title>
 <indexterm><primary>portMAX_24_BIT_NUMBER</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portMAX_24_BIT_NUMBER</secondary></indexterm>
-<para><computeroutput>#define portMAX_24_BIT_NUMBER   ( 0xffffffUL )</computeroutput></para><para>
+<para><computeroutput>#define portMAX_24_BIT_NUMBER&#160;&#160;&#160;( 0xffffffUL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00097">97</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a6a8cc3be38f6a681ffcf3a895970853f"/><section>
     <title>portMAX_8_BIT_VALUE</title>
 <indexterm><primary>portMAX_8_BIT_VALUE</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portMAX_8_BIT_VALUE</secondary></indexterm>
-<para><computeroutput>#define portMAX_8_BIT_VALUE   ( ( uint8_t ) 0xff )</computeroutput></para><para>
+<para><computeroutput>#define portMAX_8_BIT_VALUE&#160;&#160;&#160;( ( uint8_t ) 0xff )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00079">79</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1abbfa60faa2116dee71c1923a4ec3aa4a"/><section>
     <title>portMAX_PRIGROUP_BITS</title>
 <indexterm><primary>portMAX_PRIGROUP_BITS</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portMAX_PRIGROUP_BITS</secondary></indexterm>
-<para><computeroutput>#define portMAX_PRIGROUP_BITS   ( ( uint8_t ) 7 )</computeroutput></para><para>
+<para><computeroutput>#define portMAX_PRIGROUP_BITS&#160;&#160;&#160;( ( uint8_t ) 7 )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00081">81</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a5ee932503b5ba9d5a6125df7e7fc459b"/><section>
     <title>portMISSED_COUNTS_FACTOR</title>
 <indexterm><primary>portMISSED_COUNTS_FACTOR</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portMISSED_COUNTS_FACTOR</secondary></indexterm>
-<para><computeroutput>#define portMISSED_COUNTS_FACTOR   ( 45UL )</computeroutput></para><para>
+<para><computeroutput>#define portMISSED_COUNTS_FACTOR&#160;&#160;&#160;( 45UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00106">106</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a72b5f375744da7a3ec890dd573dddc77"/><section>
     <title>portNVIC_IP_REGISTERS_OFFSET_16</title>
 <indexterm><primary>portNVIC_IP_REGISTERS_OFFSET_16</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_IP_REGISTERS_OFFSET_16</secondary></indexterm>
-<para><computeroutput>#define portNVIC_IP_REGISTERS_OFFSET_16   ( 0xE000E3F0 )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_IP_REGISTERS_OFFSET_16&#160;&#160;&#160;( 0xE000E3F0 )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00077">77</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a8c6cabffb5fdea8c959c2025f1e0488f"/><section>
     <title>portNVIC_PEND_SYSTICK_CLEAR_BIT</title>
 <indexterm><primary>portNVIC_PEND_SYSTICK_CLEAR_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_PEND_SYSTICK_CLEAR_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_PEND_SYSTICK_CLEAR_BIT   ( 1UL &lt;&lt; 25UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_PEND_SYSTICK_CLEAR_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 25UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00064">64</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a71a0b2492ed73217b5864c1e3ba8c9be"/><section>
     <title>portNVIC_PENDSV_PRI</title>
 <indexterm><primary>portNVIC_PENDSV_PRI</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_PENDSV_PRI</secondary></indexterm>
-<para><computeroutput>#define portNVIC_PENDSV_PRI   ( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 16UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_PENDSV_PRI&#160;&#160;&#160;( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 16UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00072">72</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a786050ea368d9645ca097b3b8a51af2e"/><section>
     <title>portNVIC_PENDSVCLEAR_BIT</title>
 <indexterm><primary>portNVIC_PENDSVCLEAR_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_PENDSVCLEAR_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_PENDSVCLEAR_BIT   ( 1UL &lt;&lt; 27UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_PENDSVCLEAR_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 27UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00063">63</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a9d076b8b45d4ab187668bb7b0c1f8d31"/><section>
     <title>portNVIC_SYSPRI2_REG</title>
 <indexterm><primary>portNVIC_SYSPRI2_REG</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSPRI2_REG</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSPRI2_REG   ( * ( ( volatile uint32_t * ) 0xe000ed20 ) )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSPRI2_REG&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000ed20 ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00058">58</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a94a387a85f1ebbd3d23feceb63d995c5"/><section>
     <title>portNVIC_SYSTICK_CLK_BIT</title>
 <indexterm><primary>portNVIC_SYSTICK_CLK_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_CLK_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_CLK_BIT   ( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_CLK_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00047">47</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a1774a206db4e93668b7508965338893f"/><section>
     <title>portNVIC_SYSTICK_COUNT_FLAG_BIT</title>
 <indexterm><primary>portNVIC_SYSTICK_COUNT_FLAG_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_COUNT_FLAG_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_COUNT_FLAG_BIT   ( 1UL &lt;&lt; 16UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_COUNT_FLAG_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 16UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00062">62</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1adad03b75dbce86018cd8f77724f5f89a"/><section>
     <title>portNVIC_SYSTICK_CTRL_REG</title>
 <indexterm><primary>portNVIC_SYSTICK_CTRL_REG</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_CTRL_REG</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_CTRL_REG   ( * ( ( volatile uint32_t * ) 0xe000e010 ) )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_CTRL_REG&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e010 ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00055">55</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a840264c4ada33651c41921488329f127"/><section>
     <title>portNVIC_SYSTICK_CURRENT_VALUE_REG</title>
 <indexterm><primary>portNVIC_SYSTICK_CURRENT_VALUE_REG</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_CURRENT_VALUE_REG</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_CURRENT_VALUE_REG   ( * ( ( volatile uint32_t * ) 0xe000e018 ) )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_CURRENT_VALUE_REG&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e018 ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00057">57</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a4c9342fc3940bcd756f344e3489a030e"/><section>
     <title>portNVIC_SYSTICK_ENABLE_BIT</title>
 <indexterm><primary>portNVIC_SYSTICK_ENABLE_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_ENABLE_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_ENABLE_BIT   ( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_ENABLE_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00061">61</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1aeb00c00ae5a1b5c39ef0d008cdc2aabe"/><section>
     <title>portNVIC_SYSTICK_INT_BIT</title>
 <indexterm><primary>portNVIC_SYSTICK_INT_BIT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_INT_BIT</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_INT_BIT   ( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_INT_BIT&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00060">60</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a6fb185b6f87a37fcb11be7f5f7f74c3c"/><section>
     <title>portNVIC_SYSTICK_LOAD_REG</title>
 <indexterm><primary>portNVIC_SYSTICK_LOAD_REG</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_LOAD_REG</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_LOAD_REG   ( * ( ( volatile uint32_t * ) 0xe000e014 ) )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_LOAD_REG&#160;&#160;&#160;( * ( ( volatile uint32_t * ) 0xe000e014 ) )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00056">56</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1ae4ddaa528bc05260d1a5a607c8a00d9f"/><section>
     <title>portNVIC_SYSTICK_PRI</title>
 <indexterm><primary>portNVIC_SYSTICK_PRI</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portNVIC_SYSTICK_PRI</secondary></indexterm>
-<para><computeroutput>#define portNVIC_SYSTICK_PRI   ( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 24UL )</computeroutput></para><para>
+<para><computeroutput>#define portNVIC_SYSTICK_PRI&#160;&#160;&#160;( ( ( uint32_t ) <link linkend="__free_r_t_o_s_config__default_8h_1ac42cff506ad61d4174fa23e952e3225e">configKERNEL_INTERRUPT_PRIORITY</link> ) &lt;&lt; 24UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00073">73</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a31e85c2138ccee8dc7a8397f0c5cf44c"/><section>
     <title>portPRIGROUP_SHIFT</title>
 <indexterm><primary>portPRIGROUP_SHIFT</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portPRIGROUP_SHIFT</secondary></indexterm>
-<para><computeroutput>#define portPRIGROUP_SHIFT   ( 8UL )</computeroutput></para><para>
+<para><computeroutput>#define portPRIGROUP_SHIFT&#160;&#160;&#160;( 8UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00083">83</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a3de9530f5de675c37a0195cda9e272d0"/><section>
     <title>portPRIORITY_GROUP_MASK</title>
 <indexterm><primary>portPRIORITY_GROUP_MASK</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portPRIORITY_GROUP_MASK</secondary></indexterm>
-<para><computeroutput>#define portPRIORITY_GROUP_MASK   ( 0x07UL &lt;&lt; 8UL )</computeroutput></para><para>
+<para><computeroutput>#define portPRIORITY_GROUP_MASK&#160;&#160;&#160;( 0x07UL &lt;&lt; 8UL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00082">82</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1ac4d0dccf5f3a96cf955bd2cf5ff987a2"/><section>
     <title>portSTART_ADDRESS_MASK</title>
 <indexterm><primary>portSTART_ADDRESS_MASK</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portSTART_ADDRESS_MASK</secondary></indexterm>
-<para><computeroutput>#define portSTART_ADDRESS_MASK   ( ( <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> ) 0xfffffffeUL )</computeroutput></para><para>
+<para><computeroutput>#define portSTART_ADDRESS_MASK&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1aa73b01e0200940d619095fb74fb3030b">StackType_t</link> ) 0xfffffffeUL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00101">101</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a254a1ddd7499c6ec36b38e2fc3486b80"/><section>
     <title>portTASK_RETURN_ADDRESS</title>
 <indexterm><primary>portTASK_RETURN_ADDRESS</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portTASK_RETURN_ADDRESS</secondary></indexterm>
-<para><computeroutput>#define portTASK_RETURN_ADDRESS   <link linkend="_port_8c_1a813e8227aedfc6bd83c66c4a9b8e4f41">prvTaskExitError</link></computeroutput></para><para>
+<para><computeroutput>#define portTASK_RETURN_ADDRESS&#160;&#160;&#160;<link linkend="_port_8c_1a813e8227aedfc6bd83c66c4a9b8e4f41">prvTaskExitError</link></computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00114">114</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a046cc13f73dad0c8a9cdd0504bc35a88"/><section>
     <title>portTOP_BIT_OF_BYTE</title>
 <indexterm><primary>portTOP_BIT_OF_BYTE</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portTOP_BIT_OF_BYTE</secondary></indexterm>
-<para><computeroutput>#define portTOP_BIT_OF_BYTE   ( ( uint8_t ) 0x80 )</computeroutput></para><para>
+<para><computeroutput>#define portTOP_BIT_OF_BYTE&#160;&#160;&#160;( ( uint8_t ) 0x80 )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00080">80</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 <anchor xml:id="_port_8c_1a9a481ef8434703c3834dd1e701805853"/><section>
     <title>portVECTACTIVE_MASK</title>
 <indexterm><primary>portVECTACTIVE_MASK</primary><secondary>port.c</secondary></indexterm>
 <indexterm><primary>port.c</primary><secondary>portVECTACTIVE_MASK</secondary></indexterm>
-<para><computeroutput>#define portVECTACTIVE_MASK   ( 0xFFUL )</computeroutput></para><para>
+<para><computeroutput>#define portVECTACTIVE_MASK&#160;&#160;&#160;( 0xFFUL )</computeroutput></para><para>
 Definition at line <link linkend="_port_8c_source_1l00086">86</link> of file <link linkend="_port_8c_source">port.c</link>.</para>
 </section>
 </section>

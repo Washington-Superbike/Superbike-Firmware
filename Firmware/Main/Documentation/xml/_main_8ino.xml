@@ -1,36 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_main_8ino" kind="file" language="C++">
     <compoundname>Main.ino</compoundname>
     <includes refid="_main_8h" local="yes">Main.h</includes>
     <incdepgraph>
-      <node id="7">
+      <node id="8">
         <label>Adafruit_GFX.h</label>
       </node>
-      <node id="6">
+      <node id="7">
         <label>Adafruit_ILI9341.h</label>
       </node>
-      <node id="3">
+      <node id="4">
         <label>CAN.h</label>
         <link refid="_c_a_n_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>DataLogging.h</label>
-        <link refid="_data_logging_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>Display.h</label>
-        <link refid="_display_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>DataLogging.h</label>
+        <link refid="_data_logging_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Display.h</label>
+        <link refid="_display_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
@@ -39,8 +37,10 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>FreeRTOS_TEENSY4.h</label>
         <link refid="_free_r_t_o_s___t_e_e_n_s_y4_8h"/>
       </node>
@@ -49,42 +49,48 @@
         <link refid="_main_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="1">
-        <label>Main.ino</label>
+        <label>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino</label>
         <link refid="_main_8ino"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>Precharge.h</label>
         <link refid="_precharge_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="3">
+        <label>config.h</label>
+        <link refid="config_8h"/>
+      </node>
+      <node id="5">
         <label>FlexCAN_T4.h</label>
       </node>
-      <node id="8">
+      <node id="9">
         <label>SPI.h</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>SdFat.h</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>TimeLib.h</label>
       </node>
-      <node id="9">
+      <node id="10">
         <label>XPT2046_Touchscreen.h</label>
       </node>
     </incdepgraph>
@@ -115,7 +121,7 @@ pxCreatedTask is a variable that is used to pass a handle to the created task ou
         </detaileddescription>
         <inbodydescription>
 <para>First this method calls on <ref refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins()</ref> to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.</para>
-<para>Then this method calls on <ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref></para>
+<para>Then this method calls on <ref refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask()</ref></para>
 <para>Then this method calls on <ref refid="_main_8h_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct()</ref> to map the static variables from <ref refid="_main_8h" kindref="compound">Main.h</ref> from to a struct that is used for the <ref refid="_pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3" kindref="member">prechargeTask()</ref></para>
@@ -125,15 +131,15 @@ pxCreatedTask is a variable that is used to pass a handle to the created task ou
 File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will set the internal time to the time on the laptop I believe, or connects to the internet somehow to determine the &quot;current&quot; time. This next line calls with the statement setTime(Teensy3Clock.get()) sets the current stored time to the time stored in the internal RTC in the Teensy, allowing for Teensy time from the internal RTC (powered by the coin cell).</para>
 </simplesect>
 Then this method starts the SD Card and prints the status if that works.</para>
-<para>Then this method calls on the <ref refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kindref="member">setupDisplay()</ref> method which just initializes variables that are used by the <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref></para>
+<para>Then this method calls on the <ref refid="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" kindref="member">setupDisplay()</ref> method which just initializes variables that are used by the <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref></para>
 <para>Then this method calls on the <ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN()</ref> method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.</para>
 <para>Then this method calls on the <ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C()</ref> method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking ~2 seconds worth of data to calibrate.</para>
-<para>The main and most important function of setup is initializing the tasks using <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref>. The details of parameters are explained in the Note at the start of <ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref>. The stack sizes are edited in <ref refid="_main_8h" kindref="compound">Main.h</ref> and the priorities are logically assigned for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref> with highest priority 5, <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref> with second highest priority 4 since it contains data that can be used to trigger Off states for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask()</ref> is a 2 because see aforementioned reasoning for dataLogging(). <ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask()</ref> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
+<para>The main and most important function of setup is initializing the tasks using <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref>. The details of parameters are explained in the Note at the start of <ref refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref>. The stack sizes are edited in <ref refid="_main_8h" kindref="compound">Main.h</ref> and the priorities are logically assigned for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref> with highest priority 5, <ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask()</ref> with second highest priority 4 since it contains data that can be used to trigger Off states for <ref refid="_precharge_8h_1a3a618d104e1f329b2aad074b706db5c9" kindref="member">preChargeTask()</ref>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask()</ref> is a 2 because see aforementioned reasoning for dataLogging(). <ref refid="_main_8h_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask()</ref> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
 <para>Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.</para>
 <para>Lastly the method prints out that it will attempt to start the scheduler. If this succeeds, only lines from the task methods should know execute.</para>
 <para>If this fails, the method prints out insufficient RAM and breaks.</para>
         </inbodydescription>
-        <location file="Main.ino" line="64" column="6" bodyfile="Main.ino" bodystart="64" bodyend="159"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="65" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="65" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a31d554847ae8fdeaba2460e0395cb75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -160,7 +166,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
 <para>Initializes the pin corresponding to the Contactor Precharge-Read LED as output and then outputs LOW to that pin.</para>
 <para>Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</para>
         </inbodydescription>
-        <location file="Main.ino" line="161" column="6" bodyfile="Main.ino" bodystart="161" bodyend="196"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="162" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="162" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -176,7 +182,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="198" column="6" bodyfile="Main.ino" bodystart="198" bodyend="205"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="199" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="199" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a797cf3c70ce7ae02bba9bfd3f6d886de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -194,7 +200,7 @@ This will be handy to the SOC team later as they implement more changes. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="207" column="6" bodyfile="Main.ino" bodystart="207" bodyend="216"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="207" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="207" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1ab91267714bdf99d7b3d177f95f484157" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -212,7 +218,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="218" column="6" bodyfile="Main.ino" bodystart="218" bodyend="227"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="218" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="218" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a32469c898d757b2b30c00d0546f91802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -228,7 +234,7 @@ Update this accordingly as we add more CAN items to the bike (if we ever do). </
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="229" column="6" bodyfile="Main.ino" bodystart="229" bodyend="235"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="229" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="229" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1aafd615bc53c2f27720d792a6a2968209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -252,7 +258,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="237" column="6" bodyfile="Main.ino" bodystart="237" bodyend="239"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="237" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="237" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a966fda2bc617e020cb78f814bb5514c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,7 +281,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="241" column="6" bodyfile="Main.ino" bodystart="241" bodyend="243"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="241" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="241" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a3e0781915a9e0f2045e892efe59f9fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>time_t</type>
@@ -291,7 +297,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="245" column="8" bodyfile="Main.ino" bodystart="245" bodyend="248"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="245" column="8" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="245" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1a0d7297755c0775a9b0e4f7eeeafd7c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -311,7 +317,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="250" column="6" bodyfile="Main.ino" bodystart="250" bodyend="254"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="250" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="250" bodyend="254"/>
       </memberdef>
       <memberdef kind="function" id="_main_8ino_1afe461d27b9c48d5921c00d521181f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -327,7 +333,7 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Main.ino" line="256" column="6" bodyfile="Main.ino" bodystart="256" bodyend="257"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" line="256" column="6" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino" bodystart="256" bodyend="257"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -336,12 +342,12 @@ Please read up on Mutex, etc. in the RTOS documentation to make sure you use it 
     <detaileddescription>
 <para><simplesect kind="author"><para>Washington Superbike </para>
 </simplesect>
-<simplesect kind="date"><para>1-March-2023</para>
+<simplesect kind="date"><para>1-March-2023 </para>
 </simplesect>
 Main. The source for the entire firmware. Utilizes Arduino&apos;s framework with void <ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref> and void <ref refid="_main_8ino_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop()</ref> methods, but only void <ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref> is used. Before the void <ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref>, <ref refid="_main_8h" kindref="compound">Main.h</ref> is included into the file which in turn interconnects all files and allows for access to the global variables. These variables are what is eventually used in <ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup()</ref> and all the helper methods, being passed along to all other files/tasks as pointers, allowing for them to updated and accessed at the same time. If <ref refid="_c_a_n_8ino" kindref="compound">Can.ino</ref> updates the motorTemperature, <ref refid="_display_8ino" kindref="compound">Display.ino</ref> has an updated value for the motorTemperature. Then the void setup will execute everything and also act as the loop. That is because the setup calls on the <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> method from the RTOS library and then the <ref refid="task_8h_1aaf9dca1065c60abdeb309d56ab7293cb" kindref="member">vTaskStartScheduler()</ref> method which in turn abstracts everything from us and rotates between all the tasks updating them and transferring resources as required. As of now, tasks operate on different resources than each other, thus there is no need for semaphores, however, if that is changed in the future, there is an example line of creating a semaphore above the calls to the <ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate()</ref> method. The breakdown of how these methods and variables work in detail are explained further in the documentation closer for those methods and variables specifically. Please make sure to read and understand everything before you make any changes to this firmware.</para>
 <para><simplesect kind="note"><para>As of 3/1/2023, I think this firmware is fully race-ready and meeting all requirements to race. Ideally, I would use HIL and their CAN interface to further test the requirements and ensure proper performance under race-communication circumstances, but I&apos;m just tired, you guys can do that while testing everything else next quarter. As of now, my goal is to create full documentation for this codebase and train up all members to be able to use it without any trouble.</para>
 </simplesect>
-<xrefsect id="todo_1_todo000008"><xreftitle>Todo</xreftitle><xrefdescription><para>Refine further. <linebreak/>
+<xrefsect id="todo_1_todo000009"><xreftitle>Todo</xreftitle><xrefdescription><para>Refine further. <linebreak/>
  <linebreak/>
  Look for redundant variables, pins, etc and remove. <linebreak/>
  <linebreak/>
@@ -349,97 +355,98 @@ Main. The source for the entire firmware. Utilizes Arduino&apos;s framework with
  <linebreak/>
  Github tutorial: <linebreak/>
  <linebreak/>
- Syed Yasir </para>
+ Syed Yasir <linebreak/>
+ <linebreak/>
+ </para>
 </xrefdescription></xrefsect></para>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Includes<sp/>the<sp/>Main.h<sp/>file<sp/>which<sp/>in<sp/>includes<sp/>all<sp/>other<sp/>files<sp/>and<sp/>interconnects<sp/>all<sp/>other<sp/>files<sp/>together.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_main_8h" kindref="compound">Main.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>();</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>();</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs</ref>();</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs</ref>();</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct</ref>();</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Includes<sp/>the<sp/>Main.h<sp/>file<sp/>which<sp/>in<sp/>includes<sp/>all<sp/>other<sp/>files<sp/>and<sp/>interconnects<sp/>all<sp/>other<sp/>files<sp/>together.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_main_8h" kindref="compound">Main.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="_main_8h_1a4fc01d736fe50cf5b977f755b675f11d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1ab91267714bdf99d7b3d177f95f484157" kindref="member">initializeCANStructs</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="_main_8ino_1a32469c898d757b2b30c00d0546f91802" kindref="member">initializePreChargeStruct</ref>();</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>Serial.begin(115200);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>setTime(Teensy3Clock.get());</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;Starting<sp/>SD:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" kindref="member">startSD</ref>())<sp/>{</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;SD<sp/>successfully<sp/>started&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Error<sp/>starting<sp/>SD<sp/>card&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a756efac71e8cf83b5add1ffcb9035a20" kindref="member">setupDisplay</ref>(<ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref>,<sp/><ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN</ref>();</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C</ref>(<ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>unused<sp/>but<sp/>left<sp/>as<sp/>a<sp/>reminder<sp/>for<sp/>how<sp/>you<sp/>can<sp/>use<sp/>it</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1a76c0525d646735793add25b18043e600" kindref="member">spi_mutex</ref><sp/>=<sp/>xSemaphoreCreateMutex();</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><ref refid="portmacro_8h_1a1ebe82d24d764ae4e352f7c3a9f92c01" kindref="member">portBASE_TYPE</ref><sp/>s1,<sp/>s2,<sp/>s3,<sp/>s4,<sp/>s5;</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>s1<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3" kindref="member">prechargeTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;PRECHARGE<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a" kindref="member">PRECHARGE_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)&amp;<ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>,<sp/>5,<sp/>NULL);</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>to<sp/>set<sp/>CAN_NODES<sp/>in<sp/>config.h</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/>s2<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;CAN<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524" kindref="member">CAN_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)&amp;<ref refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" kindref="member">canTaskData</ref>,<sp/>4,<sp/>NULL);</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/>s3<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_main_8ino_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;IDLE_TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a" kindref="member">configMINIMAL_STACK_SIZE</ref>,<sp/>NULL,<sp/>1,<sp/>NULL);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/>s4<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047" kindref="member">displayTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;DISPLAY<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2" kindref="member">DISPLAY_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)&amp;<ref refid="_main_8h_1aebb1e162e2ac30616875763e56823870" kindref="member">displayTaskWrap</ref>,<sp/>2,<sp/>NULL);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>s5<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;DATA<sp/>LOGGING<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2" kindref="member">DATALOGGING_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)&amp;<ref refid="_main_8h_1af74b66e7d389be76470292071c65f556" kindref="member">dataLoggingTaskData</ref>,<sp/>3,<sp/>NULL);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(s1<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s2<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s3<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s4<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s5<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Error<sp/>creating<sp/>tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1);</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Starting<sp/>the<sp/>scheduler&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="task_8h_1aaf9dca1065c60abdeb309d56ab7293cb" kindref="member">vTaskStartScheduler</ref>();</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Insufficient<sp/>RAM&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161" refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="165"></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" kindref="member">HIGH_VOLTAGE_TOGGLE</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" kindref="member">CLOSE_CONTACTOR_BUTTON</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1aebc2813ad338ac596f3108382916b482" kindref="member">TS_CS</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1aebc2813ad338ac596f3108382916b482" kindref="member">TS_CS</ref>,<sp/>HIGH);</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" kindref="member">PRECHARGE</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" kindref="member">PRECHARGE</ref>,<sp/>LOW);</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" kindref="member">CONTACTOR</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" kindref="member">CONTACTOR</ref>,<sp/>LOW);</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" kindref="member">CONTACTOR_PRECHARGED_LED</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" kindref="member">CONTACTOR_PRECHARGED_LED</ref>,<sp/>LOW);</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" kindref="member">CONTACTOR_CLOSED_LED</ref>,<sp/>OUTPUT);</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" kindref="member">CONTACTOR_CLOSED_LED</ref>,<sp/>LOW);</highlight></codeline>
-<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="198" refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref><sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" kindref="member">seriesVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" kindref="member">motorControllerBatteryVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" kindref="member">auxiliaryBatteryVoltage</ref>,</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" kindref="member">RPM</ref>,<sp/>&amp;<ref refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" kindref="member">motorControllerTemp</ref>,<sp/>&amp;<ref refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" kindref="member">motorCurrent</ref>,<sp/>&amp;<ref refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" kindref="member">errorMessage</ref>,</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" kindref="member">chargerCurrent</ref>,<sp/>&amp;<ref refid="_main_8h_1ab11fffe9a473928798422de66fcde502" kindref="member">chargerVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" kindref="member">bms_status_flag</ref>,<sp/>&amp;<ref refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" kindref="member">evccVoltage</ref>,<sp/><ref refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" kindref="member">thTemps</ref></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1aebb1e162e2ac30616875763e56823870" kindref="member">displayTaskWrap</ref><sp/>=<sp/>{&amp;<ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref>,<sp/>&amp;<ref refid="_main_8h_1a25cab1c2dd63e90138b14fec27cecc4b" kindref="member">screen</ref>};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>Serial.begin(115200);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>setTime(Teensy3Clock.get());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;Starting<sp/>SD:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_data_logging_8h_1a0d2a3a213399ec010b89dede4ba4de77" kindref="member">startSD</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;SD<sp/>successfully<sp/>started&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2" kindref="member">sdStarted</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Error<sp/>starting<sp/>SD<sp/>card&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="_display_8h_1a79b84de3ddc4f88db07ac708452e4467" kindref="member">setupDisplay</ref>(<ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="_c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b" kindref="member">setupCAN</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="_precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4" kindref="member">setupI2C</ref>(<ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>unused<sp/>but<sp/>left<sp/>as<sp/>a<sp/>reminder<sp/>for<sp/>how<sp/>you<sp/>can<sp/>use<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1a76c0525d646735793add25b18043e600" kindref="member">spi_mutex</ref><sp/>=<sp/>xSemaphoreCreateMutex();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="portmacro_8h_1a1ebe82d24d764ae4e352f7c3a9f92c01" kindref="member">portBASE_TYPE</ref><sp/>s1,<sp/>s2,<sp/>s3,<sp/>s4,<sp/>s5;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>s1<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3" kindref="member">prechargeTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;PRECHARGE<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a" kindref="member">PRECHARGE_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)&amp;<ref refid="_main_8h_1a695dccac97a0f45cf570237e981b2b5d" kindref="member">preChargeData</ref>,<sp/>5,<sp/>NULL);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>to<sp/>set<sp/>CAN_NODES<sp/>in<sp/>config.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>s2<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_c_a_n_8h_1a785e095da30ce4993a186804102bf2ea" kindref="member">canTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;CAN<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524" kindref="member">CAN_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)&amp;<ref refid="_main_8h_1ab1d006bdd632ad57598689186c8ce63a" kindref="member">canTaskData</ref>,<sp/>4,<sp/>NULL);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>s3<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_main_8ino_1a0d7297755c0775a9b0e4f7eeeafd7c7e" kindref="member">idleTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;IDLE_TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a" kindref="member">configMINIMAL_STACK_SIZE</ref>,<sp/>NULL,<sp/>1,<sp/>NULL);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>s4<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_display_8ino_1a7121972a969d5d8bd9c96626cfd61b11" kindref="member">displayTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;DISPLAY<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_display_8h_1ac018fe3f2622c6da250fdcc3d1df54f2" kindref="member">DISPLAY_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)&amp;<ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref>,<sp/>2,<sp/>NULL);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>s5<sp/>=<sp/><ref refid="tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1" kindref="member">xTaskCreate</ref>(<ref refid="_data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819" kindref="member">dataLoggingTask</ref>,<sp/></highlight><highlight class="stringliteral">&quot;DATA<sp/>LOGGING<sp/>TASK&quot;</highlight><highlight class="normal">,<sp/><ref refid="_data_logging_8h_1af4a74cae27161ee93cd63ef70a0082e2" kindref="member">DATALOGGING_TASK_STACK_SIZE</ref>,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)&amp;<ref refid="_main_8h_1af74b66e7d389be76470292071c65f556" kindref="member">dataLoggingTaskData</ref>,<sp/>3,<sp/>NULL);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(s1<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s2<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s3<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s4<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref><sp/>||<sp/>s5<sp/>!=<sp/><ref refid="projdefs_8h_1a07848d3078849bd32353c69d30a479b3" kindref="member">pdPASS</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Error<sp/>creating<sp/>tasks&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Starting<sp/>the<sp/>scheduler&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><ref refid="task_8h_1aaf9dca1065c60abdeb309d56ab7293cb" kindref="member">vTaskStartScheduler</ref>();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Insufficient<sp/>RAM&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162" refid="_main_8h_1a31d554847ae8fdeaba2460e0395cb75f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a31d554847ae8fdeaba2460e0395cb75f" kindref="member">setupPins</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="166"></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6" kindref="member">HIGH_VOLTAGE_TOGGLE</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec" kindref="member">CLOSE_CONTACTOR_BUTTON</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1ab40e9918d9141415a47e2a979292309c" kindref="member">TFT_RST</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1a5f4d46ae101b77df78010c506601c87c" kindref="member">TFT_CS</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_display_8h_1aebc2813ad338ac596f3108382916b482" kindref="member">TS_CS</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_display_8h_1aebc2813ad338ac596f3108382916b482" kindref="member">TS_CS</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" kindref="member">PRECHARGE</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a093dd273c900bae9cba2b32149e30eaa" kindref="member">PRECHARGE</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" kindref="member">CONTACTOR</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e" kindref="member">CONTACTOR</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" kindref="member">CONTACTOR_PRECHARGED_LED</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02" kindref="member">CONTACTOR_PRECHARGED_LED</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" kindref="member">CONTACTOR_CLOSED_LED</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a" kindref="member">CONTACTOR_CLOSED_LED</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="_main_8h_1a128d10ba9e06eb69d1dfc91ffef935ba" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba" kindref="member">initializeDisplayStructs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><ref refid="_main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8" kindref="member">measurementData</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed" kindref="member">seriesVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a" kindref="member">motorControllerBatteryVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8" kindref="member">auxiliaryBatteryVoltage</ref>,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba" kindref="member">RPM</ref>,<sp/>&amp;<ref refid="_main_8h_1a45af45f80ded31266ad90143957a4e5e" kindref="member">motorControllerTemp</ref>,<sp/>&amp;<ref refid="_main_8h_1a7facdac5aec018a06fc1443c2f90a66d" kindref="member">motorCurrent</ref>,<sp/>&amp;<ref refid="_main_8h_1a9e20c92d5e427acd66b85b1451d23a6b" kindref="member">errorMessage</ref>,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>&amp;<ref refid="_main_8h_1a8b27b4284d9d4039618e5da068c2bc7f" kindref="member">chargerCurrent</ref>,<sp/>&amp;<ref refid="_main_8h_1ab11fffe9a473928798422de66fcde502" kindref="member">chargerVoltage</ref>,<sp/>&amp;<ref refid="_main_8h_1a04c234659b28f92e2eab7998b586bb4c" kindref="member">bms_status_flag</ref>,<sp/>&amp;<ref refid="_main_8h_1a10823f3996ecbd5481190d44baa7fd8e" kindref="member">evccVoltage</ref>,<sp/><ref refid="_main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3" kindref="member">thTemps</ref></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
 <codeline lineno="205"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="206"><highlight class="normal"></highlight></codeline>
 <codeline lineno="207" refid="_main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1a797cf3c70ce7ae02bba9bfd3f6d886de" kindref="member">initializeLogStructs</ref>()<sp/>{</highlight></codeline>
@@ -494,6 +501,6 @@ Main. The source for the entire firmware. Utilizes Arduino&apos;s framework with
 <codeline lineno="256" refid="_main_8h_1afe461d27b9c48d5921c00d521181f12f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_main_8ino_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="257"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="Main.ino"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino"/>
   </compounddef>
 </doxygen>

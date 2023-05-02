@@ -1,16 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__c_a_n_8h" xml:lang="en-US">
-<title>CAN.h File Reference</title>
-<indexterm><primary>CAN.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/CAN.h</primary></indexterm>
 <para>
 
 <para>The <link linkend="__c_a_n_8h">CAN.h</link> config file for the CAN task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__c_a_n_8ino">CAN.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__c_a_n_8ino">CAN.ino</link>. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &lt;FlexCAN_T4.h&gt;
-#include &quot;Display.h&quot;
-#include &quot;FreeRTOS_TEENSY4.h&quot;
-</programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &lt;FlexCAN_T4.h&gt;<?linebreak?>#include &quot;Display.h&quot;<?linebreak?>#include &quot;FreeRTOS_TEENSY4.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_motor_stats">MotorStats</link></para>
@@ -34,59 +31,59 @@
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524">CAN_TASK_STACK_SIZE</link>   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1ab9d0930315055c0f1a6511c6cc3c5524">CAN_TASK_STACK_SIZE</link>&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</para>
 
 <para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a1b593ffe62c4590fa197331661393984">MOTOR_STATS_MSG</link>   0x0CF11E05</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a1b593ffe62c4590fa197331661393984">MOTOR_STATS_MSG</link>&#160;&#160;&#160;0x0CF11E05</para>
 
 <para>Motor controller message - CAN. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da">MOTOR_TEMPS_MSG</link>   0x0CF11F05</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a464be4036d5c85f472f461fc987eb2da">MOTOR_TEMPS_MSG</link>&#160;&#160;&#160;0x0CF11F05</para>
 
 <para>Motor controller message - CAN. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2">EVCC_STATS</link>   0x18e54024</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1ac7e658bcd09f49f37c7732ddc1c80fe2">EVCC_STATS</link>&#160;&#160;&#160;0x18e54024</para>
 
 <para>Charge controller status (current,volt...) </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d">CHARGER_STATS</link>   0x18eb2440</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1aaa765e2d2381f199ed620b8d6962f60d">CHARGER_STATS</link>&#160;&#160;&#160;0x18eb2440</para>
 
 <para>Thunderstruck Charger status (current,volt...) </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9">DD_BMS_STATUS_IND</link>   0x01dd0001</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a44d631b0f4e7e294bc26dd9c77d3dcb9">DD_BMS_STATUS_IND</link>&#160;&#160;&#160;0x01dd0001</para>
 
 <para>BMS cell data message (overvolt,undervolt...) </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7">DD_BMSC_TH_STATUS_IND</link>   0x01df0e00</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a5a71b982a71be6bc19546f4c8fecadd7">DD_BMSC_TH_STATUS_IND</link>&#160;&#160;&#160;0x01df0e00</para>
 
 <para>Themistor values message. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a">BMSC1_LTC1_CELLS_04</link>   0x01df0900</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a366031af35039c965b2bb3ac07dd702a">BMSC1_LTC1_CELLS_04</link>&#160;&#160;&#160;0x01df0900</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75">BMSC1_LTC1_CELLS_58</link>   0x01df0a00</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a2da14593c5f2bdd4bc417f9e66bc2a75">BMSC1_LTC1_CELLS_58</link>&#160;&#160;&#160;0x01df0a00</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1ac1908e8612424d72ae778e43759f077f">BMSC1_LTC1_CELLS_912</link>   0x01df0b00</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1ac1908e8612424d72ae778e43759f077f">BMSC1_LTC1_CELLS_912</link>&#160;&#160;&#160;0x01df0b00</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1a76c8bda430a00f369aed9309100c3107">BMSC1_LTC2_CELLS_04</link>   0x01df0901</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1a76c8bda430a00f369aed9309100c3107">BMSC1_LTC2_CELLS_04</link>&#160;&#160;&#160;0x01df0901</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5">BMSC1_LTC2_CELLS_58</link>   0x01df0a01</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1aa605748f6dfeb5f3ba7b8b473a2f41b5">BMSC1_LTC2_CELLS_58</link>&#160;&#160;&#160;0x01df0a01</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec">BMSC1_LTC2_CELLS_912</link>   0x01df0b01</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1af80d69aa4a06cbc8b1137773336f74ec">BMSC1_LTC2_CELLS_912</link>&#160;&#160;&#160;0x01df0b01</para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__c_a_n_8h_1aedb50849ed846717c3096b10fb75d537">BMS_CELLS</link>   24</para>
+            <listitem><para>#define <link linkend="__c_a_n_8h_1aedb50849ed846717c3096b10fb75d537">BMS_CELLS</link>&#160;&#160;&#160;24</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -149,26 +146,14 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
 <note><title>Note</title>
 
 <para>Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.</para>
 </note>
 <para><link linkend="_todo_1_todo000001">Todo</link> 
-<para>Nothing? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- More Nothing? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Nothing supreme? 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Nothing maxima. </para>
+<para>Nothing? <?linebreak?> <?linebreak?> More Nothing? <?linebreak?> <?linebreak?> Nothing supreme? <?linebreak?> <?linebreak?> Nothing maxima. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
@@ -179,7 +164,7 @@ Definition in file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
     <title>BMS_CELLS</title>
 <indexterm><primary>BMS_CELLS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMS_CELLS</secondary></indexterm>
-<para><computeroutput>#define BMS_CELLS   24</computeroutput></para>
+<para><computeroutput>#define BMS_CELLS&#160;&#160;&#160;24</computeroutput></para>
 <para>This is set to 24 instead of 20 because the BMS sends cells in packs of 12 so it makes the decipher function simpler. This represents the number of cells connected to the main accumulator BMS </para>
 <para>
 Definition at line <link linkend="__c_a_n_8h_source_1l00060">60</link> of file <link linkend="__c_a_n_8h_source">CAN.h</link>.</para>
@@ -188,7 +173,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00060">60</link> of file <
     <title>BMSC1_LTC1_CELLS_04</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_04</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_04</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC1_CELLS_04   0x01df0900</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC1_CELLS_04&#160;&#160;&#160;0x01df0900</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -199,7 +184,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00045">45</link> of file <
     <title>BMSC1_LTC1_CELLS_58</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_58</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_58</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC1_CELLS_58   0x01df0a00</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC1_CELLS_58&#160;&#160;&#160;0x01df0a00</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -210,7 +195,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00047">47</link> of file <
     <title>BMSC1_LTC1_CELLS_912</title>
 <indexterm><primary>BMSC1_LTC1_CELLS_912</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC1_CELLS_912</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC1_CELLS_912   0x01df0b00</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC1_CELLS_912&#160;&#160;&#160;0x01df0b00</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -221,7 +206,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00049">49</link> of file <
     <title>BMSC1_LTC2_CELLS_04</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_04</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_04</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC2_CELLS_04   0x01df0901</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC2_CELLS_04&#160;&#160;&#160;0x01df0901</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -232,7 +217,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00051">51</link> of file <
     <title>BMSC1_LTC2_CELLS_58</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_58</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_58</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC2_CELLS_58   0x01df0a01</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC2_CELLS_58&#160;&#160;&#160;0x01df0a01</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -243,7 +228,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00053">53</link> of file <
     <title>BMSC1_LTC2_CELLS_912</title>
 <indexterm><primary>BMSC1_LTC2_CELLS_912</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>BMSC1_LTC2_CELLS_912</secondary></indexterm>
-<para><computeroutput>#define BMSC1_LTC2_CELLS_912   0x01df0b01</computeroutput></para><para>
+<para><computeroutput>#define BMSC1_LTC2_CELLS_912&#160;&#160;&#160;0x01df0b01</computeroutput></para><para>
 
 <para>Convention: BMSC, LTC, CELL RANGE. </para>
 </para>
@@ -254,7 +239,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00055">55</link> of file <
     <title>CAN_TASK_STACK_SIZE</title>
 <indexterm><primary>CAN_TASK_STACK_SIZE</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CAN_TASK_STACK_SIZE</secondary></indexterm>
-<para><computeroutput>#define CAN_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
+<para><computeroutput>#define CAN_TASK_STACK_SIZE&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
 
 <para>Uses the configMINIMAL_STACK_SIZE variable in <link linkend="__main_8h">Main.h</link> to add up to the stack size used for the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> </para>
 </para>
@@ -265,7 +250,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00030">30</link> of file <
     <title>CHARGER_STATS</title>
 <indexterm><primary>CHARGER_STATS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>CHARGER_STATS</secondary></indexterm>
-<para><computeroutput>#define CHARGER_STATS   0x18eb2440</computeroutput></para><para>
+<para><computeroutput>#define CHARGER_STATS&#160;&#160;&#160;0x18eb2440</computeroutput></para><para>
 
 <para>Thunderstruck Charger status (current,volt...) </para>
 </para>
@@ -276,7 +261,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00039">39</link> of file <
     <title>DD_BMS_STATUS_IND</title>
 <indexterm><primary>DD_BMS_STATUS_IND</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>DD_BMS_STATUS_IND</secondary></indexterm>
-<para><computeroutput>#define DD_BMS_STATUS_IND   0x01dd0001</computeroutput></para><para>
+<para><computeroutput>#define DD_BMS_STATUS_IND&#160;&#160;&#160;0x01dd0001</computeroutput></para><para>
 
 <para>BMS cell data message (overvolt,undervolt...) </para>
 </para>
@@ -287,7 +272,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00041">41</link> of file <
     <title>DD_BMSC_TH_STATUS_IND</title>
 <indexterm><primary>DD_BMSC_TH_STATUS_IND</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>DD_BMSC_TH_STATUS_IND</secondary></indexterm>
-<para><computeroutput>#define DD_BMSC_TH_STATUS_IND   0x01df0e00</computeroutput></para><para>
+<para><computeroutput>#define DD_BMSC_TH_STATUS_IND&#160;&#160;&#160;0x01df0e00</computeroutput></para><para>
 
 <para>Themistor values message. </para>
 </para>
@@ -298,7 +283,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00043">43</link> of file <
     <title>EVCC_STATS</title>
 <indexterm><primary>EVCC_STATS</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>EVCC_STATS</secondary></indexterm>
-<para><computeroutput>#define EVCC_STATS   0x18e54024</computeroutput></para><para>
+<para><computeroutput>#define EVCC_STATS&#160;&#160;&#160;0x18e54024</computeroutput></para><para>
 
 <para>Charge controller status (current,volt...) </para>
 </para>
@@ -309,7 +294,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00037">37</link> of file <
     <title>MOTOR_STATS_MSG</title>
 <indexterm><primary>MOTOR_STATS_MSG</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>MOTOR_STATS_MSG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_STATS_MSG   0x0CF11E05</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_STATS_MSG&#160;&#160;&#160;0x0CF11E05</computeroutput></para><para>
 
 <para>Motor controller message - CAN. </para>
 </para>
@@ -320,7 +305,7 @@ Definition at line <link linkend="__c_a_n_8h_source_1l00033">33</link> of file <
     <title>MOTOR_TEMPS_MSG</title>
 <indexterm><primary>MOTOR_TEMPS_MSG</primary><secondary>CAN.h</secondary></indexterm>
 <indexterm><primary>CAN.h</primary><secondary>MOTOR_TEMPS_MSG</secondary></indexterm>
-<para><computeroutput>#define MOTOR_TEMPS_MSG   0x0CF11F05</computeroutput></para><para>
+<para><computeroutput>#define MOTOR_TEMPS_MSG&#160;&#160;&#160;0x0CF11F05</computeroutput></para><para>
 
 <para>Motor controller message - CAN. </para>
 </para>

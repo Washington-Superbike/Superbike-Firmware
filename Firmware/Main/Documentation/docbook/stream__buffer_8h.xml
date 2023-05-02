@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stream__buffer_8h" xml:lang="en-US">
-<title>FreeRTOS/stream_buffer.h File Reference</title>
-<indexterm><primary>FreeRTOS/stream_buffer.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/stream_buffer.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/stream_buffer.h</primary></indexterm>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed">xStreamBufferCreate</link>(xBufferSizeBytes,  xTriggerLevelBytes)   <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
+            <listitem><para>#define <link linkend="_stream__buffer_8h_1a39aa4dd8b83e2df7ded291f863fb5fed">xStreamBufferCreate</link>(xBufferSizeBytes,  xTriggerLevelBytes)&#160;&#160;&#160;<link linkend="_stream__buffer_8c_1a4387e6f3c52bd8755a014673c97aa497">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77">xStreamBufferCreateStatic</link>(xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)   <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</para>
+            <listitem><para>#define <link linkend="_stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77">xStreamBufferCreateStatic</link>(xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)&#160;&#160;&#160;<link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -61,14 +61,14 @@
     <title>xStreamBufferCreate</title>
 <indexterm><primary>xStreamBufferCreate</primary><secondary>stream_buffer.h</secondary></indexterm>
 <indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferCreate</secondary></indexterm>
-<para><computeroutput>#define xStreamBufferCreate( xBufferSizeBytes,  xTriggerLevelBytes)   <link linkend="_stream__buffer_8h_1a7a613c6fa11323c871ce7991db214096">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
+<para><computeroutput>#define xStreamBufferCreate( xBufferSizeBytes,  xTriggerLevelBytes)&#160;&#160;&#160;<link linkend="_stream__buffer_8c_1a4387e6f3c52bd8755a014673c97aa497">xStreamBufferGenericCreate</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link> )</computeroutput></para><para>
 Definition at line <link linkend="_stream__buffer_8h_source_1l00133">133</link> of file <link linkend="_stream__buffer_8h_source">stream_buffer.h</link>.</para>
 </section>
 <anchor xml:id="_stream__buffer_8h_1a3c248575ac1b83801db605b32a118f77"/><section>
     <title>xStreamBufferCreateStatic</title>
 <indexterm><primary>xStreamBufferCreateStatic</primary><secondary>stream_buffer.h</secondary></indexterm>
 <indexterm><primary>stream_buffer.h</primary><secondary>xStreamBufferCreateStatic</secondary></indexterm>
-<para><computeroutput>#define xStreamBufferCreateStatic( xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)   <link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</computeroutput></para><para>
+<para><computeroutput>#define xStreamBufferCreateStatic( xBufferSizeBytes,  xTriggerLevelBytes,  pucStreamBufferStorageArea,  pxStaticStreamBuffer)&#160;&#160;&#160;<link linkend="_stream__buffer_8h_1a1263847a3f77a4f34462df326d78c48c">xStreamBufferGenericCreateStatic</link>( xBufferSizeBytes, xTriggerLevelBytes, <link linkend="_projdefs_8h_1aa56260e937e7e203026707e5ba944273">pdFALSE</link>, pucStreamBufferStorageArea, pxStaticStreamBuffer )</computeroutput></para><para>
 Definition at line <link linkend="_stream__buffer_8h_source_1l00214">214</link> of file <link linkend="_stream__buffer_8h_source">stream_buffer.h</link>.</para>
 </section>
 </section>

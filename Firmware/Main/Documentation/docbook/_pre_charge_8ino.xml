@@ -1,15 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__pre_charge_8ino" xml:lang="en-US">
-<title>PreCharge.ino File Reference</title>
-<indexterm><primary>PreCharge.ino</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/PreCharge.ino</primary></indexterm>
 <para>
 
 <para>The <link linkend="__pre_charge_8ino">PreCharge.ino</link> file for the PreCharge/Controls task for the bike&apos;s firmware. This calls on the stats that are updated by CAN and then updates the state of controls (HV Off, ON, etc.) based on them. Pretty simple. This also reads in the gyroscope data to determine when to kill power to the bike. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;Precharge.h&quot;
-#include &lt;Wire.h&gt;
-</programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;Precharge.h&quot;<?linebreak?>#include &lt;Wire.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="__pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3">prechargeTask</link> (void *taskData)</para>
@@ -47,26 +45,14 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
 <note><title>Note</title>
 
 <para>up all members to be able to use it without any trouble.</para>
 </note>
-<para><link linkend="_todo_1_todo000010">Todo</link> 
-<para>Goal 1. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><link linkend="_todo_1_todo000011">Todo</link> 
+<para>Goal 1. <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
@@ -78,49 +64,49 @@ Definition in file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>
 <indexterm><primary>check_HV_TOGGLE</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>check_HV_TOGGLE</secondary></indexterm>
 <para><computeroutput>bool check_HV_TOGGLE ( )</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00188">188</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00190">190</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1ad8511ef84de5112bd6beb8e3ac5fff67"/><section>
     <title>gyro_signals()</title>
 <indexterm><primary>gyro_signals</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>gyro_signals</secondary></indexterm>
 <para><computeroutput>void gyro_signals (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00230">230</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00232">232</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1a65867cb936f7ef47ffd07fbfd4a91355"/><section>
     <title>isHVSafe()</title>
 <indexterm><primary>isHVSafe</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>isHVSafe</secondary></indexterm>
 <para><computeroutput>bool isHVSafe (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00167">167</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00169">169</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1"/><section>
     <title>isPrecharged()</title>
 <indexterm><primary>isPrecharged</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>isPrecharged</secondary></indexterm>
 <para><computeroutput>bool isPrecharged (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00152">152</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00154">154</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1ade8f654468b951602d2622b34902944f"/><section>
     <title>kalman_1d()</title>
 <indexterm><primary>kalman_1d</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>kalman_1d</secondary></indexterm>
 <para><computeroutput>void kalman_1d (float KalmanState, float KalmanUncertainty, float KalmanInput, float KalmanMeasurement, <link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00319">319</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00321">321</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1ad2376a25ab645f00587791af3c89968e"/><section>
     <title>preChargeCircuitFSMStateActions()</title>
 <indexterm><primary>preChargeCircuitFSMStateActions</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>preChargeCircuitFSMStateActions</secondary></indexterm>
 <para><computeroutput>void preChargeCircuitFSMStateActions (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00128">128</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00130">130</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1ad5e3efaa785dcd1d9143ec7e5d117277"/><section>
     <title>preChargeCircuitFSMTransitions()</title>
 <indexterm><primary>preChargeCircuitFSMTransitions</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>preChargeCircuitFSMTransitions</secondary></indexterm>
 <para><computeroutput>void preChargeCircuitFSMTransitions (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00068">68</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00070">70</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1a2cd6f5c27d7667dbd0b6a0bc756340a3"/><section>
     <title>prechargeTask()</title>
@@ -134,21 +120,21 @@ Definition at line <link linkend="__pre_charge_8ino_source_1l00054">54</link> of
 <indexterm><primary>setupI2C</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>setupI2C</secondary></indexterm>
 <para><computeroutput>void setupI2C (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00201">201</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00203">203</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1a0a3e1d4e80c1320d3308a0e0bb10ac87"/><section>
     <title>state_name()</title>
 <indexterm><primary>state_name</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>state_name</secondary></indexterm>
 <para><computeroutput>char * state_name (<link linkend="__precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29">HV_STATE</link> state)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00192">192</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00194">194</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__pre_charge_8ino_1a87184d718be6821c71e697fc1fd98d3b"/><section>
     <title>updateGyroData()</title>
 <indexterm><primary>updateGyroData</primary><secondary>PreCharge.ino</secondary></indexterm>
 <indexterm><primary>PreCharge.ino</primary><secondary>updateGyroData</secondary></indexterm>
 <para><computeroutput>void updateGyroData (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00297">297</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00299">299</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 </section>
 </section>

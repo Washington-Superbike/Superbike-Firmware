@@ -1,5 +1,5 @@
-\hypertarget{_main_8ino}{}\doxysection{Main.\+ino File Reference}
-\label{_main_8ino}\index{Main.ino@{Main.ino}}
+\hypertarget{_main_8ino}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Main.ino File Reference}
+\label{_main_8ino}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino@{C:/Users/ponym/ARHMA2021/Firmware/Main/Main.ino}}
 
 
 The main file for bike firmware. This includes \mbox{\hyperlink{_main_8h}{Main.\+h}} which in turn interconnects all files and allows for access to the global variables. These variables are then passed along to all other files as pointers. Then it runs the setup methods for all those files and then it sets up RTOS to run all the different files as individual tasks. These tasks are\+: datalogging, display, precharge, CAN, idle. These tasks will be further described in the documentation for their individual files.  
@@ -40,7 +40,7 @@ The main file for bike firmware. This includes \mbox{\hyperlink{_main_8h}{Main.\
 Washington Superbike 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-1-\/March-\/2023
+1-\/March-\/2023 
 \end{DoxyDate}
 Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s framework with void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} and void \mbox{\hyperlink{_main_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()}} methods, but only void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} is used. Before the void \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}, \mbox{\hyperlink{_main_8h}{Main.\+h}} is included into the file which in turn interconnects all files and allows for access to the global variables. These variables are what is eventually used in \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}} and all the helper methods, being passed along to all other files/tasks as pointers, allowing for them to updated and accessed at the same time. If \mbox{\hyperlink{_c_a_n_8ino}{Can.\+ino}} updates the motor\+Temperature, \mbox{\hyperlink{_display_8ino}{Display.\+ino}} has an updated value for the motor\+Temperature. Then the void setup will execute everything and also act as the loop. That is because the setup calls on the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} method from the RTOS library and then the \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}} method which in turn abstracts everything from us and rotates between all the tasks updating them and transferring resources as required. As of now, tasks operate on different resources than each other, thus there is no need for semaphores, however, if that is changed in the future, there is an example line of creating a semaphore above the calls to the \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}} method. The breakdown of how these methods and variables work in detail are explained further in the documentation closer for those methods and variables specifically. Please make sure to read and understand everything before you make any changes to this firmware.
 
@@ -48,7 +48,7 @@ Main. The source for the entire firmware. Utilizes Arduino\textquotesingle{}s fr
 As of 3/1/2023, I think this firmware is fully race-\/ready and meeting all requirements to race. Ideally, I would use HIL and their CAN interface to further test the requirements and ensure proper performance under race-\/communication circumstances, but I\textquotesingle{}m just tired, you guys can do that while testing everything else next quarter. As of now, my goal is to create full documentation for this codebase and train up all members to be able to use it without any trouble.
 \end{DoxyNote}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Refine further. ~\newline
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Refine further. ~\newline
  ~\newline
  Look for redundant variables, pins, etc and remove. ~\newline
  ~\newline
@@ -56,7 +56,9 @@ As of 3/1/2023, I think this firmware is fully race-\/ready and meeting all requ
  ~\newline
  Github tutorial\+: ~\newline
  ~\newline
- Syed Yasir \end{DoxyRefDesc}
+ Syed Yasir ~\newline
+ ~\newline
+ \end{DoxyRefDesc}
 
 
 Definition in file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
@@ -133,7 +135,7 @@ Definition at line \mbox{\hyperlink{_main_8ino_source_l00218}{218}} of file \mbo
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00198}{198}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00199}{199}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}\label{_main_8ino_a797cf3c70ce7ae02bba9bfd3f6d886de}} 
 \index{Main.ino@{Main.ino}!initializeLogStructs@{initializeLogStructs}}
@@ -216,7 +218,7 @@ px\+Created\+Task is a variable that is used to pass a handle to the created tas
 \end{DoxyNote}
 First this method calls on \mbox{\hyperlink{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}{setup\+Pins()}} to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.
 
-Then this method calls on \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
+Then this method calls on \mbox{\hyperlink{_main_8ino_a128d10ba9e06eb69d1dfc91ffef935ba}{initialize\+Display\+Structs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}}
 
 Then this method calls on \mbox{\hyperlink{_main_8ino_ab91267714bdf99d7b3d177f95f484157}{initialize\+CANStructs()}} to map the static variables from \mbox{\hyperlink{_main_8h}{Main.\+h}} from to a struct that is used for the \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}}
 
@@ -233,13 +235,13 @@ File-\/\texorpdfstring{$>$}{>}Examples-\/\texorpdfstring{$>$}{>}Time-\/\texorpdf
 \end{DoxyNote}
 Then this method starts the SD Card and prints the status if that works.
 
-Then this method calls on the \mbox{\hyperlink{_display_8h_a756efac71e8cf83b5add1ffcb9035a20}{setup\+Display()}} method which just initializes variables that are used by the \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}}
+Then this method calls on the \mbox{\hyperlink{_display_8h_a79b84de3ddc4f88db07ac708452e4467}{setup\+Display()}} method which just initializes variables that are used by the \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}}
 
 Then this method calls on the \mbox{\hyperlink{_c_a_n_8h_a833ae6516ecb5cb3f8a7bd5adbf2bd9b}{setup\+CAN()}} method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.
 
 Then this method calls on the \mbox{\hyperlink{_precharge_8h_a5782bd590f95fb2269eb43a3d70c18f4}{setup\+I2\+C()}} method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking $\sim$2 seconds worth of data to calibrate.
 
-The main and most important function of setup is initializing the tasks using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}}. The details of parameters are explained in the Note at the start of \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. The stack sizes are edited in \mbox{\hyperlink{_main_8h}{Main.\+h}} and the priorities are logically assigned for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}} with highest priority 5, \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} with second highest priority 4 since it contains data that can be used to trigger Off states for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}}. data\+Logging() is 3, it\textquotesingle{}s important to update the stored data from the race, but it\textquotesingle{}s more important to shutdown the bike if batteries are dying. \mbox{\hyperlink{_display_8ino_abbc2dd9c7d8fc4714a0379f70d919047}{display\+Task()}} is a 2 because see aforementioned reasoning for data\+Logging(). \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task()}} is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.
+The main and most important function of setup is initializing the tasks using \mbox{\hyperlink{tasks_8c_ad138d9dda4709b10d711775fa40eb1a1}{x\+Task\+Create()}}. The details of parameters are explained in the Note at the start of \mbox{\hyperlink{_main_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup()}}. The stack sizes are edited in \mbox{\hyperlink{_main_8h}{Main.\+h}} and the priorities are logically assigned for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}} with highest priority 5, \mbox{\hyperlink{_c_a_n_8h_a785e095da30ce4993a186804102bf2ea}{can\+Task()}} with second highest priority 4 since it contains data that can be used to trigger Off states for \mbox{\hyperlink{_precharge_8h_a3a618d104e1f329b2aad074b706db5c9}{pre\+Charge\+Task()}}. data\+Logging() is 3, it\textquotesingle{}s important to update the stored data from the race, but it\textquotesingle{}s more important to shutdown the bike if batteries are dying. \mbox{\hyperlink{_display_8ino_a7121972a969d5d8bd9c96626cfd61b11}{display\+Task()}} is a 2 because see aforementioned reasoning for data\+Logging(). \mbox{\hyperlink{_main_8ino_a0d7297755c0775a9b0e4f7eeeafd7c7e}{idle\+Task()}} is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.
 
 Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.
 
@@ -247,7 +249,7 @@ Lastly the method prints out that it will attempt to start the scheduler. If thi
 
 If this fails, the method prints out insufficient RAM and breaks.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00064}{64}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00065}{65}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 
 \mbox{\Hypertarget{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}\label{_main_8ino_a31d554847ae8fdeaba2460e0395cb75f}} 
 \index{Main.ino@{Main.ino}!setupPins@{setupPins}}
@@ -279,5 +281,5 @@ Initializes the pin corresponding to the Contactor Precharge-\/\+Read LED as out
 
 Initializes the pin corresponding to the Contactor-\/\+Closed LED as output and then outputs LOW to that pin.
 
-Definition at line \mbox{\hyperlink{_main_8ino_source_l00161}{161}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
+Definition at line \mbox{\hyperlink{_main_8ino_source_l00162}{162}} of file \mbox{\hyperlink{_main_8ino_source}{Main.\+ino}}.
 

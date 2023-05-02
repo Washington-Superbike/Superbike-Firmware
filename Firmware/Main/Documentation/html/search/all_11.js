@@ -17,9 +17,8 @@ var searchData=
   ['ready_14',['ready',['../struct_cell_voltages.html#a844b5b2d0bd58e1147076ab8aacc420a',1,'CellVoltages']]],
   ['release_5fspi_5fcontrol_15',['release_SPI_control',['../_main_8h.html#a966fda2bc617e020cb78f814bb5514c1',1,'release_SPI_control(void):&#160;Main.ino'],['../_main_8ino.html#a966fda2bc617e020cb78f814bb5514c1',1,'release_SPI_control(void):&#160;Main.ino']]],
   ['requestcellvoltages_16',['requestCellVoltages',['../_c_a_n_8h.html#a0953b2f37f0e637d3f5fba2148109d2a',1,'requestCellVoltages(int LTC):&#160;CAN.ino'],['../_c_a_n_8ino.html#a0953b2f37f0e637d3f5fba2148109d2a',1,'requestCellVoltages(int LTC):&#160;CAN.ino']]],
-  ['rpm_17',['RPM',['../struct_motor_stats.html#a7e3450d33d8be341dea374a2fcafd257',1,'MotorStats::RPM()'],['../struct_measurement_screen_data_struct.html#a032fdb5cea2670a02f48dae82cb6c5f7',1,'MeasurementScreenDataStruct::RPM()']]],
+  ['rpm_17',['RPM',['../struct_motor_stats.html#a7e3450d33d8be341dea374a2fcafd257',1,'MotorStats::RPM()'],['../struct_measurement_screen_data_struct.html#a032fdb5cea2670a02f48dae82cb6c5f7',1,'MeasurementScreenDataStruct::RPM()'],['../_main_8h.html#ade4e42cdef2d4a9d50b3184100ad8cba',1,'RPM():&#160;Main.h']]],
   ['rpm_18',['rpm',['../_display_8h.html#a96f08d4bf70ba395b285b8d6a352bdf9',1,'Display.h']]],
-  ['rpm_19',['RPM',['../_main_8h.html#ade4e42cdef2d4a9d50b3184100ad8cba',1,'Main.h']]],
-  ['rpm_5flog_20',['RPM_LOG',['../_data_logging_8h.html#af7b33dd28efa07f171323d23a5f714d2',1,'DataLogging.h']]],
-  ['rpmlog_21',['rpmLog',['../_main_8h.html#a60f914a71f12f33ed914208fbf5be838',1,'Main.h']]]
+  ['rpm_5flog_19',['RPM_LOG',['../_data_logging_8h.html#af7b33dd28efa07f171323d23a5f714d2',1,'DataLogging.h']]],
+  ['rpmlog_20',['rpmLog',['../_main_8h.html#a60f914a71f12f33ed914208fbf5be838',1,'Main.h']]]
 ];

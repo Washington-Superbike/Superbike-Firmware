@@ -1,2 +1,71 @@
-\hypertarget{config_8h}{}\doxysection{config.\+h File Reference}
-\label{config_8h}\index{config.h@{config.h}}
+\hypertarget{config_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/config.h File Reference}
+\label{config_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/config.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/config.h}}
+
+
+If you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{config_8h_a9d09068130671d9ca6bf3c9b6fac6e34}{CAN\+\_\+\+NODES}}~0
+\item 
+\#define \mbox{\hyperlink{config_8h_a1b567b3caf8487eccf2110567e8a2fb8}{USE\+\_\+\+DEBUGGING\+\_\+\+SCREEN}}
+\item 
+\#define \mbox{\hyperlink{config_8h_a9e9f6a6f679efeb38325e7474a2e4c85}{NUM\+\_\+\+THERMI}}~10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+If you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here. 
+
+\begin{DoxyAuthor}{Author}
+Washington Superbike 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+1-\/March-\/2023 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]CHANGE THE NUM\+\_\+\+THERMI based on the number of thermistors that Powertain settles on. ~\newline
+ ~\newline
+ \end{DoxyRefDesc}
+
+
+Definition in file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{config_8h_a9d09068130671d9ca6bf3c9b6fac6e34}\label{config_8h_a9d09068130671d9ca6bf3c9b6fac6e34}} 
+\index{config.h@{config.h}!CAN\_NODES@{CAN\_NODES}}
+\index{CAN\_NODES@{CAN\_NODES}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_NODES}{CAN\_NODES}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+NODES~0}
+
+This primarily exists to debug the changes made in the Flex\+CAN library. If there are no devices connected on the CAN bus, the firmware crashes This line can be set to 0 to ensure that the CAN bus does not bother to check the CAN bus if there are 0 nodes connected. 
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00022}{22}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{config_8h_a9e9f6a6f679efeb38325e7474a2e4c85}\label{config_8h_a9e9f6a6f679efeb38325e7474a2e4c85}} 
+\index{config.h@{config.h}!NUM\_THERMI@{NUM\_THERMI}}
+\index{NUM\_THERMI@{NUM\_THERMI}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_THERMI}{NUM\_THERMI}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+THERMI~10}
+
+This exists to be changed based on the final number of thermistors we settle on having in the code later. 
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00030}{30}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{config_8h_a1b567b3caf8487eccf2110567e8a2fb8}\label{config_8h_a1b567b3caf8487eccf2110567e8a2fb8}} 
+\index{config.h@{config.h}!USE\_DEBUGGING\_SCREEN@{USE\_DEBUGGING\_SCREEN}}
+\index{USE\_DEBUGGING\_SCREEN@{USE\_DEBUGGING\_SCREEN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{USE\_DEBUGGING\_SCREEN}{USE\_DEBUGGING\_SCREEN}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+DEBUGGING\+\_\+\+SCREEN}
+
+Defines the type of screen to generate in \mbox{\hyperlink{_display_8ino}{Display.\+ino}}. \begin{DoxyNote}{Note}
+NOTE\+: COMMENT THIS OUT TO CHANGE DISPLAY TYPE TO SPEEDOMETER! 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00026}{26}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+

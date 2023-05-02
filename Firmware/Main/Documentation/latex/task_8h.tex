@@ -1,5 +1,5 @@
-\hypertarget{task_8h}{}\doxysection{Free\+RTOS/task.h File Reference}
-\label{task_8h}\index{FreeRTOS/task.h@{FreeRTOS/task.h}}
+\hypertarget{task_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/task.h File Reference}
+\label{task_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/task.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/task.h}}
 {\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -65,15 +65,15 @@ struct \mbox{\hyperlink{structx_t_a_s_k___s_t_a_t_u_s}{x\+TASK\+\_\+\+STATUS}}
 \item 
 \#define \mbox{\hyperlink{task_8h_acbb675035741787d29da475b5a887545}{task\+SCHEDULER\+\_\+\+RUNNING}}~( ( \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} ) 2 )
 \item 
-\#define \mbox{\hyperlink{task_8h_a0d2d54fb8a64011dfbb54983e4ed06bd}{x\+Task\+Notify}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action)~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL )
+\#define \mbox{\hyperlink{task_8h_a0d2d54fb8a64011dfbb54983e4ed06bd}{x\+Task\+Notify}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action)~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL )
 \item 
-\#define \mbox{\hyperlink{task_8h_aaa80adec29a2eebbfe0a551684a0acca}{x\+Task\+Notify\+And\+Query}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  pul\+Previous\+Notify\+Value)~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notify\+Value ) )
+\#define \mbox{\hyperlink{task_8h_aaa80adec29a2eebbfe0a551684a0acca}{x\+Task\+Notify\+And\+Query}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  pul\+Previous\+Notify\+Value)~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notify\+Value ) )
 \item 
-\#define \mbox{\hyperlink{task_8h_a1ed9129068b96a909356bd0369c5ecb0}{x\+Task\+Notify\+From\+ISR}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{tasks_8c_a23102158140aa66fb3b9fd132cd53695}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL, ( px\+Higher\+Priority\+Task\+Woken ) )
+\#define \mbox{\hyperlink{task_8h_a1ed9129068b96a909356bd0369c5ecb0}{x\+Task\+Notify\+From\+ISR}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{task_8h_a959c55f7950abffbc4107ce61ca52e97}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL, ( px\+Higher\+Priority\+Task\+Woken ) )
 \item 
-\#define \mbox{\hyperlink{task_8h_a5c491b42e243a91c7473887d1fb96dd5}{x\+Task\+Notify\+And\+Query\+From\+ISR}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  pul\+Previous\+Notification\+Value,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{tasks_8c_a23102158140aa66fb3b9fd132cd53695}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notification\+Value ), ( px\+Higher\+Priority\+Task\+Woken ) )
+\#define \mbox{\hyperlink{task_8h_a5c491b42e243a91c7473887d1fb96dd5}{x\+Task\+Notify\+And\+Query\+From\+ISR}}(x\+Task\+To\+Notify,  ul\+Value,  e\+Action,  pul\+Previous\+Notification\+Value,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{task_8h_a959c55f7950abffbc4107ce61ca52e97}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notification\+Value ), ( px\+Higher\+Priority\+Task\+Woken ) )
 \item 
-\#define \mbox{\hyperlink{task_8h_ac60cbd05577a3e4f3c3587dd9b213930}{x\+Task\+Notify\+Give}}(x\+Task\+To\+Notify)~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( 0 ), \mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822}{e\+Increment}}, NULL )
+\#define \mbox{\hyperlink{task_8h_ac60cbd05577a3e4f3c3587dd9b213930}{x\+Task\+Notify\+Give}}(x\+Task\+To\+Notify)~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( 0 ), \mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822}{e\+Increment}}, NULL )
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -493,7 +493,7 @@ Definition at line \mbox{\hyperlink{task_8h_source_l00062}{62}} of file \mbox{\h
 \index{task.h@{task.h}!xTaskNotify@{xTaskNotify}}
 \index{xTaskNotify@{xTaskNotify}!task.h@{task.h}}
 \doxysubsubsection{\texorpdfstring{xTaskNotify}{xTaskNotify}}
-{\footnotesize\ttfamily \#define x\+Task\+Notify(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action }\end{DoxyParamCaption})~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL )}
+{\footnotesize\ttfamily \#define x\+Task\+Notify(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action }\end{DoxyParamCaption})~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL )}
 
 
 
@@ -503,7 +503,7 @@ Definition at line \mbox{\hyperlink{task_8h_source_l01857}{1857}} of file \mbox{
 \index{task.h@{task.h}!xTaskNotifyAndQuery@{xTaskNotifyAndQuery}}
 \index{xTaskNotifyAndQuery@{xTaskNotifyAndQuery}!task.h@{task.h}}
 \doxysubsubsection{\texorpdfstring{xTaskNotifyAndQuery}{xTaskNotifyAndQuery}}
-{\footnotesize\ttfamily \#define x\+Task\+Notify\+And\+Query(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{pul\+Previous\+Notify\+Value }\end{DoxyParamCaption})~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notify\+Value ) )}
+{\footnotesize\ttfamily \#define x\+Task\+Notify\+And\+Query(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{pul\+Previous\+Notify\+Value }\end{DoxyParamCaption})~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notify\+Value ) )}
 
 
 
@@ -513,7 +513,7 @@ Definition at line \mbox{\hyperlink{task_8h_source_l01858}{1858}} of file \mbox{
 \index{task.h@{task.h}!xTaskNotifyAndQueryFromISR@{xTaskNotifyAndQueryFromISR}}
 \index{xTaskNotifyAndQueryFromISR@{xTaskNotifyAndQueryFromISR}!task.h@{task.h}}
 \doxysubsubsection{\texorpdfstring{xTaskNotifyAndQueryFromISR}{xTaskNotifyAndQueryFromISR}}
-{\footnotesize\ttfamily \#define x\+Task\+Notify\+And\+Query\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{pul\+Previous\+Notification\+Value,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{tasks_8c_a23102158140aa66fb3b9fd132cd53695}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notification\+Value ), ( px\+Higher\+Priority\+Task\+Woken ) )}
+{\footnotesize\ttfamily \#define x\+Task\+Notify\+And\+Query\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{pul\+Previous\+Notification\+Value,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{task_8h_a959c55f7950abffbc4107ce61ca52e97}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), ( pul\+Previous\+Notification\+Value ), ( px\+Higher\+Priority\+Task\+Woken ) )}
 
 
 
@@ -523,7 +523,7 @@ Definition at line \mbox{\hyperlink{task_8h_source_l01949}{1949}} of file \mbox{
 \index{task.h@{task.h}!xTaskNotifyFromISR@{xTaskNotifyFromISR}}
 \index{xTaskNotifyFromISR@{xTaskNotifyFromISR}!task.h@{task.h}}
 \doxysubsubsection{\texorpdfstring{xTaskNotifyFromISR}{xTaskNotifyFromISR}}
-{\footnotesize\ttfamily \#define x\+Task\+Notify\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{tasks_8c_a23102158140aa66fb3b9fd132cd53695}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL, ( px\+Higher\+Priority\+Task\+Woken ) )}
+{\footnotesize\ttfamily \#define x\+Task\+Notify\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify,  }\item[{}]{ul\+Value,  }\item[{}]{e\+Action,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{task_8h_a959c55f7950abffbc4107ce61ca52e97}{x\+Task\+Generic\+Notify\+From\+ISR}}( ( x\+Task\+To\+Notify ), ( ul\+Value ), ( e\+Action ), NULL, ( px\+Higher\+Priority\+Task\+Woken ) )}
 
 
 
@@ -533,7 +533,7 @@ Definition at line \mbox{\hyperlink{task_8h_source_l01948}{1948}} of file \mbox{
 \index{task.h@{task.h}!xTaskNotifyGive@{xTaskNotifyGive}}
 \index{xTaskNotifyGive@{xTaskNotifyGive}!task.h@{task.h}}
 \doxysubsubsection{\texorpdfstring{xTaskNotifyGive}{xTaskNotifyGive}}
-{\footnotesize\ttfamily \#define x\+Task\+Notify\+Give(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify }\end{DoxyParamCaption})~\mbox{\hyperlink{tasks_8c_ab7ac3722f088a5530f7ac58cd48a5e7a}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( 0 ), \mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822}{e\+Increment}}, NULL )}
+{\footnotesize\ttfamily \#define x\+Task\+Notify\+Give(\begin{DoxyParamCaption}\item[{}]{x\+Task\+To\+Notify }\end{DoxyParamCaption})~\mbox{\hyperlink{task_8h_aa7bd3a4f3847b83900fd6a9f1bacfe9e}{x\+Task\+Generic\+Notify}}( ( x\+Task\+To\+Notify ), ( 0 ), \mbox{\hyperlink{task_8h_ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822}{e\+Increment}}, NULL )}
 
 
 

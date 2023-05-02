@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_task_8h" xml:lang="en-US">
-<title>FreeRTOS/task.h File Reference</title>
-<indexterm><primary>FreeRTOS/task.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;list.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/task.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/task.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;list.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structx_t_i_m_e___o_u_t">xTIME_OUT</link></para>
@@ -19,65 +18,65 @@
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_task_8h_1a3de6ae5641d96a68aa027673b6588016">tskKERNEL_VERSION_NUMBER</link>   &quot;V10.2.0&quot;</para>
+            <listitem><para>#define <link linkend="_task_8h_1a3de6ae5641d96a68aa027673b6588016">tskKERNEL_VERSION_NUMBER</link>&#160;&#160;&#160;&quot;V10.2.0&quot;</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a790e0e16f79e71d4791435a31d5b0fc7">tskKERNEL_VERSION_MAJOR</link>   10</para>
+            <listitem><para>#define <link linkend="_task_8h_1a790e0e16f79e71d4791435a31d5b0fc7">tskKERNEL_VERSION_MAJOR</link>&#160;&#160;&#160;10</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ab0b5ab04d8419227d0a5ac94af6b3639">tskKERNEL_VERSION_MINOR</link>   2</para>
+            <listitem><para>#define <link linkend="_task_8h_1ab0b5ab04d8419227d0a5ac94af6b3639">tskKERNEL_VERSION_MINOR</link>&#160;&#160;&#160;2</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a4cb001d5c86f4a8a5272f27227eb3247">tskKERNEL_VERSION_BUILD</link>   0</para>
+            <listitem><para>#define <link linkend="_task_8h_1a4cb001d5c86f4a8a5272f27227eb3247">tskKERNEL_VERSION_BUILD</link>&#160;&#160;&#160;0</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6">tskMPU_REGION_READ_ONLY</link>   ( 1UL &lt;&lt; 0UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6">tskMPU_REGION_READ_ONLY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1aa13782bf13a683798cda192165d8c5d6">tskMPU_REGION_READ_WRITE</link>   ( 1UL &lt;&lt; 1UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1aa13782bf13a683798cda192165d8c5d6">tskMPU_REGION_READ_WRITE</link>&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ab011150da041e1e65bc271152eabba3c">tskMPU_REGION_EXECUTE_NEVER</link>   ( 1UL &lt;&lt; 2UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1ab011150da041e1e65bc271152eabba3c">tskMPU_REGION_EXECUTE_NEVER</link>&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ad300fc0b16549387b185dffa7a2dc323">tskMPU_REGION_NORMAL_MEMORY</link>   ( 1UL &lt;&lt; 3UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1ad300fc0b16549387b185dffa7a2dc323">tskMPU_REGION_NORMAL_MEMORY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a4ce090b0f3d783e72e230647c0261f96">tskMPU_REGION_DEVICE_MEMORY</link>   ( 1UL &lt;&lt; 4UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a4ce090b0f3d783e72e230647c0261f96">tskMPU_REGION_DEVICE_MEMORY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6">tskMPU_REGION_READ_ONLY</link>   ( 1UL &lt;&lt; 0UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6">tskMPU_REGION_READ_ONLY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1aa13782bf13a683798cda192165d8c5d6">tskMPU_REGION_READ_WRITE</link>   ( 1UL &lt;&lt; 1UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1aa13782bf13a683798cda192165d8c5d6">tskMPU_REGION_READ_WRITE</link>&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ab011150da041e1e65bc271152eabba3c">tskMPU_REGION_EXECUTE_NEVER</link>   ( 1UL &lt;&lt; 2UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1ab011150da041e1e65bc271152eabba3c">tskMPU_REGION_EXECUTE_NEVER</link>&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ad300fc0b16549387b185dffa7a2dc323">tskMPU_REGION_NORMAL_MEMORY</link>   ( 1UL &lt;&lt; 3UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1ad300fc0b16549387b185dffa7a2dc323">tskMPU_REGION_NORMAL_MEMORY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a4ce090b0f3d783e72e230647c0261f96">tskMPU_REGION_DEVICE_MEMORY</link>   ( 1UL &lt;&lt; 4UL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a4ce090b0f3d783e72e230647c0261f96">tskMPU_REGION_DEVICE_MEMORY</link>&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</link>   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0U )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0U )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a767e474430db1e60056e9678763f9202">taskYIELD</link>()   <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1a767e474430db1e60056e9678763f9202">taskYIELD</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ab7bf0ae866292ba8296091a9d5209689">taskENTER_CRITICAL</link>()   <link linkend="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1ab7bf0ae866292ba8296091a9d5209689">taskENTER_CRITICAL</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1acb27098fc27d117f720d96bfdcd2b4c8">taskENTER_CRITICAL_FROM_ISR</link>()   <link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1acb27098fc27d117f720d96bfdcd2b4c8">taskENTER_CRITICAL_FROM_ISR</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1aac8f36abc45ac4ee714bd6b81e3b1643">taskEXIT_CRITICAL</link>()   <link linkend="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd">portEXIT_CRITICAL</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1aac8f36abc45ac4ee714bd6b81e3b1643">taskEXIT_CRITICAL</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd">portEXIT_CRITICAL</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1afa2f5acc3c925b6542ecca1acf67a234">taskEXIT_CRITICAL_FROM_ISR</link>(x)   <link linkend="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</link>( x )</para>
+            <listitem><para>#define <link linkend="_task_8h_1afa2f5acc3c925b6542ecca1acf67a234">taskEXIT_CRITICAL_FROM_ISR</link>(x)&#160;&#160;&#160;<link linkend="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</link>( x )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1aa455a648c2224964ee57758b8794198e">taskDISABLE_INTERRUPTS</link>()   <link linkend="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1aa455a648c2224964ee57758b8794198e">taskDISABLE_INTERRUPTS</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a04361ba499e91eb35324e4cba6feea17">taskENABLE_INTERRUPTS</link>()   <link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>()</para>
+            <listitem><para>#define <link linkend="_task_8h_1a04361ba499e91eb35324e4cba6feea17">taskENABLE_INTERRUPTS</link>()&#160;&#160;&#160;<link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>()</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a0cad071ca127a35df93166e9ed5b6ada">taskSCHEDULER_SUSPENDED</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a0cad071ca127a35df93166e9ed5b6ada">taskSCHEDULER_SUSPENDED</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a0923fdaae1bfe42ac5cccd9e9ddca9ed">taskSCHEDULER_NOT_STARTED</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a0923fdaae1bfe42ac5cccd9e9ddca9ed">taskSCHEDULER_NOT_STARTED</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1acbb675035741787d29da475b5a887545">taskSCHEDULER_RUNNING</link>   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 2 )</para>
+            <listitem><para>#define <link linkend="_task_8h_1acbb675035741787d29da475b5a887545">taskSCHEDULER_RUNNING</link>&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 2 )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd">xTaskNotify</link>(xTaskToNotify,  ulValue,  eAction)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd">xTaskNotify</link>(xTaskToNotify,  ulValue,  eAction)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1aaa80adec29a2eebbfe0a551684a0acca">xTaskNotifyAndQuery</link>(xTaskToNotify,  ulValue,  eAction,  pulPreviousNotifyValue)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotifyValue ) )</para>
+            <listitem><para>#define <link linkend="_task_8h_1aaa80adec29a2eebbfe0a551684a0acca">xTaskNotifyAndQuery</link>(xTaskToNotify,  ulValue,  eAction,  pulPreviousNotifyValue)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotifyValue ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a1ed9129068b96a909356bd0369c5ecb0">xTaskNotifyFromISR</link>(xTaskToNotify,  ulValue,  eAction,  pxHigherPriorityTaskWoken)   <link linkend="_tasks_8c_1a23102158140aa66fb3b9fd132cd53695">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL, ( pxHigherPriorityTaskWoken ) )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a1ed9129068b96a909356bd0369c5ecb0">xTaskNotifyFromISR</link>(xTaskToNotify,  ulValue,  eAction,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_task_8h_1a959c55f7950abffbc4107ce61ca52e97">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL, ( pxHigherPriorityTaskWoken ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1a5c491b42e243a91c7473887d1fb96dd5">xTaskNotifyAndQueryFromISR</link>(xTaskToNotify,  ulValue,  eAction,  pulPreviousNotificationValue,  pxHigherPriorityTaskWoken)   <link linkend="_tasks_8c_1a23102158140aa66fb3b9fd132cd53695">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotificationValue ), ( pxHigherPriorityTaskWoken ) )</para>
+            <listitem><para>#define <link linkend="_task_8h_1a5c491b42e243a91c7473887d1fb96dd5">xTaskNotifyAndQueryFromISR</link>(xTaskToNotify,  ulValue,  eAction,  pulPreviousNotificationValue,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_task_8h_1a959c55f7950abffbc4107ce61ca52e97">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotificationValue ), ( pxHigherPriorityTaskWoken ) )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_task_8h_1ac60cbd05577a3e4f3c3587dd9b213930">xTaskNotifyGive</link>(xTaskToNotify)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( 0 ), <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822">eIncrement</link>, NULL )</para>
+            <listitem><para>#define <link linkend="_task_8h_1ac60cbd05577a3e4f3c3587dd9b213930">xTaskNotifyGive</link>(xTaskToNotify)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( 0 ), <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822">eIncrement</link>, NULL )</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -101,23 +100,19 @@
 <simplesect>
     <title>Enumerations    </title>
         <itemizedlist>
-            <listitem><para>enum <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892c">eTaskState</link> { 
-<link linkend="_task_8h_1a1749369458e2282a22e862a619a3892ca83318c0d58e6b2bafaefa1be597fb8b6">eRunning</link> = 0
+            <listitem><para>enum <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892c">eTaskState</link> { <?linebreak?><link linkend="_task_8h_1a1749369458e2282a22e862a619a3892ca83318c0d58e6b2bafaefa1be597fb8b6">eRunning</link> = 0
 , <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892ca8570b65f331057b2cf92c504f0a2bc83">eReady</link>
 , <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892cad23d72c68f43b6fff4962ad4154766af">eBlocked</link>
 , <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892caf35a900d49fdfc2502eefc68fdb70f72">eSuspended</link>
-, 
-<link linkend="_task_8h_1a1749369458e2282a22e862a619a3892cacef5c6e771d3a07f656e07a13a20ba35">eDeleted</link>
+, <?linebreak?><link linkend="_task_8h_1a1749369458e2282a22e862a619a3892cacef5c6e771d3a07f656e07a13a20ba35">eDeleted</link>
 , <link linkend="_task_8h_1a1749369458e2282a22e862a619a3892cab32c771bb60dc8b502f65b81eef3bd86">eInvalid</link>
  }</para>
 </listitem>
-            <listitem><para>enum <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233">eNotifyAction</link> { 
-<link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a">eNoAction</link> = 0
+            <listitem><para>enum <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233">eNotifyAction</link> { <?linebreak?><link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233abac2b17ab15444724b6f35d47cd0a64a">eNoAction</link> = 0
 , <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233ab7b1af2eeee53ae78eeff37c1cb6f79b">eSetBits</link>
 , <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822">eIncrement</link>
 , <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233ab61fc296ef909186b5824c823b33e130">eSetValueWithOverwrite</link>
-, 
-<link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233acc4dd3fe71b62c751187a2c4c515abac">eSetValueWithoutOverwrite</link>
+, <?linebreak?><link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233acc4dd3fe71b62c751187a2c4c515abac">eSetValueWithoutOverwrite</link>
  }</para>
 </listitem>
             <listitem><para>enum <link linkend="_task_8h_1afd168a210ae0f2fb0fca242860a8178e">eSleepModeStatus</link> { <link linkend="_task_8h_1afd168a210ae0f2fb0fca242860a8178eaba7b1a394c63faa14a85dbb191f1c6f9">eAbortSleep</link> = 0
@@ -254,77 +249,77 @@
     <title>taskDISABLE_INTERRUPTS</title>
 <indexterm><primary>taskDISABLE_INTERRUPTS</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskDISABLE_INTERRUPTS</secondary></indexterm>
-<para><computeroutput>#define taskDISABLE_INTERRUPTS( )   <link linkend="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskDISABLE_INTERRUPTS( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1a6e3d10ee1a0734a647ca192523c2cfc1">portDISABLE_INTERRUPTS</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00220">220</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a04361ba499e91eb35324e4cba6feea17"/><section>
     <title>taskENABLE_INTERRUPTS</title>
 <indexterm><primary>taskENABLE_INTERRUPTS</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskENABLE_INTERRUPTS</secondary></indexterm>
-<para><computeroutput>#define taskENABLE_INTERRUPTS( )   <link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskENABLE_INTERRUPTS( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00230">230</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ab7bf0ae866292ba8296091a9d5209689"/><section>
     <title>taskENTER_CRITICAL</title>
 <indexterm><primary>taskENTER_CRITICAL</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskENTER_CRITICAL</secondary></indexterm>
-<para><computeroutput>#define taskENTER_CRITICAL( )   <link linkend="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskENTER_CRITICAL( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1a8a09321ad004019f3c8d0f2e4d7224c7">portENTER_CRITICAL</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00195">195</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1acb27098fc27d117f720d96bfdcd2b4c8"/><section>
     <title>taskENTER_CRITICAL_FROM_ISR</title>
 <indexterm><primary>taskENTER_CRITICAL_FROM_ISR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskENTER_CRITICAL_FROM_ISR</secondary></indexterm>
-<para><computeroutput>#define taskENTER_CRITICAL_FROM_ISR( )   <link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskENTER_CRITICAL_FROM_ISR( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1a31b4260dbc1823ba80b578f86eb15a98">portSET_INTERRUPT_MASK_FROM_ISR</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00196">196</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1aac8f36abc45ac4ee714bd6b81e3b1643"/><section>
     <title>taskEXIT_CRITICAL</title>
 <indexterm><primary>taskEXIT_CRITICAL</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskEXIT_CRITICAL</secondary></indexterm>
-<para><computeroutput>#define taskEXIT_CRITICAL( )   <link linkend="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd">portEXIT_CRITICAL</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskEXIT_CRITICAL( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1a529358e6147881dd881c890ade21c9bd">portEXIT_CRITICAL</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00210">210</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1afa2f5acc3c925b6542ecca1acf67a234"/><section>
     <title>taskEXIT_CRITICAL_FROM_ISR</title>
 <indexterm><primary>taskEXIT_CRITICAL_FROM_ISR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskEXIT_CRITICAL_FROM_ISR</secondary></indexterm>
-<para><computeroutput>#define taskEXIT_CRITICAL_FROM_ISR( x)   <link linkend="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</link>( x )</computeroutput></para><para>
+<para><computeroutput>#define taskEXIT_CRITICAL_FROM_ISR( x)&#160;&#160;&#160;<link linkend="_portmacro_8h_1a79d65a5d0f6f9133a0739832e9d8367e">portCLEAR_INTERRUPT_MASK_FROM_ISR</link>( x )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00211">211</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a0923fdaae1bfe42ac5cccd9e9ddca9ed"/><section>
     <title>taskSCHEDULER_NOT_STARTED</title>
 <indexterm><primary>taskSCHEDULER_NOT_STARTED</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskSCHEDULER_NOT_STARTED</secondary></indexterm>
-<para><computeroutput>#define taskSCHEDULER_NOT_STARTED   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</computeroutput></para><para>
+<para><computeroutput>#define taskSCHEDULER_NOT_STARTED&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 1 )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00236">236</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1acbb675035741787d29da475b5a887545"/><section>
     <title>taskSCHEDULER_RUNNING</title>
 <indexterm><primary>taskSCHEDULER_RUNNING</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskSCHEDULER_RUNNING</secondary></indexterm>
-<para><computeroutput>#define taskSCHEDULER_RUNNING   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 2 )</computeroutput></para><para>
+<para><computeroutput>#define taskSCHEDULER_RUNNING&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 2 )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00237">237</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a0cad071ca127a35df93166e9ed5b6ada"/><section>
     <title>taskSCHEDULER_SUSPENDED</title>
 <indexterm><primary>taskSCHEDULER_SUSPENDED</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskSCHEDULER_SUSPENDED</secondary></indexterm>
-<para><computeroutput>#define taskSCHEDULER_SUSPENDED   ( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
+<para><computeroutput>#define taskSCHEDULER_SUSPENDED&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a46fb21e00ae0729d7515c0fbf2269796">BaseType_t</link> ) 0 )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00235">235</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a767e474430db1e60056e9678763f9202"/><section>
     <title>taskYIELD</title>
 <indexterm><primary>taskYIELD</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>taskYIELD</secondary></indexterm>
-<para><computeroutput>#define taskYIELD( )   <link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</computeroutput></para><para>
+<para><computeroutput>#define taskYIELD( )&#160;&#160;&#160;<link linkend="_portmacro_8h_1ae1ff06193615f5130b5a97dc9e708fc7">portYIELD</link>()</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00181">181</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a94ed0b9b3b4e8ccc859c322f18583e67"/><section>
     <title>tskIDLE_PRIORITY</title>
 <indexterm><primary>tskIDLE_PRIORITY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskIDLE_PRIORITY</secondary></indexterm>
-<para><computeroutput>#define tskIDLE_PRIORITY   ( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0U )</computeroutput></para>
+<para><computeroutput>#define tskIDLE_PRIORITY&#160;&#160;&#160;( ( <link linkend="_portmacro_8h_1a646f89d4298e4f5afd522202b11cb2e6">UBaseType_t</link> ) 0U )</computeroutput></para>
 <para>Defines the priority used by the idle task. This must not be modified. </para>
 <para>
 Definition at line <link linkend="_task_8h_source_1l00171">171</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
@@ -333,133 +328,133 @@ Definition at line <link linkend="_task_8h_source_1l00171">171</link> of file <l
     <title>tskKERNEL_VERSION_BUILD</title>
 <indexterm><primary>tskKERNEL_VERSION_BUILD</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskKERNEL_VERSION_BUILD</secondary></indexterm>
-<para><computeroutput>#define tskKERNEL_VERSION_BUILD   0</computeroutput></para><para>
+<para><computeroutput>#define tskKERNEL_VERSION_BUILD&#160;&#160;&#160;0</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00049">49</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a790e0e16f79e71d4791435a31d5b0fc7"/><section>
     <title>tskKERNEL_VERSION_MAJOR</title>
 <indexterm><primary>tskKERNEL_VERSION_MAJOR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskKERNEL_VERSION_MAJOR</secondary></indexterm>
-<para><computeroutput>#define tskKERNEL_VERSION_MAJOR   10</computeroutput></para><para>
+<para><computeroutput>#define tskKERNEL_VERSION_MAJOR&#160;&#160;&#160;10</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00047">47</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ab0b5ab04d8419227d0a5ac94af6b3639"/><section>
     <title>tskKERNEL_VERSION_MINOR</title>
 <indexterm><primary>tskKERNEL_VERSION_MINOR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskKERNEL_VERSION_MINOR</secondary></indexterm>
-<para><computeroutput>#define tskKERNEL_VERSION_MINOR   2</computeroutput></para><para>
+<para><computeroutput>#define tskKERNEL_VERSION_MINOR&#160;&#160;&#160;2</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00048">48</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a3de6ae5641d96a68aa027673b6588016"/><section>
     <title>tskKERNEL_VERSION_NUMBER</title>
 <indexterm><primary>tskKERNEL_VERSION_NUMBER</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskKERNEL_VERSION_NUMBER</secondary></indexterm>
-<para><computeroutput>#define tskKERNEL_VERSION_NUMBER   &quot;V10.2.0&quot;</computeroutput></para><para>
+<para><computeroutput>#define tskKERNEL_VERSION_NUMBER&#160;&#160;&#160;&quot;V10.2.0&quot;</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00046">46</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a4ce090b0f3d783e72e230647c0261f96"/><section>
     <title>tskMPU_REGION_DEVICE_MEMORY<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_DEVICE_MEMORY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_DEVICE_MEMORY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_DEVICE_MEMORY   ( 1UL &lt;&lt; 4UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_DEVICE_MEMORY&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00065">65</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a4ce090b0f3d783e72e230647c0261f96"/><section>
     <title>tskMPU_REGION_DEVICE_MEMORY<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_DEVICE_MEMORY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_DEVICE_MEMORY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_DEVICE_MEMORY   ( 1UL &lt;&lt; 4UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_DEVICE_MEMORY&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00065">65</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ab011150da041e1e65bc271152eabba3c"/><section>
     <title>tskMPU_REGION_EXECUTE_NEVER<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_EXECUTE_NEVER</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_EXECUTE_NEVER</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_EXECUTE_NEVER   ( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_EXECUTE_NEVER&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00063">63</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ab011150da041e1e65bc271152eabba3c"/><section>
     <title>tskMPU_REGION_EXECUTE_NEVER<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_EXECUTE_NEVER</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_EXECUTE_NEVER</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_EXECUTE_NEVER   ( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_EXECUTE_NEVER&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00063">63</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ad300fc0b16549387b185dffa7a2dc323"/><section>
     <title>tskMPU_REGION_NORMAL_MEMORY<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_NORMAL_MEMORY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_NORMAL_MEMORY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_NORMAL_MEMORY   ( 1UL &lt;&lt; 3UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_NORMAL_MEMORY&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00064">64</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ad300fc0b16549387b185dffa7a2dc323"/><section>
     <title>tskMPU_REGION_NORMAL_MEMORY<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_NORMAL_MEMORY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_NORMAL_MEMORY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_NORMAL_MEMORY   ( 1UL &lt;&lt; 3UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_NORMAL_MEMORY&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00064">64</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6"/><section>
     <title>tskMPU_REGION_READ_ONLY<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_READ_ONLY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_READ_ONLY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_READ_ONLY   ( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_READ_ONLY&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00061">61</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a96fbec2d0baf0d3e958af5fc709de9d6"/><section>
     <title>tskMPU_REGION_READ_ONLY<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_READ_ONLY</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_READ_ONLY</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_READ_ONLY   ( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_READ_ONLY&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00061">61</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1aa13782bf13a683798cda192165d8c5d6"/><section>
     <title>tskMPU_REGION_READ_WRITE<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_READ_WRITE</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_READ_WRITE</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_READ_WRITE   ( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_READ_WRITE&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00062">62</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1aa13782bf13a683798cda192165d8c5d6"/><section>
     <title>tskMPU_REGION_READ_WRITE<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>tskMPU_REGION_READ_WRITE</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>tskMPU_REGION_READ_WRITE</secondary></indexterm>
-<para><computeroutput>#define tskMPU_REGION_READ_WRITE   ( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
+<para><computeroutput>#define tskMPU_REGION_READ_WRITE&#160;&#160;&#160;( 1UL &lt;&lt; 1UL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l00062">62</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a0d2d54fb8a64011dfbb54983e4ed06bd"/><section>
     <title>xTaskNotify</title>
 <indexterm><primary>xTaskNotify</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>xTaskNotify</secondary></indexterm>
-<para><computeroutput>#define xTaskNotify( xTaskToNotify,  ulValue,  eAction)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL )</computeroutput></para><para>
+<para><computeroutput>#define xTaskNotify( xTaskToNotify,  ulValue,  eAction)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l01857">1857</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1aaa80adec29a2eebbfe0a551684a0acca"/><section>
     <title>xTaskNotifyAndQuery</title>
 <indexterm><primary>xTaskNotifyAndQuery</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>xTaskNotifyAndQuery</secondary></indexterm>
-<para><computeroutput>#define xTaskNotifyAndQuery( xTaskToNotify,  ulValue,  eAction,  pulPreviousNotifyValue)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotifyValue ) )</computeroutput></para><para>
+<para><computeroutput>#define xTaskNotifyAndQuery( xTaskToNotify,  ulValue,  eAction,  pulPreviousNotifyValue)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotifyValue ) )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l01858">1858</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a5c491b42e243a91c7473887d1fb96dd5"/><section>
     <title>xTaskNotifyAndQueryFromISR</title>
 <indexterm><primary>xTaskNotifyAndQueryFromISR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>xTaskNotifyAndQueryFromISR</secondary></indexterm>
-<para><computeroutput>#define xTaskNotifyAndQueryFromISR( xTaskToNotify,  ulValue,  eAction,  pulPreviousNotificationValue,  pxHigherPriorityTaskWoken)   <link linkend="_tasks_8c_1a23102158140aa66fb3b9fd132cd53695">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotificationValue ), ( pxHigherPriorityTaskWoken ) )</computeroutput></para><para>
+<para><computeroutput>#define xTaskNotifyAndQueryFromISR( xTaskToNotify,  ulValue,  eAction,  pulPreviousNotificationValue,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_task_8h_1a959c55f7950abffbc4107ce61ca52e97">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), ( pulPreviousNotificationValue ), ( pxHigherPriorityTaskWoken ) )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l01949">1949</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1a1ed9129068b96a909356bd0369c5ecb0"/><section>
     <title>xTaskNotifyFromISR</title>
 <indexterm><primary>xTaskNotifyFromISR</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>xTaskNotifyFromISR</secondary></indexterm>
-<para><computeroutput>#define xTaskNotifyFromISR( xTaskToNotify,  ulValue,  eAction,  pxHigherPriorityTaskWoken)   <link linkend="_tasks_8c_1a23102158140aa66fb3b9fd132cd53695">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL, ( pxHigherPriorityTaskWoken ) )</computeroutput></para><para>
+<para><computeroutput>#define xTaskNotifyFromISR( xTaskToNotify,  ulValue,  eAction,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_task_8h_1a959c55f7950abffbc4107ce61ca52e97">xTaskGenericNotifyFromISR</link>( ( xTaskToNotify ), ( ulValue ), ( eAction ), NULL, ( pxHigherPriorityTaskWoken ) )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l01948">1948</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 <anchor xml:id="_task_8h_1ac60cbd05577a3e4f3c3587dd9b213930"/><section>
     <title>xTaskNotifyGive</title>
 <indexterm><primary>xTaskNotifyGive</primary><secondary>task.h</secondary></indexterm>
 <indexterm><primary>task.h</primary><secondary>xTaskNotifyGive</secondary></indexterm>
-<para><computeroutput>#define xTaskNotifyGive( xTaskToNotify)   <link linkend="_tasks_8c_1ab7ac3722f088a5530f7ac58cd48a5e7a">xTaskGenericNotify</link>( ( xTaskToNotify ), ( 0 ), <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822">eIncrement</link>, NULL )</computeroutput></para><para>
+<para><computeroutput>#define xTaskNotifyGive( xTaskToNotify)&#160;&#160;&#160;<link linkend="_task_8h_1aa7bd3a4f3847b83900fd6a9f1bacfe9e">xTaskGenericNotify</link>( ( xTaskToNotify ), ( 0 ), <link linkend="_task_8h_1ae8abc4f7da5b6880467daafbf19cd233a04fb0e98d2400e4cd28f1593bc868822">eIncrement</link>, NULL )</computeroutput></para><para>
 Definition at line <link linkend="_task_8h_source_1l02070">2070</link> of file <link linkend="_task_8h_source">task.h</link>.</para>
 </section>
 </section>

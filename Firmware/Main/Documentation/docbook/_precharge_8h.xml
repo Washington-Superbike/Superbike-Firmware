@@ -1,14 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__precharge_8h" xml:lang="en-US">
-<title>Precharge.h File Reference</title>
-<indexterm><primary>Precharge.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/Precharge.h</primary></indexterm>
 <para>
 
 <para>The <link linkend="__precharge_8h">PreCharge.h</link> config file for the PreCharge/Controls task for the bike&apos;s firmware. This defines the variables that are passed along to the <link linkend="__pre_charge_8ino">PreCharge.ino</link> file and others if they use it. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__pre_charge_8ino">PreCharge.ino</link>. This file also creates two typedef structs that basically allow us to package the data in PreCharge for the task in a nice way. Like all header files, this exists as the skeleton/framework for the .ino or main c file. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;FreeRTOS_TEENSY4.h&quot;
-</programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;FreeRTOS_TEENSY4.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Classes    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link></para>
@@ -18,39 +17,39 @@
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="__precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a">PRECHARGE_TASK_STACK_SIZE</link>   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a0ea5dd53294d533feaeeb8731cb9739a">PRECHARGE_TASK_STACK_SIZE</link>&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e">CONTACTOR</link>   16</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1ae1099ac76283225ff2bbbbdc0819ba4e">CONTACTOR</link>&#160;&#160;&#160;16</para>
 
 <para>Teensy pin for contactor control (closing or opening) </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a093dd273c900bae9cba2b32149e30eaa">PRECHARGE</link>   17</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a093dd273c900bae9cba2b32149e30eaa">PRECHARGE</link>&#160;&#160;&#160;17</para>
 
 <para>Teensy pin for relay in series with precharge resistor. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6">HIGH_VOLTAGE_TOGGLE</link>   15</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a4e1dc017df18faad4234012c3e88d2f6">HIGH_VOLTAGE_TOGGLE</link>&#160;&#160;&#160;15</para>
 
 <para>Teensy pin for starting precharge, exit precharging, exit done-precharging. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec">CLOSE_CONTACTOR_BUTTON</link>   14</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a6f82f95bb8a6ffac8f6998ff4e5e16ec">CLOSE_CONTACTOR_BUTTON</link>&#160;&#160;&#160;14</para>
 
 <para>Teensy pin for closing the contactor (usable after precharging) </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02">CONTACTOR_PRECHARGED_LED</link>   18</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a0985e25d7f0cd7e7101c2f20c1cf8e02">CONTACTOR_PRECHARGED_LED</link>&#160;&#160;&#160;18</para>
 
 <para>Teensy pin for LED that illuminates after precharge complete. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a">CONTACTOR_CLOSED_LED</link>   19</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a606b28f262c8b6842a36e2f68cfc327a">CONTACTOR_CLOSED_LED</link>&#160;&#160;&#160;19</para>
 
 <para>Teensy pin for LED that illuminates when the contactor is closed. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e">NUMBER_OF_LTCS</link>   20</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a3d7443dc1d0d423a961f907584dfd19e">NUMBER_OF_LTCS</link>&#160;&#160;&#160;20</para>
 
 <para>THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs. </para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1a1f9513787cfe256aae379719ab26ca39">MOTORCONTROLLER_TEMP_MAX</link>   65</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1a1f9513787cfe256aae379719ab26ca39">MOTORCONTROLLER_TEMP_MAX</link>&#160;&#160;&#160;65</para>
 </listitem>
-            <listitem><para>#define <link linkend="__precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db">MOTOR_TEMP_MAX</link>   80</para>
+            <listitem><para>#define <link linkend="__precharge_8h_1aa39f17be3d8f2f799f7fbd0dc01963db">MOTOR_TEMP_MAX</link>&#160;&#160;&#160;80</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -114,26 +113,14 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
 <note><title>Note</title>
 
 <para>This file could be way better optimized. Remove all the stupid extra vars in the preChargeStruct data and then change the gyro methods to process items as parameters and not a bunch of global vars. This MIGHT require increasing PRECHARGE_TASK_STACK_SIZE to make sure there are no errors. But wait for an error and then fix the value, dont just increase the stack size without thinking about it.</para>
 </note>
-<para><link linkend="_todo_1_todo000009">Todo</link> 
-<para>Change the preChargeStruct data to use less floats, etc. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><link linkend="_todo_1_todo000010">Todo</link> 
+<para>Change the preChargeStruct data to use less floats, etc. <?linebreak?> <?linebreak?> NUMBER_OF_LTCS needs to be changed for the REAL number of LTCs. MOTORCONTROLLER_TEMP_MAX might need to be changed depending. MOTOR_TEMP_MAX might need to be changed depending. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
@@ -144,7 +131,7 @@ Definition in file <link linkend="__precharge_8h_source">Precharge.h</link>.</pa
     <title>CLOSE_CONTACTOR_BUTTON</title>
 <indexterm><primary>CLOSE_CONTACTOR_BUTTON</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CLOSE_CONTACTOR_BUTTON</secondary></indexterm>
-<para><computeroutput>#define CLOSE_CONTACTOR_BUTTON   14</computeroutput></para><para>
+<para><computeroutput>#define CLOSE_CONTACTOR_BUTTON&#160;&#160;&#160;14</computeroutput></para><para>
 
 <para>Teensy pin for closing the contactor (usable after precharging) </para>
 </para>
@@ -155,7 +142,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00040">40</link> of fi
     <title>CONTACTOR</title>
 <indexterm><primary>CONTACTOR</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR</secondary></indexterm>
-<para><computeroutput>#define CONTACTOR   16</computeroutput></para><para>
+<para><computeroutput>#define CONTACTOR&#160;&#160;&#160;16</computeroutput></para><para>
 
 <para>Teensy pin for contactor control (closing or opening) </para>
 </para>
@@ -166,7 +153,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00034">34</link> of fi
     <title>CONTACTOR_CLOSED_LED</title>
 <indexterm><primary>CONTACTOR_CLOSED_LED</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR_CLOSED_LED</secondary></indexterm>
-<para><computeroutput>#define CONTACTOR_CLOSED_LED   19</computeroutput></para><para>
+<para><computeroutput>#define CONTACTOR_CLOSED_LED&#160;&#160;&#160;19</computeroutput></para><para>
 
 <para>Teensy pin for LED that illuminates when the contactor is closed. </para>
 </para>
@@ -177,7 +164,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00044">44</link> of fi
     <title>CONTACTOR_PRECHARGED_LED</title>
 <indexterm><primary>CONTACTOR_PRECHARGED_LED</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>CONTACTOR_PRECHARGED_LED</secondary></indexterm>
-<para><computeroutput>#define CONTACTOR_PRECHARGED_LED   18</computeroutput></para><para>
+<para><computeroutput>#define CONTACTOR_PRECHARGED_LED&#160;&#160;&#160;18</computeroutput></para><para>
 
 <para>Teensy pin for LED that illuminates after precharge complete. </para>
 </para>
@@ -188,7 +175,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00042">42</link> of fi
     <title>HIGH_VOLTAGE_TOGGLE</title>
 <indexterm><primary>HIGH_VOLTAGE_TOGGLE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>HIGH_VOLTAGE_TOGGLE</secondary></indexterm>
-<para><computeroutput>#define HIGH_VOLTAGE_TOGGLE   15</computeroutput></para><para>
+<para><computeroutput>#define HIGH_VOLTAGE_TOGGLE&#160;&#160;&#160;15</computeroutput></para><para>
 
 <para>Teensy pin for starting precharge, exit precharging, exit done-precharging. </para>
 </para>
@@ -199,7 +186,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00038">38</link> of fi
     <title>MOTOR_TEMP_MAX</title>
 <indexterm><primary>MOTOR_TEMP_MAX</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>MOTOR_TEMP_MAX</secondary></indexterm>
-<para><computeroutput>#define MOTOR_TEMP_MAX   80</computeroutput></para>
+<para><computeroutput>#define MOTOR_TEMP_MAX&#160;&#160;&#160;80</computeroutput></para>
 <para>Motor temperature max. This might need to be changed depending on how high the motor hits during operation. </para>
 <para>
 Definition at line <link linkend="__precharge_8h_source_1l00052">52</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
@@ -208,7 +195,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00052">52</link> of fi
     <title>MOTORCONTROLLER_TEMP_MAX</title>
 <indexterm><primary>MOTORCONTROLLER_TEMP_MAX</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>MOTORCONTROLLER_TEMP_MAX</secondary></indexterm>
-<para><computeroutput>#define MOTORCONTROLLER_TEMP_MAX   65</computeroutput></para>
+<para><computeroutput>#define MOTORCONTROLLER_TEMP_MAX&#160;&#160;&#160;65</computeroutput></para>
 <para>Motor controller temperature max. This might need to be changed depending on how high the MCU hits during operation. </para>
 <para>
 Definition at line <link linkend="__precharge_8h_source_1l00049">49</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
@@ -217,7 +204,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00049">49</link> of fi
     <title>NUMBER_OF_LTCS</title>
 <indexterm><primary>NUMBER_OF_LTCS</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>NUMBER_OF_LTCS</secondary></indexterm>
-<para><computeroutput>#define NUMBER_OF_LTCS   20</computeroutput></para><para>
+<para><computeroutput>#define NUMBER_OF_LTCS&#160;&#160;&#160;20</computeroutput></para><para>
 
 <para>THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs. </para>
 </para>
@@ -228,7 +215,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00046">46</link> of fi
     <title>PRECHARGE</title>
 <indexterm><primary>PRECHARGE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>PRECHARGE</secondary></indexterm>
-<para><computeroutput>#define PRECHARGE   17</computeroutput></para><para>
+<para><computeroutput>#define PRECHARGE&#160;&#160;&#160;17</computeroutput></para><para>
 
 <para>Teensy pin for relay in series with precharge resistor. </para>
 </para>
@@ -239,7 +226,7 @@ Definition at line <link linkend="__precharge_8h_source_1l00036">36</link> of fi
     <title>PRECHARGE_TASK_STACK_SIZE</title>
 <indexterm><primary>PRECHARGE_TASK_STACK_SIZE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>PRECHARGE_TASK_STACK_SIZE</secondary></indexterm>
-<para><computeroutput>#define PRECHARGE_TASK_STACK_SIZE   <link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
+<para><computeroutput>#define PRECHARGE_TASK_STACK_SIZE&#160;&#160;&#160;<link linkend="__free_r_t_o_s_config__default_8h_1a6c534a6cf8a00528fe0be42083484f9a">configMINIMAL_STACK_SIZE</link> + 4096</computeroutput></para><para>
 Definition at line <link linkend="__precharge_8h_source_1l00031">31</link> of file <link linkend="__precharge_8h_source">Precharge.h</link>.</para>
 </section>
 </section>
@@ -281,49 +268,49 @@ Definition at line <link linkend="__precharge_8h_source_1l00055">55</link> of fi
 <indexterm><primary>check_HV_TOGGLE</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>check_HV_TOGGLE</secondary></indexterm>
 <para><computeroutput>bool check_HV_TOGGLE ( )</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00188">188</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00190">190</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1ad8511ef84de5112bd6beb8e3ac5fff67"/><section>
     <title>gyro_signals()</title>
 <indexterm><primary>gyro_signals</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>gyro_signals</secondary></indexterm>
 <para><computeroutput>void gyro_signals (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00230">230</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00232">232</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a65867cb936f7ef47ffd07fbfd4a91355"/><section>
     <title>isHVSafe()</title>
 <indexterm><primary>isHVSafe</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>isHVSafe</secondary></indexterm>
 <para><computeroutput>bool isHVSafe (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00167">167</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00169">169</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a42b25fa6ccd2c8d82ba24c5ed4aaa7d1"/><section>
     <title>isPrecharged()</title>
 <indexterm><primary>isPrecharged</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>isPrecharged</secondary></indexterm>
 <para><computeroutput>bool isPrecharged (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00152">152</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00154">154</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1ade8f654468b951602d2622b34902944f"/><section>
     <title>kalman_1d()</title>
 <indexterm><primary>kalman_1d</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>kalman_1d</secondary></indexterm>
 <para><computeroutput>void kalman_1d (float KalmanState, float KalmanUncertainty, float KalmanInput, float KalmanMeasurement, <link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00319">319</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00321">321</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1ad2376a25ab645f00587791af3c89968e"/><section>
     <title>preChargeCircuitFSMStateActions()</title>
 <indexterm><primary>preChargeCircuitFSMStateActions</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>preChargeCircuitFSMStateActions</secondary></indexterm>
 <para><computeroutput>void preChargeCircuitFSMStateActions (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00128">128</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00130">130</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1ad5e3efaa785dcd1d9143ec7e5d117277"/><section>
     <title>preChargeCircuitFSMTransitions()</title>
 <indexterm><primary>preChargeCircuitFSMTransitions</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>preChargeCircuitFSMTransitions</secondary></indexterm>
 <para><computeroutput>void preChargeCircuitFSMTransitions (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00068">68</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00070">70</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a3a618d104e1f329b2aad074b706db5c9"/><section>
     <title>preChargeTask()</title>
@@ -335,21 +322,21 @@ Definition at line <link linkend="__pre_charge_8ino_source_1l00068">68</link> of
 <indexterm><primary>setupI2C</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>setupI2C</secondary></indexterm>
 <para><computeroutput>void setupI2C (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00201">201</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00203">203</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a0a3e1d4e80c1320d3308a0e0bb10ac87"/><section>
     <title>state_name()</title>
 <indexterm><primary>state_name</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>state_name</secondary></indexterm>
 <para><computeroutput>char * state_name (<link linkend="__precharge_8h_1a5faacefaff4b0ce77f1f8be0bf2aaf29">HV_STATE</link> state)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00192">192</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00194">194</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 <anchor xml:id="__precharge_8h_1a87184d718be6821c71e697fc1fd98d3b"/><section>
     <title>updateGyroData()</title>
 <indexterm><primary>updateGyroData</primary><secondary>Precharge.h</secondary></indexterm>
 <indexterm><primary>Precharge.h</primary><secondary>updateGyroData</secondary></indexterm>
 <para><computeroutput>void updateGyroData (<link linkend="_struct_pre_charge_task_data">PreChargeTaskData</link> preChargeData)</computeroutput></para><para>
-Definition at line <link linkend="__pre_charge_8ino_source_1l00297">297</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
+Definition at line <link linkend="__pre_charge_8ino_source_1l00299">299</link> of file <link linkend="__pre_charge_8ino_source">PreCharge.ino</link>.</para>
 </section>
 </section>
 <section>

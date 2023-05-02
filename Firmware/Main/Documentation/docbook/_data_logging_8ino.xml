@@ -1,17 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__data_logging_8ino" xml:lang="en-US">
-<title>DataLogging.ino File Reference</title>
-<indexterm><primary>DataLogging.ino</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/DataLogging.ino</primary></indexterm>
 <para>
 
 <para>The <link linkend="__data_logging_8ino">DataLogging.ino</link> file is used to excecute on the DataLogging task for the bike&apos;s firmware. This task uses the <link linkend="_struct_c_s_v_writer">CSVWriter</link> data passed as logs to process and then save the data into files. There&apos;s not much else to it. Iterate over logs and save it. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;DataLogging.h&quot;
-#include &quot;Display.h&quot;
-#include &quot;Main.h&quot;
-#include &quot;FreeRTOS_TEENSY4.h&quot;
-</programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;DataLogging.h&quot;<?linebreak?>#include &quot;Display.h&quot;<?linebreak?>#include &quot;Main.h&quot;<?linebreak?>#include &quot;FreeRTOS_TEENSY4.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="__data_logging_8ino_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask</link> (void *dlData)</para>
@@ -45,26 +41,14 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
 <note><title>Note</title>
 
 <para>All members should be able to use it without any trouble. Chase made a method to process the logs data without any trouble, but they be able to use it without any trouble.</para>
 </note>
-<para><link linkend="_todo_1_todo000004">Todo</link> 
-<para>Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 2. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Goal 3. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><link linkend="_todo_1_todo000005">Todo</link> 
+<para>Use the void pointer stuff in the addRecord method. Fix it up. Not required, but preferred. <?linebreak?> <?linebreak?> Goal 2. <?linebreak?> <?linebreak?> Goal 3. <?linebreak?> <?linebreak?> Final Goal. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__data_logging_8ino_source">DataLogging.ino</link>.</para>
@@ -84,11 +68,7 @@ Definition in file <link linkend="__data_logging_8ino_source">DataLogging.ino</l
 </note>
 THIS IS BETTER VIEWED IN CODE THAN IN DOCUMENTATION... void *point = writer-&gt;dataValues; for(int i = 0; i &lt; writer-&gt;dataValuesLen) { switch(writer-&gt;D_TYPE) { case FLOAT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(float); // how much space the float took in memory break; case INT: sRecord.concat(&quot;,&quot;).concat(writer-&gt;dataValues[i]); point += sizeof(int); // how much space the int took in memory case ... (can be any other D_TYPE we define) ... (similar to previous two cases) break; default: Serial.printf(&quot;Unknown D_TYPE: %u\n&quot;, D_TYPE); break; } }</para>
 
-<para>
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-</para>
+<para><?linebreak?> <?linebreak?></para>
 
 <para>I want to add it in now but it should be tested before being merged obviously.. Chase</para>
 <para>

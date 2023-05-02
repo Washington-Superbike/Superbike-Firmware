@@ -1,5 +1,5 @@
-\hypertarget{queue_8c}{}\doxysection{Free\+RTOS/queue.c File Reference}
-\label{queue_8c}\index{FreeRTOS/queue.c@{FreeRTOS/queue.c}}
+\hypertarget{queue_8c}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/queue.c File Reference}
+\label{queue_8c}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/queue.c@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/queue.c}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}Free\+RTOS.\+h\char`\"{}}\newline
@@ -151,18 +151,18 @@ Definition at line \mbox{\hyperlink{queue_8c_source_l00034}{34}} of file \mbox{\
 
 {\bfseries Value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{    \mbox{\hyperlink{task_8h_ab7bf0ae866292ba8296091a9d5209689}{taskENTER\_CRITICAL}}();                                 \(\backslash\)}
-\DoxyCodeLine{    \{                                                       \(\backslash\)}
-\DoxyCodeLine{        if( ( pxQueue )-\/>cRxLock == \mbox{\hyperlink{queue_8c_acdb781ba6b38714cf41f7417de8fe6bf}{queueUNLOCKED}} )            \(\backslash\)}
-\DoxyCodeLine{        \{                                                   \(\backslash\)}
-\DoxyCodeLine{            ( pxQueue )-\/>cRxLock = \mbox{\hyperlink{queue_8c_a60a95aa91f84782416755f38616231fd}{queueLOCKED\_UNMODIFIED}};    \(\backslash\)}
-\DoxyCodeLine{        \}                                                   \(\backslash\)}
-\DoxyCodeLine{        if( ( pxQueue )-\/>cTxLock == \mbox{\hyperlink{queue_8c_acdb781ba6b38714cf41f7417de8fe6bf}{queueUNLOCKED}} )            \(\backslash\)}
-\DoxyCodeLine{        \{                                                   \(\backslash\)}
-\DoxyCodeLine{            ( pxQueue )-\/>cTxLock = \mbox{\hyperlink{queue_8c_a60a95aa91f84782416755f38616231fd}{queueLOCKED\_UNMODIFIED}};    \(\backslash\)}
-\DoxyCodeLine{        \}                                                   \(\backslash\)}
-\DoxyCodeLine{    \}                                                       \(\backslash\)}
-\DoxyCodeLine{    taskEXIT\_CRITICAL()}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{task_8h_ab7bf0ae866292ba8296091a9d5209689}{taskENTER\_CRITICAL}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if(\ (\ pxQueue\ )-\/>cRxLock\ ==\ \mbox{\hyperlink{queue_8c_acdb781ba6b38714cf41f7417de8fe6bf}{queueUNLOCKED}}\ )\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\ pxQueue\ )-\/>cRxLock\ =\ \mbox{\hyperlink{queue_8c_a60a95aa91f84782416755f38616231fd}{queueLOCKED\_UNMODIFIED}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if(\ (\ pxQueue\ )-\/>cTxLock\ ==\ \mbox{\hyperlink{queue_8c_acdb781ba6b38714cf41f7417de8fe6bf}{queueUNLOCKED}}\ )\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (\ pxQueue\ )-\/>cTxLock\ =\ \mbox{\hyperlink{queue_8c_a60a95aa91f84782416755f38616231fd}{queueLOCKED\_UNMODIFIED}};\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ taskEXIT\_CRITICAL()}
 
 \end{DoxyCode}
 

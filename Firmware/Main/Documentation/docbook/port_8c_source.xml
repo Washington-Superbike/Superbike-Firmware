@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_port_8c_source" xml:lang="en-US">
 <title>port.c</title>
-<indexterm><primary>FreeRTOS/port.c</primary></indexterm>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/port.c</primary></indexterm>
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_port_8c_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
 <anchor xml:id="_port_8c_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;FreeRTOS&#32;Kernel&#32;V10.2.0</emphasis>
 <anchor xml:id="_port_8c_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;Copyright&#32;(C)&#32;2019&#32;Amazon.com,&#32;Inc.&#32;or&#32;its&#32;affiliates.&#32;&#32;All&#32;Rights&#32;Reserved.</emphasis>
@@ -128,7 +128,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_port_8c_source_1l00124"/>00124 <emphasis role="comment">/*</emphasis>
 <anchor xml:id="_port_8c_source_1l00125"/>00125 <emphasis role="comment">&#32;*&#32;Exception&#32;handlers.</emphasis>
 <anchor xml:id="_port_8c_source_1l00126"/>00126 <emphasis role="comment">&#32;*/</emphasis>
-<anchor xml:id="_port_8c_source_1l00127"/><link linkend="_port_8c_1a9211df01055c75d1e9394061f917cae0">00127</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a9211df01055c75d1e9394061f917cae0">xPortPendSVHandler</link>(&#32;<emphasis role="keywordtype">void</emphasis>&#32;)&#32;<link linkend="__free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link>&#32;((&#32;naked&#32;));
+<anchor xml:id="_port_8c_source_1l00127"/><link linkend="_port_8c_1a9211df01055c75d1e9394061f917cae0">00127</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a4e6b17b7b6e1a92564afdeff7e9dba91">xPortPendSVHandler</link>(&#32;<emphasis role="keywordtype">void</emphasis>&#32;)&#32;<link linkend="__free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link>&#32;((&#32;naked&#32;));
 <anchor xml:id="_port_8c_source_1l00128"/>00128 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a859e86b6143d6bc4cf96b2867f408c75">vPortSVCHandler</link>(&#32;<emphasis role="keywordtype">void</emphasis>&#32;)&#32;<link linkend="__free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link>&#32;((&#32;naked&#32;));
 <anchor xml:id="_port_8c_source_1l00129"/>00129 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a45a598d38521f30c73c27508d3979c1c">freertos_systick_isr</link>(<emphasis role="keywordtype">void</emphasis>)&#32;<link linkend="__free_r_t_o_s___t_e_e_n_s_y4_8c_1a201468129b483039afc5a619e2d31097">__attribute__</link>((__hot__,&#32;__optimize__(3)));
 <anchor xml:id="_port_8c_source_1l00130"/>00130 
@@ -534,7 +534,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_port_8c_source_1l00530"/>00530 }
 <anchor xml:id="_port_8c_source_1l00531"/>00531 <emphasis role="comment">/*-----------------------------------------------------------*/</emphasis>
 <anchor xml:id="_port_8c_source_1l00532"/><link linkend="_port_8c_1af1242648674ef01b37497b8d8d41df95">00532</link> <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1af1242648674ef01b37497b8d8d41df95">pendablesrvreq_isr</link>();
-<anchor xml:id="_port_8c_source_1l00533"/><link linkend="_port_8c_1a4e6b17b7b6e1a92564afdeff7e9dba91">00533</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a9211df01055c75d1e9394061f917cae0">xPortPendSVHandler</link>(&#32;<emphasis role="keywordtype">void</emphasis>&#32;)
+<anchor xml:id="_port_8c_source_1l00533"/><link linkend="_port_8c_1a4e6b17b7b6e1a92564afdeff7e9dba91">00533</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_port_8c_1a4e6b17b7b6e1a92564afdeff7e9dba91">xPortPendSVHandler</link>(&#32;<emphasis role="keywordtype">void</emphasis>&#32;)
 <anchor xml:id="_port_8c_source_1l00534"/>00534 {
 <anchor xml:id="_port_8c_source_1l00535"/>00535 &#32;&#32;&#32;&#32;<emphasis role="comment">//pendablesrvreq_isr();</emphasis>
 <anchor xml:id="_port_8c_source_1l00536"/>00536 &#32;&#32;&#32;&#32;__asm&#32;<emphasis role="keyword">volatile</emphasis>
@@ -818,7 +818,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_port_8c_source_1l00814"/>00814 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_port_8c_source_1l00815"/>00815 
 <anchor xml:id="_port_8c_source_1l00816"/>00816 &#32;&#32;&#32;&#32;_VectorsRam[15]&#32;=&#32;<link linkend="_port_8c_1a45a598d38521f30c73c27508d3979c1c">freertos_systick_isr</link>;
-<anchor xml:id="_port_8c_source_1l00817"/>00817 &#32;&#32;&#32;&#32;_VectorsRam[14]&#32;=&#32;<link linkend="_port_8c_1a9211df01055c75d1e9394061f917cae0">xPortPendSVHandler</link>;
+<anchor xml:id="_port_8c_source_1l00817"/>00817 &#32;&#32;&#32;&#32;_VectorsRam[14]&#32;=&#32;<link linkend="_port_8c_1a4e6b17b7b6e1a92564afdeff7e9dba91">xPortPendSVHandler</link>;
 <anchor xml:id="_port_8c_source_1l00818"/>00818 &#32;&#32;&#32;&#32;_VectorsRam[11]&#32;=&#32;<link linkend="_port_8c_1a859e86b6143d6bc4cf96b2867f408c75">vPortSVCHandler</link>;
 <anchor xml:id="_port_8c_source_1l00819"/>00819 &#32;&#32;&#32;&#32;<link linkend="_portmacro_8h_1abc47e85a6befbb47961ad5ee7aa57173">portENABLE_INTERRUPTS</link>();
 <anchor xml:id="_port_8c_source_1l00820"/>00820 }

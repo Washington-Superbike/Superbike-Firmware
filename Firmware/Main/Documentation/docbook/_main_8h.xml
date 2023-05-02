@@ -1,28 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__main_8h" xml:lang="en-US">
-<title>Main.h File Reference</title>
-<indexterm><primary>Main.h</primary></indexterm>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/Main.h</primary></indexterm>
 <para>
 
 <para>The main config file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__main_8ino">Main.ino</link>. This file exists as an overall configuration for the bike firmware as all these variables can be changed to meet requirements. Like all other header files, it exists as the skeleton on which the .ino file is built. </para>
  
 </para>
-<programlisting linenumbering="unnumbered">#include &quot;CAN.h&quot;
-#include &quot;Display.h&quot;
-#include &quot;Precharge.h&quot;
-#include &quot;DataLogging.h&quot;
-#include &quot;FreeRTOS_TEENSY4.h&quot;
-#include &lt;TimeLib.h&gt;
-</programlisting><simplesect>
-    <title>Macros    </title>
-        <itemizedlist>
-            <listitem><para>#define <link linkend="__main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34">CAN_NODES</link>   0</para>
-</listitem>
-            <listitem><para>#define <link linkend="__main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85">NUM_THERMI</link>   10</para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;config.h&quot;<?linebreak?>#include &quot;CAN.h&quot;<?linebreak?>#include &quot;Display.h&quot;<?linebreak?>#include &quot;Precharge.h&quot;<?linebreak?>#include &quot;DataLogging.h&quot;<?linebreak?>#include &quot;FreeRTOS_TEENSY4.h&quot;<?linebreak?>#include &lt;TimeLib.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup</link> ()</para>
@@ -52,8 +37,6 @@
 <simplesect>
     <title>Variables    </title>
         <itemizedlist>
-            <listitem><para>static <link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> <link linkend="__main_8h_1a25cab1c2dd63e90138b14fec27cecc4b">screen</link> = {<link linkend="__display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab">SPEEDOMETER</link>}</para>
-</listitem>
             <listitem><para>static int <link linkend="__main_8h_1a04c234659b28f92e2eab7998b586bb4c">bms_status_flag</link> = 0</para>
 
 <para>Self explanatory. Read datasheet if more info needed. </para>
@@ -278,10 +261,6 @@
 
 <para>An instance of a struct to store all CAN data, then pass it as a void pointer. </para>
 </listitem>
-            <listitem><para>static <link linkend="__display_8h_1a178682b58bff3b19ffd056fb9c00dcc6">displayPointer</link> <link linkend="__main_8h_1aebb1e162e2ac30616875763e56823870">displayTaskWrap</link> = {}</para>
-
-<para>An instance of a struct to store all display data, then pass it as a void pointer. </para>
-</listitem>
             <listitem><para>static <link linkend="_struct_data_logging_task_data">DataLoggingTaskData</link> <link linkend="__main_8h_1af74b66e7d389be76470292071c65f556">dataLoggingTaskData</link></para>
 
 <para>An instance of a struct to store all dataLogging data, then pass it as a void pointer. </para>
@@ -347,52 +326,17 @@
 </formalpara>
 <formalpara><title>Date</title>
 
-<para>1-March-2023</para>
+<para>1-March-2023 </para>
 </formalpara>
-The main config file for bike firmware. This initializes all variables that are passed along to all other files as pointers. Then it creates the initial reference (there&apos;s a proper C programming term for it) for all the methods used in <link linkend="__main_8ino">Main.ino</link>. This file exists as an overall configuration for the bike firmware as all these variables can be changed to meet requirements. Like all other header files, it exists as the skeleton on which the .ino file is built.</para>
+<note><title>Note</title>
 
-<para><note><title>Note</title>
-
-<para>Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a #pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a #include <link linkend="__main_8h">Main.h</link> and if every other file does that, the #pragma once command ensures that the first time the <link linkend="__main_8h">Main.h</link> is #included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn&apos;t make sense, dont worry, CSE 351, CSE 374. Please take them. They&apos;re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there&apos;s just one global copy. ALSO, if you are looking to change configurations for the overall firmware this is the place to do it. Changing the number of CAN devices connected, the Screen type used, etc. All can be done from here.</para>
+<para>Main thing to note. The statement #pragma once is a compiler specific command for newer compilers in C. It is the equivalent of ifndef define statements. If you dont know what those are, please take CSE 351. To give the gist of it, you need a #pragma once or ifndef statment (in our older code) to ensure that when running the code, when you do a #include <link linkend="__main_8h">Main.h</link> and if every other file does that, the #pragma once command ensures that the first time the <link linkend="__main_8h">Main.h</link> is #included, it is properly defined, so that when a file attempts to include it again, it skips that including. If that doesn&apos;t make sense, dont worry, CSE 351, CSE 374. Please take them. They&apos;re like top 6 EE classes. Secondly, in this file all variables are static because the static keyword in C++ (which is what .ino files are technically speaking) is basically used to define global variables that are not to be removed in memory. All the variables below are the skeleton of the firmware, every file references to these variables by being passed their address and changing their value using that address. Instead of creating 10 copies when passing variables around, there&apos;s just one global copy.</para>
 </note>
-<para><link linkend="_todo_1_todo000007">Todo</link> 
-<para>Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- CHANGE THE NUM_THERMI based on the number of thermistors that Powertain settles on. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Final Goal. </para>
+<para><link linkend="_todo_1_todo000008">Todo</link> 
+<para>Based on refinements made for preCharge/controls.ino, remove spare and redundant variables. And just generally ALL the spare variables. <?linebreak?> <?linebreak?> Based on the changes implemented for SoC, I would add another variable for the low-voltage current sneors or any other current sensors you add <?linebreak?> <?linebreak?> Final Goal. </para>
 </para></para>
 <para>
 Definition in file <link linkend="__main_8h_source">Main.h</link>.</para>
-</section>
-<section>
-<title>Macro Definition Documentation</title>
-<anchor xml:id="__main_8h_1a9d09068130671d9ca6bf3c9b6fac6e34"/><section>
-    <title>CAN_NODES</title>
-<indexterm><primary>CAN_NODES</primary><secondary>Main.h</secondary></indexterm>
-<indexterm><primary>Main.h</primary><secondary>CAN_NODES</secondary></indexterm>
-<para><computeroutput>#define CAN_NODES   0</computeroutput></para>
-<para>This primarily exists to debug the changes made in the FlexCAN library. If there are no devices connected on the CAN bus, the firmware crashes This line can be set to 0 to ensure that the CAN bus does not bother to check the CAN bus if there are 0 nodes connected. </para>
-<para>
-Definition at line <link linkend="__main_8h_source_1l00068">68</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
-</section>
-<anchor xml:id="__main_8h_1a9e9f6a6f679efeb38325e7474a2e4c85"/><section>
-    <title>NUM_THERMI</title>
-<indexterm><primary>NUM_THERMI</primary><secondary>Main.h</secondary></indexterm>
-<indexterm><primary>Main.h</primary><secondary>NUM_THERMI</secondary></indexterm>
-<para><computeroutput>#define NUM_THERMI   10</computeroutput></para>
-<para>This exists to be changed based on the final number of thermistors we settle on having in the code later. </para>
-<para>
-Definition at line <link linkend="__main_8h_source_1l00072">72</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
-</section>
 </section>
 <section>
 <title>Function Documentation</title>
@@ -403,15 +347,7 @@ Definition at line <link linkend="__main_8h_source_1l00072">72</link> of file <l
 <para><computeroutput>bool get_SPI_control (unsigned int ms)</computeroutput></para>
 <para><note><title>Note</title>
 
-<para>Just a basic helper method that takes control of the spiMutex which is used as an example line in <link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> but not actually used in the current <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> methods or this RTOS in general. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </para>
+<para>Just a basic helper method that takes control of the spiMutex which is used as an example line in <link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> but not actually used in the current <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> methods or this RTOS in general. <?linebreak?> <?linebreak?>The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. <?linebreak?> <?linebreak?>Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </para>
 </note>
 </para>
 <para>
@@ -450,11 +386,7 @@ Definition at line <link linkend="__main_8ino_source_1l00250">250</link> of file
 <para><computeroutput>void initializeCANStructs ( )</computeroutput></para>
 <para><note><title>Note</title>
 
-<para><link linkend="__main_8h_1ab91267714bdf99d7b3d177f95f484157">initializeCANStructs()</link> uses too many variables... and it packages them into the different variables that are all being updated by the CAN protocol. These are variables that are read in from the motorController, Battery Management System, thermistors, charger, and charge controller. These are then packaged in to the canTaskData variable which is passed to <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link>. <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> updates the variable which in turn updates it for everything, allowing display to be updated with no problem (since all variables used by tasks are just pointers to the original variable that is declared in <link linkend="__main_8h">Main.h</link> and then updating one just updates everything across the board. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-Update this accordingly as we add more CAN items to the bike (if we ever do). </para>
+<para><link linkend="__main_8h_1ab91267714bdf99d7b3d177f95f484157">initializeCANStructs()</link> uses too many variables... and it packages them into the different variables that are all being updated by the CAN protocol. These are variables that are read in from the motorController, Battery Management System, thermistors, charger, and charge controller. These are then packaged in to the canTaskData variable which is passed to <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link>. <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> updates the variable which in turn updates it for everything, allowing display to be updated with no problem (since all variables used by tasks are just pointers to the original variable that is declared in <link linkend="__main_8h">Main.h</link> and then updating one just updates everything across the board. <?linebreak?> <?linebreak?>Update this accordingly as we add more CAN items to the bike (if we ever do). </para>
 </note>
 </para>
 <para>
@@ -471,7 +403,7 @@ Definition at line <link linkend="__main_8ino_source_1l00218">218</link> of file
 </note>
 </para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00198">198</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00199">199</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de"/><section>
     <title>initializeLogStructs()</title>
@@ -480,11 +412,7 @@ Definition at line <link linkend="__main_8ino_source_1l00198">198</link> of file
 <para><computeroutput>void initializeLogStructs ( )</computeroutput></para>
 <para><note><title>Note</title>
 
-<para><link linkend="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de">initializeLogStructs()</link> uses too many variables... and it packages them into different logging variables which are then passed to the &quot;logs&quot; variable which is used by the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link>. Therefore, to add more data to datalogging or change the variables first you would need to change the corresponding variables that make up the &quot;logs&quot; varaible in <link linkend="__main_8h">Main.h</link> and then change those corresponding variables in <link linkend="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de">initializeLogStructs()</link>. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-This will be handy to the SOC team later as they implement more changes. </para>
+<para><link linkend="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de">initializeLogStructs()</link> uses too many variables... and it packages them into different logging variables which are then passed to the &quot;logs&quot; variable which is used by the <link linkend="__data_logging_8h_1a24f7ab7e53619e5770ad9acc25b9b819">dataLoggingTask()</link>. Therefore, to add more data to datalogging or change the variables first you would need to change the corresponding variables that make up the &quot;logs&quot; varaible in <link linkend="__main_8h">Main.h</link> and then change those corresponding variables in <link linkend="__main_8h_1a797cf3c70ce7ae02bba9bfd3f6d886de">initializeLogStructs()</link>. <?linebreak?> <?linebreak?>This will be handy to the SOC team later as they implement more changes. </para>
 </note>
 </para>
 <para>
@@ -523,15 +451,7 @@ Definition at line <link linkend="__main_8ino_source_1l00256">256</link> of file
 <para><computeroutput>void release_SPI_control (void )</computeroutput></para>
 <para><note><title>Note</title>
 
-<para>Just a basic helper method releases control of the spiMutex which is used as an example line in <link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> but not actually used in the current <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> methods or this RTOS in general. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </para>
+<para>Just a basic helper method releases control of the spiMutex which is used as an example line in <link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> but not actually used in the current <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> methods or this RTOS in general. <?linebreak?> <?linebreak?>The purpose of a mutex is to create a sort of indication to the RTOS that there is a specific resource being used for a specific task and to not begin any other task that interrupts this specific resource, like the pins used for the SPI protocol for this case, etc. etc. <?linebreak?> <?linebreak?>Please read up on Mutex, etc. in the RTOS documentation to make sure you use it correctly. This is only necessary if there are different tasks with two different devices using the same communication protocol. </para>
 </note>
 </para>
 <para>
@@ -544,37 +464,13 @@ Definition at line <link linkend="__main_8ino_source_1l00241">241</link> of file
 <para><computeroutput>void setup ( )</computeroutput></para>
 <para><note><title>Note</title>
 
-<para><link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> calls on all the helper methods in <link linkend="__main_8ino">Main.ino</link>. These helper methods serve to initialize all pin modes, package all variables from <link linkend="__main_8h">Main.h</link> into structs, initialize all communication protocols (as of now, just I2C), and then use those packaged structs to call on the RTOS <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> to then send the variables off to various tasks with no issues. <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> takes in a function name (pointer to an existing function which contains the essence of the task (these exist in the different files)), a label (string), stack size (integer/number), the parameters required for that task (a void pointer to the packaged structs from before) and lastly a task priority. There&apos;s another variable but it&apos;s kinda useless for our case and is only discussed in the detailed discussion below. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
- Taking from the FreeRTOS documentation, the parameters serve the following DETAILED purposes. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-pvTaskCode aka the pointer to the function used for the task. This function is usually an infinite loop with an RTOS VTaskDelay() call which will be further elaborated on within those functions in the documentation. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-pcName aka the string with the funciton name. This is ususally used for debugging purposes. usStackDepth is the number of words to allocate for the task&apos;s stack (for those of you who havent had a chance to take CSE 374 or CSE 351, stack is dynamic memory, thus if any of your tasks use a lot of parameters or perform recursion, the stack size might have to be increased). Display has often been a victim of the stack size being too small in the past. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-pvParameters aka the void pointer to the struct composed of the variables declared in <link linkend="__main_8h">Main.h</link>. Just a simple void pointer which is passed to the task when it executes. While passing variables and being careful with memory leaks is not too much of a concern thanks to the Arduino framework, it is still important to use good practices like this void pointer task memory unit to avoid any issues (plus RTOS just requires something to be passed through anyway). 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-uxPriority aka the priority at which the task will execute. Lower priority numbers indicate tasks with lower priority in execution. That is, while the RTOS is constantly swapping between your tasks, ensuring they execute properly, etc the higher priority tasks are given highest priority to run once the CPU is ready. Just makes sense really. 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-pxCreatedTask is a variable that is used to pass a handle to the created task outside of the <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> function. That means the ??? IDK it&apos;s not needed. </para>
+<para><link linkend="__main_8h_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link> calls on all the helper methods in <link linkend="__main_8ino">Main.ino</link>. These helper methods serve to initialize all pin modes, package all variables from <link linkend="__main_8h">Main.h</link> into structs, initialize all communication protocols (as of now, just I2C), and then use those packaged structs to call on the RTOS <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> to then send the variables off to various tasks with no issues. <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> takes in a function name (pointer to an existing function which contains the essence of the task (these exist in the different files)), a label (string), stack size (integer/number), the parameters required for that task (a void pointer to the packaged structs from before) and lastly a task priority. There&apos;s another variable but it&apos;s kinda useless for our case and is only discussed in the detailed discussion below. <?linebreak?> <?linebreak?> Taking from the FreeRTOS documentation, the parameters serve the following DETAILED purposes. <?linebreak?> <?linebreak?>pvTaskCode aka the pointer to the function used for the task. This function is usually an infinite loop with an RTOS VTaskDelay() call which will be further elaborated on within those functions in the documentation. <?linebreak?> <?linebreak?>pcName aka the string with the funciton name. This is ususally used for debugging purposes. usStackDepth is the number of words to allocate for the task&apos;s stack (for those of you who havent had a chance to take CSE 374 or CSE 351, stack is dynamic memory, thus if any of your tasks use a lot of parameters or perform recursion, the stack size might have to be increased). Display has often been a victim of the stack size being too small in the past. <?linebreak?> <?linebreak?>pvParameters aka the void pointer to the struct composed of the variables declared in <link linkend="__main_8h">Main.h</link>. Just a simple void pointer which is passed to the task when it executes. While passing variables and being careful with memory leaks is not too much of a concern thanks to the Arduino framework, it is still important to use good practices like this void pointer task memory unit to avoid any issues (plus RTOS just requires something to be passed through anyway). <?linebreak?> <?linebreak?>uxPriority aka the priority at which the task will execute. Lower priority numbers indicate tasks with lower priority in execution. That is, while the RTOS is constantly swapping between your tasks, ensuring they execute properly, etc the higher priority tasks are given highest priority to run once the CPU is ready. Just makes sense really. <?linebreak?> <?linebreak?>pxCreatedTask is a variable that is used to pass a handle to the created task outside of the <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link> function. That means the ??? IDK it&apos;s not needed. </para>
 </note>
 </para>
 
 <para>First this method calls on <link linkend="__main_8ino_1a31d554847ae8fdeaba2460e0395cb75f">setupPins()</link> to set certain pins to output and input. This initializes how the pins will be used and interact with peripherals for the rest of the runtime of the firmware.</para>
 
-<para>Then this method calls on <link linkend="__main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba">initializeDisplayStructs()</link> to map the static variables from <link linkend="__main_8h">Main.h</link> from to a struct that is used for the <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</link></para>
+<para>Then this method calls on <link linkend="__main_8ino_1a128d10ba9e06eb69d1dfc91ffef935ba">initializeDisplayStructs()</link> to map the static variables from <link linkend="__main_8h">Main.h</link> from to a struct that is used for the <link linkend="__display_8ino_1a7121972a969d5d8bd9c96626cfd61b11">displayTask()</link></para>
 
 <para>Then this method calls on <link linkend="__main_8ino_1ab91267714bdf99d7b3d177f95f484157">initializeCANStructs()</link> to map the static variables from <link linkend="__main_8h">Main.h</link> from to a struct that is used for the <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link></para>
 
@@ -586,21 +482,17 @@ pxCreatedTask is a variable that is used to pass a handle to the created task ou
 
 <para><note><title>Note</title>
 
-<para>DISCLAIMER: When first running this code on a fresh board, the time will not properly update to Pacific Standard, or any real-looking time. Instead it will update to whatever default value is on the teensy board RTC (real-time clock). Thus, to set the Teensy RTC to the real world clock, you need to upload the sketch: 
-<literallayout>&#160;&#xa;</literallayout>
- 
-<literallayout>&#160;&#xa;</literallayout>
-File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will set the internal time to the time on the laptop I believe, or connects to the internet somehow to determine the &quot;current&quot; time. This next line calls with the statement setTime(Teensy3Clock.get()) sets the current stored time to the time stored in the internal RTC in the Teensy, allowing for Teensy time from the internal RTC (powered by the coin cell).</para>
+<para>DISCLAIMER: When first running this code on a fresh board, the time will not properly update to Pacific Standard, or any real-looking time. Instead it will update to whatever default value is on the teensy board RTC (real-time clock). Thus, to set the Teensy RTC to the real world clock, you need to upload the sketch: <?linebreak?> <?linebreak?>File-&gt;Examples-&gt;Time-&gt;TimeTeensy3 and open the serial port. That will set the internal time to the time on the laptop I believe, or connects to the internet somehow to determine the &quot;current&quot; time. This next line calls with the statement setTime(Teensy3Clock.get()) sets the current stored time to the time stored in the internal RTC in the Teensy, allowing for Teensy time from the internal RTC (powered by the coin cell).</para>
 </note>
 Then this method starts the SD Card and prints the status if that works.</para>
 
-<para>Then this method calls on the <link linkend="__display_8h_1a756efac71e8cf83b5add1ffcb9035a20">setupDisplay()</link> method which just initializes variables that are used by the <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</link></para>
+<para>Then this method calls on the <link linkend="__display_8h_1a79b84de3ddc4f88db07ac708452e4467">setupDisplay()</link> method which just initializes variables that are used by the <link linkend="__display_8ino_1a7121972a969d5d8bd9c96626cfd61b11">displayTask()</link></para>
 
 <para>Then this method calls on the <link linkend="__c_a_n_8h_1a833ae6516ecb5cb3f8a7bd5adbf2bd9b">setupCAN()</link> method which just initializes the CAN bus at a baud rate of 250000. And then begins the CAN bus.</para>
 
 <para>Then this method calls on the <link linkend="__precharge_8h_1a5782bd590f95fb2269eb43a3d70c18f4">setupI2C()</link> method which just initializes the I2C communication protocol, setting the clock to 40KHz, reading in the initial values of the gyroscope, taking ~2 seconds worth of data to calibrate.</para>
 
-<para>The main and most important function of setup is initializing the tasks using <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link>. The details of parameters are explained in the Note at the start of <link linkend="__main_8ino_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link>. The stack sizes are edited in <link linkend="__main_8h">Main.h</link> and the priorities are logically assigned for <link linkend="__precharge_8h_1a3a618d104e1f329b2aad074b706db5c9">preChargeTask()</link> with highest priority 5, <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> with second highest priority 4 since it contains data that can be used to trigger Off states for <link linkend="__precharge_8h_1a3a618d104e1f329b2aad074b706db5c9">preChargeTask()</link>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <link linkend="__display_8ino_1abbc2dd9c7d8fc4714a0379f70d919047">displayTask()</link> is a 2 because see aforementioned reasoning for dataLogging(). <link linkend="__main_8ino_1a0d7297755c0775a9b0e4f7eeeafd7c7e">idleTask()</link> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
+<para>The main and most important function of setup is initializing the tasks using <link linkend="_tasks_8c_1ad138d9dda4709b10d711775fa40eb1a1">xTaskCreate()</link>. The details of parameters are explained in the Note at the start of <link linkend="__main_8ino_1a4fc01d736fe50cf5b977f755b675f11d">setup()</link>. The stack sizes are edited in <link linkend="__main_8h">Main.h</link> and the priorities are logically assigned for <link linkend="__precharge_8h_1a3a618d104e1f329b2aad074b706db5c9">preChargeTask()</link> with highest priority 5, <link linkend="__c_a_n_8h_1a785e095da30ce4993a186804102bf2ea">canTask()</link> with second highest priority 4 since it contains data that can be used to trigger Off states for <link linkend="__precharge_8h_1a3a618d104e1f329b2aad074b706db5c9">preChargeTask()</link>. dataLogging() is 3, it&apos;s important to update the stored data from the race, but it&apos;s more important to shutdown the bike if batteries are dying. <link linkend="__display_8ino_1a7121972a969d5d8bd9c96626cfd61b11">displayTask()</link> is a 2 because see aforementioned reasoning for dataLogging(). <link linkend="__main_8ino_1a0d7297755c0775a9b0e4f7eeeafd7c7e">idleTask()</link> is a 1 ideally we never want to idle unless everything is taken care of and the teensy is that powerful.</para>
 
 <para>Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error creating tasks.</para>
 
@@ -608,7 +500,7 @@ Then this method starts the SD Card and prints the status if that works.</para>
 
 <para>If this fails, the method prints out insufficient RAM and breaks.</para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00064">64</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00065">65</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a31d554847ae8fdeaba2460e0395cb75f"/><section>
     <title>setupPins()</title>
@@ -643,7 +535,7 @@ Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resi
 
 <para>Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.</para>
 <para>
-Definition at line <link linkend="__main_8ino_source_1l00161">161</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
+Definition at line <link linkend="__main_8ino_source_1l00162">162</link> of file <link linkend="__main_8ino_source">Main.ino</link>.</para>
 </section>
 </section>
 <section>
@@ -657,7 +549,7 @@ Definition at line <link linkend="__main_8ino_source_1l00161">161</link> of file
 <para>USELESS REMOVE LATER: Acc_X stores the acceleration along the x-axis. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00127">127</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00098">98</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a3b4304cff5611528af473a1dfb86c345"/><section>
     <title>Acc_Y</title>
@@ -668,7 +560,7 @@ Definition at line <link linkend="__main_8h_source_1l00127">127</link> of file <
 <para>USELESS REMOVE LATER: Acc_Y stores the acceleration along the y-axis. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00129">129</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00100">100</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a68e2313572725be66b8d99950942dfb4"/><section>
     <title>Acc_Z</title>
@@ -679,7 +571,7 @@ Definition at line <link linkend="__main_8h_source_1l00129">129</link> of file <
 <para>USELESS REMOVE LATER: Acc_Z stores the acceleration along the z-axis. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00131">131</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00102">102</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1acbed8fcd71fbc60a2452c5e5e9433903"/><section>
     <title>Angle_Pitch</title>
@@ -690,7 +582,7 @@ Definition at line <link linkend="__main_8h_source_1l00131">131</link> of file <
 <para>USELESS REMOVE LATER: Angle_Pitch stores essentially angle_Y. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00135">135</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00106">106</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a6514f0d80926dc8e4aea4c92bd86c9eb"/><section>
     <title>Angle_Roll</title>
@@ -701,7 +593,7 @@ Definition at line <link linkend="__main_8h_source_1l00135">135</link> of file <
 <para>USELESS REMOVE LATER: Angle_Roll stores essentially angle_X. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00133">133</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00104">104</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a6cb6d63c8afdc45f4ef149e6d3750a1c"/><section>
     <title>angle_X</title>
@@ -712,7 +604,7 @@ Definition at line <link linkend="__main_8h_source_1l00133">133</link> of file <
 <para>angle_X is the variable used for measuring the &quot;x-axis angle&quot; from the gyroscope. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00108">108</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00079">79</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a89aa0714a95ede6f4c623dbeb38ff019"/><section>
     <title>angle_Y</title>
@@ -723,7 +615,7 @@ Definition at line <link linkend="__main_8h_source_1l00108">108</link> of file <
 <para>angle_Y is the variable used for measuring the &quot;y-axis angle&quot; from the gyroscope. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00110">110</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00081">81</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a68edb5124f79f990fb79a9e5b7a7f1e8"/><section>
     <title>auxiliaryBatteryVoltage</title>
@@ -734,7 +626,7 @@ Definition at line <link linkend="__main_8h_source_1l00110">110</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00104">104</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00075">75</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a668e87eca74f2126136ee32a6964005e"/><section>
     <title>bms_c_fault</title>
@@ -745,7 +637,7 @@ Definition at line <link linkend="__main_8h_source_1l00104">104</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00086">86</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00057">57</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a54619d6c6a00d3268f764c33bd352ebf"/><section>
     <title>bms_c_id</title>
@@ -756,7 +648,7 @@ Definition at line <link linkend="__main_8h_source_1l00086">86</link> of file <l
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00084">84</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00055">55</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a04c234659b28f92e2eab7998b586bb4c"/><section>
     <title>bms_status_flag</title>
@@ -767,7 +659,7 @@ Definition at line <link linkend="__main_8h_source_1l00084">84</link> of file <l
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00082">82</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00053">53</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae0522609134711f92c96ffa8ed05e582"/><section>
     <title>bmsStatus</title>
@@ -778,7 +670,7 @@ Definition at line <link linkend="__main_8h_source_1l00082">82</link> of file <l
 <para>An instance of a struct to store all bms status data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00196">196</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00167">167</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ade498aeeb82732f18af609faa0b323cb"/><section>
     <title>bmsVoltageLog</title>
@@ -789,7 +681,7 @@ Definition at line <link linkend="__main_8h_source_1l00196">196</link> of file <
 <para>An instance of the logging struct for BMS voltages. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00229">229</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00198">198</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ab1d006bdd632ad57598689186c8ce63a"/><section>
     <title>canTaskData</title>
@@ -800,7 +692,7 @@ Definition at line <link linkend="__main_8h_source_1l00229">229</link> of file <
 <para>An instance of a struct to store all CAN data, then pass it as a void pointer. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00206">206</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00177">177</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a006c7981abf25c0944f67d017aa5fe1f"/><section>
     <title>cellsReady</title>
@@ -811,7 +703,7 @@ Definition at line <link linkend="__main_8h_source_1l00206">206</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00096">96</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00067">67</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1afca6798677cebeeb7599ea00e1e243dd"/><section>
     <title>cellVoltages</title>
@@ -822,7 +714,7 @@ Definition at line <link linkend="__main_8h_source_1l00096">96</link> of file <l
 <para>An instance of a struct to store all cell voltage data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00194">194</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00165">165</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1aad0824db126321851b9f0c49a3115de5"/><section>
     <title>cellVoltagesArr</title>
@@ -833,7 +725,7 @@ Definition at line <link linkend="__main_8h_source_1l00194">194</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00092">92</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00063">63</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a566a5d391bca1611a2bfd1d97a1aa24c"/><section>
     <title>chargeControllerStats</title>
@@ -844,7 +736,7 @@ Definition at line <link linkend="__main_8h_source_1l00092">92</link> of file <l
 <para>An instance of a struct to store all charge controller stats data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00202">202</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00173">173</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a1e4f6826343fcd16576ce3c411fb2287"/><section>
     <title>chargeFlag</title>
@@ -855,7 +747,7 @@ Definition at line <link linkend="__main_8h_source_1l00202">202</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00177">177</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00148">148</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a8b27b4284d9d4039618e5da068c2bc7f"/><section>
     <title>chargerCurrent</title>
@@ -866,7 +758,7 @@ Definition at line <link linkend="__main_8h_source_1l00177">177</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00183">183</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00154">154</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1aa249f1d073086c27682168bbd7dc77ee"/><section>
     <title>chargerStats</title>
@@ -877,7 +769,7 @@ Definition at line <link linkend="__main_8h_source_1l00183">183</link> of file <
 <para>An instance of a struct to store all charger stats data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00200">200</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00171">171</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a5613c4060f829f65acaac2bc064ae063"/><section>
     <title>chargerStatusFlag</title>
@@ -888,7 +780,7 @@ Definition at line <link linkend="__main_8h_source_1l00200">200</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00179">179</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00150">150</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a85ede348554a838fb67a3ceb3313be5b"/><section>
     <title>chargerTemp</title>
@@ -899,7 +791,7 @@ Definition at line <link linkend="__main_8h_source_1l00179">179</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00185">185</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00156">156</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ab11fffe9a473928798422de66fcde502"/><section>
     <title>chargerVoltage</title>
@@ -910,7 +802,7 @@ Definition at line <link linkend="__main_8h_source_1l00185">185</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00181">181</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00152">152</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae40c5f8677bda4442f02f482f3b50d33"/><section>
     <title>controllerStatus</title>
@@ -921,14 +813,14 @@ Definition at line <link linkend="__main_8h_source_1l00181">181</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00165">165</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00136">136</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a40646f0d9308996b7d391cb8e0d95905"/><section>
     <title>cycleCount</title>
 <indexterm><primary>cycleCount</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>cycleCount</secondary></indexterm>
 <para><computeroutput>int cycleCount = 0</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00235">235</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00204">204</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1af74b66e7d389be76470292071c65f556"/><section>
     <title>dataLoggingTaskData</title>
@@ -939,18 +831,7 @@ Definition at line <link linkend="__main_8h_source_1l00235">235</link> of file <
 <para>An instance of a struct to store all dataLogging data, then pass it as a void pointer. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00210">210</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
-</section>
-<anchor xml:id="__main_8h_1aebb1e162e2ac30616875763e56823870"/><section>
-    <title>displayTaskWrap</title>
-<indexterm><primary>displayTaskWrap</primary><secondary>Main.h</secondary></indexterm>
-<indexterm><primary>Main.h</primary><secondary>displayTaskWrap</secondary></indexterm>
-<para><computeroutput><link linkend="__display_8h_1a178682b58bff3b19ffd056fb9c00dcc6">displayPointer</link> displayTaskWrap = {}<computeroutput>[static]</computeroutput></computeroutput></para><para>
-
-<para>An instance of a struct to store all display data, then pass it as a void pointer. </para>
-</para>
-<para>
-Definition at line <link linkend="__main_8h_source_1l00208">208</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00179">179</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a9e20c92d5e427acd66b85b1451d23a6b"/><section>
     <title>errorMessage</title>
@@ -961,7 +842,7 @@ Definition at line <link linkend="__main_8h_source_1l00208">208</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00163">163</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00134">134</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a283f91fe8cbd45a92dda13dd793bbbe0"/><section>
     <title>evccCurrent</title>
@@ -972,7 +853,7 @@ Definition at line <link linkend="__main_8h_source_1l00163">163</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00173">173</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00144">144</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a1e5e5db4f4b03ea34fcc2aaf5a334f2a"/><section>
     <title>evccEnable</title>
@@ -983,7 +864,7 @@ Definition at line <link linkend="__main_8h_source_1l00173">173</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00169">169</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00140">140</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a10823f3996ecbd5481190d44baa7fd8e"/><section>
     <title>evccVoltage</title>
@@ -994,7 +875,7 @@ Definition at line <link linkend="__main_8h_source_1l00169">169</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00171">171</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00142">142</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a077d47652e49b1a9d682fd58ae94ba46"/><section>
     <title>Kalman_1DOutput</title>
@@ -1005,7 +886,7 @@ Definition at line <link linkend="__main_8h_source_1l00171">171</link> of file <
 <para>USELESS REMOVE LATER: Output of the filter [0] is angle_x, [1] is angle_y. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00147">147</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00118">118</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1afb2a04d0a4be86d47607dea17db62631"/><section>
     <title>Kalman_AnglePitch</title>
@@ -1016,7 +897,7 @@ Definition at line <link linkend="__main_8h_source_1l00147">147</link> of file <
 <para>USELESS REMOVE LATER: </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00143">143</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00114">114</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ac2f400fd7d3933dbf70df179a012817a"/><section>
     <title>Kalman_AngleRoll</title>
@@ -1027,7 +908,7 @@ Definition at line <link linkend="__main_8h_source_1l00143">143</link> of file <
 <para>USELESS REMOVE LATER: Kalman_AngleRoll is the Kalman filter processed roll angle. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00139">139</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00110">110</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae5ea9a8add204eed975816b032f4db3b"/><section>
     <title>Kalman_UncertaintyAnglePitch</title>
@@ -1038,7 +919,7 @@ Definition at line <link linkend="__main_8h_source_1l00139">139</link> of file <
 <para>USELESS REMOVE LATER: </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00145">145</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00116">116</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a2896dd40967cce4e4f8b65e93cc2fb9d"/><section>
     <title>Kalman_UncertaintyAngleRoll</title>
@@ -1049,7 +930,7 @@ Definition at line <link linkend="__main_8h_source_1l00145">145</link> of file <
 <para>USELESS REMOVE LATER: </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00141">141</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00112">112</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a9462b5ab9931c29422982609bceb3fad"/><section>
     <title>logs</title>
@@ -1060,14 +941,14 @@ Definition at line <link linkend="__main_8h_source_1l00141">141</link> of file <
 <para>An instance of the logging struct for storing all the above logs to pass onto dataLogging. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00231">231</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00200">200</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ad817dda0a86c980182765da5a3cafec8"/><section>
     <title>lowerUpperCells</title>
 <indexterm><primary>lowerUpperCells</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>lowerUpperCells</secondary></indexterm>
 <para><computeroutput>int lowerUpperCells = -1</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00237">237</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00206">206</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a0de2096b0657dfd13ffeb3d18ae5d65c"/><section>
     <title>ltc_count</title>
@@ -1078,7 +959,7 @@ Definition at line <link linkend="__main_8h_source_1l00237">237</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00090">90</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00061">61</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae21e58b785392a0951862c107609d059"/><section>
     <title>ltc_fault</title>
@@ -1089,7 +970,7 @@ Definition at line <link linkend="__main_8h_source_1l00090">90</link> of file <l
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00088">88</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00059">59</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a962a20f8dc1ba6934fdc04e44bde53a8"/><section>
     <title>measurementData</title>
@@ -1100,7 +981,7 @@ Definition at line <link linkend="__main_8h_source_1l00088">88</link> of file <l
 <para>An instance of a struct to store all display data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00188">188</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00159">159</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1aca95a5d67296e1cf7fd5d05296cefc5a"/><section>
     <title>motorControllerBatteryVoltage</title>
@@ -1111,7 +992,7 @@ Definition at line <link linkend="__main_8h_source_1l00188">188</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00155">155</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00126">126</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a45af45f80ded31266ad90143957a4e5e"/><section>
     <title>motorControllerTemp</title>
@@ -1122,7 +1003,7 @@ Definition at line <link linkend="__main_8h_source_1l00155">155</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00159">159</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00130">130</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae230e041b8d09151f97b07151fdaf38c"/><section>
     <title>motorControllerTemperatureLog</title>
@@ -1133,7 +1014,7 @@ Definition at line <link linkend="__main_8h_source_1l00159">159</link> of file <
 <para>An instance of the logging struct for motor controller temperatures. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00219">219</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00188">188</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a4ca34bc3c27d808ebe3480bfed4b997a"/><section>
     <title>motorControllerVoltageLog</title>
@@ -1144,7 +1025,7 @@ Definition at line <link linkend="__main_8h_source_1l00219">219</link> of file <
 <para>An instance of the logging struct for motor controller voltage. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00221">221</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00190">190</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a7facdac5aec018a06fc1443c2f90a66d"/><section>
     <title>motorCurrent</title>
@@ -1155,7 +1036,7 @@ Definition at line <link linkend="__main_8h_source_1l00221">221</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00153">153</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00124">124</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a3ed95fd1ffa6f914d3bb19bbb59d2cd0"/><section>
     <title>motorCurrentLog</title>
@@ -1166,7 +1047,7 @@ Definition at line <link linkend="__main_8h_source_1l00153">153</link> of file <
 <para>An instance of the logging struct for motor controller current. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00223">223</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00192">192</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a9eeb128a9907154869e9ffa78e065039"/><section>
     <title>motorStats</title>
@@ -1177,7 +1058,7 @@ Definition at line <link linkend="__main_8h_source_1l00223">223</link> of file <
 <para>An instance of a struct to store all motor data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00190">190</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00161">161</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1adf4cca4e15700419969edf3ce2ffe6e6"/><section>
     <title>motorTemp</title>
@@ -1188,7 +1069,7 @@ Definition at line <link linkend="__main_8h_source_1l00190">190</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00161">161</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00132">132</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a74a7fab0bce9e95dfced1f40d1764e9a"/><section>
     <title>motorTemperatureLog</title>
@@ -1199,7 +1080,7 @@ Definition at line <link linkend="__main_8h_source_1l00161">161</link> of file <
 <para>An instance of the logging struct for motor temperatures. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00217">217</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00186">186</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1abb61c6dc61d12b31aad7bdadd495b70a"/><section>
     <title>motorTemps</title>
@@ -1210,14 +1091,14 @@ Definition at line <link linkend="__main_8h_source_1l00217">217</link> of file <
 <para>An instance of a struct to store all motor temperature data. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00192">192</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00163">163</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a548fbf99c23fe3ef17f2e1a7b0992070"/><section>
     <title>ms</title>
 <indexterm><primary>ms</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>ms</secondary></indexterm>
 <para><computeroutput>unsigned long ms = millis()</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00238">238</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00207">207</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a695dccac97a0f45cf570237e981b2b5d"/><section>
     <title>preChargeData</title>
@@ -1228,7 +1109,7 @@ Definition at line <link linkend="__main_8h_source_1l00238">238</link> of file <
 <para>An instance of a struct to store all preCharge data, then pass it as a void pointer. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00212">212</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00181">181</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a94bbee6853ba61e7fa11539e15174888"/><section>
     <title>Rate_CalibrationNumber</title>
@@ -1239,7 +1120,7 @@ Definition at line <link linkend="__main_8h_source_1l00212">212</link> of file <
 <para>USELESS REMOVE LATER: Rate_CalibrationNumber stores the rate calibration number) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00124">124</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00095">95</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a474d53e2608e3f1b00990ca9a7ccc64a"/><section>
     <title>Rate_CalibrationPitch</title>
@@ -1250,7 +1131,7 @@ Definition at line <link linkend="__main_8h_source_1l00124">124</link> of file <
 <para>USELESS REMOVE LATER: Rate_CalibrationPitch stores the rate calibration of the pitch angle (y-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00120">120</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00091">91</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a1fde90bfdfb774d5f83e5fea79c17caf"/><section>
     <title>Rate_CalibrationRoll</title>
@@ -1261,7 +1142,7 @@ Definition at line <link linkend="__main_8h_source_1l00120">120</link> of file <
 <para>USELESS REMOVE LATER: Rate_CalibrationRoll stores the rate calibration of the roll angle (x-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00118">118</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00089">89</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1af1c993c5e41ee4d2e881139640989c1a"/><section>
     <title>Rate_CalibrationYaw</title>
@@ -1272,7 +1153,7 @@ Definition at line <link linkend="__main_8h_source_1l00118">118</link> of file <
 <para>USELESS REMOVE LATER: Rate_CalibrationYaw stores the rate calibration of the pitch angle (y-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00122">122</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00093">93</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ae4de7890b46aeb807d61f0b71efc9ffe"/><section>
     <title>Rate_Pitch</title>
@@ -1283,7 +1164,7 @@ Definition at line <link linkend="__main_8h_source_1l00122">122</link> of file <
 <para>USELESS REMOVE LATER: Rate_Pitch stores the rate of the pitch angle (y-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00114">114</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00085">85</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a5ac66e09e5f95b02b3a99a4a2a33f0aa"/><section>
     <title>Rate_Roll</title>
@@ -1294,7 +1175,7 @@ Definition at line <link linkend="__main_8h_source_1l00114">114</link> of file <
 <para>USELESS REMOVE LATER: Rate_Roll stores the rate of the roll angle (x-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00112">112</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00083">83</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a537fbd46985b9026ec7d6d0360d1d4d0"/><section>
     <title>Rate_Yaw</title>
@@ -1305,7 +1186,7 @@ Definition at line <link linkend="__main_8h_source_1l00112">112</link> of file <
 <para>USELESS REMOVE LATER: Rate_Yaw stores the rate of the yaw angle (z-axis) </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00116">116</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00087">87</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ade4e42cdef2d4a9d50b3184100ad8cba"/><section>
     <title>RPM</title>
@@ -1316,7 +1197,7 @@ Definition at line <link linkend="__main_8h_source_1l00116">116</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00151">151</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00122">122</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a60f914a71f12f33ed914208fbf5be838"/><section>
     <title>rpmLog</title>
@@ -1327,27 +1208,14 @@ Definition at line <link linkend="__main_8h_source_1l00151">151</link> of file <
 <para>An instance of the logging struct for motor RPM. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00225">225</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
-</section>
-<anchor xml:id="__main_8h_1a25cab1c2dd63e90138b14fec27cecc4b"/><section>
-    <title>screen</title>
-<indexterm><primary>screen</primary><secondary>Main.h</secondary></indexterm>
-<indexterm><primary>Main.h</primary><secondary>screen</secondary></indexterm>
-<para><computeroutput><link linkend="__display_8h_1a412053d6576f296892a8ccc0d8510e46">Screen</link> screen = {<link linkend="__display_8h_1a9d50b8f9fd58d362446e491fe902173fac56c12ae3cd1cef7c03d814f5ef70fab">SPEEDOMETER</link>}<computeroutput>[static]</computeroutput></computeroutput></para>
-<para>A screen enum that defines the type of screen to generate in <link linkend="__display_8ino">Display.ino</link>. <note><title>Note</title>
-
-<para>NOTE: CHANGE THIS LINE TO CHANGE DISPLAY TYPE! </para>
-</note>
-</para>
-<para>
-Definition at line <link linkend="__main_8h_source_1l00077">77</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00194">194</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1acdca7f14bb24f1cb2aa9d0be982560b2"/><section>
     <title>sdStarted</title>
 <indexterm><primary>sdStarted</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>sdStarted</secondary></indexterm>
 <para><computeroutput>byte sdStarted = 0</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00239">239</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00208">208</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ad2b91d0118e98c42f7d552fd5d3056ed"/><section>
     <title>seriesVoltage</title>
@@ -1358,14 +1226,14 @@ Definition at line <link linkend="__main_8h_source_1l00239">239</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00094">94</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00065">65</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a76c0525d646735793add25b18043e600"/><section>
     <title>spi_mutex</title>
 <indexterm><primary>spi_mutex</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>spi_mutex</secondary></indexterm>
 <para><computeroutput><link linkend="_semphr_8h_1ad88c6df4a04beedeac782918c8a332f5">SemaphoreHandle_t</link> spi_mutex</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00241">241</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00210">210</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1aefa2152d1586505d2d271edc7e9c4187"/><section>
     <title>thermistorEnabled</title>
@@ -1376,7 +1244,7 @@ Definition at line <link linkend="__main_8h_source_1l00241">241</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00100">100</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00071">71</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a8941dbd7f821806a7a6f4eb705b1472b"/><section>
     <title>thermistorLog</title>
@@ -1387,7 +1255,7 @@ Definition at line <link linkend="__main_8h_source_1l00100">100</link> of file <
 <para>An instance of the logging struct for thermistor temperatures. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00227">227</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00196">196</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1ad2bc733f382fc4bf0379382e3a15a94e"/><section>
     <title>thermistorPresent</title>
@@ -1398,7 +1266,7 @@ Definition at line <link linkend="__main_8h_source_1l00227">227</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00102">102</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00073">73</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a18571448b101f12a60457d717dc4f953"/><section>
     <title>thermistorTemps</title>
@@ -1409,7 +1277,7 @@ Definition at line <link linkend="__main_8h_source_1l00102">102</link> of file <
 <para>An instance of a struct to store all thermistorTemperatures. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00198">198</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00169">169</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1adca97acc6b0ff71f782f9c8a484a47b8"/><section>
     <title>throttle</title>
@@ -1420,7 +1288,7 @@ Definition at line <link linkend="__main_8h_source_1l00198">198</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00157">157</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00128">128</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a283b736b2bddfc8cbec62fe0759a9cd3"/><section>
     <title>thTemps</title>
@@ -1431,14 +1299,14 @@ Definition at line <link linkend="__main_8h_source_1l00157">157</link> of file <
 <para>Self explanatory. Read datasheet if more info needed. </para>
 </para>
 <para>
-Definition at line <link linkend="__main_8h_source_1l00098">98</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00069">69</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 <anchor xml:id="__main_8h_1a61d9ef65d75b66821896182b133b31de"/><section>
     <title>timer</title>
 <indexterm><primary>timer</primary><secondary>Main.h</secondary></indexterm>
 <indexterm><primary>Main.h</primary><secondary>timer</secondary></indexterm>
 <para><computeroutput>unsigned long timer = millis()</computeroutput></para><para>
-Definition at line <link linkend="__main_8h_source_1l00234">234</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
+Definition at line <link linkend="__main_8h_source_1l00203">203</link> of file <link linkend="__main_8h_source">Main.h</link>.</para>
 </section>
 </section>
 </section>

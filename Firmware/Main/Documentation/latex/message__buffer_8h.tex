@@ -1,36 +1,36 @@
-\hypertarget{message__buffer_8h}{}\doxysection{Free\+RTOS/message\+\_\+buffer.h File Reference}
-\label{message__buffer_8h}\index{FreeRTOS/message\_buffer.h@{FreeRTOS/message\_buffer.h}}
+\hypertarget{message__buffer_8h}{}\doxysection{C\+:/\+Users/ponym/\+ARHMA2021/\+Firmware/\+Main/\+Free\+RTOS/message\+\_\+buffer.h File Reference}
+\label{message__buffer_8h}\index{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/message\_buffer.h@{C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/message\_buffer.h}}
 {\ttfamily \#include \char`\"{}stream\+\_\+buffer.\+h\char`\"{}}\newline
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a2959cd0e3d2bd20d46908e5c9872be36}{x\+Message\+Buffer\+Create}}(x\+Buffer\+Size\+Bytes)~( \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02742f0209a}{Message\+Buffer\+Handle\+\_\+t}} ) \mbox{\hyperlink{stream__buffer_8h_a7a613c6fa11323c871ce7991db214096}{x\+Stream\+Buffer\+Generic\+Create}}( x\+Buffer\+Size\+Bytes, ( size\+\_\+t ) 0, \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pd\+TRUE}} )
+\#define \mbox{\hyperlink{message__buffer_8h_a2959cd0e3d2bd20d46908e5c9872be36}{x\+Message\+Buffer\+Create}}(x\+Buffer\+Size\+Bytes)~( \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02742f0209a}{Message\+Buffer\+Handle\+\_\+t}} ) \mbox{\hyperlink{stream__buffer_8c_a4387e6f3c52bd8755a014673c97aa497}{x\+Stream\+Buffer\+Generic\+Create}}( x\+Buffer\+Size\+Bytes, ( size\+\_\+t ) 0, \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pd\+TRUE}} )
 \item 
 \#define \mbox{\hyperlink{message__buffer_8h_acc84f4a15dbd39ecbad35f7337e78b2c}{x\+Message\+Buffer\+Create\+Static}}(x\+Buffer\+Size\+Bytes,  puc\+Message\+Buffer\+Storage\+Area,  px\+Static\+Message\+Buffer)~( \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02742f0209a}{Message\+Buffer\+Handle\+\_\+t}} ) \mbox{\hyperlink{stream__buffer_8h_a1263847a3f77a4f34462df326d78c48c}{x\+Stream\+Buffer\+Generic\+Create\+Static}}( x\+Buffer\+Size\+Bytes, 0, \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pd\+TRUE}}, puc\+Message\+Buffer\+Storage\+Area, px\+Static\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a858f6da6fe24a226c45caf1634ea1605}{x\+Message\+Buffer\+Send}}(x\+Message\+Buffer,  pv\+Tx\+Data,  x\+Data\+Length\+Bytes,  x\+Ticks\+To\+Wait)~\mbox{\hyperlink{stream__buffer_8h_a35cdf3b6bf677086b9128782f762499d}{x\+Stream\+Buffer\+Send}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, x\+Ticks\+To\+Wait )
+\#define \mbox{\hyperlink{message__buffer_8h_a858f6da6fe24a226c45caf1634ea1605}{x\+Message\+Buffer\+Send}}(x\+Message\+Buffer,  pv\+Tx\+Data,  x\+Data\+Length\+Bytes,  x\+Ticks\+To\+Wait)~\mbox{\hyperlink{stream__buffer_8c_adf807ecf262fcd5df2584d5d3e6ed6c5}{x\+Stream\+Buffer\+Send}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, x\+Ticks\+To\+Wait )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_aeef5b0c4f8c2db6ca2230a8874813e79}{x\+Message\+Buffer\+Send\+From\+ISR}}(x\+Message\+Buffer,  pv\+Tx\+Data,  x\+Data\+Length\+Bytes,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8h_a1dab226e99230e01e79bc2b5c0605e44}{x\+Stream\+Buffer\+Send\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )
+\#define \mbox{\hyperlink{message__buffer_8h_aeef5b0c4f8c2db6ca2230a8874813e79}{x\+Message\+Buffer\+Send\+From\+ISR}}(x\+Message\+Buffer,  pv\+Tx\+Data,  x\+Data\+Length\+Bytes,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8c_a3072d8c5cedf79a72550da051a0866b4}{x\+Stream\+Buffer\+Send\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_af12a227ba511a95cbea5aa81c7f3ba12}{x\+Message\+Buffer\+Receive}}(x\+Message\+Buffer,  pv\+Rx\+Data,  x\+Buffer\+Length\+Bytes,  x\+Ticks\+To\+Wait)~\mbox{\hyperlink{stream__buffer_8h_a55efc144b988598d84a6087d3e20b507}{x\+Stream\+Buffer\+Receive}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, x\+Ticks\+To\+Wait )
+\#define \mbox{\hyperlink{message__buffer_8h_af12a227ba511a95cbea5aa81c7f3ba12}{x\+Message\+Buffer\+Receive}}(x\+Message\+Buffer,  pv\+Rx\+Data,  x\+Buffer\+Length\+Bytes,  x\+Ticks\+To\+Wait)~\mbox{\hyperlink{stream__buffer_8c_afcfcf6f4bc80ec5e31e5e1f8093cacac}{x\+Stream\+Buffer\+Receive}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, x\+Ticks\+To\+Wait )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_adf596c00c44752a3c8c542cc6b5df234}{x\+Message\+Buffer\+Receive\+From\+ISR}}(x\+Message\+Buffer,  pv\+Rx\+Data,  x\+Buffer\+Length\+Bytes,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8h_a6c882a1d9f26c40f93f271bd1b844b3b}{x\+Stream\+Buffer\+Receive\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )
+\#define \mbox{\hyperlink{message__buffer_8h_adf596c00c44752a3c8c542cc6b5df234}{x\+Message\+Buffer\+Receive\+From\+ISR}}(x\+Message\+Buffer,  pv\+Rx\+Data,  x\+Buffer\+Length\+Bytes,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8c_a06c67a59495190f8359322184fe0462b}{x\+Stream\+Buffer\+Receive\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_aa29d6c50600a7b0154e4a47e7c981d1a}{v\+Message\+Buffer\+Delete}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_a05dc9d2ae220a050526a062eddf6d7a2}{v\+Stream\+Buffer\+Delete}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
+\#define \mbox{\hyperlink{message__buffer_8h_aa29d6c50600a7b0154e4a47e7c981d1a}{v\+Message\+Buffer\+Delete}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_a7e66db41c3fd13acf3b9f814d650f77d}{v\+Stream\+Buffer\+Delete}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a60a7e136b74c2a8ce703a99ef636f179}{x\+Message\+Buffer\+Is\+Full}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_ae393d82ee06e89692248a4381f85dc86}{x\+Stream\+Buffer\+Is\+Full}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
+\#define \mbox{\hyperlink{message__buffer_8h_a60a7e136b74c2a8ce703a99ef636f179}{x\+Message\+Buffer\+Is\+Full}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_a77c2ae33c45c948e7af4d61fdd6cf1f1}{x\+Stream\+Buffer\+Is\+Full}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a7bc30ef43be4bd228d80de1da88c71d8}{x\+Message\+Buffer\+Is\+Empty}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_af65cd558025ddc29ca68fba1b3f5dc19}{x\+Stream\+Buffer\+Is\+Empty}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
+\#define \mbox{\hyperlink{message__buffer_8h_a7bc30ef43be4bd228d80de1da88c71d8}{x\+Message\+Buffer\+Is\+Empty}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_a95465cd3702e3eae08afb8e69e1c6525}{x\+Stream\+Buffer\+Is\+Empty}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a6d22ac0fd0463b202f2e22674380a41c}{x\+Message\+Buffer\+Reset}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_a5253429645c67902c2fc8682f8af0aac}{x\+Stream\+Buffer\+Reset}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
+\#define \mbox{\hyperlink{message__buffer_8h_a6d22ac0fd0463b202f2e22674380a41c}{x\+Message\+Buffer\+Reset}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_a05ed4d42963aa4aaf50e49700d44659c}{x\+Stream\+Buffer\+Reset}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a9f1e75a283ef603e914e10ae354e5ab8}{x\+Message\+Buffer\+Space\+Available}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_a9a78e0206cb1dc343c329f9db579208d}{x\+Stream\+Buffer\+Spaces\+Available}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
+\#define \mbox{\hyperlink{message__buffer_8h_a9f1e75a283ef603e914e10ae354e5ab8}{x\+Message\+Buffer\+Space\+Available}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_a8fb90892c74eb94fb063b2a018a10509}{x\+Stream\+Buffer\+Spaces\+Available}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_ae2b56b6564cf2476891394231a31ecad}{x\+Message\+Buffer\+Next\+Length\+Bytes}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8h_a9a952a2cffab91471ec2a3651e2160ec}{x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\+\_\+\+FUNCTION}};
+\#define \mbox{\hyperlink{message__buffer_8h_ae2b56b6564cf2476891394231a31ecad}{x\+Message\+Buffer\+Next\+Length\+Bytes}}(x\+Message\+Buffer)~\mbox{\hyperlink{stream__buffer_8c_afe4f32e931b684bc32189f086e5ec41c}{x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\+\_\+\+FUNCTION}};
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a45918d12bf530cb2b4bf21c0936460a9}{x\+Message\+Buffer\+Send\+Completed\+From\+ISR}}(x\+Message\+Buffer,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8h_abc37189e4eb8618f5434ae333dd50b23}{x\+Stream\+Buffer\+Send\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )
+\#define \mbox{\hyperlink{message__buffer_8h_a45918d12bf530cb2b4bf21c0936460a9}{x\+Message\+Buffer\+Send\+Completed\+From\+ISR}}(x\+Message\+Buffer,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8c_a734bf1bcef16810abb6d53781b8f1f07}{x\+Stream\+Buffer\+Send\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )
 \item 
-\#define \mbox{\hyperlink{message__buffer_8h_a22b1a37d0d4f39acd87250f73d9aab0c}{x\+Message\+Buffer\+Receive\+Completed\+From\+ISR}}(x\+Message\+Buffer,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8h_ac12e93e96e0eafbc0e981d00e7275d32}{x\+Stream\+Buffer\+Receive\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )
+\#define \mbox{\hyperlink{message__buffer_8h_a22b1a37d0d4f39acd87250f73d9aab0c}{x\+Message\+Buffer\+Receive\+Completed\+From\+ISR}}(x\+Message\+Buffer,  px\+Higher\+Priority\+Task\+Woken)~\mbox{\hyperlink{stream__buffer_8c_adbcf08da91cb0b9c179d012e0c99237d}{x\+Stream\+Buffer\+Receive\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -44,7 +44,7 @@ typedef void $\ast$ \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02
 \index{message\_buffer.h@{message\_buffer.h}!vMessageBufferDelete@{vMessageBufferDelete}}
 \index{vMessageBufferDelete@{vMessageBufferDelete}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{vMessageBufferDelete}{vMessageBufferDelete}}
-{\footnotesize\ttfamily \#define v\+Message\+Buffer\+Delete(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a05dc9d2ae220a050526a062eddf6d7a2}{v\+Stream\+Buffer\+Delete}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
+{\footnotesize\ttfamily \#define v\+Message\+Buffer\+Delete(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a7e66db41c3fd13acf3b9f814d650f77d}{v\+Stream\+Buffer\+Delete}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
 
 \mbox{\hyperlink{message__buffer_8h}{message\+\_\+buffer.\+h}}
 
@@ -71,7 +71,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00616}{616}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferCreate@{xMessageBufferCreate}}
 \index{xMessageBufferCreate@{xMessageBufferCreate}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferCreate}{xMessageBufferCreate}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Create(\begin{DoxyParamCaption}\item[{}]{x\+Buffer\+Size\+Bytes }\end{DoxyParamCaption})~( \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02742f0209a}{Message\+Buffer\+Handle\+\_\+t}} ) \mbox{\hyperlink{stream__buffer_8h_a7a613c6fa11323c871ce7991db214096}{x\+Stream\+Buffer\+Generic\+Create}}( x\+Buffer\+Size\+Bytes, ( size\+\_\+t ) 0, \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pd\+TRUE}} )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Create(\begin{DoxyParamCaption}\item[{}]{x\+Buffer\+Size\+Bytes }\end{DoxyParamCaption})~( \mbox{\hyperlink{message__buffer_8h_ae8442d50f3b62d237c40b02742f0209a}{Message\+Buffer\+Handle\+\_\+t}} ) \mbox{\hyperlink{stream__buffer_8c_a4387e6f3c52bd8755a014673c97aa497}{x\+Stream\+Buffer\+Generic\+Create}}( x\+Buffer\+Size\+Bytes, ( size\+\_\+t ) 0, \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pd\+TRUE}} )}
 
 
 
@@ -91,7 +91,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00204}{204}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferIsEmpty@{xMessageBufferIsEmpty}}
 \index{xMessageBufferIsEmpty@{xMessageBufferIsEmpty}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferIsEmpty}{xMessageBufferIsEmpty}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Is\+Empty(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_af65cd558025ddc29ca68fba1b3f5dc19}{x\+Stream\+Buffer\+Is\+Empty}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Is\+Empty(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a95465cd3702e3eae08afb8e69e1c6525}{x\+Stream\+Buffer\+Is\+Empty}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
 
 \mbox{\hyperlink{message__buffer_8h}{message\+\_\+buffer.\+h}} 
 \begin{DoxyPre}
@@ -117,7 +117,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00649}{649}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferIsFull@{xMessageBufferIsFull}}
 \index{xMessageBufferIsFull@{xMessageBufferIsFull}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferIsFull}{xMessageBufferIsFull}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Is\+Full(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_ae393d82ee06e89692248a4381f85dc86}{x\+Stream\+Buffer\+Is\+Full}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Is\+Full(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a77c2ae33c45c948e7af4d61fdd6cf1f1}{x\+Stream\+Buffer\+Is\+Full}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
 
 \mbox{\hyperlink{message__buffer_8h}{message\+\_\+buffer.\+h}} 
 \begin{DoxyPre}
@@ -143,7 +143,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00633}{633}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferNextLengthBytes@{xMessageBufferNextLengthBytes}}
 \index{xMessageBufferNextLengthBytes@{xMessageBufferNextLengthBytes}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferNextLengthBytes}{xMessageBufferNextLengthBytes}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Next\+Length\+Bytes(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a9a952a2cffab91471ec2a3651e2160ec}{x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\+\_\+\+FUNCTION}};}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Next\+Length\+Bytes(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_afe4f32e931b684bc32189f086e5ec41c}{x\+Stream\+Buffer\+Next\+Message\+Length\+Bytes}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer ) \mbox{\hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{PRIVILEGED\+\_\+\+FUNCTION}};}
 
 
 
@@ -153,7 +153,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00713}{713}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferReceive@{xMessageBufferReceive}}
 \index{xMessageBufferReceive@{xMessageBufferReceive}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferReceive}{xMessageBufferReceive}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Rx\+Data,  }\item[{}]{x\+Buffer\+Length\+Bytes,  }\item[{}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a55efc144b988598d84a6087d3e20b507}{x\+Stream\+Buffer\+Receive}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, x\+Ticks\+To\+Wait )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Rx\+Data,  }\item[{}]{x\+Buffer\+Length\+Bytes,  }\item[{}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_afcfcf6f4bc80ec5e31e5e1f8093cacac}{x\+Stream\+Buffer\+Receive}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, x\+Ticks\+To\+Wait )}
 
 
 
@@ -163,7 +163,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00495}{495}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferReceiveCompletedFromISR@{xMessageBufferReceiveCompletedFromISR}}
 \index{xMessageBufferReceiveCompletedFromISR@{xMessageBufferReceiveCompletedFromISR}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferReceiveCompletedFromISR}{xMessageBufferReceiveCompletedFromISR}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive\+Completed\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_ac12e93e96e0eafbc0e981d00e7275d32}{x\+Stream\+Buffer\+Receive\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive\+Completed\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_adbcf08da91cb0b9c179d012e0c99237d}{x\+Stream\+Buffer\+Receive\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )}
 
 
 
@@ -173,7 +173,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00792}{792}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferReceiveFromISR@{xMessageBufferReceiveFromISR}}
 \index{xMessageBufferReceiveFromISR@{xMessageBufferReceiveFromISR}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferReceiveFromISR}{xMessageBufferReceiveFromISR}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Rx\+Data,  }\item[{}]{x\+Buffer\+Length\+Bytes,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a6c882a1d9f26c40f93f271bd1b844b3b}{x\+Stream\+Buffer\+Receive\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Receive\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Rx\+Data,  }\item[{}]{x\+Buffer\+Length\+Bytes,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a06c67a59495190f8359322184fe0462b}{x\+Stream\+Buffer\+Receive\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Rx\+Data, x\+Buffer\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )}
 
 
 
@@ -183,7 +183,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00596}{596}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferReset@{xMessageBufferReset}}
 \index{xMessageBufferReset@{xMessageBufferReset}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferReset}{xMessageBufferReset}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Reset(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a5253429645c67902c2fc8682f8af0aac}{x\+Stream\+Buffer\+Reset}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Reset(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a05ed4d42963aa4aaf50e49700d44659c}{x\+Stream\+Buffer\+Reset}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
 
 
 
@@ -193,7 +193,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00672}{672}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferSend@{xMessageBufferSend}}
 \index{xMessageBufferSend@{xMessageBufferSend}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferSend}{xMessageBufferSend}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Tx\+Data,  }\item[{}]{x\+Data\+Length\+Bytes,  }\item[{}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a35cdf3b6bf677086b9128782f762499d}{x\+Stream\+Buffer\+Send}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, x\+Ticks\+To\+Wait )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Tx\+Data,  }\item[{}]{x\+Data\+Length\+Bytes,  }\item[{}]{x\+Ticks\+To\+Wait }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_adf807ecf262fcd5df2584d5d3e6ed6c5}{x\+Stream\+Buffer\+Send}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, x\+Ticks\+To\+Wait )}
 
 
 
@@ -203,7 +203,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00303}{303}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferSendCompletedFromISR@{xMessageBufferSendCompletedFromISR}}
 \index{xMessageBufferSendCompletedFromISR@{xMessageBufferSendCompletedFromISR}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferSendCompletedFromISR}{xMessageBufferSendCompletedFromISR}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send\+Completed\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_abc37189e4eb8618f5434ae333dd50b23}{x\+Stream\+Buffer\+Send\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send\+Completed\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a734bf1bcef16810abb6d53781b8f1f07}{x\+Stream\+Buffer\+Send\+Completed\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, px\+Higher\+Priority\+Task\+Woken )}
 
 
 
@@ -213,7 +213,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00752}{752}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferSendFromISR@{xMessageBufferSendFromISR}}
 \index{xMessageBufferSendFromISR@{xMessageBufferSendFromISR}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferSendFromISR}{xMessageBufferSendFromISR}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Tx\+Data,  }\item[{}]{x\+Data\+Length\+Bytes,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a1dab226e99230e01e79bc2b5c0605e44}{x\+Stream\+Buffer\+Send\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Send\+From\+ISR(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer,  }\item[{}]{pv\+Tx\+Data,  }\item[{}]{x\+Data\+Length\+Bytes,  }\item[{}]{px\+Higher\+Priority\+Task\+Woken }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a3072d8c5cedf79a72550da051a0866b4}{x\+Stream\+Buffer\+Send\+From\+ISR}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer, pv\+Tx\+Data, x\+Data\+Length\+Bytes, px\+Higher\+Priority\+Task\+Woken )}
 
 
 
@@ -223,7 +223,7 @@ Definition at line \mbox{\hyperlink{message__buffer_8h_source_l00407}{407}} of f
 \index{message\_buffer.h@{message\_buffer.h}!xMessageBufferSpaceAvailable@{xMessageBufferSpaceAvailable}}
 \index{xMessageBufferSpaceAvailable@{xMessageBufferSpaceAvailable}!message\_buffer.h@{message\_buffer.h}}
 \doxysubsubsection{\texorpdfstring{xMessageBufferSpaceAvailable}{xMessageBufferSpaceAvailable}}
-{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Space\+Available(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8h_a9a78e0206cb1dc343c329f9db579208d}{x\+Stream\+Buffer\+Spaces\+Available}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
+{\footnotesize\ttfamily \#define x\+Message\+Buffer\+Space\+Available(\begin{DoxyParamCaption}\item[{}]{x\+Message\+Buffer }\end{DoxyParamCaption})~\mbox{\hyperlink{stream__buffer_8c_a8fb90892c74eb94fb063b2a018a10509}{x\+Stream\+Buffer\+Spaces\+Available}}( ( \mbox{\hyperlink{stream__buffer_8h_a8b80974e2278f073412293e6580ce56f}{Stream\+Buffer\+Handle\+\_\+t}} ) x\+Message\+Buffer )}
 
 
 

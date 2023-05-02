@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
   <compounddef id="_stack_macros_8h" kind="file" language="C++">
     <compoundname>StackMacros.h</compoundname>
       <sectiondef kind="define">
@@ -12,7 +12,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="FreeRTOS/StackMacros.h" line="127" column="10" bodyfile="FreeRTOS/StackMacros.h" bodystart="127" bodyend="-1"/>
+        <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/StackMacros.h" line="127" column="10" bodyfile="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/StackMacros.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -154,6 +154,6 @@
 <codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>STACK_MACROS_H<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="133"><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="FreeRTOS/StackMacros.h"/>
+    <location file="C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/StackMacros.h"/>
   </compounddef>
 </doxygen>

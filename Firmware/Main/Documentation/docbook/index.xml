@@ -129,7 +129,6 @@
     <xi:include href="structcor_co_routine_control_block.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_c_s_v_writer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_data_logging_task_data.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="structdisplay_task_wrapper.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_event_group_def__t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_heap_region.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structmbedtls__threading__mutex__t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -143,7 +142,6 @@
     <xi:include href="struct_q_u_e_u_e___r_e_g_i_s_t_r_y___i_t_e_m.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_queue_definition.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_queue_pointers.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="struct_screen_info.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_semaphore_data.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_stream_buffer_def__t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="struct_thermistor_temps.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -174,6 +172,8 @@
     <xi:include href="_c_a_n_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_c_a_n_8ino.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_c_a_n_8ino_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="config_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="config_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_data_logging_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_data_logging_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_data_logging_8ino.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

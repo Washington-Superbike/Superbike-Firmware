@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_event__groups_8h" xml:lang="en-US">
-<title>FreeRTOS/event_groups.h File Reference</title>
-<indexterm><primary>FreeRTOS/event_groups.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;timers.h&quot;
-</programlisting><simplesect>
+<title>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.h File Reference</title>
+<indexterm><primary>C:/Users/ponym/ARHMA2021/Firmware/Main/FreeRTOS/event_groups.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;timers.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_event__groups_8h_1a3d7de214a697f33fe7b914e26a93f33a">xEventGroupClearBitsFromISR</link>(xEventGroup,  uxBitsToClear)   <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8h_1a9187a137998183178320167de254cce9">vEventGroupClearBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToClear, NULL )</para>
+            <listitem><para>#define <link linkend="_event__groups_8h_1a3d7de214a697f33fe7b914e26a93f33a">xEventGroupClearBitsFromISR</link>(xEventGroup,  uxBitsToClear)&#160;&#160;&#160;<link linkend="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8c_1a3bce459038e87064109c8462b1174c29">vEventGroupClearBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToClear, NULL )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8h_1a62b68278abac6358369ae8e390988a02">xEventGroupSetBitsFromISR</link>(xEventGroup,  uxBitsToSet,  pxHigherPriorityTaskWoken)   <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8h_1abe76a301815525eb5e03f331e5e51ae3">vEventGroupSetBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToSet, pxHigherPriorityTaskWoken )</para>
+            <listitem><para>#define <link linkend="_event__groups_8h_1a62b68278abac6358369ae8e390988a02">xEventGroupSetBitsFromISR</link>(xEventGroup,  uxBitsToSet,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8c_1a54db6cc97bbb926aa4b78d5affc257d9">vEventGroupSetBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToSet, pxHigherPriorityTaskWoken )</para>
 </listitem>
-            <listitem><para>#define <link linkend="_event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584">xEventGroupGetBits</link>(xEventGroup)   <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits</link>( xEventGroup, 0 )</para>
+            <listitem><para>#define <link linkend="_event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584">xEventGroupGetBits</link>(xEventGroup)&#160;&#160;&#160;<link linkend="_event__groups_8c_1a71dd2680fdfbdde7d6b10db203e266ba">xEventGroupClearBits</link>( xEventGroup, 0 )</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -50,21 +49,21 @@
     <title>xEventGroupClearBitsFromISR</title>
 <indexterm><primary>xEventGroupClearBitsFromISR</primary><secondary>event_groups.h</secondary></indexterm>
 <indexterm><primary>event_groups.h</primary><secondary>xEventGroupClearBitsFromISR</secondary></indexterm>
-<para><computeroutput>#define xEventGroupClearBitsFromISR( xEventGroup,  uxBitsToClear)   <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8h_1a9187a137998183178320167de254cce9">vEventGroupClearBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToClear, NULL )</computeroutput></para><para>
+<para><computeroutput>#define xEventGroupClearBitsFromISR( xEventGroup,  uxBitsToClear)&#160;&#160;&#160;<link linkend="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8c_1a3bce459038e87064109c8462b1174c29">vEventGroupClearBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToClear, NULL )</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8h_source_1l00410">410</link> of file <link linkend="_event__groups_8h_source">event_groups.h</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8h_1a0ae86f092fb07ccb475ae938f9a12584"/><section>
     <title>xEventGroupGetBits</title>
 <indexterm><primary>xEventGroupGetBits</primary><secondary>event_groups.h</secondary></indexterm>
 <indexterm><primary>event_groups.h</primary><secondary>xEventGroupGetBits</secondary></indexterm>
-<para><computeroutput>#define xEventGroupGetBits( xEventGroup)   <link linkend="_event__groups_8h_1a0fb72cfdd4f0d5f86d955fc3af448f2a">xEventGroupClearBits</link>( xEventGroup, 0 )</computeroutput></para><para>
+<para><computeroutput>#define xEventGroupGetBits( xEventGroup)&#160;&#160;&#160;<link linkend="_event__groups_8c_1a71dd2680fdfbdde7d6b10db203e266ba">xEventGroupClearBits</link>( xEventGroup, 0 )</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8h_source_1l00708">708</link> of file <link linkend="_event__groups_8h_source">event_groups.h</link>.</para>
 </section>
 <anchor xml:id="_event__groups_8h_1a62b68278abac6358369ae8e390988a02"/><section>
     <title>xEventGroupSetBitsFromISR</title>
 <indexterm><primary>xEventGroupSetBitsFromISR</primary><secondary>event_groups.h</secondary></indexterm>
 <indexterm><primary>event_groups.h</primary><secondary>xEventGroupSetBitsFromISR</secondary></indexterm>
-<para><computeroutput>#define xEventGroupSetBitsFromISR( xEventGroup,  uxBitsToSet,  pxHigherPriorityTaskWoken)   <link linkend="_timers_8h_1ae0d9338933037e6feebe6437763fa299">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8h_1abe76a301815525eb5e03f331e5e51ae3">vEventGroupSetBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToSet, pxHigherPriorityTaskWoken )</computeroutput></para><para>
+<para><computeroutput>#define xEventGroupSetBitsFromISR( xEventGroup,  uxBitsToSet,  pxHigherPriorityTaskWoken)&#160;&#160;&#160;<link linkend="_timers_8c_1af4444b6b1a4e8d7db156e6aaccdf66fa">xTimerPendFunctionCallFromISR</link>( <link linkend="_event__groups_8c_1a54db6cc97bbb926aa4b78d5affc257d9">vEventGroupSetBitsCallback</link>, ( void * ) xEventGroup, ( uint32_t ) uxBitsToSet, pxHigherPriorityTaskWoken )</computeroutput></para><para>
 Definition at line <link linkend="_event__groups_8h_source_1l00562">562</link> of file <link linkend="_event__groups_8h_source">event_groups.h</link>.</para>
 </section>
 </section>
