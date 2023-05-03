@@ -51,11 +51,14 @@
 
 /// The Teensy pin used for the display touch-screen chip select.
 /// This is useless because we dont use the touch screen.
-#define TS_CS  10
+//#define TS_CS  10
 // MOSI=11, MISO=12, SCK=13
 
 /// The TIRQ interrupt signal must be used for this example.
 #define TIRQ_PIN  -1
+
+// Pin used for reading the voltage of the auxiliary battery.
+#define AUX_BAT_PIN 27
 
 /// Number of PrintedData values (length of the array that contains all the printedData)
 #define NUM_DATA 11

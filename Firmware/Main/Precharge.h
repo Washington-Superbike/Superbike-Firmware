@@ -31,17 +31,11 @@
 #define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
 
 /// Teensy pin for contactor control (closing or opening)
-#define CONTACTOR 16
+#define CONTACTOR 17
 /// Teensy pin for relay in series with precharge resistor
-#define PRECHARGE 17
+#define PRECHARGE 16
 /// Teensy pin for starting precharge, exit precharging, exit done-precharging
-#define HIGH_VOLTAGE_TOGGLE 15
-/// Teensy pin for closing the contactor (usable after precharging)
-#define CLOSE_CONTACTOR_BUTTON 14
-/// Teensy pin for LED that illuminates after precharge complete
-#define CONTACTOR_PRECHARGED_LED 18
-/// Teensy pin for LED that illuminates when the contactor is closed
-#define CONTACTOR_CLOSED_LED 19
+#define HIGH_VOLTAGE_TOGGLE 24
 /// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
 #define NUMBER_OF_LTCS 20
 /// Motor controller temperature max. This might need to be changed

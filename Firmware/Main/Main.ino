@@ -160,14 +160,8 @@ void setup() {
 }
 
 void setupPins() {
-  /// \note NOTE:
-  /// SOME OF THESE PINS MAY NEED TO BE REMOVED NOW:
-  /// CONTACTOR_CLOSED_LED, CONTACTOR_PRECHARGED_LED, CLOSE_CONTACTOR_BUTTON
-
   /// Initializes the pin corresponding to High Voltage Toggle as an input PULLUP resistor.
   pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
-  /// Initializes the pin corresponding to Closing the Contactor as an input PULLUP resistor.
-  pinMode(CLOSE_CONTACTOR_BUTTON, INPUT_PULLUP);
   /// Initializes the pin corresponding to the Screen reset as output and then outputs HIGH to that pin.
   pinMode(TFT_RST, OUTPUT);
   digitalWrite(TFT_RST, HIGH);
@@ -176,8 +170,8 @@ void setupPins() {
   digitalWrite(TFT_CS, HIGH);
 
   /// UNSURE WHAT THE TS_CS pin is and at this point I'm too scared to ask. Sets it to output and HIGH.
-  pinMode(TS_CS, OUTPUT);
-  digitalWrite(TS_CS, HIGH);
+//  pinMode(TS_CS, OUTPUT);
+//  digitalWrite(TS_CS, HIGH);
 
   /// Initializes the pin corresponding to the Precharge as output and then outputs LOW to that pin.
   pinMode(PRECHARGE, OUTPUT);
@@ -185,15 +179,6 @@ void setupPins() {
   /// Initializes the pin corresponding to the Contactor as output and then outputs LOW to that pin.
   pinMode(CONTACTOR, OUTPUT);
   digitalWrite(CONTACTOR, LOW);
-
-  /// Initializes the pin corresponding to the Contactor Precharge-Read LED
-  /// as output and then outputs LOW to that pin.
-  pinMode(CONTACTOR_PRECHARGED_LED, OUTPUT);
-  digitalWrite(CONTACTOR_PRECHARGED_LED, LOW);
-
-  /// Initializes the pin corresponding to the Contactor-Closed LED as output and then outputs LOW to that pin.
-  pinMode(CONTACTOR_CLOSED_LED, OUTPUT);
-  digitalWrite(CONTACTOR_CLOSED_LED, LOW);
 }
 
 void initializeDisplayStructs() {

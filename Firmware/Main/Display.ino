@@ -243,7 +243,7 @@ float aux_voltage_read() {
   /// Reads in the aux_voltage of the LV system and
   /// reads in the values. Would be better in CAN,
   /// but alas Chase said leave it here, it's here.
-  float aux_voltage = 3.3 * analogRead(13) / 1024.0;
+  float aux_voltage = 3.3 * analogRead(AUX_BAT_PIN) / 1024.0;
   aux_voltage *= 42.0 / 10.0;
   return  aux_voltage;
 }
