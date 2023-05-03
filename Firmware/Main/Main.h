@@ -44,6 +44,7 @@
 #include "Display.h"
 #include "Precharge.h"
 #include "DataLogging.h"
+#include "ThermistorMux.h"
 #include "FreeRTOS_TEENSY4.h"
 #include <TimeLib.h>
 
@@ -154,6 +155,9 @@ static float chargerVoltage = 0;
 static float chargerCurrent = 0;
 /// Self explanatory. Read datasheet if more info needed.
 static int8_t chargerTemp = 0;
+
+// The mux info for recording thermistor data.
+static byte currentMuxSelects;
 
 /// An instance of a struct to store all display data
 static MeasurementScreenData measurementData = {};

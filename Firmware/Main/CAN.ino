@@ -120,15 +120,16 @@ void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages) {
   }
 }
 
-void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps) {
+void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps, byte currentMuxSelects) {
   byte ltcID = msg.buf[0];
   thermistorEnabled = msg.buf[1];
   thermistorPresent = msg.buf[2];
   byte *currentThermistor = &msg.buf[3];
   int thermistor;
   for (thermistor = 0; thermistor < 5; thermistor++) {
-    thermistorTemps.temps[thermistor + 5 * ltcID] = currentThermistor[thermistor];
+    thermistorTemps.temps[thermistor + 5 * ltcID + 10 * currentMuxSelects] = currentThermistor[thermistor];
   }
+  printThermistors(thermistorTemps);
 }
 
 // sums the voltage of each cell in main accumulator
@@ -145,6 +146,7 @@ void calculateSeriesVoltage(CellVoltages cellVs) {
 void checkCAN(CANTaskData canData) {
   int readValue = CAN_bus.read(CAN_msg);
   if (readValue != 0) { // if we read a message
+    Serial.printf("Read msg w/ ID %x\n", CAN_msg.id); // TEST
     switch (CAN_msg.id) {
       case MOTOR_STATS_MSG:
         decodeMotorStats(CAN_msg, canData.motorStats);
@@ -153,8 +155,9 @@ void checkCAN(CANTaskData canData) {
         decodeMotorTemps(CAN_msg, canData.motorTemps);
         break;
       case DD_BMS_STATUS_IND:
+        Serial.println("BMS status.");
         decipherBMSStatus(CAN_msg, canData.bmsStatus);
-        //printBMSStatus();
+        //printBMSStatus(); // ???
         break;
       case EVCC_STATS:
         decipherEVCCStats(CAN_msg, canData.chargeControllerStats);
@@ -180,7 +183,8 @@ void checkCAN(CANTaskData canData) {
         decipherCellsVoltage(CAN_msg,  canData.cellVoltages);
         break;
       case DD_BMSC_TH_STATUS_IND:
-        decipherThermistors(CAN_msg, canData.thermistorTemps);
+        Serial.println("Thermistors status.");
+        decipherThermistors(CAN_msg, canData.thermistorTemps, *(canData.currentMuxSelects));
         break;
     }
   }
@@ -239,4 +243,26 @@ void requestCellVoltages(int LTC) {
     CAN_msg.id = 0x01de0801;
     CAN_bus.write(CAN_msg);
   }
+}
+
+void printThermistors(ThermistorTemps thermistorTemps) {
+  float averageTemp = 0;
+  byte highestTemp = 0;
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 2; j++) {
+      Serial.printf("Set %d, ID %d: ", i, j);
+      for (int k = 0; k < 5; k++) {
+        byte tempOfCurrentTherm = thermistorTemps.temps[10 * i + 5 * j + k];
+        averageTemp += tempOfCurrentTherm;
+        if (tempOfCurrentTherm > highestTemp) {
+          highestTemp = tempOfCurrentTherm;
+        }
+        Serial.printf("%3u  ", tempOfCurrentTherm);
+      }
+      Serial.println();
+    }
+  }
+  averageTemp /= NUM_THERMI;
+  Serial.printf("Highest temp: %u\n", highestTemp);
+  Serial.printf("Average temp: %.3f\n\n", averageTemp);
 }

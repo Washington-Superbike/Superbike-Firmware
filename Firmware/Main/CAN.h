@@ -158,6 +158,7 @@ typedef struct {
   ChargerStats chargerStats;
   ChargeControllerStats chargeControllerStats;
   float *seriesVoltage;
+  byte *currentMuxSelects;
 } CANTaskData;
 
 void canTask(void *canData);

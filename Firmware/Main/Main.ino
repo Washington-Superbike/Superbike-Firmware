@@ -135,17 +135,18 @@ void setup() {
   /// for dataLogging(). idleTask() is a 1 ideally we never want to idle unless everything is taken care of
   /// and the teensy is that powerful.
 
-  portBASE_TYPE s1, s2, s3, s4, s5;
-  s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 5, NULL);
+  portBASE_TYPE s1, s2, s3, s4, s5, s6;
+  s1 = xTaskCreate(prechargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&preChargeData, 6, NULL);
   // make sure to set CAN_NODES in config.h
-  s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 4, NULL);
+  s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&canTaskData, 5, NULL);
   s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
   s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&measurementData, 2, NULL);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&dataLoggingTaskData, 3, NULL);
+  s6 = xTaskCreate(muxTask, "MUX TASK", MUX_TASK_STACK_SIZE, (void *)&currentMuxSelects, 4, NULL);
 
   /// Then, the firmware checks if the tasks passed, if they failed, it stays in a loop printing error
   /// creating tasks.
-  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
+  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS || s6 != pdPASS) {
     Serial.println("Error creating tasks");
     while (1);
   }
@@ -179,6 +180,12 @@ void setupPins() {
   /// Initializes the pin corresponding to the Contactor as output and then outputs LOW to that pin.
   pinMode(CONTACTOR, OUTPUT);
   digitalWrite(CONTACTOR, LOW);
+
+  // Initialize pins corresponding to inputs A and B on the DG4052E
+  pinMode(SELECT_A, OUTPUT);
+  digitalWrite(SELECT_A, LOW);
+  pinMode(SELECT_B, OUTPUT);
+  digitalWrite(SELECT_B, LOW);
 }
 
 void initializeDisplayStructs() {
@@ -208,7 +215,7 @@ void initializeCANStructs() {
   thermistorTemps = {thTemps};
   chargerStats = {&chargeFlag, &chargerStatusFlag, &chargerVoltage, &chargerCurrent, &chargerTemp};
   chargeControllerStats = {&evccEnable, &evccVoltage, &evccCurrent};
-  canTaskData = {motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage};
+  canTaskData = {motorStats, motorTemps, bmsStatus, thermistorTemps, cellVoltages, chargerStats, chargeControllerStats, &seriesVoltage, &currentMuxSelects};
 }
 
 void initializePreChargeStruct() {
