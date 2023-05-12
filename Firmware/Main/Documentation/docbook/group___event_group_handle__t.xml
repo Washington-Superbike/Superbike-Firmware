@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___event_group_handle__t" xml:lang="en-US">
-<title>EventGroupHandle_t</title>
-<indexterm><primary>EventGroupHandle_t</primary></indexterm>
-
-<para><link linkend="_event__groups_8h">event_groups.h</link></para>
-
-<para>Type by which event groups are referenced. For example, a call to <link linkend="_event__groups_8c_1a2e8622ce280fff2f60ad867dff0a4519">xEventGroupCreate()</link> returns an EventGroupHandle_t variable that can then be used as a parameter to other event group functions. </para>
-</section>
