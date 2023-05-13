@@ -1,33 +1,17 @@
 /**
-   @file CAN.h
-     @author    Washington Superbike
-     @date      1-March-2023
-     @brief
-          The CAN.h config file for the CAN task for the bike's firmware. This defines the variables that are passed along to the CAN.ino file and
-          others if they use it. Then it creates the initial reference (there's a proper
-          C programming term for it) for all the methods used in CAN.ino. This file also creates multiple typedef structs that basically allow us to package the data that is processed in CAN, nicely. There are a lot of structs and they will be spoken about in detail below. Like all header files, this exists as the skeleton/framework for the .ino or main c file.
-
-
-    \note
-      Frankly, unless you add more CAN devices or if the BMS or any other CAN device acts up, you should have no reason to update or mess with this at all.
-
-    \todo
-      Nothing?
-      \n \n
-      More Nothing?
-      \n \n
-      Nothing supreme?
-      \n \n
-      Nothing maxima.
+    The CAN.h config file for the CAN task for the bike's firmware. Contains definitions for CAN message IDs and relevant function declarations.
 */
+
 #ifndef _CAN_H_
 #define _CAN_H_
-#include <FlexCAN_T4.h>
-#include "Display.h"
-#include "FreeRTOS_TEENSY4.h"
+
+#include "config.h"
+#include "stdint.h"
+
+typedef uint8_t byte;
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the canTask()
-#define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 4096
+#define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + (4096*4)
 
 /// Motor controller message - CAN
 #define MOTOR_STATS_MSG 0x0CF11E05
@@ -53,126 +37,115 @@
 #define BMSC1_LTC2_CELLS_58  0x01df0a01
 /// Convention: BMSC, LTC, CELL RANGE
 #define BMSC1_LTC2_CELLS_912 0x01df0b01
-
-/// This is set to 24 instead of 20 because the BMS sends cells in packs of 12
-/// so it makes the decipher function simpler. This represents the number of cells
-/// connected to the main accumulator BMS
-#define BMS_CELLS 24
-
-/// CAN bus handle
-FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
-
-/// Used to format reading/writing on the CAN bus
-CAN_message_t CAN_msg;
-
-/// If cellVoltagesReady[INDEX] is true, we have received that cell's voltage from the BMS
-/// it is false otherwise (so we know when we have collected all distinct cell voltages
-static bool cellVoltagesReady[BMS_CELLS] = {false};
+/* BMS Request Cell Voltages LTC 1 */
+#define BMSC1_LTC1_REQUEST_CELLS 0x01de0800
+/* BMS Request Cell Voltages LTC 2 */
+#define BMSC1_LTC2_REQUEST_CELLS 0x01de0801
 
 /**
- * A simple struct to store all the stats from the motor. Current, battery voltage,
- * RPM and an errorMessage.
+ * RPM: RPM reported by motor controller
+ * motor_current: current used by motor (should check if this is current used by motor or motor controller, there can be a large difference)
+ * motor_controller_battery_voltage: voltage being applied to HV input terminals on motor controller
+ * error_message: errors status bits reported by controller 
  */
 typedef struct {
-  float* RPM;
-  float* motorCurrent;
-  float* motorControllerBatteryVoltage;
-  int* errorMessage;
+  float RPM;
+  float motor_current;
+  float motor_controller_battery_voltage;
+  int error_message;
 } MotorStats;
 
 /**
- * A simple struct to store all the stats from the motor temperatures? Throttle,
- * motorControllerTemperature, motorTemperature, and controllerStatus.
+ * throttle: throttle applied (should post range of this value here after testing)
+ * motor_controller_temperature: temperature of motor controller in C
+ * motor_temperature: temperature of motor in C
+ * controller_status: status bits reported by controller (not errors)
  */
 typedef struct {
-  float* throttle;
-  float* motorControllerTemperature;
-  float* motorTemperature;
-  byte* controllerStatus;
+  float throttle;
+  float motor_controller_temperature;
+  float motor_temperature;
+  byte controller_status;
 } MotorTemps;
 
 /**
- * A simple struct to store all the stats from the chargeController. The charge voltage
- * and charge current.
+ * en: if charge controller has charging enabled
+ * charge_voltage: what voltage the charge controller is telling charger to use
+ * charge_current: what current the charge controller is telling charger to use 
  */
 typedef struct {
-  byte* en;
-  float* chargeVoltage;
-  float* chargeCurrent;
+  byte en;
+  float charge_voltage;
+  float charge_current;
 } ChargeControllerStats;
 
 /**
- * A simple struct to store all the stats from the charger. The status flag,
- * the chargeFlag, the outputVoltage, outputCurrent and chargerTemperature.
+ * status_flag + charge_flag: may have to ask Thunderstruck, not in datasheet
+ * but we originally got this CAN struct definition from their engineers
+ * output_voltage: voltage applied by charger
+ * output_current: current applied by charger
+ * charger_temp: charger temperature
  */
 typedef struct {
-  byte* statusFlag;
-  byte* chargeFlag;
-  float* outputVoltage;
-  float* outputCurrent;
-  int8_t* chargerTemp;
+  byte status_flag;
+  byte charge_flag;
+  float output_voltage;
+  float output_current;
+  int8_t charger_temp;
 } ChargerStats;
 
 /**
- * A simple struct to store all the stats from the BMS. The BMS flags,
- * the BMS_id?, the BMS_fault?, the ltc_fault?, the ltc_count? I would
- * read through the datasheets for the bms.
+ * bms_status_flag: each bit represents an error, check datasheet
+ * bms_c_id: cell_id that is reporting a fault
+ * bms_c_fault: fault related to cell mentioned above
+ * ltc_fault: check datasheet, if ltc is reporting an error
+ * ltc_count: how many ltcs are detected, should be 2 for our 20s pack
  */
 typedef struct {
-  int* bms_status_flag;
-  int* bms_c_id;
-  int* bms_c_fault;
-  int* ltc_fault;
-  int* ltc_count;
+  /* need to change bms_status_flag to int after display feature is completed */
+  float bms_status_flag;
+  int bms_c_id;
+  int bms_c_fault;
+  int ltc_fault;
+  int ltc_count;
 } BMSStatus;
 
 /**
- * A simple struct to store all the stats from the thermistors (just the temperatures
- * really).
+ * temps_valid: if temp has been received over CAN by BMS
+ * temps: temperature of thermistor reported by BMS
  */
 typedef struct {
-  float *temps;
+  bool temps_valid[CONFIG_THERMISTOR_COUNT];
+  float temps[CONFIG_THERMISTOR_COUNT];
 } ThermistorTemps;
 
 /**
- * A simple struct to store the cellVoltages, the seriesVoltages of the cells and
- * if they're ready?? Unsure.
+ *  hv_cell_voltages_ready: true if cell voltage has been reported by BMS since boot
+ *  hv_cell_voltages: HV cell voltages sent by BMS over CAN
+ *  hv_series_voltage: sum of hv_cell_voltages, updated whenever new voltages are received over CAN
+ *  aux_battery_voltage: auxiliary (LV) battery voltage
  */
 typedef struct {
-  float* cellVoltages;
-  float* seriesVoltage;
-  bool* ready;
-} CellVoltages;
+  bool hv_cell_voltages_ready;
+  float hv_cell_voltages[CONFIG_HV_CELL_COUNT];
+  float hv_series_voltage;
+  float aux_battery_voltage;
+} BatteryVoltages;
 
 /**
- * A simple struct to store the CanTaskData, a combination
- * of all the previous structs all into this one and then passing it onto the canTask()
- * to be processed by the Can.ino
+ * Struct passed to CAN task
+ * bike_context: shared pointer to struct representing most information present on bike
  */
+
+#include "Precharge.h"
+#include "DataLogging.h"
+#include "context.h"
+
 typedef struct {
-  MotorStats motorStats;
-  MotorTemps motorTemps;
-  BMSStatus bmsStatus;
-  ThermistorTemps thermistorTemps;
-  CellVoltages cellVoltages;
-  ChargerStats chargerStats;
-  ChargeControllerStats chargeControllerStats;
-  float *seriesVoltage;
+    Context *bike_context;
 } CANTaskData;
 
 void canTask(void *canData);
-void setupCAN();
-void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats evccStats);
-void decipherChargerStats(CAN_message_t msg, ChargerStats chargerStats);
-void decodeMotorStats(CAN_message_t msg, MotorStats motorStats );
-void decodeMotorTemps(CAN_message_t msg, MotorTemps motorTemps);
-void decipherBMSStatus(CAN_message_t msg, BMSStatus bmsStatus);
-void decipherCellsVoltage(CAN_message_t msg, CellVoltages cellVoltages);
-void decipherThermistors(CAN_message_t msg, ThermistorTemps thermistorTemps);
-void calculateSeriesVoltage(CellVoltages cellVs);
-void checkCAN(CANTaskData canData);
-void printBMSStatus();
-void printMessage(CAN_message_t msg);
-void requestCellVoltages(int LTC);
+void initCAN();
 
 #endif // _CAN_H

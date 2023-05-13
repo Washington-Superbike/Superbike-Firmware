@@ -83,6 +83,7 @@ functions but without including stdio.h here. */
 /* If any of the following are set then task stacks are filled with a known
 value so the high water mark can be determined.  If none of the following are
 set then don't fill the stack so there is no unnecessary dependency on memset. */
+#define INCLUDE_uxTaskGetStackHighWaterMark 1
 #if( ( configCHECK_FOR_STACK_OVERFLOW > 1 ) || ( configUSE_TRACE_FACILITY == 1 ) || ( INCLUDE_uxTaskGetStackHighWaterMark == 1 ) || ( INCLUDE_uxTaskGetStackHighWaterMark2 == 1 ) )
 	#define tskSET_NEW_STACKS_TO_KNOWN_VALUE	1
 #else
@@ -3733,6 +3734,7 @@ static void prvCheckTasksWaitingTermination( void )
 #endif /* configUSE_TRACE_FACILITY */
 /*-----------------------------------------------------------*/
 
+#define INCLUDE_uxTaskGetStackHighWaterMark 1
 #if ( ( configUSE_TRACE_FACILITY == 1 ) || ( INCLUDE_uxTaskGetStackHighWaterMark == 1 ) || ( INCLUDE_uxTaskGetStackHighWaterMark2 == 1 ) )
 
 	static configSTACK_DEPTH_TYPE prvTaskCheckFreeStackSpace( const uint8_t * pucStackByte )
@@ -3793,8 +3795,6 @@ static void prvCheckTasksWaitingTermination( void )
 #endif /* INCLUDE_uxTaskGetStackHighWaterMark2 */
 /*-----------------------------------------------------------*/
 
-#if ( INCLUDE_uxTaskGetStackHighWaterMark == 1 )
-
 	UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask )
 	{
 	TCB_t *pxTCB;
@@ -3818,7 +3818,7 @@ static void prvCheckTasksWaitingTermination( void )
 		return uxReturn;
 	}
 
-#endif /* INCLUDE_uxTaskGetStackHighWaterMark */
+
 /*-----------------------------------------------------------*/
 
 #if ( INCLUDE_vTaskDelete == 1 )

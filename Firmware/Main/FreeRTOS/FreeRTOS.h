@@ -152,6 +152,8 @@ extern "C" {
 	#define INCLUDE_xTaskGetHandle 0
 #endif
 
+#define INCLUDE_uxTaskGetStackHighWaterMark 1
+
 #ifndef INCLUDE_uxTaskGetStackHighWaterMark
 	#define INCLUDE_uxTaskGetStackHighWaterMark 0
 #endif

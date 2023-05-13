@@ -1,6 +1,8 @@
 #ifndef SELECT_FREERTOS_CONFIG_H
 #define SELECT_FREERTOS_CONFIG_H
 
+#define INCLUDE_uxTaskGetStackHighWaterMark2 1
+
 #if __has_include("Teensy4FreeRTOSConfig.h")
 #include "Teensy4FreeRTOSConfig.h"
 #else

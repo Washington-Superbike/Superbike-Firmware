@@ -1,31 +1,4 @@
 /**
-   @file Display.h
-     @author    Washington Superbike
-     @date      1-March-2023
-     @brief
-          The Display.h config file for the Display task for the bike's firmware. This
-          defines the variables that are passed along to the Display.ino file and others
-          if they use it. Then it creates the initial reference (there's a proper
-          C programming term for it) for all the methods used in Display.ino. This file
-          is also special in that it creates several typedef structs that basically
-          allow us to package the data in display in a nice way. Most other files
-          do not have this many structs and there will probably be more in the future.
-          Like all header files, this exists as the skeleton/framework for the .ino
-          or main c file.
-
-    \note
-      Whoever makes the struct changes. Good luck. Have fun.
-
-    \todo
-      Make better structs for all the datatypes passed through and integrate it properly
-      (mainly just thermistor vs non-thermistor to be honest)
-      \n \n
-      Make a better struct for time and integrate it in a way so that the update code isn't nasty.
-      \n \n
-      Once the above stuff is implemented, please remove all extra methods, variables,
-      etc. that are declared.
-      \n \n
-      Final Goal.
 */
 
 #ifndef _DISPLAY_H_
@@ -37,9 +10,11 @@
 #include <XPT2046_Touchscreen.h>
 #include "FreeRTOS_TEENSY4.h"
 
+#include "CAN.h"
+
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the displayTask
-#define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 32368
-/// Maximum time in ms it takes for the display task to run, used for spi mutex elsewhere
+#define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + (32368*4)
+/* max time in ms it takes for display to update, should periodically measure this */
 #define DISPLAY_UPDATE_TIME_MAX 50
 
 /// The Teensy pin used for the display's chip select pin
@@ -99,10 +74,6 @@
 
 /**
  * Just a basic enum to store the type of data being printed.
- * C is a very basic language, so it doesn't just have
- * nice methods like Java and Python to determine a variable's
- * type. And I assume those methods are probably implemented using
- * some sort of nice typedef or enum or something to indicate it.
  */
 typedef enum {
   NUMBER, ARRAY, BOOL
@@ -123,7 +94,7 @@ typedef struct PrintedDataStruct {
   PRINT_TYPE type;
   volatile float* currData;           // volatile for some printed data, not all
   int dataLen;
-  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+  const char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
   // (maybe add later) char* unitsPtr;
 } PrintedData;
 
@@ -136,7 +107,7 @@ typedef struct PrintedDataThermStruct {
   int labelX, y, dataX;          // y is the same for data and label, but X isnt
   volatile float oldData[16];               // volatile for some printed data, not all
   volatile float* currData;           // volatile for some printed data, not all
-  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+  const char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
 } PrintedDataTherm;
 
 /**
@@ -147,28 +118,12 @@ typedef struct PrintedDataTimeStuct {
   int labelX, y, dataX;          // y is the same for data and label, but X isnt
   volatile float oldData[10];               // volatile for some printed data, not all
   volatile float* currData;           // volatile for some printed data, not all
-  char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
+  const char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
 } PrintedDataTimeStuct;
 
-/**
- * The last complex struct. This just contains all the floats and integers
- * as pointers that point to the original variables from Main.h. This just packages
- * all the data used by the MeasurementScreenDataStruct.
- */
-typedef struct MeasurementScreenDataStruct {
-  float* mainBatteryVoltage;
-  float* motorControllerVoltage;
-  float* auxiliaryBatteryVoltage;
-  float* RPM;
-  float* motorTemp;
-  float* motorCurrent;
-  int* errorMessage;
-  float* chargerCurrent;
-  float* chargerVoltage;
-  int* bmsStatusFlag;
-  float* evccVoltage;
-  float* thermistorTemps;
-} MeasurementScreenData;
+typedef struct _DisplayTaskData {
+    Context *context;
+} DisplayTaskData;
 
 /// The global variable used to write to the display.
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
@@ -194,8 +149,8 @@ PrintedDataTimeStuct timeData;
 
 // These methods are not documented here because the internal documentation in
 // Display.ino covers it properly.
-void setupDisplay(MeasurementScreenData msData);
-void displayUpdate(MeasurementScreenData msData);
+void initDisplay(Context *context);
+void displayUpdate(Context *context);
 void thermiDataPrint(int numberOfLines);
 void timePrint();
 void setupMeasurementScreen();
