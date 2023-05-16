@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group__task_e_n_a_b_l_e___i_n_t_e_r_r_u_p_t_s" xml:lang="en-US">
-<title>taskENABLE_INTERRUPTS</title>
-<indexterm><primary>taskENABLE_INTERRUPTS</primary></indexterm>
-
-<para>task. h</para>
-
-<para>Macro to enable microcontroller interrupts. </para>
-</section>
