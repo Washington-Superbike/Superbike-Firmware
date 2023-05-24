@@ -52,6 +52,26 @@
 // and instead we should have HV_OFF, HV_ON, HV_ON states
 
 void prechargeTask(void *taskData) {
+
+  // Perform gyroscope calibration measurements
+  // 2000 milliseconds = 2 seconds to add all measured variables to calibration variables
+  // This is important because this solves the issue of a non-zero rotation rate when stationary
+  for (*preChargeData.RateCalibrationNumber = 0; *preChargeData.RateCalibrationNumber < 2000; *preChargeData.RateCalibrationNumber++) {
+    gyro_signals(preChargeData);
+    *preChargeData.RateCalibrationRoll += *preChargeData.RateRoll;
+    *preChargeData.RateCalibrationPitch += *preChargeData.RatePitch;
+    *preChargeData.RateCalibrationYaw += *preChargeData.RateYaw;
+
+    // delay for 1ms for each round of all-axis measurements
+    vTaskDelay((1 * configTICK_RATE_HZ) / 1000);
+  }
+
+  // Take average of calibrated rotation rate values from each direction
+  *preChargeData.RateCalibrationRoll /= 2000;
+  *preChargeData.RateCalibrationPitch /= 2000;
+  *preChargeData.RateCalibrationYaw /= 2000;
+
+  
   PreChargeTaskData prechargeData = *(PreChargeTaskData *)taskData;
   while (1) {
     preChargeCircuitFSMStateActions(prechargeData);
@@ -210,23 +230,6 @@ void setupI2C(PreChargeTaskData preChargeData) {
   Wire.write(0x6B); // 6B is relevant register
   Wire.write(0x00); // all bits must be 0 to start and continue device
   Wire.endTransmission();
-
-  // Perform gyroscope calibration measurements
-  // 2000 milliseconds = 2 seconds to add all measured variables to calibration variables
-  // This is important because this solves the issue of a non-zero rotation rate when stationary
-  for (*preChargeData.RateCalibrationNumber = 0; *preChargeData.RateCalibrationNumber < 2000; *preChargeData.RateCalibrationNumber++) {
-    gyro_signals(preChargeData);
-    *preChargeData.RateCalibrationRoll += *preChargeData.RateRoll;
-    *preChargeData.RateCalibrationPitch += *preChargeData.RatePitch;
-    *preChargeData.RateCalibrationYaw += *preChargeData.RateYaw;
-    delay(1);
-  }
-
-  // Take average of calibrated rotation rate values from each direction
-  *preChargeData.RateCalibrationRoll /= 2000;
-  *preChargeData.RateCalibrationPitch /= 2000;
-  *preChargeData.RateCalibrationYaw /= 2000;
-  //  *preChargeData.LoopTimer = micros();
 }
 
 void gyro_signals(PreChargeTaskData preChargeData) {
