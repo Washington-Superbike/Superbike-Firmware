@@ -4,7 +4,8 @@
 */
 #include "CAN.h"
 #include "FlexCAN_T4.h"
-#include "FreeRTOS_TEENSY4.h"
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 
 /* CAN bus handle */
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
@@ -106,10 +107,20 @@ void decipherThermistors(CAN_message_t msg, ThermistorTemps *thermistor_temps) {
   }
 }
 
+// used to print the contents of a CAN msg
+void printMessage(CAN_message_t msg) {
+  for (int i = 0; i < msg.len; i++) {
+    Serial.print(msg.buf[i]);
+    Serial.print(":");
+  }
+  Serial.println();
+}
+
 // checks the can bus for any new data
 static void checkCAN(CANTaskData canData) {
   Context *context = canData.bike_context;
   if (CAN_bus.read(CAN_msg)) { // if we read non-zero # of bytes
+    //printMessage(CAN_msg);
     switch (CAN_msg.id) {
       case MOTOR_STATS_MSG:
         decodeMotorStats(CAN_msg, &(context->motor_stats));
@@ -183,15 +194,6 @@ void printBMSStatus(BMSStatus bms_status) {
     Serial.printf("LTC fault detected\n");
   }
   Serial.printf("%d LTCs detected\n");
-}
-
-// used to print the contents of a CAN msg
-void printMessage(CAN_message_t msg) {
-  for (int i = 0; i < msg.len; i++) {
-    Serial.print(msg.buf[i]);
-    Serial.print(":");
-  }
-  Serial.println();
 }
 
 void requestCellVoltages() {

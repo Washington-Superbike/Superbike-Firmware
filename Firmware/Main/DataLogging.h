@@ -8,17 +8,17 @@
 #include "config.h"
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the dataLoggingTask()
-#define DATALOGGING_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + (32368*4)
+#define DATALOGGING_TASK_STACK_SIZE 10000
 
 //Names for each of the log files
 /// The name for the motor temperature log.
 #define MOTOR_TEMPERATURE_LOG "motor_temperature_log.csv"
 /// The name for the motor controller temperature log
-#define MOTOR_CONTROLLER_TEMPERATURE_LOG "motor_controller_temperature_log.csv"
+#define MOTOR_CONTROLLER_TEMPERATURE_LOG "mc_temperature_log.csv"
 /// The name for the BMS voltage log
 #define BMS_VOLTAGE_LOG "bms_voltage_log.csv"
 /// The name for the motor controller voltage log
-#define MOTOR_CONTROLLER_VOLTAGE_LOG "motor_controller_voltage_log.csv"
+#define MOTOR_CONTROLLER_VOLTAGE_LOG "mc_voltage_log.csv"
 /// The name for the motor controller current log
 #define MOTOR_CURRENT_LOG "current_log.csv"
 /// The name for the thermistor temperature log

@@ -3,7 +3,8 @@
 ** Someone else fill in current display capabilities
 **/
 #include "Display.h"
-#include "FreeRTOS_TEENSY4.h"
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 
 void displayTask(void *displayTaskData) {
   while (1) {

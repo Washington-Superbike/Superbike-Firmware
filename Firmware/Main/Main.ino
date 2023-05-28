@@ -1,6 +1,8 @@
 /**
 */
 
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 #include "Main.h"
 #include "CAN.h"
 #include "DataLogging.h"
@@ -9,6 +11,7 @@
 #include "Precharge.h"
 #include "GPIO.h"
 #include <TimeLib.h>
+
 
 static Context bike_context;
 static Context *context = &bike_context;
@@ -28,7 +31,6 @@ void setup() {
   Serial.begin(115200);
 
   initializeLogStructs();
-
   /* on brand new board, run File->Examples->Time->TimeTeensy3 and open the serial port. That will set the internal time to the real world clock */
   setTime(Teensy3Clock.get());
 
@@ -62,13 +64,11 @@ void setup() {
   s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&context, 3, displayTaskHandle);
   s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&context, 2, dataloggingTaskHandle);
 
-  /* If any tasks failed to create, don't continue. */
-  /*
+  /* If any tasks failed to create, don't continue. */  
   if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
     Serial.printf("Failed to create tasks: %d %d %d %d %d", s1, s2, s3, s4, s5);
     while (1);
   }
-  */
 
   Serial.println("Starting the scheduler");
   vTaskStartScheduler();
@@ -91,9 +91,6 @@ time_t getTeensy3Time()
 {
   return Teensy3Clock.get();
 }
-
-#include "task.h"
-#include <task.h>
 
 void idleTask(void *taskData) {
   while (1) {

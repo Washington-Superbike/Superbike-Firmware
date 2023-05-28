@@ -11,19 +11,19 @@ bool check_HV_toggle() {
 }
 
 void open_contactor() {
-    digitalWrite(CONTACTOR_CONTROL, LOW);
+    digitalWrite(CONTACTOR_CONTROL, arduino::LOW);
 }
 
 void close_contactor() {
-    digitalWrite(CONTACTOR_CONTROL, HIGH);
+    digitalWrite(CONTACTOR_CONTROL, arduino::HIGH);
 }
 
 void open_precharge() {
-    digitalWrite(PRECHARGE_CONTROL, LOW);
+    digitalWrite(PRECHARGE_CONTROL, arduino::LOW);
 }
 
 void close_precharge() {
-    digitalWrite(PRECHARGE_CONTROL, HIGH);
+    digitalWrite(PRECHARGE_CONTROL, arduino::HIGH);
 }
 
 
@@ -31,21 +31,21 @@ void initGPIO() {
 
   /* TODO: remove CLOSE_CONTACTOR_BUTTON, LED outputs, TS_CS */
 
-  pinMode(HIGH_VOLTAGE_TOGGLE, INPUT_PULLUP);
+  pinMode(HIGH_VOLTAGE_TOGGLE, arduino::INPUT_PULLUP);
 
-  pinMode(TFT_RST, OUTPUT);
-  digitalWrite(TFT_RST, HIGH);
-  pinMode(TFT_CS, OUTPUT);
-  digitalWrite(TFT_CS, HIGH);
+  pinMode(TFT_RST, arduino::OUTPUT);
+  digitalWrite(TFT_RST, arduino::HIGH);
+  pinMode(TFT_CS, arduino::OUTPUT);
+  digitalWrite(TFT_CS, arduino::HIGH);
 
-  pinMode(TS_CS, OUTPUT);
-  digitalWrite(TS_CS, HIGH);
+  pinMode(TS_CS, arduino::OUTPUT);
+  digitalWrite(TS_CS, arduino::HIGH);
 
-  pinMode(PRECHARGE_CONTROL, OUTPUT);
+  pinMode(PRECHARGE_CONTROL, arduino::OUTPUT);
   open_precharge();
-  pinMode(CONTACTOR_CONTROL, OUTPUT);
+  pinMode(CONTACTOR_CONTROL, arduino::OUTPUT);
   open_contactor();
 
-  pinMode(CAN_TX, OUTPUT);
-  pinMode(CAN_RX, INPUT_PULLDOWN);
+  pinMode(CAN_TX, arduino::OUTPUT);
+  pinMode(CAN_RX, arduino::INPUT_PULLDOWN);
 }

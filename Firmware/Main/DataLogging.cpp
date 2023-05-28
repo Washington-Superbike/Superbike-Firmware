@@ -5,8 +5,9 @@
 #include <SdFat.h>
 #include "DataLogging.h"
 #include "config.h"
-#include "FreeRTOS_TEENSY4.h"
 #include "context.h"
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 
 const size_t BUF_DIM = 4096;
 
@@ -61,8 +62,9 @@ bool openFile(CSVWriter *writer) {
   /// openFile() attemps to open the file designated at the filename inside CSVWriter
   /// Returns true if no errors, returns false if any error exists
   writer->open = writer->file.open(writer->filename, O_RDWR | O_CREAT | O_TRUNC);
-  if (!writer->open)
-    Serial.printf("ERROR: Failed to open file %s\n", writer->filename);
+  if (!writer->open) {
+    Serial.printf("ERROR: Failed to open file %s\n", writer->filename); 
+  }
   return writer->open;
 }
 

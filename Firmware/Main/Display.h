@@ -8,12 +8,11 @@
 #include <Adafruit_GFX.h>
 #include <SPI.h>
 #include <XPT2046_Touchscreen.h>
-#include "FreeRTOS_TEENSY4.h"
 
 #include "CAN.h"
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the displayTask
-#define DISPLAY_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + (32368*4)
+#define DISPLAY_TASK_STACK_SIZE 10000
 /* max time in ms it takes for display to update, should periodically measure this */
 #define DISPLAY_UPDATE_TIME_MAX 50
 

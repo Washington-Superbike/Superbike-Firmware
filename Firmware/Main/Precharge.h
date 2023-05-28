@@ -4,10 +4,10 @@
 #ifndef _PRECHARGE_H_
 #define _PRECHARGE_H_
 
-#include "FreeRTOS_TEENSY4.h"
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 
-#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + (4096*4)
-
+#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE
 
 /// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
 #define NUMBER_OF_LTCS 2
