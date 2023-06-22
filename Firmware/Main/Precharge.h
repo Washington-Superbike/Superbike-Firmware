@@ -7,7 +7,7 @@
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
-#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE
+#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 2000
 
 /// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
 #define NUMBER_OF_LTCS 2

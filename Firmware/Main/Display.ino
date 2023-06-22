@@ -93,7 +93,7 @@ void displayUpdate(Context *context) {
 
 void thermiDataPrint(int numberOfLines) {
   // number of thermistor values to print per line
-  int incr = 16 / numberOfLines; // ok there is really only room for 16 right now
+  int incr = CONFIG_THERMISTOR_COUNT / numberOfLines; // ok there is really only room for 16 right now
   for (int i = 0; i < numberOfLines; i++) {
     String sOld, sNew;
     // process data/update display one line of therm values at a time

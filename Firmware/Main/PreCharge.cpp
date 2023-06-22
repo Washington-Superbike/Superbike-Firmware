@@ -112,12 +112,11 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
       }
       break;
     case HV_ON:
-      //  TODO: add another && next to the !check_HV_toggle, that essentially checks the measured angle > 45 degrees on left or right side (+- 45 degrees?)
-      if (!check_HV_toggle() || gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45) {
+      if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
       }
-      else if (!isHVSafe(preChargeData)) {
+      else if (!isHVSafe(preChargeData) || gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45) {
         // HV error detected
         hv_state = HV_ERROR;
       }
@@ -127,8 +126,8 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
       }
       break;
     case HV_ERROR:
-      if (isHVSafe(preChargeData)) {
-        // if the error has been cleared
+      if (!check_HV_toggle()) {
+        // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
       } else {
         // otherwise stay here

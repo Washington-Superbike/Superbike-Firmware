@@ -75,12 +75,12 @@ void decipherCellsVoltage(CAN_message_t msg, BatteryVoltages *battery_voltages) 
 
   static bool hv_cell_detected[CONFIG_HV_CELL_COUNT];
 
-  for (cellIndex = 0; cellIndex < 8; cellIndex += 2) {
-    // TODO: analyze this line and find a better way to do it
-    battery_voltages->hv_cell_voltages[(cellIndex / 2 + totalOffset)] = ((((float)(msg.buf[cellIndex + 1] << 8) + (float)(msg.buf[cellIndex]) / 10000)) / 10000) ;
-    hv_cell_detected[cellIndex / 2 + totalOffset] = true;
+  for (cellIndex = 0; cellIndex < 4; cellIndex++) {
+    uint16_t *buf = (uint16_t *)msg.buf;
+    battery_voltages->hv_cell_voltages[cellIndex + totalOffset] = ((float)buf[cellIndex]) / 10000;
+    hv_cell_detected[cellIndex + totalOffset] = true;
   }
-
+  
   calculateSeriesVoltage(battery_voltages);
 
   if (!battery_voltages->hv_cell_voltages_ready) {
@@ -120,7 +120,6 @@ void printMessage(CAN_message_t msg) {
 static void checkCAN(CANTaskData canData) {
   Context *context = canData.bike_context;
   if (CAN_bus.read(CAN_msg)) { // if we read non-zero # of bytes
-    //printMessage(CAN_msg);
     switch (CAN_msg.id) {
       case MOTOR_STATS_MSG:
         decodeMotorStats(CAN_msg, &(context->motor_stats));
@@ -199,6 +198,7 @@ void printBMSStatus(BMSStatus bms_status) {
 void requestCellVoltages() {
   static int next_can_id = BMSC1_LTC1_REQUEST_CELLS;
   static CAN_message_t msg = {};
+  msg.flags.extended = 1; // set for 29-bit IDs
   msg.id = next_can_id;
   CAN_bus.write(msg);
 
