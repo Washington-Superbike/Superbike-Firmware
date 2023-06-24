@@ -1,87 +1,50 @@
-/**
-   @file Display.ino
-     @author    Washington Superbike
-     @date      1-March-2023
-     @brief
-          The Display.ino file executes the Display task for the bike's firmware.
-          This calls on the variables that are initialized in Display.h
-          and then calls on various methods from the ILI9341's adafruit display library to update the display. Updating the display includes comparing old and new
-          data to ensure data has changed, erasing the previous data if it's changed
-          and writing in the new data.
-
-
-    \note
-      This works. Display does slow down a bit in the speedometer screen, but
-      that is also due to often the numbers were changing in the manualScreenDataUpdater()method updating data too frequently. Just consider reducing the size of the
-      text in case it looks like it is updating too slowly at speeds of ~60-80 mph.
-
-    \todo
-      Remove all unused vars and tighten up methods.
-      \n \n
-      There are WAY more macros (#define statements) that need to be written
-      for defining some frequently used values in display. Can't think
-      of them off the top of my head, but make and use those.
-      \n \n
-      In the speedometer screen, add code to show angles.
-      If the angle is near the threshold (> ~30 degrees), show it in red.
-      If the angle is near safe (< ~30 degrees), show it in green.
-      Add an indicator that prints out preCharge statuses
-        This variable is called hv_state in preCharge.h
-        basically print out this variable if possbie.
-        This is similar to how cars print out engine flags, etc.
-*/
-
+/*
+** Draws the display
+** Someone else fill in current display capabilities
+**/
 #include "Display.h"
-#include "Main.h"
-#include "FreeRTOS_TEENSY4.h"
+#include "arduino_freertos.h"
+#include "avr/pgmspace.h"
 
-void displayTask(void *measurementDataPtr) {
+void displayTask(void *displayTaskData) {
   while (1) {
-    /// Parses the data from the void pointer to be processable? Idk if that's word.
-    /// Passes the measurementScreenData to the displayUpdate()
-    /// method. The displayUpdate() method then processes it and updates
-    /// the screen accordingly.
-    MeasurementScreenData msData = *(MeasurementScreenData *)measurementDataPtr;
-    displayUpdate(msData);
+    Context *context = (Context *)displayTaskData;
+    context->battery_voltages.aux_battery_voltage = aux_voltage_read();
+    displayUpdate(context);
+#ifdef CONFIG_TEST_SCREEN_DATA
     manualScreenDataUpdater();
+#endif
     vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
   }
 }
 
-void setupDisplay(MeasurementScreenData msData) {
-  /// Calls on tft.begin() method and sets the orientation using
-  /// tft.setRotatio() and also sets the screen to ILI9341_WHITE
-  /// or ILI9341_BLACK based on Debugging or Speedometer screen.
+void initDisplay(Context *context) {
   tft.begin();
   tft.setRotation(1);
   tft.fillScreen(BACKGROUND_COLOR);
   tft.setTextColor(PRINT_COLOR);
 
-  //PrintedData *thermTemps = &printedVals[7];
-  //PrintedData *timeData = &printedVals[11];
-
   /// Initializes all the PrintedDataStructs to set their position, values,
   /// and point to the correct pointer corresponding to the correct data.
-  *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.mainBatteryVoltage, 1, "Main Batt Voltage: "};
-  *motorControllerVoltage = {1, 10 + VERTICAL_SCALER * 1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorControllerVoltage, 1, "Main Batt Voltage (Motor Controller): "};
-  float auxVolt = aux_voltage_read();
-  *auxBatteryVoltage = {1, 10 + 16 * 2, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &auxVolt, 1, "Aux Batt Voltage: "};
-  *rpm = {1, 10 + VERTICAL_SCALER * 3, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.RPM, 1, "RPM: "};
-  *motorTemperature = {1, 10 + VERTICAL_SCALER * 4, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "Motor Temp: "};
-  *motorCurr = {1, 10 + VERTICAL_SCALER * 5, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorCurrent, 1, "Motor Current: "};
-  *errMessage = {1, 10 + VERTICAL_SCALER * 6, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, (float*) msData.errorMessage, 1, "Error Message: "};
-  *chargerVolt = {1, 10 + VERTICAL_SCALER * 9, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerVoltage, 1, "Charger Voltage: "};
-  *chargerCurr = {1, 10 + VERTICAL_SCALER * 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.chargerCurrent, 1, "Charger Current: "};
-  *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "BMS Status Flag: "};
-  *evccVolt = {1, 10 + VERTICAL_SCALER * 12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, msData.motorTemp, 1, "EVCC Voltage: "};
+  *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->battery_voltages.hv_series_voltage), 1, "Main Batt Voltage: "};
+  *motorControllerVoltage = {1, 10 + VERTICAL_SCALER * 1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.motor_controller_battery_voltage), 1, "Main Batt Voltage (Motor Controller): "};
+  *auxBatteryVoltage = {1, 10 + 16 * 2, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->battery_voltages.aux_battery_voltage), 1, "Aux Batt Voltage: "};
+  *rpm = {1, 10 + VERTICAL_SCALER * 3, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.RPM), 1, "RPM: "};
+  *motorTemperature = {1, 10 + VERTICAL_SCALER * 4, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_temps.motor_temperature), 1, "Motor Temp: "};
+  *motorCurr = {1, 10 + VERTICAL_SCALER * 5, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.motor_current), 1, "Motor Current: "};
+  *errMessage = {1, 10 + VERTICAL_SCALER * 6, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, (float*) &(context->motor_stats.error_message), 1, "Error Message: "};
+  *chargerVolt = {1, 10 + VERTICAL_SCALER * 9, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->charger_stats.output_voltage), 1, "Charger Voltage: "};
+  *chargerCurr = {1, 10 + VERTICAL_SCALER * 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->charger_stats.output_current), 1, "Charger Current: "};
+  *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->bms_status.bms_status_flag), 1, "BMS Status Flag: "};
+  *evccVolt = {1, 10 + VERTICAL_SCALER * 12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->charge_controller_stats.charge_voltage), 1, "EVCC Voltage: "};
 
-  thermiData = {1, 10 + VERTICAL_SCALER * 7, 90, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, (float*) msData.thermistorTemps, "Thermist Temp: "};
+  thermiData = {1, 10 + VERTICAL_SCALER * 7, 90, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, context->thermistor_temps.temps, "Thermist Temp: "};
 
   /// Calls on the setupMeasurementScreen() to finish up the setup.
   setupMeasurementScreen();
 }
 
-void displayUpdate(MeasurementScreenData msData) {
+void displayUpdate(Context *context) {
 #ifdef USE_DEBUGGING_SCREEN
   tft.setTextSize(1);
   for (int i = 0; i < NUM_DATA; i++) {
@@ -130,7 +93,7 @@ void displayUpdate(MeasurementScreenData msData) {
 
 void thermiDataPrint(int numberOfLines) {
   // number of thermistor values to print per line
-  int incr = 16 / numberOfLines; // ok there is really only room for 16 right now
+  int incr = CONFIG_THERMISTOR_COUNT / numberOfLines; // ok there is really only room for 16 right now
   for (int i = 0; i < numberOfLines; i++) {
     String sOld, sNew;
     // process data/update display one line of therm values at a time
@@ -206,15 +169,13 @@ void setupMeasurementScreen() {
 bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData) {
   /// Erases the old value using the oldData parameter by writing it in
   /// the background color and then setting it back to the printing color to write the newData.
-  if (oldData != newData) {
-    tft.setCursor(xPos, yPos);
-    tft.setTextColor(BACKGROUND_COLOR);
-    tft.print(oldData);
-    tft.setCursor(xPos, yPos);
-    tft.setTextColor(PRINT_COLOR);
-    tft.print(newData);
-    return true;
-  }
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(BACKGROUND_COLOR);
+  tft.print(oldData);
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(PRINT_COLOR);
+  tft.print(newData);
+  return true;
   return false;
 }
 
@@ -239,10 +200,9 @@ void manualScreenDataUpdater() {
   }
 }
 
+/* Leave in display task or move to precharge, don't move to CAN. *
+ * There is no CAN bus functionality here.                        */
 float aux_voltage_read() {
-  /// Reads in the aux_voltage of the LV system and
-  /// reads in the values. Would be better in CAN,
-  /// but alas Chase said leave it here, it's here.
   float aux_voltage = 3.3 * analogRead(13) / 1024.0;
   aux_voltage *= 42.0 / 10.0;
   return  aux_voltage;
