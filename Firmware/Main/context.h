@@ -15,4 +15,5 @@ typedef struct _Context {
     CSVWriter logs[CONFIG_LOG_COUNT];
     GyroKalman gyro_kalman;
     bool sd_started;
+    HV_STATE hv_state;
 } Context;

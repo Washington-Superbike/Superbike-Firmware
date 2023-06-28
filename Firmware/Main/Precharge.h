@@ -7,7 +7,7 @@
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
-#define PRECHARGE_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 2000
+#define PRECHARGE_TASK_STACK_SIZE 8000
 
 /// THIS NEEDS TO BE CHANGED TO OUR ACTUAL NUMBER OF LTCs
 #define NUMBER_OF_LTCS 2
@@ -19,7 +19,7 @@
 #define MOTOR_TEMP_MAX 80
 
 /// An enum for all the states. OFF, Precharge, ON, Error
-enum HV_STATE {HV_OFF , HV_PRECHARGING, HV_ON, HV_ERROR};
+enum HV_STATE {HV_OFF, HV_PRECHARGING, HV_ON, HV_ERROR};
 
 /**
  * Just too many things in here. The packaged struct for processing preCharge data
@@ -70,5 +70,6 @@ void initI2C(GyroKalman *gyro_kalman);
 void gyro_signals(GyroKalman *gyro_kalman);
 void updateGyroData(GyroKalman *gyro_kalman);
 void kalman_1d(float KalmanState, float KalmanUncertainty, float KalmanInput, float KalmanMeasurement, GyroKalman *gyro_kalman);
+const char* state_name(HV_STATE state);
 
 #endif // _PRECHARGE_H

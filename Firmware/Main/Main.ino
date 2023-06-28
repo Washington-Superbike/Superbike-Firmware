@@ -52,7 +52,6 @@ void setup() {
   /// setting the clock to 40KHz, reading in the initial values of the gyroscope, taking ~2 seconds
   /// worth of data to calibrate.
   initI2C(&context->gyro_kalman);
-
   /* Create each task (not started until scheduler starts).                                * 
    * Each task has a priority, and higher priority tasks will preempt lower priority tasks */
   portBASE_TYPE s1, s2, s3, s4, s5;

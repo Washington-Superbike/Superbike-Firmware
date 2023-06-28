@@ -29,7 +29,7 @@
 // turn it back on.
 
 /* Current HV state */
-static HV_STATE hv_state = HV_OFF;
+static HV_STATE curr_hv_state = HV_OFF;
 
 // Returns true if the motor controller is done precharging.
 // Returns false otherwise.
@@ -85,67 +85,67 @@ const char* state_name(HV_STATE state) {
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
-  HV_STATE old_state = hv_state;
   GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
-  switch (hv_state) { // transitions
+  switch (curr_hv_state) { // transitions
     case HV_OFF:
       if (check_HV_toggle()) {
-        hv_state = HV_PRECHARGING;
+        curr_hv_state = HV_PRECHARGING;
       }
       break;
     case HV_PRECHARGING:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        hv_state = HV_OFF;
+        curr_hv_state = HV_OFF;
       }
       else if (!isHVSafe(preChargeData)) {
         // HV error detected
-        hv_state = HV_ERROR;
+        curr_hv_state = HV_ERROR;
       }
       else if (isPrecharged(preChargeData)) {
         // finished precharging
-        hv_state = HV_ON;
+        curr_hv_state = HV_ON;
       }
       else {
         // no updates, keep precharging
-        hv_state = HV_PRECHARGING;
+        curr_hv_state = HV_PRECHARGING;
       }
       break;
     case HV_ON:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        hv_state = HV_OFF;
+        curr_hv_state = HV_OFF;
       }
       else if (!isHVSafe(preChargeData) || gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45) {
         // HV error detected
-        hv_state = HV_ERROR;
+        curr_hv_state = HV_ERROR;
       }
       else {
         // no updates, keep HV on
-        hv_state = HV_ON;
+        curr_hv_state = HV_ON;
       }
       break;
     case HV_ERROR:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        hv_state = HV_OFF;
+        curr_hv_state = HV_OFF;
       } else {
         // otherwise stay here
-        hv_state = HV_ERROR;
+        curr_hv_state = HV_ERROR;
       }
       break;
     default:
-      hv_state = HV_OFF;
+      curr_hv_state = HV_OFF;
       break;
   } // transitions
-
-  if (hv_state != old_state) {
-    Serial.printf("HV transitioned from %s to %s state\n", state_name(old_state), state_name(hv_state));
+  HV_STATE *prev_hv_state = &(preChargeData.context->hv_state);
+  if (curr_hv_state != *prev_hv_state) {
+    Serial.printf("HV transitioned from %s to %s state\n", state_name(*prev_hv_state), state_name(curr_hv_state));
+    *prev_hv_state = curr_hv_state;
   }
 }
 
 void preChargeCircuitFSMStateActions () {
-  switch (hv_state) { // state actions
+  switch (curr_hv_state) { // state actions
     case HV_OFF:
       open_contactor();
       open_precharge();

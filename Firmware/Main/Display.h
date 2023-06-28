@@ -31,9 +31,6 @@
 /// The TIRQ interrupt signal must be used for this example.
 #define TIRQ_PIN  -1
 
-/// Number of PrintedData values (length of the array that contains all the printedData)
-#define NUM_DATA 11
-
 // Default Values:
 /// The default starter value used for floats in the PrintedDataStruct
 #define DEFAULT_FLOAT -1
@@ -49,9 +46,13 @@
 #ifdef USE_DEBUGGING_SCREEN
 #  define BACKGROUND_COLOR ILI9341_WHITE
 #  define PRINT_COLOR ILI9341_BLACK
+/// Number of PrintedData values (length of the array that contains all the printedData)
+#  define NUM_DATA 15
 #else // (if speedometer screen)
 #  define BACKGROUND_COLOR ILI9341_BLACK
 #  define PRINT_COLOR ILI9341_WHITE
+/// Number of PrintedData values (length of the array that contains all the printedData)
+#  define NUM_DATA 7
 #endif
 
 // Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
@@ -92,7 +93,7 @@ typedef struct PrintedDataStruct {
   volatile float oldData;               // volatile for some printed data, not all
   PRINT_TYPE type;
   volatile float* currData;           // volatile for some printed data, not all
-  int dataLen;
+  int textSize;
   const char* labelPtr;                        // "labelPtr" is just the label itself. No String in C/.ino, so this is our best option.
   // (maybe add later) char* unitsPtr;
 } PrintedData;
@@ -129,6 +130,7 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display 
 /// All PrintedValue objects/structs, just stored in the array
 PrintedData printedVals[NUM_DATA];
 
+#ifdef USE_DEBUGGING_SCREEN
 PrintedData *batteryVoltage = &printedVals[0];
 PrintedData *motorControllerVoltage = &printedVals[1];
 PrintedData *auxBatteryVoltage = &printedVals[2];
@@ -140,6 +142,19 @@ PrintedData *chargerVolt = &printedVals[7];
 PrintedData *chargerCurr = &printedVals[8];
 PrintedData *bmsStatusFlag = &printedVals[9];
 PrintedData *evccVolt = &printedVals[10];
+PrintedData *angleX = &printedVals[11];
+PrintedData *angleY = &printedVals[12];
+PrintedData *hvState = &printedVals[13];
+PrintedData *mcErrors = &printedVals[14];
+#else
+PrintedData *rpm = &printedVals[0];
+PrintedData *batteryVoltage = &printedVals[1];
+PrintedData *hvState = &printedVals[2];
+PrintedData *mcErrors = &printedVals[3];
+PrintedData *angleX = &printedVals[4];
+PrintedData *angleY = &printedVals[5];
+PrintedData *bmsStatusFlag = &printedVals[6];
+#endif
 
 /// The thermistor data.
 PrintedDataTherm thermiData;

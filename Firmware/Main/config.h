@@ -23,7 +23,7 @@
 
 /// Defines the type of screen to generate in Display.ino.
 /// \note NOTE: COMMENT THIS OUT TO CHANGE DISPLAY TYPE TO SPEEDOMETER!
-#define USE_DEBUGGING_SCREEN
+//#define USE_DEBUGGING_SCREEN
 
 /// This exists to be changed based on the final number of thermistors
 /// we settle on having in the code later.
