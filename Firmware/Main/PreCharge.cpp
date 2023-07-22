@@ -276,6 +276,11 @@ void initI2C(GyroKalman *gyro_kalman) {
   Wire.write(0x6B); // 6B is relevant register
   Wire.write(0x00); // all bits must be 0 to start and continue device
   Wire.endTransmission();
+}
+
+void preChargeTask(void *taskData) {
+  PreChargeTaskData preChargeData = *(PreChargeTaskData *)taskData;
+  GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
 
   // Perform gyroscope calibration measurements
   // 2000 milliseconds = 2 seconds to add all measured variables to calibration variables
@@ -285,19 +290,16 @@ void initI2C(GyroKalman *gyro_kalman) {
     gyro_kalman->RateCalibrationRoll += gyro_kalman->RateRoll;
     gyro_kalman->RateCalibrationPitch += gyro_kalman->RatePitch;
     gyro_kalman->RateCalibrationYaw += gyro_kalman->RateYaw;
-    delay(1);
+
+    // delay for 1ms for each round of all-axis measurements
+    vTaskDelay(configTICK_RATE_HZ / 1000);
   }
 
   // Take average of calibrated rotation rate values from each direction
   gyro_kalman->RateCalibrationRoll /= 2000;
   gyro_kalman->RateCalibrationPitch /= 2000;
   gyro_kalman->RateCalibrationYaw /= 2000;
-  //  *preChargeData.LoopTimer = micros();
-}
 
-void preChargeTask(void *taskData) {
-  PreChargeTaskData preChargeData = *(PreChargeTaskData *)taskData;
-  GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
   while (1) {
     preChargeCircuitFSMStateActions();
     preChargeCircuitFSMTransitions(preChargeData);
