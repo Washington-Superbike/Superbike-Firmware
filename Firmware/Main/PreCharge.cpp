@@ -73,6 +73,15 @@ bool isHVSafe(PreChargeTaskData preChargeData) {
   return 1;
 }
 
+bool isAngleSafe(PreChargeTaskData preChargeData) {
+  /*  Always returns true right now; good idea to make sure gyro performs reliably and that the angle thresholds are what you want
+   *  before uncommenting the conditional checks because the state will go it HV_ERROR if the angle is outside of the limits. */
+
+//  GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
+//  return !(gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45);
+    return true;
+}
+
 const char* state_name(HV_STATE state) {
   switch (state) {
     case HV_OFF: return "HV_OFF";
@@ -86,10 +95,9 @@ const char* state_name(HV_STATE state) {
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
   HV_STATE old_state = hv_state;
-  GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
   switch (hv_state) { // transitions
     case HV_OFF:
-      if (check_HV_toggle()) {
+      if (check_HV_toggle() && isAngleSafe(preChargeData)) {
         hv_state = HV_PRECHARGING;
       }
       break;
@@ -98,7 +106,7 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
         // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
       }
-      else if (!isHVSafe(preChargeData)) {
+      else if (!isHVSafe(preChargeData) || !isAngleSafe(preChargeData)) {
         // HV error detected
         hv_state = HV_ERROR;
       }
@@ -116,7 +124,7 @@ void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
         // kill-switch activated or HV switch turned off
         hv_state = HV_OFF;
       }
-      else if (!isHVSafe(preChargeData) || gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45) {
+      else if (!isHVSafe(preChargeData) || !isAngleSafe(preChargeData)) {
         // HV error detected
         hv_state = HV_ERROR;
       }
@@ -307,7 +315,7 @@ void preChargeTask(void *taskData) {
     //Serial.println(gyro_kalman->angle_Y);
     updateGyroData(gyro_kalman);
 
-    // 100 ms should be unnoticeable compared to other task updates
+    // 10 ms should be unnoticeable compared to other task updates
     // but should be fast to pick up errors / switch updates
     vTaskDelay((10 * configTICK_RATE_HZ) / 1000);
   }

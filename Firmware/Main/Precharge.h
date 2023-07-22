@@ -64,6 +64,7 @@ typedef struct {
 void preChargeTask(void *taskData);
 bool isPrecharged(PreChargeTaskData preChargeData);
 bool isHVSafe(PreChargeTaskData preChargeData);
+bool isAngleSafe(PreChargeTaskData preChargeData);
 const char* state_name(HV_STATE state);
 // I2C Accelerometer/Gyroscope access methods
 void initI2C(GyroKalman *gyro_kalman);
