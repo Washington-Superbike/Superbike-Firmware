@@ -33,6 +33,7 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
 #include "Arduino.h"
 #include "Print.h"
 #if defined(__has_include) && __has_include("Wire.h")
