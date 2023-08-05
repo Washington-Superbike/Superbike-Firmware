@@ -79,8 +79,8 @@ void initializeLogStructs() {
   context->logs[1] = {MOTOR_CONTROLLER_TEMPERATURE_LOG, 1, &(context->motor_temps.motor_controller_temperature), FLOAT};
   context->logs[2] = {MOTOR_CONTROLLER_VOLTAGE_LOG, 1, &(context->motor_stats.motor_controller_battery_voltage), FLOAT};
   context->logs[3] = {MOTOR_CURRENT_LOG, 1, &(context->motor_stats.motor_current), FLOAT};
-  context->logs[4] = {RPM_LOG, 1, (float *)&(context->motor_stats.RPM), FLOAT};
-  context->logs[5] = {THERMISTOR_LOG, 10, context->thermistor_temps.temps, FLOAT};
+  context->logs[4] = {RPM_LOG, 1, &(context->motor_stats.RPM), INT};
+  context->logs[5] = {THERMISTOR_LOG, 10, context->thermistor_temps.temps, BYTE};
   context->logs[6] = {BMS_VOLTAGE_LOG, 1, &(context->battery_voltages.hv_series_voltage), FLOAT};
 }
 

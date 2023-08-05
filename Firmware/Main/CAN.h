@@ -116,7 +116,7 @@ typedef struct {
  */
 typedef struct {
   bool temps_valid[CONFIG_THERMISTOR_COUNT];
-  float temps[CONFIG_THERMISTOR_COUNT];
+  byte temps[CONFIG_THERMISTOR_COUNT];
 } ThermistorTemps;
 
 /**

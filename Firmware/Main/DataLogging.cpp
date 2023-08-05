@@ -107,33 +107,19 @@ void addRecord(CSVWriter *writer, int sTime) {
     openFile(writer);
   }
 
-  /// The function kinda works but should be redone later to use (void *) datatype instead of (float *). Then cast the (void *) to whatever datatype is given by D_TYPE
-  /// Example: to print an int you would do
-  /*
-   *  void *point = writer->dataValues;
-   * for(int i = 0; i < writer->dataValuesLen) {
-   *    switch(writer->D_TYPE) {
-   *    case FLOAT:
-            sRecord.concat(",").concat(writer->dataValues[i]);
-            point += sizeof(float); // how much space the float took in memory
-            break;
-          case INT:
-            sRecord.concat(",").concat(writer->dataValues[i]);
-            point += sizeof(int); // how much space the int took in memory
-          case ... (can be any other D_TYPE we define)
-            ... (similar to previous two cases)
-            break;
-          default: Serial.printf("Unknown D_TYPE: %u\n", D_TYPE); break;
-        }
-      }
-  */
-
-  String sRecord = String(sTime);
+String sRecord = String(sTime);
   for (int i = 0; i < writer->dataValuesLen; i++) {
-    if (writer->D_TYPE == FLOAT) {
-      sRecord.concat(",").concat(writer->dataValues[i]);
-    } else if (writer->D_TYPE == INT) {
-      sRecord.concat(",").concat(int(writer->dataValues[i]));
+    switch(writer->D_TYPE) {
+      case FLOAT:
+        sRecord.concat(",").concat(((float *)writer->dataValues)[i]);
+        break;
+      case INT:
+        sRecord.concat(",").concat(((int *)writer->dataValues)[i]);
+        break;
+      case BYTE:
+        sRecord.concat(",").concat(((byte *)writer->dataValues)[i]);
+        break;
+      default: Serial.printf("Unknown D_TYPE: %u\n", writer->D_TYPE); break;
     }
   }
   writer->file.println(sRecord);

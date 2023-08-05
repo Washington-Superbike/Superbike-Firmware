@@ -5,6 +5,8 @@
 #ifndef PRINTEDDATA_H_
 #define PRINTEDDATA_H_
 
+#include "Display.h"
+
 // Templated function to be used by PrintedVal objects if a printFunction argument is not
 // specified. Erases oldData_ and prints *currData_ (of an arbitrary type "T") at (dataX_, y_).
 template <typename T>
@@ -62,9 +64,9 @@ class PrintedVal : public PrintedData { // PrintedVal inherits from PrintedData
     void incrementData() override;
 
   private:
-    T oldData_{(T)(-1)};       // stores the last printed value for erasing purposes; initialized to -1
-    volatile T *currData_;     // points to the variable holding the value to be printed
-    ValPrintFn printFunction_; // points to a function to be called by printData()
+    T oldData_{(T)(DEFAULT_VAL)};  // stores the last printed value for erasing purposes; initialized to DEFAULT_VAL
+    volatile T *currData_;         // points to the variable holding the value to be printed
+    ValPrintFn printFunction_;     // points to a function to be called by printData()
 };  // class PrintedVal
 
 // Derived class for printing multiple values stored in an array.

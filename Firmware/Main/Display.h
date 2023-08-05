@@ -30,6 +30,9 @@
 /// The TIRQ interrupt signal must be used for this example.
 #define TIRQ_PIN  -1
 
+// Default Values:
+/// The default starter value used as old data in PrintedData objects
+#define DEFAULT_VAL -1
 /// The default x position used for printing the data
 #define DEFAULT_X_POS 235
 

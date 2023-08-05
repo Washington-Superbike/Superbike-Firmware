@@ -34,6 +34,6 @@
 
 #define CONFIG_LOG_COUNT 7
 
-#define CONFIG_TEST_SCREEN_DATA 1
+//#define CONFIG_TEST_SCREEN_DATA 1
 
 #endif // _CONFIG_H

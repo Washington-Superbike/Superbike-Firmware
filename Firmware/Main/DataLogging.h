@@ -31,7 +31,8 @@
  */
 enum data_type {
   INT,
-  FLOAT
+  FLOAT,
+  BYTE
 };
 
 
@@ -43,7 +44,7 @@ typedef struct {
   const char *filename;
   int dataValuesLen;
   //array of pointers to shared variables (the data values in the csv log)
-  float *dataValues;
+  void *dataValues;
   data_type D_TYPE;
   bool open;
   SdFile file;
