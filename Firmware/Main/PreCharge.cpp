@@ -26,10 +26,7 @@
 // reprogram it by using the button on the board.
 // In the case of the actual race, I would turn on low-voltage
 // and then wait a second and then turn it off and then
-// turn it back on.
-
-/* Current HV state */
-static HV_STATE curr_hv_state = HV_OFF;
+// turn it back on.y
 
 // Returns true if the motor controller is done precharging.
 // Returns false otherwise.
@@ -85,67 +82,68 @@ const char* state_name(HV_STATE state) {
 
 // NOTE: "input" needs to change to the GPIO value for the on-button for the bike
 void preChargeCircuitFSMTransitions (PreChargeTaskData preChargeData) {
+  HV_STATE *curr_state = &preChargeData.context->hv_state;
+  HV_STATE old_state = *curr_state;
   GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
-  switch (curr_hv_state) { // transitions
+  switch (*curr_state) { // transitions
     case HV_OFF:
       if (check_HV_toggle()) {
-        curr_hv_state = HV_PRECHARGING;
+        *curr_state = HV_PRECHARGING;
       }
       break;
     case HV_PRECHARGING:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        curr_hv_state = HV_OFF;
+       *curr_state = HV_OFF;
       }
       else if (!isHVSafe(preChargeData)) {
         // HV error detected
-        curr_hv_state = HV_ERROR;
+        *curr_state = HV_ERROR;
       }
       else if (isPrecharged(preChargeData)) {
         // finished precharging
-        curr_hv_state = HV_ON;
+        *curr_state = HV_ON;
       }
       else {
         // no updates, keep precharging
-        curr_hv_state = HV_PRECHARGING;
+        *curr_state = HV_PRECHARGING;
       }
       break;
     case HV_ON:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        curr_hv_state = HV_OFF;
+        *curr_state = HV_OFF;
       }
       else if (!isHVSafe(preChargeData) || gyro_kalman->angle_Y > 45 || gyro_kalman->angle_Y < -45 || gyro_kalman->angle_X > 45 || gyro_kalman->angle_X < -45) {
         // HV error detected
-        curr_hv_state = HV_ERROR;
+        *curr_state = HV_ERROR;
       }
       else {
         // no updates, keep HV on
-        curr_hv_state = HV_ON;
+        *curr_state = HV_ON;
       }
       break;
     case HV_ERROR:
       if (!check_HV_toggle()) {
         // kill-switch activated or HV switch turned off
-        curr_hv_state = HV_OFF;
+        *curr_state = HV_OFF;
       } else {
         // otherwise stay here
-        curr_hv_state = HV_ERROR;
+        *curr_state = HV_ERROR;
       }
       break;
     default:
-      curr_hv_state = HV_OFF;
+      *curr_state = HV_OFF;
       break;
   } // transitions
-  HV_STATE *prev_hv_state = &(preChargeData.context->hv_state);
-  if (curr_hv_state != *prev_hv_state) {
-    Serial.printf("HV transitioned from %s to %s state\n", state_name(*prev_hv_state), state_name(curr_hv_state));
-    *prev_hv_state = curr_hv_state;
+
+  if (*curr_state != old_state) {
+    Serial.printf("HV transitioned from %s to %s state\n", state_name(old_state), state_name(*curr_state));
   }
 }
 
-void preChargeCircuitFSMStateActions () {
-  switch (curr_hv_state) { // state actions
+void preChargeCircuitFSMStateActions (HV_STATE hv_state) {
+  switch (hv_state) { // state actions
     case HV_OFF:
       open_contactor();
       open_precharge();
@@ -299,7 +297,7 @@ void preChargeTask(void *taskData) {
   PreChargeTaskData preChargeData = *(PreChargeTaskData *)taskData;
   GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
   while (1) {
-    preChargeCircuitFSMStateActions();
+    preChargeCircuitFSMStateActions(preChargeData.context->hv_state);
     preChargeCircuitFSMTransitions(preChargeData);
     //Serial.println(gyro_kalman->angle_X);
     //Serial.println(gyro_kalman->angle_Y);

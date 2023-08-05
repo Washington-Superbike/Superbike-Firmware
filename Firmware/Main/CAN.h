@@ -49,7 +49,7 @@ typedef uint8_t byte;
  * error_message: errors status bits reported by controller 
  */
 typedef struct {
-  float RPM;
+  int RPM;
   float motor_current;
   float motor_controller_battery_voltage;
   int error_message;
@@ -103,7 +103,7 @@ typedef struct {
  */
 typedef struct {
   /* need to change bms_status_flag to int after display feature is completed */
-  float bms_status_flag;
+  int bms_status_flag;
   int bms_c_id;
   int bms_c_fault;
   int ltc_fault;

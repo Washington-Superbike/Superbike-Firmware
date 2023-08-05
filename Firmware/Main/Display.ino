@@ -4,14 +4,87 @@
 **/
 #include "Display.h"
 #include "Precharge.h"
+#include "PrintedData.h"
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
+/// The global variable used to write to the display.
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST); //the display controller
+
+/// Array storing pointers to all PrintedData objects.
+PrintedData *printedVals[NUM_DATA];
+
 void displayTask(void *displayTaskData) {
+  Context *context = *(Context **)displayTaskData;
+  
+  // Initialize all the PrintedDataStructs to set their position, values,
+  // and point to the correct pointer corresponding to the correct data.
+#ifdef USE_DEBUGGING_SCREEN
+  // Allocate buffers for storing previously printed data.
+  float oldThermData[CONFIG_THERMISTOR_COUNT];
+  const int timeBufSize = 255;
+  char oldTimeData[timeBufSize];
+
+  PrintedVal<float> batteryVoltage = {1, DEFAULT_X_POS, 10, "Main Batt Voltage: ", 1, &(context->battery_voltages.hv_series_voltage)};
+  PrintedVal<bool> hvReady = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 1, "HV Cell Voltages Ready: ", 1, &(context->battery_voltages.hv_cell_voltages_ready)};
+  PrintedVal<float> motorControllerVoltage = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 2, "Main Batt Voltage (Motor Controller): ", 1, &(context->motor_stats.motor_controller_battery_voltage)};
+  PrintedVal<float> auxBatteryVoltage = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 3, "Aux Batt Voltage: ", 1, &(context->battery_voltages.aux_battery_voltage)};
+  PrintedVal<int> rpm = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 4, "RPM: ", 1, &(context->motor_stats.RPM)};
+  PrintedVal<float> motorTemperature = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 5, "Motor Temp: ", 1, &(context->motor_temps.motor_temperature)};
+  PrintedVal<float> motorCurr = {1, DEFAULT_X_POS, 10 + VERTICAL_SCALER * 6, "Motor Current: ", 1, &(context->motor_stats.motor_current)};
+  PrintedVal<float> chargerVolt = {1, 100, 10 + VERTICAL_SCALER * 9, "Charger Voltage: ", 1, &(context->charger_stats.output_voltage)};
+  PrintedVal<float> chargerCurr = {1, 100, 10 + VERTICAL_SCALER * 10, "Charger Current: ", 1, &(context->charger_stats.output_current)};
+  PrintedVal<int> bmsStatusFlag = {1, 100, 10 + VERTICAL_SCALER * 11, "BMS Status Flag: ", 1, &(context->bms_status.bms_status_flag)};
+  PrintedVal<float> evccVolt = {1, 100, 10 + VERTICAL_SCALER * 12, "EVCC Voltage: ", 1, &(context->charge_controller_stats.charge_voltage)};
+  PrintedVal<float> xAngle = {150, 210, 10 + VERTICAL_SCALER * 9, "X Angle: ", 1, &(context->gyro_kalman.angle_X)};
+  PrintedVal<float> yAngle = {150, 210, 10 + VERTICAL_SCALER * 10, "Y Angle: ", 1, &(context->gyro_kalman.angle_Y)};
+  PrintedVal<HV_STATE> hvState = {150, 210, 10 + VERTICAL_SCALER * 11, "State: ", 1, &(context->hv_state), printHVState};
+  PrintedVal<int> errMessage = {150, 210, 10 + VERTICAL_SCALER * 12, "MC Errors: ", 1, &(context->motor_stats.error_message), printMCErrors};
+  PrintedArr<float> thermiData = {1, 90, 10 + VERTICAL_SCALER * 7, "Thermist Temp: ", 1, oldThermData, -1, context->thermistor_temps.temps, CONFIG_THERMISTOR_COUNT, printTempList};
+  PrintedArr<char> timeData = {1, 35, 10 + VERTICAL_SCALER * 13, "Time: ", 1, oldTimeData, 0, NULL, timeBufSize, printTime};
+
+  printedVals[0] = &batteryVoltage;
+  printedVals[1] = &hvReady;
+  printedVals[2] = &motorControllerVoltage;
+  printedVals[3] = &auxBatteryVoltage;
+  printedVals[4] = &rpm;
+  printedVals[5] = &motorTemperature;
+  printedVals[6] = &motorCurr;
+  printedVals[7] = &chargerVolt;
+  printedVals[8] = &chargerCurr;
+  printedVals[9] = &bmsStatusFlag;
+  printedVals[10] = &evccVolt;
+  printedVals[11] = &xAngle;
+  printedVals[12] = &yAngle;
+  printedVals[13] = &hvState;
+  printedVals[14] = &errMessage;
+  printedVals[15] = &thermiData;
+  printedVals[16] = &timeData;
+#else
+  float oldThermData[1];
+  
+  PrintedVal<int> speedData = {1, 175, 0, "SPEED", 5, &(context->motor_stats.RPM), printSpeed};
+  PrintedVal<float> batteryVoltage = {1, 0, 215, NULL, 3, &(context->battery_voltages.hv_series_voltage), printHV};
+  PrintedVal<HV_STATE> hvState = {155, 195, 230, "State: ", 1, &(context->hv_state), printHVState};
+  PrintedVal<int> errMessage = {155, 220, 200, "MC Errors: ", 1, &(context->motor_stats.error_message), printMCErrors};
+  PrintedVal<int> bmsStatusFlag = {155, 255, 185, "BMS Status Flag: ", 1, &(context->bms_status.bms_status_flag)};
+  PrintedVal<float> xAngle = {155, 170, 155, "X: ", 1, &(context->gyro_kalman.angle_X)};
+  PrintedVal<float> yAngle = {155, 170, 170, "Y: ", 1, &(context->gyro_kalman.angle_Y)};
+  PrintedArr<float> thermiData = {155, 235, 215, "Highest Temp: ", 1, oldThermData, -1, context->thermistor_temps.temps, 1, printHighestTemp};
+
+  printedVals[0] = &speedData;
+  printedVals[1] = &batteryVoltage;
+  printedVals[2] = &hvState;
+  printedVals[3] = &errMessage;
+  printedVals[4] = &bmsStatusFlag;
+  printedVals[5] = &xAngle;
+  printedVals[6] = &yAngle;
+  printedVals[7] = &thermiData;
+#endif
+  setupDisplay();
   while (1) {
-    Context *context = *(Context **)displayTaskData;
     context->battery_voltages.aux_battery_voltage = aux_voltage_read();
-    displayUpdate(context);
+    updateDisplay();
 #ifdef CONFIG_TEST_SCREEN_DATA
     manualScreenDataUpdater();
 #endif
@@ -19,149 +92,89 @@ void displayTask(void *displayTaskData) {
   }
 }
 
-void initDisplay(Context *context) {
+void setupDisplay() {
   tft.begin();
   tft.setRotation(1);
   tft.fillScreen(BACKGROUND_COLOR);
   tft.setTextColor(PRINT_COLOR);
 
-  /// Initializes all the PrintedDataStructs to set their position, values,
-  /// and point to the correct pointer corresponding to the correct data.
-#ifdef USE_DEBUGGING_SCREEN
-  *batteryVoltage = {1, 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->battery_voltages.hv_series_voltage), 1, "Main Batt Voltage: "};
-  *motorControllerVoltage = {1, 10 + VERTICAL_SCALER * 1, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.motor_controller_battery_voltage), 1, "Main Batt Voltage (Motor Controller): "};
-  *auxBatteryVoltage = {1, 10 + 16 * 2, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->battery_voltages.aux_battery_voltage), 1, "Aux Batt Voltage: "};
-  *rpm = {1, 10 + VERTICAL_SCALER * 3, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.RPM), 1, "RPM: "};
-  *motorTemperature = {1, 10 + VERTICAL_SCALER * 4, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_temps.motor_temperature), 1, "Motor Temp: "};
-  *motorCurr = {1, 10 + VERTICAL_SCALER * 5, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.motor_current), 1, "Motor Current: "};
-  *errMessage = {1, 10 + VERTICAL_SCALER * 6, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, (float*) &(context->motor_stats.error_message), 1, "Error Message: "};
-  *chargerVolt = {1, 10 + VERTICAL_SCALER * 9, 100, DEFAULT_FLOAT, NUMBER, &(context->charger_stats.output_voltage), 1, "Charger Voltage: "};
-  *chargerCurr = {1, 10 + VERTICAL_SCALER * 10, 100, DEFAULT_FLOAT, NUMBER, &(context->charger_stats.output_current), 1, "Charger Current: "};
-  *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, 100, DEFAULT_FLOAT, NUMBER, &(context->bms_status.bms_status_flag), 1, "BMS Status Flag: "};
-  *evccVolt = {1, 10 + VERTICAL_SCALER * 12, 100, DEFAULT_FLOAT, NUMBER, &(context->charge_controller_stats.charge_voltage), 1, "EVCC Voltage: "};
-  *angleX = {150, 10 + VERTICAL_SCALER * 9, 210, DEFAULT_FLOAT, NUMBER, &(context->gyro_kalman.angle_X), 1, "X Angle: "};
-  *angleY = {150, 10 + VERTICAL_SCALER * 10, 210, DEFAULT_FLOAT, NUMBER, &(context->gyro_kalman.angle_Y), 1, "Y Angle: "};
-  *hvState = {150, 10 + VERTICAL_SCALER * 11, 210, DEFAULT_FLOAT, NUMBER, (float*) &(context->hv_state), 1, "State: "};
-  *mcErrors = {150, 10 + VERTICAL_SCALER * 12, 210, DEFAULT_FLOAT, NUMBER, (float*) &(context->motor_stats.error_message), 1, "MC Errors: "};
-#else
-  *rpm = {1, 0, 0, DEFAULT_FLOAT, NUMBER, &(context->motor_stats.RPM), 1, "RPM: "};
-  *batteryVoltage = {1, 215, 0, DEFAULT_FLOAT, NUMBER, &(context->battery_voltages.hv_series_voltage), 3, "Main Batt Voltage: "};
-  *hvState = {160, 230, 200, DEFAULT_FLOAT, NUMBER, (float*) &(context->hv_state), 1, "State: "};
-  *mcErrors = {160, 200, 225, DEFAULT_FLOAT, NUMBER, (float*) &(context->motor_stats.error_message), 1, "MC Errors: "};
-  *bmsStatusFlag = {160, 185, 260, DEFAULT_FLOAT, NUMBER, &(context->bms_status.bms_status_flag), 1, "BMS Status Flag: "};
-  *angleX = {160, 155, 180, DEFAULT_FLOAT, NUMBER, &(context->gyro_kalman.angle_X), 1, "X: "};
-  *angleY = {160, 170, 180, DEFAULT_FLOAT, NUMBER, &(context->gyro_kalman.angle_Y), 1, "Y: "};
-#endif
-  thermiData = {1, 10 + VERTICAL_SCALER * 7, 90, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, context->thermistor_temps.temps, "Thermist Temp: "};
-
-  /// Calls on the setupMeasurementScreen() to finish up the setup.
-  setupMeasurementScreen();
+  /// Print out the data labels.
+  for (int i = 0; i < NUM_DATA; i++) {
+    printedVals[i]->printLabel();
+  }
 }
 
-void displayUpdate(Context *context) {
-  // Printing out thermistor data
-  thermiDataPrint();
-
-#ifdef USE_DEBUGGING_SCREEN
-  tft.setTextSize(1);
-  for (int i = 0; i < NUM_DATA - 2; i++) {
-    if (printedVals[i].type == NUMBER) {
-      if ((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
-        float newData = *printedVals[i].currData;
-        eraseThenPrintIfDiff(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, newData);
-        printedVals[i].oldData = newData;
-      }
-    }
+void updateDisplay() {
+  for (int i = 0; i < NUM_DATA; i++) {
+    printedVals[i]->printData();
   }
-  
-  HV_STATE newState = context->hv_state;
-  if (eraseThenPrintIfDiff(printedVals[13].dataX, printedVals[13].y, state_name((int)printedVals[13].oldData), state_name(newState))) {
-    printedVals[13].oldData = newState;
-  }
-
-  static int oldMsg = -1;
-  int newMsg = context->motor_stats.error_message;
-  if (oldMsg != newMsg) {
-    tft.setCursor(printedVals[14].dataX, printedVals[14].y);
-    tft.setTextColor(BACKGROUND_COLOR);
-    tft.print(oldMsg,arduino::BIN);
-    tft.setCursor(printedVals[14].dataX, printedVals[14].y);
-    tft.setTextColor(PRINT_COLOR);
-    tft.print(newMsg,arduino::BIN);
-    oldMsg = newMsg;
-  }
-  
-  // Printing out time data
-  timePrint();
-
-#else // (if speedometer screen)
-  tft.setTextSize(8);
-  // update screen if RPM changed
-  if ((*printedVals[0].currData) != (printedVals[0].oldData) || (printedVals[0].oldData) == DEFAULT_FLOAT) {
-    static int oldSpeed = -1;
-    float newRPM = (*printedVals[0].currData);
-    // Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
-    // Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
-    // Speed of m/s
-    int newSpeed = (int)(newRPM / GEAR_RATIO * PI * DIAMETER / 60 * MPH_CONVERT);
-    if (eraseThenPrintIfDiff(175, 0, oldSpeed, newSpeed)) {
-      oldSpeed = newSpeed;
-    }
-  }
-
-  if ((*printedVals[1].currData) != (printedVals[1].oldData) || (printedVals[1].oldData) == DEFAULT_FLOAT) {
-     tft.setTextSize(3);
-     float newVoltage = *printedVals[0].currData;
-     eraseThenPrintIfDiff(0, 215, (String)printedVals[0].oldData + " V", (String)newVoltage + " V");
-     printedVals[1].oldData = newVoltage;
-  }
-
-  tft.setTextSize(1);
-  HV_STATE newState = context->hv_state;
-  if (eraseThenPrintIfDiff(printedVals[2].dataX, printedVals[2].y, state_name((int)printedVals[2].oldData), state_name(newState))) {
-    printedVals[2].oldData = newState;
-  }
-
-  static int oldMsg = -1;
-  int newMsg = context->motor_stats.error_message;
-  if (oldMsg != newMsg) {
-    tft.setCursor(printedVals[3].dataX, printedVals[3].y);
-    tft.setTextColor(BACKGROUND_COLOR);
-    tft.print(oldMsg,arduino::BIN);
-    tft.setCursor(printedVals[3].dataX, printedVals[3].y);
-    tft.setTextColor(PRINT_COLOR);
-    tft.print(newMsg,arduino::BIN);
-    oldMsg = newMsg;
-  }
-  
-  for (int i = 4; i < NUM_DATA; i++) {
-    if (printedVals[i].type == NUMBER) {
-      if ((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
-        tft.setTextSize(printedVals[i].textSize);
-        float newData = *printedVals[i].currData;
-        eraseThenPrintIfDiff(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, newData);
-        printedVals[i].oldData = newData;
-      }
-    }
-  }
-#endif
 }
 
-void thermiDataPrint() {
-#ifdef USE_DEBUGGING_SCREEN
-  // number of thermistor values to print per line
-  int incr = CONFIG_THERMISTOR_COUNT / 2; // ok there is really only room for 16 right now
+// Prints the HV battery voltage reported by the BMS. With units.
+void printHV(float *oldData, float currData, int xPos, int yPos) {
+  if (*oldData != currData) {
+     eraseThenPrint((String)(*oldData) + " V", (String)currData + " V", xPos, yPos);
+     *oldData = currData;
+  }
+}
+
+// Prints the RPM reported by the motor controller converted to speed in mph.
+void printSpeed(int *oldData, int currData, int xPos, int yPos) {
+  // Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
+  // Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
+  // Speed of m/s
+  int newSpeed = (int)(currData / GEAR_RATIO * PI * DIAMETER / 60 * MPH_CONVERT);
+  if (*oldData != newSpeed) {
+    tft.setTextSize(8);
+    eraseThenPrint(*oldData, newSpeed, xPos, yPos);
+    *oldData = newSpeed;
+    tft.setTextSize(5);
+    tft.setCursor(220, 62);
+    tft.print("mph");
+  }
+}
+
+// Prints the binary representation of the 2 bytes of motor controller error messages with leading 0s.
+void printMCErrors(int *oldData, int currData, int xPos, int yPos) {
+  if (*oldData != currData) {
+    eraseThenPrint(binaryFormat(*oldData, 16), binaryFormat(currData, 16), xPos, yPos);
+    *oldData = currData;
+  }
+}
+
+void printHVState(HV_STATE *oldData, HV_STATE currData, int xPos, int yPos) {
+  if (*oldData != currData) {
+    eraseThenPrint(state_name(*oldData), state_name(currData), xPos, yPos);
+    *oldData = currData;
+  }
+}
+
+// Prints formatted date and time.
+void printTime(char *oldDataArr, volatile char *currDataArr, int arrLength, int xPos, int yPos) {
+  char buf[arrLength];
+  sprintf(buf, "%02u/%02u/%02u  %02u:%02u:%02u", month(), day(), year(), hour(), minute(), second());
+  if (strncmp(oldDataArr, buf, arrLength)) {
+    eraseThenPrint(oldDataArr, buf, xPos, yPos);
+    memcpy(oldDataArr, buf, arrLength);
+  }
+}
+
+// Prints thermistor temperature values over 2 lines as a comma-separated list.
+void printTempList(float *oldDataArr, volatile float *currDataArr, int arrLength, int xPos, int yPos) {
+  int incr = CONFIG_THERMISTOR_COUNT / 2; // the printed line might go past the end of the screen if incr > 8
   for (int i = 0; i < 2; i++) {
     String sOld, sNew;
+    bool newData = false;
     // process data/update display one line of therm values at a time
     for (int j = i * incr; j < incr + (i * incr); j++) {
-      if (thermiData.currData[j] != thermiData.oldData[j]) {
-        sNew.append((byte)thermiData.currData[j]);
-        sOld.append((byte)thermiData.oldData[j]);
-        thermiData.oldData[j] = thermiData.currData[j];
+      if (currDataArr[j] != oldDataArr[j]) {
+        sNew.append(currDataArr[j]);
+        sOld.append(oldDataArr[j]);
+        oldDataArr[j] = currDataArr[j];
+        newData = true;
       } else {
-        sOld.append((byte)thermiData.oldData[j]);
-        sNew.append((byte)thermiData.oldData[j]);
+        sOld.append(oldDataArr[j]);
+        sNew.append(oldDataArr[j]);
       }
       // if not the last value on a line, add a comma
       if (j != (incr + (i * incr)) - 1) {
@@ -170,107 +183,51 @@ void thermiDataPrint() {
       }
     }
     // if therm data has changed since the last print, update the display
-    eraseThenPrintIfDiff(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew);
-  }
-#else
-  byte highestTemp = 0;
-  for (int i = 0; i < CONFIG_THERMISTOR_COUNT; i++) {
-    if ((byte)thermiData.currData[i] > highestTemp) {
-      highestTemp = (byte)thermiData.currData[i];
-      eraseThenPrintIfDiff(240, 215, thermiData.oldData[0], highestTemp);
-      thermiData.oldData[0] = highestTemp;
+    if (newData) {
+      eraseThenPrint(sOld, sNew, xPos, yPos + (VERTICAL_SCALER * i));
     }
   }
-#endif
 }
 
-void timePrint() {
-  const int bufSize = 255;
-  // date and time, update by erasing previous text then writing new
-  static char previousTime[bufSize];
-  char buf[bufSize];
-  sprintf(buf, "%02u/%02u/%02u  %02u:%02u:%02u", month(), day(), year(), hour(), minute(), second());
-  if (eraseThenPrintIfDiff(140, printedVals[10].y + VERTICAL_SCALER, previousTime, buf)) {
-    memcpy(previousTime, buf, bufSize);
+// Cycles through the thermistor array once and print the highest temperature found.
+void printHighestTemp(float *oldDataArr, volatile float *currDataArr, int arrLength, int xPos, int yPos) {
+  byte highestTemp = 0;
+  for (int i = 0; i < CONFIG_THERMISTOR_COUNT; i++) {
+    byte temp = currDataArr[i];
+    if (oldDataArr[0] == -1 || temp > highestTemp) {
+      highestTemp = temp;
+      eraseThenPrint(oldDataArr[0], highestTemp, xPos, yPos);
+      oldDataArr[0] = highestTemp;
+    }
   }
 }
 
-void setupMeasurementScreen() {
-/// If the screen is debugging type, it will print out all
-/// the data labels in their data locations as a black text
-/// This is achieved using a bunch of tft methods. Nice.
-#ifdef USE_DEBUGGING_SCREEN
-  tft.setTextSize(1);
-
-  for (int i = 0; i < NUM_DATA; i++) {
-    tft.setCursor(printedVals[i].labelX, printedVals[i].y);
-    tft.print(printedVals[i].labelPtr);
-  }
-
-  // Printing out time label
-  tft.setCursor(printedVals[10].labelX, printedVals[10].y + VERTICAL_SCALER);
-  tft.print("Time: ");
-
-  // Printing out thermistor temps label
-  tft.setCursor(thermiData.labelX, thermiData.y);
-  tft.print(thermiData.labelPtr);
-  
-/// If the screen is speedometer type, it will print out all
-/// the data labels in their locations. This is achieved using a bunch of tft methods. Nice.
-#else
-  tft.setTextSize(5);
-
-  tft.setCursor(0,0);
-  tft.print("SPEED");
-
-  tft.setCursor(220, 62);
-  tft.print("mph");
-  
-  tft.setTextSize(1);
-  tft.setCursor(160, 215);
-  tft.print("Highest Temp: ");
-  
-  for (int i = 2; i < NUM_DATA; i++) {
-    tft.setTextSize(printedVals[i].textSize);
-    tft.setCursor(printedVals[i].labelX, printedVals[i].y);
-    tft.print(printedVals[i].labelPtr);
-  }
-#endif
-}
-
-bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData) {
+void eraseThenPrint(String oldData, String newData, int xPos, int yPos) {
   /// Erases the old value using the oldData parameter by writing it in
   /// the background color and then setting it back to the printing color to write the newData.
-  if (newData != oldData) {
-    tft.setCursor(xPos, yPos);
-    tft.setTextColor(BACKGROUND_COLOR);
-    tft.print(oldData);
-    tft.setCursor(xPos, yPos);
-    tft.setTextColor(PRINT_COLOR);
-    tft.print(newData);
-    return true;    
-  }
-  return false;
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(BACKGROUND_COLOR);
+  tft.print(oldData);
+  tft.setCursor(xPos, yPos);
+  tft.setTextColor(PRINT_COLOR);
+  tft.print(newData);
 }
 
-//void screenEraser(int scaler, int i) {
-//  floor(log10(abs(*printedVals[i].currData))) + 1 = formula to return the number of digits in the int.
-//  Attempting to scale the clearing rectangle based on int length, except, when int length = 1, it's kinda useless.
-//  tft.fillRect(printedVals[i].dataX, printedVals[i].y, scaler * (floor(log10(abs(*printedVals[i].currData))) + 1), 8, ILI9341_WHITE);
-//}
+// Returns a binary representation of n up to the given number of digits.
+String binaryFormat(int n, int digits) {
+  String bin_str;
+  for (int i = digits - 1; i >= 0; i--) {
+    bin_str.append((n >> i) & 1);
+  }
+  return bin_str;
+}
 
 void manualScreenDataUpdater() {
   /// Iterates through all the printedVals array and then
   /// does += 1 to make sure it's increasing. This change should be
   /// reflected in the display itself.
   for (int i = 0; i < NUM_DATA; i++) {
-    if (printedVals[i].type == NUMBER) {
-      *printedVals[i].currData = *printedVals[i].currData + 1;
-//      Serial.println(*printedVals[i].currData);
-    }
-  }
-  for (int j = 0; j < 16; j++) {
-    thermiData.currData[j]++;
+    printedVals[i]->incrementData();
   }
 }
 

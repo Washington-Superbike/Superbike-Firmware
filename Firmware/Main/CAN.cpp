@@ -33,7 +33,7 @@ void decipherChargerStats(CAN_message_t msg, ChargerStats *charger_stats) {
 }
 
 void decodeMotorStats(CAN_message_t msg, MotorStats *motor_stats) {
-  motor_stats->RPM = (float) ((msg.buf[1] << 8) | msg.buf[0]);
+  motor_stats->RPM = ((msg.buf[1] << 8) | msg.buf[0]);
   motor_stats->motor_current = ((msg.buf[3] << 8) | msg.buf[2]) / 10.0;
   motor_stats->motor_controller_battery_voltage = ((msg.buf[5] << 8) | msg.buf[4]) / 10.0;
   motor_stats->error_message = ((msg.buf[7] << 8) | msg.buf[6]);
