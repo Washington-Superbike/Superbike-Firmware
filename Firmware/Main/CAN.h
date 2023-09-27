@@ -133,6 +133,14 @@ typedef struct {
 } BatteryVoltages;
 
 /**
+ * A shortened version of the CAN_message_t struct to make smaller queue elements
+ */
+typedef struct queue_message {
+  uint32_t id;
+  uint8_t buf[8];
+} queue_message;
+
+/**
  * Struct passed to CAN task
  * bike_context: shared pointer to struct representing most information present on bike
  */
@@ -140,12 +148,14 @@ typedef struct {
 #include "Precharge.h"
 #include "DataLogging.h"
 #include "context.h"
+#include "FlexCAN_T4.h"
 
 typedef struct {
     Context *bike_context;
 } CANTaskData;
 
-void canTask(void *canData);
+void canSendTask(void *canData);
+void canReceiveTask(void *canData);
 void initCAN();
 
 #endif // _CAN_H

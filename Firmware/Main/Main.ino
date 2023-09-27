@@ -12,20 +12,18 @@
 #include "GPIO.h"
 #include <TimeLib.h>
 
-
 static Context bike_context;
 static Context *context = &bike_context;
 
-
 TaskHandle_t *displayTaskHandle;
-TaskHandle_t *canTaskHandle;
+TaskHandle_t *canSendTaskHandle;
+TaskHandle_t *canReceiveTaskHandle;
 TaskHandle_t *dataloggingTaskHandle;
 TaskHandle_t *prechargeTaskHandle;
 
-TaskHandle_t *taskHandles[] = {displayTaskHandle, canTaskHandle, dataloggingTaskHandle, prechargeTaskHandle};
+TaskHandle_t *taskHandles[] = {displayTaskHandle, canSendTaskHandle, canReceiveTaskHandle, dataloggingTaskHandle, prechargeTaskHandle};
 
 void setup() {
-  
   initGPIO();
 
   Serial.begin(115200);
@@ -55,18 +53,19 @@ void setup() {
 
   /* Create each task (not started until scheduler starts).                                * 
    * Each task has a priority, and higher priority tasks will preempt lower priority tasks */
-  portBASE_TYPE s1, s2, s3, s4, s5;
+  portBASE_TYPE s1, s2, s3, s4, s5, s6;
 
-  s1 = xTaskCreate(preChargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&context, 5, prechargeTaskHandle);
+  s1 = xTaskCreate(preChargeTask, "PRECHARGE TASK", PRECHARGE_TASK_STACK_SIZE, (void *)&context, 6, prechargeTaskHandle);
   // make sure to set CAN_NODES in config.h
-  s2 = xTaskCreate(canTask, "CAN TASK", CAN_TASK_STACK_SIZE, (void *)&context, 4, canTaskHandle);
-  s3 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void*)&context, 3, displayTaskHandle);
-  s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void*)&context, 2, dataloggingTaskHandle);
+  s2 = xTaskCreate(canSendTask, "CAN SEND TASK", CAN_TASK_STACK_SIZE, NULL, 5, canSendTaskHandle);
+  s3 = xTaskCreate(canReceiveTask, "CAN RECEIVE TASK", CAN_TASK_STACK_SIZE, (void *)&context, 4, canReceiveTaskHandle);
+  s4 = xTaskCreate(displayTask, "DISPLAY TASK", DISPLAY_TASK_STACK_SIZE, (void *)&context, 3, displayTaskHandle);
+  s5 = xTaskCreate(dataLoggingTask, "DATA LOGGING TASK", DATALOGGING_TASK_STACK_SIZE, (void *)&context, 2, dataloggingTaskHandle);
+  s6 = xTaskCreate(idleTask, "IDLE_TASK", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
 
   /* If any tasks failed to create, don't continue. */  
-  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS) {
-    Serial.printf("Failed to create tasks: %d %d %d %d %d", s1, s2, s3, s4, s5);
+  if (s1 != pdPASS || s2 != pdPASS || s3 != pdPASS || s4 != pdPASS || s5 != pdPASS || s6 != pdPASS) {
+    Serial.printf("Failed to create tasks: %d %d %d %d %d %d", s1, s2, s3, s4, s5, s6);
     while (1);
   }
 
