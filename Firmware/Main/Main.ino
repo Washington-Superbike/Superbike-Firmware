@@ -25,7 +25,7 @@ TaskHandle_t *prechargeTaskHandle;
 TaskHandle_t *taskHandles[] = {displayTaskHandle, canTaskHandle, dataloggingTaskHandle, prechargeTaskHandle};
 
 void setup() {
-  
+  // test
   initGPIO();
 
   Serial.begin(115200);
