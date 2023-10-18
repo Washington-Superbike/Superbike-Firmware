@@ -67,6 +67,7 @@ static void calculateSeriesVoltage(BatteryVoltages *battery_voltages) {
 void decipherCellsVoltage(CAN_message_t msg, BatteryVoltages *battery_voltages) {
   // THE FOLLOWING DATATYPE NEEDS TO BE CHANGED
   uint32_t msgID = msg.id;
+
   int totalOffset = 0; // totalOffset equals the index of array cellVoltages
   int cellOffset = (((msgID >> 8) & 0xF) - 0x9);
   int ltcOffset = (msgID & 0x1);
@@ -75,10 +76,25 @@ void decipherCellsVoltage(CAN_message_t msg, BatteryVoltages *battery_voltages) 
 
   static bool hv_cell_detected[CONFIG_HV_CELL_COUNT];
 
+  if (xTaskGetTickCount() < pdMS_TO_TICKS(CONFIG_DEBUG_CAN_MS))  {
+    Serial.printf("CAN_id: 0x%X len: %u\n", msgID, msg.len);
+    char print_buf[256];
+    int print_index = 0, msg_byte = 0;
+    print_index += snprintf(print_buf, 256, "\t");
+    while (msg_byte < msg.len) {
+      print_index += snprintf(&print_buf[0] + print_index, 256, "0x%X ", msg.buf[msg_byte]);
+      msg_byte++;
+    }
+    Serial.printf("%s\n", print_buf);
+  }
+
   for (cellIndex = 0; cellIndex < 4; cellIndex++) {
     uint16_t *buf = (uint16_t *)msg.buf;
     battery_voltages->hv_cell_voltages[cellIndex + totalOffset] = ((float)buf[cellIndex]) / 10000;
     hv_cell_detected[cellIndex + totalOffset] = true;
+    if (xTaskGetTickCount() < pdMS_TO_TICKS(CONFIG_DEBUG_CAN_MS))  {
+      Serial.printf("\tcell_%u: %f\n", cellIndex, battery_voltages->hv_cell_voltages[cellIndex + totalOffset]);
+    }
   }
   
   calculateSeriesVoltage(battery_voltages);
