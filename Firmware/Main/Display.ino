@@ -37,6 +37,7 @@ void initDisplay(Context *context) {
   *chargerCurr = {1, 10 + VERTICAL_SCALER * 10, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->charger_stats.output_current), 1, "Charger Current: "};
   *bmsStatusFlag = {1, 10 + VERTICAL_SCALER * 11, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->bms_status.bms_status_flag), 1, "BMS Status Flag: "};
   *evccVolt = {1, 10 + VERTICAL_SCALER * 12, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->charge_controller_stats.charge_voltage), 1, "EVCC Voltage: "};
+  *bkAngle = {1, 10 + VERTICAL_SCALER * 13, DEFAULT_X_POS, DEFAULT_FLOAT, NUMBER, &(context->gyro_kalman.AngleRoll), 1, "Angle: "};
 
   thermiData = {1, 10 + VERTICAL_SCALER * 7, 90, { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, context->thermistor_temps.temps, "Thermist Temp: "};
 
@@ -47,11 +48,11 @@ void initDisplay(Context *context) {
 void displayUpdate(Context *context) {
 #ifdef USE_DEBUGGING_SCREEN
   tft.setTextSize(1);
-  for (int i = 0; i < NUM_DATA; i++) {
+  for (int i = 0; i < NUM_DATA - 1; i++) {
     if (printedVals[i].type == NUMBER) {
       if ((*printedVals[i].currData) != (printedVals[i].oldData) || (printedVals[i].oldData) == DEFAULT_FLOAT) {
         float newData = *printedVals[i].currData;
-        eraseThenPrintIfDiff(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, newData);
+        eraseThenPrintIfDiff(printedVals[i].dataX, printedVals[i].y, printedVals[i].oldData, newData, 0);
         printedVals[i].oldData = newData;
       }
     }
@@ -64,7 +65,7 @@ void displayUpdate(Context *context) {
   timePrint();
 
 #else // (if speedometer screen)
-  tft.setTextSize(8);
+  tft.setTextSize(10);
   // update screen if RPM changed
   if ((*printedVals[3].currData) != (printedVals[3].oldData) || (printedVals[3].oldData) == DEFAULT_FLOAT) {
     static int oldSpeed = -1;
@@ -74,19 +75,28 @@ void displayUpdate(Context *context) {
     // Diameter = 0.522 m, divided by 60 converts it into per second, so the RPM is converted to a final
     // Speed of m/s
     int newSpeed = (int)(newRPM / GEAR_RATIO * PI * DIAMETER / 60 * MPH_CONVERT);
-    if (eraseThenPrintIfDiff(175, 0, oldSpeed, newSpeed)) {
+    if (eraseThenPrintIfDiff(140, 80, oldSpeed, newSpeed, 0)) {
       oldSpeed = newSpeed;
     }
     tft.setTextSize(3);
-    eraseThenPrintIfDiff(70, 180, (int)printedVals[3].oldData, (int)newRPM);
+    eraseThenPrintIfDiff(70, 180, (int)printedVals[3].oldData, (int)newRPM, 0);
     printedVals[3].oldData = newRPM;
   }
+  tft.setTextSize(6);
   // update screen if main battery voltage changed
   if ((*printedVals[0].currData) != (printedVals[0].oldData) || (printedVals[0].oldData) == DEFAULT_FLOAT) {
      tft.setTextSize(3);
      float newVoltage = *printedVals[0].currData;
-     eraseThenPrintIfDiff(0, 215, (String)printedVals[0].oldData + " V", (String)newVoltage + " V");
+     eraseThenPrintIfDiff(0, 215, (String)printedVals[0].oldData + " V", (String)newVoltage + " V", 0);
      printedVals[0].oldData = newVoltage;
+  }
+  
+  //update screen if angle changes
+  if ((*printedVals[11].currData) != (printedVals[11].oldData || (printedVals[11].oldData) == DEFAULT_FLOAT)){
+    tft.setTextSize(3);
+    float newAngle = *printedVals[11].currData;
+    eraseThenPrintIfDiff(105, 0, (String)printedVals[11].oldData, (String)newAngle, 0);
+    printedVals[11].oldData = newAngle;
   }
 #endif
 }
@@ -113,7 +123,7 @@ void thermiDataPrint(int numberOfLines) {
       }
     }
     // if therm data has changed since the last print, update the display
-    eraseThenPrintIfDiff(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew);
+    eraseThenPrintIfDiff(thermiData.dataX, thermiData.y + (VERTICAL_SCALER * i), sOld, sNew, 0);
   }
 }
 
@@ -151,24 +161,65 @@ void setupMeasurementScreen() {
 /// If the screen is speedometer type, it will print out all
 /// the data labels in their locations (SPEED up top and RPM
 /// at the bottom). This is achieved using a bunch of tft methods. Nice.
+
 #else
   tft.setTextSize(5);
 
-  tft.setCursor(0,0);
-  tft.print("SPEED");
-
-  tft.setCursor(220, 62);
+  tft.setCursor(130, 150);
   tft.print("mph");
 
   tft.setTextSize(3);
   tft.setCursor(0, 180);
   tft.print("RPM");
+  
+  tft.setTextSize(3);
+  tft.setCursor(0,0);
+  tft.print("Angle: ");
+
+  drawRectangle();
+
 #endif
 }
 
-bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData) {
+void drawRectangle(){
+    tft.setTextSize(2);
+  tft.setCursor(280, 120);
+  int batteryWidth = 30;
+  int batteryHeight = 90;
+  int batteryX = tft.width() - batteryWidth - 10; // 10 pixels from the right edge
+  int batteryY = (tft.height() - batteryHeight) / 2;
+
+  // Draw the battery outline
+  tft.drawRect(batteryX, batteryY, batteryWidth, batteryHeight, PRINT_COLOR);
+
+    int terminalWidth = 10;
+  int terminalHeight = 5;
+  int terminalX = batteryX + (batteryWidth - terminalWidth) / 2;
+  int terminalY = batteryY - terminalHeight;
+
+  tft.drawRect(terminalX, terminalY, terminalWidth, terminalHeight, PRINT_COLOR);
+
+    // Draw filled blocks for battery levels
+  // Define the block height based on the battery height
+  int blockHeight = batteryHeight / 3;
+  int blockWidth = batteryWidth - 2; // Leave 1 pixel margin on each side
+  
+  // Top block
+  tft.fillRect(batteryX + 1, batteryY + 1, blockWidth, blockHeight - 1, GREEN);
+  // Middle block
+  tft.fillRect(batteryX + 1, batteryY + 1 + blockHeight, blockWidth, blockHeight - 1, GREEN);
+  // Bottom block
+  tft.fillRect(batteryX + 1, batteryY + 1 + 2 * blockHeight, blockWidth, blockHeight - 1, GREEN);
+
+  // Draw lines to separate blocks
+  tft.drawLine(batteryX + 1, batteryY + 1 + blockHeight, batteryX + batteryWidth - 1, batteryY + 1 + blockHeight, PRINT_COLOR);
+  tft.drawLine(batteryX + 1, batteryY + 1 + 2 * blockHeight, batteryX + batteryWidth - 1, batteryY + 1 + 2 * blockHeight, PRINT_COLOR);
+}
+
+bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData, int color) {
   /// Erases the old value using the oldData parameter by writing it in
   /// the background color and then setting it back to the printing color to write the newData.
+  //Color == 1 indicates red (warning). Mainly for angle indication
   tft.setCursor(xPos, yPos);
   tft.setTextColor(BACKGROUND_COLOR);
   tft.print(oldData);

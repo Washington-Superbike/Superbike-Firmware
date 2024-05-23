@@ -32,7 +32,7 @@
 #define TIRQ_PIN  -1
 
 /// Number of PrintedData values (length of the array that contains all the printedData)
-#define NUM_DATA 11
+#define NUM_DATA 12
 
 // Default Values:
 /// The default starter value used for floats in the PrintedDataStruct
@@ -52,6 +52,8 @@
 #else // (if speedometer screen)
 #  define BACKGROUND_COLOR ILI9341_BLACK
 #  define PRINT_COLOR ILI9341_WHITE
+#  define RED ILI9341_RED
+#  define GREEN ILI9341_GREEN
 #endif
 
 // Gear ratio, 48 teeth in the back wheel sprocoket. 16 on motor sprocket
@@ -140,6 +142,8 @@ PrintedData *chargerVolt = &printedVals[7];
 PrintedData *chargerCurr = &printedVals[8];
 PrintedData *bmsStatusFlag = &printedVals[9];
 PrintedData *evccVolt = &printedVals[10];
+PrintedData *bkAngle = &printedVals[11];
+
 
 /// The thermistor data.
 PrintedDataTherm thermiData;
@@ -153,6 +157,7 @@ void displayUpdate(Context *context);
 void thermiDataPrint(int numberOfLines);
 void timePrint();
 void setupMeasurementScreen();
+void drawRectangle();
 bool eraseThenPrintIfDiff(int xPos, int yPos, String oldData, String newData);
 //void screenEraser(int scaler, int i);
 void manualScreenDataUpdater();
