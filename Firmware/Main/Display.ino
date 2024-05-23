@@ -181,7 +181,7 @@ void setupMeasurementScreen() {
 #endif
 }
 
-void drawRectangle(){
+void drawBattery(){
     tft.setTextSize(2);
   tft.setCursor(280, 120);
   int batteryWidth = 30;
