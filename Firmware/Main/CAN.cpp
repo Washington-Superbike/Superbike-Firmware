@@ -7,7 +7,6 @@
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
-#define ERROR_LED_pin 3
 bool ledState = LOW; //Initial LED state set as low (0 or false)
 unsigned long previousMillis = 0; // Stores the last time the LED was toggled
 
