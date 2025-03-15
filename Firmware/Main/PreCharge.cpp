@@ -5,6 +5,13 @@
 #include "Precharge.h"
 #include <Wire.h>
 #include "GPIO.h"
+#include "CAN.h" 
+
+#define ERROR_LED_pin 3
+
+bool ledState = LOW; //Initial LED state set as low (0 or false)
+unsigned long previousMillis = 0; // Stores the last time the LED was toggled
+
 
 // I2C is incredibly unstable? Or perhaps not using proper wiring causes this,
 // but the reading in precharge data can often bug out and output
@@ -295,7 +302,35 @@ void initI2C(GyroKalman *gyro_kalman) {
   //  *preChargeData.LoopTimer = micros();
 }
 
+
+void prechargeInit() {
+  pinMode(ERROR_LED_PIN, OUTPUT);  // Initialize the error LED pin
+  digitalWrite(ERROR_LED_PIN, LOW); // Ensure the LED is off initially
+
+}
+
+void flashErrorLED() {
+  unsigned long currentMillis = millis(); // Get the current time
+    
+  // Check if 500ms have passed since the last toggle
+  if (currentMillis - previousMillis >= 500) { //Replaces the delay, and delays 500ms. Avoid using delay() as it is a blocking function
+    previousMillis = currentMillis; // Save the last time the LED was toggled
+    ledState = !ledState;          // Toggle the LED state. From true to false (1->0 or high to low) and vice versa
+    digitalWrite(ERROR_LED_PIN, ledState); // Update the LED
+  }
+}
+
+void checkForError(){
+  if(bms_status.ltc_fault != 0 || bms_status.bms_c_fault != 0 || hv_state == HV_ERROR){ //Checks for error then initiates flashing
+      void flashErrorLED();
+  }
+  else {  
+      digitalWrite(ERROR_LED_PIN, LOW); //Ensures light is not flashing when no errors
+  }  
+}
+
 void preChargeTask(void *taskData) {
+  prechargeInit();
   PreChargeTaskData preChargeData = *(PreChargeTaskData *)taskData;
   GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
   while (1) {
@@ -304,6 +339,7 @@ void preChargeTask(void *taskData) {
     //Serial.println(gyro_kalman->angle_X);
     //Serial.println(gyro_kalman->angle_Y);
     updateGyroData(gyro_kalman);
+    checkForError(); 
 
     // 100 ms should be unnoticeable compared to other task updates
     // but should be fast to pick up errors / switch updates
