@@ -8,8 +8,6 @@
 #include "config.h"
 #include "stdint.h"
 
-#define ERROR_LED_pin 3 //Define error led pin
-
 typedef uint8_t byte;
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the canTask()
@@ -43,9 +41,6 @@ typedef uint8_t byte;
 #define BMSC1_LTC1_REQUEST_CELLS 0x01de0800
 /* BMS Request Cell Voltages LTC 2 */
 #define BMSC1_LTC2_REQUEST_CELLS 0x01de0801
-
-// Declare the flashErrorLED function
-void flashErrorLED();
 
 /**
  * RPM: RPM reported by motor controller
