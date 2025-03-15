@@ -7,6 +7,10 @@
 #include "GPIO.h"
 #include "CAN.h"
 
+// Define a separate copy of the variables for this file
+bool ledState = LOW;            // itial LED state set as low (0 or false)
+unsigned long previousMillis = 0; //Stores the last time the LED was toggled
+
 
 // I2C is incredibly unstable? Or perhaps not using proper wiring causes this,
 // but the reading in precharge data can often bug out and output
