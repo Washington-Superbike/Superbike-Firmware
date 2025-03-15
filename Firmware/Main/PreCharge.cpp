@@ -5,8 +5,8 @@
 #include "Precharge.h"
 #include <Wire.h>
 #include "GPIO.h"
+#include "CAN.h"
 
-#define ERROR_LED_PIN 3
 
 bool ledState = LOW; //Initial LED state set as low (0 or false)
 
