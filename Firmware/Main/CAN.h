@@ -12,6 +12,9 @@ typedef uint8_t byte;
 
 #define ERROR_LED_PIN 3
 
+bool ledState = LOW; //Initial LED state set as low (0 or false)
+unsigned long previousMillis = 0; // Stores the last time the LED was toggled
+
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the canTask()
 #define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 1000
 
