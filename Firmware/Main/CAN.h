@@ -14,7 +14,7 @@ typedef uint8_t byte;
 
  bool ledState;
  unsigned long previousMillis;
-int testVar = 0;
+
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the canTask()
 #define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 1000
