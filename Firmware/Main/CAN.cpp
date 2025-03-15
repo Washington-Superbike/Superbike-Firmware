@@ -7,6 +7,10 @@
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
+// Define a separate copy of the variables for this file
+bool ledState = LOW;            // itial LED state set as low (0 or false)
+unsigned long previousMillis = 0; //Stores the last time the LED was toggled
+
 /* CAN bus handle */
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
 
