@@ -5,11 +5,11 @@
 #include "Precharge.h"
 #include <Wire.h>
 #include "GPIO.h"
-#include "CAN.h" 
 
 #define ERROR_LED_PIN 3
 
 bool ledState = LOW; //Initial LED state set as low (0 or false)
+
 unsigned long previousMillis = 0; // Stores the last time the LED was toggled
 
 
@@ -156,19 +156,25 @@ void preChargeCircuitFSMStateActions () {
     case HV_OFF:
       open_contactor();
       open_precharge();
+      digitalWrite(ERROR_LED_PIN, LOW); //ensures LED is off or set off is there is no longer an error
       break;
     case HV_PRECHARGING:
       open_contactor();
       close_precharge();
+      digitalWrite(ERROR_LED_PIN, LOW); 
       break;
     case HV_ON:
       close_contactor();
       open_precharge();
+      digitalWrite(ERROR_LED_PIN, LOW); 
       break;
     case HV_ERROR:
       open_contactor();
       open_precharge();
+      flashErrorLED(); //Begins flashing light when hv_state == HV_ERROR indicating an error
+      break;
     default:
+       digitalWrite(ERROR_LED_PIN, LOW); 
       break;
   } // state actions
 }
@@ -309,7 +315,7 @@ void prechargeInit() {
 
 }
 
-void flashErrorLED() {
+void flashErrorLED() { //same function as in CAN.cpp
   unsigned long currentMillis = millis(); // Get the current time
     
   // Check if 500ms have passed since the last toggle
@@ -318,15 +324,6 @@ void flashErrorLED() {
     ledState = !ledState;          // Toggle the LED state. From true to false (1->0 or high to low) and vice versa
     digitalWrite(ERROR_LED_PIN, ledState); // Update the LED
   }
-}
-
-void checkForError(){
-  if(bms_status.ltc_fault != 0 || bms_status.bms_c_fault != 0 || hv_state == HV_ERROR){ //Checks for error then initiates flashing
-      flashErrorLED();
-  }
-  else {  
-      digitalWrite(ERROR_LED_PIN, LOW); //Ensures light is not flashing when no errors
-  }  
 }
 
 void preChargeTask(void *taskData) {
@@ -339,7 +336,6 @@ void preChargeTask(void *taskData) {
     //Serial.println(gyro_kalman->angle_X);
     //Serial.println(gyro_kalman->angle_Y);
     updateGyroData(gyro_kalman);
-    checkForError(); 
 
     // 100 ms should be unnoticeable compared to other task updates
     // but should be fast to pick up errors / switch updates
