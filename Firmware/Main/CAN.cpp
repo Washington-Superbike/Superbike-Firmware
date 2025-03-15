@@ -7,6 +7,10 @@
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 
+#define ERROR_LED_pin 3
+bool ledState = LOW; //Initial LED state set as low (0 or false)
+unsigned long previousMillis = 0; // Stores the last time the LED was toggled
+
 /* CAN bus handle */
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
 
@@ -16,6 +20,9 @@ CAN_message_t CAN_msg;
 void initCAN() {
   CAN_bus.begin();
   CAN_bus.setBaudRate(250000);
+
+  pinMode(ERROR_LED_PIN, OUTPUT);    //Set error LED pin as output
+  digitalWrite(ERROR_LED_PIN, LOW); //Ensures pin starts at low
 }
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats *evcc_stats) {
@@ -52,6 +59,12 @@ void decipherBMSStatus(CAN_message_t msg, BMSStatus *bms_status) {
   bms_status->bms_c_fault = msg.buf[2];
   bms_status->ltc_fault = msg.buf[3];
   bms_status->ltc_count = msg.buf[4];
+
+    if(bms_status.ltc_fault != 0 || bms_status.bms_c_fault != 0){ //Flashes LED if error is detected
+        flashErrorLed(); 
+    } else{ 
+     digitalWrite(ERROR_LED_PIN, LOW); // flashErrorLed doesn't necessarily end on low, this ensures LED is off when error is no longer detected
+    }
 }
 
 // sums the voltage of each cell in main accumulator
@@ -224,5 +237,16 @@ void canTask(void *canData) {
     }
     // delay 20ms
     vTaskDelay((20 * configTICK_RATE_HZ) / 1000);
+  }
+}
+
+void flashErrorLED() {
+  unsigned long currentMillis = millis(); // Get the current time
+    
+  // Check if 500ms have passed since the last toggle
+  if (currentMillis - previousMillis >= 500) {
+    previousMillis = currentMillis; // Save the last time the LED was toggled
+    ledState = !ledState;          // Toggle the LED state. From true to false (1->0 or high to low) and vice versa
+    digitalWrite(ERROR_LED_PIN, ledState); // Update the LED
   }
 }
