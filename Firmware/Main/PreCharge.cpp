@@ -8,11 +8,6 @@
 #include "CAN.h"
 
 
-bool ledState = LOW; //Initial LED state set as low (0 or false)
-
-unsigned long previousMillis = 0; // Stores the last time the LED was toggled
-
-
 // I2C is incredibly unstable? Or perhaps not using proper wiring causes this,
 // but the reading in precharge data can often bug out and output
 // "nan" because of randomness? I would personally recommend
@@ -315,16 +310,6 @@ void prechargeInit() {
 
 }
 
-void flashErrorLED() { //same function as in CAN.cpp
-  unsigned long currentMillis = millis(); // Get the current time
-    
-  // Check if 500ms have passed since the last toggle
-  if (currentMillis - previousMillis >= 500) { //Replaces the delay, and delays 500ms. Avoid using delay() as it is a blocking function
-    previousMillis = currentMillis; // Save the last time the LED was toggled
-    ledState = !ledState;          // Toggle the LED state. From true to false (1->0 or high to low) and vice versa
-    digitalWrite(ERROR_LED_PIN, ledState); // Update the LED
-  }
-}
 
 void preChargeTask(void *taskData) {
   prechargeInit();
