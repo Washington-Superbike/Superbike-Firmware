@@ -7,7 +7,7 @@
 #include "GPIO.h"
 #include "CAN.h" 
 
-#define ERROR_LED_pin 3
+#define ERROR_LED_PIN 3
 
 bool ledState = LOW; //Initial LED state set as low (0 or false)
 unsigned long previousMillis = 0; // Stores the last time the LED was toggled
@@ -322,7 +322,7 @@ void flashErrorLED() {
 
 void checkForError(){
   if(bms_status.ltc_fault != 0 || bms_status.bms_c_fault != 0 || hv_state == HV_ERROR){ //Checks for error then initiates flashing
-      void flashErrorLED();
+      flashErrorLED();
   }
   else {  
       digitalWrite(ERROR_LED_PIN, LOW); //Ensures light is not flashing when no errors
