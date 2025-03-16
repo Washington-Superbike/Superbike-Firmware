@@ -6,6 +6,7 @@
 #include "FlexCAN_T4.h"
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
+#include "Arduino.h"
 
 /* CAN bus handle */
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> CAN_bus;
@@ -16,6 +17,9 @@ CAN_message_t CAN_msg;
 void initCAN() {
   CAN_bus.begin();
   CAN_bus.setBaudRate(250000);
+
+ pinMode(ERROR_LED_PIN, arduino::OUTPUT);    //Set error LED pin as output
+  digitalWrite(ERROR_LED_PIN, arduino::LOW); //Ensures pin starts at low
 }
 
 void decipherEVCCStats(CAN_message_t msg, ChargeControllerStats *evcc_stats) {
@@ -52,6 +56,12 @@ void decipherBMSStatus(CAN_message_t msg, BMSStatus *bms_status) {
   bms_status->bms_c_fault = msg.buf[2];
   bms_status->ltc_fault = msg.buf[3];
   bms_status->ltc_count = msg.buf[4];
+
+    if(bms_status->ltc_fault != 0 || bms_status->bms_c_fault != 0){ //Flashes LED if error is detected
+        flashErrorLED(); 
+    } else{ 
+     digitalWrite(ERROR_LED_PIN, arduino::LOW); // ensures light is off when no error is detected
+    }
 }
 
 // sums the voltage of each cell in main accumulator
@@ -206,6 +216,12 @@ void requestCellVoltages() {
     next_can_id = BMSC1_LTC2_REQUEST_CELLS;
   else
     next_can_id = BMSC1_LTC1_REQUEST_CELLS;
+}
+
+void flashErrorLED() { //flash LED function
+    digitalWrite(ERROR_LED_PIN, arduino::HIGH); // Update the LED
+      vTaskDelay((500 * configTICK_RATE_HZ) / 1000); //delays 500ms
+          digitalWrite(ERROR_LED_PIN, arduino::LOW); // Update the LED
 }
 
 void canTask(void *canData) {

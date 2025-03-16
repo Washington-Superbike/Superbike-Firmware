@@ -4,6 +4,7 @@
 #ifndef _PRECHARGE_H_
 #define _PRECHARGE_H_
 
+#include "Arduino.h"
 #include "arduino_freertos.h"
 #include "avr/pgmspace.h"
 

@@ -5,10 +5,15 @@
 #ifndef _CAN_H_
 #define _CAN_H_
 
+#include "Arduino.h"
 #include "config.h"
 #include "stdint.h"
 
 typedef uint8_t byte;
+
+#define ERROR_LED_PIN 3
+
+
 
 /// Uses the configMINIMAL_STACK_SIZE variable in Main.h to add up to the stack size used for the canTask()
 #define CAN_TASK_STACK_SIZE configMINIMAL_STACK_SIZE + 1000
@@ -147,5 +152,6 @@ typedef struct {
 
 void canTask(void *canData);
 void initCAN();
+void flashErrorLED();
 
 #endif // _CAN_H

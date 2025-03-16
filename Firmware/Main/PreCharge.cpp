@@ -5,6 +5,8 @@
 #include "Precharge.h"
 #include <Wire.h>
 #include "GPIO.h"
+#include "CAN.h"
+
 
 // I2C is incredibly unstable? Or perhaps not using proper wiring causes this,
 // but the reading in precharge data can often bug out and output
@@ -149,19 +151,25 @@ void preChargeCircuitFSMStateActions () {
     case HV_OFF:
       open_contactor();
       open_precharge();
+      digitalWrite(ERROR_LED_PIN, arduino::LOW); //ensures LED is off or set off is there is no longer an error
       break;
     case HV_PRECHARGING:
       open_contactor();
       close_precharge();
+      digitalWrite(ERROR_LED_PIN, arduino::LOW); 
       break;
     case HV_ON:
       close_contactor();
       open_precharge();
+      digitalWrite(ERROR_LED_PIN, arduino::LOW);
       break;
     case HV_ERROR:
       open_contactor();
       open_precharge();
+      flashErrorLED(); //Begins flashing light when hv_state == HV_ERROR indicating an error
+      break;
     default:
+       digitalWrite(ERROR_LED_PIN, arduino::LOW);
       break;
   } // state actions
 }
@@ -295,7 +303,16 @@ void initI2C(GyroKalman *gyro_kalman) {
   //  *preChargeData.LoopTimer = micros();
 }
 
+
+void prechargeInit() {
+  pinMode(ERROR_LED_PIN, arduino::OUTPUT);  // Initialize the error LED pin
+  digitalWrite(ERROR_LED_PIN, arduino::LOW); // Ensure the LED is off initially
+
+}
+
+
 void preChargeTask(void *taskData) {
+  prechargeInit();
   PreChargeTaskData preChargeData = *(PreChargeTaskData *)taskData;
   GyroKalman *gyro_kalman = &preChargeData.context->gyro_kalman;
   while (1) {
