@@ -7,10 +7,6 @@
 #include "GPIO.h"
 #include "CAN.h"
 
-// Define a separate copy of the variables for this file
-bool ledState = LOW;            // itial LED state set as low (0 or false)
-unsigned long previousMillis = 0; //Stores the last time the LED was toggled
-
 
 // I2C is incredibly unstable? Or perhaps not using proper wiring causes this,
 // but the reading in precharge data can often bug out and output
@@ -155,17 +151,17 @@ void preChargeCircuitFSMStateActions () {
     case HV_OFF:
       open_contactor();
       open_precharge();
-      digitalWrite(ERROR_LED_PIN, LOW); //ensures LED is off or set off is there is no longer an error
+      digitalWrite(ERROR_LED_PIN, arduino::LOW); //ensures LED is off or set off is there is no longer an error
       break;
     case HV_PRECHARGING:
       open_contactor();
       close_precharge();
-      digitalWrite(ERROR_LED_PIN, LOW); 
+      digitalWrite(ERROR_LED_PIN, arduino::LOW); 
       break;
     case HV_ON:
       close_contactor();
       open_precharge();
-      digitalWrite(ERROR_LED_PIN, LOW); 
+      digitalWrite(ERROR_LED_PIN, arduino::LOW);
       break;
     case HV_ERROR:
       open_contactor();
@@ -173,7 +169,7 @@ void preChargeCircuitFSMStateActions () {
       flashErrorLED(); //Begins flashing light when hv_state == HV_ERROR indicating an error
       break;
     default:
-       digitalWrite(ERROR_LED_PIN, LOW); 
+       digitalWrite(ERROR_LED_PIN, arduino::LOW);
       break;
   } // state actions
 }
@@ -309,8 +305,8 @@ void initI2C(GyroKalman *gyro_kalman) {
 
 
 void prechargeInit() {
-  pinMode(ERROR_LED_PIN, OUTPUT);  // Initialize the error LED pin
-  digitalWrite(ERROR_LED_PIN, LOW); // Ensure the LED is off initially
+  pinMode(ERROR_LED_PIN, arduino::OUTPUT);  // Initialize the error LED pin
+  digitalWrite(ERROR_LED_PIN, arduino::LOW); // Ensure the LED is off initially
 
 }
 
